@@ -16,12 +16,6 @@
 " GunDo
 "     Visual Undo in vim with diff's to check the differences
 "
-" Pytest
-"     Runs your Python tests in Vim.
-"
-" Commant-T
-"     Allows easy search and opening of files within a given path
-"
 " Snipmate
 "     Configurable snippets to avoid re-typing common comands
 "
