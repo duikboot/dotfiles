@@ -1,0 +1,16 @@
+[user]
+	name = Arjen Dijksta
+    email = dijkstra.arjen@gmail.com
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+
+[push]
+    default = matching
+[core]
+    editor = vim
+[gui]
+	recentrepo = /home/arjend/Projects/downunder
+	recentrepo = /home/arjend/configs/dotfiles

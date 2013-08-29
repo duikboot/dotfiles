@@ -1,0 +1,25 @@
+[ui]
+username = Arjen Dijkstra <dijkstra.arjen@gmail.com>
+editor = vim
+merge = meld
+
+[extensions]
+color = 
+graphlog = 
+pager =
+record =
+share =
+hgk =
+hgext.fetch =
+hgext.convert =
+mq =
+rebase = 
+hgext.bookmarks =
+hggit =
+
+[pager]
+pager = most
+
+#[merge-tools]
+#vimdiff.executable = gvim
+#vimdiff.args = -d -c "wincmd J" "$output" "$local" "$other" "$base"

@@ -1,0 +1,26 @@
+"hg6817
+
+loadplugins '\.(js|penta)$'
+group user
+set defsearch=duckduckgo-ssl
+set guioptions=bCrsmT
+set hlfind
+
+
+"{{{ PassKeys
+set passkeys+='mail\.google\.com':c/jkhnpovuelxsfra#`[]z?*nrtgidIU+-=<Tab><Return>
+set passkeys+='mail\.google\.com/tasks/canvas':<Tab><S-Tab><Return>
+set passkeys+='groups\.google\.com/forum':glmo<Enter>j<S-j>k<S-k>n<S-n>p<S-p>ufh<S-a>rc/?<Esc><Return>
+set passkeys+='google\.com/reader':jkvnpbumoaAXNOVPJK?gehtl<Return>
+set passkeys+='plus\.google\.com':jk<Return><Tab>
+" set passkeys+='twitter\.com':jk<Space>/.frtmn?hrpu<Return>
+set passkeys+='rememberthemilk\.com/home/f':trsjkdhyucpgfinalez1234<Return>
+set passkeys+='www\.google\.com/calendar':dwmxajkcnqetp?<Del>s12345<Return>
+set passkeys+='duckduckgo\.com/':\!l'o<C-Return>jkh<Esc>\'v/rs1<Return>
+" set passkeys+='github\.com/':s?tl<Return>
+set passkeys+='facebook\.com':<Left><Right>
+set passkeys+='flickr\.com':lf<Left><Right>
+"}}}
+
+
+" vim: set ft=pentadactyl:

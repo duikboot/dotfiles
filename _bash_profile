@@ -1,0 +1,29 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+    fi
+
+# User specific environment and startup programs
+
+PATH=$HOME/.cabal/bin:$HOME/bin:$PATH:/usr/lib64
+PYTHONSTARTUP=~/.pythonstartup
+
+export PATH
+export PYTHONSTARTUP
+export PYTHONPATH
+export HGEDITOR=vim
+export EDITOR=vim
+export GREP_OPTIONS='--color=auto' GREP_COLOR='100;1'
+# export XDG_CONFIG_HOME=/home/arjend/.config
+export GNOME_DESKTOP_SESSION_ID=Default
+export NODE_PATH=~/local/lib/node_modules/
+export NODE_PATH=/usr/local/lib/jsctags/:\$NODE_PATH
+#source ~/bin/gitcompletion/git-completion-config
+# xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+xmodmap -e 'keycode 66 = Control_L'
+xmodmap -e 'clear Lock'
+xmodmap -e 'add Control = Control_L'
+# eval `keychain --eval --agents ssh id_dsa id_rsa`
+# syndaemon -k -i 2 -d
