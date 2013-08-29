@@ -3,12 +3,6 @@
     directory of file type configurations and plugins
 .vimrc
     my vim configuration
-.screenrc
-    my screen configuration
-.weechat
-    my configuration for weechat, a great irc client TODO: modify
-.gimp
-    my tweaks/additions to gimp (fonts, brushes, etc)
 
 ## Instructions
 ### Creating source files
