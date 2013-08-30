@@ -389,7 +389,6 @@ if has("gui_running")
     "colorscheme vibrantink "scheme doesn't exist yet"
     " colorscheme desert
     colorscheme solarized
-     " set t_Co=256
      set guioptions-=egimrLtT
 else
     " colorscheme vividchalk
