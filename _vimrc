@@ -495,6 +495,7 @@ set completeopt-=preview
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType hgcommit set spell
 autocmd FileType tex set omnifunc=csscomplete#CompleteCSS
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 autocmd FileType haskell set ai sw=4 ts=4 sta et fo=croql
