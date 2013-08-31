@@ -32,6 +32,7 @@ https://github.com/scrooloose/syntastic.git               syntastic
 https://github.com/godlygeek/tabular                      tabular
 https://github.com/majutsushi/tagbar                      tagbar
 https://github.com/vim-scripts/tracwiki.git               tracwiki
+git://github.com/frerich/unicode-haskell.git              unicode-Haskell
 git://github.com/tpope/vim-unimpaired.git                 unimpaired
 https://github.com/vim-scripts/vcscommand.vim.git         vcscommand
 https://github.com/tpope/vim-commentary.git               vim-commentary

@@ -1,1 +1,1 @@
-/home/arjen/configs/dotfiles/_vim/bundle/pathogen/autoload/pathogen.vim
+/home/arjend/configs/dotfiles/_vim/bundle/pathogen/autoload/pathogen.vim
