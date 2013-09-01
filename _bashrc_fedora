@@ -37,3 +37,5 @@ alias racket="rlwrap -f $HOME/.rlwrap/keywords racket"
 PS1='\[`[ $? = 0 ] && X=2 || X=1; tput setaf $X`\][\t] [\u@\h]\[`tput sgr0`\]: $PWD >\n\$ '
 # export PS1='$(hg_ps1)\n\u at \h in \w\n$ '
 eval `keychain --eval --agents ssh id_dsa id_rsa`
+
+source /home/arjend/.gem/ruby/gems/tmuxinator-0.6.5/completion/tmuxinator.bash
