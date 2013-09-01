@@ -37,8 +37,6 @@ alias racket="rlwrap -f $HOME/.rlwrap/keywords racket"
 PS1='\[`[ $? = 0 ] && X=2 || X=1; tput setaf $X`\][\t] [\u@\h]\[`tput sgr0`\]: $PWD >\n\$ '
 # export PS1='$(hg_ps1)\n\u at \h in \w\n$ '
 eval `keychain --eval --agents ssh id_dsa id_rsa`
-source env/bin/activate >/dev/null 2>&1
-source thing/bin/activate >/dev/null 2>&1
 
 # make the j command work
 source /usr/share/autojump/autojump.sh
