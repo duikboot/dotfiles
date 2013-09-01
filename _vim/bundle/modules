@@ -34,6 +34,7 @@ https://github.com/majutsushi/tagbar                      tagbar
 https://github.com/vim-scripts/tracwiki.git               tracwiki
 git://github.com/tpope/vim-unimpaired.git                 unimpaired
 https://github.com/vim-scripts/vcscommand.vim.git         vcscommand
+https://github.com/dag/vim2hs                             vim2hs
 https://github.com/tpope/vim-commentary.git               vim-commentary
 https://github.com/Lokaltog/vim-easymotion.git            vim-easymotion
 https://github.com/kevinstreit/VIM-Haskell                vim-haskell

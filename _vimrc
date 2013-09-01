@@ -481,6 +481,7 @@ augroup ft_haskell
     " let &makeprg='hdevtools check %'
     " let g:hdevtools_options = '-g -isrc -g -Wall -g -hide-package -g transformers'
     "let g:neocomplete#ctags_command = 'hasktags'
+    " let g:haskell_conceal_wide = 1
     let g:neocomplcache_force_overwrite_completefunc = 1
 augroup END
 
