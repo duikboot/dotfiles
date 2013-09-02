@@ -9,3 +9,4 @@ Session.vim
 tags
 contacts
 vimlog
+_vim/autoload/pathogen.vim
