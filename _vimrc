@@ -72,6 +72,7 @@ set hidden
 command! W :w
 command! Q :quitall
 command! WQ :wqall
+command! Wq :wq
 
 " Make Vim able to edit crontab files again.
 "set backupskip=/tmp/*,/private/tmp/*"
