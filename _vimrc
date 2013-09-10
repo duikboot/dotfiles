@@ -204,7 +204,7 @@ map <leader>g :GundoToggle<CR>
 " in command mode expand directory with current directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" "Uppercase word" mapping.
+" "uppercase word" mapping.
 " from: https://github.com/sjl/dotfiles/blob/master/vim/vimrc
 " "
 " " This mapping allows you to press <c-u> in insert mode to convert the
@@ -390,7 +390,8 @@ if has("gui_running")
     "colorscheme vibrantink "scheme doesn't exist yet"
     " colorscheme desert
     colorscheme solarized
-     set guioptions-=egimrLtT
+    set background=dark           " We are using dark background in vim
+    set guioptions-=egimrLtT
 else
     " colorscheme vividchalk
     set background=dark           " We are using dark background in vim
@@ -399,7 +400,6 @@ else
      " hi CursorLine ctermbg=Red guibg=#771c1c
     " colorscheme jellybeans
     " colorscheme molokai
-     " colorscheme solarized_old
     " set t_Co=256
 endif
 
@@ -527,41 +527,23 @@ import vim
 if 'VIRTUAL_ENV' in os.environ:
     project_base_dir = os.environ['VIRTUAL_ENV']
     sys.path.insert(0, project_base_dir)
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
 EOF
 
 " Load up virtualenv's vimrc if it exists
 if filereadable($VIRTUAL_ENV . '/.vimrc')
     source $VIRTUAL_ENV/.vimrc
 endif
-" " Add the instancepath or django path to vim path
+
 python << EOF
 import os
 import sys
 import vim
 
-#for p in sys.path:
-#    # Add each directory in sys.path, if it exists.
-#    if os.path.isdir(p):
-#        # Command 'set' needs backslash before each space.
-#        vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
-files = ['bin/instance' , 'bin/django']
-f = []
-for file in files:
-    if os.path.exists(file):
-        with open(file) as s:
-            f += s.read().split('\n')
-for line in f:
-    line = line.strip()
-    if line:
-        if line.startswith("'"):
-            line = line.replace("'", "")
-            vim.command(r"set path+=%s" % (line.replace(" ", r"\ ")))
-        if line.startswith('"'):
-            line = line.replace('"', "")
-            vim.command(r"set path+=%s" % (line.replace(" ", r"\ ")))
-
+for p in sys.path:
+    # Add each directory in sys.path, if it exists.
+    if os.path.isdir(p):
+        # Command 'set' needs backslash before each space.
+        vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
 EOF
 
 
