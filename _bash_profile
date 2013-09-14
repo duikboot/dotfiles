@@ -11,7 +11,7 @@ PATH=$HOME/.cabal/bin:$HOME/bin:$PATH:/usr/lib64
 PYTHONSTARTUP=~/.pythonstartup
 
 export PATH
-export PYTHONSTARTUP
+export PYTHONSTARTUP=~/.pythonrc
 export PYTHONPATH
 export HGEDITOR=vim
 export EDITOR=vim
