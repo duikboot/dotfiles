@@ -10,3 +10,8 @@ tags
 contacts
 vimlog
 _vim/autoload/pathogen.vim
+haskellmode.config
+*.o
+*.hi
+*.errors
+_xmonad/xmonad-x86_64-linux
