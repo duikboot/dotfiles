@@ -38,7 +38,7 @@ class Completer(object):
 
 c = Completer()
 
-WELCOME='Hi %s, welcome to Python @%s' % (os.environ['USERNAME'],os.environ['HOSTNAME'])
+WELCOME='Hi %s, welcome to Python' % (os.environ['USERNAME'])
 # Color Support
 # class TermColors(dict):
 #     """Gives easy access to ANSI color codes. Attempts to fall back to no color
@@ -98,7 +98,7 @@ sys.displayhook = my_displayhook
 
 # Django Helpers
 def SECRET_KEY():
-    "Generates a new SECRET_KEY that can be used in a project settings file." 
+    "Generates a new SECRET_KEY that can be used in a project settings file."
 
     from random import choice
     return ''.join(
