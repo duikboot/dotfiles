@@ -16,6 +16,7 @@ mq =
 rebase = 
 hgext.bookmarks =
 hggit =
+prompt = ~/Programms/hg-prompt/prompt.py
 
 [pager]
 pager = most
