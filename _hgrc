@@ -24,3 +24,23 @@ pager = most
 #[merge-tools]
 #vimdiff.executable = gvim
 #vimdiff.args = -d -c "wincmd J" "$output" "$local" "$other" "$base"
+[merge-tools]
+merge = meld
+meld.args = $base $local $other
+
+[alias]
+# Make a new repo with some sensible defaults.
+mkrepo = !$HG init $1 && cd $1 && \
+          echo 'syntax: glob'  > .hgignore && \
+          echo ''             >> .hgignore && \
+          echo '.DS_Store'    >> .hgignore && \
+          echo '*.pyc'        >> .hgignore && \
+          echo '*.swp'        >> .hgignore && \
+          echo '*.swo'        >> .hgignore && \
+          echo '.ropeproject' >> .hgignore && \
+          echo 'tags'         >> .hgignore && \
+          echo '*.hi'         >> .hgignore && \
+          echo '*.o'          >> .hgignore && \
+          echo '*.orig'       >> .hgignore && \
+          echo '.hsenv*'      >> .hgignore && \
+          echo "[paths]\n" >> .hg/hgrc
