@@ -114,8 +114,6 @@ map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 " open/close the quickfix window
 nmap <leader>c :copen<CR>
 nmap <leader>cc :cclose<CR>
-map <F10> :cprevious<Return>
-map <F11> :cnext<Return>
 
 " locationlist mappings
 map <leader>lp :lprevious<Return>
@@ -550,4 +548,3 @@ endif
 set path+=.,,**
 autocmd Filetype java set makeprg=javac\ %
 set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
-" map <F9> :make<Return>:copen<Return>
