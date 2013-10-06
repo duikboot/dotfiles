@@ -41,4 +41,6 @@ PS1='\[`[ $? = 0 ] && X=2 || X=1; tput setaf $X`\][\t] [\u@\h]\[`tput sgr0`\]: $
 # eval `keychain --eval --agents ssh id_dsa id_rsa`
 
 # make the j command work
-source /usr/share/autojump/autojump.sh
+[[ -s /etc/profile.d/autojump.bash ]] && . /etc/profile.d/autojump.bash
+
+# source /usr/share/autojump/autojump.sh

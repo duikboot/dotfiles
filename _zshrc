@@ -28,7 +28,7 @@ alias tmuxn='tmux new -s'
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
+DISABLE_CORRECTION="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
@@ -44,7 +44,10 @@ alias tmuxn='tmux new -s'
 plugins=(compleat git auto-jump cabal django jump mercurial pip python tmux tmuxinator virtualenv)
 
 source $ZSH/oh-my-zsh.sh
-source /usr/share/autojump/autojump.zsh
+
+source /etc/profile.d/autojump.zsh
+
+# autoload -U compinit && compinit -u
 
 # Customize to your needs...
 export PATH=$PATH:/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/local/bin:/home/arjen/.local/bin:/home/arjen/local/bin:/home/arjen/.local/bin:/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib64:/home/arjend/Downloads/bin:/home/arjend/Downloads/bin:/usr/lib64
