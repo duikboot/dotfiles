@@ -24,6 +24,7 @@ https://github.com/vim-scripts/pep8.git                   pep8
 https://github.com/klen/python-mode.git                   python-mode
 https://github.com/mhinz/vim-signify                      signify
 https://github.com/epeli/slimux.git                       slimux
+https://github.com/kana/vim-smartinput                    smartinput
 https://github.com/msanders/snipmate.vim.git              snipmate
 https://github.com/altercation/vim-colors-solarized.git   solarized
 https://github.com/tpope/vim-surround.git                 surround
