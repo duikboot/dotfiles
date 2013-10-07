@@ -15,7 +15,7 @@ hgext.convert =
 mq =
 rebase = 
 hgext.bookmarks =
-hggit = ~/Programms/hg-git/hggit
+# hggit = ~/Programms/hg-git/hggit
 prompt = ~/Programms/hg-prompt/prompt.py
 
 [pager]

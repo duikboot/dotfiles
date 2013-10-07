@@ -45,7 +45,8 @@ plugins=(compleat git auto-jump cabal django jump mercurial pip python tmux tmux
 
 source $ZSH/oh-my-zsh.sh
 
-source /etc/profile.d/autojump.zsh
+# source /etc/profile.d/autojump.zsh
+source /usr/share/autojump/autojump.zsh
 
 # autoload -U compinit && compinit -u
 
