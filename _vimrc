@@ -85,7 +85,8 @@ au FocusLost * :wa
 autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
 
 " Abbreviations
-abbr debug    import pdb; pdb.set_trace()
+abbr pudb    import pudb; pudb.set_trace()
+abbr pdb    import pdb; pdb.set_trace()
 
 " Toggle the tasklist
 map <leader>td <Plug>TaskList
@@ -501,12 +502,6 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 autocmd FileType haskell set ai sw=4 ts=4 sta et fo=croql
 au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 cindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,from,import
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-
-" Bind <f2> key to running the python interpreter on the currently active
-" file.  (curtesy of Steve Howell from email dated 1 Feb 2006).
-autocmd FileType python map <F2> :w\|!python %<cr>
-autocmd FileType jython map <F2> :w\|!jython %<cr>
-autocmd FileType javascript map <F2> :w\|!node %<cr>
 
 " Latex support
 " let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
