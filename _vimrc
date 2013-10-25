@@ -282,6 +282,9 @@ if v:version >= 703
     set undodir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 endif
 
+" Don't select everything if the is a point(.) in it
+" eg. select.dontselect selects now select with gd or *
+set iskeyword-=.
 
 " Resize splits when the window is resized
 au VimResized * :wincmd =
@@ -477,7 +480,7 @@ let g:necoghc_enable_detailed_browse = 1
 augroup ft_haskell
     au!
     au BufEnter *.hs compiler ghc
-    set iskeyword=a-z,A-Z,_,.,39
+    setlocal iskeyword=a-z,A-Z,_,.,39
     " let &makeprg='hdevtools check %'
     " let g:hdevtools_options = '-g -isrc -g -Wall -g -hide-package -g transformers'
     "let g:neocomplete#ctags_command = 'hasktags'
