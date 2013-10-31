@@ -69,6 +69,7 @@ noremap - ,
 set hidden
 
 set rtp +=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+set rtp +=/usr/lib/python2.7/site-packages/powerline/bindings/vim
 
 " Seriously, guys. It's not like :W is bound to anything anyway.
 command! W :w
@@ -295,7 +296,7 @@ au VimResized * :wincmd =
 set suffixesadd=.tex,.latex,.java,.js
 
 " set guifont=Andale\ Mono\ 10
-set guifont=Inconsolata\ 9
+set guifont=Inconsolata\ 10
 " 0O
 " don't bell or blink
 set noerrorbells
