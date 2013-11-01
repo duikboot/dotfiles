@@ -105,6 +105,9 @@ map <leader>td <Plug>TaskList
 " Run pep8
 let g:pep8_map='<leader>8'
 
+" Temporary!!!!!
+let g:pymode_utils_whitespaces = 0
+
 " silence search string
 nnoremap <silent> ,/ :nohlsearch<CR>
 
