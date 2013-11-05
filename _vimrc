@@ -287,6 +287,7 @@ set wildmenu                  " Menu completion in command mode on <Tab>
 " set wildmode=full             " <Tab> cycles between all matching choices.
 set history=1000              " Set history to 1000 commands
 set undolevels=1000           " use many levels of undo
+set showfulltag               " Show full tags when doing search completion
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp  "set directory for swapfiles
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
@@ -306,8 +307,8 @@ au VimResized * :wincmd =
 
 set suffixesadd=.tex,.latex,.java,.js
 
-" set guifont=Andale\ Mono\ 10
-set guifont=Inconsolata\ 10
+set guifont=Andale\ Mono\ 9
+" set guifont=Inconsolata\ 9
 " 0O
 " don't bell or blink
 set noerrorbells
