@@ -35,6 +35,7 @@ mkrepo = !$HG init $1 && cd $1 && \
           echo ''             >> .hgignore && \
           echo '.DS_Store'    >> .hgignore && \
           echo '*.pyc'        >> .hgignore && \
+          echo 'ENV'          >> .hgignore && \
           echo '*.swp'        >> .hgignore && \
           echo '*.swo'        >> .hgignore && \
           echo '.ropeproject' >> .hgignore && \
@@ -43,4 +44,4 @@ mkrepo = !$HG init $1 && cd $1 && \
           echo '*.o'          >> .hgignore && \
           echo '*.orig'       >> .hgignore && \
           echo '.hsenv*'      >> .hgignore && \
-          echo "[paths]\n" >> .hg/hgrc
+          echo "[paths]" >> .hg/hgrc
