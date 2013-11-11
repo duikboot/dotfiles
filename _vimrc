@@ -108,6 +108,7 @@ let g:pep8_map='<leader>8'
 " Temporary!!!!!
 let g:pymode_utils_whitespaces = 0
 
+let g:pymode_lint_ignore = "C0110"
 " silence search string
 nnoremap <silent> ,/ :nohlsearch<CR>
 
@@ -147,14 +148,14 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+" and lets make these all work in insert mode too ( <C-O> makes next cmd
+"  happen as if in command mode )
+imap <C-W> <C-O><C-W>
+
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
-
-" and lets make these all work in insert mode too ( <C-O> makes next cmd
-"  happen as if in command mode )
-imap <C-W> <C-O><C-W>
 
 vmap <BS> <Plug>(expand_region_shrink)
 
@@ -323,7 +324,7 @@ set grepprg=ack          " replace the default grep program with ack
 " nnoremap <bs> :Ack! '\b<c-r><c-w>\b'<cr>
 
 " Set working directory
-nnoremap <leader>. :lcd %:p:h<CR>
+" nnoremap <leader>. :lcd %:p:h<CR>
 
 " Disable the colorcolumn when switching modes.  Make sure this is the
 " first autocmd for the filetype here
