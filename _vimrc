@@ -77,6 +77,34 @@ command! Q :quitall
 command! WQ :wqall
 command! Wq :wq
 
+" ==========================================================
+" Basic Settings
+" ==========================================================
+syntax on                     " syntax highlighing
+filetype on                   " try to detect filetypes
+filetype plugin indent on     " enable loading indent file for filetype
+set number                    " Display line numbers
+set numberwidth=1             " using only 1 column (and 1 space) while possible
+" set background=dark           " We are using dark background in vim
+set title                     " show title in console title bar
+set wildmenu                  " Menu completion in command mode on <Tab>
+" set wildmode=full             " <Tab> cycles between all matching choices.
+set history=1000              " Set history to 1000 commands
+set undolevels=1000           " use many levels of undo
+set showfulltag               " Show full tags when doing search completion
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp  "set directory for swapfiles
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+if v:version >= 703
+    " Keep a persistend backupfile
+    set undofile
+    set undodir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+endif
+
+" Don't select everything if the is a point(.) in it
+" eg. select.dontselect selects now select with gd or *
+set iskeyword-=.
+
 " Make Vim able to edit crontab files again.
 "set backupskip=/tmp/*,/private/tmp/*"
 
@@ -247,7 +275,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " " Note that this will overwrite the contents of the z mark. I never use it,
 " but
 " " if you do you'll probably want to use another mark.
-inoremap <C-u> <esc>mzgUiw`za
+inoremap <C-m> <esc>mzgUiw`za
 
 " Panic Button
 nnoremap <f9> mzggg?G`z
@@ -274,33 +302,6 @@ map <leader>j :RopeGotoDefinition<CR>
 
 " Rename whatever the cursor is on (including references to it)
 map <leader>r :RopeRename<CR>
-" ==========================================================
-" Basic Settings
-" ==========================================================
-syntax on                     " syntax highlighing
-filetype on                   " try to detect filetypes
-filetype plugin indent on     " enable loading indent file for filetype
-set number                    " Display line numbers
-set numberwidth=1             " using only 1 column (and 1 space) while possible
-" set background=dark           " We are using dark background in vim
-set title                     " show title in console title bar
-set wildmenu                  " Menu completion in command mode on <Tab>
-" set wildmode=full             " <Tab> cycles between all matching choices.
-set history=1000              " Set history to 1000 commands
-set undolevels=1000           " use many levels of undo
-set showfulltag               " Show full tags when doing search completion
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp  "set directory for swapfiles
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-if v:version >= 703
-    " Keep a persistend backupfile
-    set undofile
-    set undodir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-endif
-
-" Don't select everything if the is a point(.) in it
-" eg. select.dontselect selects now select with gd or *
-set iskeyword-=.
 
 " Resize splits when the window is resized
 au VimResized * :wincmd =
