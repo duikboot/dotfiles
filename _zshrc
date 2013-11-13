@@ -51,9 +51,9 @@ source /usr/share/autojump/autojump.zsh
 # autoload -U compinit && compinit -u
 eval `keychain --eval --agents ssh id_dsa id_rsa`
 
-if [[ -r /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
-    source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-fi
+# if [[ -r /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+#     source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+# fi
 
 # Customize to your needs...
 export PATH=$PATH:/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/local/bin:/home/arjen/.local/bin:/home/arjen/local/bin:/home/arjen/.local/bin:/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib64:/home/arjend/Downloads/bin:/home/arjend/Downloads/bin:/usr/lib64
