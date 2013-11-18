@@ -224,7 +224,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " " Note that this will overwrite the contents of the z mark. I never use it,
 " but
 " " if you do you'll probably want to use another mark.
-inoremap <C-m> <esc>mzgUiw`za
+inoremap <C-q> <esc>mzgUiw`za
 
 " Panic Button
 nnoremap <f9> mzggg?G`z
