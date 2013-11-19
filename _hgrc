@@ -45,3 +45,7 @@ mkrepo = !$HG init $1 && cd $1 && \
           echo '*.orig'       >> .hgignore && \
           echo '.hsenv*'      >> .hgignore && \
           echo "[paths]" >> .hg/hgrc
+
+
+[tortoisehg]
+editor = gvim
