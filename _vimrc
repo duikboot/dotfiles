@@ -25,6 +25,10 @@ command! Q :quitall
 command! WQ :wqall
 command! Wq :wq
 
+" Quit window on <leader>q
+nnoremap <leader>q :q<CR>
+
+
 " ==========================================================
 " Basic Settings
 " ==========================================================
@@ -375,8 +379,6 @@ endif
 " Paste from clipboard
 " map <leader>p "+gP
 
-" Quit window on <leader>q
-nnoremap <leader>q :q<CR>
 "
 " Remove trailing whitespace on <leader>S
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
