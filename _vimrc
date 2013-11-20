@@ -230,6 +230,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " " if you do you'll probably want to use another mark.
 inoremap <C-q> <esc>mzgUiw`za
 
+
 " Panic Button
 nnoremap <f9> mzggg?G`z
 

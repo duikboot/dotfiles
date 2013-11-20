@@ -46,7 +46,7 @@ plugins=(autojump cabal colorize compleat debian django git github jump lol merc
 source $ZSH/oh-my-zsh.sh
 
 # source /etc/profile.d/autojump.zsh
-source /usr/share/autojump/autojump.zsh
+# source /usr/share/autojump/autojump.zsh
 
 # autoload -U compinit && compinit -u
 eval `keychain --eval --agents ssh id_dsa id_rsa`
