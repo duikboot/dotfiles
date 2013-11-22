@@ -45,6 +45,7 @@ set wildmenu                  " Menu completion in command mode on <Tab>
 set history=1000              " Set history to 1000 commands
 set undolevels=1000           " use many levels of undo
 set showfulltag               " Show full tags when doing search completion
+set relativenumber            " show linenumber relative to line cursor is on
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp  "set directory for swapfiles
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
