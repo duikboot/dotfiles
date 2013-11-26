@@ -62,6 +62,7 @@ set iskeyword-=.
 " Make Vim able to edit crontab files again.
 "set backupskip=/tmp/*,/private/tmp/*"
 
+
 " Save when losing focus
 "
 au FocusLost * :wa
@@ -123,6 +124,10 @@ nmap <leader>m :MatchmakerToggle<CR>
 " for when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
 
+" open link in browser
+let g:netrw_browsex_viewer= "firefox"
+
+
 let g:BASH_Ctrl_j = 'off'
 " ctrl-jklm  changes to that split
 nnoremap <c-j> <c-w>j
@@ -147,7 +152,7 @@ nnoremap <silent> ,F :let word=expand("<cword>")<CR>:vsp<CR>:wincmd w<cr>:exec("
 "  " use ,gf to go to file in a vertical split
 nnoremap <silent> ,gf :vertical botright wincmd f<CR>
 "
-"   " see more at http://skwp.github.com/dotfiles
+" see more at http://skwp.github.com/dotfiles
 
 " Slimux
 map <Leader>sc :SlimuxREPLConfigure<CR>
