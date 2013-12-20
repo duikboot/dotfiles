@@ -25,6 +25,8 @@ command! Q :quitall
 command! WQ :wqall
 command! Wq :wq
 
+noremap <Leader>w :w<cr>
+
 " Quit window on <leader>q
 nnoremap <leader>q :q<CR>
 

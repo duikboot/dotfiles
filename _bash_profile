@@ -7,10 +7,8 @@ if [ -f ~/.bashrc ]; then
 
 # User specific environment and startup programs
 
-PATH=$HOME/.cabal/bin:$HOME/bin:$PATH:/usr/lib64
 PYTHONSTARTUP=~/.pythonstartup
 
-export PATH
 export PYTHONSTARTUP=~/.pythonrc
 export PYTHONPATH
 export HGEDITOR=vim
@@ -20,6 +18,15 @@ export GREP_OPTIONS='--color=auto' GREP_COLOR='100;1'
 export GNOME_DESKTOP_SESSION_ID=Default
 export NODE_PATH=~/local/lib/node_modules/
 export NODE_PATH=/usr/local/lib/jsctags/:\$NODE_PATH
+export ANDROIDSDK=$HOME/Programms/adt-bundle-linux-x86_64-20131030/sdk
+export ANDROIDNDK=$HOME/Programms/android-ndk-r9b
+export ANDROIDNDKVER=r9b
+export ANDROIDAPI=19
+
+PATH=$HOME/.cabal/bin:$HOME/bin:$PATH:/usr/lib64:$HOME/Programms/adt-bundle-linux-x86_64-20131030/sdk/platform-tools:$HOME/Programms/adt-bundle-linux-x86_64-20131030/sdk/tools:$ANDROIDNDK
+
+export PATH
+
 #source ~/bin/gitcompletion/git-completion-config
 # xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 xmodmap -e 'keycode 66 = Control_L'
