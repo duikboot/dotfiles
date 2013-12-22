@@ -1,6 +1,7 @@
 https://github.com/mileszs/ack.vim.git                    ack
 https://github.com/sjl/badwolf.git                        badwolf
 https://github.com/kien/ctrlp.vim.git                     ctrlp
+https://github.com/szw/vim-ctrlspace                      ctrlspace
 git@github.com:duikboot/vim-snipmate.git                  db_snipmate
 git://github.com/tpope/vim-dispatch.git                   dispatch
 https://github.com/vim-scripts/EasyGrep.git               easygrep

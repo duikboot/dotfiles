@@ -25,6 +25,8 @@ command! Q :quitall
 command! WQ :wqall
 command! Wq :wq
 
+noremap <Leader>w :w<cr>
+
 " Quit window on <leader>q
 nnoremap <leader>q :q<CR>
 
@@ -269,8 +271,9 @@ au VimResized * :wincmd =
 
 set suffixesadd=.tex,.latex,.java,.js
 
-set guifont=Andale\ Mono\ 9
-" set guifont=Inconsolata\ 9
+" set guifont=Andale\ Mono\ 10
+set guifont=Inconsolata\ 10
+" i1g
 " 0O
 " don't bell or blink
 set noerrorbells
