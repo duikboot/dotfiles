@@ -25,6 +25,7 @@ command! Q :quitall
 command! WQ :wqall
 command! Wq :wq
 
+" save file
 noremap <Leader>w :w<cr>
 
 " Quit window on <leader>q
