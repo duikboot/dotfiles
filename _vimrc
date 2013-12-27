@@ -117,9 +117,9 @@ map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 nmap <leader>c :copen<CR>
 nmap <leader>cc :cclose<CR>
 
-" locationlist mappings
-map <leader>lp :lprevious<Return>
-map <leader>ln :lnext<Return>
+" open/close the location window
+nnoremap <leader>l :lopen<CR>
+nnoremap <leader>ll :lclose<CR>
 
 " Matchmaker toggle
 nmap <leader>m :MatchmakerToggle<CR>
