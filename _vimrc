@@ -388,6 +388,15 @@ else
     " set t_Co=256
 endif
 
+function! BackgroundToggle()
+  if(&background == "dark")
+    set background=light
+  else
+    set background=dark
+  endif
+endfunc
+
+nnoremap <Leader>bg :call BackgroundToggle()<cr>
 
 " Paste from clipboard
 " map <leader>p "+gP
