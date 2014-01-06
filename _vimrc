@@ -96,6 +96,8 @@ let g:pep8_map='<leader>8'
 let g:pymode_utils_whitespaces = 0
 
 let g:pymode_lint_ignore = "C0110"
+
+
 " silence search string
 nnoremap <silent> ,/ :nohlsearch<CR>
 
