@@ -83,8 +83,8 @@ augroup ft_hgcommit
 augroup END
 
 " Abbreviations
-abbr pudb    import pudb; pudb.set_trace()
-abbr pdb    import pdb; pdb.set_trace()
+abbreviate pudb    import pudb; pudb.set_trace()
+abbreviate pdb    import pdb; pdb.set_trace()
 
 " Toggle the tasklist
 map <leader>td <Plug>TaskList
