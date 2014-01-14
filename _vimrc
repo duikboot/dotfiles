@@ -257,7 +257,7 @@ nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 
 " Don't open quickfix window on save...
 let g:pymode_lint_message = 0
-let g:pymode_lint = 1
+let g:pymode_lint = 0
 
 " yet let it open on toggle.
 " map <leader>l :PyLintToggle<CR>
