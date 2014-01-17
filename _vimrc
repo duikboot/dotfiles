@@ -31,7 +31,6 @@ noremap <Leader>w :w<cr>
 " Quit window on <leader>q
 nnoremap <leader>q :q<CR>
 
-
 " ==========================================================
 " Basic Settings
 " ==========================================================
@@ -452,6 +451,7 @@ autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 so
 " autocmd FileType sml setlocal shiftwidth=4
 autocmd FileType sml set commentstring=(*%s*)
 
+autocmd FileType xml setlocal commentstring={#%s#}
 " racket
 " autocmd FileType racket setlocal shiftwidth=4
 autocmd FileType racket set commentstring=;%s
