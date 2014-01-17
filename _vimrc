@@ -369,11 +369,11 @@ set incsearch               " Incrementally search while typing a /regex
 """" Display
 if has("gui_running")
     " colorscheme vividchalk
-    " colorscheme badwolf
+    colorscheme badwolf
     " colorscheme inkpot
     "colorscheme vibrantink "scheme doesn't exist yet"
     " colorscheme desert
-    colorscheme solarized
+    " colorscheme solarized
     set background=dark           " We are using dark background in vim
     set guioptions-=egimrLtT
 else
