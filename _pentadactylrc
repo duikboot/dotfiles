@@ -18,7 +18,6 @@ set passkeys+='groups\.google\.com/forum':glmo<Enter>j<S-j>k<S-k>n<S-n>p<S-p>ufh
 set passkeys+='google\.com/reader':jkvnpbumoaAXNOVPJK?gehtl<Return>
 set passkeys+='plus\.google\.com':jk<Return><Tab>
 " set passkeys+='twitter\.com':jk<Space>/.frtmn?hrpu<Return>
-set passkeys+='rememberthemilk\.com/home/f':trsjkdhyucpgfinalez1234<Return>
 set passkeys+='www\.google\.com/calendar':dwmxajkcnqetp?<Del>s12345<Return>
 set passkeys+='duckduckgo\.com/':\!l'o<C-Return>jkh<Esc>\'v/rs1<Return>
 " set passkeys+='github\.com/':s?tl<Return>
