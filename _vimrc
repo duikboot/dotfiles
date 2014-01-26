@@ -17,7 +17,7 @@ noremap - ,
 
 
 set rtp +=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
-set rtp +=/usr/lib/python2.7/site-packages/powerline/bindings/vim
+set rtp +=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
 
 " Seriously, guys. It's not like :W is bound to anything anyway.
 command! W :w
@@ -255,7 +255,7 @@ nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 
 
 " Don't open quickfix window on save...
-let g:pymode_lint_message = 1
+let g:pymode_lint_message = 0
 let g:pymode_lint = 1
 
 " yet let it open on toggle.
@@ -273,7 +273,7 @@ au VimResized * :wincmd =
 
 set suffixesadd=.tex,.latex,.java,.js
 
-" set guifont=Andale\ Mono\ 10
+" set guifont=Andale\ Mono\ 10\ for\ Powerline
 set guifont=Inconsolata\ 10
 " i1g
 " 0O
