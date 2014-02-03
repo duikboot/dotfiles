@@ -91,10 +91,6 @@ map <leader>td <Plug>TaskList
 " Run pep8
 let g:pep8_map='<leader>8'
 
-" Temporary!!!!!
-let g:pymode_utils_whitespaces = 0
-
-let g:pymode_lint_ignore = "C0110"
 " silence search string
 nnoremap <silent> ,/ :nohlsearch<CR>
 
@@ -255,8 +251,16 @@ nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 
 
 " Don't open quickfix window on save...
-let g:pymode_lint_message = 0
+let g:pymode_lint_message = 1
 let g:pymode_lint = 1
+
+" Temporary!!!!!
+let g:pymode_utils_whitespaces = 1
+
+let g:pymode_lint_ignore = "C0110,E501,C0111"
+let g:pymode_lint_signs = 0
+let g:pymode_lint_unmodified = 0
+" let g:pymode_lint_checkers = ['pep8', 'pylint']
 
 " yet let it open on toggle.
 " map <leader>l :PyLintToggle<CR>
@@ -274,7 +278,8 @@ au VimResized * :wincmd =
 set suffixesadd=.tex,.latex,.java,.js
 
 " set guifont=Andale\ Mono\ 10\ for\ Powerline
-set guifont=Inconsolata\ 10
+set guifont=Inconsolata\ 9
+" set guifont=DejaVu\ Sans\ Mono\ Book\ 8
 " i1g
 " 0O
 " don't bell or blink
