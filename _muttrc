@@ -7,7 +7,7 @@
  set mbox="~/mail/inbox/"
  set spoolfile="~/mail/inbox/"
  set folder="~/mail/"
- set record="~/mail/sent/"
+ set record="~/mail/sent"
  set postponed="~/mail/postponed/"
  #Gmail account info
  set from = "dijkstra.arjen@gmail.com"

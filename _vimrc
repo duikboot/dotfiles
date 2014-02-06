@@ -278,7 +278,7 @@ au VimResized * :wincmd =
 set suffixesadd=.tex,.latex,.java,.js
 
 " set guifont=Andale\ Mono\ 10\ for\ Powerline
-set guifont=Inconsolata\ 9
+set guifont=Inconsolata\ 10
 " set guifont=DejaVu\ Sans\ Mono\ Book\ 8
 " i1g
 " 0O
@@ -475,7 +475,7 @@ let g:necoghc_enable_detailed_browse = 1
 augroup ft_haskell
     au!
     au BufEnter *.hs compiler ghc
-    setlocal iskeyword=a-z,A-Z,_,.,39
+    " setlocal iskeyword=a-z,A-Z,_,.,39
     " let &makeprg='hdevtools check %'
     " let g:hdevtools_options = '-g -isrc -g -Wall -g -hide-package -g transformers'
     "let g:neocomplete#ctags_command = 'hasktags'
