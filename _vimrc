@@ -25,6 +25,8 @@ command! Q :quitall
 command! WQ :wqall
 command! Wq :wq
 
+inoremap jj <Esc>
+
 " save file
 noremap <Leader>w :w<cr>
 
