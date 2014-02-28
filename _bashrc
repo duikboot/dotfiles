@@ -43,4 +43,5 @@ PS1='\[`[ $? = 0 ] && X=2 || X=1; tput setaf $X`\][\t] [\u@\h]\[`tput sgr0`\]: $
 # make the j command work
 [[ -s /etc/profile.d/autojump.bash ]] && . /etc/profile.d/autojump.bash
 
+
 # source /usr/share/autojump/autojump.sh

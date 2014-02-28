@@ -8,7 +8,7 @@ set hlfind
 
 " FASTER PLEASE
 nmap -builtin -silent j 3j
-nmap -builtin -silent k 3k"
+nmap -builtin -silent k 3k
 
 
 "{{{ PassKeys

@@ -236,7 +236,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " " Note that this will overwrite the contents of the z mark. I never use it,
 " but
 " " if you do you'll probably want to use another mark.
-inoremap <C-q> <esc>mzgUiw`za
+inoremap <C-u> <esc>mzgUiw`za
 
 
 " Panic Button
@@ -385,12 +385,12 @@ if has("gui_running")
     set guioptions-=egimrLtT
 else
     " colorscheme vividchalk
+    " colorscheme peaksea
     set background=dark           " We are using dark background in vim
-    colorscheme peaksea
     set nocursorline
      " hi CursorLine ctermbg=Red guibg=#771c1c
     " colorscheme jellybeans
-    " colorscheme molokai
+    colorscheme molokai
     " set t_Co=256
 endif
 
