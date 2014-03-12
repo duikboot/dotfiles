@@ -459,6 +459,11 @@ autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 so
 autocmd FileType sml set commentstring=(*%s*)
 
 autocmd FileType xml setlocal commentstring={#%s#}
+
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
+
+
 " racket
 " autocmd FileType racket setlocal shiftwidth=4
 autocmd FileType racket set commentstring=;%s
