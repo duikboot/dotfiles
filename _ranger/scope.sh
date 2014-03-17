@@ -60,7 +60,7 @@ case "$extension" in
     torrent)
         try transmission-show "$path" && { dump | trim; exit 5; } || exit 1;;
     # Python Files
-    py|hs|pl|json|sql)
+    py|hs|pl|json|sql|lisp|sh)
         pygmentize "$path"|less;;
     # HTML Pages:
     htm|html|xhtml)
