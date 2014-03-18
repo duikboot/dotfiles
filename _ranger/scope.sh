@@ -59,7 +59,7 @@ case "$extension" in
     # BitTorrent Files
     torrent)
         try transmission-show "$path" && { dump | trim; exit 5; } || exit 1;;
-    # Python Files
+    # Programm source
     py|hs|pl|json|sql|lisp|sh)
         pygmentize "$path"|less;;
     # HTML Pages:
