@@ -3,15 +3,17 @@
 " ==========================================================
 " Load pathogen with docs for all plugins
 filetype off
-call pathogen#incubate()
+" call pathogen#incubate()
+call pathogen#infect('bundle/{}')
 call pathogen#helptags()
+" pathogen#incubate() to pathogen#infect('bundle/{}')
 
 
 " ==========================================================
 " Shortcuts
 " ==========================================================
 set nocompatible              " Don't be compatible with vi
-let mapleader=","             " change the leader to be a comma vs slash
+let mapleader="\<space>"             " change the leader to be a comma vs slash
 let maplocalleader="\\"       " map localleader to \\
 noremap - ,
 
@@ -94,7 +96,7 @@ map <leader>td <Plug>TaskList
 let g:pep8_map='<leader>8'
 
 " silence search string
-nnoremap <silent> ,/ :nohlsearch<CR>
+nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
 " let Y be more consistent
 nnoremap Y y$
@@ -152,7 +154,7 @@ vmap <BS> <Plug>(expand_region_shrink)
 nnoremap <silent> ,F :let word=expand("<cword>")<CR>:vsp<CR>:wincmd w<cr>:exec("tselect ". word)<cr>
 "
 "  " use ,gf to go to file in a vertical split
-nnoremap <silent> ,gf :vertical botright wincmd f<CR>
+nnoremap <silent> <leader>gf :vertical botright wincmd f<CR>
 "
 " see more at http://skwp.github.com/dotfiles
 
