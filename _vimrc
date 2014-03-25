@@ -35,6 +35,9 @@ noremap <Leader>w :w<cr>
 " Quit window on <leader>q
 nnoremap <leader>q :q<CR>
 
+" Open :CtrlP
+nnoremap <Leader>o :CtrlP<CR>
+
 " ==========================================================
 " Basic Settings
 " ==========================================================
@@ -165,10 +168,6 @@ vmap <Leader>ss :SlimuxREPLSendSelection<CR>
 
 " Open NerdTree
 map <leader>n :NERDTreeToggle<CR>
-
-" CtrlP
-map <leader>P :CtrlP<CR>
-
 
 let $PATH = $PATH . ':' . expand("~/.cabal/bin")
 let g:necoghc_enable_detailed_browse = 1
