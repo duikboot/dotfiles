@@ -1,3 +1,4 @@
+git://github.com/tpope/vim-vinegar.git                    vinegar
 https://github.com/mileszs/ack.vim.git                    ack
 https://github.com/sjl/badwolf.git                        badwolf
 https://github.com/kien/ctrlp.vim.git                     ctrlp

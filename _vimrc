@@ -15,8 +15,7 @@ call pathogen#helptags()
 set nocompatible              " Don't be compatible with vi
 let mapleader="\<space>"             " change the leader to be a comma vs slash
 let maplocalleader="\\"       " map localleader to \\
-noremap - ,
-
+" noremap - ,
 
 set rtp +=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 set rtp +=/usr/lib/python2.7/site-packages/powerline/bindings/vim/

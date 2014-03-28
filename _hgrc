@@ -16,6 +16,7 @@ mq =
 rebase = 
 hgext.bookmarks =
 hggit =
+shelve =
 prompt = ~/Programms/hg-prompt/prompt.py
 
 [pager]
