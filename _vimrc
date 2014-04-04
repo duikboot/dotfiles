@@ -1,3 +1,4 @@
+" vim:foldmethod=marker
 "" ==========================================================
 " Pathogen - Allows us to organize our vim plugins
 " ==========================================================
@@ -37,9 +38,7 @@ nnoremap <leader>q :q<CR>
 " Open :CtrlP
 nnoremap <Leader>o :CtrlP<CR>
 
-" ==========================================================
-" Basic Settings
-" ==========================================================
+" Basic Settings {{{
 syntax on                     " syntax highlighing
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
@@ -63,6 +62,7 @@ if v:version >= 703
     set undofile
     set undodir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 endif
+" }}}
 
 " Don't select everything if the is a point(.) in it
 " eg. select.dontselect selects now select with gd or *
