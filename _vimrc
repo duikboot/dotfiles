@@ -141,6 +141,8 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+nnoremap <silent> <C-W>z :wincmd z<Bar>cclose<Bar>lclose<CR> 
+
 " and lets make these all work in insert mode too ( <C-O> makes next cmd
 "  happen as if in command mode )
 imap <C-W> <C-O><C-W>
