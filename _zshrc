@@ -62,3 +62,5 @@ export PATH=$PATH:/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/local/bin:/
 
 # OPAM configuration
 . /home/arjen/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+source ENV/bin/activate
