@@ -39,11 +39,13 @@ hg_ps1() {
 export RLWRAP_HOME="$HOME/.rlwrap"
 alias sml="rlwrap -f $HOME/.rlwrap/keywords sml"
 alias racket="rlwrap -f $HOME/.rlwrap/keywords racket"
+alias io="rlwrap -f $HOME/.rlwrap/keywords io"
 
 PS1='\[`[ $? = 0 ] && X=2 || X=1; tput setaf $X`\][\t] [\u@\h]\[`tput sgr0`\]: $PWD >\n\$ '
 # export PS1='$(hg_ps1)\n\u at \h in \w\n$ '
 eval `keychain --eval --agents ssh id_dsa id_rsa`
 
+source ENV/bin/activate
 source /home/arjend/.gem/ruby/gems/tmuxinator-0.6.5/completion/tmuxinator.bash
 [[ -s ~/.autojump/etc/profile.d/autojump.bash ]] && . ~/.autojump/etc/profile.d/autojump.bash
 

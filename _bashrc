@@ -35,6 +35,7 @@ hg_ps1() {
 export RLWRAP_HOME="$HOME/.rlwrap"
 alias sml="rlwrap -f $HOME/.rlwrap/keywords sml"
 alias racket="rlwrap -f $HOME/.rlwrap/keywords racket"
+alias io="rlwrap -f $HOME/.rlwrap/keywords io"
 
 PS1='\[`[ $? = 0 ] && X=2 || X=1; tput setaf $X`\][\t] [\u@\h]\[`tput sgr0`\]: $PWD >\n\$ '
 # export PS1='$(hg_ps1)\n\u at \h in \w\n$ '
