@@ -57,6 +57,8 @@ setlocal keywordprg=:help     " Use K to show help on subject under cursor
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp  "set directory for swapfiles
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
+set dictionary=/usr/share/dict/words
+
 if v:version >= 703
     " Keep a persistend backupfile
     set undofile
