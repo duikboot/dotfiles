@@ -260,6 +260,8 @@ nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 let g:pymode_lint_message = 1
 let g:pymode_lint = 1
 
+let g:pymode_run = 1
+
 " Temporary!!!!!
 let g:pymode_utils_whitespaces = 1
 
