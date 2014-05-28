@@ -12,6 +12,7 @@ ZSH_THEME="prose"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias tmuxn='tmux new -s'
 
+export EDITOR=vim
 alias hop='ssh -L 9090:127.0.0.1:80 -l arjen.dijkstra 192.168.0.31'
 
 # Set to this to use case-sensitive completion
@@ -58,7 +59,8 @@ eval `keychain --eval --agents ssh id_dsa id_rsa`
 # fi
 
 # Customize to your needs...
-export PATH=$PATH:/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/local/bin:/home/arjen/.local/bin:/home/arjen/local/bin:/home/arjen/.local/bin:/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib64:/home/arjend/Downloads/bin:/home/arjend/Downloads/bin:/usr/lib64
+# export PATH=$PATH:/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/local/bin:/home/arjen/.local/bin:/home/arjen/local/bin:/home/arjen/.local/bin:/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib64:/home/arjend/Downloads/bin:/home/arjend/Downloads/bin:/usr/lib64
+export PATH=$PATH:/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/local/bin:/home/arjen/.local/bin
 
 # OPAM configuration
 . /home/arjen/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

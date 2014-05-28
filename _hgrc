@@ -15,7 +15,7 @@ hgext.convert =
 mq =
 rebase = 
 hgext.bookmarks =
-hggit =
+#hggit =
 shelve =
 prompt = ~/Programms/hg-prompt/prompt.py
 
