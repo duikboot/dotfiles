@@ -8,6 +8,7 @@ https://github.com/vim-scripts/EasyGrep.git               easygrep
 https://github.com/terryma/vim-expand-region              expand-region
 https://github.com/sjl/gundo.vim.git                      gundo
 https://github.com/wikitopian/hardmode.git                hardmode
+https://github.com/lukerandall/haskellmode-vim            haskell-mode
 https://github.com/pbrisbin/html-template-syntax.git      html-template-syntax
 https://github.com/vim-scripts/IndexedSearch.git          IndexedSearch
 https://github.com/ciaranm/inkpot.git                     inkpot
@@ -38,7 +39,6 @@ https://github.com/vim-scripts/vcscommand.vim.git         vcscommand
 https://github.com/dag/vim2hs                             vim2hs
 https://github.com/tpope/vim-commentary.git               vim-commentary
 https://github.com/Lokaltog/vim-easymotion.git            vim-easymotion
-https://github.com/kevinstreit/VIM-Haskell                vim-haskell
 https://github.com/michaeljsmith/vim-indent-object.git    vim-indent
 https://github.com/clones/vim-l9.git                      vim-l9
 https://github.com/tpope/vim-markdown.git                 vim-markdown
