@@ -96,8 +96,8 @@ abbreviate pdb    import pdb; pdb.set_trace()
 " Toggle the tasklist
 map <leader>td <Plug>TaskList
 
-" Run pep8
-let g:pep8_map='<leader>8'
+" " Run pep8
+autocmd FileType python noremap <leader>8 :PymodeLint<cr>
 
 " silence search string
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
@@ -241,6 +241,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " but
 " " if you do you'll probably want to use another mark.
 inoremap <C-u> <esc>mzgUiw`za
+noremap <C-u> mzgUiw`za
 
 
 " Panic Button
@@ -263,11 +264,11 @@ let g:pymode_lint = 1
 " Temporary!!!!!
 let g:pymode_trim_whitespaces = 1
 
-let g:pymode_lint_ignore = "C0110,E501,C0111"
+let g:pymode_lint_ignore = "C0110,E501,C0111,"
 let g:pymode_lint_signs = 1
 let g:pymode_lint_unmodified = 0
 let g:pymode_rope = 0
-" let g:pymode_lint_checkers = ['pep8', 'pylint']
+" let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
 
 " yet let it open on toggle.
 " map <leader>l :PyLintToggle<CR>
@@ -285,7 +286,8 @@ au VimResized * :wincmd =
 set suffixesadd=.tex,.latex,.java,.js
 
 " set guifont=Andale\ Mono\ 10\ for\ Powerline
-set guifont=Inconsolata\ 10
+" set guifont=Inconsolata\ 10
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
 " set guifont=DejaVu\ Sans\ Mono\ Book\ 8
 " i1g
 " 0O
@@ -360,7 +362,7 @@ set report=0                " : commands always print changed line count.
 set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
 set ruler                   " Show some info, even without statuslines.
 set laststatus=2            " Always show statusline, even if only 1 window.
-set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff}) 
+" set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff}) 
 set encoding=utf-8          " Necessary to show unicode glyphs
 
 " displays tabs with :set list & displays when a line runs off-screen
@@ -381,11 +383,11 @@ set incsearch               " Incrementally search while typing a /regex
 """" Display
 if has("gui_running")
     " colorscheme vividchalk
-    colorscheme badwolf
+    " colorscheme badwolf
     " colorscheme inkpot
     "colorscheme vibrantink "scheme doesn't exist yet"
     " colorscheme desert
-    " colorscheme solarized
+    colorscheme solarized
     set background=dark           " We are using dark background in vim
     set guioptions-=egimrLtT
 else
@@ -394,8 +396,8 @@ else
     set background=dark           " We are using dark background in vim
     set nocursorline
      " hi CursorLine ctermbg=Red guibg=#771c1c
-    " colorscheme jellybeans
-    colorscheme molokai
+    colorscheme morning
+    " colorscheme darkblue
     " set t_Co=256
 endif
 
@@ -557,6 +559,8 @@ autocmd FileType haskell set ai sw=4 ts=4 sta et fo=croql
 au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 cindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,from,import
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
+
+
 " Latex support
 " let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
 " let tlist_make_settings  = 'make;m:makros;t:targets'
@@ -565,33 +569,23 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 let g:pyflakes_use_quickfix = 0
 
 
+let s:ocamlmerlin=substitute(system('opam config var share'),'\n$','','''') .  "/ocamlmerlin"
+execute "set rtp+=".s:ocamlmerlin."/vim"
+execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
+let g:syntastic_ocaml_checkers = ['merlin']
 
-""" Add the virtualenv's site-packages to vim path
-py << EOF
-import os.path
+
+python << EOF
+import os
 import sys
 import vim
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    sys.path.insert(0, project_base_dir)
+
+for p in sys.path:
+    # Add each directory in sys.path, if it exists.
+    if os.path.isdir(p):
+        # Command 'set' needs backslash before each space.
+        vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
 EOF
-
-" Load up virtualenv's vimrc if it exists
-if filereadable($VIRTUAL_ENV . '/.vimrc')
-    source $VIRTUAL_ENV/.vimrc
-endif
-
-" python << EOF
-" import os
-" import sys
-" import vim
-
-" for p in sys.path:
-"     # Add each directory in sys.path, if it exists.
-"     if os.path.isdir(p):
-"         # Command 'set' needs backslash before each space.
-"         vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
-" EOF
 
 
 set path+=.,,**

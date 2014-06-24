@@ -60,7 +60,7 @@ eval `keychain --eval --agents ssh id_dsa id_rsa`
 
 # Customize to your needs...
 # export PATH=$PATH:/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/local/bin:/home/arjen/.local/bin:/home/arjen/local/bin:/home/arjen/.local/bin:/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib64:/home/arjend/Downloads/bin:/home/arjend/Downloads/bin:/usr/lib64
-export PATH=$PATH:/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/local/bin:/home/arjen/.local/bin
+export PATH=/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/local/bin:/home/arjen/.local/bin:$PATH
 
 # OPAM configuration
 . /home/arjen/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
