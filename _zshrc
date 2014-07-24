@@ -66,3 +66,5 @@ export PATH=/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/local/bin:/home/a
 . /home/arjen/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 source ENV/bin/activate
+
+alias clisp="rlwrap -f $HOME/.rlwrap/keywords clisp"

@@ -2,7 +2,7 @@
 
 loadplugins '\.(js|penta)$'
 group user
-set defsearch=duckduckgo-ssl
+set defsearch=duckduckgo
 set guioptions=bCrsmT
 set hlfind
 

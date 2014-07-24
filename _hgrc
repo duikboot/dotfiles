@@ -4,20 +4,21 @@ editor = vim
 merge = meld
 
 [extensions]
+#hggit =
 color = 
 graphlog = 
+hgext.bookmarks =
+hgext.convert =
+hgext.fetch =
+hgk =
+mq =
 pager =
+progress =
+prompt = ~/Programms/hg-prompt/prompt.py
+rebase = 
 record =
 share =
-hgk =
-hgext.fetch =
-hgext.convert =
-mq =
-rebase = 
-hgext.bookmarks =
-#hggit =
 shelve =
-prompt = ~/Programms/hg-prompt/prompt.py
 
 [pager]
 pager = most
