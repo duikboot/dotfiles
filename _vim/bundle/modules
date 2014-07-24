@@ -1,7 +1,6 @@
 https://github.com/mileszs/ack.vim.git                    ack
 https://github.com/sjl/badwolf.git                        badwolf
 https://github.com/kien/ctrlp.vim.git                     ctrlp
-git@github.com:duikboot/vim-snipmate.git                  db_snipmate
 git://github.com/tpope/vim-dispatch.git                   dispatch
 https://github.com/vim-scripts/EasyGrep.git               easygrep
 https://github.com/terryma/vim-expand-region              expand-region
@@ -25,7 +24,6 @@ https://github.com/klen/python-mode.git                   python-mode
 https://github.com/mhinz/vim-signify                      signify
 https://github.com/epeli/slimux.git                       slimux
 https://github.com/kana/vim-smartinput                    smartinput
-https://github.com/msanders/snipmate.vim.git              snipmate
 https://github.com/altercation/vim-colors-solarized.git   solarized
 https://github.com/tpope/vim-surround.git                 surround
 https://github.com/mutewinter/swap-parameters             swap-parameters
@@ -53,3 +51,5 @@ https://github.com/vim-scripts/vimwiki                    vimwiki
 https://github.com/tpope/vim-vinegar.git                  vinegar
 https://github.com/nelstrom/vim-visual-star-search        visual-star-search
 https://github.com/vim-scripts/YankRing.vim.git           yankring
+https://github.com/SirVer/ultisnips.git                   ultisnips
+https://github.com/honza/vim-snippets                     vim-snippets
