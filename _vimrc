@@ -462,6 +462,7 @@ nnoremap <leader>ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert fil
 nnoremap <leader>uo :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
 nnoremap <leader>uy :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap <leader>ub :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+nnoremap <Leader>uc :<C-u>UniteClose<CR>
 
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
