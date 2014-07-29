@@ -388,12 +388,12 @@ if has("gui_running")
     "colorscheme vibrantink "scheme doesn't exist yet"
     " colorscheme desert
     colorscheme solarized
-    set background=dark           " We are using dark background in vim
+    set background=light           " We are using dark background in vim
     set guioptions-=egimrLtT
 else
     " colorscheme vividchalk
     " colorscheme peaksea
-    set background=dark           " We are using dark background in vim
+    " set background=dark           " We are using dark background in vim
     set nocursorline
      " hi CursorLine ctermbg=Red guibg=#771c1c
     colorscheme morning
@@ -456,12 +456,14 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " Unite
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>ut :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+nnoremap <leader>ut :<C-u>UniteWithCurrentDir -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
 nnoremap <leader>uf :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
 nnoremap <leader>ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 nnoremap <leader>uo :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
 nnoremap <leader>uy :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap <leader>ub :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+nnoremap <leader>ug :<C-u>Unite -no-split -buffer-name=grep  grep
+nnoremap <Leader>us :Unite -no-split -quick-match buffer<cr>
 nnoremap <Leader>uc :<C-u>UniteClose<CR>
 
 " Custom mappings for the unite buffer
@@ -473,6 +475,15 @@ function! s:unite_settings()
   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 endfunction
+
+function! UltiSnipsCallUnite()
+Unite -start-insert  -immediately -no-empty ultisnips
+return ''
+endfunction
+
+inoremap <silent> <F12> <C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
+nnoremap <silent> <F12> a<C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
+
 
 " let g:acp_completeoptPreview=1
 let g:neocomplcache_enable_at_startup = 1
