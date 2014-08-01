@@ -4,12 +4,12 @@ editor = vim
 merge = meld
 
 [extensions]
-#hggit =
 color = 
 graphlog = 
 hgext.bookmarks =
 hgext.convert =
 hgext.fetch =
+hggit =
 hgk =
 mq =
 pager =
