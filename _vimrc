@@ -170,7 +170,7 @@ map <Leader>sl :SlimuxREPLSendLine<CR>
 vmap <Leader>ss :SlimuxREPLSendSelection<CR>
 
 " Open NerdTree
-" map <leader>n :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
 " let g:vimfiler_as_default_explorer = 1
 
 let $PATH = $PATH . ':' . expand("~/.cabal/bin")
