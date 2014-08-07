@@ -1,4 +1,4 @@
-https://github.com/mileszs/ack.vim.git                    ack
+htts://github.com/mileszs/ack.vim.git                     ack
 https://github.com/sjl/badwolf.git                        badwolf
 https://github.com/kien/ctrlp.vim.git                     ctrlp
 git://github.com/tpope/vim-dispatch.git                   dispatch
@@ -16,7 +16,6 @@ https://github.com/tomasr/molokai                         molokai
 https://github.com/ujihisa/neco-ghc.git                   neco-ghc
 https://github.com/Shougo/neocomplcache                   neocomplcache
 https://github.com/Shougo/neomru.vim                      neomru
-https://github.com/vim-scripts/The-NERD-tree.git          nerdtree
 git://github.com/tpope/vim-pathogen.git                   pathogen
 https://github.com/vim-scripts/peaksea.git                peaksea
 https://github.com/klen/python-mode.git                   python-mode
@@ -53,3 +52,4 @@ https://github.com/vim-scripts/vimwiki                    vimwiki
 https://github.com/tpope/vim-vinegar.git                  vinegar
 https://github.com/nelstrom/vim-visual-star-search        visual-star-search
 https://github.com/vim-scripts/YankRing.vim.git           yankring
+https://github.com/Shougo/vimfiler.vim                    vimfiler

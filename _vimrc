@@ -170,7 +170,8 @@ map <Leader>sl :SlimuxREPLSendLine<CR>
 vmap <Leader>ss :SlimuxREPLSendSelection<CR>
 
 " Open NerdTree
-map <leader>n :NERDTreeToggle<CR>
+" map <leader>n :NERDTreeToggle<CR>
+" let g:vimfiler_as_default_explorer = 1
 
 let $PATH = $PATH . ':' . expand("~/.cabal/bin")
 let g:necoghc_enable_detailed_browse = 1
@@ -464,7 +465,6 @@ nnoremap <leader>uy :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap <leader>ub :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
 nnoremap <leader>ug :<C-u>Unite -no-split -buffer-name=grep  grep
 nnoremap <Leader>us :Unite -no-split -quick-match buffer<cr>
-nnoremap <Leader>uc :<C-u>UniteClose<CR>
 
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
