@@ -69,3 +69,6 @@ source ENV/bin/activate
 
 alias clisp="rlwrap -f $HOME/.rlwrap/keywords clisp"
 alias hgg='hg glog'
+
+source /home/arjen/Programms/tmuxinator/completion/tmuxinator.zsh
+source /home/arjen/Programms/tmuxinator/completion/tmuxinator.bash
