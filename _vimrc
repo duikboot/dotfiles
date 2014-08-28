@@ -340,7 +340,8 @@ set tabstop=4               " <tab> inserts 4 spaces
 set virtualedit=block       " Let cursor move past the last char in <C-v> mode
 
 set breakindentopt=shift:4
-let &showbreak='▶ '
+let &showbreak='↳ '
+" 
 " set cpo=n
 
 " don't outdent hashes
