@@ -483,8 +483,8 @@ function! s:unite_settings()
 endfunction
 
 function! UltiSnipsCallUnite()
-Unite -start-insert  -immediately -no-empty ultisnips
-return ''
+    Unite -start-insert  -immediately -no-empty ultisnips
+    return ''
 endfunction
 
 inoremap <silent> <F12> <C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
@@ -504,6 +504,7 @@ let g:neocomplcache_min_syntax_length = 2
 " Mako/HTML
 autocmd BufNewFile,BufRead *.mako,*.mak setlocal ft=html
 autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd BufRead,BufNewFile *.kv set filetype=kivy
 
 " sml
 " autocmd FileType sml setlocal shiftwidth=4

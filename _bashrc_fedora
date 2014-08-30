@@ -47,6 +47,7 @@ eval `keychain --eval --agents ssh id_dsa id_rsa`
 
 [[ -s ENV/bin/activate ]] && source ENV/bin/activate
 [[ -s .hsenv/bin/activate ]] && source .hsenv/bin/activate
-source /home/arjend/.gem/ruby/gems/tmuxinator-0.6.5/completion/tmuxinator.bash
+# source /home/arjend/.gem/ruby/gems/tmuxinator-0.6.5/completion/tmuxinator.bash
+source /home/arjend/tmp/tmuxinator/completion/tmuxinator.bash
 [[ -s ~/.autojump/etc/profile.d/autojump.bash ]] && . ~/.autojump/etc/profile.d/autojump.bash
 
