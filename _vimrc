@@ -339,6 +339,7 @@ set softtabstop=4           " <BS> over an autoindent deletes both spaces.
 set tabstop=4               " <tab> inserts 4 spaces
 set virtualedit=block       " Let cursor move past the last char in <C-v> mode
 
+set breakindent
 set breakindentopt=shift:4
 let &showbreak='↳ '
 " 
@@ -469,7 +470,7 @@ nnoremap <leader>ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert fil
 nnoremap <leader>uo :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
 nnoremap <leader>uy :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap <leader>ub :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
-nnoremap <leader>ug :<C-u>Unite -no-split -buffer-name=grep  grep
+nnoremap <leader>ug :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep
 nnoremap <Leader>us :Unite -no-split -quick-match buffer<cr>
 
 " Custom mappings for the unite buffer
