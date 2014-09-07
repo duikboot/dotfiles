@@ -506,6 +506,8 @@ let g:neocomplcache_min_syntax_length = 2
 autocmd BufNewFile,BufRead *.mako,*.mak setlocal ft=html
 autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 autocmd BufRead,BufNewFile *.kv set filetype=kivy
+autocmd FileType kivy set commentstring=#\ %s
+autocmd FileType spec set commentstring=#\ %s
 
 " sml
 " autocmd FileType sml setlocal shiftwidth=4
