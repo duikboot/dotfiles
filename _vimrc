@@ -310,6 +310,8 @@ set grepprg=ack          " replace the default grep program with ack
 " Disable the colorcolumn when switching modes.  Make sure this is the
 " first autocmd for the filetype here
 autocmd FileType python setlocal colorcolumn=79
+autocmd Filetype python set makeprg=python\ %
+nnoremap dm :Make!<cr>
 
 """ Insert completion
 " don't select first item, follow typing in autocomplete
@@ -604,8 +606,8 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType tex set omnifunc=csscomplete#CompleteCSS
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 autocmd FileType haskell set ai sw=4 ts=4 sta et fo=croql
-au FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,from,import
-au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,from,import
+autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 
 
@@ -617,10 +619,10 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 let g:pyflakes_use_quickfix = 0
 
 
-let s:ocamlmerlin=substitute(system('opam config var share'),'\n$','','''') .  "/ocamlmerlin"
-execute "set rtp+=".s:ocamlmerlin."/vim"
-execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
-let g:syntastic_ocaml_checkers = ['merlin']
+" let s:ocamlmerlin=substitute(system('opam config var share'),'\n$','','''') .  "/ocamlmerlin"
+" execute "set rtp+=".s:ocamlmerlin."/vim"
+" execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
+" let g:syntastic_ocaml_checkers = ['merlin']
 
 
 python << EOF
