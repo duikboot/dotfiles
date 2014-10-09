@@ -312,6 +312,8 @@ set grepprg=ack          " replace the default grep program with ack
 " Disable the colorcolumn when switching modes.  Make sure this is the
 " first autocmd for the filetype here
 autocmd FileType python setlocal colorcolumn=79
+autocmd Filetype python set makeprg=python\ %
+nnoremap dm :Make!<cr>
 
 """ Insert completion
 " don't select first item, follow typing in autocomplete
@@ -471,7 +473,7 @@ nnoremap <leader>ut :<C-u>UniteWithCurrentDir -no-split -buffer-name=files -star
 nnoremap <leader>uc :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
 nnoremap <leader>uf :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
 nnoremap <leader>ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <leader>uo :<C-u>Unite -buffer-name=outline -start-insert outline<cr>
+nnoremap <leader>uo :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
 nnoremap <leader>uy :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap <leader>ub :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
 nnoremap <leader>ug :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep

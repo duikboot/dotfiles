@@ -34,7 +34,9 @@
  set mail_check = 120
  # set smtp_pass = "your gmail password"
 
-auto_view text/html
+# auto_view text/html
+auto_view text/html                                   # view html automatically
+alternative_order text/plain text/enriched text/html  # save html for last
 
  #Special Keybindings
  bind editor <space> noop
