@@ -2,13 +2,14 @@
 username = Arjen Dijkstra <dijkstra.arjen@gmail.com>
 editor = vim
 merge = meld
+#debug = true
 
 [extensions]
 color = 
 graphlog = 
 hgext.bookmarks =
-hgext.convert =
-hgext.fetch =
+#hgext.convert =
+#hgext.fetch =
 #hggit =
 hgk =
 mq =

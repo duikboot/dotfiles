@@ -51,6 +51,7 @@ set wildmenu                  " Menu completion in command mode on <Tab>
 " set wildmode=full             " <Tab> cycles between all matching choices.
 set history=1000              " Set history to 1000 commands
 set undolevels=1000           " use many levels of undo
+set display=lastline
 set showfulltag               " Show full tags when doing search completion
 " set relativenumber            " show linenumber relative to line cursor is on
 setlocal keywordprg=:help     " Use K to show help on subject under cursor
@@ -82,9 +83,10 @@ au FocusLost * :wa
 autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
 
 augroup ft_hgcommit
-    au!
+    autocmd!
     autocmd FileType hgcommit silent! execute ":0read !hg branch"
     autocmd FileType hgcommit silent! execute ":1s/_.*/ /g"
+    autocmd FileType hgcommit execute ":normal I#$"
     autocmd FileType hgcommit set spell
     " autocmd FileType hgcommit execute ":normal A"
 augroup END
@@ -353,8 +355,9 @@ autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 """" Reading/Writing
-set noautowrite             " Never write a file unless I request it.
-set noautowriteall          " NEVER.
+" set noautowrite             " Never write a file unless I request it.
+" set noautowriteall          " NEVER.
+set autowrite
 set noautoread              " Don't automatically re-read changed files.
 set modeline                " Allow vim options to be embedded in files;
 set modelines=5             " they must be within the first or last 5 lines.
@@ -403,9 +406,10 @@ else
     " set background=dark           " We are using dark background in vim
     set nocursorline
      " hi CursorLine ctermbg=Red guibg=#771c1c
-    colorscheme morning
+    " colorscheme morning
     " colorscheme darkblue
     " set t_Co=256
+    colorscheme default
 endif
 
 function! BackgroundToggle()
@@ -467,7 +471,7 @@ nnoremap <leader>ut :<C-u>UniteWithCurrentDir -no-split -buffer-name=files -star
 nnoremap <leader>uc :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
 nnoremap <leader>uf :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
 nnoremap <leader>ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <leader>uo :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+nnoremap <leader>uo :<C-u>Unite -buffer-name=outline -start-insert outline<cr>
 nnoremap <leader>uy :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap <leader>ub :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
 nnoremap <leader>ug :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep
@@ -492,12 +496,21 @@ inoremap <silent> <F12> <C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsC
 nnoremap <silent> <F12> a<C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
 
 
-" let g:acp_completeoptPreview=1
-let g:neocomplcache_enable_at_startup = 1
+" " let g:acp_completeoptPreview=1
+" let g:neocomplcache_enable_at_startup = 1
+" " Use smartcase.
+" let g:neocomplcache_enable_smart_case = 1
+" " Set minimum syntax keyword length.
+" let g:neocomplcache_min_syntax_length = 2
+
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
+let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 2
+let g:neocomplete#sources#syntax#min_keyword_length = 2
+" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
 
 " ===========================================================
 " FileType specific changes
@@ -506,6 +519,7 @@ let g:neocomplcache_min_syntax_length = 2
 autocmd BufNewFile,BufRead *.mako,*.mak setlocal ft=html
 autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 autocmd BufRead,BufNewFile *.kv set filetype=kivy
+autocmd BufNewFile,BufRead *.t set filetype=cram
 autocmd FileType kivy set commentstring=#\ %s
 autocmd FileType spec set commentstring=#\ %s
 
@@ -596,14 +610,14 @@ let g:multi_cursor_quit_key='<Esc>'
 " Python
 " ==========================================================
 "au BufRead *.py compiler nose
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 set completeopt-=preview
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType tex set omnifunc=csscomplete#CompleteCSS
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType tex setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-autocmd FileType haskell set ai sw=4 ts=4 sta et fo=croql
+autocmd FileType haskell setlocal ai sw=4 ts=4 sta et fo=croql
 au FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,from,import
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
