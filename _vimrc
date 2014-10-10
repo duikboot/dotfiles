@@ -411,7 +411,8 @@ else
     " colorscheme morning
     " colorscheme darkblue
     " set t_Co=256
-    colorscheme default
+    " colorscheme default
+    colorscheme molokai
 endif
 
 function! BackgroundToggle()
