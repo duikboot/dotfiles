@@ -1,7 +1,6 @@
 " vim:foldmethod=marker
 "" ==========================================================
 " Pathogen - Allows us to organize our vim plugins
-" ==========================================================
 " Load pathogen with docs for all plugins
 filetype off
 " call pathogen#incubate()
@@ -86,7 +85,7 @@ augroup ft_hgcommit
     autocmd!
     autocmd FileType hgcommit silent! execute ":0read !hg branch"
     autocmd FileType hgcommit silent! execute ":1s/_.*/ /g"
-    autocmd FileType hgcommit execute ":normal I#$"
+    autocmd FileType hgcommit execute ":normal I#\<Esc>$"
     autocmd FileType hgcommit set spell
     " autocmd FileType hgcommit execute ":normal A"
 augroup END
@@ -176,7 +175,6 @@ map <leader>n :NERDTreeToggle<CR>
 " let g:vimfiler_as_default_explorer = 1
 
 let $PATH = $PATH . ':' . expand("~/.cabal/bin")
-let g:necoghc_enable_detailed_browse = 1
 set path+=~/.cabal/bin
 
 
@@ -552,16 +550,16 @@ let g:necoghc_enable_detailed_browse = 1
 "
 " Haskell {{{
 
-augroup ft_haskell
-    au!
-    au BufEnter *.hs compiler ghc
-    " setlocal iskeyword=a-z,A-Z,_,.,39
-    " let &makeprg='hdevtools check %'
-    " let g:hdevtools_options = '-g -isrc -g -Wall -g -hide-package -g transformers'
-    "let g:neocomplete#ctags_command = 'hasktags'
-    " let g:haskell_conceal_wide = 1
-    let g:neocomplcache_force_overwrite_completefunc = 1
-augroup END
+" augroup ft_haskell
+"     au!
+"     au BufEnter *.hs compiler ghc
+"     " setlocal iskeyword=a-z,A-Z,_,.,39
+"     " let &makeprg='hdevtools check %'
+"     " let g:hdevtools_options = '-g -isrc -g -Wall -g -hide-package -g transformers'
+"     "let g:neocomplete#ctags_command = 'hasktags'
+"     " let g:haskell_conceal_wide = 1
+"     let g:neocomplcache_force_overwrite_completefunc = 1
+" augroup END
 
 " }}}
 
@@ -593,9 +591,10 @@ let g:ghc="/usr/bin/ghc"
 augroup filetype_hs
     autocmd!
     autocmd Bufenter *.hs let dir = s:find_basedir() . sandbox_dir
-    autocmd Bufenter *.hs compiler ghc
+    " autocmd Bufenter *.hs compiler ghc
     autocmd Bufenter *.hs let b:ghc_staticoptions = '-package-db ' . dir
     autocmd Bufenter *.hs let g:ghcmod_ghc_options = ['-package-db ' . dir]
+    autocmd FileType haskell let b:start = 'ghci "%:p"'
 augroup END
 
 " }}}
