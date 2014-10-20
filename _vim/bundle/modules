@@ -37,6 +37,7 @@ https://github.com/Shougo/unite.vim                       unite
 https://github.com/Shougo/unite-outline                   unite-outline
 https://github.com/vim-scripts/vcscommand.vim.git         vcscommand
 https://github.com/dag/vim2hs                             vim2hs
+https://github.com/bling/vim-airline                      vim-airline
 https://github.com/tpope/vim-commentary.git               vim-commentary
 https://github.com/Lokaltog/vim-easymotion.git            vim-easymotion
 https://github.com/michaeljsmith/vim-indent-object.git    vim-indent
