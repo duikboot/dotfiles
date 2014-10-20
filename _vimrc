@@ -17,8 +17,8 @@ let mapleader="\<space>"             " change the leader to be a comma vs slash
 let maplocalleader="\\"       " map localleader to \\
 " noremap - ,
 
-set rtp +=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
-set rtp +=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
+" set rtp +=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+" set rtp +=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
 
 " Seriously, guys. It's not like :W is bound to anything anyway.
 command! W :w
@@ -193,8 +193,17 @@ let g:yankring_manual_clipboard_check = 0
 " install in other place
 " python from powerline.bindings.vim import source_plugin; source_plugin()
 " Fancy powerline
-let g:Powerline_symbols = 'unicode'
-let g:Powerline_stl_path_style = 'relative'
+" let g:Powerline_symbols = 'unicode'
+" let g:Powerline_stl_path_style = 'relative'
+
+let g:airline_powerline_fonts = 1
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+"
+" " Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'"
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+
 
 " Load the Gundo window
 map <leader>g :GundoToggle<CR>
@@ -206,7 +215,11 @@ map <leader>g :GundoToggle<CR>
 "     set relativenumber
 "   endif
 " endfunc
-
+" Enable the list of buffers
+" let g:airline#extensions#tabline#enabled = 1
+"
+" " Show just the filename
+" let g:airline#extensions#tabline#fnamemod = ''"
 " nnoremap <C-n> :call NumberToggle()<cr>
 
 " in command mode expand directory with current directory
@@ -403,7 +416,7 @@ if has("gui_running")
 else
     " colorscheme vividchalk
     " colorscheme peaksea
-    " set background=dark           " We are using dark background in vim
+    set background=dark           " We are using dark background in vim
     set nocursorline
      " hi CursorLine ctermbg=Red guibg=#771c1c
     " colorscheme morning
