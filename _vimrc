@@ -188,7 +188,10 @@ nmap <leader>tl :TagbarToggle<CR>
 
 " Show yankring
 nnoremap <silent> <leader>y :YRShow<CR>
-let g:yankring_manual_clipboard_check = 0
+
+" Please do check if the system clipboad has changed if we're running vim in
+" console
+let g:yankring_manual_clipboard_check = 1
 
 " install in other place
 " python from powerline.bindings.vim import source_plugin; source_plugin()
@@ -281,7 +284,8 @@ let g:pymode_trim_whitespaces = 1
 let g:pymode_lint_ignore = "C0110,E501,C0111,"
 let g:pymode_lint_signs = 1
 let g:pymode_lint_unmodified = 0
-let g:pymode_rope = 0
+let g:pymode_rope = 1
+let g:pymode_rope_autoimport = 1
 " let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
 
 " yet let it open on toggle.
