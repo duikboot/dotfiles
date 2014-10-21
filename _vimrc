@@ -188,7 +188,7 @@ nmap <leader>tl :TagbarToggle<CR>
 
 " Show yankring
 nnoremap <silent> <leader>y :YRShow<CR>
-let g:yankring_manual_clipboard_check = 0
+let g:yankring_manual_clipboard_check = 1
 
 " install in other place
 " python from powerline.bindings.vim import source_plugin; source_plugin()
