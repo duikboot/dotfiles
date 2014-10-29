@@ -669,3 +669,5 @@ EOF
 set path+=.,,**
 autocmd Filetype java set makeprg=javac\ %
 set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+
+let g:dbext_default_profile_survey = 'type=PGSQL:user=arjend:host=localhost:dbname=survey'
