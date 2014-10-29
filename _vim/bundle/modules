@@ -1,6 +1,7 @@
 htts://github.com/mileszs/ack.vim.git                     ack
 https://github.com/sjl/badwolf.git                        badwolf
 https://github.com/kien/ctrlp.vim.git                     ctrlp
+https://github.com/vim-scripts/dbext.vim                  dbext.vim
 git://github.com/tpope/vim-dispatch.git                   dispatch
 https://github.com/vim-scripts/EasyGrep.git               easygrep
 https://github.com/terryma/vim-expand-region              expand-region
