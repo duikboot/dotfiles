@@ -67,7 +67,7 @@ export PATH=/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/local/bin:/home/a
 
 source ENV/bin/activate
 
-alias clisp="rlwrap -f $HOME/.rlwrap/keywords clisp"
+# alias clisp="rlwrap -f $HOME/.rlwrap/keywords clisp"
 alias hgg='hg glog'
 
 source /home/arjen/Programms/tmuxinator/completion/tmuxinator.zsh

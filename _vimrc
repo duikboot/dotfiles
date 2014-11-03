@@ -284,18 +284,18 @@ let g:pymode_trim_whitespaces = 1
 let g:pymode_lint_ignore = "C0110,E501,C0111,"
 let g:pymode_lint_signs = 1
 let g:pymode_lint_unmodified = 0
-let g:pymode_rope = 1
-let g:pymode_rope_autoimport = 1
+let g:pymode_rope = 0
+" let g:pymode_rope_autoimport = 1
 " let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
 
 " yet let it open on toggle.
 " map <leader>l :PyLintToggle<CR>
 
 " Jump to the definition of whatever the cursor is on
-map <leader>j :RopeGotoDefinition<CR>
+" map <leader>j :RopeGotoDefinition<CR>
 
 " Rename whatever the cursor is on (including references to it)
-map <leader>r :RopeRename<CR>
+" map <leader>r :RopeRename<CR>
 
 " Resize splits when the window is resized
 au VimResized * :wincmd =
