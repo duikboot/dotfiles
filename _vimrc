@@ -26,7 +26,7 @@ command! Q :quitall
 command! WQ :wqall
 command! Wq :wq
 
-inoremap jj <Esc>
+" inoremap jj <Esc>
 
 " save file
 noremap <Leader>w :w<cr>
@@ -95,7 +95,7 @@ abbreviate pudb    import pudb; pudb.set_trace()
 abbreviate pdb    import pdb; pdb.set_trace()
 
 " Toggle the tasklist
-map <leader>td <Plug>TaskList
+" map <leader>td <Plug>TaskList
 
 " " Run pep8
 autocmd FileType python noremap <leader>8 :PymodeLint<cr>
