@@ -34,11 +34,14 @@ noremap <Leader>w :w<cr>
 " Quit window on <leader>q
 nnoremap <leader>q :q<CR>
 
+" close buffer and load previous buffer.
+command BD :bp <BAR> bd #<CR>
+
 " Open :CtrlP
 nnoremap <Leader>o :CtrlP<CR>
 
 " Basic Settings {{{
-syntax on                     " syntax highlighing
+syntax on                     " syntax highlighting
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
 set number                    " Display line numbers
@@ -670,3 +673,5 @@ EOF
 set path+=.,,**
 autocmd Filetype java set makeprg=javac\ %
 set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+
+let g:dbext_default_profile_survey = 'type=PGSQL:user=arjend:@askg:host=localhost:dbname=survey'
