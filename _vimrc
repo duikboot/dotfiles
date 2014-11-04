@@ -219,10 +219,7 @@ map <leader>g :GundoToggle<CR>
 "   endif
 " endfunc
 " Enable the list of buffers
-" let g:airline#extensions#tabline#enabled = 1
-"
-" " Show just the filename
-" let g:airline#extensions#tabline#fnamemod = ''"
+
 " nnoremap <C-n> :call NumberToggle()<cr>
 
 " in command mode expand directory with current directory
