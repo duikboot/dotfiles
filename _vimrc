@@ -285,6 +285,8 @@ let g:pymode_lint_ignore = "C0110,E501,C0111,"
 let g:pymode_lint_signs = 1
 let g:pymode_lint_unmodified = 0
 let g:pymode_rope = 0
+let g:pymode_syntax_space_errors = 0
+
 " let g:pymode_rope_autoimport = 1
 " let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
 
