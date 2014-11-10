@@ -34,9 +34,6 @@ noremap <Leader>w :w<cr>
 " Quit window on <leader>q
 nnoremap <leader>q :q<CR>
 
-" close buffer and load previous buffer.
-command BD :bp <BAR> bd #<CR>
-
 " Open :CtrlP
 nnoremap <Leader>o :CtrlP<CR>
 
@@ -147,7 +144,7 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
-nnoremap <silent> <C-W>z :wincmd z<Bar>cclose<Bar>lclose<CR> 
+nnoremap <silent> <C-W>z :wincmd z<Bar>cclose<Bar>lclose<CR>
 
 " and lets make these all work in insert mode too ( <C-O> makes next cmd
 "  happen as if in command mode )
@@ -181,10 +178,10 @@ let $PATH = $PATH . ':' . expand("~/.cabal/bin")
 set path+=~/.cabal/bin
 
 
-nmap <leader>a <Esc>:Ack! 
+nmap <leader>a <Esc>:Ack!
 
 " Toggle tag
-nmap <leader>t <Esc>:tselect 
+nmap <leader>t <Esc>:tselect
 
 " Toggle Tagbar
 nmap <leader>tl :TagbarToggle<CR>
@@ -363,7 +360,7 @@ set virtualedit=block       " Let cursor move past the last char in <C-v> mode
 set breakindent
 set breakindentopt=shift:4
 let &showbreak='↳ '
-" 
+"
 " set cpo=n
 
 " don't outdent hashes
@@ -391,7 +388,7 @@ set report=0                " : commands always print changed line count.
 set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
 set ruler                   " Show some info, even without statuslines.
 set laststatus=2            " Always show statusline, even if only 1 window.
-" set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff}) 
+" set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})
 set encoding=utf-8          " Necessary to show unicode glyphs
 
 " displays tabs with :set list & displays when a line runs off-screen
@@ -640,7 +637,8 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType tex setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 autocmd FileType haskell setlocal ai sw=4 ts=4 sta et fo=croql
-au FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,from,import
+" au FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,from,import
+au FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent 
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 
