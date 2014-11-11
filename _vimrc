@@ -81,18 +81,25 @@ au FocusLost * :wa
 " Load templates file
 autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
 
+function! BranchName()
+    silent! execute ":0read !hg branch"
+    silent! execute ":1s/_.*/ /g"
+    execute ":normal I#\<Esc>$"
+endfunc
+
 augroup ft_hgcommit
     autocmd!
-    autocmd FileType hgcommit silent! execute ":0read !hg branch"
-    autocmd FileType hgcommit silent! execute ":1s/_.*/ /g"
-    autocmd FileType hgcommit execute ":normal I#\<Esc>$"
+    " autocmd FileType hgcommit silent! execute ":0read !hg branch"
+    " autocmd FileType hgcommit silent! execute ":1s/_.*/ /g"
+    " autocmd FileType hgcommit execute ":normal I#\<Esc>$"
+    nnoremap <Leader>b :call BranchName()<CR>
     autocmd FileType hgcommit set spell
     " autocmd FileType hgcommit execute ":normal A"
 augroup END
 
 " Abbreviations
-abbreviate pudb    import pudb; pudb.set_trace()
-abbreviate pdb    import pdb; pdb.set_trace()
+" abbreviate pudb    import pudb; pudb.set_trace()
+" abbreviate pdb    import pdb; pdb.set_trace()
 
 " Toggle the tasklist
 " map <leader>td <Plug>TaskList
