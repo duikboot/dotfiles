@@ -659,10 +659,10 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 let g:pyflakes_use_quickfix = 0
 
 
-let s:ocamlmerlin=substitute(system('opam config var share'),'\n$','','''') .  "/ocamlmerlin"
-execute "set rtp+=".s:ocamlmerlin."/vim"
-execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
-let g:syntastic_ocaml_checkers = ['merlin']
+" let s:ocamlmerlin=substitute(system('opam config var share'),'\n$','','''') .  "/ocamlmerlin"
+" execute "set rtp+=".s:ocamlmerlin."/vim"
+" execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
+" let g:syntastic_ocaml_checkers = ['merlin']
 
 
 python << EOF
