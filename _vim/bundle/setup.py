@@ -7,4 +7,7 @@ for line in f:
     l = line.split()[1]
     os.system('rm -rf %s' % l)
     print "installing %s...." % line
-    os.system('git clone %s' % line)
+    if "bitbucket" in line:
+        os.system('hg clone %s' % line)
+    else:
+        os.system('git clone %s' % line)

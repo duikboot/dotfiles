@@ -206,6 +206,7 @@ let g:airline#extensions#tabline#enabled = 1
 " " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'"
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+" let g:airline#extensions#branch#use_vcscommand = 1
 
 
 " Load the Gundo window
