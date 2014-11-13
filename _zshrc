@@ -12,6 +12,8 @@ ZSH_THEME="prose"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias tmuxn='tmux new -s'
 
+export PLATFORM=`python -c 'import os; print os.uname()[1],'`
+
 export EDITOR=vim
 alias hop='ssh -L 9090:127.0.0.1:80 -l arjen.dijkstra 192.168.0.31'
 

@@ -52,3 +52,5 @@ mkrepo = !$HG init $1 && cd $1 && \
 
 [tortoisehg]
 editor = gvim
+
+%include ~/.$PLATFORM.hgrc
