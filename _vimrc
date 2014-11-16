@@ -76,7 +76,7 @@ set iskeyword-=.
 
 " Save when losing focus
 "
-au FocusLost * :wa
+autocmd FocusLost * :wa
 
 " Load templates file
 autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
@@ -305,7 +305,7 @@ let g:pymode_syntax_space_errors = 0
 " map <leader>r :RopeRename<CR>
 
 " Resize splits when the window is resized
-au VimResized * :wincmd =
+autocmd VimResized * :wincmd =
 
 
 set suffixesadd=.tex,.latex,.java,.js
@@ -408,9 +408,9 @@ nmap <silent> <leader>s :set nolist!<CR>
 set ignorecase              " Default to using case insensitive searches,
 set smartcase               " unless uppercase letters are used in the regex.
 set smarttab                " Handle tabs more intelligently
-" au BufNewFile,BufRead *.js set nosmarttab  " If Javascript, don't use smarttab"
-au BufNewFile,BufRead *.js set noexpandtab " Use tabs, not spaces, for autoindent/tab key.
-au BufNewFile,BufRead *.coffee set noexpandtab " Use tabs, not spaces, for autoindent/tab key.
+" autocmd BufNewFile,BufRead *.js set nosmarttab  " If Javascript, don't use smarttab"
+autocmd BufNewFile,BufRead *.js set noexpandtab " Use tabs, not spaces, for autoindent/tab key.
+autocmd BufNewFile,BufRead *.coffee set noexpandtab " Use tabs, not spaces, for autoindent/tab key.
 set hlsearch                " Highlight searches by default.
 set incsearch               " Incrementally search while typing a /regex
 
@@ -471,7 +471,7 @@ autocmd BufRead,BufNewFile *.md set ft=markdown
 " ==========================================================
 " Javascript
 " ==========================================================
-au BufRead *.js set makeprg=jslint\ %
+autocmd BufRead *.js set makeprg=jslint\ %
 
 " Don't allow snipmate to take over tab
 "TODO remap, so you don't override the movement keys
@@ -556,7 +556,7 @@ autocmd FileType sml set commentstring=(*%s*)
 autocmd FileType xml setlocal commentstring={#%s#}
 
 let g:xml_syntax_folding=1
-au FileType xml setlocal foldmethod=syntax
+autocmd FileType xml setlocal foldmethod=syntax
 
 
 " racket
@@ -575,8 +575,8 @@ let g:necoghc_enable_detailed_browse = 1
 " Haskell {{{
 
 " augroup ft_haskell
-"     au!
-"     au BufEnter *.hs compiler ghc
+"     autocmd!
+"     autocmd BufEnter *.hs compiler ghc
 "     " setlocal iskeyword=a-z,A-Z,_,.,39
 "     " let &makeprg='hdevtools check %'
 "     " let g:hdevtools_options = '-g -isrc -g -Wall -g -hide-package -g transformers'
@@ -636,7 +636,7 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " Python
 " ==========================================================
-"au BufRead *.py compiler nose
+"autocmd BufRead *.py compiler nose
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 set completeopt-=preview
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -645,9 +645,9 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType tex setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 autocmd FileType haskell setlocal ai sw=4 ts=4 sta et fo=croql
-" au FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,from,import
-au FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent 
-au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+" autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,from,import
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent 
+autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 
 
