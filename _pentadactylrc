@@ -10,6 +10,8 @@ set hlfind
 nmap -builtin -silent j 3j
 nmap -builtin -silent k 3k
 
+nmap -builtin -silent <Left> gT
+nmap -builtin -silent <Right> gt
 
 "{{{ PassKeys
 set passkeys+='mail\.google\.com':c/jkhnpovuelxsfra#`[]z?*nrtgidIU+-=<Tab><Return>
