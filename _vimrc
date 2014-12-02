@@ -498,7 +498,7 @@ nnoremap <leader>uf :<C-u>Unite -no-split -buffer-name=files   -start-insert fil
 nnoremap <leader>ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 nnoremap <leader>uo :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
 nnoremap <leader>uy :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-nnoremap <leader>ub :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+nnoremap <leader>ub :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
 nnoremap <leader>ug :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep
 nnoremap <Leader>us :Unite -no-split -quick-match buffer<cr>
 
