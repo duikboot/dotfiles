@@ -683,3 +683,6 @@ autocmd Filetype java set makeprg=javac\ %
 set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
 
 let g:dbext_default_profile_survey = 'type=PGSQL:user=arjend:@askg:host=localhost:dbname=survey'
+let g:dbext_default_profile_storefront = 'type=PGSQL:user=postgres:@askg:host=arjen.yhdev.nl:dbname=storefront'
+let g:dbext_default_profile_reseller = 'type=PGSQL:user=postgres:@askg:host=arjen.yhdev.nl:dbname=resellerplatform'
+let g:dbext_default_profile_backoffice = 'type=PGSQL:user=postgres:@askg:host=arjen.yhdev.nl:port=25432:dbname=backoffice'
