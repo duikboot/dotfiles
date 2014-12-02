@@ -22,3 +22,4 @@ _oh-my-zsh/.git*
 _oh-my-zsh
 oh-my-zsh
 xcape
+_pip/http*
