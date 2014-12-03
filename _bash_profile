@@ -18,12 +18,13 @@ export GREP_OPTIONS='--color=auto' GREP_COLOR='100;1'
 export GNOME_DESKTOP_SESSION_ID=Default
 export NODE_PATH=~/local/lib/node_modules/
 export NODE_PATH=/usr/local/lib/jsctags/:\$NODE_PATH
-export ANDROIDSDK=$HOME/Programms/adt-bundle-linux-x86_64-20131030/sdk
-export ANDROIDNDK=$HOME/Programms/android-ndk-r9b
-export ANDROIDNDKVER=r9b
-export ANDROIDAPI=19
+# export ANDROIDSDK=$HOME/Programms/adt-bundle-linux-x86_64-20131030/sdk
+export ANDROIDSDK=$HOME/.buildozer/android/platform/android-sdk-21
+export ANDROIDNDK=$HOME/.buildozer/android/platform/android-ndk-r9c
+export ANDROIDNDKVER=r9c
+export ANDROIDAPI=21
 
-PATH=$HOME/.cabal/bin:$HOME/bin:$PATH:/usr/lib64:$HOME/Programms/adt-bundle-linux-x86_64-20131030/sdk/platform-tools:$HOME/Programms/adt-bundle-linux-x86_64-20131030/sdk/tools:$ANDROIDNDK
+PATH=$HOME/.cabal/bin:$HOME/bin:/usr/lib64:$ANDROIDNDK:$ANDROIDSDK/platform-tools:$ANDROIDSDK/tools:$PATH
 
 export PATH
 
