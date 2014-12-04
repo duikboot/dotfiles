@@ -89,12 +89,8 @@ endfunc
 
 augroup ft_hgcommit
     autocmd!
-    " autocmd FileType hgcommit silent! execute ":0read !hg branch"
-    " autocmd FileType hgcommit silent! execute ":1s/_.*/ /g"
-    " autocmd FileType hgcommit execute ":normal I#\<Esc>$"
     nnoremap <Leader>b :call BranchName()<CR>
     autocmd FileType hgcommit set spell
-    " autocmd FileType hgcommit execute ":normal A"
 augroup END
 
 " Abbreviations
@@ -427,14 +423,13 @@ if has("gui_running")
 else
     " colorscheme vividchalk
     " colorscheme peaksea
-    set background=dark           " We are using dark background in vim
-    set nocursorline
-     " hi CursorLine ctermbg=Red guibg=#771c1c
+    " set background=dark           " We are using dark background in vim
+    " set nocursorline
     " colorscheme morning
-    " colorscheme darkblue
+    colorscheme darkblue
     " set t_Co=256
-    " colorscheme default
-    colorscheme molokai
+    colorscheme default
+    " colorscheme molokai
 endif
 
 function! BackgroundToggle()
