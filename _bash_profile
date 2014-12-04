@@ -35,3 +35,6 @@ xmodmap -e 'clear Lock'
 xmodmap -e 'add Control = Control_L'
 # eval `keychain --eval --agents ssh id_dsa id_rsa`
 # syndaemon -k -i 2 -d
+
+
+# vim: ft=sh
