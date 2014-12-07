@@ -44,7 +44,6 @@ filetype plugin indent on     " enable loading indent file for filetype
 set number                    " Display line numbers
 set numberwidth=1             " using only 1 column (and 1 space) while possible
 set hidden
-" set background=dark           " We are using dark background in vim
 set title                     " show title in console title bar
 set wildmenu                  " Menu completion in command mode on <Tab>
 " set wildmode=full             " <Tab> cycles between all matching choices.
@@ -421,15 +420,14 @@ if has("gui_running")
     set background=light           " We are using dark background in vim
     set guioptions-=egimrLtT
 else
-    " colorscheme vividchalk
-    " colorscheme peaksea
-    " set background=dark           " We are using dark background in vim
-    " set nocursorline
-    " colorscheme morning
-    colorscheme darkblue
-    " set t_Co=256
-    colorscheme default
+    set background=dark           " We are using dark background in vim
+    set nocursorline
+    " colorscheme darkblue
+    set t_Co=256
+    " colorscheme default
     " colorscheme molokai
+    colorscheme badwolf
+    colorscheme solarized
 endif
 
 function! BackgroundToggle()
