@@ -44,6 +44,7 @@ filetype plugin indent on     " enable loading indent file for filetype
 set number                    " Display line numbers
 set numberwidth=1             " using only 1 column (and 1 space) while possible
 set hidden
+" set background=dark           " We are using dark background in vim
 set title                     " show title in console title bar
 set wildmenu                  " Menu completion in command mode on <Tab>
 " set wildmode=full             " <Tab> cycles between all matching choices.
@@ -210,6 +211,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'"
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 " let g:airline#extensions#branch#use_vcscommand = 1
 
+noremap <leader>bq :bp <BAR> bd #<CR>
 
 " Load the Gundo window
 map <leader>g :GundoToggle<CR>
@@ -221,7 +223,6 @@ map <leader>g :GundoToggle<CR>
 "     set relativenumber
 "   endif
 " endfunc
-" Enable the list of buffers
 
 " nnoremap <C-n> :call NumberToggle()<cr>
 
@@ -328,7 +329,7 @@ set grepprg=ack          " replace the default grep program with ack
 
 " Disable the colorcolumn when switching modes.  Make sure this is the
 " first autocmd for the filetype here
-autocmd FileType python setlocal colorcolumn=79
+" autocmd FileType python setlocal colorcolumn=79
 autocmd Filetype python set makeprg=python\ %
 nnoremap dm :Make!<cr>
 
