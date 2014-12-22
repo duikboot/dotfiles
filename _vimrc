@@ -640,7 +640,7 @@ autocmd FileType tex setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 autocmd FileType haskell setlocal ai sw=4 ts=4 sta et fo=croql
 " autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,from,import
-autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent 
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent
 autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 
