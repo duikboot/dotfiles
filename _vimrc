@@ -181,10 +181,10 @@ let $PATH = $PATH . ':' . expand("~/.cabal/bin")
 set path+=~/.cabal/bin
 
 
-nmap <leader>a <Esc>:Ack!
+nmap <leader>a <Esc>:Ack!<Space>
 
 " Toggle tag
-nmap <leader>t <Esc>:tselect
+nmap <leader>t <Esc>:tselect<Space>
 
 " Toggle Tagbar
 nmap <leader>tl :TagbarToggle<CR>
