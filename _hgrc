@@ -5,8 +5,8 @@ merge = meld
 #debug = true
 
 [extensions]
-color = 
-graphlog = 
+color =
+graphlog =
 hgext.bookmarks =
 #hgext.convert =
 #hgext.fetch =
@@ -16,7 +16,7 @@ mq =
 pager =
 progress =
 prompt = ~/Programms/hg-prompt/prompt.py
-rebase = 
+rebase =
 record =
 share =
 shelve =

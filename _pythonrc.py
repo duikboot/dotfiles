@@ -77,23 +77,23 @@ _c = TermColors()
 
 import sys
 # # Enable Color Prompts
-# sys.ps1 = '%s>>> %s' % (_c['Green'], _c['Normal'])
-# sys.ps2 = '%s... %s' % (_c['Red'], _c['Normal'])
+sys.ps1 = '%s>>> %s' % (_c['Green'], _c['Normal'])
+sys.ps2 = '%s... %s' % (_c['Red'], _c['Normal'])
 
 # Enable Pretty Printing for stdout
-def my_displayhook(value):
-    if value is not None:
-        try:
-            import __builtin__
-            __builtin__._ = value
-        except ImportError:
-            __builtins__._ = value
+# def my_displayhook(value):
+#     if value is not None:
+#         try:
+#             import __builtin__
+#             __builtin__._ = value
+#         except ImportError:
+#             __builtins__._ = value
 
-        import pprint
-        pprint.pprint(value)
-        del pprint
+#         import pprint
+#         pprint.pprint(value)
+#         del pprint
 
-sys.displayhook = my_displayhook
+# sys.displayhook = my_displayhook
 
 # Django Helpers
 def SECRET_KEY():
