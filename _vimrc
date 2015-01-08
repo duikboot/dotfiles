@@ -13,8 +13,8 @@ call pathogen#helptags()
 " Shortcuts
 " ==========================================================
 set nocompatible              " Don't be compatible with vi
-let mapleader="\<space>"             " change the leader to be a comma vs slash
-let maplocalleader="\\"       " map localleader to \\
+let g:mapleader="\<space>"             " change the leader to be a comma vs slash
+let g:maplocalleader="\\"       " map localleader to \\
 " noremap - ,
 
 " set rtp +=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
@@ -646,8 +646,8 @@ autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^
 
 
 " Latex support
-" let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
-" let tlist_make_settings  = 'make;m:makros;t:targets'
+let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
+let tlist_make_settings  = 'make;m:makros;t:targets'
 
 " Don't let pyflakes use the quickfix window
 let g:pyflakes_use_quickfix = 0
