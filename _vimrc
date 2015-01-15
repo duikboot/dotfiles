@@ -421,14 +421,15 @@ if has("gui_running")
     set background=light           " We are using dark background in vim
     set guioptions-=egimrLtT
 else
-    set background=dark           " We are using dark background in vim
     set nocursorline
     " colorscheme darkblue
-    set t_Co=256
+    " set t_Co=256
     " colorscheme default
     " colorscheme molokai
-    colorscheme badwolf
+    " let g:solarized_termcolors=256
+    " colorscheme badwolf
     colorscheme solarized
+    set background=dark           " We are using dark background in vim
 endif
 
 function! BackgroundToggle()
