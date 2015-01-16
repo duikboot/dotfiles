@@ -426,10 +426,10 @@ else
     " set t_Co=256
     " colorscheme default
     " colorscheme molokai
-    " let g:solarized_termcolors=256
-    " colorscheme badwolf
     colorscheme solarized
-    set background=dark           " We are using dark background in vim
+    set background=light           " We are using dark background in vim
+    let g:solarized_termcolors=256
+    " colorscheme badwolf
 endif
 
 function! BackgroundToggle()

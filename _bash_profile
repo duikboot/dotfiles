@@ -13,7 +13,7 @@ export PYTHONSTARTUP=~/.pythonrc
 export PYTHONPATH
 export HGEDITOR=vim
 export EDITOR=vim
-export GREP_OPTIONS='--color=auto' GREP_COLOR='100;1'
+# export GREP_OPTIONS='--color=auto' GREP_COLOR='100;1'
 # export XDG_CONFIG_HOME=/home/arjend/.config
 export GNOME_DESKTOP_SESSION_ID=Default
 export NODE_PATH=~/local/lib/node_modules/
@@ -36,5 +36,7 @@ xmodmap -e 'add Control = Control_L'
 # eval `keychain --eval --agents ssh id_dsa id_rsa`
 # syndaemon -k -i 2 -d
 
+# # alias grep="/usr/bin/grep $GREP_OPTIONS"
+# unset GREP_OPTIONS
 
 # vim: ft=sh
