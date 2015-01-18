@@ -336,7 +336,7 @@ nnoremap dm :Make!<cr>
 """ Insert completion
 " don't select first item, follow typing in autocomplete
 set completeopt=menuone,longest,preview
-set pumheight=6             " Keep a small completion window
+set pumheight=8             " Keep a small completion window
 
 
 """ Moving Around/Editing
@@ -422,13 +422,14 @@ if has("gui_running")
     set guioptions-=egimrLtT
 else
     set nocursorline
+    set background=dark           " We are using dark background in vim
     " colorscheme darkblue
-    " set t_Co=256
+    set t_Co=256
     " colorscheme default
     " colorscheme molokai
     colorscheme solarized
     set background=light           " We are using dark background in vim
-    let g:solarized_termcolors=256
+    " let g:solarized_termcolors=256
     " colorscheme badwolf
 endif
 
