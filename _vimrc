@@ -96,12 +96,16 @@ augroup END
 " Abbreviations
 " abbreviate pudb    import pudb; pudb.set_trace()
 " abbreviate pdb    import pdb; pdb.set_trace()
+iabbrev @@ dijkstra.arjen@gmail.com
+iabbrev @@@ info@arjen-dijkstra.nl
+" Think of an abbreviation of the website.
+" iabbrev arjen-dijkstra.nl
 
 " Toggle the tasklist
-" map <leader>td <Plug>TaskList
+" nnoremap <leader>td <Plug>TaskList
 
 " " Run pep8
-autocmd FileType python noremap <leader>8 :PymodeLint<cr>
+autocmd FileType python noremap <LocalLeader>8 :PymodeLint<cr>
 
 " silence search string
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
@@ -118,12 +122,12 @@ nnoremap <silent> g# g#zz
 
 " ,v brings up my .vimrc
 " ,V reloads it -- making all changes active (have to save first)
-map <leader>v :sp ~/.vimrc<CR><C-W>_
-map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+nnoremap <leader>v :sp ~/.vimrc<CR><C-W>_
+nnoremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " open/close the quickfix window
-nmap <leader>c :copen<CR>
-nmap <leader>cc :cclose<CR>
+nnoremap <leader>c :copen<CR>
+nnoremap <leader>cc :cclose<CR>
 
 " open/close the location window
 nnoremap <leader>l :lopen<CR>
@@ -169,25 +173,25 @@ nnoremap <silent> <leader>gf :vertical botright wincmd f<CR>
 " see more at http://skwp.github.com/dotfiles
 
 " Slimux
-map <Leader>sc :SlimuxREPLConfigure<CR>
-map <Leader>sl :SlimuxREPLSendLine<CR>
+nnoremap <Leader>sc :SlimuxREPLConfigure<CR>
+nnoremap <Leader>sl :SlimuxREPLSendLine<CR>
 vmap <Leader>ss :SlimuxREPLSendSelection<CR>
 
 " Open NerdTree
-map <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 " let g:vimfiler_as_default_explorer = 1
 
 let $PATH = $PATH . ':' . expand("~/.cabal/bin")
 set path+=~/.cabal/bin
 
 
-nmap <leader>a <Esc>:Ack!<Space>
+nnoremap <leader>a <Esc>:Ack!<Space>
 
 " Toggle tag
-nmap <leader>t <Esc>:tselect<Space>
+nnoremap <leader>t <Esc>:tselect<Space>
 
 " Toggle Tagbar
-nmap <leader>tl :TagbarToggle<CR>
+nnoremap <leader>tl :TagbarToggle<CR>
 
 " Show yankring
 nnoremap <silent> <leader>y :YRShow<CR>
@@ -207,14 +211,15 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 "
 " " Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'"
+" let g:airline#extensions#tabline#fnamemod = ':~'"
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 " let g:airline#extensions#branch#use_vcscommand = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 noremap <leader>bq :bp <BAR> bd #<CR>
 
 " Load the Gundo window
-map <leader>g :GundoToggle<CR>
+nnoremap <leader>g :GundoToggle<CR>
 
 " function! NumberToggle()
 "   if(&relativenumber == 1)
@@ -398,7 +403,7 @@ set encoding=utf-8          " Necessary to show unicode glyphs
 " displays tabs with :set list & displays when a line runs off-screen
 set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
 set nolist
-nmap <silent> <leader>s :set nolist!<CR>
+nnoremap <silent> <leader>s :set nolist!<CR>
 
 """ Searching and Patterns
 set ignorecase              " Default to using case insensitive searches,
@@ -422,12 +427,13 @@ if has("gui_running")
     set guioptions-=egimrLtT
 else
     set nocursorline
-    set background=dark           " We are using dark background in vim
+    " set background=dark           " We are using dark background in vim
     " colorscheme darkblue
     set t_Co=256
     " colorscheme default
     " colorscheme molokai
     colorscheme solarized
+    colorscheme desert
     set background=light           " We are using dark background in vim
     " let g:solarized_termcolors=256
     " colorscheme badwolf
