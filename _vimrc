@@ -293,6 +293,10 @@ let g:pymode_lint_unmodified = 0
 let g:pymode_rope = 0
 let g:pymode_syntax_space_errors = 0
 
+" Don't let pyflakes use the quickfix window
+let g:pyflakes_use_quickfix = 0
+
+
 " let g:pymode_rope_autoimport = 1
 " let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
 
@@ -656,9 +660,6 @@ autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^
 " Latex support
 let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
 let tlist_make_settings  = 'make;m:makros;t:targets'
-
-" Don't let pyflakes use the quickfix window
-let g:pyflakes_use_quickfix = 0
 
 
 " let s:ocamlmerlin=substitute(system('opam config var share'),'\n$','','''') .  "/ocamlmerlin"
