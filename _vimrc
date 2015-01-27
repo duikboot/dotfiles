@@ -90,7 +90,7 @@ endfunc
 augroup ft_hgcommit
     autocmd!
     nnoremap <Leader>b :call BranchName()<CR>
-    autocmd FileType hgcommit set spell
+    autocmd FileType hgcommit setlocal spell
 augroup END
 
 " Abbreviations
@@ -689,3 +689,10 @@ let g:dbext_default_profile_survey = 'type=PGSQL:user=arjend:@askg:host=localhos
 let g:dbext_default_profile_storefront = 'type=PGSQL:user=postgres:@askg:host=arjen.yhdev.nl:dbname=storefront'
 let g:dbext_default_profile_reseller = 'type=PGSQL:user=postgres:@askg:host=arjen.yhdev.nl:dbname=resellerplatform'
 let g:dbext_default_profile_backoffice = 'type=PGSQL:user=postgres:@askg:host=arjen.yhdev.nl:port=25432:dbname=backoffice'
+
+
+noremap <f6> :Dispatch<cr>
+noremap <Leader>C :Copen<cr>
+if filereadable('.local.vim')
+  source .local.vim
+endif
