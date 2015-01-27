@@ -431,16 +431,18 @@ if has("gui_running")
     set guioptions-=egimrLtT
 else
     set nocursorline
-    " set background=dark           " We are using dark background in vim
     " colorscheme darkblue
     set t_Co=256
     " colorscheme default
-    " colorscheme molokai
-    colorscheme solarized
+    " colorscheme solarized
     colorscheme desert
-    set background=light           " We are using dark background in vim
+    " colorscheme molokai
+    " colorscheme base16-solarized
+    " set background=dark           " We are using dark background in vim
+    set background=light           " We are using light background in vim
     " let g:solarized_termcolors=256
     " colorscheme badwolf
+    autocmd FileType python setlocal colorcolumn=0
 endif
 
 function! BackgroundToggle()
@@ -691,8 +693,10 @@ let g:dbext_default_profile_reseller = 'type=PGSQL:user=postgres:@askg:host=arje
 let g:dbext_default_profile_backoffice = 'type=PGSQL:user=postgres:@askg:host=arjen.yhdev.nl:port=25432:dbname=backoffice'
 
 
+noremap <f5> :Start<cr>
 noremap <f6> :Dispatch<cr>
 noremap <Leader>C :Copen<cr>
+
 if filereadable('.local.vim')
   source .local.vim
 endif
