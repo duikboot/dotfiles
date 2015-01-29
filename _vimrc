@@ -81,18 +81,6 @@ autocmd FocusLost * :wa
 " Load templates file
 autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
 
-function! BranchName()
-    silent! execute ":0read !hg branch"
-    silent! execute ":1s/_.*/ /g"
-    execute ":normal I#\<Esc>$"
-endfunc
-
-augroup ft_hgcommit
-    autocmd!
-    nnoremap <Leader>b :call BranchName()<CR>
-    autocmd FileType hgcommit setlocal spell
-augroup END
-
 " Abbreviations
 " abbreviate pudb    import pudb; pudb.set_trace()
 " abbreviate pdb    import pdb; pdb.set_trace()
