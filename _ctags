@@ -27,3 +27,7 @@
 --regex-latex=/\\ref[[:space:]]*\{([^}]+)\}/\1/r,ref/
 --regex-latex=/\\pageref[[:space:]]*\{([^}]+)\}/\1/p,pageref/
 --regex-make=/^([^:# \t]+)[ \t]*[:]{1,2}/\1/t,targets/
+
+--langdef=kivy
+--langmap=kivy:.kv
+--regex-kivy=/<([a-zA-Z_]+).*>/\1/c,class/
