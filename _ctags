@@ -30,4 +30,4 @@
 
 --langdef=kivy
 --langmap=kivy:.kv
---regex-kivy=/<([a-zA-Z_]+).*>/\1/c,class/
+--regex-kivy=/<([a-zA-Z_]+).*>:/\1/c,class/
