@@ -14,7 +14,7 @@ call pathogen#helptags()
 " ==========================================================
 set nocompatible              " Don't be compatible with vi
 let g:mapleader="\<space>"             " change the leader to be a comma vs slash
-let g:maplocalleader="\\"       " map localleader to \\
+let g:maplocalleader="\<space>"       " map localleader to \\
 " noremap - ,
 
 " set rtp +=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
@@ -92,7 +92,7 @@ iabbrev @@@ info@arjen-dijkstra.nl
 " Toggle the tasklist
 " nnoremap <leader>td <Plug>TaskList
 
-" " Run pep8
+" " Run PymodeLint
 autocmd FileType python noremap <LocalLeader>8 :PymodeLint<cr>
 
 " silence search string
@@ -286,7 +286,7 @@ let g:pyflakes_use_quickfix = 0
 
 
 " let g:pymode_rope_autoimport = 1
-" let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
+let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
 
 " yet let it open on toggle.
 " map <leader>l :PyLintToggle<CR>
