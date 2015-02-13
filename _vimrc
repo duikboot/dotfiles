@@ -271,14 +271,14 @@ nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 " Don't open quickfix window on save...
 let g:pymode_lint_message = 1
 let g:pymode_lint = 1
+let g:pymode_lint_on_write = 0
 
-" Temporary!!!!!
 let g:pymode_trim_whitespaces = 1
 
 let g:pymode_lint_ignore = "C0110,E501,C0111,"
 let g:pymode_lint_signs = 1
 let g:pymode_lint_unmodified = 0
-let g:pymode_rope = 0
+let g:pymode_rope = 1
 let g:pymode_syntax_space_errors = 0
 
 " Don't let pyflakes use the quickfix window
@@ -407,6 +407,13 @@ autocmd BufNewFile,BufRead *.coffee set noexpandtab " Use tabs, not spaces, for 
 set hlsearch                " Highlight searches by default.
 set incsearch               " Incrementally search while typing a /regex
 
+if &term =~ '256color'
+    " disable Background Color Erase (BCE) so that color schemes
+    " render properly when inside 256-color tmux and GNU screen.
+    " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+    set t_ut=
+endif
+
 """" Display
 if has("gui_running")
     " colorscheme vividchalk
@@ -423,7 +430,7 @@ else
     set t_Co=256
     " colorscheme default
     " colorscheme solarized
-    colorscheme desert
+    " colorscheme desert
     " colorscheme molokai
     " colorscheme vibrantink "scheme doesn't exist yet"
     " colorscheme base16-solarized
@@ -431,7 +438,8 @@ else
     " set background=light           " We are using light background in vim
     " let g:solarized_termcolors=256
     " colorscheme badwolf
-    autocmd FileType python setlocal colorcolumn=0
+    colorscheme wombat256mod
+    " autocmd FileType python setlocal colorcolumn=0
 endif
 
 function! BackgroundToggle()

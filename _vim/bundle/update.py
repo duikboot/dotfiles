@@ -6,6 +6,8 @@ f = open('modules').readlines()
 for line in f:
     l = line.split()[1]
     if not os.path.exists(l):
+        if line.startswith("#"):
+            continue
         print "installing %s...." % line
         if "bitbucket" in line:
             os.system('hg clone %s' % line)
