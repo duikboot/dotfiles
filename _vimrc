@@ -278,7 +278,9 @@ let g:pymode_trim_whitespaces = 1
 let g:pymode_lint_ignore = "C0110,E501,C0111,"
 let g:pymode_lint_signs = 1
 let g:pymode_lint_unmodified = 0
-let g:pymode_rope = 1
+
+" Temporary disable rope, because there is a bug in RopeRename
+let g:pymode_rope = 0
 let g:pymode_syntax_space_errors = 0
 
 " Don't let pyflakes use the quickfix window
