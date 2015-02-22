@@ -132,12 +132,22 @@ cmap w!! w !sudo tee % >/dev/null
 let g:netrw_browsex_viewer= "firefox"
 
 
-let g:BASH_Ctrl_j = 'off'
-" ctrl-jklm  changes to that split
-nnoremap <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+" let g:BASH_Ctrl_j = 'off'
+" " ctrl-jklm  changes to that split
+" nnoremap <c-j> <c-w>j
+" map <c-k> <c-w>k
+" map <c-l> <c-w>l
+" map <c-h> <c-w>h
+
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+
+let g:tmux_navigator_save_on_switch = 1
 
 nnoremap <silent> <C-W>z :wincmd z<Bar>cclose<Bar>lclose<CR>
 
@@ -441,8 +451,8 @@ else
     " let g:solarized_termcolors=256
     " colorscheme badwolf
     colorscheme wombat256mod
-    highlight LineNr term=bold cterm=NONE ctermfg=White ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-    highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
+    " highlight LineNr term=bold cterm=NONE ctermfg=White ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+    " highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     " autocmd FileType python setlocal colorcolumn=0
 endif
 
