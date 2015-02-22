@@ -131,7 +131,6 @@ cmap w!! w !sudo tee % >/dev/null
 " open link in browser
 let g:netrw_browsex_viewer= "firefox"
 
-
 " let g:BASH_Ctrl_j = 'off'
 " " ctrl-jklm  changes to that split
 " nnoremap <c-j> <c-w>j
