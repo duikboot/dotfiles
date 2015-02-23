@@ -14,7 +14,7 @@ call pathogen#helptags()
 " ==========================================================
 set nocompatible              " Don't be compatible with vi
 let g:mapleader="\<space>"             " change the leader to be a comma vs slash
-let g:maplocalleader="\<space>"       " map localleader to \\
+let g:maplocalleader="\\"       " map localleader to \\
 " noremap - ,
 
 " set rtp +=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
@@ -209,7 +209,7 @@ let g:airline#extensions#tabline#enabled = 1
 "
 " " Show just the filename
 " let g:airline#extensions#tabline#fnamemod = ':~'"
-let g:airline#extensions#tabline#buffer_idx_mode = 1
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
 " let g:airline#extensions#branch#use_vcscommand = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
@@ -450,8 +450,9 @@ else
     " let g:solarized_termcolors=256
     " colorscheme badwolf
     colorscheme wombat256mod
-    " highlight LineNr term=bold cterm=NONE ctermfg=White ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-    " highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
+    highlight LineNr term=bold cterm=NONE ctermfg=Yellow ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+    highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
+    highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     " autocmd FileType python setlocal colorcolumn=0
 endif
 
@@ -706,6 +707,10 @@ let g:dbext_default_profile_backoffice = 'type=PGSQL:user=postgres:@askg:host=ar
 noremap <f5> :Start<cr>
 noremap <f6> :Dispatch<cr>
 noremap <Leader>C :Copen<cr>
+
+let g:dispatch_compilers = {
+    \'python': 'nosetests'
+    \}
 
 if filereadable('.local.vim')
   source .local.vim

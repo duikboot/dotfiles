@@ -11,6 +11,7 @@ ZSH_THEME="prose"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias tmuxn='tmux new -s'
+alias vi='vim'
 
 export PLATFORM=`python -c 'import os; print os.uname()[1],'`
 
@@ -46,7 +47,7 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump cabal colorize compleat debian django git github jump lol mercurial pip python tmux tmuxinator vagrant virtualenv web-search) 
+plugins=(autojump cabal colorize compleat debian django git github jump lol mercurial pip python tmux tmuxinator vagrant virtualenv chucknorris)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -72,5 +73,7 @@ source ENV/bin/activate
 # alias clisp="rlwrap -f $HOME/.rlwrap/keywords clisp"
 alias hgg='hg glog'
 
-source /home/arjen/Programms/tmuxinator/completion/tmuxinator.zsh
+# source /home/arjen/Programms/tmuxinator/completion/tmuxinator.zsh
 source /home/arjen/Programms/tmuxinator/completion/tmuxinator.bash
+
+# vim: ft=zsh sw=2 ts=2 et
