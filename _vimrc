@@ -93,7 +93,7 @@ iabbrev @@@ info@arjen-dijkstra.nl
 " nnoremap <leader>td <Plug>TaskList
 
 " " Run PymodeLint
-autocmd FileType python noremap <LocalLeader>8 :PymodeLint<cr>
+autocmd FileType python noremap <LocalLeader>8 :PymodeLint<cr>:lopen<cr>
 
 " silence search string
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
@@ -284,7 +284,7 @@ let g:pymode_lint_on_write = 0
 
 let g:pymode_trim_whitespaces = 1
 
-let g:pymode_lint_ignore = "C0110,E501,C0111,"
+let g:pymode_lint_ignore = "C0110,E501,C0111,C0301"
 let g:pymode_lint_signs = 1
 let g:pymode_lint_unmodified = 0
 
@@ -666,7 +666,7 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 autocmd FileType haskell setlocal ai sw=4 ts=4 sta et fo=croql
 " autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,from,import
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent
-autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+" autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 
 

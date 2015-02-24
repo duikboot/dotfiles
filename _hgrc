@@ -35,18 +35,19 @@ meld.args = $base $local $other
 # Make a new repo with some sensible defaults.
 mkrepo = !$HG init $1 && cd $1 && \
           echo 'syntax: glob'  > .hgignore && \
-          echo ''             >> .hgignore && \
-          echo '.DS_Store'    >> .hgignore && \
-          echo '*.pyc'        >> .hgignore && \
-          echo 'ENV'          >> .hgignore && \
-          echo '*.swp'        >> .hgignore && \
-          echo '*.swo'        >> .hgignore && \
-          echo '.ropeproject' >> .hgignore && \
-          echo 'tags'         >> .hgignore && \
-          echo '*.hi'         >> .hgignore && \
-          echo '*.o'          >> .hgignore && \
-          echo '*.orig'       >> .hgignore && \
-          echo '.hsenv*'      >> .hgignore && \
+          echo ''                     >> .hgignore && \
+          echo '.DS_Store'            >> .hgignore && \
+          echo '*.pyc'                >> .hgignore && \
+          echo 'ENV'                  >> .hgignore && \
+          echo '*.swp'                >> .hgignore && \
+          echo '*.swo'                >> .hgignore && \
+          echo '.ropeproject'         >> .hgignore && \
+          echo 'tags'                 >> .hgignore && \
+          echo '*.hi'                 >> .hgignore && \
+          echo '*.o'                  >> .hgignore && \
+          echo '*.orig'               >> .hgignore && \
+          echo '.hsenv*'              >> .hgignore && \
+          echo '.cabal-sandbox*'      >> .hgignore && \
           echo "[paths]" >> .hg/hgrc
 
 
