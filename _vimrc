@@ -51,11 +51,16 @@ set wildmenu                  " Menu completion in command mode on <Tab>
 set history=1000              " Set history to 1000 commands
 set undolevels=1000           " use many levels of undo
 set display=lastline
+set formatoptions+=j " Delete comment char when joining commented lines"
+set nojoinspaces " Use only 1 space after "." when joining lines, not 2"
 set showfulltag               " Show full tags when doing search completion
 " set relativenumber            " show linenumber relative to line cursor is on
 setlocal keywordprg=:help     " Use K to show help on subject under cursor
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp  "set directory for swapfiles
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+set splitright
+set splitbelow
 
 set dictionary=/usr/share/dict/words
 
@@ -374,7 +379,6 @@ set breakindentopt=shift:4
 let &showbreak='↳ '
 "
 " set cpo=n
-
 " don't outdent hashes
 inoremap # #
 
@@ -450,9 +454,9 @@ else
     " let g:solarized_termcolors=256
     " colorscheme badwolf
     colorscheme wombat256mod
-    highlight LineNr term=bold cterm=NONE ctermfg=Yellow ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-    highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
-    highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
+    " highlight LineNr term=bold cterm=NONE ctermfg=Yellow ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+    " highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
+    " highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     " autocmd FileType python setlocal colorcolumn=0
 endif
 
@@ -611,36 +615,37 @@ let g:necoghc_enable_detailed_browse = 1
 " haskellmode-vim and ghcmod-vim support for cabal sandboxes.
 " http://lpaste.net/92928
 
-function! s:find_basedir() "{{{
-" search Cabal file
-  if !exists('b:ghcmod_basedir')
-    let l:ghcmod_basedir = expand('%:p:h')
-    let l:dir = l:ghcmod_basedir
-    for _ in range(6)
-      if !empty(glob(l:dir . '/*.cabal', 0))
-        let l:ghcmod_basedir = l:dir
-        break
-      endif
-      let l:dir = fnamemodify(l:dir, ':h')
-    endfor
-    let b:ghcmod_basedir = l:ghcmod_basedir
-  endif
-  return b:ghcmod_basedir
-endfunction "}}}
+" function! s:find_basedir() "{{{
+" " search Cabal file
+"   if !exists('b:ghcmod_basedir')
+"     let l:ghcmod_basedir = expand('%:p:h')
+"     let l:dir = l:ghcmod_basedir
+"     for _ in range(6)
+"       if !empty(glob(l:dir . '/*.cabal', 0))
+"         let l:ghcmod_basedir = l:dir
+"         break
+"       endif
+"       let l:dir = fnamemodify(l:dir, ':h')
+"     endfor
+"     let b:ghcmod_basedir = l:ghcmod_basedir
+"   endif
+"   return b:ghcmod_basedir
+" endfunction "}}}
 
-" use ghc functionality for haskell files
-let sandbox_dir = '/.cabal-sandbox/x86_64-linux-ghc-7.6.2-packages.conf.d'
-let g:ghc="/usr/bin/ghc"
-augroup filetype_hs
-    autocmd!
-    autocmd Bufenter *.hs let dir = s:find_basedir() . sandbox_dir
-    " autocmd Bufenter *.hs compiler ghc
-    autocmd Bufenter *.hs let b:ghc_staticoptions = '-package-db ' . dir
-    autocmd Bufenter *.hs let g:ghcmod_ghc_options = ['-package-db ' . dir]
-    autocmd FileType haskell let b:start = 'ghci "%:p"'
-augroup END
+" " use ghc functionality for haskell files
+" let sandbox_dir = '/.cabal-sandbox/x86_64-linux-ghc-7.6.3-packages.conf.d'
+" let g:ghc="/usr/bin/ghc"
+" augroup filetype_hs
+"     autocmd!
+"     autocmd Bufenter *.hs let dir = s:find_basedir() . sandbox_dir
+"     " autocmd Bufenter *.hs compiler ghc
+"     autocmd Bufenter *.hs let b:ghc_staticoptions = '-package-db ' . dir
+"     autocmd Bufenter *.hs let g:ghcmod_ghc_options = ['-package-db ' . dir]
+"     autocmd FileType haskell let b:start = 'ghci "%:p"'
+" augroup END
 
-" }}}
+let g:syntastic_haskell_checkers = ['']
+" " }}}
 
 " {{{
 let g:multi_cursor_use_default_mapping=0
