@@ -379,6 +379,7 @@ set breakindentopt=shift:4
 let &showbreak='↳ '
 "
 " set cpo=n
+
 " don't outdent hashes
 inoremap # #
 
@@ -417,8 +418,8 @@ set ignorecase              " Default to using case insensitive searches,
 set smartcase               " unless uppercase letters are used in the regex.
 set smarttab                " Handle tabs more intelligently
 " autocmd BufNewFile,BufRead *.js set nosmarttab  " If Javascript, don't use smarttab"
-autocmd BufNewFile,BufRead *.js set noexpandtab " Use tabs, not spaces, for autoindent/tab key.
-autocmd BufNewFile,BufRead *.coffee set noexpandtab " Use tabs, not spaces, for autoindent/tab key.
+" autocmd BufNewFile,BufRead *.js set noexpandtab " Use tabs, not spaces, for autoindent/tab key.
+" autocmd BufNewFile,BufRead *.coffee set noexpandtab " Use tabs, not spaces, for autoindent/tab key.
 set hlsearch                " Highlight searches by default.
 set incsearch               " Incrementally search while typing a /regex
 
@@ -454,9 +455,9 @@ else
     " let g:solarized_termcolors=256
     " colorscheme badwolf
     colorscheme wombat256mod
-    " highlight LineNr term=bold cterm=NONE ctermfg=Yellow ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-    " highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
-    " highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
+    highlight LineNr term=bold cterm=NONE ctermfg=Yellow ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+    highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
+    highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     " autocmd FileType python setlocal colorcolumn=0
 endif
 
@@ -495,6 +496,7 @@ autocmd BufRead,BufNewFile *.md set ft=markdown
 " Javascript
 " ==========================================================
 autocmd BufRead *.js set makeprg=jslint\ %
+let g:syntastic_javascript_checkers = ['jslint', 'jshint']
 
 " Don't allow snipmate to take over tab
 "TODO remap, so you don't override the movement keys
@@ -633,7 +635,7 @@ let g:necoghc_enable_detailed_browse = 1
 " endfunction "}}}
 
 " " use ghc functionality for haskell files
-" let sandbox_dir = '/.cabal-sandbox/x86_64-linux-ghc-7.6.3-packages.conf.d'
+" let sandbox_dir = '/.cabal-sandbox/x86_64-linux-ghc-7.6.2-packages.conf.d'
 " let g:ghc="/usr/bin/ghc"
 " augroup filetype_hs
 "     autocmd!
@@ -643,9 +645,9 @@ let g:necoghc_enable_detailed_browse = 1
 "     autocmd Bufenter *.hs let g:ghcmod_ghc_options = ['-package-db ' . dir]
 "     autocmd FileType haskell let b:start = 'ghci "%:p"'
 " augroup END
+" let g:syntastic_haskell_checkers = ['']
 
-let g:syntastic_haskell_checkers = ['']
-" " }}}
+" }}}
 
 " {{{
 let g:multi_cursor_use_default_mapping=0
@@ -720,3 +722,4 @@ let g:dispatch_compilers = {
 if filereadable('.local.vim')
   source .local.vim
 endif
+:
