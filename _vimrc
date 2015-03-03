@@ -455,10 +455,16 @@ else
     " let g:solarized_termcolors=256
     " colorscheme badwolf
     colorscheme wombat256mod
+endif
+
+let g:hostname=hostname()
+
+if hostname=='WPL237'
     highlight LineNr term=bold cterm=NONE ctermfg=Yellow ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
     highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
-    " autocmd FileType python setlocal colorcolumn=0
+else
+    autocmd FileType python setlocal colorcolumn=0
 endif
 
 function! BackgroundToggle()
