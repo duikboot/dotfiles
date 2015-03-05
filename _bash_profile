@@ -24,7 +24,7 @@ export ANDROIDNDK=$HOME/.buildozer/android/platform/android-ndk-r9c
 export ANDROIDNDKVER=r9c
 export ANDROIDAPI=21
 
-PATH=$HOME/.cabal/bin:$HOME/bin:/usr/lib64:$ANDROIDNDK:$ANDROIDSDK/platform-tools:$ANDROIDSDK/tools:$PATH
+PATH=$HOME/.cabal/bin:$HOME/bin:/usr/lib64:$ANDROIDNDK:$ANDROIDSDK/platform-tools:$ANDROIDSDK/tools:$PATH:$HOME/bin/neovim/bin
 
 export PATH
 

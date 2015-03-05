@@ -380,7 +380,6 @@ set breakindentopt=shift:4
 let &showbreak='↳ '
 "
 " set cpo=n
-
 " don't outdent hashes
 inoremap # #
 
@@ -642,7 +641,7 @@ let g:necoghc_enable_detailed_browse = 1
 " endfunction "}}}
 
 " " use ghc functionality for haskell files
-" let sandbox_dir = '/.cabal-sandbox/x86_64-linux-ghc-7.6.2-packages.conf.d'
+" let sandbox_dir = '/.cabal-sandbox/x86_64-linux-ghc-7.6.3-packages.conf.d'
 " let g:ghc="/usr/bin/ghc"
 " augroup filetype_hs
 "     autocmd!
@@ -652,9 +651,9 @@ let g:necoghc_enable_detailed_browse = 1
 "     autocmd Bufenter *.hs let g:ghcmod_ghc_options = ['-package-db ' . dir]
 "     autocmd FileType haskell let b:start = 'ghci "%:p"'
 " augroup END
-" let g:syntastic_haskell_checkers = ['']
 
-" }}}
+" let g:syntastic_haskell_checkers = ['']
+" " }}}
 
 " {{{
 let g:multi_cursor_use_default_mapping=0
@@ -729,4 +728,3 @@ let g:dispatch_compilers = {
 if filereadable('.local.vim')
   source .local.vim
 endif
-:
