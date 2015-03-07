@@ -530,7 +530,8 @@ nnoremap <leader>ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert fil
 nnoremap <leader>uo :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
 nnoremap <leader>uy :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap <leader>ub :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
-nnoremap <leader>ug :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep
+nnoremap <leader>ul :<C-u>Unite -no-split -buffer-name=line -start-insert line<cr>
+nnoremap <leader>ug :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep<cr>
 nnoremap <Leader>us :Unite -no-split -quick-match buffer<cr>
 
 " Custom mappings for the unite buffer
