@@ -463,8 +463,7 @@ if hostname=='WPL237'
     highlight LineNr term=bold cterm=NONE ctermfg=Yellow ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
     highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
-else
-    autocmd FileType python setlocal colorcolumn=0
+    autocmd FileType python setlocal colorcolumn=" "
 endif
 
 function! BackgroundToggle()
