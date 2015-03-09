@@ -8,6 +8,8 @@ call pathogen#infect('bundle/{}')
 call pathogen#helptags()
 " pathogen#incubate() to pathogen#infect('bundle/{}')
 
+" So neovim will work in a VirtualEnv
+let g:python_host_prog='/usr/bin/python'
 
 " ==========================================================
 " Shortcuts
