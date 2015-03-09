@@ -114,6 +114,8 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 nnoremap <silent> g# g#zz
+nnoremap <silent> <C-o> <C-o>zz
+nnoremap <silent> <C-i> <C-i>zz
 
 " ,v brings up my .vimrc
 " ,V reloads it -- making all changes active (have to save first)
