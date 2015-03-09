@@ -189,6 +189,7 @@ set path+=~/.cabal/bin
 
 
 nnoremap <leader>a <Esc>:Ack!<Space>
+let g:ackprg = 'ag --smart-case --nogroup --nocolor --column'
 
 " Toggle tag
 nnoremap <leader>t <Esc>:tselect<Space>
