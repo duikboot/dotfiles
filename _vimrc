@@ -217,6 +217,7 @@ let g:yankring_manual_clipboard_check = 1
 let g:airline_powerline_fonts = 1
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_inactive_collapse = 0
 "
 " " Show just the filename
 " let g:airline#extensions#tabline#fnamemod = ':~'"
@@ -255,7 +256,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " " continue happily on your way:
 " "
 " " cursor
-" " v
+" " laststatus
 " " max_connections_allowed|
 " " <c-u>
 " " MAX_CONNECTIONS_ALLOWED|
@@ -402,7 +403,7 @@ set modelines=5             " they must be within the first or last 5 lines.
 set ffs=unix,dos,mac        " Try recognizing dos, unix, and mac line endings.
 
 """" Messages, Info, Status
-set ls=2                    " allways show status line
+set laststatus=2                    " allways show status line
 set vb t_vb=                " Disable all bells.  I hate ringing/flashing.
 set confirm                 " Y-N-C prompt if closing with unsaved changes.
 set showcmd                 " Show incomplete normal mode commands as I type.
@@ -446,7 +447,7 @@ if has("gui_running")
     set background=light           " We are using dark background in vim
     set guioptions-=egimrLtT
 else
-    set nocursorline
+    " set nocursorline
     " colorscheme darkblue
     set t_Co=256
     " colorscheme default
@@ -469,6 +470,8 @@ if hostname=='WPL237'
     highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     autocmd FileType python setlocal colorcolumn=" "
+else
+    colorscheme solarized
 endif
 
 function! BackgroundToggle()
