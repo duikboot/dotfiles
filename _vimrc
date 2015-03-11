@@ -460,18 +460,19 @@ else
     " set background=light           " We are using light background in vim
     " let g:solarized_termcolors=256
     " colorscheme badwolf
-    colorscheme wombat256mod
 endif
 
 let g:hostname=hostname()
 
 if hostname=='WPL237'
+    colorscheme wombat256mod
     highlight LineNr term=bold cterm=NONE ctermfg=Yellow ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
     highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     autocmd FileType python setlocal colorcolumn=" "
 else
     colorscheme solarized
+    set background=dark           " We are using dark background in vim
 endif
 
 function! BackgroundToggle()
