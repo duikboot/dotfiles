@@ -456,9 +456,6 @@ else
     " colorscheme molokai
     " colorscheme vibrantink "scheme doesn't exist yet"
     " colorscheme base16-solarized
-    " set background=dark           " We are using dark background in vim
-    " set background=light           " We are using light background in vim
-    " let g:solarized_termcolors=256
     " colorscheme badwolf
 endif
 
@@ -472,6 +469,7 @@ if hostname=='WPL237'
     autocmd FileType python setlocal colorcolumn=" "
 else
     colorscheme solarized
+    let g:solarized_termcolors=256
     set background=dark           " We are using dark background in vim
 endif
 
