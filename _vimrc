@@ -89,12 +89,8 @@ autocmd FocusLost * :wa
 autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
 
 " Abbreviations
-" abbreviate pudb    import pudb; pudb.set_trace()
-" abbreviate pdb    import pdb; pdb.set_trace()
 iabbrev @@ dijkstra.arjen@gmail.com
 iabbrev @@@ info@arjen-dijkstra.nl
-" Think of an abbreviation of the website.
-" iabbrev arjen-dijkstra.nl
 
 " Toggle the tasklist
 " nnoremap <leader>td <Plug>TaskList
@@ -469,7 +465,6 @@ if hostname=='WPL237'
     autocmd FileType python setlocal colorcolumn=" "
 else
     colorscheme solarized
-    let g:solarized_termcolors=256
     set background=dark           " We are using dark background in vim
 endif
 
