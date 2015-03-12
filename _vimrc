@@ -683,6 +683,7 @@ autocmd FileType haskell setlocal ai sw=4 ts=4 sta et fo=croql
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent
 " autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
+let g:syntastic_python_checkers = ['']
 
 
 " Latex support
