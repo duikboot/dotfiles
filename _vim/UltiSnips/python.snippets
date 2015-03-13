@@ -7,10 +7,20 @@ snippet lw
 logger.warning(${0:${VISUAL:msg}})
 endsnippet
 
-snippet lc
-logger.critical(${0:${VISUAL:msg}})
+snippet lc "Replace print with logger.critical" p
+logger.critical(${0:${VISUAL:msg/print //}})
 endsnippet
 
-snippet li
-logger.info(${0:${VISUAL:msg}})
+snippet li "Replace print with logger.info" p
+logger.info(${0:${VISUAL:msg/print //}})
 endsnippet
+
+
+
+snippet rf "Refactor into function" p
+
+def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
+	${0:${VISUAL}}
+
+endsnippet
+
