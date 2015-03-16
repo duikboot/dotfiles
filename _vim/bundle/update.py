@@ -3,39 +3,40 @@
 import os
 
 
-# Make wrapper for printing
-
-def printing(text, line):
+def printing(text, module):
     print(80*"=")
-    print("%s %s...." % (text, line))
+    print("%s %s...." % (text, module))
 
 
-def update():
+def update(module):
+    l = module.split()[1]
+    if not os.path.exists(l):
+
+        printing("installing", module)
+
+        if "bitbucket" in module:
+            os.system('hg clone %s' % module)
+        else:
+            os.system('git clone %s' % module)
+    else:
+        os.chdir(l)
+        printing("updating", module)
+        if "bitbucket" in module:
+            os.system('hg pull')
+            os.system('hg up')
+        else:
+            os.system("git pull")
+        os.chdir("..")
+    print 80*"="
+
+
+def main():
     with open('modules') as f:
-        for line in f:
-            l = line.split()[1]
-            if not os.path.exists(l):
-                if line.startswith("#"):
-                    continue
-
-                printing("installing", line)
-
-                if "bitbucket" in line:
-                    os.system('hg clone %s' % line)
-                else:
-                    os.system('git clone %s' % line)
-                print 80*"="
-            else:
-                os.chdir(l)
-                printing("updating", line)
-                if "bitbucket" in line:
-                    os.system('hg pull')
-                    os.system('hg up')
-                else:
-                    os.system("git pull")
-                print 80*"="
-                os.chdir("..")
+        for module in f:
+            if module.startswith("#"):
+                continue
+            update(module)
 
 
 if __name__ == '__main__':
-    update()
+    main()
