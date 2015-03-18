@@ -8,18 +8,22 @@ def printing(text, module):
     print "%s %s...." % (text, module)
 
 
-def update(module):
-    l = module.split()[1]
-    if not os.path.exists(l):
+def install(module):
+    printing("installing", module)
 
-        printing("installing", module)
-
-        if "bitbucket" in module:
-            os.system('hg clone %s' % module)
-        else:
-            os.system('git clone %s' % module)
+    if "bitbucket" in module:
+        os.system('hg clone %s' % module)
     else:
-        os.chdir(l)
+        os.system('git clone %s' % module)
+
+
+def update(module):
+    directory = module.split()[1]
+    if not os.path.exists(directory):
+        install(module)
+
+    else:
+        os.chdir(directory)
         printing("updating", module)
         if "bitbucket" in module:
             os.system('hg pull')
@@ -27,15 +31,15 @@ def update(module):
         else:
             os.system("git pull")
         os.chdir("..")
-    print 80*"="
 
 
 def main():
     with open('modules') as f:
-        for module in f:
-            if module.startswith("#"):
+        for line in f:
+            if line.startswith("#"):
                 continue
-            update(module)
+            update(line)
+            print 80*"="
 
 
 if __name__ == '__main__':
