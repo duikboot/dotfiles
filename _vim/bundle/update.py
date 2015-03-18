@@ -4,8 +4,8 @@ import os
 
 
 def printing(text, module):
-    print(80*"=")
-    print("%s %s...." % (text, module))
+    print 80*"="
+    print "%s %s...." % (text, module)
 
 
 def update(module):
