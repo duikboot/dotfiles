@@ -28,11 +28,11 @@ export PATH=$HOME/local/bin:$HOME/.local/bin:$PATH:/home/arjend/Downloads/bin
 # export PROMPT_COMMAND="history -a; history -n"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-mcd() { [[ -n "$1" ]] && mkdir -p "$1" && cd "$1"; } # mkdir and cd in one step 
+mcd() { [[ -n "$1" ]] && mkdir -p "$1" && cd "$1"; } # mkdir and cd in one step
 
 hg_ps1() {
     hg prompt "{[+{incoming|count}]-->}{root|basename}{/{branch}}{-->[+{outgoing|count}]}{ at {bookmark}}{status}" 2> /dev/null
-    
+
 }
 
 # Added to my .bashrc
