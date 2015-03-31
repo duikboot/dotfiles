@@ -40,7 +40,7 @@ https://github.com/clones/vim-l9.git                          vim-l9
 https://github.com/tpope/vim-markdown.git                     vim-markdown
 https://github.com/thisivan/vim-matchit.git                   vim-matchit
 https://github.com/terryma/vim-multiple-cursors               vim-multiple-cursors
-https://github.com/sheerun/vim-polyglot                       vim-polyglot
+# https://github.com/sheerun/vim-polyglot                       vim-polyglot
 https://github.com/Shougo/vimproc.vim.git                     vimproc
 #https://github.com/JarrodCTaylor/vim-python-test-runner      vim-python-test-runner
 https://github.com/tpope/vim-repeat                           vim-repeat
