@@ -458,10 +458,11 @@ endif
 let g:hostname=hostname()
 
 if hostname=='WPL237'
-    colorscheme wombat256mod
-    highlight LineNr term=bold cterm=NONE ctermfg=Yellow ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-    highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
-    highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
+    colorscheme default
+    " highlight LineNr term=bold cterm=NONE ctermfg=Yellow ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+    " highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
+    " highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
+    highlight CursorLine cterm=NONE ctermbg=251
     autocmd FileType python setlocal colorcolumn=" "
 else
     colorscheme solarized
