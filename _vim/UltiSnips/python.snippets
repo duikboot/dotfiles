@@ -24,3 +24,9 @@ def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
 
 endsnippet
 
+snippet rm "Refactor into method" p
+
+def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
+	${0:${VISUAL}}
+
+endsnippet
