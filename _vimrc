@@ -28,6 +28,8 @@ command! Q :quitall
 command! WQ :wqall
 command! Wq :wq
 
+" nnoremap ; :
+" nnoremap : ;
 " inoremap jj <Esc>
 
 " save file
