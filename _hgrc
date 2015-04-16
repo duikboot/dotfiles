@@ -1,7 +1,8 @@
 [ui]
 username = Arjen Dijkstra <dijkstra.arjen@gmail.com>
 editor = vim
-merge = meld
+merge = vimdiff
+#merge = meld
 #debug = true
 
 [extensions]
@@ -25,10 +26,10 @@ extdiff =
 [pager]
 pager = most
 
-#[merge-tools]
-#vimdiff.executable = gvim
-#vimdiff.args = -d -c "wincmd J" "$output" "$local" "$other" "$base"
 [merge-tools]
+vimdiff.priority = 1
+vimdiff.executable = vim
+vimdiff.args = -d $local $other
 merge = meld
 meld.args = $base $local $other
 

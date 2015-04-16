@@ -58,7 +58,7 @@ set display=lastline
 set formatoptions+=j " Delete comment char when joining commented lines"
 set nojoinspaces " Use only 1 space after "." when joining lines, not 2"
 set showfulltag               " Show full tags when doing search completion
-" set relativenumber            " show linenumber relative to line cursor is on
+set relativenumber            " show linenumber relative to line cursor is on
 setlocal keywordprg=:help     " Use K to show help on subject under cursor
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp  "set directory for swapfiles
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -165,6 +165,11 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
+
+nnoremap gj j 
+nnoremap gk k 
+vnoremap gj j 
+vnoremap gk k 
 
 vmap <BS> <Plug>(expand_region_shrink)
 
