@@ -204,6 +204,18 @@ nnoremap <leader>t <Esc>:tselect<Space>
 " Toggle Tagbar
 nnoremap <leader>tl :TagbarToggle<CR>
 
+function! AddFilenameToRegister(from)
+    if a:from=='absolute'
+        :let @+ = expand("%:p")
+    else
+        :let @+ = expand("%")
+    endif
+    :YRPush '+'
+endfunction
+
+nnoremap <leader>cf :call AddFilenameToRegister('absolute')<CR>
+nnoremap <leader>cr :call AddFilenameToRegister('relative')<CR>
+
 " Show yankring
 nnoremap <silent> <leader>y :YRShow<CR>
 
