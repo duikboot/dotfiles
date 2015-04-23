@@ -365,8 +365,6 @@ set grepprg=ack          " replace the default grep program with ack
 " Disable the colorcolumn when switching modes.  Make sure this is the
 " first autocmd for the filetype here
 " autocmd FileType python setlocal colorcolumn=79
-autocmd Filetype python set makeprg=python\ %
-nnoremap dm :Make!<cr>
 
 """ Insert completion
 " don't select first item, follow typing in autocomplete
@@ -705,6 +703,7 @@ autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 
 " autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 let g:syntastic_python_checkers = ['']
+" autocmd FileType python let b:dispatch = 'python %'
 
 
 " Latex support
@@ -745,9 +744,9 @@ noremap <f5> :Start<cr>
 noremap <f6> :Dispatch<cr>
 noremap <Leader>C :Copen<cr>
 
-let g:dispatch_compilers = {
-    \'python': 'nosetests'
-    \}
+" let g:dispatch_compilers = {
+"     \'python': 'nosetests'
+"     \}
 
 if filereadable('.local.vim')
   source .local.vim

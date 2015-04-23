@@ -58,3 +58,4 @@ https://github.com/Shougo/vimfiler.vim                        vimfiler
 https://github.com/tsukkee/unite-tag                          unite-tag
 https://github.com/Shougo/vimshell                            vimshell
 https://github.com/tommcdo/vim-exchange                       exchange
+# https://github.com/dbsr/vimpy                               vimpy # Makes pymodelint sptop working
