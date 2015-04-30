@@ -24,6 +24,7 @@ set passkeys+='www\.google\.com/calendar':dwmxajkcnqetp?<Del>s12345<Return>
 set passkeys+='duckduckgo\.com/':\!l'o<C-Return>jkh<Esc>\'v/rs1<Return>
 " set passkeys+='github\.com/':s?tl<Return>
 " set passkeys+='facebook\.com':<Left><Right>
+set passkeys+='zimbra\.firstfind\.nl':jk
 set passkeys+='flickr\.com':lf<Left><Right>
 "}}}
 
