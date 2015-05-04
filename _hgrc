@@ -52,6 +52,7 @@ mkrepo = !$HG init $1 && cd $1 && \
           echo '.cabal-sandbox*'      >> .hgignore && \
           echo "[paths]" >> .hg/hgrc
 
+# info = cat .hg/hgrc
 
 [tortoisehg]
 editor = gvim
