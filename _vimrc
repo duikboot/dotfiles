@@ -451,25 +451,12 @@ endif
 
 """" Display
 if has("gui_running")
-    " colorscheme vividchalk
-    " colorscheme badwolf
-    " colorscheme inkpot
-    "colorscheme vibrantink "scheme doesn't exist yet"
-    " colorscheme desert
     colorscheme solarized
     set background=light           " We are using dark background in vim
     set guioptions-=egimrLtT
 else
     " set nocursorline
-    " colorscheme darkblue
     set t_Co=256
-    " colorscheme default
-    " colorscheme solarized
-    " colorscheme desert
-    " colorscheme molokai
-    " colorscheme vibrantink "scheme doesn't exist yet"
-    " colorscheme base16-solarized
-    " colorscheme badwolf
 endif
 
 let g:hostname=hostname()
