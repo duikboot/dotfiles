@@ -12,6 +12,8 @@ nmap -builtin -silent k 3k
 
 nmap -builtin -silent <Left> gT
 nmap -builtin -silent <Right> gt
+nmap -builtin -silent h gT
+nmap -builtin -silent l gt
 
 "{{{ PassKeys
 set passkeys+='mail\.google\.com':c/jkhnpovuelxsfra#`[]z?*nrtgidIU+-=<Tab><Return>

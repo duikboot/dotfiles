@@ -92,7 +92,6 @@ autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
 
 " Abbreviations
 iabbrev @@ dijkstra.arjen@gmail.com
-iabbrev @@@ info@arjen-dijkstra.nl
 
 " Toggle the tasklist
 " nnoremap <leader>td <Plug>TaskList
