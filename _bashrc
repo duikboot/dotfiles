@@ -11,7 +11,7 @@ fi
 # PS1='\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\] > \$\n> \$ '
 # PS1="\[\033[01;32m\][\u@\h] \[\033[00m\][\t] \[\033[01;34m\][\W] \[\033[00m\]> \$\n > \$  "
 alias rm='rm -I'
-alias tmuxn='tmux new -s'
+alias tmuxn='tmux -2 new -s'
 alias g="gvim --remote-tab-silent"
 alias ll="ls -l"
 export HISTSIZE=1000000

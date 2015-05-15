@@ -451,7 +451,7 @@ endif
 """" Display
 if has("gui_running")
     colorscheme solarized
-    set background=light           " We are using dark background in vim
+    set background=dark           " We are using dark background in vim
     set guioptions-=egimrLtT
 else
     " set nocursorline
@@ -463,6 +463,7 @@ let g:hostname=hostname()
 if hostname=='WPL237'
     colorscheme solarized
     set background=dark           " We are using dark background in vim
+    let g:solarized_termcolors=256
     " highlight LineNr term=bold cterm=NONE ctermfg=Yellow ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
     " highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     " highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
