@@ -57,5 +57,6 @@ https://github.com/christoomey/vim-tmux-navigator             tmux-navigator
 https://github.com/tsukkee/unite-tag                          unite-tag
 https://github.com/Shougo/vimshell                            vimshell
 https://github.com/tommcdo/vim-exchange                       exchange
-# https://github.com/dbsr/vimpy                               vimpy # Makes pymodelint sptop working
+# Makes pymodelint sptop working
+# https://github.com/dbsr/vimpy                               vimpy
 https://github.com/Shougo/unite-help                          unite-help
