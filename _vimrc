@@ -533,15 +533,16 @@ nmap , [unite]
 " Unite
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
 nnoremap [unite]ut :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
-nnoremap [unite]uc :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
+nnoremap [unite]c :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
 nnoremap [unite]f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-nnoremap [unite]ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap [unite]uo :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
-nnoremap [unite]uy :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-nnoremap [unite]ub :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
-nnoremap [unite]ul :<C-u>Unite -no-split -buffer-name=line -start-insert line<cr>
-nnoremap [unite]ug :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep:.<cr>
+" nnoremap [unite]ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+nnoremap [unite]o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+nnoremap [unite]y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+nnoremap [unite]b :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
+nnoremap [unite]l :<C-u>Unite -no-split -buffer-name=line -start-insert line<cr>
+nnoremap [unite]g :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep:.<cr>
 nnoremap [unite]us :<C-u>Unite -no-split -quick-match buffer<cr>
 
 " Custom mappings for the unite buffer
