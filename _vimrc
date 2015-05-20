@@ -543,7 +543,7 @@ nnoremap [unite]y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap [unite]b :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
 nnoremap [unite]l :<C-u>Unite -no-split -buffer-name=line -start-insert line<cr>
 nnoremap [unite]g :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep:.<cr>
-nnoremap [unite]us :<C-u>Unite -no-split -quick-match buffer<cr>
+" nnoremap [unite]us :<C-u>Unite -no-split -quick-match buffer<cr>
 
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
