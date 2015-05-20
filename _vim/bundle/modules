@@ -13,7 +13,7 @@ https://github.com/qstrahl/vim-matchmaker                     matchmaker
 #https://github.com/tomasr/molokai                             molokai
 https://github.com/ujihisa/neco-ghc.git                       neco-ghc
 https://github.com/Shougo/neocomplete                         neocomplete
-https://github.com/Shougo/neomru.vim                          neomru
+# https://github.com/Shougo/neomru.vim                          neomru
 https://github.com/vim-scripts/The-NERD-tree.git             nerdtree
 git://github.com/tpope/vim-pathogen.git                       pathogen
 #https://github.com/vim-scripts/peaksea.git                   peaksea
@@ -58,3 +58,4 @@ https://github.com/tsukkee/unite-tag                          unite-tag
 https://github.com/Shougo/vimshell                            vimshell
 https://github.com/tommcdo/vim-exchange                       exchange
 # https://github.com/dbsr/vimpy                               vimpy # Makes pymodelint sptop working
+https://github.com/Shougo/unite-help                          unite-help

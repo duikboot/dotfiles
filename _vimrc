@@ -471,7 +471,7 @@ if hostname=='WPL237'
     autocmd FileType python setlocal colorcolumn=" "
 else
     colorscheme solarized
-    set background=dark           " We are using dark background in vim
+    set background=light
 endif
 
 function! BackgroundToggle()
@@ -528,19 +528,21 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Unite keybindings
 
+nnoremap [unite] <Nop>
+nmap , [unite]
 " Unite
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>ut :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
-nnoremap <leader>uc :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
-nnoremap <leader>uf :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-nnoremap <leader>ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <leader>uo :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
-nnoremap <leader>uy :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-nnoremap <leader>ub :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
-nnoremap <leader>ul :<C-u>Unite -no-split -buffer-name=line -start-insert line<cr>
-nnoremap <leader>ug :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep<cr>
-nnoremap <Leader>us :Unite -no-split -quick-match buffer<cr>
+nnoremap [unite]ut :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
+nnoremap [unite]uc :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
+nnoremap [unite]uf :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
+nnoremap [unite]ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+nnoremap [unite]uo :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+nnoremap [unite]uy :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+nnoremap [unite]ub :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
+nnoremap [unite]ul :<C-u>Unite -no-split -buffer-name=line -start-insert line<cr>
+nnoremap [unite]ug :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep:.<cr>
+nnoremap [unite]us :<C-u>Unite -no-split -quick-match buffer<cr>
 
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
