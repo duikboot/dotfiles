@@ -535,7 +535,7 @@ let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap [unite]ut :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
 nnoremap [unite]uc :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
-nnoremap [unite]uf :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
+nnoremap [unite]f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
 nnoremap [unite]ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 nnoremap [unite]uo :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
 nnoremap [unite]uy :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
