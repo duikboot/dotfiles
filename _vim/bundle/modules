@@ -2,61 +2,62 @@ https://github.com/mileszs/ack.vim.git                        ack
 #https://github.com/sjl/badwolf.git                            badwolf
 https://github.com/kien/ctrlp.vim.git                         ctrlp
 #https://github.com/vim-scripts/dbext.vim                      dbext.vim
+https://github.com/Raimondi/delimitMate                       delimitMate
 git://github.com/tpope/vim-dispatch.git                       dispatch
+https://github.com/tommcdo/vim-exchange                       exchange
 https://github.com/terryma/vim-expand-region                  expand-region
 https://github.com/eagletmt/ghcmod-vim                        ghcmod-vim
 https://github.com/sjl/gundo.vim.git                          gundo
+# https://github.com/dbsr/vimpy                               vimpy
+# https://github.com/sheerun/vim-polyglot                       vim-polyglot
+# https://github.com/Shougo/neomru.vim                          neomru
 https://github.com/vim-scripts/IndexedSearch.git              IndexedSearch
 #https://github.com/ciaranm/inkpot.git                         inkpot
 #https://github.com/nanotech/jellybeans.vim.git                jellybeans
+# Makes pymodelint sptop working
 https://github.com/qstrahl/vim-matchmaker                     matchmaker
 #https://github.com/tomasr/molokai                             molokai
 https://github.com/ujihisa/neco-ghc.git                       neco-ghc
 https://github.com/Shougo/neocomplete                         neocomplete
-# https://github.com/Shougo/neomru.vim                          neomru
 https://github.com/vim-scripts/The-NERD-tree.git             nerdtree
+https://github.com/NLKNguyen/papercolor-theme                 papercolor
 git://github.com/tpope/vim-pathogen.git                       pathogen
 #https://github.com/vim-scripts/peaksea.git                   peaksea
 https://github.com/klen/python-mode.git                       python-mode
 https://github.com/mhinz/vim-signify                          signify
 https://github.com/epeli/slimux.git                           slimux
 #https://github.com/kana/vim-smartinput                        smartinput
-https://github.com/Raimondi/delimitMate                       delimitMate
 https://github.com/altercation/vim-colors-solarized.git       solarized
 https://github.com/tpope/vim-surround.git                     surround
 #https://github.com/mutewinter/swap-parameters                swap-parameters
 https://github.com/scrooloose/syntastic.git                   syntastic
 https://github.com/godlygeek/tabular                          tabular
 https://github.com/majutsushi/tagbar                          tagbar
+https://github.com/christoomey/vim-tmux-navigator             tmux-navigator
 https://github.com/vim-scripts/tracwiki.git                   tracwiki
 https://github.com/SirVer/ultisnips.git                       ultisnips
 git://github.com/tpope/vim-unimpaired.git                     unimpaired
 https://github.com/Shougo/unite.vim                           unite
+https://github.com/Shougo/unite-help                          unite-help
 https://github.com/Shougo/unite-outline                       unite-outline
+https://github.com/tsukkee/unite-tag                          unite-tag
 https://github.com/vim-scripts/vcscommand.vim.git             vcscommand
 https://github.com/dag/vim2hs                                 vim2hs
 https://github.com/bling/vim-airline                          vim-airline
 https://github.com/tpope/vim-commentary.git                   vim-commentary
 https://github.com/clones/vim-l9.git                          vim-l9
+https://bitbucket.org/ludovicchabant/vim-lawrencium           vim-lawrencium
 https://github.com/tpope/vim-markdown.git                     vim-markdown
 https://github.com/thisivan/vim-matchit.git                   vim-matchit
 https://github.com/terryma/vim-multiple-cursors               vim-multiple-cursors
-# https://github.com/sheerun/vim-polyglot                       vim-polyglot
 https://github.com/Shougo/vimproc.vim.git                     vimproc
 #https://github.com/JarrodCTaylor/vim-python-test-runner      vim-python-test-runner
 https://github.com/tpope/vim-repeat                           vim-repeat
 #https://github.com/kana/vim-scratch.git                      vim-scratch
+https://github.com/Shougo/vimshell                            vimshell
 https://github.com/honza/vim-snippets                         vim-snippets
 https://github.com/vim-scripts/vimwiki                        vimwiki
 https://github.com/tpope/vim-vinegar.git                      vinegar
 https://github.com/nelstrom/vim-visual-star-search            visual-star-search
-https://github.com/vim-scripts/YankRing.vim.git               yankring
-https://bitbucket.org/ludovicchabant/vim-lawrencium           vim-lawrencium
 #https://github.com/vim-scripts/wombat256.vim                  wombat256.vim
-https://github.com/christoomey/vim-tmux-navigator             tmux-navigator
-https://github.com/tsukkee/unite-tag                          unite-tag
-https://github.com/Shougo/vimshell                            vimshell
-https://github.com/tommcdo/vim-exchange                       exchange
-# Makes pymodelint sptop working
-# https://github.com/dbsr/vimpy                               vimpy
-https://github.com/Shougo/unite-help                          unite-help
+https://github.com/vim-scripts/YankRing.vim.git               yankring
