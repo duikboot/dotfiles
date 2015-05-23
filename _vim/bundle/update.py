@@ -5,11 +5,6 @@ import subprocess
 import time
 
 
-def printing(text, module):
-    print 80*"="
-    print "%s %s...." % (text, module)
-
-
 def install(module):
 
     link, directory = module.split()
