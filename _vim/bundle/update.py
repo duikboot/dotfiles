@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 
 import os
+import pprint
+import subprocess
+import time
+import thread
 
 
 def printing(text, module):
@@ -9,30 +13,40 @@ def printing(text, module):
 
 
 def install(module):
-    printing("installing", module)
+
+    link, directory = module.split()
+    s = [None, 'clone', link, directory]
 
     if "bitbucket" in module:
-        os.system('hg clone %s' % module)
+        s[0] = 'hg'
     else:
-        os.system('git clone %s' % module)
+        s[0] = 'git'
+    return subprocess.Popen(s)
 
 
 def procs(module):
     p = []
     directory = module.split()[1]
-    if "bitbucket" in module:
-        p.append(['hg', 'pull', '--cwd', directory])
-        p.append(['hg', 'up', '--cwd', directory])
+    if not os.path.exists(directory):
+        return install(module)
     else:
-        p.append(["git", "-C", directory, "pull"])
-    return p
+        if "bitbucket" in module:
+            proc = subprocess.Popen(['hg', 'pull', '-u', '--cwd', directory])
+        else:
+            proc = subprocess.Popen(["git", "-C", directory, "pull"])
+    return proc
 
 
 def main():
     with open('modules') as f:
         process_list = [procs(module) for module in f if not module.startswith("#")]
-    print process_list
+    # pprint.pprint(process_list)
+    for proc in process_list:
+        proc.communicate()
 
 
 if __name__ == '__main__':
+    start = time.time()
     main()
+    end = time.time()
+    print "Took %.3f seconds" % (end - start)
