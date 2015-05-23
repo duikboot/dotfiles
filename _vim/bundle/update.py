@@ -17,29 +17,21 @@ def install(module):
         os.system('git clone %s' % module)
 
 
-def update(module):
+def procs(module):
+    p = []
     directory = module.split()[1]
-    if not os.path.exists(directory):
-        install(module)
-
+    if "bitbucket" in module:
+        p.append(['hg', 'pull', '--cwd', directory])
+        p.append(['hg', 'up', '--cwd', directory])
     else:
-        os.chdir(directory)
-        printing("updating", module)
-        if "bitbucket" in module:
-            os.system('hg pull')
-            os.system('hg up')
-        else:
-            os.system("git pull")
-        os.chdir("..")
+        p.append(["git", "-C", directory, "pull"])
+    return p
 
 
 def main():
     with open('modules') as f:
-        for line in f:
-            if line.startswith("#"):
-                continue
-            update(line)
-            print 80*"="
+        process_list = [procs(module) for module in f if not module.startswith("#")]
+    print process_list
 
 
 if __name__ == '__main__':
