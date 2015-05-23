@@ -31,7 +31,7 @@ def procs(module):
 
 def main():
     with open('modules') as f:
-        process_list = [procs(module) for module in f if not module.startswith("#")]
+        process_list = [procs(mod) for mod in f if not mod.startswith("#")]
     for proc in process_list:
         proc.communicate()
 
