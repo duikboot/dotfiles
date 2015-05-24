@@ -5,9 +5,8 @@ import subprocess
 import time
 
 
-def install(module):
+def install(link, directory):
 
-    link, directory = module.split()
     s = [None, 'clone', link, directory]
 
     if "bitbucket" in module:
@@ -17,16 +16,17 @@ def install(module):
     return subprocess.Popen(s)
 
 
+def update(link, directory):
+    if "bitbucket" in link:
+        return subprocess.Popen(['hg', 'pull', '-u', '--cwd', directory])
+    return subprocess.Popen(["git", "-C", directory, "pull", "-v"])
+
 def procs(module):
-    directory = module.split()[1]
+    link, directory = module.split()
     if not os.path.exists(directory):
         return install(module)
-    else:
-        if "bitbucket" in module:
-            proc = subprocess.Popen(['hg', 'pull', '-u', '--cwd', directory])
-        else:
-            proc = subprocess.Popen(["git", "-C", directory, "pull", "-v"])
-    return proc
+
+    return update(link, directory)
 
 
 def main():
