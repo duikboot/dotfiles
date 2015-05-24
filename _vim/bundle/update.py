@@ -9,7 +9,7 @@ def install(link, directory):
 
     s = [None, 'clone', link, directory]
 
-    if "bitbucket" in module:
+    if "bitbucket" in link:
         s[0] = 'hg'
     else:
         s[0] = 'git'
@@ -24,7 +24,7 @@ def update(link, directory):
 def procs(module):
     link, directory = module.split()
     if not os.path.exists(directory):
-        return install(module)
+        return install(link, directory)
 
     return update(link, directory)
 
