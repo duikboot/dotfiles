@@ -13,6 +13,7 @@ def install(link, directory):
         s[0] = 'hg'
     else:
         s[0] = 'git'
+        s.append('-v')
     return subprocess.Popen(s)
 
 
@@ -20,6 +21,7 @@ def update(link, directory):
     if "bitbucket" in link:
         return subprocess.Popen(['hg', 'pull', '-u', '--cwd', directory])
     return subprocess.Popen(["git", "-C", directory, "pull", "-v"])
+
 
 def procs(module):
     link, directory = module.split()
