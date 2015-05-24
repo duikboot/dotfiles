@@ -470,7 +470,7 @@ if hostname=='WPL237'
     " highlight CursorLine cterm=NONE ctermbg=251
     autocmd FileType python setlocal colorcolumn=" "
 else
-    colorscheme solarized
+    colorscheme PaperColor
     set background=light
 endif
 

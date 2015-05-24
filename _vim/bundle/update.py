@@ -25,7 +25,7 @@ def procs(module):
         if "bitbucket" in module:
             proc = subprocess.Popen(['hg', 'pull', '-u', '--cwd', directory])
         else:
-            proc = subprocess.Popen(["git", "-C", directory, "pull"])
+            proc = subprocess.Popen(["git", "-C", directory, "pull", "-v"])
     return proc
 
 
