@@ -1,12 +1,14 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 import subprocess
 import time
 
 
-def install(link, directory):
-
+def clone(link, directory):
+    """
+    Create clone command.
+    """
     s = [None, 'clone', link, directory]
 
     if "bitbucket" in link:
@@ -18,21 +20,28 @@ def install(link, directory):
 
 
 def update(link, directory):
+    """
+    Create update command.
+    """
     if "bitbucket" in link:
         return subprocess.Popen(['hg', 'pull', '-u', '--cwd', directory])
     return subprocess.Popen(["git", "-C", directory, "pull", "-v"])
 
 
 def procs(module):
+    """
+    Return update or clone subprocess object.
+    """
     link, directory = module.split()
     if not os.path.exists(directory):
-        return install(link, directory)
+        return clone(link, directory)
 
     return update(link, directory)
 
 
 def main():
     with open('modules') as f:
+        # Create process_list but filter commented lines.
         process_list = [procs(mod) for mod in f if not mod.startswith("#")]
     for proc in process_list:
         proc.communicate()
@@ -42,4 +51,4 @@ if __name__ == '__main__':
     start = time.time()
     main()
     end = time.time()
-    print "Took %.3f seconds" % (end - start)
+    print("Took %.3f seconds" % (end - start))
