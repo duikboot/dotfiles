@@ -469,6 +469,7 @@ if hostname=='WPL237'
     " highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     " highlight CursorLine cterm=NONE ctermbg=251
     autocmd FileType python setlocal colorcolumn=" "
+    autocmd FileType python colorscheme PaperColor
 else
     colorscheme PaperColor
     set background=light
@@ -529,7 +530,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " Unite keybindings
 
 nnoremap [unite] <Nop>
-nmap , [unite]
+nmap <tab> [unite]
 " Unite
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
