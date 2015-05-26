@@ -10,6 +10,7 @@ ZSH_THEME="prose"
 function review() {
   if [ "$1" ]
   then
+    hg up -C
     echo "hg merge $1"
     hg merge $1
   fi
