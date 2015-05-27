@@ -505,6 +505,12 @@ autocmd BufRead,BufNewFile *.zcml set ft=xml
 " ==========================================================
 autocmd BufRead,BufNewFile *.md set ft=markdown
 
+" ==========================================================
+" Main
+" ==========================================================
+autocmd FileType mail setlocal spell
+autocmd FileType mail setlocal spelllang=nl
+
 
 " ==========================================================
 " Javascript
@@ -530,7 +536,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " Unite keybindings
 
 nnoremap [unite] <Nop>
-nmap <tab> [unite]
+nmap , [unite]
 " Unite
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
