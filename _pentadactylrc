@@ -31,4 +31,4 @@ set passkeys+='flickr\.com':lf<Left><Right>
 "}}}
 
 
-" vim: ft=pentadactyl; foldmethod=marker
+" vim: ft=vim foldmethod=marker

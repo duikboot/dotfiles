@@ -504,6 +504,12 @@ autocmd BufRead,BufNewFile *.zcml set ft=xml
 " ==========================================================
 autocmd BufRead,BufNewFile *.md set ft=markdown
 
+" ==========================================================
+" Main
+" ==========================================================
+autocmd FileType mail setlocal spell
+autocmd FileType mail setlocal spelllang=nl
+
 
 " ==========================================================
 " Javascript
