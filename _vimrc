@@ -528,7 +528,7 @@ let g:syntastic_javascript_checkers = ['jslint', 'jshint']
 " snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 
 let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsListSnippets="<c-t>"
+let g:UltiSnipsListSnippets="<c-t>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "

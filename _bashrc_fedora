@@ -43,7 +43,7 @@ alias io="rlwrap -f $HOME/.rlwrap/keywords io"
 
 PS1='\[`[ $? = 0 ] && X=2 || X=1; tput setaf $X`\][\t] [\u@\h]\[`tput sgr0`\]: $PWD >\n\$ '
 # export PS1='$(hg_ps1)\n\u at \h in \w\n$ '
-eval `keychain --eval --agents ssh id_dsa id_rsa`
+# eval `keychain --eval --agents ssh id_dsa id_rsa`
 
 [[ -s ENV/bin/activate ]] && source ENV/bin/activate
 [[ -s .hsenv/bin/activate ]] && source .hsenv/bin/activate
