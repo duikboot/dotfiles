@@ -2,6 +2,7 @@
 
 import os
 import subprocess
+import shutil
 import time
 
 
@@ -25,7 +26,8 @@ def update(link, directory):
     """
     if "bitbucket" in link:
         return subprocess.Popen(['hg', 'pull', '-u', '--cwd', directory])
-    return subprocess.Popen(["git", "-C", directory, "pull", "-v"])
+    elif "git" in link:
+        return subprocess.Popen(["git", "-C", directory, "pull", "-v"])
 
 
 def procs(module):
@@ -43,9 +45,13 @@ def main():
     with open('modules') as f:
         # Create process_list but filter commented lines.
         process_list = [procs(mod) for mod in f if not mod.startswith("#")]
+        f.seek(0)
+        obsolete_dirs = [(mod.split()[-1]) for mod in f if mod.startswith("#")
+                         if os.path.exists(mod.split()[-1])]
     for proc in process_list:
         proc.communicate()
-
+    print(obsolete_dirs)
+    [shutil.rmtree(d) for d in obsolete_dirs]
 
 if __name__ == '__main__':
     start = time.time()
