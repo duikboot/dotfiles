@@ -325,6 +325,7 @@ let g:pyflakes_use_quickfix = 0
 " let g:pymode_rope_autoimport = 1
 let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
 
+"let g:pymode_python = 'python3'
 " yet let it open on toggle.
 " map <leader>l :PyLintToggle<CR>
 

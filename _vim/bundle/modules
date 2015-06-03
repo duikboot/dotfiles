@@ -19,7 +19,7 @@ https://github.com/qstrahl/vim-matchmaker                     matchmaker
 #https://github.com/tomasr/molokai                             molokai
 https://github.com/ujihisa/neco-ghc.git                       neco-ghc
 https://github.com/Shougo/neocomplete                         neocomplete
-https://github.com/vim-scripts/The-NERD-tree.git             nerdtree
+# https://github.com/vim-scripts/The-NERD-tree.git             nerdtree
 https://github.com/NLKNguyen/papercolor-theme                 papercolor
 git://github.com/tpope/vim-pathogen.git                       pathogen
 #https://github.com/vim-scripts/peaksea.git                   peaksea

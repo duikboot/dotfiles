@@ -48,8 +48,7 @@ def main():
         f.seek(0)
         obsolete_dirs = [(mod.split()[-1]) for mod in f if mod.startswith("#")
                          if os.path.exists(mod.split()[-1])]
-    for proc in process_list:
-        proc.communicate()
+    [proc.communicate() for proc in process_list]
     print(obsolete_dirs)
     [shutil.rmtree(d) for d in obsolete_dirs]
 
