@@ -96,8 +96,6 @@ iabbrev @@ dijkstra.arjen@gmail.com
 " Toggle the tasklist
 " nnoremap <leader>td <Plug>TaskList
 
-" " Run PymodeLint
-autocmd FileType python noremap <LocalLeader>8 :PymodeLint<cr>:lopen<cr>
 
 " silence search string
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
@@ -321,6 +319,8 @@ let g:pymode_syntax_space_errors = 0
 " Don't let pyflakes use the quickfix window
 let g:pyflakes_use_quickfix = 0
 
+" Run PymodeLint
+autocmd FileType python noremap <LocalLeader>8 :PymodeLint<cr>:lopen<cr>
 
 " let g:pymode_rope_autoimport = 1
 let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
