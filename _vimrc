@@ -704,6 +704,13 @@ autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 
 let g:syntastic_python_checkers = ['']
 " autocmd FileType python let b:dispatch = 'python %'
 
+function! OpenTestFile()
+    let l:test_file = '**/[tT]est*' . expand('%:t') . '*'
+    vsplit
+    execute "find" . ' ' . l:test_file
+endfunc
+
+nnoremap <Leader>ot :call OpenTestFile()<cr>
 
 " Latex support
 let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
