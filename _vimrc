@@ -704,19 +704,26 @@ autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 
 let g:syntastic_python_checkers = ['']
 " autocmd FileType python let b:dispatch = 'python %'
 
-function! OpenTestFile()
+function! OpenTestFile(split)
     try
         let l:test_file = '**/[tT]est*' . expand('%:t') . '*'
-        " vsplit
+        if a:split=='vertical'
+            vsplit
+        elseif a:split=='horizontal'
+            split
+        endif
         execute "find" . ' ' . l:test_file
     catch
+        if a:split == "horizontal" || a:split == "vertical"
+            quit
+        endif
         echom "No test file found."
-    " finally
-    "     quit
     endtry
 endfunc
 
-nnoremap <Leader>ot :call OpenTestFile()<cr>
+nnoremap <Leader>ovt :call OpenTestFile("vertical")<cr>
+nnoremap <Leader>oht :call OpenTestFile("horizontal")<cr>
+nnoremap <Leader>ot :call OpenTestFile("")<cr>
 
 " Latex support
 let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
