@@ -705,9 +705,15 @@ let g:syntastic_python_checkers = ['']
 " autocmd FileType python let b:dispatch = 'python %'
 
 function! OpenTestFile()
-    let l:test_file = '**/[tT]est*' . expand('%:t') . '*'
-    vsplit
-    execute "find" . ' ' . l:test_file
+    try
+        let l:test_file = '**/[tT]est*' . expand('%:t') . '*'
+        " vsplit
+        execute "find" . ' ' . l:test_file
+    catch
+        echom "No test file found."
+    " finally
+    "     quit
+    endtry
 endfunc
 
 nnoremap <Leader>ot :call OpenTestFile()<cr>
