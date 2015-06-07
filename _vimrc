@@ -705,7 +705,7 @@ let g:syntastic_python_checkers = ['']
 " autocmd FileType python let b:dispatch = 'python %'
 
 function! OpenTestFile(split)
-    let l:test_file = '**/[tT]est*' . expand('%:t')
+    let l:test_file = '**/[tT]est*' . expand('%:r') . "*"
     if a:split ==# 'vertical'
         vsplit
     elseif a:split ==# 'horizontal'
