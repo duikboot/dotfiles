@@ -202,7 +202,7 @@ nnoremap <leader>t <Esc>:tselect<Space>
 nnoremap <leader>tl :TagbarToggle<CR>
 
 function! AddFilenameToRegister(from)
-    if a:from=='absolute'
+    if a:from==#'absolute'
         :let @+ = expand("%:p")
     else
         :let @+ = expand("%")
@@ -706,15 +706,15 @@ let g:syntastic_python_checkers = ['']
 
 function! OpenTestFile(split)
     try
-        let l:test_file = '**/[tT]est*' . expand('%:t') . '*'
-        if a:split=='vertical'
+        let l:test_file = '**/[tT]est*' . expand('%:t')
+        if a:split ==# 'vertical'
             vsplit
-        elseif a:split=='horizontal'
+        elseif a:split ==# 'horizontal'
             split
         endif
         execute "find" . ' ' . l:test_file
     catch
-        if a:split == "horizontal" || a:split == "vertical"
+        if a:split ==# "horizontal" || a:split ==# "vertical"
             quit
         endif
         echom "No test file found."
