@@ -14,3 +14,5 @@
 [gui]
 	recentrepo = /home/arjend/Projects/downunder
 	recentrepo = /home/arjend/configs/dotfiles
+[alias]
+	root = !pwd
