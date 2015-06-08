@@ -19,28 +19,6 @@ let g:mapleader="\<space>"             " change the leader to be a comma vs slas
 let g:maplocalleader="\\"       " map localleader to \\
 " noremap - ,
 
-" set rtp +=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
-" set rtp +=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
-
-" Seriously, guys. It's not like :W is bound to anything anyway.
-command! W :w
-command! Q :quitall
-command! WQ :wqall
-command! Wq :wq
-
-" nnoremap ; :
-" nnoremap : ;
-" inoremap jj <Esc>
-
-" save file
-noremap <Leader>w :w<cr>
-
-" Quit window on <leader>q
-nnoremap <leader>q :q<CR>
-
-" Open :CtrlP
-nnoremap <Leader>o :CtrlP<CR>
-
 " Basic Settings {{{
 syntax on                     " syntax highlighting
 filetype on                   " try to detect filetypes
@@ -68,6 +46,10 @@ set splitbelow
 
 set dictionary=/usr/share/dict/words
 
+" Don't select everything if the is a point(.) in it
+" eg. select.dontselect selects now select with gd or *
+set iskeyword-=.
+
 if v:version >= 703
     " Keep a persistend backupfile
     set undofile
@@ -75,13 +57,33 @@ if v:version >= 703
 endif
 " }}}
 
-" Don't select everything if the is a point(.) in it
-" eg. select.dontselect selects now select with gd or *
-set iskeyword-=.
+
+" set rtp +=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+" set rtp +=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
+
+" Seriously, guys. It's not like :W is bound to anything anyway.
+command! W :w
+command! Q :quitall
+command! WQ :wqall
+command! Wq :wq
+
+" nnoremap ; :
+" nnoremap : ;
+" inoremap jj <Esc>
+
+" save file
+noremap <Leader>w :w<cr>
+
+" Quit window on <leader>q
+nnoremap <leader>q :q<CR>
+
+" Open :CtrlP
+nnoremap <Leader>o :CtrlP<CR>
+
+
 
 " Make Vim able to edit crontab files again.
 "set backupskip=/tmp/*,/private/tmp/*"
-
 
 " Save when losing focus
 "
