@@ -11,14 +11,6 @@ call pathogen#helptags()
 " So neovim will work in a VirtualEnv
 let g:python_host_prog='/usr/bin/python'
 
-" ==========================================================
-" Shortcuts
-" ==========================================================
-set nocompatible              " Don't be compatible with vi
-let g:mapleader="\<space>"             " change the leader to be a comma vs slash
-let g:maplocalleader="\\"       " map localleader to \\
-" noremap - ,
-
 " Basic Settings {{{
 syntax on                     " syntax highlighting
 filetype on                   " try to detect filetypes
@@ -57,9 +49,14 @@ if v:version >= 703
 endif
 " }}}
 
+" ==========================================================
+" Shortcuts
+" ==========================================================
+set nocompatible              " Don't be compatible with vi
+let g:mapleader="\<space>"             " change the leader to be a comma vs slash
+let g:maplocalleader="\\"       " map localleader to \\
+" noremap - ,
 
-" set rtp +=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
-" set rtp +=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
 
 " Seriously, guys. It's not like :W is bound to anything anyway.
 command! W :w
@@ -79,8 +76,6 @@ nnoremap <leader>q :q<CR>
 
 " Open :CtrlP
 nnoremap <Leader>o :CtrlP<CR>
-
-
 
 " Make Vim able to edit crontab files again.
 "set backupskip=/tmp/*,/private/tmp/*"
