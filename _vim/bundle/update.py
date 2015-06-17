@@ -52,6 +52,7 @@ def main():
     print(obsolete_dirs)
     _ = [shutil.rmtree(d) for d in obsolete_dirs]
 
+
 if __name__ == '__main__':
     start = time.time()
     main()

@@ -305,7 +305,7 @@ let g:pymode_lint_on_write = 0
 
 let g:pymode_trim_whitespaces = 1
 
-let g:pymode_lint_ignore = "C0110,E501,C0111,C0301"
+let g:pymode_lint_ignore = "C0110,E501,C0111,C0301,C0325"
 let g:pymode_lint_signs = 1
 let g:pymode_lint_unmodified = 0
 
@@ -748,8 +748,12 @@ EOF
 
 
 set path+=.,,**
-autocmd Filetype java set makeprg=javac\ %
-set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+
+augroup ft_java
+    autocmd!
+    autocmd Filetype java set makeprg=javac\ %
+    autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+augroup END
 
 let g:dbext_default_profile_survey = 'type=PGSQL:user=arjend:@askg:host=localhost:dbname=survey'
 let g:dbext_default_profile_storefront = 'type=PGSQL:user=postgres:@askg:host=arjen.yhdev.nl:dbname=storefront'
