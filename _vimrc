@@ -322,7 +322,7 @@ autocmd FileType python noremap <LocalLeader>8 :PymodeLint<cr>:lopen<cr>
 " let g:pymode_rope_autoimport = 1
 let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
 
-"let g:pymode_python = 'python3'
+" let g:pymode_python = 'python3'
 " yet let it open on toggle.
 " map <leader>l :PyLintToggle<CR>
 
@@ -734,7 +734,7 @@ let tlist_make_settings  = 'make;m:makros;t:targets'
 " let g:syntastic_ocaml_checkers = ['merlin']
 
 
-python << EOF
+python3 << EOF
 import os
 import sys
 import vim
@@ -769,6 +769,9 @@ noremap <Leader>C :Copen<cr>
 "     \'python': 'nosetests'
 "     \}
 
+" let test#strategy = "dispatch"
+" " Pass -s option to pytest so that we can use ipdb
+" let test#python#pytest#options = '-s'
 if filereadable('.local.vim')
   source .local.vim
 endif
