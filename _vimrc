@@ -400,8 +400,8 @@ let &showbreak='↳ '
 inoremap # #
 
 " close preview window automatically when we move around
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 """" Reading/Writing
 " set noautowrite             " Never write a file unless I request it.
@@ -460,14 +460,14 @@ let g:hostname=hostname()
 
 if hostname=='WPL237'
     colorscheme solarized
-    set background=dark           " We are using dark background in vim
+    colorscheme PaperColor
+    set background=light
     let g:solarized_termcolors=256
     " highlight LineNr term=bold cterm=NONE ctermfg=Yellow ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
     " highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     " highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     " highlight CursorLine cterm=NONE ctermbg=251
     autocmd FileType python setlocal colorcolumn=" "
-    autocmd FileType python colorscheme PaperColor
 else
     colorscheme PaperColor
     set background=light
