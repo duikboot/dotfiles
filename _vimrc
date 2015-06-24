@@ -213,9 +213,8 @@ nnoremap <leader>cr :call AddFilenameToRegister('relative')<CR>
 " Show yankring
 nnoremap <silent> <leader>y :YRShow<CR>
 
-" Please do check if the system clipboad has changed if we're running vim in
-" console
 let g:yankring_manual_clipboard_check = 1
+set clipboard=unnamed
 
 " install in other place
 " python from powerline.bindings.vim import source_plugin; source_plugin()
@@ -425,8 +424,8 @@ set laststatus=2            " Always show statusline, even if only 1 window.
 set encoding=utf-8          " Necessary to show unicode glyphs
 
 " displays tabs with :set list & displays when a line runs off-screen
-set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
-set nolist
+set listchars=tab:>-,trail:-,precedes:<,extends:>
+set list
 nnoremap <silent> <leader>s :set nolist!<CR>
 
 """ Searching and Patterns
