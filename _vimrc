@@ -213,6 +213,8 @@ nnoremap <leader>cr :call AddFilenameToRegister('relative')<CR>
 " Show yankring
 nnoremap <silent> <leader>y :YRShow<CR>
 
+" Please do check if the system clipboad has changed if we're running vim in
+" console
 let g:yankring_manual_clipboard_check = 1
 set clipboard=unnamed
 
@@ -321,7 +323,7 @@ autocmd FileType python noremap <LocalLeader>8 :PymodeLint<cr>:lopen<cr>
 " let g:pymode_rope_autoimport = 1
 let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
 
-" let g:pymode_python = 'python3'
+"let g:pymode_python = 'python3'
 " yet let it open on toggle.
 " map <leader>l :PyLintToggle<CR>
 
@@ -426,7 +428,6 @@ set encoding=utf-8          " Necessary to show unicode glyphs
 " displays tabs with :set list & displays when a line runs off-screen
 set listchars=tab:>-,trail:-,precedes:<,extends:>
 set list
-nnoremap <silent> <leader>s :set nolist!<CR>
 
 """ Searching and Patterns
 set ignorecase              " Default to using case insensitive searches,
@@ -768,9 +769,6 @@ noremap <Leader>C :Copen<cr>
 "     \'python': 'nosetests'
 "     \}
 
-" let test#strategy = "dispatch"
-" " Pass -s option to pytest so that we can use ipdb
-" let test#python#pytest#options = '-s'
 if filereadable('.local.vim')
   source .local.vim
 endif
