@@ -468,9 +468,11 @@ if hostname=='WPL237'
     " highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     " highlight CursorLine cterm=NONE ctermbg=251
     autocmd FileType python setlocal colorcolumn=" "
+    source $HOME/.vimrc_wpl237
 else
     colorscheme PaperColor
     set background=light
+    source $HOME/.vimrc_default
 endif
 
 function! BackgroundToggle()
@@ -732,19 +734,6 @@ let tlist_make_settings  = 'make;m:makros;t:targets'
 " execute "set rtp+=".s:ocamlmerlin."/vim"
 " execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
 " let g:syntastic_ocaml_checkers = ['merlin']
-
-
-python3 << EOF
-import os
-import sys
-import vim
-
-for p in sys.path:
-    # Add each directory in sys.path, if it exists.
-    if os.path.isdir(p):
-        # Command 'set' needs backslash before each space.
-        vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
-EOF
 
 
 set path+=.,,**
