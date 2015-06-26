@@ -200,11 +200,10 @@ nnoremap <leader>tl :TagbarToggle<CR>
 
 function! AddFilenameToRegister(from)
     if a:from==#'absolute'
-        :let @+ = expand("%:p")
+        let @* = expand("%:p")
     else
-        :let @+ = expand("%")
+        let @* = expand("%")
     endif
-    :YRPush '+'
 endfunction
 
 nnoremap <leader>cf :call AddFilenameToRegister('absolute')<CR>
