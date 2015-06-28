@@ -50,8 +50,12 @@ mkrepo = !$HG init $1 && cd $1 && \
           echo '*.orig'               >> .hgignore && \
           echo '.hsenv*'              >> .hgignore && \
           echo '.cabal-sandbox*'      >> .hgignore && \
-          echo "[paths]" >> .hg/hgrc
-
+          echo "[paths]" >> .hg/hgrc && \
+          echo "augroup project_settings" > .local.vim && \
+          echo "  autocmd!" >> .local.vim && \
+          echo "  autocmd BufEnter * let b:start='ipython -i %'" >> .local.vim && \
+          echo "  autocmd BufEnter * let b:dispatch='nosetests --with-doctest -v'" >> .local.vim && \
+          echo "augroup END" >> .local.vim
 # info = cat .hg/hgrc
 
 [tortoisehg]
