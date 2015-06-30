@@ -198,7 +198,7 @@ nnoremap <leader>t <Esc>:tselect<Space>
 " Toggle Tagbar
 nnoremap <leader>tl :TagbarToggle<CR>
 
-function! AddFilenameToRegister(from)
+function! s:AddFilenameToRegister(from)
     if a:from==#'absolute'
         let @* = expand("%:p")
     else
@@ -206,8 +206,8 @@ function! AddFilenameToRegister(from)
     endif
 endfunction
 
-nnoremap <leader>cf :call AddFilenameToRegister('absolute')<CR>
-nnoremap <leader>cr :call AddFilenameToRegister('relative')<CR>
+nnoremap <leader>cf :call <SID>AddFilenameToRegister('absolute')<CR>
+nnoremap <leader>cr :call <SID>AddFilenameToRegister('relative')<CR>
 
 " Show yankring
 nnoremap <silent> <leader>y :YRShow<CR>
@@ -535,7 +535,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " Unite keybindings
 
 nnoremap [unite] <Nop>
-nmap , [unite]
+nmap \ [unite]
 " Unite
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -583,7 +583,7 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 2
-" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplete#min_keyword_length = 2
 
 
@@ -702,8 +702,8 @@ autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 
 let g:syntastic_python_checkers = ['']
 " autocmd FileType python let b:dispatch = 'python %'
 
-function! OpenTestFile(split)
-    let l:test_file = '**/[tT]est*' . expand('%:t')
+function! s:OpenTestFile(split)
+    let l:test_file = '[tT]est*' . expand('%:t')
     " echom l:test_file
     if a:split ==# 'vertical'
         vsplit
@@ -711,7 +711,7 @@ function! OpenTestFile(split)
         split
     endif
     try
-        execute "next" . ' ' . l:test_file
+        execute "find" . ' ' . l:test_file
     catch
         if a:split ==# "horizontal" || a:split ==# "vertical"
             quit
@@ -720,9 +720,9 @@ function! OpenTestFile(split)
     endtry
 endfunc
 
-nnoremap <Leader>ovt :call OpenTestFile("vertical")<cr>
-nnoremap <Leader>oht :call OpenTestFile("horizontal")<cr>
-nnoremap <Leader>ot :call OpenTestFile("")<cr>
+nnoremap <Leader>ovt :call <SID>OpenTestFile("vertical")<cr>
+nnoremap <Leader>oht :call <SID>OpenTestFile("horizontal")<cr>
+nnoremap <Leader>ot :call <SID>OpenTestFile("")<cr>
 
 " Latex support
 let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
