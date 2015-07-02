@@ -474,7 +474,7 @@ else
     source $HOME/.vimrc_default
 endif
 
-function! BackgroundToggle()
+function! s:BackgroundToggle()
   if(&background == "dark")
     set background=light
   else
@@ -482,7 +482,7 @@ function! BackgroundToggle()
   endif
 endfunc
 
-nnoremap <Leader>bg :call BackgroundToggle()<cr>
+nnoremap <Leader>bg :call <SID>BackgroundToggle()<cr>
 
 " Paste from clipboard
 " map <leader>p "+gP
@@ -535,7 +535,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " Unite keybindings
 
 nnoremap [unite] <Nop>
-nmap \ [unite]
+nnoremap \\\ [unite]
 " Unite
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
