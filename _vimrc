@@ -534,22 +534,22 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Unite keybindings
 
-nnoremap [unite] <Nop>
-nnoremap \\\ [unite]
+" nnoremap [unite] <Nop>
+" nnoremap \\\ [unite]
 " Unite
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
-nnoremap [unite]ut :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
-nnoremap [unite]c :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
-nnoremap [unite]f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-nnoremap [unite]o :<C-u>Unite -no-split -buffer-name=outline -auto-preview outline<cr>
-nnoremap [unite]y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-nnoremap [unite]b :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
-nnoremap [unite]l :<C-u>Unite -no-split -buffer-name=line -start-insert line<cr>
-nnoremap [unite]g :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep:.<cr>
-" nnoremap [unite]us :<C-u>Unite -no-split -quick-match buffer<cr>
-" nnoremap [unite]ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+nnoremap <leader>ut :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
+nnoremap <leader>c :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
+nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
+nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -auto-preview outline<cr>
+nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
+nnoremap <leader>l :<C-u>Unite -no-split -buffer-name=line -start-insert line<cr>
+nnoremap <leader>g :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep:.<cr>
+" nnoremap <leader>us :<C-u>Unite -no-split -quick-match buffer<cr>
+" nnoremap <leader>ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
@@ -703,8 +703,7 @@ let g:syntastic_python_checkers = ['']
 " autocmd FileType python let b:dispatch = 'python %'
 
 function! s:OpenTestFile(split)
-    let l:test_file = '[tT]est*' . expand('%:t')
-    " echom l:test_file
+    let l:test_file = '**/[tT]est*' . expand('%:t')
     if a:split ==# 'vertical'
         vsplit
     elseif a:split ==# 'horizontal'

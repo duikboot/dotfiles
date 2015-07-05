@@ -17,6 +17,7 @@ alias hgs="hg status"
 alias hgd="hg diff"
 alias hgp="hg push"
 alias hgc="hg commit"
+alias hgg="hg glog"
 
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000
