@@ -11,7 +11,7 @@ https://github.com/sjl/gundo.vim.git                          gundo
 # https://github.com/dbsr/vimpy                               vimpy
 # https://github.com/sheerun/vim-polyglot                       vim-polyglot
 # https://github.com/Shougo/neomru.vim                          neomru
-https://github.com/vim-scripts/IndexedSearch.git              IndexedSearch
+# https://github.com/vim-scripts/IndexedSearch.git              IndexedSearch
 #https://github.com/ciaranm/inkpot.git                         inkpot
 #https://github.com/nanotech/jellybeans.vim.git                jellybeans
 # Makes pymodelint sptop working
@@ -61,3 +61,5 @@ https://github.com/tpope/vim-vinegar.git                      vinegar
 https://github.com/nelstrom/vim-visual-star-search            visual-star-search
 #https://github.com/vim-scripts/wombat256.vim                  wombat256.vim
 https://github.com/vim-scripts/YankRing.vim.git               yankring
+https://github.com/romainl/Apprentice                         Apprentice
+https://github.com/haya14busa/incsearch.vim                   incsearch.vim
