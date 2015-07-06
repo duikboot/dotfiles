@@ -692,7 +692,7 @@ let g:multi_cursor_quit_key='<Esc>'
 
 
 " Rebuild Ctags (mnemonic RC -> CR -> <cr>)
-nnoremap <leader><cr> :silent !myctags >/dev/null 2>&1 &<cr>:redraw!<cr>
+nnoremap <leader><cr> :silent !ctags -R --exclude=ENV/lib64 --exclude=.buildozer >/dev/null 2>&1 &<cr>:redraw!<cr>
 
 " Python
 " ==========================================================
