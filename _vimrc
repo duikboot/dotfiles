@@ -215,7 +215,7 @@ nnoremap <silent> <leader>y :YRShow<CR>
 " Please do check if the system clipboad has changed if we're running vim in
 " console
 let g:yankring_manual_clipboard_check = 1
-set clipboard=unnamed
+set clipboard^=unnamed
 
 " install in other place
 " python from powerline.bindings.vim import source_plugin; source_plugin()
@@ -437,6 +437,10 @@ set smarttab                " Handle tabs more intelligently
 " autocmd BufNewFile,BufRead *.coffee set noexpandtab " Use tabs, not spaces, for autoindent/tab key.
 set hlsearch                " Highlight searches by default.
 set incsearch               " Incrementally search while typing a /regex
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
 
 if &term =~ '256color'
     " disable Background Color Erase (BCE) so that color schemes
@@ -457,8 +461,11 @@ endif
 
 let g:hostname=hostname()
 
+" Try Apprenctice sometime
+" colorscheme apprenctice
+
 if hostname=='WPL237'
-    colorscheme solarized
+    " colorscheme solarized
     colorscheme PaperColor
     set background=light
     let g:solarized_termcolors=256
@@ -467,7 +474,7 @@ if hostname=='WPL237'
     " highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     " highlight CursorLine cterm=NONE ctermbg=251
     autocmd FileType python setlocal colorcolumn=" "
-    source $HOME/.vimrc_wpl237
+    source $HOME/.vimrc_python2
 else
     colorscheme PaperColor
     set background=light
@@ -544,7 +551,7 @@ nnoremap <leader>ut :<C-u>Unite -no-split -buffer-name=files -start-insert file_
 nnoremap <leader>c :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
 nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
 nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -auto-preview outline<cr>
-nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+" nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
 nnoremap <leader>l :<C-u>Unite -no-split -buffer-name=line -start-insert line<cr>
 nnoremap <leader>g :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep:.<cr>
@@ -683,6 +690,9 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " }}}
 
+
+" Rebuild Ctags (mnemonic RC -> CR -> <cr>)
+nnoremap <leader><cr> :silent !myctags >/dev/null 2>&1 &<cr>:redraw!<cr>
 
 " Python
 " ==========================================================
