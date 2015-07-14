@@ -189,7 +189,7 @@ let $PATH = $PATH . ':' . expand("~/.cabal/bin")
 set path+=~/.cabal/bin
 
 
-nnoremap <leader>a <Esc>:Ack!<Space>
+" nnoremap <leader>a <Esc>:Ack!<Space>
 let g:ackprg = 'ag --smart-case --nogroup --nocolor --column'
 
 " Toggle tag
@@ -481,16 +481,6 @@ else
     source $HOME/.vimrc_default
 endif
 
-function! s:BackgroundToggle()
-  if(&background == "dark")
-    set background=light
-  else
-    set background=dark
-  endif
-endfunc
-
-nnoremap <Leader>bg :call <SID>BackgroundToggle()<cr>
-
 " Paste from clipboard
 " map <leader>p "+gP
 
@@ -679,16 +669,6 @@ let g:necoghc_enable_detailed_browse = 1
 
 " let g:syntastic_haskell_checkers = ['']
 " " }}}
-
-" {{{
-let g:multi_cursor_use_default_mapping=0
-
-let g:multi_cursor_next_key='<C-c>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
-" }}}
 
 
 " Rebuild Ctags (mnemonic RC -> CR -> <cr>)

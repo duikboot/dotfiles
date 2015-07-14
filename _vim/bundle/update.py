@@ -42,10 +42,12 @@ def procs(module):
 
 
 def main():
+    # dirs = os.listdir('.')
     with open('modules') as f:
         # Create process_list but filter commented lines.
         process_list = [procs(mod) for mod in f if not mod.startswith("#")]
         f.seek(0)
+        # create list with directories which are commented
         obsolete_dirs = [(mod.split()[-1]) for mod in f if mod.startswith("#")
                          if os.path.exists(mod.split()[-1])]
     _ = [proc.communicate() for proc in process_list]

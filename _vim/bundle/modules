@@ -49,7 +49,7 @@ https://github.com/clones/vim-l9.git                          vim-l9
 https://bitbucket.org/ludovicchabant/vim-lawrencium           vim-lawrencium
 https://github.com/tpope/vim-markdown.git                     vim-markdown
 https://github.com/thisivan/vim-matchit.git                   vim-matchit
-https://github.com/terryma/vim-multiple-cursors               vim-multiple-cursors
+# https://github.com/terryma/vim-multiple-cursors               vim-multiple-cursors
 https://github.com/Shougo/vimproc.vim.git                     vimproc
 #https://github.com/JarrodCTaylor/vim-python-test-runner      vim-python-test-runner
 https://github.com/tpope/vim-repeat                           vim-repeat
@@ -63,3 +63,4 @@ https://github.com/nelstrom/vim-visual-star-search            visual-star-search
 https://github.com/vim-scripts/YankRing.vim.git               yankring
 https://github.com/romainl/Apprentice                         Apprentice
 https://github.com/haya14busa/incsearch.vim                   incsearch.vim
+https://github.com/wincent/ferret                             ferret
