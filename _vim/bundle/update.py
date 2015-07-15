@@ -59,4 +59,4 @@ if __name__ == '__main__':
     start = time.time()
     main()
     end = time.time()
-    print("Took %.3f seconds" % (end - start))
+    print("Took %.3f seconds" % (end - start), end="\n\n")
