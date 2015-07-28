@@ -32,7 +32,7 @@ https://github.com/tpope/vim-surround.git                     surround
 #https://github.com/mutewinter/swap-parameters                swap-parameters
 https://github.com/scrooloose/syntastic.git                   syntastic
 https://github.com/godlygeek/tabular                          tabular
-https://github.com/majutsushi/tagbar                          tagbar
+# https://github.com/majutsushi/tagbar                          tagbar
 https://github.com/christoomey/vim-tmux-navigator             tmux-navigator
 https://github.com/vim-scripts/tracwiki.git                   tracwiki
 https://github.com/SirVer/ultisnips.git                       ultisnips
