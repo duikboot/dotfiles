@@ -594,6 +594,7 @@ autocmd BufRead,BufNewFile *.kv set filetype=kivy
 autocmd BufNewFile,BufRead *.t set filetype=cram
 autocmd FileType kivy set commentstring=#\ %s
 autocmd FileType spec set commentstring=#\ %s
+autocmd FileType tmux set commentstring=#\ %s
 
 " sml
 " autocmd FileType sml setlocal shiftwidth=4
