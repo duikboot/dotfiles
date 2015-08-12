@@ -33,7 +33,7 @@ export PATH
 xmodmap -e 'keycode 66 = Control_L'
 xmodmap -e 'clear Lock'
 xmodmap -e 'add Control = Control_L'
-# eval `keychain --eval --agents ssh id_dsa id_rsa`
+eval `keychain --eval --agents ssh id_dsa id_rsa`
 # syndaemon -k -i 2 -d
 
 # # alias grep="/usr/bin/grep $GREP_OPTIONS"

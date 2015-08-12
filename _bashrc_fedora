@@ -52,4 +52,5 @@ PS1='\[`[ $? = 0 ] && X=2 || X=1; tput setaf $X`\][\t] [\u@\h]\[`tput sgr0`\]: $
 source /home/arjend/tmp/tmuxinator/completion/tmuxinator.bash
 [[ -s ~/.autojump/etc/profile.d/autojump.bash ]] && . ~/.autojump/etc/profile.d/autojump.bash
 
+zsh
 # vim: ft=sh
