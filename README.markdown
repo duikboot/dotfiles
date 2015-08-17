@@ -1,4 +1,4 @@
-Forked from https://github.com/sontek/dotfiles
+Based on https://github.com/sontek/dotfiles
 
 ## Files
 .vim
