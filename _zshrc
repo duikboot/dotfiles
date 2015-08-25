@@ -23,6 +23,7 @@ function review() {
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias tmuxn='tmux -2 new -s'
 alias vi='vim'
+alias clisp="rlwrap -f $HOME/.rlwrap/keywords clisp"
 
 export PLATFORM=`python -c 'import os; print os.uname()[1],'`
 
