@@ -43,17 +43,17 @@ https://github.com/Shougo/unite-outline                       unite-outline
 https://github.com/tsukkee/unite-tag                          unite-tag
 https://github.com/vim-scripts/vcscommand.vim.git             vcscommand
 https://github.com/dag/vim2hs                                 vim2hs
-https://github.com/bling/vim-airline                          vim-airline
-https://github.com/tpope/vim-commentary.git                   vim-commentary
-https://github.com/clones/vim-l9.git                          vim-l9
-https://bitbucket.org/ludovicchabant/vim-lawrencium           vim-lawrencium
-https://github.com/tpope/vim-markdown.git                     vim-markdown
-https://github.com/thisivan/vim-matchit.git                   vim-matchit
+https://github.com/bling/vim-airline                          airline
+https://github.com/tpope/vim-commentary.git                   commentary
+https://github.com/clones/vim-l9.git                          l9
+https://bitbucket.org/ludovicchabant/vim-lawrencium           lawrencium
+https://github.com/tpope/vim-markdown.git                     markdown
+https://github.com/thisivan/vim-matchit.git                   matchit
 # https://github.com/terryma/vim-multiple-cursors               vim-multiple-cursors
 https://github.com/Shougo/vimproc.vim.git                     vimproc
 #https://github.com/JarrodCTaylor/vim-python-test-runner      vim-python-test-runner
-https://github.com/tpope/vim-repeat                           vim-repeat
-#https://github.com/kana/vim-scratch.git                      vim-scratch
+https://github.com/tpope/vim-repeat                           repeat
+#https://github.com/kana/vim-scratch.git                      scratch
 https://github.com/Shougo/vimshell                            vimshell
 https://github.com/honza/vim-snippets                         vim-snippets
 https://github.com/vim-scripts/vimwiki                        vimwiki
@@ -64,4 +64,8 @@ https://github.com/vim-scripts/YankRing.vim.git               yankring
 https://github.com/romainl/Apprentice                         Apprentice
 https://github.com/haya14busa/incsearch.vim                   incsearch.vim
 https://github.com/wincent/ferret                             ferret
+# https://bitbucket.org/kovisoft/slimv                          slimv
+https://github.com/jceb/vim-orgmode                           orgmode
 https://github.com/kovisoft/paredit                           paredit
+https://github.com/vim-scripts/calendar.vim--Matsumoto        calendar
+https://github.com/tpope/vim-speeddating                      speeddating

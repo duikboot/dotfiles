@@ -180,6 +180,7 @@ nnoremap <Leader>sc :SlimuxREPLConfigure<CR>
 nnoremap <Leader>sl :SlimuxREPLSendLine<CR>
 vmap <Leader>ss :SlimuxREPLSendSelection<CR>
 
+"
 " Open NerdTree
 nnoremap <leader>n :NERDTreeToggle<CR>
 " let g:vimfiler_as_default_explorer = 1
