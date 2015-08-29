@@ -310,7 +310,7 @@ let g:pymode_lint_signs = 1
 let g:pymode_lint_unmodified = 0
 
 " Temporary disable rope, because there is a bug in RopeRename
-let g:pymode_rope = 0
+let g:pymode_rope = 1
 let g:pymode_syntax_space_errors = 0
 
 " Don't let pyflakes use the quickfix window
@@ -606,10 +606,15 @@ let g:xml_syntax_folding=1
 autocmd FileType xml setlocal foldmethod=syntax
 
 
-" racket
+" racket {{{
 " autocmd FileType racket setlocal shiftwidth=4
 autocmd FileType racket set commentstring=;%s
+" "}}}
 
+" common lisp {{{
+let delimitMate_excluded_ft = "clojure,lisp"
+
+" "}}}
 " Haskellmode {{{
 
 let g:haddock_browser = "firefox"
