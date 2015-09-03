@@ -24,7 +24,7 @@ https://github.com/sjl/gundo.vim.git                          gundo
 https://github.com/haya14busa/incsearch.vim                   incsearch.vim
 #https://github.com/ciaranm/inkpot.git                         inkpot
 #https://github.com/nanotech/jellybeans.vim.git                jellybeans
-https://github.com/clones/vim-l9.git                          l9
+# https://github.com/clones/vim-l9.git                          l9
 https://bitbucket.org/ludovicchabant/vim-lawrencium           lawrencium
 # Makes pymodelint sptop working
 https://github.com/tpope/vim-markdown.git                     markdown
