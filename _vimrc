@@ -304,18 +304,17 @@ let g:pymode_lint_message = 1
 let g:pymode_lint = 1
 let g:pymode_lint_on_write = 0
 
-let g:pymode_trim_whitespaces = 1
+" let g:pymode_trim_whitespaces = 1
 
 let g:pymode_lint_ignore = "C0110,E501,C0111,C0301,C0325"
 let g:pymode_lint_signs = 1
 let g:pymode_lint_unmodified = 0
 
 " Temporary disable rope, because there is a bug in RopeRename
-let g:pymode_rope = 0
+let g:pymode_rope = 1
 let g:pymode_syntax_space_errors = 0
 
-" Don't let pyflakes use the quickfix window
-let g:pyflakes_use_quickfix = 0
+let g:pymode_rope_complete_on_dot = 0
 
 " Run PymodeLint
 autocmd FileType python noremap <LocalLeader>8 :PymodeLint<cr>:lopen<cr>
@@ -326,9 +325,6 @@ let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
 "let g:pymode_python = 'python3'
 " yet let it open on toggle.
 " map <leader>l :PyLintToggle<CR>
-
-" Jump to the definition of whatever the cursor is on
-" map <leader>j :RopeGotoDefinition<CR>
 
 " Rename whatever the cursor is on (including references to it)
 " map <leader>r :RopeRename<CR>
@@ -362,7 +358,7 @@ set grepprg=ack          " replace the default grep program with ack
 
 " Disable the colorcolumn when switching modes.  Make sure this is the
 " first autocmd for the filetype here
-" autocmd FileType python setlocal colorcolumn=79
+autocmd FileType python setlocal colorcolumn=79
 
 """ Insert completion
 " don't select first item, follow typing in autocomplete
@@ -468,17 +464,17 @@ let g:hostname=hostname()
 if hostname=='WPL237'
     " colorscheme solarized
     colorscheme PaperColor
-    set background=light
+    set background=dark
     let g:solarized_termcolors=256
     " highlight LineNr term=bold cterm=NONE ctermfg=Yellow ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
     " highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     " highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     " highlight CursorLine cterm=NONE ctermbg=251
-    autocmd FileType python setlocal colorcolumn=" "
+    " autocmd FileType python setlocal colorcolumn=" "
     source $HOME/.vimrc_python2
 else
     colorscheme PaperColor
-    set background=light
+    set background=dark
     source $HOME/.vimrc_default
 endif
 
@@ -557,6 +553,10 @@ function! s:unite_settings()
   " Enable navigation with control-j and control-k in insert mode
   imap <buffer> <C-j> <Plug>(unite_select_next_line)
   imap <buffer> <C-k> <Plug>(unite_select_previous_line)
+
+  " Quit unite on backspace from normal mode, or using leader-q
+  nnoremap <buffer> <BS> :UniteClose<CR>
+  nnoremap <buffer> <leader>q :UniteClose<CR>
 endfunction
 
 function! UltiSnipsCallUnite()
@@ -607,6 +607,7 @@ let g:xml_syntax_folding=1
 autocmd FileType xml setlocal foldmethod=syntax
 
 
+autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 " racket {{{
 " autocmd FileType racket setlocal shiftwidth=4
 autocmd FileType racket set commentstring=;%s
@@ -614,7 +615,6 @@ autocmd FileType racket set commentstring=;%s
 
 " common lisp {{{
 let delimitMate_excluded_ft = "clojure,lisp"
-
 " "}}}
 " Haskellmode {{{
 
@@ -698,6 +698,53 @@ autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 
 
 let g:syntastic_python_checkers = ['']
 " autocmd FileType python let b:dispatch = 'python %'
+
+au FileType python call SetupPython()
+
+function! SetupPython()
+    compiler nosetests
+    set makeprg=nosetests
+endfunction
+autocmd FileType qf call ParseNosetestsQuickFix()
+
+let g:dispatch_compilers = {'nosetests': 'nosetests'}
+let test#strategy = "dispatch"
+
+function! ParseNosetestsQuickFix()
+  " only will work for vim 7.4.718+ as an autocommand
+  if !exists( "w:quickfix_title" )
+      set nofoldenable
+      return
+  endif
+  if match( w:quickfix_title, '.*nosetests.*') != 0
+      set nofoldenable
+      return
+  endif
+  set foldexpr=getline(v:lnum)=~'^\|\|.===='?'>1':1
+  set foldmethod=expr
+  set foldtext=NosetestsFoldtextMaker()
+  set foldenable
+endfunction
+
+function! NosetestsFoldtextMaker()
+  let line = getline(v:foldstart)
+  let linenum = v:foldstart + 1
+  let found = 0
+  while linenum < v:foldend
+    if match( getline( linenum ), '^||.*' ) == 0
+      if found == 1
+        let line = getline( linenum )
+        break
+      endif
+    else
+      let found = 1
+    endif
+    let linenum = linenum + 1
+  endwhile
+  let n = v:foldend - v:foldstart + 1
+  let info = " " . n . " lines "
+  return "+" . v:folddashes . info . line
+endfunction
 
 function! s:OpenTestFile(split)
     let l:test_file = '**/[tT]est*' . expand('%:t')
