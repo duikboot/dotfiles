@@ -306,7 +306,7 @@ let g:pymode_lint_on_write = 0
 
 " let g:pymode_trim_whitespaces = 1
 
-let g:pymode_lint_ignore = "C0110,E501,C0111,C0301,C0325"
+let g:pymode_lint_ignore = "C0110,C0111,C0301,C0325"
 let g:pymode_lint_signs = 1
 let g:pymode_lint_unmodified = 0
 
