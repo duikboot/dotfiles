@@ -615,6 +615,9 @@ autocmd FileType racket set commentstring=;%s
 
 " common lisp {{{
 let delimitMate_excluded_ft = "clojure,lisp"
+autocmd BufRead,BufNewFile *.asd set filetype=lisp
+
+
 " "}}}
 " Haskellmode {{{
 
