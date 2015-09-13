@@ -13,7 +13,7 @@ https://github.com/terryma/vim-expand-region                  expand-region
 https://github.com/wincent/ferret                             ferret
 https://github.com/eagletmt/ghcmod-vim                        ghcmod-vim
 https://github.com/sjl/gundo.vim.git                          gundo
-# https://bitbucket.org/kovisoft/slimv                          slimv
+https://bitbucket.org/kovisoft/slimv                          slimv
 # https://github.com/clones/vim-l9.git                          l9
 # https://github.com/dbsr/vimpy                               vimpy
 # https://github.com/majutsushi/tagbar                          tagbar
@@ -25,7 +25,7 @@ https://github.com/sjl/gundo.vim.git                          gundo
 https://github.com/haya14busa/incsearch.vim                   incsearch.vim
 #https://github.com/ciaranm/inkpot.git                         inkpot
 #https://github.com/nanotech/jellybeans.vim.git                jellybeans
-https://bitbucket.org/ludovicchabant/vim-lawrencium           lawrencium
+# https://bitbucket.org/ludovicchabant/vim-lawrencium           lawrencium
 https://github.com/tpope/vim-markdown.git                     markdown
 https://github.com/thisivan/vim-matchit.git                   matchit
 https://github.com/qstrahl/vim-matchmaker                     matchmaker
