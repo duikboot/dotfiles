@@ -537,7 +537,7 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <localleader>ut :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
 nnoremap <localleader>c :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
 nnoremap <localleader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-nnoremap <localleader>o :<C-u>Unite -no-split -buffer-name=outline -auto-preview outline<cr>
+nnoremap <localleader>o :<C-u>Unite -no-split -buffer-name=outline -auto-preview -start-insert -wipe outline<cr>
 " nnoremap <localleader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap <localleader>b :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
 nnoremap <localleader>l :<C-u>Unite -no-split -buffer-name=line -start-insert line<cr>
@@ -615,6 +615,7 @@ autocmd FileType racket set commentstring=;%s
 
 " common lisp {{{
 let delimitMate_excluded_ft = "clojure,lisp"
+let g:lisp_rainbow=1
 " "}}}
 " Haskellmode {{{
 
