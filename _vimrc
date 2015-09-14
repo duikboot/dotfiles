@@ -466,13 +466,16 @@ if hostname=='WPL237'
     " highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
     " highlight CursorLine cterm=NONE ctermbg=251
     " autocmd FileType python setlocal colorcolumn=" "
-    source $HOME/.vimrc_python2
 else
     colorscheme PaperColor
     set background=dark
-    source $HOME/.vimrc_default
 endif
 
+if has("python")
+    source $HOME/.vimrc_python2
+else
+    source $HOME/.vimrc_default
+endif
 " Paste from clipboard
 " map <leader>p "+gP
 
