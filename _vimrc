@@ -180,11 +180,6 @@ nnoremap <Leader>sc :SlimuxREPLConfigure<CR>
 nnoremap <Leader>sl :SlimuxREPLSendLine<CR>
 vmap <Leader>ss :SlimuxREPLSendSelection<CR>
 
-"
-" Open NerdTree
-nnoremap <leader>n :NERDTreeToggle<CR>
-" let g:vimfiler_as_default_explorer = 1
-" let g:vimfiler_safe_mode_by_default = 0  " For now, safe by default.
 
 let $PATH = $PATH . ':' . expand("~/.cabal/bin")
 set path+=~/.cabal/bin
@@ -617,7 +612,9 @@ autocmd FileType racket set commentstring=;%s
 let delimitMate_excluded_ft = "clojure,lisp"
 autocmd BufRead,BufNewFile *.asd set filetype=lisp
 let g:lisp_rainbow=1
-" "}}}
+
+let g:slimv_repl_split = 4
+" }}}
 " Haskellmode {{{
 
 let g:haddock_browser = "firefox"
