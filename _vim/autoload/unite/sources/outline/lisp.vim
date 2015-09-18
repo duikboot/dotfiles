@@ -22,7 +22,7 @@ let s:Util = unite#sources#outline#import('Util')
 
 let s:outline_info = {
       \ 'heading-1': '^\s*;\+\s*[-=]\{10,}\s*$',
-      \ 'heading'  : '^\s*(defun\|defmacro\>',
+      \ 'heading'  : '^\s*(defvar\|defun\|defmacro\>',
       \
       \ 'skip': { 'header': '^;' },
       \}

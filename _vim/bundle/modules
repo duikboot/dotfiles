@@ -34,7 +34,7 @@ https://github.com/ujihisa/neco-ghc.git                       neco-ghc
 https://github.com/Shougo/neocomplete                         neocomplete
 https://github.com/jceb/vim-orgmode                           orgmode
 https://github.com/NLKNguyen/papercolor-theme                 papercolor
-https://github.com/kovisoft/paredit                           paredit
+# https://github.com/kovisoft/paredit                           paredit
 git://github.com/tpope/vim-pathogen.git                       pathogen
 #https://github.com/vim-scripts/peaksea.git                   peaksea
 https://github.com/klen/python-mode.git                       python-mode

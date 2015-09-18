@@ -143,17 +143,28 @@ let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+inoremap <c-h><c-h> <Esc>:TmuxNavigateLeft<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
 let g:tmux_navigator_save_on_switch = 1
 
-nnoremap <silent> <C-W>z :wincmd z<Bar>cclose<Bar>lclose<CR>
-
 " and lets make these all work in insert mode too ( <C-O> makes next cmd
 "  happen as if in command mode )
-imap <C-W> <C-O><C-W>
+" imap <C-W> <C-O><C-W>
+xnoremap i_ :<C-u>call <SID>UnderscoreTextObject('i')<cr>
+
+function! s:UnderscoreTextObject(whole)
+    let saved_keyword = &iskeyword
+    setlocal iskeyword-=_
+    :normal! viw
+    let &iskeyword = saved_keyword
+endfunction
+
+
+nnoremap <silent> <C-W>z :wincmd z<Bar>cclose<Bar>lclose<CR>
+
 
 nnoremap j gj
 nnoremap k gk
@@ -535,7 +546,7 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <localleader>ut :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
 nnoremap <localleader>c :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
 nnoremap <localleader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-nnoremap <localleader>o :<C-u>Unite -no-split -buffer-name=outline -auto-preview outline<cr>
+nnoremap <localleader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert -auto-preview outline<cr>
 " nnoremap <localleader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap <localleader>b :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
 nnoremap <localleader>l :<C-u>Unite -no-split -buffer-name=line -start-insert line<cr>
