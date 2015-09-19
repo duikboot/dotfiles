@@ -162,9 +162,7 @@ function! s:UnderscoreTextObject(whole)
     let &iskeyword = saved_keyword
 endfunction
 
-
 nnoremap <silent> <C-W>z :wincmd z<Bar>cclose<Bar>lclose<CR>
-
 
 nnoremap j gj
 nnoremap k gk
