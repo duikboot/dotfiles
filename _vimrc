@@ -153,15 +153,60 @@ let g:tmux_navigator_save_on_switch = 1
 " and lets make these all work in insert mode too ( <C-O> makes next cmd
 "  happen as if in command mode )
 " imap <C-W> <C-O><C-W>
-onoremap i_ :<C-u>call <SID>UnderscoreTextObject('i')<cr>
 
+" -------------------------
+" Select within underscores
+" -------------------------
+
+xnoremap i_ :<C-u>call <SID>UnderscoreTextObject('i')<cr>
+onoremap i_ :<C-u>call <SID>UnderscoreTextObject('i')<cr>
+xnoremap a_ :<C-u>call <SID>UnderscoreTextObject('a')<cr>
+onoremap a_ :<C-u>call <SID>UnderscoreTextObject('a')<cr>
+
+" Select [i]nner or [a]ugmented word; if we're in an underscore_word segment, treat
+" underscores as word boundaries.
+"
+" Here is the behaviour of `va_` for several
+"
+"     asdf_asdf_asdf seen here.
+"     ^C^^^
+"          ^C^^^
+"              ^C^^^
+"                    ^C^^^
+"                        ^C^^^
 function! s:UnderscoreTextObject(whole)
     let saved_keyword = &iskeyword
     setlocal iskeyword-=_
-    :normal! viw
+
+    normal! viw
+
+    " We want the outer underscore_word segment
+    if a:whole ==# 'a'
+        " Alternative 1 of 3: select a trailing underscore, if any
+        "     asdf_asdf_asdf
+        "     ^^^^^
+        if getline('.')[col('.')] ==# '_'
+            normal! l
+        " Alternative 2 of 3: no trailing underscore, so select leading
+        " underscore, if any
+        "     asdf_asdf_asdf
+        "              ^^^^^
+        " `else` instead of `elif` because we need to hit o first.
+        else
+            normal! o
+            if getline('.')[col('.') - 2] ==# '_'
+                normal! h
+                normal! o
+        " Alternative 3 of 3: no underscores, default to normal outer word selection.
+        " Turn off selection, and hit vaw.
+            else
+                normal! v
+                normal! vaw
+            endif
+        endif
+    endif
     let &iskeyword = saved_keyword
 endfunction
-
 
 nnoremap <silent> <C-W>z :wincmd z<Bar>cclose<Bar>lclose<CR>
 
