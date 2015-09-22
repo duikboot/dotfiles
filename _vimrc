@@ -102,10 +102,10 @@ nnoremap Y y$
 
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
-nnoremap <silent> * *zz
-nnoremap <silent> # #zz
-nnoremap <silent> g* g*zz
-nnoremap <silent> g# g#zz
+" nnoremap <silent> * *zz
+" nnoremap <silent> # #zz
+" nnoremap <silent> g* g*zz
+" nnoremap <silent> g# g#zz
 nnoremap <silent> <C-o> <C-o>zz
 nnoremap <silent> <C-i> <C-i>zz
 
@@ -153,7 +153,7 @@ let g:tmux_navigator_save_on_switch = 1
 " and lets make these all work in insert mode too ( <C-O> makes next cmd
 "  happen as if in command mode )
 " imap <C-W> <C-O><C-W>
-xnoremap i_ :<C-u>call <SID>UnderscoreTextObject('i')<cr>
+onoremap i_ :<C-u>call <SID>UnderscoreTextObject('i')<cr>
 
 function! s:UnderscoreTextObject(whole)
     let saved_keyword = &iskeyword
@@ -161,6 +161,7 @@ function! s:UnderscoreTextObject(whole)
     :normal! viw
     let &iskeyword = saved_keyword
 endfunction
+
 
 nnoremap <silent> <C-W>z :wincmd z<Bar>cclose<Bar>lclose<CR>
 
@@ -377,6 +378,7 @@ set cursorline              " have a line indicate the cursor location
 set expandtab               " Use spaces, not tabs, for autoindent/tab key.
 set foldcolumn=0            " show the fold column
 set foldlevel=666            " don't fold by default
+" set foldlevel=0            " fold by default
 set foldmethod=indent       " allow us to fold on indents
 set linebreak               " don't wrap textin the middle of a word
 set matchpairs+=<:>         " show matching <> (html mainly) as well
