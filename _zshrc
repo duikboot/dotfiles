@@ -28,7 +28,7 @@ alias clisp="rlwrap -f $HOME/.rlwrap/keywords clisp"
 export PLATFORM=`python -c 'import os; print os.uname()[1],'`
 
 export EDITOR=vim
-alias hop='ssh -L 9090:127.0.0.1:80 -l arjen.dijkstra 192.168.0.31'
+# alias hop='ssh -L 9090:127.0.0.1:80 -l arjen.dijkstra 192.168.0.31'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

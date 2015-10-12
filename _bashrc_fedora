@@ -49,7 +49,7 @@ PS1='\[`[ $? = 0 ] && X=2 || X=1; tput setaf $X`\][\t] [\u@\h]\[`tput sgr0`\]: $
 [[ -s ENV/bin/activate ]] && source ENV/bin/activate
 [[ -s .hsenv/bin/activate ]] && source .hsenv/bin/activate
 # source /home/arjend/.gem/ruby/gems/tmuxinator-0.6.5/completion/tmuxinator.bash
-source /home/arjend/tmp/tmuxinator/completion/tmuxinator.bash
+[[ -s /home/arjen/tmp/tmuxinator/completion/tmuxinator.bash ]] &&  . ~/tmp/tmuxinator/completion/tmuxinator.bash
 [[ -s ~/.autojump/etc/profile.d/autojump.bash ]] && . ~/.autojump/etc/profile.d/autojump.bash
 
 zsh

@@ -591,7 +591,8 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <localleader>ut :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
 nnoremap <localleader>c :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
 nnoremap <localleader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-nnoremap <localleader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert -auto-preview outline<cr>
+" nnoremap <localleader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert -auto-preview outline<cr>
+nnoremap <localleader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
 " nnoremap <localleader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap <localleader>b :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
 nnoremap <localleader>l :<C-u>Unite -no-split -buffer-name=line -start-insert line<cr>
@@ -737,7 +738,7 @@ let g:necoghc_enable_detailed_browse = 1
 
 
 " Rebuild Ctags (mnemonic RC -> CR -> <cr>)
-nnoremap <leader><cr> :silent !ctags -R --exclude=ENV/lib64 --exclude=.buildozer >/dev/null 2>&1 &<cr>:redraw!<cr>
+nnoremap <leader><cr> :silent !ctags -R --exclude=ENV/lib64 --exclude=node_modules --exclude=.buildozer >/dev/null 2>&1 &<cr>:redraw!<cr>
 
 " Python
 " ==========================================================
