@@ -16,7 +16,6 @@ https://github.com/sjl/gundo.vim.git                          gundo
 https://bitbucket.org/kovisoft/slimv                          slimv
 # https://github.com/clones/vim-l9.git                          l9
 # https://github.com/dbsr/vimpy                               vimpy
-# https://github.com/majutsushi/tagbar                          tagbar
 # https://github.com/sheerun/vim-polyglot                       vim-polyglot
 # https://github.com/Shougo/neomru.vim                          neomru
 # https://github.com/terryma/vim-multiple-cursors               vim-multiple-cursors
@@ -71,3 +70,4 @@ https://github.com/vim-scripts/YankRing.vim.git               yankring
 https://github.com/tejr/vim-tmux                              vim-tmux
 https://github.com/mtth/scratch.vim                           scratch
 https://github.com/majutsushi/tagbar                          tagbar
+https://github.com/tpope/vim-abolish                          abolish
