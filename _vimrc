@@ -615,7 +615,7 @@ function! s:unite_settings()
 endfunction
 
 function! UltiSnipsCallUnite()
-    Unite -start-insert  -immediately -no-empty ultisnips
+    Unite -start-insert -immediately -no-empty ultisnips
     return ''
 endfunction
 
