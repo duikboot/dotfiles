@@ -223,7 +223,8 @@ vnoremap gk k
 vmap <BS> <Plug>(expand_region_shrink)
 
 " use ,F to jump to tag in a vertical split
-nnoremap <silent> <Leader>F :let word=expand("<cword>")<CR>:vsp<CR>:wincmd w<cr>:exec("tselect ". word)<cr>
+" nnoremap <silent> <Leader>F :let word=expand("<cword>")<CR>:vsp<CR>:wincmd w<cr>:exec("tselect ". word)<cr>
+nnoremap <silent> <Leader>F :let word=expand("<cword>")<CR>:vsp<CR>:exec("tselect ". word)<cr>
 "
 "  " use ,gf to go to file in a vertical split
 nnoremap <silent> <leader>gf :vertical botright wincmd f<CR>
