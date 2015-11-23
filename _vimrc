@@ -588,7 +588,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
-nnoremap <localleader>ut :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
+nnoremap <localleader>r :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
 nnoremap <localleader>c :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
 nnoremap <localleader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
 " nnoremap <localleader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert -auto-preview outline<cr>
@@ -597,7 +597,7 @@ nnoremap <localleader>o :<C-u>Unite  -buffer-name=outline -start-insert outline<
 nnoremap <localleader>b :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
 nnoremap <localleader>l :<C-u>Unite -no-split -buffer-name=line -start-insert line<cr>
 nnoremap <localleader>g :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep:.<cr>
-" nnoremap <localleader>us :<C-u>Unite -no-split -quick-match buffer<cr>
+nnoremap <localleader>qb :<C-u>Unite -no-split -quick-match buffer<cr>
 " nnoremap <localleader>ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 
 " Custom mappings for the unite buffer
