@@ -55,7 +55,9 @@ def list_processes():
         f.seek(0)
         # create list with directories which are commented
         dirs_ = [(mod.split()[-1]) for mod in f if not mod.startswith("#")]
-        obsolete_dirs = [d for d in os.listdir('.') if is_obsolete(d) and d not in dirs_]
+
+        obsolete_dirs = [d for d in os.listdir('.')
+                         if is_obsolete(d) and d not in dirs_]
     return process_list, obsolete_dirs
 
 
