@@ -48,23 +48,22 @@ def is_obsolete(f):
 
 
 def list_processes():
-    # dirs = os.listdir('.')
     with open('modules') as f:
         # Create process_list but filter commented lines.
         process_list = [procs(mod) for mod in f if not mod.startswith("#")]
         f.seek(0)
-        # create list with directories which are commented
+        # Create list of directories from file
         dirs_ = [(mod.split()[-1]) for mod in f if not mod.startswith("#")]
 
-        obsolete_dirs = [d for d in os.listdir('.')
-                         if is_obsolete(d) and d not in dirs_]
+        # Filter directories which are obsolete
+        obsolete_dirs = (d for d in os.listdir('.')
+                         if is_obsolete(d) and d not in dirs_)
     return process_list, obsolete_dirs
 
 
 def main():
     process_list, obsolete_dirs = list_processes()
     [proc.communicate() for proc in process_list]
-    print(obsolete_dirs)
     [shutil.rmtree(d) for d in obsolete_dirs]
 
 
