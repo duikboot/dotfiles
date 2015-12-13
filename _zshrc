@@ -67,7 +67,7 @@ source $ZSH/oh-my-zsh.sh
 # source /usr/share/autojump/autojump.zsh
 
 # autoload -U compinit && compinit -u
-eval `keychain --eval --agents ssh id_dsa id_rsa`
+
 
 # if [[ -r /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
 #     source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
