@@ -16,7 +16,7 @@ nmap -builtin -silent h gT
 nmap -builtin -silent l gt
 
 "{{{ PassKeys
-set passkeys+='mail\.google\.com':c/npovuexsfra#`[]z?*nrtgidIU+-=<Tab><Return>
+set passkeys+='mail\.google\.com':c/npvuexsfra#`[]z?*nrgidIU+-=<Tab><Return>
 set passkeys+='mail\.google\.com/tasks/canvas':<Tab><S-Tab><Return>
 set passkeys+='groups\.google\.com/forum':glmo<Enter>j<S-j>k<S-k>n<S-n>p<S-p>ufh<S-a>rc/?<Esc><Return>
 set passkeys+='google\.com/reader':jkvnpbumoaAXNOVPJK?gehtl<Return>
