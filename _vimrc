@@ -819,7 +819,7 @@ function! s:OpenTestFile(split)
         if a:split ==# "horizontal" || a:split ==# "vertical"
             quit
         endif
-        echom "No test file found."
+        echom "No test file found, with name: " . l:test_file
     endtry
 endfunc
 

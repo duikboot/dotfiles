@@ -90,5 +90,10 @@ alias hgg='hg glog'
 
 # source /home/arjen/Programms/tmuxinator/completion/tmuxinator.zsh
 # source /home/arjen/Programms/tmuxinator/completion/tmuxinator.bash
+#
+
+export JUMPHOSTUSER=adijkstra
+export DTAP=dev
+export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
 # vim: ft=zsh sw=2 ts=2 et
