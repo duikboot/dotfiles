@@ -288,6 +288,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 noremap <leader>bq :bp <BAR> bd #<CR>
 
+let g:gundo_prefer_python3 = 1
 " Load the Gundo window
 nnoremap <leader>g :GundoToggle<CR>
 
