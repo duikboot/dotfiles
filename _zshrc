@@ -92,7 +92,7 @@ alias hgg='hg glog'
 # source /home/arjen/Programms/tmuxinator/completion/tmuxinator.bash
 #
 
-export JUMPHOSTUSER=adijkstra
+export JUMPHOST_USER=adijkstra
 export DTAP=dev
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
