@@ -24,7 +24,7 @@ shelve =
 extdiff =
 
 [pager]
-pager = most
+pager = less
 
 [merge-tools]
 vimdiff.priority = 1
