@@ -42,9 +42,7 @@ def procs(module):
 
 
 def is_obsolete(f):
-    if f.startswith(".") or os.path.isfile(f):
-        return False
-    return True
+    return not(f.startswith(".") or os.path.isfile(f))
 
 
 def list_processes():
