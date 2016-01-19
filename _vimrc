@@ -385,7 +385,7 @@ let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
 autocmd VimResized * :wincmd =
 
 
-set suffixesadd=.tex,.latex,.java,.js
+set suffixesadd=.tex,.latex,.java,.js,.hrl,.erl
 
 " set guifont=Andale\ Mono\ 10\ for\ Powerline
 " set guifont=Inconsolata\ 10
