@@ -529,11 +529,6 @@ else
     set background=dark
 endif
 
-if has("python")
-    source $HOME/.vimrc_python2
-else
-    source $HOME/.vimrc_default
-endif
 " Paste from clipboard
 " map <leader>p "+gP
 
@@ -860,6 +855,12 @@ noremap <Leader>C :Copen<cr>
 " let g:dispatch_compilers = {
 "     \'python': 'nosetests'
 "     \}
+
+if has("python") && filereadable($HOME . '/.vimrc_python2')
+    source $HOME/.vimrc_python2
+elseif has("python3") && filereadable($HOME . '/.vimrc_default')
+    source $HOME/.vimrc_default
+endif
 
 if filereadable('.local.vim')
   source .local.vim
