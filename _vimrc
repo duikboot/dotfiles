@@ -292,16 +292,6 @@ noremap <leader>bq :bp <BAR> bd #<CR>
 let g:gundo_prefer_python3 = 1
 nnoremap <leader>g :GundoToggle<CR>
 
-" function! NumberToggle()
-"   if(&relativenumber == 1)
-"     set number
-"   else
-"     set relativenumber
-"   endif
-" endfunc
-
-" nnoremap <C-n> :call NumberToggle()<cr>
-
 " in command mode expand directory with current directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
@@ -368,11 +358,21 @@ let g:pymode_syntax_space_errors = 0
 
 let g:pymode_rope_complete_on_dot = 0
 
+" function! s:Autopep8()
+"     " redir => message
+"     mz:%!autopep8 %<cr>`z:w<cr>
+"     " echom message
+"     " redir END
+" endfunction
+
 " Run PymodeLint
 autocmd FileType python noremap <LocalLeader>8 :PymodeLint<cr>:lopen<cr>
+" autocmd FileType python noremap <LocalLeader>a8 call s:Autopep8()
+autocmd FileType python noremap <LocalLeader>a8 mz:%!autopep8 %<cr>`z:w<cr>
 
 " let g:pymode_rope_autoimport = 1
 let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
+
 
 "let g:pymode_python = 'python3'
 " yet let it open on toggle.
@@ -514,20 +514,8 @@ let g:hostname=hostname()
 " Try Apprenctice sometime
 " colorscheme apprenctice
 
-if hostname=='WPL237'
-    " colorscheme solarized
-    colorscheme PaperColor
-    set background=dark
-    let g:solarized_termcolors=256
-    " highlight LineNr term=bold cterm=NONE ctermfg=Yellow ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-    " highlight Visual term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
-    " highlight MatchParen term=bold cterm=reverse ctermfg=251 ctermbg=81 guifg=Blue guibg=LightBlue
-    " highlight CursorLine cterm=NONE ctermbg=251
-    " autocmd FileType python setlocal colorcolumn=" "
-else
-    colorscheme PaperColor
-    set background=dark
-endif
+colorscheme PaperColor
+set background=light
 
 " Paste from clipboard
 " map <leader>p "+gP
