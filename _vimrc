@@ -76,6 +76,7 @@ nnoremap <leader>q :q<CR>
 
 " Open :CtrlP
 nnoremap <Leader>o :CtrlP<CR>
+let g:ctrlp_extensions = ['tag']
 
 " Make Vim able to edit crontab files again.
 "set backupskip=/tmp/*,/private/tmp/*"
