@@ -353,7 +353,7 @@ let g:pymode_lint_signs = 1
 let g:pymode_lint_unmodified = 0
 
 " Temporary disable rope, because there is a bug in RopeRename
-let g:pymode_rope = 0
+let g:pymode_rope = 1
 let g:pymode_syntax_space_errors = 0
 
 let g:pymode_rope_complete_on_dot = 0
@@ -522,7 +522,7 @@ set background=light
 
 "
 " Remove trailing whitespace on <leader>S
-nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <leader>S mz:%s/\s\+$//<cr>:let @/=''<CR>`z
 
 " Select the item in the list with enter
 "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
