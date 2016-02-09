@@ -839,7 +839,7 @@ let g:dbext_default_profile_backoffice = 'type=PGSQL:user=postgres:@askg:host=ar
 
 noremap <f5> :Start<cr>
 noremap <f6> :Dispatch<cr>
-noremap <Leader>C :Copen<cr>
+" noremap <Leader>C :Copen<cr>
 
 " let g:dispatch_compilers = {
 "     \'python': 'nosetests'
