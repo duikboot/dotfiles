@@ -130,6 +130,8 @@ nnoremap <Leader>m :<C-u>MatchmakerToggle<CR>
 " for when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
 
+nnoremap R :%s//g<left><left>
+
 " open link in browser
 let g:netrw_browsex_viewer= "firefox"
 
@@ -854,3 +856,20 @@ endif
 if filereadable('.local.vim')
   source .local.vim
 endif
+
+" function! g:LoadSession ()
+"     let fts = ['hgcommit', 'gitcommit']
+"     if index(fts, &filetype) == -1 && filereadable('Session.vim')
+"       source Session.vim
+"     endif
+" endfunction
+
+" augroup load_session
+"     autocmd!
+"     autocmd VimEnter * call LoadSession()
+" augroup END
+
+" if filereadable('Session.vim') && &filetype =~ "hgcommit" && &filetype =~ "gitcommit"
+" if filereadable('Session.vim')
+"   source Session.vim
+" endif

@@ -22,13 +22,15 @@ function review() {
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias tmuxn='tmux -2 new -s'
+
+# Make a new session connecting to the socket of the pers tmux server
+alias tmuxp='tmux -L pers -2 new -s'
 alias vi='vim'
 alias clisp="rlwrap -f $HOME/.rlwrap/keywords clisp"
 
 export PLATFORM=`python -c 'import os; print os.uname()[1],'`
 
 export EDITOR=vim
-# alias hop='ssh -L 9090:127.0.0.1:80 -l arjen.dijkstra 192.168.0.31'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -92,6 +94,7 @@ alias hgg='hg glog'
 # source /home/arjen/Programms/tmuxinator/completion/tmuxinator.bash
 #
 
+# DeltaForce thingies
 export JUMPHOST_USER=adijkstra
 export DTAP=dev
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
