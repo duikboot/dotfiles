@@ -356,7 +356,7 @@ let g:pymode_lint_signs = 1
 let g:pymode_lint_unmodified = 0
 
 " Temporary disable rope, because there is a bug in RopeRename
-let g:pymode_rope = 1
+let g:pymode_rope = 0
 let g:pymode_syntax_space_errors = 0
 
 let g:pymode_rope_complete_on_dot = 0

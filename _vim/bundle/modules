@@ -73,3 +73,4 @@ https://github.com/tpope/vim-vinegar.git                      vinegar
 https://github.com/nelstrom/vim-visual-star-search            visual-star-search
 #https://github.com/vim-scripts/wombat256.vim                  wombat256.vim
 https://github.com/vim-scripts/YankRing.vim.git               yankring
+https://github.com/tpope/vim-fugitive                         fugitive
