@@ -101,8 +101,8 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 " let Y be more consistent
 nnoremap Y y$
 
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
+" nnoremap <silent> n nzz
+" nnoremap <silent> N Nzz
 " nnoremap <silent> * *zz
 " nnoremap <silent> # #zz
 " nnoremap <silent> g* g*zz
@@ -623,7 +623,7 @@ let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 2
+" let g:neocomplete#sources#syntax#min_keyword_length = 2
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplete#min_keyword_length = 2
 
@@ -743,9 +743,9 @@ autocmd FileType haskell setlocal ai sw=4 ts=4 sta et fo=croql
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent
 " autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
+let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 let g:syntastic_python_checkers = ['']
 " autocmd FileType python let b:dispatch = 'python %'
-
 au FileType python call SetupPython()
 
 function! SetupPython()

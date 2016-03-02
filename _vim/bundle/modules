@@ -2,22 +2,24 @@ https://github.com/tpope/vim-abolish                          abolish
 https://github.com/mileszs/ack.vim.git                        ack
 https://github.com/bling/vim-airline                          airline
 https://github.com/romainl/Apprentice                         Apprentice
+https://github.com/jiangmiao/auto-pairs                       auto-pairs
 #https://github.com/sjl/badwolf.git                            badwolf
 https://github.com/tpope/vim-commentary.git                   commentary
 https://github.com/ctrlpvim/ctrlp.vim                         ctrlp
 #https://github.com/vim-scripts/dbext.vim                      dbext.vim
-# https://github.com/Raimondi/delimitMate                       delimitMate
-https://github.com/jiangmiao/auto-pairs                       auto-pairs
 git://github.com/tpope/vim-dispatch.git                       dispatch
+https://github.com/Olical/vim-enmasse                         enmasse
 https://github.com/tommcdo/vim-exchange                       exchange
 https://github.com/terryma/vim-expand-region                  expand-region
 https://github.com/wincent/ferret                             ferret
+https://github.com/tpope/vim-fugitive                         fugitive
 https://github.com/eagletmt/ghcmod-vim                        ghcmod-vim
 https://github.com/sjl/gundo.vim.git                          gundo
 # https://bitbucket.org/ludovicchabant/vim-lawrencium           lawrencium
 # https://github.com/clones/vim-l9.git                          l9
 # https://github.com/dbsr/vimpy                               vimpy
 # https://github.com/kovisoft/paredit                           paredit
+# https://github.com/Raimondi/delimitMate                       delimitMate
 # https://github.com/sheerun/vim-polyglot                       vim-polyglot
 # https://github.com/Shougo/neomru.vim                          neomru
 # https://github.com/terryma/vim-multiple-cursors               vim-multiple-cursors
@@ -73,4 +75,3 @@ https://github.com/tpope/vim-vinegar.git                      vinegar
 https://github.com/nelstrom/vim-visual-star-search            visual-star-search
 #https://github.com/vim-scripts/wombat256.vim                  wombat256.vim
 https://github.com/vim-scripts/YankRing.vim.git               yankring
-https://github.com/tpope/vim-fugitive                         fugitive
