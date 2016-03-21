@@ -28,7 +28,7 @@ alias tmuxp='tmux -L pers -2 new -s'
 alias vi='vim'
 alias clisp="rlwrap -f $HOME/.rlwrap/keywords clisp"
 
-export PLATFORM=`python -c 'import os; print os.uname()[1],'`
+export PLATFORM=`python -c 'import os; print(os.uname()[1]),'`
 
 export EDITOR=vim
 
@@ -76,7 +76,6 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 # Customize to your needs...
-# export PATH=$PATH:/home/arjen/.cabal/bin:/home/arjen/local/bin:/home/arjen/.local/bin:/home/arjen/local/bin:/home/arjen/.local/bin:/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib64:/home/arjend/Downloads/bin:/home/arjend/Downloads/bin:/usr/lib64
 export PATH=/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/local/bin:/home/arjen/.local/bin:$HOME/bin/neovim/bin:$HOME/bin/python3.5/:$PATH
 
 # OPAM configuration

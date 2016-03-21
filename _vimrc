@@ -77,7 +77,9 @@ nnoremap <leader>q :q<CR>
 " Open :CtrlP
 nnoremap <Leader>o :CtrlP<CR>
 let g:ctrlp_extensions = ['tag']
-
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|\.hg|\.svn|build-image|build)$',
+  \ }
 " Make Vim able to edit crontab files again.
 "set backupskip=/tmp/*,/private/tmp/*"
 
@@ -107,8 +109,8 @@ nnoremap Y y$
 " nnoremap <silent> # #zz
 " nnoremap <silent> g* g*zz
 " nnoremap <silent> g# g#zz
-nnoremap <silent> <C-o> <C-o>zz
-nnoremap <silent> <C-i> <C-i>zz
+" nnoremap <silent> <C-o> <C-o>zz
+" nnoremap <silent> <C-i> <C-i>zz
 
 " ,v brings up my .vimrc
 " ,V reloads it -- making all changes active (have to save first)
@@ -126,6 +128,8 @@ nnoremap <leader>ll :lclose<CR>
 " Matchmaker toggle
 " nmap <leader>m :MatchmakerToggle<CR>
 nnoremap <Leader>m :<C-u>MatchmakerToggle<CR>
+
+nnoremap <Leader>SS :source Session.vim<cr>
 
 " for when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
@@ -223,12 +227,9 @@ nnoremap gk k
 vnoremap gj j
 vnoremap gk k
 
-vmap <BS> <Plug>(expand_region_shrink)
+" vmap <BS> <Plug>(expand_region_shrink)
+vmap - <Plug>(expand_region_shrink)
 
-" use ,F to jump to tag in a vertical split
-" nnoremap <silent> <Leader>F :let word=expand("<cword>")<CR>:vsp<CR>:wincmd w<cr>:exec("tselect ". word)<cr>
-nnoremap <silent> <Leader>F :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<cr>zt
-"
 "  " use ,gf to go to file in a vertical split
 nnoremap <silent> <leader>gf :vertical botright wincmd f<CR>
 "
@@ -249,6 +250,10 @@ let g:ackprg = 'ag --smart-case --nogroup --nocolor --column'
 
 " Toggle tag
 nnoremap <leader>t <Esc>:tselect<Space>
+
+" use ,T to jump to tag in a vertical split
+" nnoremap <silent> <Leader>F :let word=expand("<cword>")<CR>:vsp<CR>:wincmd w<cr>:exec("tselect ". word)<cr>
+nnoremap <silent> <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<cr>zt
 
 " Toggle Tagbar
 nnoremap <leader>tl :TagbarToggle<CR>
@@ -297,6 +302,9 @@ nnoremap <leader>g :GundoToggle<CR>
 
 " in command mode expand directory with current directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" nnoremap <silent> <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<cr>zt
+noremap <BS> :Explore<cr>
 
 " "uppercase word" mapping.
 " from: https://github.com/sjl/dotfiles/blob/master/vim/vimrc
@@ -834,9 +842,6 @@ augroup ft_java
 augroup END
 
 let g:dbext_default_profile_survey = 'type=PGSQL:user=arjend:@askg:host=localhost:dbname=survey'
-let g:dbext_default_profile_storefront = 'type=PGSQL:user=postgres:@askg:host=arjen.yhdev.nl:dbname=storefront'
-let g:dbext_default_profile_reseller = 'type=PGSQL:user=postgres:@askg:host=arjen.yhdev.nl:dbname=resellerplatform'
-let g:dbext_default_profile_backoffice = 'type=PGSQL:user=postgres:@askg:host=arjen.yhdev.nl:port=25432:dbname=backoffice'
 
 
 noremap <f5> :Start<cr>

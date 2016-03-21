@@ -1,3 +1,5 @@
+
+
 v  ["          *@:<C-U>exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")<CR>
 n  ["          *@:call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")<CR>
 v  []          *@m':<C-U>exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "bW")<CR>
@@ -10,207 +12,139 @@ v  ][          *@m':<C-U>exe "normal! gv"|call search('^\s*endf*\%[unction]\>', 
 n  ][          *@m':call search('^\s*endf*\%[unction]\>', "W")<CR>
 v  ]]          *@m':<C-U>exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")<CR>
 n  ]]          *@m':call search('^\s*fu\%[nction]\>', "W")<CR>
-x  <C-C>       * :<C-U>call multiple_cursors#new("v")<CR>
-n  <C-C>       * :call multiple_cursors#new("n")<CR>
-   <C-H>         <C-W>h
-s  <Tab>       * <Esc>i<Right><C-R>=TriggerSnippet()<CR>
-n  <NL>        * <C-W>j
-   <C-K>         <C-W>k
-   <C-L>         <C-W>l
+   î           *@:call AutoPairsJump()<CR>
+   ð           *@:call AutoPairsToggle()<CR>
+x  <C-A>         <Plug>SpeedDatingUp
+n  <C-A>         <Plug>SpeedDatingUp
+s  <C-H>       * <C-G>c
+n  <C-H>       * :TmuxNavigateLeft<CR>
+x  <Tab>       * :call UltiSnips#SaveLastVisualSelection()<CR>gvs
+s  <Tab>       * <Esc>:call UltiSnips#ExpandSnippet()<CR>
+n  <Tab>       * <Tab>zz
+n  <NL>        * :TmuxNavigateDown<CR>
+n  <C-K>       * :TmuxNavigateUp<CR>
+n  <C-L>       * :TmuxNavigateRight<CR>
 n  <C-N>       * :<C-U>YRReplace '1', p<CR>
+n  <C-O>       * <C-O>zz
 n  <C-P>       * :<C-U>YRReplace '-1', P<CR>
-s  <C-X>       * b<BS><C-X>
-x  #           * :<C-U>call <SNR>90_VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
-n  #           * :let v:errmsg=''<CR>:silent! norm! #<CR>:call <SNR>22_ShowCurrentSearchIndex(0,'!')<CR>
-o  $             YRMapsExpression("<SNR>91_", "$")
-s  %           * b<BS>%
-o  %           * v:<C-U>call <SNR>82_Match_wrapper('',1,'o') <CR>
-x  %           * :<C-U>call <SNR>82_Match_wrapper('',1,'v') <CR>m'gv``
-n  %           * :<C-U>call <SNR>82_Match_wrapper('',1,'n') <CR>
-s  '           * b<BS>'
-x  *           * :<C-U>call <SNR>90_VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
-n  *           * :let v:errmsg=''<CR>:silent! norm! *<CR>:call <SNR>22_ShowCurrentSearchIndex(0,'!')<CR>
-o  +             YRMapsExpression("<SNR>91_", "+")
+ov <C-P>         <Plug>(ctrlp)
+n  <C-R>         <Plug>(RepeatRedo)
+s  <C-R>       * <C-G>"_c<C-R>
+s  <C-T>       * <Esc>:call UltiSnips#ListSnippets()<CR>
+   <C-U>       * mzgUiw`za
+n  <C-W>z      * :wincmd z|cclose|lclose<CR>
+x  <C-X>         <Plug>SpeedDatingDown
+n  <C-X>         <Plug>SpeedDatingDown
+v  <Space>*      :<C-U>call <SNR>106_VSetSearch()<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
+n  <Space>*      :execute 'noautocmd vimgrep /\V' . substitute(escape(expand("<cword>"), '\'), '\n', '\\n', 'g') . '/ **'<CR>
+n  <Space>w<Space>t   <Plug>VimwikiTabMakeDiaryNote
+n  <Space>w<Space>w   <Plug>VimwikiMakeDiaryNote
+n  <Space>w<Space>i   <Plug>VimwikiDiaryGenerateLinks
+n  <Space>wi     <Plug>VimwikiDiaryIndex
+n  <Space>ws     <Plug>VimwikiUISelect
+n  <Space>wt     <Plug>VimwikiTabIndex
+n  <Space>ww     <Plug>VimwikiIndex
+n  <Space>cE     :call <SNR>89_ExecuteExtensionMapping('E')<CR>
+n  <Space>cwr    :call <SNR>89_ExecuteExtensionMapping('wr')<CR>
+n  <Space>cwv    :call <SNR>89_ExecuteExtensionMapping('wv')<CR>
+n  <Space>cwa    :call <SNR>89_ExecuteExtensionMapping('wa')<CR>
+n  <Space>cwf    :call <SNR>89_ExecuteExtensionMapping('wf')<CR>
+n  <Space>ce     :call <SNR>89_ExecuteExtensionMapping('e')<CR>
+n  <Space>ct     :call <SNR>89_ExecuteExtensionMapping('t')<CR>
+n  <Space>cwn    :call <SNR>89_ExecuteExtensionMapping('wn')<CR>
+n  <Space>cv     <Plug>VCSVimDiff
+n  <Space>cu     <Plug>VCSUpdate
+n  <Space>cU     <Plug>VCSUnlock
+n  <Space>cs     <Plug>VCSStatus
+n  <Space>cq     <Plug>VCSRevert
+n  <Space>cn     <Plug>VCSAnnotate
+n  <Space>cN     <Plug>VCSSplitAnnotate
+n  <Space>cl     <Plug>VCSLog
+n  <Space>cL     <Plug>VCSLock
+n  <Space>ci     <Plug>VCSInfo
+n  <Space>cg     <Plug>VCSGotoOriginal
+n  <Space>cG     <Plug>VCSClearAndGotoOriginal
+n  <Space>cd     <Plug>VCSDiff
+n  <Space>cD     <Plug>VCSDelete
+n  <Space>ca     <Plug>VCSAdd
+n  <Space>r      <Plug>(FerretAcks)
+n  <Space>s      <Plug>(FerretAckWord)
+n  <Space>a      <Plug>(FerretAck)
+n  <Space>ot   * :call <SNR>1_OpenTestFile("")<CR>
+n  <Space>oht  * :call <SNR>1_OpenTestFile("horizontal")<CR>
+n  <Space>ovt  * :call <SNR>1_OpenTestFile("vertical")<CR>
+n  <Space><CR> * :silent !ctags -R --exclude=ENV/lib64 --exclude=node_modules --exclude=.buildozer >/dev/null 2>&1 &<CR>:redraw!<CR>
+n  <Space>S    * mz:%s/\s\+$//<CR>:let @/=''<CR>`z
+n  <Space>g    * :GundoToggle<CR>
+   <Space>bq   * :bp | bd #<CR>
+n  <Space>y    * :YRShow<CR>
+n  <Space>cr   * :call <SNR>1_AddFilenameToRegister('relative')<CR>
+n  <Space>cf   * :call <SNR>1_AddFilenameToRegister('absolute')<CR>
+n  <Space>tl   * :TagbarToggle<CR>
+n  <Space>t    * <Esc>:tselect<Space>
+v  <Space>ss     :SlimuxREPLSendSelection<CR>
+n  <Space>sl   * :SlimuxREPLSendLine<CR>
+n  <Space>sc   * :SlimuxREPLConfigure<CR>
+n  <Space>gf   * :vertical botright wincmd f<CR>
+n  <Space>F    * :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<CR>zt
+n  <Space>m    * :<C-U>MatchmakerToggle<CR>
+n  <Space>ll   * :lclose<CR>
+n  <Space>l    * :lopen<CR>
+n  <Space>cc   * :cclose<CR>
+n  <Space>c    * :copen<CR>
+n  <Space>V    * :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+n  <Space>v    * :sp ~/.vimrc<CR><C-W>_
+n  <Space>/    * :nohlsearch<CR>
+n  <Space>o    * :CtrlP<CR>
+n  <Space>q    * :q<CR>
+   <Space>w    * :w<CR>
+x  #           * :<C-U>call <SNR>106_VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+o  $             YRMapsExpression("<SNR>107_", "$")
+o  %           * v:<C-U>call <SNR>49_Match_wrapper('',1,'o') <CR>
+v  %           * :<C-U>call <SNR>49_Match_wrapper('',1,'v') <CR>m'gv``
+n  %           * :<C-U>call <SNR>49_Match_wrapper('',1,'n') <CR>
+x  *           * :<C-U>call <SNR>106_VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+o  +             YRMapsExpression("<SNR>107_", "+")
 v  +             <Plug>(expand_region_expand)
 n  +             <Plug>(expand_region_expand)
-o  ,             YRMapsExpression("<SNR>91_", ",")
-v  ,*            :<C-U>call <SNR>90_VSetSearch()<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
-n  ,*            :execute 'noautocmd vimgrep /\V' . substitute(escape(expand("<cword>"), '\'), '\n', '\\n', 'g') . '/ **'<CR>
-n  ,w,t          <Plug>VimwikiTabMakeDiaryNote
-n  ,w,w          <Plug>VimwikiMakeDiaryNote
-n  ,w,i          <Plug>VimwikiDiaryGenerateLinks
-n  ,wi           <Plug>VimwikiDiaryIndex
-n  ,ws           <Plug>VimwikiUISelect
-n  ,wt           <Plug>VimwikiTabIndex
-n  ,ww           <Plug>VimwikiIndex
-v  ,,w         * :<C-U>call EasyMotion#WB(1, 0)<CR>
-o  ,,w         * :call EasyMotion#WB(0, 0)<CR>
-n  ,,w         * :call EasyMotion#WB(0, 0)<CR>
-v  ,,t         * :<C-U>call EasyMotion#T(1, 0)<CR>
-o  ,,t         * :call EasyMotion#T(0, 0)<CR>
-n  ,,t         * :call EasyMotion#T(0, 0)<CR>
-v  ,,n         * :<C-U>call EasyMotion#Search(1, 0)<CR>
-o  ,,n         * :call EasyMotion#Search(0, 0)<CR>
-n  ,,n         * :call EasyMotion#Search(0, 0)<CR>
-v  ,,k         * :<C-U>call EasyMotion#JK(1, 1)<CR>
-o  ,,k         * :call EasyMotion#JK(0, 1)<CR>
-n  ,,k         * :call EasyMotion#JK(0, 1)<CR>
-v  ,,j         * :<C-U>call EasyMotion#JK(1, 0)<CR>
-o  ,,j         * :call EasyMotion#JK(0, 0)<CR>
-n  ,,j         * :call EasyMotion#JK(0, 0)<CR>
-v  ,,gE        * :<C-U>call EasyMotion#EW(1, 1)<CR>
-o  ,,gE        * :call EasyMotion#EW(0, 1)<CR>
-n  ,,gE        * :call EasyMotion#EW(0, 1)<CR>
-v  ,,f         * :<C-U>call EasyMotion#F(1, 0)<CR>
-o  ,,f         * :call EasyMotion#F(0, 0)<CR>
-n  ,,f         * :call EasyMotion#F(0, 0)<CR>
-v  ,,e         * :<C-U>call EasyMotion#E(1, 0)<CR>
-o  ,,e         * :call EasyMotion#E(0, 0)<CR>
-n  ,,e         * :call EasyMotion#E(0, 0)<CR>
-v  ,,b         * :<C-U>call EasyMotion#WB(1, 1)<CR>
-o  ,,b         * :call EasyMotion#WB(0, 1)<CR>
-n  ,,b         * :call EasyMotion#WB(0, 1)<CR>
-v  ,,W         * :<C-U>call EasyMotion#WBW(1, 0)<CR>
-o  ,,W         * :call EasyMotion#WBW(0, 0)<CR>
-n  ,,W         * :call EasyMotion#WBW(0, 0)<CR>
-v  ,,T         * :<C-U>call EasyMotion#T(1, 1)<CR>
-o  ,,T         * :call EasyMotion#T(0, 1)<CR>
-n  ,,T         * :call EasyMotion#T(0, 1)<CR>
-v  ,,N         * :<C-U>call EasyMotion#Search(1, 1)<CR>
-o  ,,N         * :call EasyMotion#Search(0, 1)<CR>
-n  ,,N         * :call EasyMotion#Search(0, 1)<CR>
-v  ,,ge        * :<C-U>call EasyMotion#E(1, 1)<CR>
-o  ,,ge        * :call EasyMotion#E(0, 1)<CR>
-n  ,,ge        * :call EasyMotion#E(0, 1)<CR>
-v  ,,F         * :<C-U>call EasyMotion#F(1, 1)<CR>
-o  ,,F         * :call EasyMotion#F(0, 1)<CR>
-n  ,,F         * :call EasyMotion#F(0, 1)<CR>
-v  ,,E         * :<C-U>call EasyMotion#EW(1, 0)<CR>
-o  ,,E         * :call EasyMotion#EW(0, 0)<CR>
-n  ,,E         * :call EasyMotion#EW(0, 0)<CR>
-v  ,,B         * :<C-U>call EasyMotion#WBW(1, 1)<CR>
-o  ,,B         * :call EasyMotion#WBW(0, 1)<CR>
-n  ,,B         * :call EasyMotion#WBW(0, 1)<CR>
-n  ,cv           <Plug>VCSVimDiff
-n  ,cu           <Plug>VCSUpdate
-n  ,cU           <Plug>VCSUnlock
-n  ,cs           <Plug>VCSStatus
-n  ,cr           <Plug>VCSReview
-n  ,cq           <Plug>VCSRevert
-n  ,cn           <Plug>VCSAnnotate
-n  ,cN           <Plug>VCSSplitAnnotate
-n  ,cl           <Plug>VCSLog
-n  ,cL           <Plug>VCSLock
-n  ,ci           <Plug>VCSInfo
-n  ,cg           <Plug>VCSGotoOriginal
-n  ,cG           <Plug>VCSClearAndGotoOriginal
-n  ,cd           <Plug>VCSDiff
-n  ,cD           <Plug>VCSDelete
-n  ,ca           <Plug>VCSAdd
-n  ,gt           <Plug>(signify-toggle)
-n  ,gh           <Plug>(signify-toggle-highlight)
-n  ,gk           <Plug>(signify-prev-hunk)
-n  ,gj           <Plug>(signify-next-hunk)
-n  ,8          * :call <SNR>42_Pep8()<CR>
-n  ,vy*          :call <SNR>29_ToggleFileAssociationsInExplorer()<CR>
-n  ,vy|          :call <SNR>29_EchoOptionsSet()<CR>
-n  ,vyv          :call <SNR>29_EchoGrepCommand()<CR>
-n  ,vy?          :call <SNR>29_ToggleOptionsDisplay()<CR>
-n  ,vym          :call <SNR>29_ToggleReplaceWindowMode()<CR>
-n  ,vys          :call <SNR>29_Sort()<CR>
-n  ,vye          :call <SNR>29_EchoFilesSearched()<CR>
-n  ,vy!          :call <SNR>29_ToggleWholeWord()<CR>
-n  ,vyp          :call <SNR>29_ToggleJumpToMatch()<CR>
-n  ,vyg          :call <SNR>29_ToggleEveryMatch()<CR>
-n  ,vyo          :call <SNR>29_ToggleOpenWindow()<CR>
-n  ,vyw          :call <SNR>29_ToggleWindow()<CR>
-n  ,vyh          :call <SNR>29_ToggleHidden()<CR>
-n  ,vyi          :call <SNR>29_ToggleIgnoreCase()<CR>
-n  ,vyd          :call <SNR>29_ToggleBufferDirectories()<CR>
-n  ,vyr          :call <SNR>29_ToggleRecursion()<CR>
-n  ,vyc          :call <SNR>29_ToggleCommand()<CR>
-n  ,vyx          :call <SNR>29_SetFilesToExclude()<CR>
-n  ,vyu          :call <SNR>29_ActivateUser()<CR>
-n  ,vyt          :call <SNR>29_ActivateTracked()<CR>
-n  ,vyb          :call <SNR>29_ActivateBuffers()<CR>
-n  ,vya          :call <SNR>29_ActivateAll()<CR>
-v  ,vR           <Plug>EgMapReplaceSelection_R
-no ,vR           <Plug>EgMapReplaceCurrentWord_R
-v  ,vr           <Plug>EgMapReplaceSelection_r
-no ,vr           <Plug>EgMapReplaceCurrentWord_r
-v  ,vA           <Plug>EgMapGrepSelection_A
-no ,vA           <Plug>EgMapGrepCurrentWord_A
-v  ,va           <Plug>EgMapGrepSelection_a
-no ,va           <Plug>EgMapGrepCurrentWord_a
-v  ,vV           <Plug>EgMapGrepSelection_V
-no ,vV           <Plug>EgMapGrepCurrentWord_V
-v  ,vv           <Plug>EgMapGrepSelection_v
-no ,vv           <Plug>EgMapGrepCurrentWord_v
-   ,vo           <Plug>EgMapGrepOptions
-n  ,S          * :%s/\s\+$//<CR>:let @/=''<CR>
-n  ,s            :set nolist!<CR>
-   ,r            :RopeRename<CR>
-   ,j            :RopeGotoDefinition<CR>
-   ,g            :GundoToggle<CR>
-n  ,y          * :YRShow<CR>
-n  ,tl           :TagbarToggle<CR>
-n  ,t            <Esc>:tselect<Space>
-n  ,a            <Esc>:Ack!<Space>
-   ,P            :CtrlP<CR>
-   ,n            :NERDTreeToggle<CR>
-v  ,ss           :SlimuxREPLSendSelection<CR>
-   ,sl           :SlimuxREPLSendLine<CR>
-   ,sc           :SlimuxREPLConfigure<CR>
-n  ,gf         * :vertical botright wincmd f<CR>
-n  ,F          * :let word=expand("<cword>")<CR>:vsp<CR>:wincmd w<CR>:exec("tselect ". word)<CR>
-n  ,m          * :<C-U>MatchmakerToggle<CR>
-n  ,ll         * :lclose<CR>
-n  ,l          * :lopen<CR>
-n  ,cc           :cclose<CR>
-n  ,c            :copen<CR>
-   ,V            :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-   ,v            :sp ~/.vimrc<CR><C-W>_
-n  ,/          * :nohlsearch<CR>
-   ,td           <Plug>TaskList
-n  ,q          * :q<CR>
-   ,w          * :w<CR>
-o  -             YRMapsExpression("<SNR>91_", "-")
-nv -           * ,
-n  .             YRMapsExpression("<SNR>91_", ".")
-o  /             YRMapsExpression("<SNR>91_", "/", 1)
-n  /           * :call <SNR>22_DelaySearchIndex(0,'')<CR>/
-o  0             YRMapsExpression("<SNR>91_", "0")
-o  ;             YRMapsExpression("<SNR>91_", ";")
-n  <p          * :call <SNR>68_putline(']p')<CR><']
-n  <P          * :call <SNR>68_putline('[p')<CR><']
-n  =p          * :call <SNR>68_putline(']p')<CR>=']
-n  =P          * :call <SNR>68_putline('[p')<CR>=']
-n  >p          * :call <SNR>68_putline(']p')<CR>>']
-n  >P          * :call <SNR>68_putline('[p')<CR>>']
-o  ?             YRMapsExpression("<SNR>91_", "?", 1)
-n  ?           * :call <SNR>22_DelaySearchIndex(0,'')<CR>?
+o  ,             YRMapsExpression("<SNR>107_", ",")
+o  -             YRMapsExpression("<SNR>107_", "-")
+n  -             <Plug>VinegarUp
+n  .             <Plug>(RepeatDot)
+o  /             YRMapsExpression("<SNR>107_", "/", 1)
+nv /             <Plug>(incsearch-forward)
+o  0             YRMapsExpression("<SNR>107_", "0")
+o  ;             YRMapsExpression("<SNR>107_", ";")
+n  <p          * :call <SNR>82_putline(']p', 'Below')<CR><']
+n  <P          * :call <SNR>82_putline('[p', 'Above')<CR><']
+n  =p          * :call <SNR>82_putline(']p', 'Below')<CR>=']
+n  =P          * :call <SNR>82_putline('[p', 'Above')<CR>=']
+n  >p          * :call <SNR>82_putline(']p', 'Below')<CR>>']
+n  >P          * :call <SNR>82_putline('[p', 'Above')<CR>>']
+o  ?             YRMapsExpression("<SNR>107_", "?", 1)
+nv ?             <Plug>(incsearch-backward)
 n  @             :<C-U>YRMapsMacro<CR>
-o  B             YRMapsExpression("<SNR>91_", "B")
-n  D             D<SNR>91_yrrecord
-o  E             YRMapsExpression("<SNR>91_", "E")
-o  F             YRMapsExpression("<SNR>91_", "F", 1)
-o  G             YRMapsExpression("<SNR>91_", "G")
-o  H             YRMapsExpression("<SNR>91_", "H")
-o  L             YRMapsExpression("<SNR>91_", "L")
-o  M             YRMapsExpression("<SNR>91_", "M")
-n  N           * :let v:errmsg=''<CR>:silent! norm! N<CR>:call <SNR>22_ShowCurrentSearchIndex(0,'!')<CR>
+o  B             YRMapsExpression("<SNR>107_", "B")
+n  D             D<SNR>107_yrrecord
+o  E             YRMapsExpression("<SNR>107_", "E")
+o  F             YRMapsExpression("<SNR>107_", "F", 1)
+o  G             YRMapsExpression("<SNR>107_", "G")
+o  H             YRMapsExpression("<SNR>107_", "H")
+v  K             <Plug>(ref-keyword)
+n  K             <Plug>(ref-keyword)
+o  L             YRMapsExpression("<SNR>107_", "L")
+o  M             YRMapsExpression("<SNR>107_", "M")
 x  P           * :<C-U>YRPaste 'P', 'v'<CR>
 n  P           * :<C-U>YRPaste 'P'<CR>
+n  R           * :%s//g<Left><Left>
 x  S             <Plug>VSurround
 n  S           * i<CR><Esc>^mwgk:silent! s/\v +$//<CR>:noh<CR>`w
-o  T             YRMapsExpression("<SNR>91_", "T", 1)
-s  U           * b<BS>U
-o  W             YRMapsExpression("<SNR>91_", "W")
-n  X             X<SNR>91_yrrecord
-n  Y             Y<SNR>91_yrrecord
-o  [%          * v:<C-U>call <SNR>82_MultiMatch("bW", "o") <CR>
-v  [%            <Esc>[%m'gv``
-n  [%          * :<C-U>call <SNR>82_MultiMatch("bW", "n") <CR>
+o  T             YRMapsExpression("<SNR>107_", "T", 1)
+n  U             <Plug>(RepeatUndoLine)
+o  W             YRMapsExpression("<SNR>107_", "W")
+n  X             X<SNR>107_yrrecord
+x  X             <Plug>(Exchange)
+n  Y             Y<SNR>107_yrrecord
 n  [xx           <Plug>unimpaired_line_xml_encode
 x  [x            <Plug>unimpaired_xml_encode
 n  [x            <Plug>unimpaired_xml_encode
@@ -221,17 +155,19 @@ n  [yy           <Plug>unimpaired_line_string_encode
 x  [y            <Plug>unimpaired_string_encode
 n  [y            <Plug>unimpaired_string_encode
 n  [p            <Plug>unimpairedPutAbove
+n  [ov         * :set virtualedit+=all<CR>
 n  [ox         * :set cursorline cursorcolumn<CR>
-n  [ow         * :set wrap<CR>
-n  [os         * :set spell<CR>
-n  [or         * :set relativenumber<CR>
-n  [on         * :set number<CR>
-n  [ol         * :set list<CR>
-n  [oi         * :set ignorecase<CR>
-n  [oh         * :set hlsearch<CR>
+n  [ow         * :setlocal wrap<C-R>=<SNR>82_statusbump()<CR><CR>
+n  [os         * :setlocal spell<C-R>=<SNR>82_statusbump()<CR><CR>
+n  [or         * :setlocal relativenumber<C-R>=<SNR>82_statusbump()<CR><CR>
+n  [on         * :setlocal number<C-R>=<SNR>82_statusbump()<CR><CR>
+n  [ol         * :setlocal list<C-R>=<SNR>82_statusbump()<CR><CR>
+n  [oi         * :set ignorecase<C-R>=<SNR>82_statusbump()<CR><CR>
+n  [oh         * :set hlsearch<C-R>=<SNR>82_statusbump()<CR><CR>
 n  [od         * :diffthis<CR>
-n  [ou         * :set cursorcolumn<CR>
-n  [oc         * :set cursorline<CR>
+n  [ou         * :setlocal cursorcolumn<C-R>=<SNR>82_statusbump()<CR><CR>
+n  [oc         * :setlocal cursorline<C-R>=<SNR>82_statusbump()<CR><CR>
+n  [ob         * :set background=light<CR>
 x  [e            <Plug>unimpairedMoveSelectionUp
 n  [e            <Plug>unimpairedMoveUp
 n  [<Space>      <Plug>unimpairedBlankUp
@@ -251,13 +187,19 @@ n  [B            <Plug>unimpairedBFirst
 n  [b            <Plug>unimpairedBPrevious
 n  [A            <Plug>unimpairedAFirst
 n  [a            <Plug>unimpairedAPrevious
+n  [C            9999[c
 n  [c            <Plug>(signify-prev-hunk)
-s  \           * b<BS>\
-n  \\          * :call <SNR>22_ShowCurrentSearchIndex(1,'')<CR>
-n  \/          * :call <SNR>22_ShowCurrentSearchIndex(1,'')<CR>
-o  ]%          * v:<C-U>call <SNR>82_MultiMatch("W",  "o") <CR>
-v  ]%            <Esc>]%m'gv``
-n  ]%          * :<C-U>call <SNR>82_MultiMatch("W",  "n") <CR>
+o  [%          * v:<C-U>call <SNR>49_MultiMatch("bW", "o") <CR>
+v  [%            <Esc>[%m'gv``
+n  [%          * :<C-U>call <SNR>49_MultiMatch("bW", "n") <CR>
+n  \qb         * :<C-U>Unite -no-split -quick-match buffer<CR>
+n  \g          * :<C-U>Unite -no-split -no-empty -buffer-name=grep  grep:.<CR>
+n  \l          * :<C-U>Unite -no-split -buffer-name=line -start-insert line<CR>
+n  \b          * :<C-U>Unite -no-split -buffer-name=buffer -start-insert buffer<CR>
+n  \o          * :<C-U>Unite  -buffer-name=outline -start-insert outline<CR>
+n  \f          * :<C-U>Unite -no-split -buffer-name=files   -start-insert file<CR>
+n  \c          * :<C-U>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<CR>
+n  \r          * :<C-U>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<CR>
 n  ]xx           <Plug>unimpaired_line_xml_decode
 x  ]x            <Plug>unimpaired_xml_decode
 n  ]x            <Plug>unimpaired_xml_decode
@@ -268,17 +210,19 @@ n  ]yy           <Plug>unimpaired_line_string_decode
 x  ]y            <Plug>unimpaired_string_decode
 n  ]y            <Plug>unimpaired_string_decode
 n  ]p            <Plug>unimpairedPutBelow
+n  ]ov         * :set virtualedit-=all<CR>
 n  ]ox         * :set nocursorline nocursorcolumn<CR>
-n  ]ow         * :set nowrap<CR>
-n  ]os         * :set nospell<CR>
-n  ]or         * :set norelativenumber<CR>
-n  ]on         * :set nonumber<CR>
-n  ]ol         * :set nolist<CR>
-n  ]oi         * :set noignorecase<CR>
-n  ]oh         * :set nohlsearch<CR>
+n  ]ow         * :setlocal nowrap<C-R>=<SNR>82_statusbump()<CR><CR>
+n  ]os         * :setlocal nospell<C-R>=<SNR>82_statusbump()<CR><CR>
+n  ]or         * :setlocal norelativenumber<C-R>=<SNR>82_statusbump()<CR><CR>
+n  ]on         * :setlocal nonumber<C-R>=<SNR>82_statusbump()<CR><CR>
+n  ]ol         * :setlocal nolist<C-R>=<SNR>82_statusbump()<CR><CR>
+n  ]oi         * :set noignorecase<C-R>=<SNR>82_statusbump()<CR><CR>
+n  ]oh         * :set nohlsearch<C-R>=<SNR>82_statusbump()<CR><CR>
 n  ]od         * :diffoff<CR>
-n  ]ou         * :set nocursorcolumn<CR>
-n  ]oc         * :set nocursorline<CR>
+n  ]ou         * :setlocal nocursorcolumn<C-R>=<SNR>82_statusbump()<CR><CR>
+n  ]oc         * :setlocal nocursorline<C-R>=<SNR>82_statusbump()<CR><CR>
+n  ]ob         * :set background=dark<CR>
 x  ]e            <Plug>unimpairedMoveSelectionDown
 n  ]e            <Plug>unimpairedMoveDown
 n  ]<Space>      <Plug>unimpairedBlankDown
@@ -298,136 +242,167 @@ n  ]B            <Plug>unimpairedBLast
 n  ]b            <Plug>unimpairedBNext
 n  ]A            <Plug>unimpairedALast
 n  ]a            <Plug>unimpairedANext
+n  ]C            9999]c
 n  ]c            <Plug>(signify-next-hunk)
-s  ^           * b<BS>^
-o  ^             YRMapsExpression("<SNR>91_", "^")
-o  _             YRMapsExpression("<SNR>91_", "_")
-s  `           * b<BS>`
-o  a`            YRMapsExpression("<SNR>91_", "a`")
-o  a'            YRMapsExpression("<SNR>91_", "a'")
-o  a"            YRMapsExpression("<SNR>91_", "a\"")
-o  aB            YRMapsExpression("<SNR>91_", "aB")
-o  a{            YRMapsExpression("<SNR>91_", "a{")
-o  a}            YRMapsExpression("<SNR>91_", "a}")
-o  at            YRMapsExpression("<SNR>91_", "at")
-o  a<            YRMapsExpression("<SNR>91_", "a<")
-o  a>            YRMapsExpression("<SNR>91_", "a>")
-o  ab            YRMapsExpression("<SNR>91_", "ab")
-o  a(            YRMapsExpression("<SNR>91_", "a(")
-o  a)            YRMapsExpression("<SNR>91_", "a)")
-o  a[            YRMapsExpression("<SNR>91_", "a[")
-o  a]            YRMapsExpression("<SNR>91_", "a]")
-o  ap            YRMapsExpression("<SNR>91_", "ap")
-o  as            YRMapsExpression("<SNR>91_", "as")
-o  aW            YRMapsExpression("<SNR>91_", "aW")
-o  aw            YRMapsExpression("<SNR>91_", "aw")
+o  ]%          * v:<C-U>call <SNR>49_MultiMatch("W",  "o") <CR>
+v  ]%            <Esc>]%m'gv``
+n  ]%          * :<C-U>call <SNR>49_MultiMatch("W",  "n") <CR>
+o  ^             YRMapsExpression("<SNR>107_", "^")
+o  _             YRMapsExpression("<SNR>107_", "_")
+o  a`            YRMapsExpression("<SNR>107_", "a`")
+o  a'            YRMapsExpression("<SNR>107_", "a'")
+o  a"            YRMapsExpression("<SNR>107_", "a\"")
+o  aB            YRMapsExpression("<SNR>107_", "aB")
+o  a{            YRMapsExpression("<SNR>107_", "a{")
+o  a}            YRMapsExpression("<SNR>107_", "a}")
+o  at            YRMapsExpression("<SNR>107_", "at")
+o  a<            YRMapsExpression("<SNR>107_", "a<")
+o  a>            YRMapsExpression("<SNR>107_", "a>")
+o  ab            YRMapsExpression("<SNR>107_", "ab")
+o  a(            YRMapsExpression("<SNR>107_", "a(")
+o  a)            YRMapsExpression("<SNR>107_", "a)")
+o  a[            YRMapsExpression("<SNR>107_", "a[")
+o  a]            YRMapsExpression("<SNR>107_", "a]")
+o  ap            YRMapsExpression("<SNR>107_", "ap")
+o  as            YRMapsExpression("<SNR>107_", "as")
+o  aW            YRMapsExpression("<SNR>107_", "aW")
+o  aw            YRMapsExpression("<SNR>107_", "aw")
 v  a%            <Esc>[%v]%
-v  aI          * :<C-U>cal <SNR>79_HandleTextObjectMapping(0, 1, 1, [line("'<"), line("'>"), col("'<"), col("'>")])<CR><Esc>gv
-o  aI          * :<C-U>cal <SNR>79_HandleTextObjectMapping(0, 1, 0, [line("."), line("."), col("."), col(".")])<CR>
-v  ai          * :<C-U>cal <SNR>79_HandleTextObjectMapping(0, 0, 1, [line("'<"), line("'>"), col("'<"), col("'>")])<CR><Esc>gv
-o  ai          * :<C-U>cal <SNR>79_HandleTextObjectMapping(0, 0, 0, [line("."), line("."), col("."), col(".")])<CR>
-o  b             YRMapsExpression("<SNR>91_", "b")
+o  a_          * :<C-U>call <SNR>1_UnderscoreTextObject('a')<CR>
+x  a_          * :<C-U>call <SNR>1_UnderscoreTextObject('a')<CR>
+o  b             YRMapsExpression("<SNR>107_", "b")
+n  cov         * :set <C-R>=(&virtualedit =~# "all") ? 'virtualedit-=all' : 'virtualedit+=all'<CR><CR>
 n  cox         * :set <C-R>=&cursorline && &cursorcolumn ? 'nocursorline nocursorcolumn' : 'cursorline cursorcolumn'<CR><CR>
-n  cow         * :set <C-R>=<SNR>68_toggle("wrap")<CR><CR>
-n  cos         * :set <C-R>=<SNR>68_toggle("spell")<CR><CR>
-n  cor         * :set <C-R>=<SNR>68_toggle("relativenumber")<CR><CR>
-n  con         * :set <C-R>=<SNR>68_toggle("number")<CR><CR>
-n  col         * :set <C-R>=<SNR>68_toggle("list")<CR><CR>
-n  coi         * :set <C-R>=<SNR>68_toggle("ignorecase")<CR><CR>
-n  coh         * :set <C-R>=<SNR>68_toggle("hlsearch")<CR><CR>
+n  cow         * :setlocal <C-R>=<SNR>82_toggle("wrap")<CR><CR>
+n  cos         * :setlocal <C-R>=<SNR>82_toggle("spell")<CR><CR>
+n  cor         * :setlocal <C-R>=<SNR>82_toggle("relativenumber")<CR><CR>
+n  con         * :setlocal <C-R>=<SNR>82_toggle("number")<CR><CR>
+n  col         * :setlocal <C-R>=<SNR>82_toggle("list")<CR><CR>
+n  coi         * :set <C-R>=<SNR>82_toggle("ignorecase")<CR><CR>
+n  coh         * :set <C-R>=<SNR>82_toggle("hlsearch")<CR><CR>
 n  cod         * :<C-R>=&diff ? 'diffoff' : 'diffthis'<CR><CR>
-n  cou         * :set <C-R>=<SNR>68_toggle("cursorcolumn")<CR><CR>
-n  coc         * :set <C-R>=<SNR>68_toggle("cursorline")<CR><CR>
+n  cou         * :setlocal <C-R>=<SNR>82_toggle("cursorcolumn")<CR><CR>
+n  coc         * :setlocal <C-R>=<SNR>82_toggle("cursorline")<CR><CR>
+n  cob         * :set background=<C-R>=&background == 'dark' ? 'light' : 'dark'<CR><CR>
+n  cS            <Plug>CSurround
 n  cs            <Plug>Csurround
+n  cxx           <Plug>(ExchangeLine)
+n  cxc           <Plug>(ExchangeClear)
+n  cx            <Plug>(Exchange)
+n  cgc           <Plug>ChangeCommentary
+n  cr            <Plug>Coerce
 x  d           * :YRDeleteRange 'v'<CR>
-o  d             YRMapsExpression("<SNR>91_", "d")
+o  d             YRMapsExpression("<SNR>107_", "d")
 n  ds            <Plug>Dsurround
-o  e             YRMapsExpression("<SNR>91_", "e")
-o  f             YRMapsExpression("<SNR>91_", "f", 1)
+n  d<C-X>        <Plug>SpeedDatingNowLocal
+n  d<C-A>        <Plug>SpeedDatingNowUTC
+o  e             YRMapsExpression("<SNR>107_", "e")
+o  f             YRMapsExpression("<SNR>107_", "f", 1)
+v  gx            <Plug>NetrwBrowseXVis
 n  gx            <Plug>NetrwBrowseX
 n  gp          * :<C-U>YRPaste 'gp'<CR>
 n  gP          * :<C-U>YRPaste 'gP'<CR>
-o  gE            YRMapsExpression("<SNR>91_", "gE")
-o  ge            YRMapsExpression("<SNR>91_", "ge")
-o  gg            YRMapsExpression("<SNR>91_", "gg")
-o  gj            YRMapsExpression("<SNR>91_", "gj")
-o  gk            YRMapsExpression("<SNR>91_", "gk")
-o  g$            YRMapsExpression("<SNR>91_", "g$")
-o  gm            YRMapsExpression("<SNR>91_", "gm")
-o  g^            YRMapsExpression("<SNR>91_", "g^")
-o  g_            YRMapsExpression("<SNR>91_", "g_")
-o  g%          * v:<C-U>call <SNR>82_Match_wrapper('',0,'o') <CR>
-v  g%          * :<C-U>call <SNR>82_Match_wrapper('',0,'v') <CR>m'gv``
-n  g%          * :<C-U>call <SNR>82_Match_wrapper('',0,'n') <CR>
-n  gcu           <Plug>CommentaryUndo
+o  gE            YRMapsExpression("<SNR>107_", "gE")
+o  ge            YRMapsExpression("<SNR>107_", "ge")
+o  gg            YRMapsExpression("<SNR>107_", "gg")
+o  gj            YRMapsExpression("<SNR>107_", "gj")
+o  gk            YRMapsExpression("<SNR>107_", "gk")
+o  g$            YRMapsExpression("<SNR>107_", "g$")
+o  gm            YRMapsExpression("<SNR>107_", "gm")
+o  g^            YRMapsExpression("<SNR>107_", "g^")
+o  g_            YRMapsExpression("<SNR>107_", "g_")
+n  gZzZz       * gs
+x  gS            <Plug>VgSurround
+x  gs            <Plug>(scratch-selection-reuse)
+n  gS            <Plug>(scratch-insert-clear)
+n  gs            <Plug>(scratch-insert-reuse)
+o  g%          * v:<C-U>call <SNR>49_Match_wrapper('',0,'o') <CR>
+v  g%          * :<C-U>call <SNR>49_Match_wrapper('',0,'v') <CR>m'gv``
+n  g%          * :<C-U>call <SNR>49_Match_wrapper('',0,'n') <CR>
+n  gcu           <Plug>Commentary<Plug>Commentary
 n  gcc           <Plug>CommentaryLine
+o  gc            <Plug>Commentary
 n  gc            <Plug>Commentary
 x  gc            <Plug>Commentary
-   gs          * :SwapParamsForwards<CR>
-   gS          * :SwapParamsBackwards<CR>
-n  g/          * :call <SNR>22_ShowCurrentSearchIndex(1,'')<CR>
-n  g#          * g#zz
-n  g*          * g*zz
-o  h             YRMapsExpression("<SNR>91_", "h")
-o  i`            YRMapsExpression("<SNR>91_", "i`")
-o  i'            YRMapsExpression("<SNR>91_", "i'")
-o  i"            YRMapsExpression("<SNR>91_", "i\"")
-o  iB            YRMapsExpression("<SNR>91_", "iB")
-o  i{            YRMapsExpression("<SNR>91_", "i{")
-o  i}            YRMapsExpression("<SNR>91_", "i}")
-o  it            YRMapsExpression("<SNR>91_", "it")
-o  i<            YRMapsExpression("<SNR>91_", "i<")
-o  i>            YRMapsExpression("<SNR>91_", "i>")
-o  ib            YRMapsExpression("<SNR>91_", "ib")
-o  i(            YRMapsExpression("<SNR>91_", "i(")
-o  i)            YRMapsExpression("<SNR>91_", "i)")
-o  i[            YRMapsExpression("<SNR>91_", "i[")
-o  i]            YRMapsExpression("<SNR>91_", "i]")
-o  ip            YRMapsExpression("<SNR>91_", "ip")
-o  is            YRMapsExpression("<SNR>91_", "is")
-o  iW            YRMapsExpression("<SNR>91_", "iW")
-o  iw            YRMapsExpression("<SNR>91_", "iw")
+   g/            <Plug>(incsearch-stay)
+v  gk          * k
+v  gj          * j
+n  gk          * k
+n  gj          * j
+o  h             YRMapsExpression("<SNR>107_", "h")
+o  i`            YRMapsExpression("<SNR>107_", "i`")
+o  i'            YRMapsExpression("<SNR>107_", "i'")
+o  i"            YRMapsExpression("<SNR>107_", "i\"")
+o  iB            YRMapsExpression("<SNR>107_", "iB")
+o  i{            YRMapsExpression("<SNR>107_", "i{")
+o  i}            YRMapsExpression("<SNR>107_", "i}")
+o  it            YRMapsExpression("<SNR>107_", "it")
+o  i<            YRMapsExpression("<SNR>107_", "i<")
+o  i>            YRMapsExpression("<SNR>107_", "i>")
+o  ib            YRMapsExpression("<SNR>107_", "ib")
+o  i(            YRMapsExpression("<SNR>107_", "i(")
+o  i)            YRMapsExpression("<SNR>107_", "i)")
+o  i[            YRMapsExpression("<SNR>107_", "i[")
+o  i]            YRMapsExpression("<SNR>107_", "i]")
+o  ip            YRMapsExpression("<SNR>107_", "ip")
+o  is            YRMapsExpression("<SNR>107_", "is")
+o  iW            YRMapsExpression("<SNR>107_", "iW")
+o  iw            YRMapsExpression("<SNR>107_", "iw")
 o  io          * :normal vio<CR>
 v  io            <Plug>InnerOffside
-v  iI          * :<C-U>cal <SNR>79_HandleTextObjectMapping(1, 1, 1, [line("'<"), line("'>"), col("'<"), col("'>")])<CR><Esc>gv
-o  iI          * :<C-U>cal <SNR>79_HandleTextObjectMapping(1, 1, 0, [line("."), line("."), col("."), col(".")])<CR>
-v  ii          * :<C-U>cal <SNR>79_HandleTextObjectMapping(1, 0, 1, [line("'<"), line("'>"), col("'<"), col("'>")])<CR><Esc>gv
-o  ii          * :<C-U>cal <SNR>79_HandleTextObjectMapping(1, 0, 0, [line("."), line("."), col("."), col(".")])<CR>
-o  j             YRMapsExpression("<SNR>91_", "j")
+o  i_          * :<C-U>call <SNR>1_UnderscoreTextObject('i')<CR>
+x  i_          * :<C-U>call <SNR>1_UnderscoreTextObject('i')<CR>
+o  j             YRMapsExpression("<SNR>107_", "j")
 v  j           * gj
 n  j           * gj
-o  k             YRMapsExpression("<SNR>91_", "k")
+o  k             YRMapsExpression("<SNR>107_", "k")
 v  k           * gk
 n  k           * gk
-o  l             YRMapsExpression("<SNR>91_", "l")
-n  n           * :let v:errmsg=''<CR>:silent! norm! n<CR>:call <SNR>22_ShowCurrentSearchIndex(0,'!')<CR>
+o  l             YRMapsExpression("<SNR>107_", "l")
 x  p           * :<C-U>YRPaste 'p', 'v'<CR>
 n  p           * :<C-U>YRPaste 'p'<CR>
-o  t             YRMapsExpression("<SNR>91_", "t", 1)
-o  w             YRMapsExpression("<SNR>91_", "w")
+o  t             YRMapsExpression("<SNR>107_", "t", 1)
+n  u             <Plug>(RepeatUndo)
+o  w             YRMapsExpression("<SNR>107_", "w")
 x  x           * :YRDeleteRange 'v'<CR>
-n  x             x<SNR>91_yrrecord
+n  x             x<SNR>107_yrrecord
 x  y           * :YRYankRange 'v'<CR>
-o  y             YRMapsExpression("<SNR>91_", "y")
-n  ygI         * :call <SNR>68_setup_paste()<CR>gI
-n  ygi         * :call <SNR>68_setup_paste()<CR>gi
-n  yI          * :call <SNR>68_setup_paste()<CR>I
-n  yA          * :call <SNR>68_setup_paste()<CR>A
-n  yO          * :call <SNR>68_setup_paste()<CR>O
-n  yo          * :call <SNR>68_setup_paste()<CR>o
-n  yP          * :call <SNR>68_setup_paste()<CR>i
-n  yp          * :call <SNR>68_setup_paste()<CR>a
+o  y             YRMapsExpression("<SNR>107_", "y")
+n  yO          * :call <SNR>82_setup_paste()<CR>O
+n  yo          * :call <SNR>82_setup_paste()<CR>o
 n  ySS           <Plug>YSsurround
 n  ySs           <Plug>YSsurround
 n  yss           <Plug>Yssurround
 n  yS            <Plug>YSurround
 n  ys            <Plug>Ysurround
-s  <Left>      * <Esc>bi
-s  <Right>     * <Esc>a
-s  <BS>        * b<BS>
-s  <S-Tab>     * <Esc>i<Right><C-R>=BackwardsSnippet()<CR>
-n  <Plug>NetrwBrowseX * :call netrw#NetrwBrowseX(expand("<cWORD>"),0)<CR>
-n  <SNR>91_yrrecord * :call YRRecord3()<CR>
+n  <Plug>(RepeatRedo) * :<C-U>call repeat#wrap("\<C-R>",v:count)<CR>
+n  <Plug>(RepeatUndoLine) * :<C-U>call repeat#wrap('U',v:count)<CR>
+n  <Plug>(RepeatUndo) * :<C-U>call repeat#wrap('u',v:count)<CR>
+n  <Plug>(RepeatDot) * :<C-U>exe repeat#run(v:count)<CR>
+x  <Plug>(_incsearch-nohlsearch) * :<C-U>nohlsearch<CR>gv
+n  <Plug>(_incsearch-nohlsearch) * :<C-U>nohlsearch<CR>
+os <Plug>(_incsearch-nohlsearch) * incsearch#autocmd#auto_nohlsearch(0)
+x  <Plug>(_incsearch-searchforward) * <SNR>207__searchforward_cmd()
+n  <Plug>(_incsearch-searchforward) * <SNR>207__searchforward_cmd()
+os <Plug>(_incsearch-searchforward) * <Nop>
+x  <Plug>(_incsearch-hlsearch) * :<C-U>let &hlsearch=&hlsearch<CR>gv
+n  <Plug>(_incsearch-hlsearch) * :<C-U>let &hlsearch=&hlsearch<CR>
+os <Plug>(_incsearch-hlsearch) * <Nop>
+x  <Plug>(_incsearch-esc) * <Esc>
+nos<Plug>(_incsearch-esc) * <Nop>
+n  <Plug>(_incsearch-gv) * gv
+ov <Plug>(_incsearch-gv) * <Nop>
+x  <Plug>(_incsearch-winrestview) * :<C-U>call winrestview(g:incsearch#_view)<CR>gv
+n  <Plug>(_incsearch-winrestview) * :<C-U>call winrestview(g:incsearch#_view)<CR>
+os <Plug>(_incsearch-winrestview) * <Nop>
+   <Plug>AirlineTablineRefresh * :set mod!<CR>
+v  <Plug>NetrwBrowseXVis * :<C-U>call netrw#BrowseXVis()<CR>
+n  <Plug>NetrwBrowseX * :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
+n  <SNR>107_yrrecord * :call YRRecord3()<CR>
+n  <Plug>VinegarVerticalSplitUp * :call <SNR>105_opendir('vsplit')<CR>
+n  <Plug>VinegarSplitUp * :call <SNR>105_opendir('split')<CR>
+n  <Plug>VinegarTabUp * :call <SNR>105_opendir('tabedit')<CR>
+n  <Plug>VinegarUp * :call <SNR>105_opendir('edit')<CR>
 n  <Plug>VimwikiTabMakeDiaryNote & :VimwikiTabMakeDiaryNote<CR>
 n  <Plug>VimwikiMakeDiaryNote & :VimwikiMakeDiaryNote<CR>
 n  <Plug>VimwikiDiaryGenerateLinks & :VimwikiDiaryGenerateLinks<CR>
@@ -435,15 +410,21 @@ n  <Plug>VimwikiDiaryIndex & :VimwikiDiaryIndex<CR>
 n  <Plug>VimwikiUISelect & :VimwikiUISelect<CR>
 n  <Plug>VimwikiTabIndex & :VimwikiTabIndex<CR>
 n  <Plug>VimwikiIndex & :VimwikiIndex<CR>
-v  <Plug>InnerOffside * :<C-U>call <SNR>87_InnerOffside()<CR>
-   <Plug>(scratch-evaluate!) * :ScratchEvaluate!<CR>
-   <Plug>(scratch-evaluate) * :ScratchEvaluate<CR>
-   <Plug>(scratch-close) * :<C-U>ScratchClose<CR>
-   <Plug>(scratch-open) * :<C-U>ScratchOpen<CR>
-n  <Plug>CommentaryUndo * :<C-U>call <SNR>76_undo()<CR>
-n  <Plug>CommentaryLine * :<C-U>set opfunc=<SNR>76_go|exe 'norm! 'v:count1.'g@_'<CR>
-n  <Plug>Commentary * :<C-U>set opfunc=<SNR>76_go<CR>g@
-x  <Plug>Commentary * :<C-U>call <SNR>76_go(line("'<"),line("'>"))<CR>
+n  <Plug>(vimshell_create) * :<C-U>VimShellCreate<CR>
+n  <Plug>(vimshell_switch) * :<C-U>VimShell<CR>
+n  <Plug>(vimshell_split_create) * :<C-U>call <SNR>102_call_vimshell({'split' : 1, 'create' : 1}, '')<CR>
+n  <Plug>(vimshell_split_switch) * :<C-U>call <SNR>102_call_vimshell({'split' : 1}, '')<CR>
+v  <Plug>InnerOffside * :<C-U>call <SNR>100_InnerOffside()<CR>
+v  <Plug>(ref-keyword) * :<C-U>call ref#K('visual')<CR>
+n  <Plug>(ref-keyword) * :<C-U>call ref#K('normal')<CR>
+n  <Plug>CVSWatchRemove * :CVSWatch remove<CR>
+n  <Plug>CVSWatchOn * :CVSWatch on<CR>
+n  <Plug>CVSWatchOff * :CVSWatch off<CR>
+n  <Plug>CVSWatchAdd * :CVSWatch add<CR>
+n  <Plug>CVSWatchers * :CVSWatchers<CR>
+n  <Plug>CVSUnedit * :CVSUnedit<CR>
+n  <Plug>CVSEditors * :CVSEditors<CR>
+n  <Plug>CVSEdit * :CVSEdit<CR>
 n  <Plug>VCSVimDiff * :VCSVimDiff<CR>
 n  <Plug>VCSUpdate * :VCSUpdate<CR>
 n  <Plug>VCSUnlock * :VCSUnlock<CR>
@@ -461,41 +442,41 @@ n  <Plug>VCSDelete * :VCSDelete<CR>
 n  <Plug>VCSCommit * :VCSCommit<CR>
 n  <Plug>VCSAnnotate * :VCSAnnotate<CR>
 n  <Plug>VCSAdd * :VCSAdd<CR>
-n  <Plug>unimpaired_line_xml_decode * :<C-U>call <SNR>68_Transform("xml_decode",v:count1)<CR>
-x  <Plug>unimpaired_xml_decode * :<C-U>call <SNR>68_Transform("xml_decode",visualmode())<CR>
-n  <Plug>unimpaired_xml_decode * :<C-U>call <SNR>68_TransformSetup("xml_decode")<CR>g@
-n  <Plug>unimpaired_line_xml_encode * :<C-U>call <SNR>68_Transform("xml_encode",v:count1)<CR>
-x  <Plug>unimpaired_xml_encode * :<C-U>call <SNR>68_Transform("xml_encode",visualmode())<CR>
-n  <Plug>unimpaired_xml_encode * :<C-U>call <SNR>68_TransformSetup("xml_encode")<CR>g@
-n  <Plug>unimpaired_line_url_decode * :<C-U>call <SNR>68_Transform("url_decode",v:count1)<CR>
-x  <Plug>unimpaired_url_decode * :<C-U>call <SNR>68_Transform("url_decode",visualmode())<CR>
-n  <Plug>unimpaired_url_decode * :<C-U>call <SNR>68_TransformSetup("url_decode")<CR>g@
-n  <Plug>unimpaired_line_url_encode * :<C-U>call <SNR>68_Transform("url_encode",v:count1)<CR>
-x  <Plug>unimpaired_url_encode * :<C-U>call <SNR>68_Transform("url_encode",visualmode())<CR>
-n  <Plug>unimpaired_url_encode * :<C-U>call <SNR>68_TransformSetup("url_encode")<CR>g@
-n  <Plug>unimpaired_line_string_decode * :<C-U>call <SNR>68_Transform("string_decode",v:count1)<CR>
-x  <Plug>unimpaired_string_decode * :<C-U>call <SNR>68_Transform("string_decode",visualmode())<CR>
-n  <Plug>unimpaired_string_decode * :<C-U>call <SNR>68_TransformSetup("string_decode")<CR>g@
-n  <Plug>unimpaired_line_string_encode * :<C-U>call <SNR>68_Transform("string_encode",v:count1)<CR>
-x  <Plug>unimpaired_string_encode * :<C-U>call <SNR>68_Transform("string_encode",visualmode())<CR>
-n  <Plug>unimpaired_string_encode * :<C-U>call <SNR>68_TransformSetup("string_encode")<CR>g@
-n  <Plug>unimpairedPutBelow * :call <SNR>68_putline(']p')<CR>
-n  <Plug>unimpairedPutAbove * :call <SNR>68_putline('[p')<CR>
-n  <Plug>unimpairedPaste * :call <SNR>68_setup_paste()<CR>
-   <Plug>unimpairedMoveSelectionDown * :<C-U>call <SNR>68_MoveSelectionDown(v:count1)<CR>
-   <Plug>unimpairedMoveSelectionUp * :<C-U>call <SNR>68_MoveSelectionUp(v:count1)<CR>
-n  <Plug>unimpairedMoveDown * :<C-U>call <SNR>68_Move('+',v:count1,'Down')<CR>
-n  <Plug>unimpairedMoveUp * :<C-U>call <SNR>68_Move('--',v:count1,'Up')<CR>
-n  <Plug>unimpairedBlankDown * :<C-U>call <SNR>68_BlankDown(v:count1)<CR>
-n  <Plug>unimpairedBlankUp * :<C-U>call <SNR>68_BlankUp(v:count1)<CR>
-o  <Plug>unimpairedContextNext * :call <SNR>68_ContextMotion(0)<CR>
-o  <Plug>unimpairedContextPrevious * :call <SNR>68_ContextMotion(1)<CR>
-n  <Plug>unimpairedContextNext * :call <SNR>68_Context(0)<CR>
-n  <Plug>unimpairedContextPrevious * :call <SNR>68_Context(1)<CR>
+n  <Plug>unimpaired_line_xml_decode * :<C-U>call <SNR>82_Transform("xml_decode",v:count1)<CR>
+x  <Plug>unimpaired_xml_decode * :<C-U>call <SNR>82_Transform("xml_decode",visualmode())<CR>
+n  <Plug>unimpaired_xml_decode * :<C-U>call <SNR>82_TransformSetup("xml_decode")<CR>g@
+n  <Plug>unimpaired_line_xml_encode * :<C-U>call <SNR>82_Transform("xml_encode",v:count1)<CR>
+x  <Plug>unimpaired_xml_encode * :<C-U>call <SNR>82_Transform("xml_encode",visualmode())<CR>
+n  <Plug>unimpaired_xml_encode * :<C-U>call <SNR>82_TransformSetup("xml_encode")<CR>g@
+n  <Plug>unimpaired_line_url_decode * :<C-U>call <SNR>82_Transform("url_decode",v:count1)<CR>
+x  <Plug>unimpaired_url_decode * :<C-U>call <SNR>82_Transform("url_decode",visualmode())<CR>
+n  <Plug>unimpaired_url_decode * :<C-U>call <SNR>82_TransformSetup("url_decode")<CR>g@
+n  <Plug>unimpaired_line_url_encode * :<C-U>call <SNR>82_Transform("url_encode",v:count1)<CR>
+x  <Plug>unimpaired_url_encode * :<C-U>call <SNR>82_Transform("url_encode",visualmode())<CR>
+n  <Plug>unimpaired_url_encode * :<C-U>call <SNR>82_TransformSetup("url_encode")<CR>g@
+n  <Plug>unimpaired_line_string_decode * :<C-U>call <SNR>82_Transform("string_decode",v:count1)<CR>
+x  <Plug>unimpaired_string_decode * :<C-U>call <SNR>82_Transform("string_decode",visualmode())<CR>
+n  <Plug>unimpaired_string_decode * :<C-U>call <SNR>82_TransformSetup("string_decode")<CR>g@
+n  <Plug>unimpaired_line_string_encode * :<C-U>call <SNR>82_Transform("string_encode",v:count1)<CR>
+x  <Plug>unimpaired_string_encode * :<C-U>call <SNR>82_Transform("string_encode",visualmode())<CR>
+n  <Plug>unimpaired_string_encode * :<C-U>call <SNR>82_TransformSetup("string_encode")<CR>g@
+n  <Plug>unimpairedPutBelow * :call <SNR>82_putline(']p', 'Below')<CR>
+n  <Plug>unimpairedPutAbove * :call <SNR>82_putline('[p', 'Above')<CR>
+n  <Plug>unimpairedPaste * :call <SNR>82_setup_paste()<CR>
+   <Plug>unimpairedMoveSelectionDown * :<C-U>call <SNR>82_MoveSelectionDown(v:count1)<CR>
+   <Plug>unimpairedMoveSelectionUp * :<C-U>call <SNR>82_MoveSelectionUp(v:count1)<CR>
+n  <Plug>unimpairedMoveDown * :<C-U>call <SNR>82_Move('+',v:count1,'Down')<CR>
+n  <Plug>unimpairedMoveUp * :<C-U>call <SNR>82_Move('--',v:count1,'Up')<CR>
+n  <Plug>unimpairedBlankDown * :<C-U>call <SNR>82_BlankDown(v:count1)<CR>
+n  <Plug>unimpairedBlankUp * :<C-U>call <SNR>82_BlankUp(v:count1)<CR>
+o  <Plug>unimpairedContextNext * :call <SNR>82_ContextMotion(0)<CR>
+o  <Plug>unimpairedContextPrevious * :call <SNR>82_ContextMotion(1)<CR>
+n  <Plug>unimpairedContextNext * :call <SNR>82_Context(0)<CR>
+n  <Plug>unimpairedContextPrevious * :call <SNR>82_Context(1)<CR>
 n  <Plug>unimpairedOPrevious   <Plug>unimpairedDirectoryPrevious:echohl WarningMSG|echo "[o is deprecated. Use [f"|echohl NONE<CR>
 n  <Plug>unimpairedONext   <Plug>unimpairedDirectoryNext:echohl WarningMSG|echo "]o is deprecated. Use ]f"|echohl NONE<CR>
-n  <Plug>unimpairedDirectoryPrevious * :<C-U>edit <C-R>=<SNR>68_fnameescape(<SNR>68_FileByOffset(-v:count1))<CR><CR>
-n  <Plug>unimpairedDirectoryNext * :<C-U>edit <C-R>=<SNR>68_fnameescape(<SNR>68_FileByOffset(v:count1))<CR><CR>
+n  <Plug>unimpairedDirectoryPrevious * :<C-U>edit <C-R>=fnamemodify(<SNR>82_fnameescape(<SNR>82_FileByOffset(-v:count1)), ':.')<CR><CR>
+n  <Plug>unimpairedDirectoryNext * :<C-U>edit <C-R>=fnamemodify(<SNR>82_fnameescape(<SNR>82_FileByOffset(v:count1)), ':.')<CR><CR>
 n  <Plug>unimpairedTLast * :<C-U>exe "".(v:count ? v:count : "")."tlast"<CR>
 n  <Plug>unimpairedTFirst * :<C-U>exe "".(v:count ? v:count : "")."tfirst"<CR>
 n  <Plug>unimpairedTNext * :<C-U>exe "".(v:count ? v:count : "")."tnext"<CR>
@@ -520,40 +501,74 @@ n  <Plug>unimpairedALast * :<C-U>exe "".(v:count ? v:count : "")."last"<CR>
 n  <Plug>unimpairedAFirst * :<C-U>exe "".(v:count ? v:count : "")."first"<CR>
 n  <Plug>unimpairedANext * :<C-U>exe "".(v:count ? v:count : "")."next"<CR>
 n  <Plug>unimpairedAPrevious * :<C-U>exe "".(v:count ? v:count : "")."previous"<CR>
-v  <Plug>VgSurround * :<C-U>call <SNR>50_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR>
-v  <Plug>VSurround * :<C-U>call <SNR>50_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR>
-n  <Plug>YSurround * :<C-U>set opfunc=<SNR>50_opfunc2<CR>g@
-n  <Plug>Ysurround * :<C-U>set opfunc=<SNR>50_opfunc<CR>g@
-n  <Plug>YSsurround * :<C-U>call <SNR>50_opfunc2(v:count1)<CR>
-n  <Plug>Yssurround * :<C-U>call <SNR>50_opfunc(v:count1)<CR>
-n  <Plug>Csurround * :<C-U>call <SNR>50_changesurround()<CR>
-n  <Plug>Dsurround * :<C-U>call <SNR>50_dosurround(<SNR>50_inputtarget())<CR>
+s  <Del>       * <C-G>c
+s  <BS>        * <C-G>c
+v  <Plug>VgSurround * :<C-U>call <SNR>64_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR>
+v  <Plug>VSurround * :<C-U>call <SNR>64_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR>
+n  <Plug>YSurround * :<C-U>set opfunc=<SNR>64_opfunc2<CR>g@
+n  <Plug>Ysurround * :<C-U>set opfunc=<SNR>64_opfunc<CR>g@
+n  <Plug>YSsurround * :<C-U>call <SNR>64_opfunc2(v:count1)<CR>
+n  <Plug>Yssurround * :<C-U>call <SNR>64_opfunc(v:count1)<CR>
+n  <Plug>CSurround * :<C-U>call <SNR>64_changesurround(1)<CR>
+n  <Plug>Csurround * :<C-U>call <SNR>64_changesurround()<CR>
+n  <Plug>Dsurround * :<C-U>call <SNR>64_dosurround(<SNR>64_inputtarget())<CR>
 n  <Plug>SurroundRepeat * .
-n  <SNR>48_    * <SNR>48_
-n  <Plug>(signify-toggle) * :<C-U>call sy#toggle()<CR>
-n  <Plug>(signify-toggle-highlight) * :<C-U>call sy#highlight#line_toggle()<CR>
+n  <Plug>SpeedDatingNowUTC * :<C-U>call speeddating#timestamp(1,v:count)<CR>
+n  <Plug>SpeedDatingNowLocal * :<C-U>call speeddating#timestamp(0,v:count)<CR>
+v  <Plug>SpeedDatingDown * :<C-U>call speeddating#incrementvisual(-v:count1)<CR>
+v  <Plug>SpeedDatingUp * :<C-U>call speeddating#incrementvisual(v:count1)<CR>
+n  <Plug>SpeedDatingDown * :<C-U>call speeddating#increment(-v:count1)<CR>
+n  <Plug>SpeedDatingUp * :<C-U>call speeddating#increment(v:count1)<CR>
+x  <Plug>(signify-motion-outer-visual) * :<C-U>call sy#util#hunk_text_object(1)<CR>
+o  <Plug>(signify-motion-outer-pending) * :<C-U>call sy#util#hunk_text_object(1)<CR>
+x  <Plug>(signify-motion-inner-visual) * :<C-U>call sy#util#hunk_text_object(0)<CR>
+o  <Plug>(signify-motion-inner-pending) * :<C-U>call sy#util#hunk_text_object(0)<CR>
 n  <Plug>(signify-prev-hunk) * &diff ? '[c' : ":\<C-U>call sy#jump#prev_hunk(v:count1)\<CR>"
 n  <Plug>(signify-next-hunk) * &diff ? ']c' : ":\<C-U>call sy#jump#next_hunk(v:count1)\<CR>"
-s  <Plug>(neocomplcache_snippets_force_jump) * :<C-U>:echoerr <SNR>40_print_snippets_complete_error()<CR>
-s  <Plug>(neocomplcache_snippets_force_expand) * :<C-U>:echoerr <SNR>40_print_snippets_complete_error()<CR>
-s  <Plug>(neocomplcache_snippets_jump) * :<C-U>:echoerr <SNR>40_print_snippets_complete_error()<CR>
-s  <Plug>(neocomplcache_snippets_expand) * :<C-U>:echoerr <SNR>40_print_snippets_complete_error()<CR>
+x  <Plug>(scratch-selection-clear) * :<C-U>call scratch#selection(1)<CR>
+x  <Plug>(scratch-selection-reuse) * :<C-U>call scratch#selection(0)<CR>
+n  <Plug>(scratch-insert-clear) * :call scratch#insert(1)<CR>
+n  <Plug>(scratch-insert-reuse) * :call scratch#insert(0)<CR>
+   <Plug>(_incsearch-g#) * g#
+   <Plug>(_incsearch-g*) * g*
+   <Plug>(_incsearch-#) * #
+   <Plug>(_incsearch-*) * *
+   <Plug>(_incsearch-N) * g:incsearch#consistent_n_direction && !v:searchforward ? 'n' : 'N'
+   <Plug>(_incsearch-n) * g:incsearch#consistent_n_direction && !v:searchforward ? 'N' : 'n'
+   <Plug>(incsearch-nohl-g#)   <Plug>(incsearch-nohl)<Plug>(_incsearch-g#)
+   <Plug>(incsearch-nohl-g*)   <Plug>(incsearch-nohl)<Plug>(_incsearch-g*)
+   <Plug>(incsearch-nohl-#)   <Plug>(incsearch-nohl)<Plug>(_incsearch-#)
+   <Plug>(incsearch-nohl-*)   <Plug>(incsearch-nohl)<Plug>(_incsearch-*)
+   <Plug>(incsearch-nohl-N)   <Plug>(incsearch-nohl)<Plug>(_incsearch-N)
+   <Plug>(incsearch-nohl-n)   <Plug>(incsearch-nohl)<Plug>(_incsearch-n)
+   <Plug>(incsearch-nohl2) * incsearch#autocmd#auto_nohlsearch(2)
+   <Plug>(incsearch-nohl0) * incsearch#autocmd#auto_nohlsearch(0)
+   <Plug>(incsearch-nohl) * incsearch#autocmd#auto_nohlsearch(1)
+   <Plug>(incsearch-stay) * incsearch#go({'command': '/', 'is_stay': 1})
+   <Plug>(incsearch-backward) * incsearch#go({'command': '?'})
+   <Plug>(incsearch-forward) * incsearch#go({'command': '/'})
+n  <SNR>45_:   * :<C-U><C-R>=v:count ? v:count : ''<CR>
+n  <Plug>(FerretAcks) * :Acks <C-R>=(exists('g:ferret_lastsearch') ? '/' . g:ferret_lastsearch . '//' : ' ')<CR><Left>
+n  <Plug>(FerretAckWord) * :Ack <C-R><C-W><CR>
+n  <Plug>(FerretLack) * :Lack<Space>
+n  <Plug>(FerretAck) * :Ack<Space>
 x  <Plug>(expand_region_shrink) * :<C-U>call expand_region#next('v', '-')<CR>
 x  <Plug>(expand_region_expand) * :<C-U>call expand_region#next('v', '+')<CR>
 n  <Plug>(expand_region_expand) * :<C-U>call expand_region#next('n', '+')<CR>
-v  <Plug>EgMapReplaceSelection_R & y:call <SNR>29_ReplaceSelection(1)<CR>
-n  <Plug>EgMapReplaceCurrentWord_R & :call <SNR>29_ReplaceCurrentWord(1)<CR>
-v  <Plug>EgMapReplaceSelection_r & y:call <SNR>29_ReplaceSelection(0)<CR>
-n  <Plug>EgMapReplaceCurrentWord_r & :call <SNR>29_ReplaceCurrentWord(0)<CR>
-v  <Plug>EgMapGrepSelection_A & y:call <SNR>29_GrepSelection("add", 1)<CR>
-n  <Plug>EgMapGrepCurrentWord_A & :call <SNR>29_GrepCurrentWord("add", 1)<CR>
-v  <Plug>EgMapGrepSelection_a & y:call <SNR>29_GrepSelection("add", 0)<CR>
-n  <Plug>EgMapGrepCurrentWord_a & :call <SNR>29_GrepCurrentWord("add", 0)<CR>
-v  <Plug>EgMapGrepSelection_V & y:call <SNR>29_GrepSelection("", 1)<CR>
-n  <Plug>EgMapGrepCurrentWord_V & :call <SNR>29_GrepCurrentWord("", 1)<CR>
-v  <Plug>EgMapGrepSelection_v & y:call <SNR>29_GrepSelection("", 0)<CR>
-n  <Plug>EgMapGrepCurrentWord_v & :call <SNR>29_GrepCurrentWord("", 0)<CR>
-n  <Plug>EgMapGrepOptions & :call <SNR>29_GrepOptions()<CR>
-n  <Nul>       * :CtrlSpace<CR>
+n  <Plug>(ExchangeLine) * :<C-U>set operatorfunc=<SNR>41_exchange_set<CR>g@_
+n  <Plug>(ExchangeClear) * :<C-U>call <SNR>41_exchange_clear()<CR>
+v  <Plug>(Exchange) * :<C-U>call <SNR>41_exchange_set(visualmode(), 1)<CR>
+n  <Plug>(Exchange) * :<C-U>set operatorfunc=<SNR>41_exchange_set<CR>g@
+n  <Plug>(ctrlp) * :<C-U>CtrlP<CR>
+n  <Plug>CommentaryUndo   <Plug>Commentary<Plug>Commentary
+n  <Plug>ChangeCommentary * c:<C-U>call <SNR>36_textobject(1)<CR>
+o  <Plug>Commentary * :<C-U>call <SNR>36_textobject(0)<CR>
+n  <Plug>CommentaryLine * :<C-U>set opfunc=<SNR>36_go|exe 'norm! 'v:count1.'g@_'<CR>
+n  <Plug>Commentary * :<C-U>set opfunc=<SNR>36_go<CR>g@
+x  <Plug>Commentary * :<C-U>call <SNR>36_go(line("'<"),line("'>"))<CR>
+n  <Plug>Coerce * :<C-U>call <SNR>29_coerce(nr2char(getchar()))<CR>
+   <F6>        * :Dispatch<CR>
+   <F5>        * :Start<CR>
+n  <F12>       * a<C-R>=(pumvisible()? "\<C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
 n  <F9>        * mzggg?G`z
 x  <BS>          <Plug>(expand_region_shrink)
