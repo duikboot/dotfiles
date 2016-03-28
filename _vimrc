@@ -64,6 +64,7 @@ command! Q :quitall
 command! WQ :wqall
 command! Wq :wq
 
+nnoremap <leader>e :edit<cr>
 " nnoremap ; :
 " nnoremap : ;
 " inoremap jj <Esc>
@@ -246,7 +247,7 @@ set path+=~/.cabal/bin
 
 
 " nnoremap <leader>a <Esc>:Ack!<Space>
-let g:ackprg = 'ag --smart-case --nogroup --nocolor --column'
+let g:ackprg = 'ag --smart-case --nogroup --nocolor --column --ignore=tags --ignore=Session.vim'
 
 " Toggle tag
 nnoremap <leader>t <Esc>:tselect<Space>
@@ -843,6 +844,7 @@ augroup END
 
 let g:dbext_default_profile_survey = 'type=PGSQL:user=arjend:@askg:host=localhost:dbname=survey'
 
+let g:signify_update_on_bufenter = 1
 
 noremap <f5> :Start<cr>
 noremap <f6> :Dispatch<cr>
