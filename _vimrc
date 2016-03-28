@@ -845,6 +845,7 @@ augroup END
 let g:dbext_default_profile_survey = 'type=PGSQL:user=arjend:@askg:host=localhost:dbname=survey'
 
 let g:signify_update_on_bufenter = 1
+let g:signify_update_on_focusgained = 1
 
 noremap <f5> :Start<cr>
 noremap <f6> :Dispatch<cr>
