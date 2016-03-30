@@ -1,7 +1,7 @@
 https://github.com/tpope/vim-abolish                          abolish
 https://github.com/mileszs/ack.vim.git                        ack
 https://github.com/bling/vim-airline                          airline
-https://github.com/romainl/Apprentice                         Apprentice
+#https://github.com/romainl/Apprentice                         Apprentice
 https://github.com/jiangmiao/auto-pairs                       auto-pairs
 #https://github.com/sjl/badwolf.git                            badwolf
 https://github.com/tpope/vim-commentary.git                   commentary
@@ -54,7 +54,7 @@ https://github.com/scrooloose/syntastic.git                   syntastic
 https://github.com/godlygeek/tabular                          tabular
 https://github.com/majutsushi/tagbar                          tagbar
 https://github.com/christoomey/vim-tmux-navigator             tmux-navigator
-https://github.com/vim-scripts/tracwiki.git                   tracwiki
+# https://github.com/vim-scripts/tracwiki.git                   tracwiki
 https://github.com/SirVer/ultisnips.git                       ultisnips
 https://github.com/tpope/vim-unimpaired                       unimpaired
 https://github.com/Shougo/unite.vim                           unite

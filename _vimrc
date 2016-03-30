@@ -842,7 +842,7 @@ augroup ft_java
     autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
 augroup END
 
-let g:dbext_default_profile_survey = 'type=PGSQL:user=arjend:@askg:host=localhost:dbname=survey'
+" let g:dbext_default_profile_survey = 'type=PGSQL:user=arjend:@askg:host=localhost:dbname=survey'
 
 let g:signify_update_on_bufenter = 1
 let g:signify_update_on_focusgained = 1
