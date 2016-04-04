@@ -3,8 +3,10 @@ syntax: glob
 *.log
 _vim/ropevim/src*
 _vim/ropevim/pylibs*
-_vim/.netrwhist
+*netrwhist
+*rplugin*
 _vim/bundle/*
+_neovim/bundle/*
 Session.vim
 tags
 contacts

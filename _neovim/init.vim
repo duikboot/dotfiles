@@ -10,6 +10,7 @@ call pathogen#helptags()
 
 " So neovim will work in a VirtualEnv
 let g:python_host_prog='/usr/bin/python'
+let g:python3_host_prog='/usr/bin/python3'
 
 " Basic Settings {{{
 syntax on                     " syntax highlighting
@@ -628,13 +629,14 @@ nnoremap <silent> <F12> a<C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnips
 " let g:neocomplcache_min_syntax_length = 2
 
 let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-" let g:neocomplete#sources#syntax#min_keyword_length = 2
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-let g:neocomplete#min_keyword_length = 2
+let g:deoplete#enable_at_startup = 1
+" let g:neocomplete#enable_at_startup = 1
+" " Use smartcase.
+" let g:neocomplete#enable_smart_case = 1
+" " Set minimum syntax keyword length.
+" " let g:neocomplete#sources#syntax#min_keyword_length = 2
+" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" let g:neocomplete#min_keyword_length = 2
 
 
 " ===========================================================
@@ -844,8 +846,8 @@ augroup END
 
 " let g:dbext_default_profile_survey = 'type=PGSQL:user=arjend:@askg:host=localhost:dbname=survey'
 
-let g:signify_update_on_bufenter = 1
-let g:signify_update_on_focusgained = 1
+" let g:signify_update_on_bufenter = 1
+" let g:signify_update_on_focusgained = 1
 
 noremap <f5> :Start<cr>
 noremap <f6> :Dispatch<cr>
