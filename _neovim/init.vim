@@ -116,8 +116,8 @@ nnoremap Y y$
 
 " ,v brings up my .vimrc
 " ,V reloads it -- making all changes active (have to save first)
-nnoremap <leader>v :sp ~/.vimrc<CR><C-W>_
-nnoremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+nnoremap <leader>v :sp ~/.config/nvim/init.vim<CR><C-W>_
+nnoremap <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " open/close the quickfix window
 nnoremap <leader>c :copen<CR>
@@ -383,6 +383,8 @@ autocmd FileType python noremap <LocalLeader>8 :PymodeLint<cr>:lopen<cr>
 " autocmd FileType python noremap <LocalLeader>a8 call s:Autopep8()
 autocmd FileType python noremap <LocalLeader>a8 mz:%!autopep8 %<cr>`z:w<cr>
 
+nnoremap <localleader>j :%!python -m json.tool<cr>
+
 " let g:pymode_rope_autoimport = 1
 let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
 
@@ -485,7 +487,7 @@ set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
 set ruler                   " Show some info, even without statuslines.
 set laststatus=2            " Always show statusline, even if only 1 window.
 " set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})
-set encoding=utf-8          " Necessary to show unicode glyphs
+" set encoding=utf-8          " Necessary to show unicode glyphs
 
 " displays tabs with :set list & displays when a line runs off-screen
 set listchars=tab:>-,trail:-,precedes:<,extends:>
