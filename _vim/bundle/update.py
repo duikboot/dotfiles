@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/python3.5
 
 import os
 import shutil
@@ -10,14 +10,14 @@ def clone(link, directory):
     """
     Create clone command.
     """
-    s = [None, 'clone', link, directory]
+    command = [None, 'clone', link, directory]
 
     if "bitbucket" in link:
-        s[0] = 'hg'
+        command[0] = 'hg'
     else:
-        s[0] = 'git'
-        s.append('-v')
-    return subprocess.Popen(s)
+        command[0] = 'git'
+        command.append('-v')
+    return subprocess.Popen(command)
 
 
 def update(link, directory):
@@ -41,17 +41,18 @@ def procs(module):
     return update(link, directory)
 
 
-def is_obsolete(f):
-    return not(f.startswith(".") or os.path.isfile(f))
+def is_obsolete(file_):
+    return not(file_.startswith(".") or os.path.isfile(file_))
 
 
 def list_processes():
-    with open('modules') as f:
+    """ Create list of processes. """
+    with open('modules') as file_:
         # Create process_list but filter commented lines.
-        process_list = [procs(mod) for mod in f if not mod.startswith("#")]
-        f.seek(0)
+        process_list = [procs(mod) for mod in file_ if not mod.startswith("#")]
+        file_.seek(0)
         # Create list of directories from file
-        dirs_ = [(mod.split()[-1]) for mod in f if not mod.startswith("#")]
+        dirs_ = [(mod.split()[-1]) for mod in file_ if not mod.startswith("#")]
 
         # Filter directories which are obsolete
         obsolete_dirs = (d for d in os.listdir('.')
@@ -60,13 +61,16 @@ def list_processes():
 
 
 def main():
+    """
+    Main runner
+    """
     process_list, obsolete_dirs = list_processes()
-    [proc.communicate() for proc in process_list]
-    [shutil.rmtree(d) for d in obsolete_dirs]
+    _ = [proc.communicate() for proc in process_list]
+    _ = [shutil.rmtree(d) for d in obsolete_dirs]
 
 
 if __name__ == '__main__':
-    start = time.time()
+    START = time.time()
     main()
-    end = time.time()
-    print("Took %.3f seconds" % (end - start), end="\n\n")
+    END = time.time()
+    print("Took %.3f seconds" % (END - START), end="\n\n")
