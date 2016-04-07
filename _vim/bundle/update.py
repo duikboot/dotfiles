@@ -42,6 +42,7 @@ def procs(module):
 
 
 def is_obsolete(file_):
+    """Check if `file_` is a hidden file or a directory"""
     return not(file_.startswith(".") or os.path.isfile(file_))
 
 
