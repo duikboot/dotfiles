@@ -148,6 +148,17 @@ let g:netrw_browsex_viewer= "firefox"
 " map <c-l> <c-w>l
 " map <c-h> <c-w>h
 
+
+" Terminal
+tnoremap <Esc> <C-\><C-n>
+" tnoremap <A-h> <C-\><C-n><C-w>h
+" tnoremap <A-j> <C-\><C-n><C-w>j
+" tnoremap <A-k> <C-\><C-n><C-w>k
+" tnoremap <A-l> <C-\><C-n><C-w>l
+" nnoremap <A-h> <C-w>h
+" nnoremap <A-j> <C-w>j
+" nnoremap <A-k> <C-w>k
+" nnoremap <A-l> <C-w>l
 let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
@@ -248,6 +259,8 @@ set path+=~/.cabal/bin
 
 
 " nnoremap <leader>a <Esc>:Ack!<Space>
+
+let g:ack_use_dispatch = 0
 let g:ackprg = 'ag --smart-case --nogroup --nocolor --column --ignore=tags --ignore=Session.vim'
 
 " Toggle tag
@@ -379,7 +392,7 @@ let g:pymode_rope_complete_on_dot = 0
 " endfunction
 
 " Run PymodeLint
-autocmd FileType python noremap <LocalLeader>8 :PymodeLint<cr>:lopen<cr>
+" autocmd FileType python noremap <LocalLeader>8 :PymodeLint<cr>:lopen<cr>
 " autocmd FileType python noremap <LocalLeader>a8 call s:Autopep8()
 autocmd FileType python noremap <LocalLeader>a8 mz:%!autopep8 %<cr>`z:w<cr>
 
@@ -397,7 +410,7 @@ let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
 " map <leader>r :RopeRename<CR>
 
 " Resize splits when the window is resized
-autocmd VimResized * :wincmd =
+autocmd VimResized * silent! :wincmd =
 
 
 set suffixesadd=.tex,.latex,.java,.js,.hrl,.erl
@@ -756,6 +769,9 @@ autocmd FileType haskell setlocal ai sw=4 ts=4 sta et fo=croql
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent
 " autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
+
+autocmd FileType python noremap <LocalLeader>8 :Neomake<cr>
+let g:neomake_python_enabled_makers = ['pep8', 'pylint']
 let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 let g:syntastic_python_checkers = ['']
 " autocmd FileType python let b:dispatch = 'python %'
@@ -768,7 +784,7 @@ endfunction
 autocmd FileType qf call ParseNosetestsQuickFix()
 
 let g:dispatch_compilers = {'nosetests': 'nosetests'}
-let test#strategy = "dispatch"
+let test#strategy = "neovim"
 
 function! ParseNosetestsQuickFix()
   " only will work for vim 7.4.718+ as an autocommand

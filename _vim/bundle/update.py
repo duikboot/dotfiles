@@ -1,4 +1,4 @@
-#!/usr/bin/python3.5
+#!/usr/bin/env python3.5
 
 import os
 import shutil
@@ -53,11 +53,11 @@ def list_processes():
         process_list = [procs(mod) for mod in file_ if not mod.startswith("#")]
         file_.seek(0)
         # Create list of directories from file
-        dirs_ = [(mod.split()[-1]) for mod in file_ if not mod.startswith("#")]
+        dirs = [(mod.split()[-1]) for mod in file_ if not mod.startswith("#")]
 
         # Filter directories which are obsolete
         obsolete_dirs = (d for d in os.listdir('.')
-                         if is_obsolete(d) and d not in dirs_)
+                         if is_obsolete(d) and d not in dirs)
     return process_list, obsolete_dirs
 
 
