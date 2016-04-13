@@ -117,7 +117,7 @@ nnoremap Y y$
 " ,v brings up my .vimrc
 " ,V reloads it -- making all changes active (have to save first)
 nnoremap <leader>v :sp ~/.config/nvim/init.vim<CR><C-W>_
-nnoremap <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+nnoremap <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
 
 " open/close the quickfix window
 nnoremap <leader>c :copen<CR>
@@ -150,6 +150,8 @@ let g:netrw_browsex_viewer= "firefox"
 
 
 " Terminal
+let g:neoterm_position = 'vertical'
+nnoremap <leader>ot :vs \| term<space>
 tnoremap <Esc> <C-\><C-n>
 " tnoremap <A-h> <C-\><C-n><C-w>h
 " tnoremap <A-j> <C-\><C-n><C-w>j
@@ -159,6 +161,7 @@ tnoremap <Esc> <C-\><C-n>
 " nnoremap <A-j> <C-w>j
 " nnoremap <A-k> <C-w>k
 " nnoremap <A-l> <C-w>l
+
 let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
@@ -260,11 +263,12 @@ set path+=~/.cabal/bin
 
 " nnoremap <leader>a <Esc>:Ack!<Space>
 
-let g:ack_use_dispatch = 0
+let g:ack_use_dispatch = 1
 let g:ackprg = 'ag --smart-case --nogroup --nocolor --column --ignore=tags --ignore=Session.vim'
 
 " Toggle tag
-nnoremap <leader>t <Esc>:tselect<Space>
+nnoremap <leader>t <Esc>:tag<Space>
+nnoremap <leader>ts <Esc>:tselect<Space>
 
 " use ,T to jump to tag in a vertical split
 " nnoremap <silent> <Leader>F :let word=expand("<cword>")<CR>:vsp<CR>:wincmd w<cr>:exec("tselect ". word)<cr>
@@ -839,9 +843,9 @@ function! s:OpenTestFile(split)
     endtry
 endfunc
 
-nnoremap <Leader>ovt :call <SID>OpenTestFile("vertical")<cr>
-nnoremap <Leader>oht :call <SID>OpenTestFile("horizontal")<cr>
-nnoremap <Leader>ot :call <SID>OpenTestFile("")<cr>
+nnoremap <localleader>ovt :call <SID>OpenTestFile("vertical")<cr>
+nnoremap <localleader>oht :call <SID>OpenTestFile("horizontal")<cr>
+nnoremap <localleader>ot :call <SID>OpenTestFile("")<cr>
 
 " Latex support
 let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
