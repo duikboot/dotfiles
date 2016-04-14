@@ -263,7 +263,7 @@ set path+=~/.cabal/bin
 
 " nnoremap <leader>a <Esc>:Ack!<Space>
 
-let g:ack_use_dispatch = 1
+let g:ack_use_dispatch = 0
 let g:ackprg = 'ag --smart-case --nogroup --nocolor --column --ignore=tags --ignore=Session.vim'
 
 " Toggle tag
