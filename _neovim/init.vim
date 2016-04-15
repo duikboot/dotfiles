@@ -21,12 +21,9 @@ set numberwidth=1             " using only 1 column (and 1 space) while possible
 set hidden
 " set background=dark           " We are using dark background in vim
 set title                     " show title in console title bar
-set wildmenu                  " Menu completion in command mode on <Tab>
-" set wildmode=full             " <Tab> cycles between all matching choices.
-set history=1000              " Set history to 1000 commands
+set wildmode=full             " <Tab> cycles between all matching choices.
 set undolevels=1000           " use many levels of undo
 set display=lastline
-set formatoptions+=j " Delete comment char when joining commented lines"
 set nojoinspaces " Use only 1 space after "." when joining lines, not 2"
 set showfulltag               " Show full tags when doing search completion
 " set relativenumber            " show linenumber relative to line cursor is on
@@ -53,7 +50,6 @@ endif
 " ==========================================================
 " Shortcuts
 " ==========================================================
-set nocompatible              " Don't be compatible with vi
 let g:mapleader="\<space>"             " change the leader to be a comma vs slash
 let g:maplocalleader="\\"       " map localleader to \\
 " noremap - ,
@@ -451,8 +447,6 @@ set pumheight=8             " Keep a small completion window
 
 
 """ Moving Around/Editing
-set autoindent              " always set autoindenting on
-set backspace=2             " Allow backspacing over autoindent, EOL, and BOL
 set cursorline              " have a line indicate the cursor location
 set expandtab               " Use spaces, not tabs, for autoindent/tab key.
 set foldcolumn=0            " show the fold column
@@ -489,13 +483,11 @@ inoremap # #
 " set noautowrite             " Never write a file unless I request it.
 " set noautowriteall          " NEVER.
 set autowrite
-set autoread                " automatically re-read changed files.
 set modeline                " Allow vim options to be embedded in files;
 set modelines=5             " they must be within the first or last 5 lines.
 set ffs=unix,dos,mac        " Try recognizing dos, unix, and mac line endings.
 
 """" Messages, Info, Status
-set laststatus=2                    " allways show status line
 set vb t_vb=                " Disable all bells.  I hate ringing/flashing.
 set confirm                 " Y-N-C prompt if closing with unsaved changes.
 set showcmd                 " Show incomplete normal mode commands as I type.
@@ -513,12 +505,9 @@ set list
 """ Searching and Patterns
 set ignorecase              " Default to using case insensitive searches,
 set smartcase               " unless uppercase letters are used in the regex.
-set smarttab                " Handle tabs more intelligently
 " autocmd BufNewFile,BufRead *.js set nosmarttab  " If Javascript, don't use smarttab"
 " autocmd BufNewFile,BufRead *.js set noexpandtab " Use tabs, not spaces, for autoindent/tab key.
 " autocmd BufNewFile,BufRead *.coffee set noexpandtab " Use tabs, not spaces, for autoindent/tab key.
-set hlsearch                " Highlight searches by default.
-set incsearch               " Incrementally search while typing a /regex
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
