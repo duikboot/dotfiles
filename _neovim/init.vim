@@ -21,7 +21,7 @@ set numberwidth=1             " using only 1 column (and 1 space) while possible
 set hidden
 " set background=dark           " We are using dark background in vim
 set title                     " show title in console title bar
-set wildmode=full             " <Tab> cycles between all matching choices.
+" set wildmode=full             " <Tab> cycles between all matching choices.
 set undolevels=1000           " use many levels of undo
 set display=lastline
 set nojoinspaces " Use only 1 space after "." when joining lines, not 2"
