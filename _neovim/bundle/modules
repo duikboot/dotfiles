@@ -2,7 +2,7 @@ https://github.com/tpope/vim-abolish                          abolish
 https://github.com/mileszs/ack.vim.git                        ack
 https://github.com/bling/vim-airline                          airline
 #https://github.com/romainl/Apprentice                         Apprentice
-https://github.com/jiangmiao/auto-pairs                       auto-pairs
+# https://github.com/jiangmiao/auto-pairs                       auto-pairs
 #https://github.com/sjl/badwolf.git                            badwolf
 https://github.com/tpope/vim-commentary.git                   commentary
 https://github.com/ctrlpvim/ctrlp.vim                         ctrlp
@@ -19,10 +19,9 @@ https://github.com/sjl/gundo.vim.git                          gundo
 # https://github.com/clones/vim-l9.git                          l9
 # https://github.com/dbsr/vimpy                               vimpy
 # https://github.com/kovisoft/paredit                           paredit
-# https://github.com/Raimondi/delimitMate                       delimitMate
+https://github.com/Raimondi/delimitMate                       delimitMate
 # https://github.com/sheerun/vim-polyglot                       vim-polyglot
 # https://github.com/Shougo/neomru.vim                          neomru
-# https://github.com/terryma/vim-multiple-cursors               vim-multiple-cursors
 # https://github.com/vim-scripts/IndexedSearch.git              IndexedSearch
 # https://github.com/vim-scripts/The-NERD-tree.git             nerdtree
 https://github.com/haya14busa/incsearch.vim                   incsearch.vim

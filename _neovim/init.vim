@@ -21,7 +21,8 @@ set numberwidth=1             " using only 1 column (and 1 space) while possible
 set hidden
 " set background=dark           " We are using dark background in vim
 set title                     " show title in console title bar
-" set wildmode=full             " <Tab> cycles between all matching choices.
+set wildmenu
+set wildmode=full             " <Tab> cycles between all matching choices.
 set undolevels=1000           " use many levels of undo
 set display=lastline
 set nojoinspaces " Use only 1 space after "." when joining lines, not 2"
@@ -143,7 +144,6 @@ let g:netrw_browsex_viewer= "firefox"
 " map <c-k> <c-w>k
 " map <c-l> <c-w>l
 " map <c-h> <c-w>h
-
 
 " Terminal
 let g:neoterm_position = 'vertical'
@@ -427,6 +427,24 @@ set vb t_vb=
 
 " Ignore these files when completing
 set wildignore+=*.o,*.obj,.git,*.pyc,*.pyo,*.class,.hg
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit
+
+set wildignore+=*.luac                           " Lua byte code
+
+set wildignore+=migrations                       " Django migrations
+set wildignore+=*.pyc,*.pyo                            " Python byte code
+
+set wildignore+=*.orig                           " Merge resolution files
+
+" Clojure/Leiningen
+set wildignore+=classes
+set wildignore+=lib
 set grepprg=ack          " replace the default grep program with ack
 " search for tag under cursor and open in new split
 " nnoremap <c-\> <c-w>v<c-]>zvzz
@@ -442,6 +460,7 @@ autocmd FileType python setlocal colorcolumn=79
 
 """ Insert completion
 " don't select first item, follow typing in autocomplete
+" set complete=.,w,b,u,t
 set completeopt=menuone,longest,preview
 set pumheight=8             " Keep a small completion window
 
