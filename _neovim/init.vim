@@ -145,6 +145,14 @@ let g:netrw_browsex_viewer= "firefox"
 let g:neoterm_position = 'vertical'
 nnoremap <leader>ot :vs \| term<space>
 tnoremap <Esc> <C-\><C-n>
+
+" hide/close terminal
+nnoremap <silent> ,th :call neoterm#close()<cr>
+" clear terminal
+nnoremap <silent> ,tl :call neoterm#clear()<cr>
+" kills the current job (send a <c-c>)
+nnoremap <silent> ,tc :call neoterm#kill()<cr>
+
 " tnoremap <A-h> <C-\><C-n><C-w>h
 " tnoremap <A-j> <C-\><C-n><C-w>j
 " tnoremap <A-k> <C-\><C-n><C-w>k
