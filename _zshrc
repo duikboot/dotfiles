@@ -99,3 +99,5 @@ export DTAP=dev
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
 # vim: ft=zsh sw=2 ts=2 et
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -3,7 +3,7 @@ https://github.com/mileszs/ack.vim.git                        ack
 https://github.com/bling/vim-airline                          airline
 #https://github.com/romainl/Apprentice                         Apprentice
 # https://github.com/jiangmiao/auto-pairs                       auto-pairs
-#https://github.com/sjl/badwolf.git                            badwolf
+# https://github.com/sjl/badwolf.git                            badwolf
 https://github.com/tpope/vim-commentary.git                   commentary
 https://github.com/ctrlpvim/ctrlp.vim                         ctrlp
 #https://github.com/vim-scripts/dbext.vim                      dbext.vim
