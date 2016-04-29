@@ -300,11 +300,16 @@ nnoremap <silent> <leader>y :YRShow<CR>
 let g:yankring_manual_clipboard_check = 1
 set clipboard^=unnamed
 
+" vim-exchange
+
+" swap word with next word
+nmap <localleader>sw cxiwEwcxiw
+
 let g:airline_powerline_fonts = 1
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_inactive_collapse = 0
-"
+
 " " Show just the filename
 " let g:airline#extensions#tabline#fnamemod = ':~'"
 " let g:airline#extensions#tabline#buffer_idx_mode = 1
