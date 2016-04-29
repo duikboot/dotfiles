@@ -75,6 +75,10 @@ let g:ctrlp_extensions = ['tag']
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|\.hg|\.svn|build-image|build)$',
   \ }
+
+" " fzf plugin
+" set rtp+=~/.fzf
+
 " Make Vim able to edit crontab files again.
 "set backupskip=/tmp/*,/private/tmp/*"
 
@@ -364,7 +368,7 @@ cnoremap <c-e> <end>
 " " The normal use of S is covered by cc, so don't worry about shadowing it.
 nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 
-
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 nnoremap <localleader>j :%!python -m json.tool<cr>
 
 " let g:pymode_rope_autoimport = 1
@@ -414,7 +418,7 @@ set wildignore+=*.orig                           " Merge resolution files
 " Clojure/Leiningen
 set wildignore+=classes
 set wildignore+=lib
-set grepprg=ack          " replace the default grep program with ack
+" set grepprg=ack          " replace the default grep program with ack
 " search for tag under cursor and open in new split
 " nnoremap <c-\> <c-w>v<c-]>zvzz
 " map backspace for searching for word under cursor using ack
