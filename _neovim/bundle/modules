@@ -18,7 +18,7 @@ https://github.com/sjl/gundo.vim.git                          gundo
 # https://bitbucket.org/ludovicchabant/vim-lawrencium           lawrencium
 # https://github.com/clones/vim-l9.git                          l9
 # https://github.com/dbsr/vimpy                               vimpy
-# https://github.com/kovisoft/paredit                           paredit
+https://github.com/kovisoft/paredit                           paredit
 https://github.com/Raimondi/delimitMate                       delimitMate
 # https://github.com/sheerun/vim-polyglot                       vim-polyglot
 # https://github.com/Shougo/neomru.vim                          neomru
@@ -43,7 +43,7 @@ https://github.com/tpope/vim-repeat                           repeat
 https://github.com/mtth/scratch.vim                           scratch
 https://github.com/mhinz/vim-signify                          signify
 https://github.com/epeli/slimux.git                           slimux
-https://bitbucket.org/kovisoft/slimv                          slimv
+# https://bitbucket.org/kovisoft/slimv                          slimv
 #https://github.com/kana/vim-smartinput                        smartinput
 https://github.com/altercation/vim-colors-solarized.git       solarized
 https://github.com/tpope/vim-speeddating                      speeddating

@@ -529,8 +529,9 @@ let g:hostname=hostname()
 " Try Apprenctice sometime
 " colorscheme apprenctice
 
-colorscheme PaperColor
-set background=light
+" colorscheme PaperColor
+colorscheme solarized
+set background=dark
 
 " Paste from clipboard
 " map <leader>p "+gP
