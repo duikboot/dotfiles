@@ -102,14 +102,14 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 " let Y be more consistent
 nnoremap Y y$
 
-" nnoremap <silent> n nzz
-" nnoremap <silent> N Nzz
-" nnoremap <silent> * *zz
-" nnoremap <silent> # #zz
-" nnoremap <silent> g* g*zz
-" nnoremap <silent> g# g#zz
-" nnoremap <silent> <C-o> <C-o>zz
-" nnoremap <silent> <C-i> <C-i>zz
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+nnoremap <silent> g# g#zz
+nnoremap <silent> <C-o> <C-o>zz
+nnoremap <silent> <C-i> <C-i>zz
 
 " ,v brings up my .vimrc
 " ,V reloads it -- making all changes active (have to save first)
@@ -149,7 +149,10 @@ let g:netrw_browsex_viewer= "firefox"
 let g:neoterm_position = 'vertical'
 nnoremap <leader>ot :vs \| term<space>
 tnoremap <Esc> <C-\><C-n>
-
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
 " hide/close terminal
 nnoremap <silent> ,th :call neoterm#close()<cr>
 " clear terminal
@@ -268,7 +271,7 @@ set path+=~/.cabal/bin
 " nnoremap <leader>a <Esc>:Ack!<Space>
 
 let g:ack_use_dispatch = 0
-let g:ackprg = 'ag --smart-case --nogroup --nocolor --column --ignore=tags --ignore=Session.vim'
+let g:ackprg = 'ag --smart-case --nogroup --nocolor --column --ignore=tags --ignore=Session.vim --ignore==root/ --ignore=build-image/'
 
 " Toggle tag
 nnoremap <leader>t <Esc>:tag<Space>
@@ -309,6 +312,11 @@ let g:airline_powerline_fonts = 1
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_inactive_collapse = 0
+
+let g:airline#extensions#tagbar#enabled = 0
+" let g:airline#extensions#tagbar#flags = 'f'
+" let g:airline#extensions#tagbar#flags = 's'
+" let g:airline#extensions#tagbar#flags = 'p'
 
 " " Show just the filename
 " let g:airline#extensions#tabline#fnamemod = ':~'"
@@ -378,7 +386,7 @@ nnoremap <localleader>j :%!python -m json.tool<cr>
 
 " let g:pymode_rope_autoimport = 1
 let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
-
+let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
 
 "let g:pymode_python = 'python3'
 " yet let it open on toggle.
@@ -531,7 +539,7 @@ let g:hostname=hostname()
 
 " colorscheme PaperColor
 colorscheme solarized
-set background=dark
+set background=light
 
 " Paste from clipboard
 " map <leader>p "+gP
@@ -674,6 +682,7 @@ autocmd FileType racket set commentstring=;%s
 let delimitMate_excluded_ft = "clojure,lisp"
 autocmd BufRead,BufNewFile *.asd set filetype=lisp
 let g:lisp_rainbow=1
+autocmd FileType lisp setlocal colorcolumn=80
 
 let g:slimv_repl_split = 4
 " }}}
