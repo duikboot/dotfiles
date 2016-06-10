@@ -153,6 +153,11 @@ tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
+
+let g:neoterm_autoinsert = 1
+
+nnoremap <silent> ,ts vip:TREPLSend<cr>
+
 " hide/close terminal
 nnoremap <silent> ,th :call neoterm#close()<cr>
 " clear terminal
@@ -259,9 +264,9 @@ nnoremap <silent> <leader>gf :vertical botright wincmd f<CR>
 " see more at http://skwp.github.com/dotfiles
 
 " Slimux
-nnoremap <Leader>sc :SlimuxREPLConfigure<CR>
-nnoremap <Leader>sl :SlimuxREPLSendLine<CR>
-vmap <Leader>ss :SlimuxREPLSendSelection<CR>
+" nnoremap <Leader>sc :SlimuxREPLConfigure<CR>
+" nnoremap <Leader>sl :SlimuxREPLSendLine<CR>
+" vmap <Leader>ss :SlimuxREPLSendSelection<CR>
 
 
 let $PATH = $PATH . ':' . expand("~/.cabal/bin")
@@ -684,7 +689,7 @@ autocmd BufRead,BufNewFile *.asd set filetype=lisp
 let g:lisp_rainbow=1
 autocmd FileType lisp setlocal colorcolumn=80
 
-let g:slimv_repl_split = 4
+" let g:slimv_repl_split = 4
 " }}}
 " Haskellmode {{{
 

@@ -42,7 +42,7 @@ https://github.com/klen/python-mode.git                       python-mode
 https://github.com/tpope/vim-repeat                           repeat
 https://github.com/mtth/scratch.vim                           scratch
 https://github.com/mhinz/vim-signify                          signify
-https://github.com/epeli/slimux.git                           slimux
+# https://github.com/epeli/slimux.git                           slimux
 # https://bitbucket.org/kovisoft/slimv                          slimv
 #https://github.com/kana/vim-smartinput                        smartinput
 https://github.com/altercation/vim-colors-solarized.git       solarized
