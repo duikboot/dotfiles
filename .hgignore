@@ -28,3 +28,5 @@ xcape
 _pip/http*
 _pip/zsh-cache
 _pip/pip.conf
+ENV/
+ENV2/

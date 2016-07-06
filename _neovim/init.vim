@@ -9,8 +9,8 @@ call pathogen#helptags()
 " pathogen#incubate() to pathogen#infect('bundle/{}')
 
 " So neovim will work in a VirtualEnv
-let g:python_host_prog='/usr/bin/python'
-let g:python3_host_prog='/usr/bin/python3'
+let g:python_host_prog='/home/arjen/config/dotfiles/_neovim/ENV2/bin/python'
+let g:python3_host_prog='/home/arjen/config/dotfiles/_neovim/ENV/bin/python'
 
 " Basic Settings {{{
 syntax on                     " syntax highlighting
@@ -156,14 +156,14 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 
 let g:neoterm_autoinsert = 1
 
-nnoremap <silent> ,ts vip:TREPLSend<cr>
+nnoremap <silent> ,ts mzvip:TREPLSend<cr>`z
 
 " hide/close terminal
-nnoremap <silent> ,th :call neoterm#close()<cr>
+nnoremap <silent> ,h :call neoterm#close()<cr>
 " clear terminal
 nnoremap <silent> ,tl :call neoterm#clear()<cr>
 " kills the current job (send a <c-c>)
-nnoremap <silent> ,tc :call neoterm#kill()<cr>
+nnoremap <silent> ,c :call neoterm#kill()<cr>
 
 " tnoremap <A-h> <C-\><C-n><C-w>h
 " tnoremap <A-j> <C-\><C-n><C-w>j
@@ -644,8 +644,10 @@ nnoremap <silent> <F12> a<C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnips
 " " Set minimum syntax keyword length.
 " let g:neocomplcache_min_syntax_length = 2
 
+" 3. Call |deoplete#enable()| or set "let g:deoplete#enable_at_startup = 1" in
 let g:acp_enableAtStartup = 0
 let g:deoplete#enable_at_startup = 1
+
 " let g:neocomplete#enable_at_startup = 1
 " " Use smartcase.
 " let g:neocomplete#enable_smart_case = 1
