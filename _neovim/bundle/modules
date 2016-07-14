@@ -13,7 +13,7 @@ https://github.com/tommcdo/vim-exchange                       exchange
 https://github.com/terryma/vim-expand-region                  expand-region
 https://github.com/wincent/ferret                             ferret
 https://github.com/tpope/vim-fugitive                         fugitive
-https://github.com/eagletmt/ghcmod-vim                        ghcmod-vim
+# https://github.com/eagletmt/ghcmod-vim                        ghcmod-vim
 https://github.com/sjl/gundo.vim.git                          gundo
 # https://bitbucket.org/ludovicchabant/vim-lawrencium           lawrencium
 # https://github.com/clones/vim-l9.git                          l9
@@ -61,22 +61,20 @@ https://github.com/Shougo/unite-help                          unite-help
 https://github.com/Shougo/unite-outline                       unite-outline
 https://github.com/tsukkee/unite-tag                          unite-tag
 https://github.com/vim-scripts/vcscommand.vim.git             vcscommand
-https://github.com/dag/vim2hs                                 vim2hs
+# https://github.com/dag/vim2hs                                 vim2hs
 https://github.com/Shougo/vimproc.vim.git                     vimproc
 #https://github.com/JarrodCTaylor/vim-python-test-runner      vim-python-test-runner
-https://github.com/thinca/vim-ref                             vim-ref
 https://github.com/Shougo/vimshell                            vimshell
 https://github.com/honza/vim-snippets                         vim-snippets
 https://github.com/janko-m/vim-test                           vim-test
-# https://github.com/tejr/vim-tmux                              vim-tmux
 https://github.com/vim-scripts/vimwiki                        vimwiki
 # https://github.com/tpope/vim-vinegar.git                      vinegar
 https://github.com/nelstrom/vim-visual-star-search            visual-star-search
 #https://github.com/vim-scripts/wombat256.vim                  wombat256.vim
 https://github.com/vim-scripts/YankRing.vim.git               yankring
 https://github.com/easymotion/vim-easymotion                  easymotion
-https://github.com/Konfekt/FastFold                           FastFold
 https://github.com/benekastah/neomake                         neomake
 https://github.com/kassio/neoterm                             neoterm
 https://github.com/tpope/vim-endwise                          endwise
 https://github.com/wellle/targets.vim                         targets
+https://github.com/keith/tmux.vim                               tmux

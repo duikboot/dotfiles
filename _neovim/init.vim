@@ -256,7 +256,7 @@ vnoremap gj j
 vnoremap gk k
 
 " vmap <BS> <Plug>(expand_region_shrink)
-vmap - <Plug>(expand_region_shrink)
+" vmap - <Plug>(expand_region_shrink)
 
 "  " use ,gf to go to file in a vertical split
 nnoremap <silent> <leader>gf :vertical botright wincmd f<CR>
@@ -284,7 +284,7 @@ nnoremap <leader>ts <Esc>:tselect<Space>
 
 " use ,T to jump to tag in a vertical split
 " nnoremap <silent> <Leader>F :let word=expand("<cword>")<CR>:vsp<CR>:wincmd w<cr>:exec("tselect ". word)<cr>
-nnoremap <silent> <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<cr>zt
+nnoremap  <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<cr>zt
 
 " Toggle Tagbar
 nnoremap <leader>tl :TagbarToggle<CR>
@@ -306,7 +306,7 @@ nnoremap <silent> <leader>y :YRShow<CR>
 " Please do check if the system clipboad has changed if we're running vim in
 " console
 let g:yankring_manual_clipboard_check = 1
-set clipboard^=unnamed
+set clipboard+=unnamedplus
 
 " vim-exchange
 
@@ -339,7 +339,7 @@ nnoremap <leader>g :GundoToggle<CR>
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " nnoremap <silent> <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<cr>zt
-noremap <BS> :Explore<cr>
+noremap <c-e> :Explore<cr>
 
 " "uppercase word" mapping.
 " from: https://github.com/sjl/dotfiles/blob/master/vim/vimrc
@@ -542,9 +542,9 @@ let g:hostname=hostname()
 " Try Apprenctice sometime
 " colorscheme apprenctice
 
-" colorscheme PaperColor
-colorscheme solarized
-set background=light
+colorscheme PaperColor
+" colorscheme solarized
+set background=dark
 
 " Paste from clipboard
 " map <leader>p "+gP
