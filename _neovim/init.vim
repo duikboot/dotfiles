@@ -137,6 +137,7 @@ nnoremap R :%s//g<left><left>
 
 " open link in browser
 let g:netrw_browsex_viewer= "firefox"
+let g:netrw_list_hide= '.*\.pyc$'
 
 " let g:BASH_Ctrl_j = 'off'
 " " ctrl-jklm  changes to that split
@@ -273,7 +274,7 @@ let $PATH = $PATH . ':' . expand("~/.cabal/bin")
 set path+=~/.cabal/bin
 
 
-" nnoremap <leader>a <Esc>:Ack!<Space>
+nnoremap <leader>a <Esc>:Ack!<Space>
 
 let g:ack_use_dispatch = 0
 let g:ackprg = 'ag --smart-case --nogroup --nocolor --column --ignore=tags --ignore=Session.vim --ignore==root/ --ignore=build-image/'
@@ -338,8 +339,7 @@ nnoremap <leader>g :GundoToggle<CR>
 " in command mode expand directory with current directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" nnoremap <silent> <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<cr>zt
-noremap <c-e> :Explore<cr>
+nnoremap <c-e> :edit %:p:h<cr>
 
 " "uppercase word" mapping.
 " from: https://github.com/sjl/dotfiles/blob/master/vim/vimrc

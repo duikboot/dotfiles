@@ -11,7 +11,7 @@ https://github.com/ctrlpvim/ctrlp.vim                         ctrlp
 https://github.com/Olical/vim-enmasse                         enmasse
 https://github.com/tommcdo/vim-exchange                       exchange
 https://github.com/terryma/vim-expand-region                  expand-region
-https://github.com/wincent/ferret                             ferret
+# https://github.com/wincent/ferret                             ferret
 https://github.com/tpope/vim-fugitive                         fugitive
 # https://github.com/eagletmt/ghcmod-vim                        ghcmod-vim
 https://github.com/sjl/gundo.vim.git                          gundo
