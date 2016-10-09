@@ -71,7 +71,8 @@ nnoremap <leader>q :q<CR>
 
 " Open :CtrlP
 nnoremap <Leader>o :CtrlP<CR>
-let g:ctrlp_extensions = ['tag']
+nnoremap <Leader>ot :CtrlPTag<CR>
+let g:ctrlp_extensions = ['tag', 'buffertag']
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|\.hg|\.svn|build-image|build)$',
   \ }
@@ -157,7 +158,7 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 
 let g:neoterm_autoinsert = 1
 
-nnoremap <silent> ,ts mzvip:TREPLSend<cr>`z
+nnoremap <silent> ,ts mzvip:TREPLSendSelection<cr>`z
 
 " hide/close terminal
 nnoremap <silent> ,h :call neoterm#close()<cr>
@@ -688,7 +689,7 @@ autocmd FileType racket set commentstring=;%s
 " common lisp {{{
 let delimitMate_excluded_ft = "clojure,lisp"
 autocmd BufRead,BufNewFile *.asd set filetype=lisp
-let g:lisp_rainbow=1
+
 autocmd FileType lisp setlocal colorcolumn=80
 
 " let g:slimv_repl_split = 4
