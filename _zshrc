@@ -76,7 +76,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 # Customize to your needs...
-export PATH=/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/local/bin:/home/arjen/.local/bin:$HOME/bin/neovim/bin:$HOME/bin/python3.5/:/home/arjen/bin/racket/bin:$PATH
+export PATH=/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/.local/bin:/home/arjen/local/bin:$HOME/bin/neovim/bin:$HOME/bin/python3.5/:/home/arjen/bin/racket/bin:$PATH
 
 # OPAM configuration
 . /home/arjen/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

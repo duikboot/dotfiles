@@ -54,18 +54,19 @@ https://github.com/godlygeek/tabular                          tabular
 https://github.com/majutsushi/tagbar                          tagbar
 https://github.com/christoomey/vim-tmux-navigator             tmux-navigator
 # https://github.com/vim-scripts/tracwiki.git                   tracwiki
-https://github.com/SirVer/ultisnips.git                       ultisnips
+# https://github.com/SirVer/ultisnips.git                       ultisnips
 https://github.com/tpope/vim-unimpaired                       unimpaired
-https://github.com/Shougo/unite.vim                           unite
-https://github.com/Shougo/unite-help                          unite-help
-https://github.com/Shougo/unite-outline                       unite-outline
-https://github.com/tsukkee/unite-tag                          unite-tag
+# https://github.com/Shougo/unite.vim                           unite
+# https://github.com/Shougo/unite-help                          unite-help
+# https://github.com/Shougo/unite-outline                       unite-outline
+# https://github.com/tsukkee/unite-tag                          unite-tag
+https://github.com/Shougo/denite.nvim                         denite
 https://github.com/vim-scripts/vcscommand.vim.git             vcscommand
 # https://github.com/dag/vim2hs                                 vim2hs
 https://github.com/Shougo/vimproc.vim.git                     vimproc
 #https://github.com/JarrodCTaylor/vim-python-test-runner      vim-python-test-runner
 https://github.com/Shougo/vimshell                            vimshell
-https://github.com/honza/vim-snippets                         vim-snippets
+# https://github.com/honza/vim-snippets                         vim-snippets
 https://github.com/janko-m/vim-test                           vim-test
 https://github.com/vim-scripts/vimwiki                        vimwiki
 # https://github.com/tpope/vim-vinegar.git                      vinegar
@@ -78,4 +79,5 @@ https://github.com/kassio/neoterm                             neoterm
 https://github.com/tpope/vim-endwise                          endwise
 https://github.com/wellle/targets.vim                         targets
 https://github.com/keith/tmux.vim                               tmux
-https://github.com/junegunn/rainbow_parentheses.vim             rainbow_parentheses
+# https://github.com/junegunn/rainbow_parentheses.vim             rainbow_parentheses
+https://github.com/kien/rainbow_parentheses.vim             rainbow_parentheses

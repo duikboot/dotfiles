@@ -1,5 +1,3 @@
-" vim:foldmethod=marker
-"" ==========================================================
 " Pathogen - Allows us to organize our vim plugins
 " Load pathogen with docs for all plugins
 filetype off
@@ -77,6 +75,8 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|\.hg|\.svn|build-image|build)$',
   \ }
 
+nnoremap <Leader>f :find<space>
+
 " " fzf plugin
 " set rtp+=~/.fzf
 
@@ -149,7 +149,7 @@ let g:netrw_list_hide= '.*\.pyc$'
 
 " Terminal
 let g:neoterm_position = 'vertical'
-nnoremap <leader>ot :vs \| term<space>
+" nnoremap <leader>ot :vs \| term<space>
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
@@ -269,10 +269,6 @@ nnoremap <silent> <leader>gf :vertical botright wincmd f<CR>
 " nnoremap <Leader>sc :SlimuxREPLConfigure<CR>
 " nnoremap <Leader>sl :SlimuxREPLSendLine<CR>
 " vmap <Leader>ss :SlimuxREPLSendSelection<CR>
-
-
-let $PATH = $PATH . ':' . expand("~/.cabal/bin")
-set path+=~/.cabal/bin
 
 
 nnoremap <leader>a <Esc>:Ack!<Space>
@@ -550,7 +546,16 @@ set background=dark
 " Paste from clipboard
 " map <leader>p "+gP
 
-"
+
+" RainbowParentheses
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+
+
 " Remove trailing whitespace on <leader>S
 nnoremap <leader>S mz:%s/\s\+$//<cr>:let @/=''<CR>`z
 
@@ -595,47 +600,47 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "
 
-" Unite keybindings
+" " Unite keybindings
 
-" nnoremap [unite] <Nop>
-" nnoremap \\\ [unite]
-" Unite
-let g:unite_source_history_yank_enable = 1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
+" " nnoremap [unite] <Nop>
+" " nnoremap \\\ [unite]
+" " Unite
+" let g:unite_source_history_yank_enable = 1
+" call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
-nnoremap <localleader>r :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
-nnoremap <localleader>c :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
-nnoremap <localleader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-" nnoremap <localleader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert -auto-preview outline<cr>
-nnoremap <localleader>o :<C-u>Unite  -buffer-name=outline -start-insert outline<cr>
-" nnoremap <localleader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-nnoremap <localleader>b :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
-nnoremap <localleader>l :<C-u>Unite -no-split -buffer-name=line -start-insert line<cr>
-nnoremap <localleader>g :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep:.<cr>
-nnoremap <localleader>qb :<C-u>Unite -no-split -quick-match buffer<cr>
-" nnoremap <localleader>ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+" nnoremap <localleader>r :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
+" nnoremap <localleader>c :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
+" nnoremap <localleader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
+" " nnoremap <localleader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert -auto-preview outline<cr>
+" nnoremap <localleader>o :<C-u>Unite  -buffer-name=outline -start-insert outline<cr>
+" " nnoremap <localleader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+" nnoremap <localleader>b :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
+" nnoremap <localleader>l :<C-u>Unite -no-split -buffer-name=line -start-insert line<cr>
+" nnoremap <localleader>g :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep:.<cr>
+" nnoremap <localleader>qb :<C-u>Unite -no-split -quick-match buffer<cr>
+" " nnoremap <localleader>ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Play nice with supertab
-  let b:SuperTabDisabled=1
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j> <Plug>(unite_select_next_line)
-  imap <buffer> <C-k> <Plug>(unite_select_previous_line)
+" " Custom mappings for the unite buffer
+" autocmd FileType unite call s:unite_settings()
+" function! s:unite_settings()
+"   " Play nice with supertab
+"   let b:SuperTabDisabled=1
+"   " Enable navigation with control-j and control-k in insert mode
+"   imap <buffer> <C-j> <Plug>(unite_select_next_line)
+"   imap <buffer> <C-k> <Plug>(unite_select_previous_line)
 
-  " Quit unite on backspace from normal mode, or using leader-q
-  nnoremap <buffer> <BS> :UniteClose<CR>
-  nnoremap <buffer> <leader>q :UniteClose<CR>
-endfunction
+"   " Quit unite on backspace from normal mode, or using leader-q
+"   nnoremap <buffer> <BS> :UniteClose<CR>
+"   nnoremap <buffer> <leader>q :UniteClose<CR>
+" endfunction
 
-function! UltiSnipsCallUnite()
-    Unite -start-insert -immediately -no-empty ultisnips
-    return ''
-endfunction
+" function! UltiSnipsCallUnite()
+"     Unite -start-insert -immediately -no-empty ultisnips
+"     return ''
+" endfunction
 
-inoremap <silent> <F12> <C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
-nnoremap <silent> <F12> a<C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
+" inoremap <silent> <F12> <C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
+" nnoremap <silent> <F12> a<C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
 
 
 " " let g:acp_completeoptPreview=1
@@ -695,6 +700,10 @@ autocmd FileType lisp setlocal colorcolumn=80
 " let g:slimv_repl_split = 4
 " }}}
 " Haskellmode {{{
+
+" let $PATH = $PATH . ':' . expand("~/.cabal/bin")
+" set path+=~/.cabal/bin
+
 
 let g:haddock_browser = "firefox"
 let g:haddock_browser_callformat = "%s %s"
@@ -807,7 +816,8 @@ let tlist_make_settings  = 'make;m:makros;t:targets'
 " let g:syntastic_ocaml_checkers = ['merlin']
 
 
-set path+=.,,**
+set path+=**
+" set path+=.,,**
 
 augroup ft_java
     autocmd!
