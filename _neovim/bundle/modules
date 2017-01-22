@@ -18,13 +18,13 @@ https://github.com/sjl/gundo.vim.git                          gundo
 # https://bitbucket.org/ludovicchabant/vim-lawrencium           lawrencium
 # https://github.com/clones/vim-l9.git                          l9
 # https://github.com/dbsr/vimpy                               vimpy
-https://github.com/kovisoft/paredit                           paredit
+# https://github.com/kovisoft/paredit                           paredit
 https://github.com/Raimondi/delimitMate                       delimitMate
 # https://github.com/sheerun/vim-polyglot                       vim-polyglot
 # https://github.com/Shougo/neomru.vim                          neomru
 # https://github.com/vim-scripts/IndexedSearch.git              IndexedSearch
 # https://github.com/vim-scripts/The-NERD-tree.git             nerdtree
-https://github.com/haya14busa/incsearch.vim                   incsearch.vim
+# https://github.com/haya14busa/incsearch.vim                   incsearch.vim
 #https://github.com/ciaranm/inkpot.git                         inkpot
 #https://github.com/nanotech/jellybeans.vim.git                jellybeans
 https://github.com/tpope/vim-markdown.git                     markdown
@@ -34,7 +34,7 @@ https://github.com/qstrahl/vim-matchmaker                     matchmaker
 https://github.com/ujihisa/neco-ghc.git                       neco-ghc
 https://github.com/Shougo/deoplete.nvim                       deoplete
 https://github.com/tpope/vim-obsession                        obsession
-https://github.com/jceb/vim-orgmode                           orgmode
+# https://github.com/jceb/vim-orgmode                           orgmode
 https://github.com/NLKNguyen/papercolor-theme                 papercolor
 git://github.com/tpope/vim-pathogen.git                       pathogen
 #https://github.com/vim-scripts/peaksea.git                   peaksea
@@ -49,6 +49,7 @@ https://github.com/altercation/vim-colors-solarized.git       solarized
 https://github.com/tpope/vim-speeddating                      speeddating
 https://github.com/tpope/vim-surround.git                     surround
 #https://github.com/mutewinter/swap-parameters                swap-parameters
+https://github.com/machakann/vim-swap                         swap
 # https://github.com/scrooloose/syntastic.git                   syntastic
 https://github.com/godlygeek/tabular                          tabular
 https://github.com/majutsushi/tagbar                          tagbar
@@ -81,3 +82,6 @@ https://github.com/wellle/targets.vim                         targets
 https://github.com/keith/tmux.vim                               tmux
 # https://github.com/junegunn/rainbow_parentheses.vim             rainbow_parentheses
 https://github.com/kien/rainbow_parentheses.vim             rainbow_parentheses
+https://github.com/neovim/node-host                         node-host
+https://github.com/clojure-vim/nvim-parinfer.js             nvim-parinfer.js
+https://github.com/machakann/vim-highlightedyank            highlightedyank

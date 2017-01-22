@@ -1,7 +1,7 @@
 [ui]
 username = Arjen Dijkstra <dijkstra.arjen@gmail.com>
 editor = nvim
-merge = nvimdiff
+merge = vimdiff
 #merge = meld
 #debug = true
 

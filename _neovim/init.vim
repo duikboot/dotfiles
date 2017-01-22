@@ -33,6 +33,11 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set splitright
 set splitbelow
 
+" shows preview of the changes 
+" "nosplit": Shows the effects of a command incrementally, as you type.
+" "split" : Also shows partial off-screen results in a preview window.
+set inccommand=split
+
 set dictionary=/usr/share/dict/words
 
 if v:version >= 703
@@ -57,9 +62,6 @@ command! WQ :wqall
 command! Wq :wq
 
 nnoremap <leader>e :edit<cr>
-" nnoremap ; :
-" nnoremap : ;
-" inoremap jj <Esc>
 
 " save file
 noremap <Leader>w :w<cr>
@@ -73,6 +75,7 @@ nnoremap <Leader>ot :CtrlPTag<CR>
 let g:ctrlp_extensions = ['tag', 'buffertag']
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|\.hg|\.svn|build-image|build)$',
+  \ 'file': '\v\.(css|js)$',
   \ }
 
 nnoremap <Leader>f :find<space>
@@ -103,14 +106,15 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 " let Y be more consistent
 nnoremap Y y$
 
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-nnoremap <silent> * *zz
-nnoremap <silent> # #zz
-nnoremap <silent> g* g*zz
-nnoremap <silent> g# g#zz
-nnoremap <silent> <C-o> <C-o>zz
-nnoremap <silent> <C-i> <C-i>zz
+" nnoremap <silent> n nzt
+" nnoremap <silent> N Nzt
+" nnoremap <silent> * *zt
+" nnoremap <silent> # #zt
+" nnoremap <silent> g* g*tz
+" nnoremap <silent> g# g#tz
+" nnoremap <silent> <C-o> <C-o>zt
+" nnoremap <silent> <C-i> <C-i>zt
+
 
 " ,v brings up my .vimrc
 " ,V reloads it -- making all changes active (have to save first)
@@ -308,8 +312,8 @@ set clipboard+=unnamedplus
 
 " vim-exchange
 
-" swap word with next word
-nmap <localleader>sw cxiwEwcxiw
+" " swap word with next word
+" nmap <localleader>sw cxiWEwcxiW
 
 let g:airline_powerline_fonts = 1
 " Enable the list of buffers
@@ -387,7 +391,7 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 nnoremap <localleader>j :%!python -m json.tool<cr>
 
 " let g:pymode_rope_autoimport = 1
-let g:pymode_lint_checkers = ['pep8', 'pylint', 'mccabe', 'pyflakes']
+let g:pymode_lint_checkers = ['flake8', 'pep8', 'pylint', 'mccabe', 'pyflakes']
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
 
 "let g:pymode_python = 'python3'
@@ -475,7 +479,7 @@ set breakindent
 set breakindentopt=shift:4
 let &showbreak='↳ '
 "
-" set cpo=n
+" set cpoptions=n
 " don't outdent hashes
 inoremap # #
 
@@ -512,14 +516,13 @@ set smartcase               " unless uppercase letters are used in the regex.
 " autocmd BufNewFile,BufRead *.js set nosmarttab  " If Javascript, don't use smarttab"
 " autocmd BufNewFile,BufRead *.js set noexpandtab " Use tabs, not spaces, for autoindent/tab key.
 " autocmd BufNewFile,BufRead *.coffee set noexpandtab " Use tabs, not spaces, for autoindent/tab key.
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+" map /  <Plug>(incsearch-forward)
+" map ?  <Plug>(incsearch-backward)
+" map g/ <Plug>(incsearch-stay)
 
 
 if &term =~ '256color'
     " disable Background Color Erase (BCE) so that color schemes
-    " render properly when inside 256-color tmux and GNU screen.
     " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
     set t_ut=
 endif
@@ -553,7 +556,23 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
 
 
 " Remove trailing whitespace on <leader>S
@@ -662,6 +681,8 @@ let g:deoplete#enable_at_startup = 1
 " let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 " let g:neocomplete#min_keyword_length = 2
 
+" vim-highlightedyank plugin
+let g:highlightedyank_highlight_duration = 100
 
 " ===========================================================
 " FileType specific changes
@@ -696,6 +717,9 @@ let delimitMate_excluded_ft = "clojure,lisp"
 autocmd BufRead,BufNewFile *.asd set filetype=lisp
 
 autocmd FileType lisp setlocal colorcolumn=80
+
+autocmd BufRead *.lisp set makeprg=sblint
+let g:syntastic_lisp_checkers = ['sblint']
 
 " let g:slimv_repl_split = 4
 " }}}
@@ -766,7 +790,7 @@ let g:necoghc_enable_detailed_browse = 1
 
 
 " Rebuild Ctags (mnemonic RC -> CR -> <cr>)
-nnoremap <leader><cr> :silent !ctags -R --exclude=ENV/lib64 --exclude=node_modules --exclude=.buildozer >/dev/null 2>&1 &<cr>:redraw!<cr>
+nnoremap <leader><cr> :silent !ctags -R --exclude=ENV/lib64 --exclude=node_modules --exclude=.buildozer --languages=-javascript --languages=-css >/dev/null 2>&1 &<cr>:redraw!<cr>
 
 " Python
 " ==========================================================

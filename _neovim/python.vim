@@ -33,7 +33,7 @@ autocmd FileType python noremap <LocalLeader>a8 mz:%!autopep8 %<cr>`z:w<cr>
 
 
 autocmd FileType python noremap <LocalLeader>8 :Neomake<cr>
-let g:neomake_python_enabled_makers = ['pep8', 'pylint']
+let g:neomake_python_enabled_makers = ['pep8', 'pylint', 'pyflakes']
 let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 let g:syntastic_python_checkers = ['']
 " autocmd FileType python let b:dispatch = 'python %'
