@@ -33,7 +33,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set splitright
 set splitbelow
 
-" shows preview of the changes 
+" shows preview of the changes
 " "nosplit": Shows the effects of a command incrementally, as you type.
 " "split" : Also shows partial off-screen results in a preview window.
 set inccommand=split
@@ -129,10 +129,6 @@ nnoremap <leader>cc :cclose<CR>
 nnoremap <leader>l :lopen<CR>
 nnoremap <leader>ll :lclose<CR>
 
-" Matchmaker toggle
-" nmap <leader>m :MatchmakerToggle<CR>
-nnoremap <Leader>m :<C-u>MatchmakerToggle<CR>
-
 nnoremap <Leader>SS :source Session.vim<cr>
 
 " for when we forget to use sudo to open/edit a file
@@ -141,7 +137,7 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap R :%s//g<left><left>
 
 " open link in browser
-let g:netrw_browsex_viewer= "firefox"
+let g:netrw_browsex_viewer= 'firefox'
 let g:netrw_list_hide= '.*\.pyc$'
 
 " let g:BASH_Ctrl_j = 'off'
@@ -163,6 +159,7 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 let g:neoterm_autoinsert = 1
 
 nnoremap <silent> ,ts mzvip:TREPLSendSelection<cr>`z
+nnoremap <silent> ,tf mzva(:TREPLSendSelection<cr>`z
 
 " hide/close terminal
 nnoremap <silent> ,h :call neoterm#close()<cr>
@@ -275,10 +272,13 @@ nnoremap <silent> <leader>gf :vertical botright wincmd f<CR>
 " vmap <Leader>ss :SlimuxREPLSendSelection<CR>
 
 
-nnoremap <leader>a <Esc>:Ack!<Space>
+" nnoremap <leader>a <Esc>:Ack!<Space>
+nnoremap <leader>a :Grepper -tool ag<cr>
+nnoremap <leader>g :Grepper -tool git<cr>
 
-let g:ack_use_dispatch = 0
-let g:ackprg = 'ag --smart-case --nogroup --nocolor --column --ignore=tags --ignore=Session.vim --ignore==root/ --ignore=build-image/'
+
+" let g:ack_use_dispatch = 0
+" let g:ackprg = 'ag --smart-case --nogroup --nocolor --column --ignore=tags --ignore=Session.vim --ignore==root/ --ignore=build-image/'
 
 " Toggle tag
 nnoremap <leader>t <Esc>:tag<Space>
@@ -335,12 +335,13 @@ noremap <leader>bq :bp <BAR> bd #<CR>
 
 " Load the Gundo window
 let g:gundo_prefer_python3 = 1
-nnoremap <leader>g :GundoToggle<CR>
+nnoremap <leader>G :GundoToggle<CR>
 
 " in command mode expand directory with current directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-nnoremap <c-e> :edit %:p:h<cr>
+nnoremap <c-e> :Explore %:p:h<cr>
+autocmd FileType netrw setl bufhidden=wipe
 
 " "uppercase word" mapping.
 " from: https://github.com/sjl/dotfiles/blob/master/vim/vimrc
@@ -853,6 +854,7 @@ augroup END
 
 " let g:signify_update_on_bufenter = 1
 " let g:signify_update_on_focusgained = 1
+let g:signify_vcs_list = ['git', 'hg']
 
 noremap <f5> :Start<cr>
 noremap <f6> :Dispatch<cr>

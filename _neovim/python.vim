@@ -2,16 +2,17 @@
 " first autocmd for the filetype here
 autocmd FileType python setlocal colorcolumn=79
 
-" Don't open quickfix window on save...
+" Don't open quickfix window on save...flake8
+let g:pymode_lint_cwindow = 0
 let g:pymode_lint_message = 1
-let g:pymode_lint = 1
+let g:pymode_lint = 0
 let g:pymode_lint_on_write = 0
 
 " let g:pymode_trim_whitespaces = 1
 
-let g:pymode_lint_ignore = "C0110,C0111,C0301,C0325"
+let g:pymode_lint_ignore = "C0110,C0111,C0301,C0325,C1001"
 let g:pymode_lint_signs = 1
-let g:pymode_lint_unmodified = 0
+let g:pymode_lint_unmodified = 1
 
 " Temporary disable rope, because there is a bug in RopeRename
 let g:pymode_rope = 0
@@ -32,8 +33,8 @@ let g:pymode_rope_complete_on_dot = 0
 autocmd FileType python noremap <LocalLeader>a8 mz:%!autopep8 %<cr>`z:w<cr>
 
 
-autocmd FileType python noremap <LocalLeader>8 :Neomake<cr>
-let g:neomake_python_enabled_makers = ['pep8', 'pylint', 'pyflakes']
+" autocmd FileType python noremap <LocalLeader>8 :Neomake<cr>
+" let g:neomake_python_enabled_makers = ['flake8', 'pep8', 'pylint', 'pyflakes']
 let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 let g:syntastic_python_checkers = ['']
 " autocmd FileType python let b:dispatch = 'python %'
