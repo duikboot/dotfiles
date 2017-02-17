@@ -671,7 +671,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " let g:neocomplcache_min_syntax_length = 2
 
 " 3. Call |deoplete#enable()| or set "let g:deoplete#enable_at_startup = 1" in
-let g:acp_enableAtStartup = 0
 let g:deoplete#enable_at_startup = 1
 
 " let g:neocomplete#enable_at_startup = 1
