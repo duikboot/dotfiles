@@ -57,4 +57,8 @@ https://github.com/neovim/node-host                         node-host
 https://github.com/clojure-vim/nvim-parinfer.js             nvim-parinfer.js
 https://github.com/machakann/vim-highlightedyank            highlightedyank
 https://github.com/mhinz/vim-grepper                        grepper
-https://github.com/zchee/deoplete-jedi                      deoplete-jedi
+https://github.com/zchee/deoplete-jedi                      jedi
+https://github.com/iCyMind/NeoSolarized                     NeoSolarized
+https://github.com/Shougo/neosnippet.vim                    neosnippet
+https://github.com/Shougo/neosnippet-snippets               neosnippet-snippets
+https://github.com/mhinz/vim-randomtag                      randomtag

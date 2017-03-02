@@ -213,7 +213,7 @@ onoremap a_ :<C-u>call <SID>UnderscoreTextObject('a')<cr>
 "                    ^C^^^
 "                        ^C^^^
 function! s:UnderscoreTextObject(whole)
-    let saved_keyword = &iskeyword
+    let l:saved_keyword = &iskeyword
     setlocal iskeyword-=_
 
     normal! viw
@@ -276,6 +276,8 @@ nnoremap <silent> <leader>gf :vertical botright wincmd f<CR>
 nnoremap <leader>a :Grepper -tool ag<cr>
 nnoremap <leader>g :Grepper -tool git<cr>
 
+nmap go <plug>(GrepperOperator)
+xmap go <plug>(GrepperOperator)
 
 " let g:ack_use_dispatch = 0
 " let g:ackprg = 'ag --smart-case --nogroup --nocolor --column --ignore=tags --ignore=Session.vim --ignore==root/ --ignore=build-image/'
@@ -293,9 +295,9 @@ nnoremap <leader>tl :TagbarToggle<CR>
 
 function! s:AddFilenameToRegister(from)
     if a:from==#'absolute'
-        let @* = expand("%:p")
+        let @* = expand('%:p')
     else
-        let @* = expand("%")
+        let @* = expand('%')
     endif
 endfunction
 
@@ -391,8 +393,15 @@ nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 nnoremap <localleader>j :%!python -m json.tool<cr>
 
+let g:ale_python_flake8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/flake8'
+let g:ale_python_pyflakes_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pyflakes'
 " let g:pymode_rope_autoimport = 1
-let g:pymode_lint_checkers = ['flake8', 'pep8', 'pylint', 'mccabe', 'pyflakes']
+" TEMPORARY!!
+let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_python_pylint_args='--disable=C0111'
+let g:ale_python_flake8_args='--ignore=H301 --max-complexity=10'
+
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
 
 "let g:pymode_python = 'python3'
@@ -453,7 +462,6 @@ set wildignore+=lib
 " set complete=.,w,b,u,t
 set completeopt=menuone,longest,preview
 set pumheight=8             " Keep a small completion window
-
 
 """ Moving Around/Editing
 set cursorline              " have a line indicate the cursor location
@@ -536,16 +544,12 @@ if has("gui_running")
 else
     " set nocursorline
     set t_Co=256
+    set termguicolors
+    " colorscheme PaperColor
+    colorscheme NeoSolarized
 endif
 
 let g:hostname=hostname()
-
-" Try Apprenctice sometime
-" colorscheme apprenctice
-
-colorscheme PaperColor
-" colorscheme solarized
-set background=dark
 
 " Paste from clipboard
 " map <leader>p "+gP
@@ -553,10 +557,10 @@ set background=dark
 
 " RainbowParentheses
 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+autocmd VimEnter * RainbowParenthesesToggle
+autocmd Syntax * RainbowParenthesesLoadRound
+autocmd Syntax * RainbowParenthesesLoadSquare
+autocmd Syntax * RainbowParenthesesLoadBraces
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -614,6 +618,28 @@ let g:syntastic_javascript_checkers = ['jslint', 'jshint']
 " ino <c-j> <c-r>=snipMate#TriggerSnippet()<cr>
 " snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsListSnippets="<c-t>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -670,8 +696,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " " Set minimum syntax keyword length.
 " let g:neocomplcache_min_syntax_length = 2
 
-" 3. Call |deoplete#enable()| or set "let g:deoplete#enable_at_startup = 1" in
+" 3. Call |deoplete#enable()| or set let g:deoplete#enable_at_startup = 1 in
 let g:deoplete#enable_at_startup = 1
+" let g:deoplete#sources#jedi#show_docstring = 1
 
 " let g:neocomplete#enable_at_startup = 1
 " " Use smartcase.
