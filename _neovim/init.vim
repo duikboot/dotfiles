@@ -243,7 +243,7 @@ function! s:UnderscoreTextObject(whole)
             endif
         endif
     endif
-    let &iskeyword = saved_keyword
+    let &iskeyword = l:saved_keyword
 endfunction
 
 nnoremap <silent> <C-W>z :wincmd z<Bar>cclose<Bar>lclose<CR>
