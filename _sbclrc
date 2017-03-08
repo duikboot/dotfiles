@@ -1,11 +1,34 @@
 ;;; The following lines added by ql:add-to-init-file:
 #-quicklisp
-(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
-                                       (user-homedir-pathname))))
-  (when (probe-file quicklisp-init)
-    (load quicklisp-init)))
+; (let ((quicklisp-init (merge-pathnames ".roswell/lisp/quicklisp/setup.lisp"
+;                                        (user-homedir-pathname))))
+;   (when (probe-file quicklisp-init)
+;     (load quicklisp-init)))
 
 (let ((utils (merge-pathnames ".sbcl/utils.lisp"
                               (user-homedir-pathname))))
   (when (probe-file utils)
     (load utils)))
+
+(defvar *last-package* nil)
+(defvar *cached-prompt* nil)
+
+(defun package-prompt (stream)
+  (when (not (eq *last-package* *package*))
+    (setf *cached-prompt*
+          (format nil "~%[SBCL] ~A> "
+                  (or (first (package-nicknames *package*))
+                      (package-name *package*))))
+    (setf *last-package* *package*))
+  (terpri)
+  (princ *cached-prompt* stream))
+
+(setf sb-int:*repl-prompt-fun* #'package-prompt)
+; (setf sb-debug:*debug-beginner-help-p* nil)
+
+(defun :fg ()
+  (sb-thread:release-foreground))
+
+; '(ql:update-client)' --eval '(ql:update-all-dists)'
+
+; vim: filetype=lisp

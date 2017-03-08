@@ -2,4 +2,6 @@
 
 set -e
 
-rlwrap -r -f ~/.rlwrap/keywords sbcl --load ~/quicklisp/setup.lisp "$@"
+# rlwrap -r -f ~/.rlwrap/keywords sbcl --load ~/quicklisp/setup.lisp "$@"
+
+rlwrap -r -f $HOME/.sbcl_completions --histsize 1000 --history-filename "$HOME/.rlwrap-lisp-history" ros run -l ~/.sbclrc "$@"
