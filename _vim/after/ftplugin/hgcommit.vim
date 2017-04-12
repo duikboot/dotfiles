@@ -9,4 +9,3 @@ augroup ft_hgcommit
     nnoremap <LocalLeader>b :call BranchName()<CR>
     setlocal spell
 augroup END
-

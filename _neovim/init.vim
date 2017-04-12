@@ -1,3 +1,4 @@
+scriptencoding utf-8
 " Pathogen - Allows us to organize our vim plugins
 " Load pathogen with docs for all plugins
 filetype off
@@ -157,25 +158,22 @@ tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
 
 let g:neoterm_autoinsert = 1
+let g:neoterm_autoscroll = 1
 
+" Send paragraph
 nnoremap <silent> ,ts mzvip:TREPLSendSelection<cr>`z
+" Send (lisp)form
 nnoremap <silent> ,tf mzva(:TREPLSendSelection<cr>`z
+" Send selection
+vnoremap  ,tv :TREPLSendSelection<cr>
+nnoremap ,ts :TREPLSendLine<cr>
 
 " hide/close terminal
-nnoremap <silent> ,h :call neoterm#close()<cr>
+nnoremap <silent> ,th :call neoterm#close()<cr>
 " clear terminal
 nnoremap <silent> ,tl :call neoterm#clear()<cr>
 " kills the current job (send a <c-c>)
-nnoremap <silent> ,c :call neoterm#kill()<cr>
-
-" tnoremap <A-h> <C-\><C-n><C-w>h
-" tnoremap <A-j> <C-\><C-n><C-w>j
-" tnoremap <A-k> <C-\><C-n><C-w>k
-" tnoremap <A-l> <C-\><C-n><C-w>l
-" nnoremap <A-h> <C-w>h
-" nnoremap <A-j> <C-w>j
-" nnoremap <A-k> <C-w>k
-" nnoremap <A-l> <C-w>l
+nnoremap <silent> ,tc :call neoterm#kill()<cr>
 
 let g:tmux_navigator_no_mappings = 1
 
@@ -273,6 +271,7 @@ nnoremap <silent> <leader>gf :vertical botright wincmd f<CR>
 
 
 " nnoremap <leader>a <Esc>:Ack!<Space>
+nnoremap <leader>a :Grepper -tool ag<cr>
 nnoremap <leader>a :Grepper -tool ag<cr>
 nnoremap <leader>g :Grepper -tool git<cr>
 
@@ -545,8 +544,9 @@ else
     " set nocursorline
     set t_Co=256
     set termguicolors
-    " colorscheme PaperColor
+    set background=dark           " We are using dark background in vim
     colorscheme NeoSolarized
+    colorscheme PaperColor
 endif
 
 let g:hostname=hostname()
@@ -620,14 +620,15 @@ let g:syntastic_javascript_checkers = ['jslint', 'jshint']
 
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+imap <c-k>     <Plug>(neosnippet_expand_or_jump)
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <c-k>     <Plug>(neosnippet_expand_or_jump)
 
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+xmap <c-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+
 "imap <expr><TAB>
 " \ pumvisible() ? "\<C-n>" :
 " \ neosnippet#expandable_or_jumpable() ?
@@ -640,10 +641,10 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-t>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsListSnippets="<c-t>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "
 
 " " Unite keybindings
@@ -666,6 +667,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " nnoremap <localleader>qb :<C-u>Unite -no-split -quick-match buffer<cr>
 " " nnoremap <localleader>ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 
+nnoremap <localleader>o :<C-u>Denite  -buffer-name=outline -start-insert outline<cr>
 " " Custom mappings for the unite buffer
 " autocmd FileType unite call s:unite_settings()
 " function! s:unite_settings()
@@ -740,13 +742,26 @@ autocmd FileType racket set commentstring=;%s
 " "}}}
 
 " common lisp {{{
-let delimitMate_excluded_ft = "clojure,lisp"
-autocmd BufRead,BufNewFile *.asd set filetype=lisp
+augroup ft_lisp
+    setlocal tabstop=2
+    let g:delimitMate_excluded_ft = 'clojure,lisp'
+    autocmd BufRead,BufNewFile *.asd set filetype=lisp
 
-autocmd FileType lisp setlocal colorcolumn=80
+    autocmd FileType lisp setlocal colorcolumn=80
 
-autocmd BufRead *.lisp set makeprg=sblint
-let g:syntastic_lisp_checkers = ['sblint']
+    setlocal shiftwidth=2            " but an indent level is 2 spaces wide.
+    autocmd BufRead *.lisp set makeprg=sblint
+    let g:syntastic_lisp_checkers = ['sblint']
+augroup END
+
+
+" lisp
+augroup set_lisp_repl
+    autocmd FileType lisp
+          \ if executable('lisp') |
+          \   call neoterm#repl#set('lisp') |
+          \ end
+augroup END
 
 " let g:slimv_repl_split = 4
 " }}}
@@ -836,19 +851,20 @@ autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 
 
 
 function! s:OpenTestFile(split)
-    let l:test_file = '**/[tT]est*' . expand('%:t')
+    let l:test_file = '**/*[tT]est*' . expand('%:t')
+    let l:test_file = expand('%:h') . '**/*[tT]est_' . expand('%:t')
     if a:split ==# 'vertical'
         vsplit
     elseif a:split ==# 'horizontal'
         split
     endif
     try
-        execute "find" . ' ' . l:test_file
+        execute 'find' . ' ' . l:test_file
     catch
-        if a:split ==# "horizontal" || a:split ==# "vertical"
+        if a:split ==# 'horizontal' || a:split ==# 'vertical'
             quit
         endif
-        echom "No test file found, with name: " . l:test_file
+        echom 'No test file found, with name: ' . l:test_file
     endtry
 endfunc
 
