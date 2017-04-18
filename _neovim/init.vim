@@ -398,7 +398,7 @@ let g:ale_python_pyflakes_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin
 " TEMPORARY!!
 let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_python_pylint_args='--disable=C0111'
+let g:ale_python_pylint_options='--disable=C0111,R0903'
 let g:ale_python_flake8_args='--ignore=H301 --max-complexity=10'
 
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
