@@ -53,11 +53,11 @@ endfunction
 autocmd FileType qf call ParseNosetestsQuickFix()
 
 let g:dispatch_compilers = {'nosetests': 'nosetests'}
-let test#strategy = "neovim"
+let g:test#strategy = 'neovim'
 
 function! ParseNosetestsQuickFix()
   " only will work for vim 7.4.718+ as an autocommand
-  if !exists( "w:quickfix_title" )
+  if !exists( 'w:quickfix_title' )
       set nofoldenable
       return
   endif
@@ -72,22 +72,22 @@ function! ParseNosetestsQuickFix()
 endfunction
 
 function! NosetestsFoldtextMaker()
-  let line = getline(v:foldstart)
-  let linenum = v:foldstart + 1
-  let found = 0
-  while linenum < v:foldend
-    if match( getline( linenum ), '^||.*' ) == 0
-      if found == 1
-        let line = getline( linenum )
+  let l:line = getline(v:foldstart)
+  let l:linenum = v:foldstart + 1
+  let l:found = 0
+  while l:linenum < v:foldend
+    if match( getline( l:linenum ), '^||.*' ) == 0
+      if l:found == 1
+        let l:line = getline( l:linenum )
         break
       endif
     else
-      let found = 1
+      let l:found = 1
     endif
-    let linenum = linenum + 1
+    let l:linenum = l:linenum + 1
   endwhile
-  let n = v:foldend - v:foldstart + 1
-  let info = " " . n . " lines "
-  return "+" . v:folddashes . info . line
+  let l:n = v:foldend - v:foldstart + 1
+  let l:info = ' ' . l:n . ' l:lines '
+  return '+' . v:folddashes . l:info . l:line
 endfunction
 

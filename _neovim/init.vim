@@ -149,6 +149,7 @@ let g:netrw_list_hide= '.*\.pyc$'
 " map <c-h> <c-w>h
 
 " Terminal
+" let g:neoterm_fixedsize = 0
 let g:neoterm_position = 'vertical'
 " nnoremap <leader>ot :vs \| term<space>
 tnoremap <Esc> <C-\><C-n>
@@ -166,10 +167,10 @@ nnoremap <silent> ,ts mzvip:TREPLSendSelection<cr>`z
 nnoremap <silent> ,tf mzva(:TREPLSendSelection<cr>`z
 " Send selection
 vnoremap  ,tv :TREPLSendSelection<cr>
-nnoremap ,ts :TREPLSendLine<cr>
+nnoremap ,tr :TREPLSendLine<cr>
 
 " hide/close terminal
-nnoremap <silent> ,th :call neoterm#close()<cr>
+nnoremap <silent> ,tt :Ttoggle<cr>
 " clear terminal
 nnoremap <silent> ,tl :call neoterm#clear()<cr>
 " kills the current job (send a <c-c>)
@@ -271,7 +272,6 @@ nnoremap <silent> <leader>gf :vertical botright wincmd f<CR>
 
 
 " nnoremap <leader>a <Esc>:Ack!<Space>
-nnoremap <leader>a :Grepper -tool ag<cr>
 nnoremap <leader>a :Grepper -tool ag<cr>
 nnoremap <leader>g :Grepper -tool git<cr>
 
@@ -743,15 +743,17 @@ autocmd FileType racket set commentstring=;%s
 
 " common lisp {{{
 augroup ft_lisp
-    setlocal tabstop=2
     let g:delimitMate_excluded_ft = 'clojure,lisp'
     autocmd BufRead,BufNewFile *.asd set filetype=lisp
+    autocmd BufRead,BufNewFile *.ros set filetype=lisp
 
     autocmd FileType lisp setlocal colorcolumn=80
 
+    setlocal tabstop=2
     setlocal shiftwidth=2            " but an indent level is 2 spaces wide.
+    set softtabstop=2           " <BS> over an autoindent deletes both spaces.
     autocmd BufRead *.lisp set makeprg=sblint
-    let g:syntastic_lisp_checkers = ['sblint']
+    " let g:syntastic_lisp_checkers = ['sblint']
 augroup END
 
 
