@@ -67,11 +67,11 @@ def main():
     """
     process_list, obsolete_dirs = list_processes()
     _ = [proc.communicate() for proc in process_list]
-    _ = [shutil.rmtree(d) for d in obsolete_dirs]
+    _ = [shutil.rmtree(d) for d in obsolete_dirs if not os.path.islink(d)]
 
 
 if __name__ == '__main__':
     START = time.time()
     main()
     END = time.time()
-    print("Took %.3f seconds" % (END - START), end="\n\n")
+    print("Took %.3f seconds" % (END - START), end='\n\n')

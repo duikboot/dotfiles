@@ -23,8 +23,6 @@ https://github.com/klen/python-mode.git                       python-mode
 https://github.com/tpope/vim-repeat                           repeat
 https://github.com/mtth/scratch.vim                           scratch
 https://github.com/mhinz/vim-signify                          sigcnify
-# https://github.com/epeli/slimux.git                           slimux
-# https://bitbucket.org/kovisoft/slimv                          slimv
 # https://github.com/kana/vim-smartinput                        smartinput
 https://github.com/altercation/vim-colors-solarized.git       solarized
 https://github.com/tpope/vim-speeddating                      speeddating
@@ -43,8 +41,7 @@ https://github.com/vim-scripts/vcscommand.vim.git             vcscommand
 https://github.com/Shougo/vimproc.vim.git                     vimproc
 # https://github.com/JarrodCTaylor/vim-python-test-runner      vim-python-test-runner
 # https://github.com/honza/vim-snippets                         vim-snippets
-https://github.com/janko-m/vim-test                           vim-test
-https://github.com/vim-scripts/vimwiki                        vimwiki
+# https://github.com/janko-m/vim-test                           vim-test
 https://github.com/nelstrom/vim-visual-star-search            visual-star-search
 https://github.com/vim-scripts/YankRing.vim.git               yankring
 # https://github.com/benekastah/neomake                         neomake
