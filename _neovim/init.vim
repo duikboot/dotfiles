@@ -135,6 +135,7 @@ nnoremap <Leader>SS :source Session.vim<cr>
 " for when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
 
+" replace snippet
 nnoremap R :%s//g<left><left>
 
 " open link in browser
@@ -478,6 +479,7 @@ set scrolloff=3             " Keep 3 context lines above and below the cursor
 set shiftround              " rounds indent to a multiple of shiftwidth
 set shiftwidth=4            " but an indent level is 2 spaces wide.
 set showmatch               " Briefly jump to a paren once it's balanced
+set noshowmode
 "set smartindent             " use smart indent if there is no indent file
 set softtabstop=4           " <BS> over an autoindent deletes both spaces.
 set tabstop=4               " <tab> inserts 4 spaces
@@ -544,7 +546,7 @@ else
     " set nocursorline
     set t_Co=256
     set termguicolors
-    set background=dark           " We are using dark background in vim
+    set background=light           " We are using dark background in vim
     colorscheme NeoSolarized
     colorscheme PaperColor
 endif
@@ -667,7 +669,7 @@ endif
 " nnoremap <localleader>qb :<C-u>Unite -no-split -quick-match buffer<cr>
 " " nnoremap <localleader>ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 
-nnoremap <localleader>o :<C-u>Denite  -buffer-name=outline -start-insert outline<cr>
+nnoremap <localleader>o :<C-u>Denite  -buffer-name=outline outline<cr>
 " " Custom mappings for the unite buffer
 " autocmd FileType unite call s:unite_settings()
 " function! s:unite_settings()
@@ -700,7 +702,8 @@ nnoremap <localleader>o :<C-u>Denite  -buffer-name=outline -start-insert outline
 
 " 3. Call |deoplete#enable()| or set let g:deoplete#enable_at_startup = 1 in
 let g:deoplete#enable_at_startup = 1
-" let g:deoplete#sources#jedi#show_docstring = 1
+let g:deoplete#sources#jedi#show_docstring = 1
+let g:deoplete#complete_method='omnifunc'
 
 " let g:neocomplete#enable_at_startup = 1
 " " Use smartcase.
@@ -780,58 +783,6 @@ let g:necoghc_enable_detailed_browse = 1
 
 " }}}
 "
-" Haskell {{{
-
-" augroup ft_haskell
-"     autocmd!
-"     autocmd BufEnter *.hs compiler ghc
-"     " setlocal iskeyword=a-z,A-Z,_,.,39
-"     " let &makeprg='hdevtools check %'
-"     " let g:hdevtools_options = '-g -isrc -g -Wall -g -hide-package -g transformers'
-"     "let g:neocomplete#ctags_command = 'hasktags'
-"     " let g:haskell_conceal_wide = 1
-"     let g:neocomplcache_force_overwrite_completefunc = 1
-" augroup END
-
-" }}}
-
-" {{{
-
-" haskellmode-vim and ghcmod-vim support for cabal sandboxes.
-" http://lpaste.net/92928
-
-" function! s:find_basedir() "{{{
-" " search Cabal file
-"   if !exists('b:ghcmod_basedir')
-"     let l:ghcmod_basedir = expand('%:p:h')
-"     let l:dir = l:ghcmod_basedir
-"     for _ in range(6)
-"       if !empty(glob(l:dir . '/*.cabal', 0))
-"         let l:ghcmod_basedir = l:dir
-"         break
-"       endif
-"       let l:dir = fnamemodify(l:dir, ':h')
-"     endfor
-"     let b:ghcmod_basedir = l:ghcmod_basedir
-"   endif
-"   return b:ghcmod_basedir
-" endfunction "}}}
-
-" " use ghc functionality for haskell files
-" let sandbox_dir = '/.cabal-sandbox/x86_64-linux-ghc-7.6.3-packages.conf.d'
-" let g:ghc="/usr/bin/ghc"
-" augroup filetype_hs
-"     autocmd!
-"     autocmd Bufenter *.hs let dir = s:find_basedir() . sandbox_dir
-"     " autocmd Bufenter *.hs compiler ghc
-"     autocmd Bufenter *.hs let b:ghc_staticoptions = '-package-db ' . dir
-"     autocmd Bufenter *.hs let g:ghcmod_ghc_options = ['-package-db ' . dir]
-"     autocmd FileType haskell let b:start = 'ghci "%:p"'
-" augroup END
-
-" let g:syntastic_haskell_checkers = ['']
-" " }}}
-
 
 " Rebuild Ctags (mnemonic RC -> CR -> <cr>)
 nnoremap <leader><cr> :silent !ctags -R --exclude=ENV/lib64 --exclude=node_modules --exclude=.buildozer --languages=-javascript --languages=-css >/dev/null 2>&1 &<cr>:redraw!<cr>
