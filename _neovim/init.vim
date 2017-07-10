@@ -71,18 +71,19 @@ noremap <Leader>w :w<cr>
 nnoremap <leader>q :q<CR>
 
 " Open :CtrlP
-nnoremap <Leader>o :CtrlP<CR>
-nnoremap <Leader>ot :CtrlPTag<CR>
-let g:ctrlp_extensions = ['tag', 'buffertag']
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.git|\.hg|\.svn|build-image|build)$',
-  \ 'file': '\v\.(css|js)$',
-  \ }
+" nnoremap <Leader>o :CtrlP<CR>
+" nnoremap <Leader>ot :CtrlPTag<CR>
+" let g:ctrlp_extensions = ['tag', 'buffertag']
+" let g:ctrlp_custom_ignore = {
+"   \ 'dir':  '\v[\/](\.git|\.hg|\.svn|build-image|build)$',
+"   \ 'file': '\v\.(css|js)$',
+"   \ }
 
 nnoremap <Leader>f :find<space>
 
 " " fzf plugin
-" set rtp+=~/.fzf
+set runtimepath+=~/.fzf
+nnoremap <Leader>o :FZF<CR>
 
 " Make Vim able to edit crontab files again.
 "set backupskip=/tmp/*,/private/tmp/*"
@@ -393,8 +394,11 @@ nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 nnoremap <localleader>j :%!python -m json.tool<cr>
 
+let b:ale_python_flake8_use_global=1
+let b:ale_python_pylint_use_global=1
+
 let g:ale_python_flake8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/flake8'
-let g:ale_python_pyflakes_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pyflakes'
+let g:ale_python_pylint_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pyflakes'
 " let g:pymode_rope_autoimport = 1
 " TEMPORARY!!
 let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
@@ -402,6 +406,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_python_pylint_options='--disable=C0111,R0903'
 let g:ale_python_flake8_args='--ignore=H301 --max-complexity=10'
 
+let b:ale_virtualenv_dir_names=['ENV']
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
 
 "let g:pymode_python = 'python3'
@@ -529,6 +534,9 @@ set smartcase               " unless uppercase letters are used in the regex.
 " map /  <Plug>(incsearch-forward)
 " map ?  <Plug>(incsearch-backward)
 " map g/ <Plug>(incsearch-stay)
+
+" search for selection
+vnoremap // y/<C-R>"<CR>
 
 
 if &term =~ '256color'

@@ -49,3 +49,5 @@ PS1='\[`[ $? = 0 ] && X=2 || X=1; tput setaf $X`\][\t] [\u@\h]\[`tput sgr0`\]: $
 # source /usr/share/autojump/autojump.sh
 
 # vim: ft=sh
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

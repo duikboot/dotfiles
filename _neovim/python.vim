@@ -32,7 +32,20 @@ let g:pymode_rope_complete_on_dot = 0
 " autocmd FileType python noremap <LocalLeader>8 :PymodeLint<cr>:lopen<cr>
 " " autocmd FileType python noremap <LocalLeader>a8 call s:Autopep8()
 
-autocmd FileType python noremap <LocalLeader>a8 mz:%!autopep8 %<cr>`z:w<cr>
+function! Pep8()
+    " silent write!
+    let l:winview = winsaveview()
+    execute 'silent %!autopep8 %'
+    silent edit!
+    execute 'silent %!isort %'
+    silent edit!
+    " autocmd FileType python noremap <LocalLeader>a8 mz:%!autopep8 %<cr>`z:w<cr>
+    " autocmd FileType python noremap <LocalLeader>a8 mz:%!isort %<cr>`z:w<cr>
+    write!
+    call winrestview(l:winview)
+endfunction
+
+nnoremap <silent> <LocalLeader>a8 :call Pep8()<cr>
 
 
 " autocmd FileType python noremap <LocalLeader>8 :Neomake<cr>
