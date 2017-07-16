@@ -1,0 +1,53 @@
+(in-package :stumpwm)
+
+(require :swank)
+(swank-loader:init)
+(swank:create-server :port 4004
+                     :style swank:*communication-style*
+                     :dont-close t)
+
+
+; (mode-line)
+
+; Turn on the modeline
+(if (not (head-mode-line (current-head)))
+    (toggle-mode-line (current-screen) (current-head)))
+
+(set-module-dir "/home/arjen/stumpwm/contrib/")
+
+(load-module "net")
+(load-module "cpu")
+
+; (run-shell-command "xfce4-panel &> /dev/null &")
+; (run-shell-command "nm-applet &> /dev/null &")
+; (run-shell-command "pnmixer &> /dev/null &")
+
+(run-shell-command "feh --bg-center $HOME/config/dotfiles/_wallpapers/groningen_station.jpg")
+(run-shell-command "xscreensaver")
+
+; (stumpwm::run-shell-command "stalonetray")
+; (stumpwm::run-shell-command "nm-applet")
+
+(setf stumpwm:*screen-mode-line-format*
+      (list "%w | "
+            '(:eval (stumpwm:run-shell-command "date" t))))
+
+(stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
+
+(setf *mouse-focus-policy* :sloppy) ;; :click, :ignore, :sloppy
+
+
+;; Show time, cpu usage and network traffic in the modeline
+(setf *screen-mode-line-format*
+      (list '(:eval (run-shell-command "date '+%R, %F %a'|tr -d [:cntrl:]" t)) " | %t | %c| %l | [^B%n^b] %W"))
+
+
+(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "u") "exec gnome-terminal")
+(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "f") "exec firefox")
+
+
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "exec amixer set Master 5%-")
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer set Master 5%+")
+(define-key *top-map* (kbd "XF86AudioMute") "exec amixer set Master toggle")
+
+;; vim: ft=lisp
