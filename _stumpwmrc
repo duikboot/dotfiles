@@ -2,10 +2,12 @@
 
 (require :swank)
 (swank-loader:init)
+
 (swank:create-server :port 4004
                      :style swank:*communication-style*
                      :dont-close t)
 
+(vlime:main :port 4005 :backend :vlime-usocket)
 
 ; (mode-line)
 
@@ -25,6 +27,12 @@
 (run-shell-command "feh --bg-center $HOME/config/dotfiles/_wallpapers/groningen_station.jpg")
 (run-shell-command "xscreensaver")
 
+(defcommand lock-screen ()()
+            (run-shell-command "xscreensaver-command -lock"))
+
+(defcommand firefox ()()
+            (run-or-raise "firefox" '(:class "Firefox")))
+
 ; (stumpwm::run-shell-command "stalonetray")
 ; (stumpwm::run-shell-command "nm-applet")
 
@@ -42,12 +50,23 @@
       (list '(:eval (run-shell-command "date '+%R, %F %a'|tr -d [:cntrl:]" t)) " | %t | %c| %l | [^B%n^b] %W"))
 
 
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "u") "exec gnome-terminal")
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "f") "exec firefox")
+(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "c") "exec gnome-terminal")
+(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "m") "exec spotify")
 
 
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "exec amixer set Master 5%-")
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer set Master 5%+")
 (define-key *top-map* (kbd "XF86AudioMute") "exec amixer set Master toggle")
+
+(define-key *top-map* (kbd "M-f") "firefox")
+(define-key *top-map* (kbd "M-c") "exec gnome-terminal")
+
+(define-key *top-map* (kbd "M-1") "gselect 1")
+(define-key *top-map* (kbd "M-2") "gselect 2")
+(define-key *top-map* (kbd "M-3") "gselect 3")
+(define-key *top-map* (kbd "M-4") "gselect 4")
+(define-key *top-map* (kbd "M-s") "lock-screen")
+
+
 
 ;; vim: ft=lisp

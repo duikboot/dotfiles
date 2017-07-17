@@ -11,6 +11,8 @@ set visualbell
 set autocomplete
 set wildmode=list:longest,full
 
+set titlestring=Firefox
+
 
 " automatic pass-through mode on certain pages (do ':h autocommands' for details)
 autocmd LocationChange .* :js modes.passAllKeys = /gmail\.com/.test(buffer.URL)
