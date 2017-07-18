@@ -3,11 +3,16 @@
 (require :swank)
 (swank-loader:init)
 
-(swank:create-server :port 4004
-                     :style swank:*communication-style*
-                     :dont-close t)
+; (swank:create-server :port 4004
+;                      :style swank:*communication-style*
+;                      :dont-close t)
 
-(vlime:main :port 4005 :backend :vlime-usocket)
+(defun start-slime ()
+  (if *slime*
+    (format t "~%Slime already started~%")
+    (setf *slime*)(vlime:main :port 4005 :backend :vlime-usocket)))
+
+; (vlime:main :port 4005 :backend :vlime-usocket)
 
 ; (mode-line)
 
@@ -33,6 +38,9 @@
 (defcommand firefox ()()
             (run-or-raise "firefox" '(:class "Firefox")))
 
+(defcommand franz ()()
+            (run-or-raise "Franz" '(:class "Franz")))
+
 ; (stumpwm::run-shell-command "stalonetray")
 ; (stumpwm::run-shell-command "nm-applet")
 
@@ -49,6 +57,8 @@
 (setf *screen-mode-line-format*
       (list '(:eval (run-shell-command "date '+%R, %F %a'|tr -d [:cntrl:]" t)) " | %t | %c| %l | [^B%n^b] %W"))
 
+(run-commands "grename browser")
+(run-commands "gnewbg code" "gnewbg music" "gnewbg chat" "gnewbg root")
 
 (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "c") "exec gnome-terminal")
 (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "m") "exec spotify")
@@ -58,15 +68,23 @@
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer set Master 5%+")
 (define-key *top-map* (kbd "XF86AudioMute") "exec amixer set Master toggle")
 
-(define-key *top-map* (kbd "M-f") "firefox")
-(define-key *top-map* (kbd "M-c") "exec gnome-terminal")
+(define-key *top-map* (kbd "M-b") "firefox")
+(define-key *top-map* (kbd "M-f") "franz")
+(define-key *top-map* (kbd "M-RET") "exec gnome-terminal")
 
 (define-key *top-map* (kbd "M-1") "gselect 1")
 (define-key *top-map* (kbd "M-2") "gselect 2")
 (define-key *top-map* (kbd "M-3") "gselect 3")
 (define-key *top-map* (kbd "M-4") "gselect 4")
+(define-key *top-map* (kbd "M-5") "gselect 5")
 (define-key *top-map* (kbd "M-s") "lock-screen")
 
+(define-key *top-map* (kbd "M-g") "exec gnome-control-center")
 
+
+; (defun show-key-seq (key seq val)
+;     (message (print-key-seq (reverse seq))))
+
+; (add-hook *key-press-hook* 'show-key-seq)
 
 ;; vim: ft=lisp
