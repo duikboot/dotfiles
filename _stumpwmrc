@@ -3,6 +3,14 @@
 (require :swank)
 (swank-loader:init)
 
+(defvar *home-dir* (getenv "HOME"))
+
+; (set-module-dir "/home/arjen/stumpwm/contrib/")
+(setf *module-dir* (make-pathname :directory
+                                  (format nil "~A/stumpwm/contrib" *home-dir*)))
+
+(set-module-dir *module-dir*)
+
 (defvar *vlime-instance* nil)
 
 ; (swank:create-server :port 4004
@@ -11,6 +19,7 @@
 
 ; (ql:quickload 'iolib)
 ; (ql:quickload 'cffi)
+
 
 (defun start-vlime ()
  (unless *vlime-instance*
@@ -22,8 +31,6 @@
 ; Turn on the modeline
 (if (not (head-mode-line (current-head)))
     (toggle-mode-line (current-screen) (current-head)))
-
-(set-module-dir "/home/arjen/stumpwm/contrib/")
 
 (load-module "net")
 (load-module "cpu")
@@ -39,27 +46,53 @@
 (run-shell-command "feh --bg-center $HOME/config/dotfiles/_wallpapers/groningen_station.jpg")
 (run-shell-command "xscreensaver")
 
+(stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
+
+(setf *mouse-focus-policy* :sloppy) ;; :click, :ignore, :sloppy
+
+;;; Mappings
+
+(defmacro make-program-binding (command value &key (key-binding nil))
+  `(progn
+    (defcommand ,(intern command) ()()
+       (run-or-raise ,command '(:class ,value)))
+    ,(when key-binding
+      `(define-key *top-map* (kbd (format nil "M-~a" ,key-binding)) ,command))))
+
 (defcommand lock-screen ()()
             (run-shell-command "xscreensaver-command -lock"))
 
-(defmacro my-run-or-raise (command value)
- `(defcommand ,(intern command) ()()
-             (run-or-raise ,command '(:class ,value))))
+(make-program-binding "vlc" "vlc")
+(make-program-binding "firefox" "Firefox" :key-binding "b")
+(make-program-binding "arandr" "arandr")
+(make-program-binding "Franz" "Franz" :key-binding "c")
+(make-program-binding "spotify" "Spotify" :key-binding "m")
+(make-program-binding "calibre" "calibre" :key-binding "C")
 
-(my-run-or-raise "vlc" "vlc")
-(my-run-or-raise "firefox" "firefox")
-(my-run-or-raise "arandr" "arandr")
-(my-run-or-raise "Franz" "Franz")
-(my-run-or-raise "spotify" "spotify")
+(define-key *top-map* (kbd "M-f") "exec nautilus")
 
+(define-key *top-map* (kbd "M-s") "lock-screen")
+
+(define-key *top-map* (kbd "M-g") "exec gnome-control-center")
+
+(define-key *top-map* (kbd "M-ESC") "gother")
 
 ; (stumpwm::run-shell-command "stalonetray")
 ; (stumpwm::run-shell-command "nm-applet")
 
 
-(stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
+(run-commands "grename browser")
+(run-commands "gnewbg code" "gnewbg music" "gnewbg chat" "gnewbg root")
 
-(setf *mouse-focus-policy* :sloppy) ;; :click, :ignore, :sloppy
+(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "M-RET") "exec gnome-terminal")
+
+
+; (define-key *top-map* (kbd "XF86AudioLowerVolume") "exec amixer set Master 5%-")
+; (define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer set Master 5%+")
+; (define-key *top-map* (kbd "XF86AudioMute") "exec amixer set Master toggle")
+
+(dotimes (i 10) (format t "~A" i)
+ (define-key *top-map* (kbd (format nil "M-~a" i)) (format nil "gselect ~a" i)))
 
 
 ;; Show time, cpu usage and network traffic in the modeline
@@ -70,32 +103,6 @@
             " | %l" ; network
             " | Battery: %B " ; battery
             " | [^B%n^b] %W"))
-
-(run-commands "grename browser")
-(run-commands "gnewbg code" "gnewbg music" "gnewbg chat" "gnewbg root")
-
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "c") "exec gnome-terminal")
-
-
-; (define-key *top-map* (kbd "XF86AudioLowerVolume") "exec amixer set Master 5%-")
-; (define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer set Master 5%+")
-; (define-key *top-map* (kbd "XF86AudioMute") "exec amixer set Master toggle")
-
-(define-key *top-map* (kbd "M-b") "firefox")
-(define-key *top-map* (kbd "M-f") "exec nautilus")
-(define-key *top-map* (kbd "M-c") "franz")
-(define-key *top-map* (kbd "M-m") "spotify")
-(define-key *top-map* (kbd "M-RET") "exec gnome-terminal")
-
-(dotimes (i 10) (format t "~A" i)
- (define-key *top-map* (kbd (format nil "M-~a" i)) (format nil "gselect ~a" i)))
-
-(define-key *top-map* (kbd "M-s") "lock-screen")
-
-(define-key *top-map* (kbd "M-g") "exec gnome-control-center")
-
-(define-key *top-map* (kbd "M-ESC") "gother")
-
 
 ; (defun show-key-seq (key seq val)
 ;  (message (print-key-seq (reverse seq))))
@@ -118,7 +125,5 @@
 ; (remove-hook *urgent-window-hook* 'echo-urgent-window)
 
 ; (add-hook *urgent-window-hook* 'echo-urgent-window)
-
-; (stumpwm::message-no-timeout "TEST")
 
 ;; vim: ft=lisp
