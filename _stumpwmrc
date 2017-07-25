@@ -1,11 +1,12 @@
 (in-package :stumpwm)
 
+
 (require :swank)
 (swank-loader:init)
 
 (defvar *home-dir* (getenv "HOME"))
 
-; (set-module-dir "/home/arjen/stumpwm/contrib/")
+; Same as: (set-module-dir "/home/arjen/stumpwm/contrib/")
 (setf *module-dir* (make-pathname :directory
                                   (format nil "~A/stumpwm/contrib" *home-dir*)))
 
@@ -16,9 +17,6 @@
 ; (swank:create-server :port 4004
 ;                      :style swank:*communication-style*
 ;                      :dont-close t)
-
-; (ql:quickload 'iolib)
-; (ql:quickload 'cffi)
 
 
 (defun start-vlime ()
@@ -104,26 +102,8 @@
             " | Battery: %B " ; battery
             " | [^B%n^b] %W"))
 
-; (defun show-key-seq (key seq val)
-;  (message (print-key-seq (reverse seq))))
-; (add-hook *key-press-hook* 'show-key-seq)
 
 ;; Pull window by id to current frame.
 ;; <c-t><c-id>
-
-; (defun echo-urgent-window (target)
-;   "modified message-window.lisp to export message-no-timeout"
-;   (stumpwm::message-no-timeout "Activity in ~a"
-;             (window-title target) (window-group target)))
-
-; (defun echo-urgent-window ()
-;   "modified message-window.lisp to export message-no-timeout"
-;   (stumpwm::message-no-timeout "Activity in window"))
-
-; *urgent-window-hook*
-
-; (remove-hook *urgent-window-hook* 'echo-urgent-window)
-
-; (add-hook *urgent-window-hook* 'echo-urgent-window)
 
 ;; vim: ft=lisp
