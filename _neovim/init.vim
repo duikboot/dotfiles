@@ -305,6 +305,13 @@ endfunction
 nnoremap <leader>cf :call <SID>AddFilenameToRegister('absolute')<CR>
 nnoremap <leader>cr :call <SID>AddFilenameToRegister('relative')<CR>
 
+
+function! s:ConnectVlimeToStumpwm()
+    call vlime#plugin#ConnectREPL('127.0.0.1', 4005)
+endfunction
+
+nnoremap <localleader>c :call <SID>ConnectVlimeToStumpwm()<CR>
+
 " Show yankring
 nnoremap <silent> <leader>y :YRShow<CR>
 
