@@ -1,5 +1,7 @@
 (in-package :stumpwm)
 
+; *startup-message*
+; (setf *startup-message* (format nil "^B~A^b~&~A" (machine-instance) *startup-message*))
 
 (require :swank)
 (swank-loader:init)
@@ -36,6 +38,16 @@
 ; (load-module "notify")
 ; (load-module "notifications")
 ; (load-module "urgentwindows")
+
+;; Show time, cpu usage and network traffic in the modeline
+(setf *screen-mode-line-format*
+      (list '(:eval (run-shell-command "date '+%R, %F %a'|tr -d [:cntrl:]" t))  ;date command
+            " | %t" ; temperature
+            " | %c" ; cpu
+            " | %l" ; network
+            " | Battery: %B " ; battery
+            " | [^B%n^b] %W"))
+
 
 ; (run-shell-command "xfce4-panel &> /dev/null &")
 ; (run-shell-command "nm-applet &> /dev/null &")
@@ -75,22 +87,25 @@
 
 (define-key *top-map* (kbd "M-ESC") "gother")
 
+(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "M-RET") "exec gnome-terminal")
 ; (stumpwm::run-shell-command "stalonetray")
 ; (stumpwm::run-shell-command "nm-applet")
 
 
+;;; Group thingies
 (run-commands "grename browser")
 (run-commands "gnewbg code" "gnewbg music" "gnewbg chat" "gnewbg root")
 
-(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "M-RET") "exec gnome-terminal")
+(dotimes (i 10) (format t "~A" i)
+ (define-key *top-map* (kbd (format nil "M-~a" i)) (format nil "gselect ~a" i)))
+
+(define-key *top-map* (kbd "M-Right") "gnext")
+(define-key *top-map* (kbd "M-Left") "gprev")
 
 
 ; (define-key *top-map* (kbd "XF86AudioLowerVolume") "exec amixer set Master 5%-")
 ; (define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer set Master 5%+")
 ; (define-key *top-map* (kbd "XF86AudioMute") "exec amixer set Master toggle")
-
-(dotimes (i 10) (format t "~A" i)
- (define-key *top-map* (kbd (format nil "M-~a" i)) (format nil "gselect ~a" i)))
 
 
 ;; Show time, cpu usage and network traffic in the modeline

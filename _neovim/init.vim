@@ -401,8 +401,15 @@ nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 nnoremap <localleader>j :%!python -m json.tool<cr>
 
+
+let g:ale_lint_on_text_changed='never'
+let g:ale_lint_on_insert_leave=1
 let b:ale_python_flake8_use_global=1
 let b:ale_python_pylint_use_global=1
+
+let g:ale_fixers = {'python': ['autopep8', 'isort']}
+let g:ale_python_autopep8_options = '--aggressive'
+let g:ale_fix_on_save=1
 
 let g:ale_python_flake8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/flake8'
 let g:ale_python_pylint_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pyflakes'
