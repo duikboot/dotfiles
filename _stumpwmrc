@@ -2,9 +2,16 @@
 
 ; *startup-message*
 ; (setf *startup-message* (format nil "^B~A^b~&~A" (machine-instance) *startup-message*))
+; *input-history*
+; (run-shell-command "xfce4-panel &> /dev/null &")
+; (run-shell-command "nm-applet &> /dev/null &")
+; (run-shell-command "pnmixer &> /dev/null &")
+; (swank:create-server :port 4004
+;                      :style swank:*communication-style*
+;                      :dont-close t)
+; (require :swank)
+; (swank-loader:init)
 
-(require :swank)
-(swank-loader:init)
 
 (defvar *home-dir* (getenv "HOME"))
 
@@ -15,10 +22,6 @@
 (set-module-dir *module-dir*)
 
 (defvar *vlime-instance* nil)
-
-; (swank:create-server :port 4004
-;                      :style swank:*communication-style*
-;                      :dont-close t)
 
 
 (defun start-vlime ()
@@ -46,15 +49,13 @@
             " | %c" ; cpu
             " | %l" ; network
             " | Battery: %B " ; battery
+            " | Groups: %g "
             " | [^B%n^b] %W"))
 
 
-; (run-shell-command "xfce4-panel &> /dev/null &")
-; (run-shell-command "nm-applet &> /dev/null &")
-; (run-shell-command "pnmixer &> /dev/null &")
-
 (run-shell-command "feh --bg-center $HOME/config/dotfiles/_wallpapers/groningen_station.jpg")
 (run-shell-command "xscreensaver")
+(run-shell-command "redshift")
 
 (stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
 
@@ -91,6 +92,15 @@
 ; (stumpwm::run-shell-command "stalonetray")
 ; (stumpwm::run-shell-command "nm-applet")
 
+;; Web jump (works for Google and Imdb)
+(defmacro make-web-jump (name prefix)
+  `(defcommand ,(intern name) (search) ((:rest ,(concatenate 'string name " search: ")))
+    (nsubstitute #\+ #\Space search)
+    (run-shell-command (concatenate 'string ,prefix search))))
+
+(make-web-jump "google" "firefox --new-tab http://www.google.nl/search?q=")
+(make-web-jump "github" "firefox --new-tab https://github.com/search?q=")
+(make-web-jump "stackoverflow" "firefox --new-tab https://stackoverflow.com/search?q=")
 
 ;;; Group thingies
 (run-commands "grename browser")

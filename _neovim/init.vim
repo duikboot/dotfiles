@@ -768,7 +768,7 @@ autocmd FileType racket set commentstring=;%s
 
 " common lisp {{{
 augroup ft_lisp
-    let g:delimitMate_excluded_ft = 'clojure,lisp'
+    " let g:delimitMate_excluded_ft = 'clojure,lisp'
     autocmd BufRead,BufNewFile *.asd set filetype=lisp
     autocmd BufRead,BufNewFile *.ros set filetype=lisp
 
