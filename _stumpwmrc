@@ -12,6 +12,11 @@
 ; (require :swank)
 ; (swank-loader:init)
 
+; (get-x-selection)
+; (window-number (current-window))
+; (current-group)
+
+
 
 (defvar *home-dir* (getenv "HOME"))
 
@@ -98,9 +103,9 @@
     (nsubstitute #\+ #\Space search)
     (run-shell-command (concatenate 'string ,prefix search))))
 
-(make-web-jump "google" "firefox --new-tab http://www.google.nl/search?q=")
+(make-web-jump "g" "firefox --new-tab http://www.google.nl/search?q=")
 (make-web-jump "github" "firefox --new-tab https://github.com/search?q=")
-(make-web-jump "stackoverflow" "firefox --new-tab https://stackoverflow.com/search?q=")
+(make-web-jump "so" "firefox --new-tab https://stackoverflow.com/search?q=")
 
 ;;; Group thingies
 (run-commands "grename browser")
@@ -112,6 +117,14 @@
 (define-key *top-map* (kbd "M-Right") "gnext")
 (define-key *top-map* (kbd "M-Left") "gprev")
 
+
+(defcommand move-to-next-frame-with-window () ()
+            "Navigate to next frame and take current window with you"
+            (let ((win (current-window)))
+              (fnext)
+              (pull-window win)))
+
+(define-key *top-map* (kbd "M-l") "move-to-next-frame-with-window")
 
 ; (define-key *top-map* (kbd "XF86AudioLowerVolume") "exec amixer set Master 5%-")
 ; (define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer set Master 5%+")
