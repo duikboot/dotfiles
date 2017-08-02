@@ -16,7 +16,11 @@
 ; (window-number (current-window))
 ; (current-group)
 
+; swap current window with window in frame left:
+; C-t x left (C-t x h)
 
+; swap current window with window in frame right:
+; C-t x right (C-t x l)
 
 (defvar *home-dir* (getenv "HOME"))
 
@@ -104,8 +108,10 @@
     (run-shell-command (concatenate 'string ,prefix search))))
 
 (make-web-jump "g" "firefox --new-tab http://www.google.nl/search?q=")
+(make-web-jump "google" "firefox --new-tab http://www.google.nl/search?q=")
 (make-web-jump "github" "firefox --new-tab https://github.com/search?q=")
 (make-web-jump "so" "firefox --new-tab https://stackoverflow.com/search?q=")
+(make-web-jump "stackoverflow" "firefox --new-tab https://stackoverflow.com/search?q=")
 
 ;;; Group thingies
 (run-commands "grename browser")
