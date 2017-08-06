@@ -14,7 +14,7 @@
 
 ; (get-x-selection)
 ; (window-number (current-window))
-; (current-group)
+; (describle current-group)
 
 ; swap current window with window in frame left:
 ; C-t x left (C-t x h)
@@ -49,7 +49,7 @@
 (load-module "battery-portable")
 ; (load-module "notify")
 ; (load-module "notifications")
-; (load-module "urgentwindows")
+ ; (load-module "urgentwindows")
 
 ;; Show time, cpu usage and network traffic in the modeline
 (setf *screen-mode-line-format*
@@ -112,6 +112,7 @@
 (make-web-jump "github" "firefox --new-tab https://github.com/search?q=")
 (make-web-jump "so" "firefox --new-tab https://stackoverflow.com/search?q=")
 (make-web-jump "stackoverflow" "firefox --new-tab https://stackoverflow.com/search?q=")
+(make-web-jump "wikipedia" "firefox --new-tab https://wikipedia.org/w/index.php?search=")
 
 ;;; Group thingies
 (run-commands "grename browser")
