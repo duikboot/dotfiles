@@ -165,8 +165,13 @@ let g:neoterm_autoscroll = 1
 
 " Send paragraph
 nnoremap <silent> ,ts mzvip:TREPLSendSelection<cr>`z
+
 " Send (lisp)form
 nnoremap <silent> ,tf mzva(:TREPLSendSelection<cr>`z
+
+" Send (lisp)atom
+nnoremap <silent> ,ta mzvaw:TREPLSendSelection<cr>`z
+
 " Send selection
 vnoremap  ,tv :TREPLSendSelection<cr>
 nnoremap ,tr :TREPLSendLine<cr>
@@ -306,6 +311,8 @@ nnoremap <leader>cf :call <SID>AddFilenameToRegister('absolute')<CR>
 nnoremap <leader>cr :call <SID>AddFilenameToRegister('relative')<CR>
 
 
+let g:vlime_window_settings = {'repl': {'vertical': v:true, 'pos': 'botright'}}
+
 function! s:ConnectVlimeToStumpwm()
     call vlime#plugin#ConnectREPL('127.0.0.1', 4005)
 endfunction
@@ -402,14 +409,16 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 nnoremap <localleader>j :%!python -m json.tool<cr>
 
 
-let g:ale_lint_on_text_changed='never'
-let g:ale_lint_on_insert_leave=1
+" let g:ale_lint_on_text_changed='never'
+" let g:ale_lint_on_insert_leave=1
 let b:ale_python_flake8_use_global=1
 let b:ale_python_pylint_use_global=1
 
-let g:ale_fixers = {'python': ['autopep8', 'isort']}
+let g:ale_fixers = {'python': ['autopep8', 'isort', 'remove_trailing_lines'], 'vim': ['remove_trailing_lines']}
 let g:ale_python_autopep8_options = '--aggressive'
-let g:ale_fix_on_save=1
+let g:ale_fix_on_save= 0
+" nnoremap <localleader>a8 :call ale#fix#Fix()
+nmap <localleader>a8 <Plug>(ale_fix)
 
 let g:ale_python_flake8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/flake8'
 let g:ale_python_pylint_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pyflakes'
@@ -750,6 +759,8 @@ autocmd FileType kivy set commentstring=#\ %s
 autocmd FileType spec set commentstring=#\ %s
 autocmd FileType tmux set commentstring=#\ %s
 
+autocmd BufNewFile,BufRead *.j2 setlocal filetype=htmldjango
+
 " sml
 " autocmd FileType sml setlocal shiftwidth=4
 autocmd FileType sml set commentstring=(*%s*)
@@ -765,6 +776,8 @@ autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 " autocmd FileType racket setlocal shiftwidth=4
 autocmd FileType racket set commentstring=;%s
 " "}}}
+"
+"
 
 " common lisp {{{
 augroup ft_lisp

@@ -45,7 +45,6 @@ function! Pep8()
     call winrestview(l:winview)
 endfunction
 
-nnoremap <silent> <LocalLeader>a8 :call Pep8()<cr>
 
 
 " autocmd FileType python noremap <LocalLeader>8 :Neomake<cr>

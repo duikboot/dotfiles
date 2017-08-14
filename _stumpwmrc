@@ -21,6 +21,8 @@
 
 ; swap current window with window in frame right:
 ; C-t x right (C-t x l)
+; *timer-list*
+
 
 (defvar *home-dir* (getenv "HOME"))
 
@@ -58,8 +60,11 @@
             " | %c" ; cpu
             " | %l" ; network
             " | Battery: %B " ; battery
-            " | Groups: %g "
+            " | Groups: %g " ; groups
             " | [^B%n^b] %W"))
+
+(setf *message-window-gravity* :center)
+(setf *input-window-gravity* :center)
 
 
 (run-shell-command "feh --bg-center $HOME/config/dotfiles/_wallpapers/groningen_station.jpg")
@@ -107,6 +112,7 @@
     (nsubstitute #\+ #\Space search)
     (run-shell-command (concatenate 'string ,prefix search))))
 
+(make-web-jump "open" "firefox --new-tab ")
 (make-web-jump "g" "firefox --new-tab http://www.google.nl/search?q=")
 (make-web-jump "google" "firefox --new-tab http://www.google.nl/search?q=")
 (make-web-jump "github" "firefox --new-tab https://github.com/search?q=")
@@ -116,7 +122,8 @@
 
 ;;; Group thingies
 (run-commands "grename browser")
-(run-commands "gnewbg code" "gnewbg music" "gnewbg chat" "gnewbg root")
+(run-commands "gnewbg code" "gnewbg music" "gnewbg chat" "gnewbg documentation"
+              "gnewbg root")
 
 (dotimes (i 10) (format t "~A" i)
  (define-key *top-map* (kbd (format nil "M-~a" i)) (format nil "gselect ~a" i)))
@@ -137,15 +144,6 @@
 ; (define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer set Master 5%+")
 ; (define-key *top-map* (kbd "XF86AudioMute") "exec amixer set Master toggle")
 
-
-;; Show time, cpu usage and network traffic in the modeline
-(setf *screen-mode-line-format*
-      (list '(:eval (run-shell-command "date '+%R, %F %a'|tr -d [:cntrl:]" t))  ;date command
-            " | %t" ; temperature
-            " | %c" ; cpu
-            " | %l" ; network
-            " | Battery: %B " ; battery
-            " | [^B%n^b] %W"))
 
 
 ;; Pull window by id to current frame.

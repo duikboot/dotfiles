@@ -50,9 +50,9 @@ https://github.com/kassio/neoterm                             neoterm
 https://github.com/wellle/targets.vim                         targets
 https://github.com/keith/tmux.vim                               tmux
 https://github.com/kien/rainbow_parentheses.vim             rainbow_parentheses
-# https://github.com/neovim/node-host                         node-host
+https://github.com/neovim/node-host                         node-host
 # https://github.com/neovim/node-client                       node-client
-# https://github.com/clojure-vim/nvim-parinfer.js             nvim-parinfer.js
+https://github.com/clojure-vim/nvim-parinfer.js             nvim-parinfer.js
 https://github.com/machakann/vim-highlightedyank            highlightedyank
 https://github.com/mhinz/vim-grepper                        grepper
 https://github.com/zchee/deoplete-jedi                      jedi
@@ -62,5 +62,5 @@ https://github.com/Shougo/neosnippet-snippets               neosnippet-snippets
 https://github.com/mhinz/vim-randomtag                      randomtag
 https://github.com/l04m33/vlime                             vlime-repo
 https://github.com/junegunn/fzf.vim                         fzf.vim
-https://bitbucket.org/kovisoft/paredit                      paredit
-https://github.com/bhurlow/vim-parinfer                     vim-parinfer
+# https://bitbucket.org/kovisoft/paredit                      paredit
+# https://github.com/bhurlow/vim-parinfer                     vim-parinfer
