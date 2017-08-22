@@ -22,13 +22,20 @@
 ; swap current window with window in frame right:
 ; C-t x right (C-t x l)
 ; *timer-list*
+; (make-pathname :directory *home-dir*)
+; (ql:quickload :ttf-fonts)
+; (set-font (make-instance 'xft:font :family "Source Code Pro Black"
+;                           :subfamily "Regular"
+;                           :size 9))
+
+; xft:*font-dirs*
 
 
 (defvar *home-dir* (getenv "HOME"))
 
 ; Same as: (set-module-dir "/home/arjen/stumpwm/contrib/")
 (setf *module-dir* (make-pathname :directory
-                                  (format nil "~A/stumpwm/contrib" *home-dir*)))
+                    (format nil "~A/stumpwm/contrib" *home-dir*)))
 
 (set-module-dir *module-dir*)
 
@@ -43,33 +50,51 @@
 (start-vlime)
 
 ; Turn on the modeline
-(if (not (head-mode-line (current-head)))
-    (toggle-mode-line (current-screen) (current-head)))
+(defun modeline ()
+  (if (not (head-mode-line (current-head)))
+     (toggle-mode-line (current-screen) (current-head))))
+
+;;; load modules
 
 (load-module "net")
 (load-module "cpu")
 (load-module "battery-portable")
-; (load-module "notify")
+; (load-module "ttf-fonts")
 ; (load-module "notifications")
  ; (load-module "urgentwindows")
+; (load-module "app-menu")
+(load-module "stumptray")
+
+(load-module "clipboard-history")
+
+(define-key *root-map* (kbd "C-y") "show-clipboard-history")
+
+;; start the polling timer process
+
+(clipboard-history:start-clipboard-manager)
 
 ;; Show time, cpu usage and network traffic in the modeline
 (setf *screen-mode-line-format*
       (list '(:eval (run-shell-command "date '+%R, %F %a'|tr -d [:cntrl:]" t))  ;date command
-            " | %t" ; temperature
+            ; " | %t" ; temperature
             " | %c" ; cpu
             " | %l" ; network
             " | Battery: %B " ; battery
             " | Groups: %g " ; groups
-            " | [^B%n^b] %W"))
+            " | [^B%n^b] %W"  ; application
+            " || %T"))  ; stumptray
 
 (setf *message-window-gravity* :center)
 (setf *input-window-gravity* :center)
 
+(run-with-timer 5 10 'modeline)
+(run-commands "stumptray")
+
+;;; run shell commmands
 
 (run-shell-command "feh --bg-center $HOME/config/dotfiles/_wallpapers/groningen_station.jpg")
 (run-shell-command "xscreensaver")
-(run-shell-command "redshift")
+(run-shell-command "redshift-gtk")
 
 (stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
 
