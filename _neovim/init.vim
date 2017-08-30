@@ -317,6 +317,7 @@ function! s:ConnectVlimeToStumpwm()
     call vlime#plugin#ConnectREPL('127.0.0.1', 4005)
 endfunction
 
+let g:vlime_enable_autodoc = 1
 nnoremap <localleader>c :call <SID>ConnectVlimeToStumpwm()<CR>
 
 " Show yankring

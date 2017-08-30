@@ -18,7 +18,7 @@
 
 ; swap current window with window in frame left:
 ; C-t x left (C-t x h)
-
+; *last-unhandled-error*
 ; swap current window with window in frame right:
 ; C-t x right (C-t x l)
 ; *timer-list*
@@ -30,7 +30,6 @@
 
 ; xft:*font-dirs*
 
-
 (defvar *home-dir* (getenv "HOME"))
 
 ; Same as: (set-module-dir "/home/arjen/stumpwm/contrib/")
@@ -40,7 +39,6 @@
 (set-module-dir *module-dir*)
 
 (defvar *vlime-instance* nil)
-
 
 (defun start-vlime ()
  (unless *vlime-instance*
@@ -56,16 +54,21 @@
 
 ;;; load modules
 
-(load-module "net")
-(load-module "cpu")
-(load-module "battery-portable")
-; (load-module "ttf-fonts")
-; (load-module "notifications")
- ; (load-module "urgentwindows")
-; (load-module "app-menu")
-(load-module "stumptray")
-
-(load-module "clipboard-history")
+; (load-module "net")
+; (load-module "cpu")
+; (load-module "battery-portable")
+; ; (load-module "ttf-fonts")
+; ; (load-module "notifications")
+;  ; (load-module "urgentwindows")
+; ; (load-module "app-menu")
+; (load-module "stumptray")
+; (load-module "clipboard-history")
+(mapcar #'load-module
+        '("net"
+          "cpu"
+          "battery-portable"
+          "stumptray"
+          "clipboard-history"))
 
 (define-key *root-map* (kbd "C-y") "show-clipboard-history")
 
