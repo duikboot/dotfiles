@@ -141,11 +141,15 @@
     (run-shell-command (concatenate 'string ,prefix search))))
 
 (make-web-jump "open" "firefox --new-tab ")
-(make-web-jump "g" "firefox --new-tab http://www.google.nl/search?q=")
+
 (make-web-jump "google" "firefox --new-tab http://www.google.nl/search?q=")
+(make-web-jump "g" "firefox --new-tab http://www.google.nl/search?q=")
+
 (make-web-jump "github" "firefox --new-tab https://github.com/search?q=")
-(make-web-jump "so" "firefox --new-tab https://stackoverflow.com/search?q=")
+
 (make-web-jump "stackoverflow" "firefox --new-tab https://stackoverflow.com/search?q=")
+(make-web-jump "so" "firefox --new-tab https://stackoverflow.com/search?q=")
+
 (make-web-jump "wikipedia" "firefox --new-tab https://wikipedia.org/w/index.php?search=")
 
 ;;; Group thingies

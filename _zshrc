@@ -27,6 +27,8 @@ alias tmuxn='tmux -2 new -s'
 alias tmuxp='tmux -L pers -2 new -s'
 alias vi='vim'
 # alias clisp="rlwrap -f $HOME/.rlwrap/keywords clisp"
+#
+alias f='roamer'
 
 export PLATFORM=`python -c 'import os; print(os.uname()[1]),'`
 

@@ -673,6 +673,7 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 " For conceal markers.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
+  autocmd FileType roamer setlocal conceallevel=0
 endif
 
 " let g:UltiSnipsExpandTrigger="<tab>"
