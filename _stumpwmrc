@@ -1,5 +1,3 @@
-(in-package :stumpwm)
-
 ; *startup-message*
 ; (setf *startup-message* (format nil "^B~A^b~&~A" (machine-instance) *startup-message*))
 ; *input-history*
@@ -30,6 +28,8 @@
 
 ; xft:*font-dirs*
 
+(in-package :stumpwm)
+
 (defvar *home-dir* (getenv "HOME"))
 
 ; Same as: (set-module-dir "/home/arjen/stumpwm/contrib/")
@@ -48,6 +48,13 @@
 (start-vlime)
 
 ; Turn on the modeline
+
+;; mode line
+(setf *mode-line-background-color*  "black"
+      *mode-line-foreground-color*  "lightgreen"
+      *mode-line-border-color* "black")
+
+
 (defun modeline ()
   (if (not (head-mode-line (current-head)))
      (toggle-mode-line (current-screen) (current-head))))
@@ -91,6 +98,7 @@
 (setf *input-window-gravity* :center)
 
 (run-with-timer 5 10 'modeline)
+
 (run-commands "stumptray")
 
 ;;; run shell commmands
@@ -154,8 +162,8 @@
 
 ;;; Group thingies
 (run-commands "grename browser")
-(run-commands "gnewbg code" "gnewbg music" "gnewbg chat" "gnewbg documentation"
-              "gnewbg root")
+(run-commands "gnewbg code" "gnewbg chat" "gnewbg documentation" "gnewbg media"
+           "gnewbg root")
 
 (dotimes (i 10) (format t "~A" i)
  (define-key *top-map* (kbd (format nil "M-~a" i)) (format nil "gselect ~a" i)))
@@ -176,7 +184,23 @@
 ; (define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer set Master 5%+")
 ; (define-key *top-map* (kbd "XF86AudioMute") "exec amixer set Master toggle")
 
+;; Clear rules
+(clear-window-placement-rules)
 
+(define-frame-preference "browser"
+  ;; frame raise lock (lock AND raise == jumpto)
+  (0 nil   t :class "Firefox"))
+
+(define-frame-preference "documentation"
+  ;; frame raise lock (lock AND raise == jumpto)
+  (0 nil   t :title "calibre")) 
+(define-frame-preference "media"
+  ;; frame raise lock (lock AND raise == jumpto)
+  (0 t   t :class "Spotify"))
+
+(define-frame-preference "chat"
+  ;; frame raise lock (lock AND raise == jumpto)
+  (0 nil   t :class "Franz"))
 
 ;; Pull window by id to current frame.
 ;; <c-t><c-id>

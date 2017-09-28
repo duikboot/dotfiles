@@ -489,7 +489,7 @@ set wildignore+=lib
 """ Insert completion
 " don't select first item, follow typing in autocomplete
 " set complete=.,w,b,u,t
-set completeopt=menuone,longest,preview
+set completeopt=menuone,longest,preview,noinsert
 set pumheight=8             " Keep a small completion window
 
 """ Moving Around/Editing
@@ -571,7 +571,7 @@ endif
 
 """" Display
 if has("gui_running")
-    colorscheme solarized
+    " colorscheme solarized
     set background=dark           " We are using dark background in vim
     set guioptions-=egimrLtT
 else
@@ -579,7 +579,7 @@ else
     set t_Co=256
     set termguicolors
     set background=light           " We are using dark background in vim
-    colorscheme NeoSolarized
+    " colorscheme NeoSolarized
     colorscheme PaperColor
 endif
 
@@ -735,7 +735,7 @@ nnoremap <localleader>o :<C-u>Denite  -buffer-name=outline outline<cr>
 
 " 3. Call |deoplete#enable()| or set let g:deoplete#enable_at_startup = 1 in
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#show_docstring = 1
+let g:deoplete#sources#jedi#show_docstring = 0
 let g:deoplete#complete_method='omnifunc'
 
 " let g:neocomplete#enable_at_startup = 1
@@ -790,7 +790,7 @@ augroup ft_lisp
     autocmd FileType lisp setlocal colorcolumn=80
 
     setlocal tabstop=2
-    setlocal shiftwidth=2            " but an indent level is 2 spaces wide.
+    " setlocal shiftwidth=2            " but an indent level is 2 spaces wide.
     set softtabstop=2           " <BS> over an autoindent deletes both spaces.
     autocmd BufRead *.lisp set makeprg=sblint
     " let g:syntastic_lisp_checkers = ['sblint']
@@ -828,7 +828,6 @@ nnoremap <leader><cr> :silent !ctags -R --exclude=ENV/lib64 --exclude=node_modul
 " ==========================================================
 "autocmd BufRead *.py compiler nose
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-set completeopt-=preview
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
