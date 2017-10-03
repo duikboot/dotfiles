@@ -193,7 +193,7 @@
 
 (define-frame-preference "documentation"
   ;; frame raise lock (lock AND raise == jumpto)
-  (0 nil   t :title "calibre")) 
+  (0 nil   t :title "calibre"))
 (define-frame-preference "media"
   ;; frame raise lock (lock AND raise == jumpto)
   (0 t   t :class "Spotify"))

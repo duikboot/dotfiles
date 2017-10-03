@@ -423,6 +423,7 @@ nmap <localleader>a8 <Plug>(ale_fix)
 
 let g:ale_python_flake8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/flake8'
 let g:ale_python_pylint_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pyflakes'
+let g:ale_python_isort_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/isort'
 " let g:pymode_rope_autoimport = 1
 " TEMPORARY!!
 let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
