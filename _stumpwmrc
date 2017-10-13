@@ -10,6 +10,8 @@
 ; (require :swank)
 ; (swank-loader:init)
 
+; (run-commands "stumptray")
+
 ; (get-x-selection)
 ; (window-number (current-window))
 ; (describle current-group)
@@ -99,7 +101,6 @@
 
 (run-with-timer 5 10 'modeline)
 
-(run-commands "stumptray")
 
 ;;; run shell commmands
 

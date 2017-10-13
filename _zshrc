@@ -29,7 +29,7 @@ alias vi='vim'
 # alias clisp="rlwrap -f $HOME/.rlwrap/keywords clisp"
 #
 alias f='roamer'
-
+alias ag='ag --path-to-ignore ~/.ignore'
 export PLATFORM=`python -c 'import os; print(os.uname()[1]),'`
 
 export EDITOR=vim

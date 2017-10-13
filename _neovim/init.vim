@@ -280,6 +280,7 @@ nnoremap <silent> <leader>gf :vertical botright wincmd f<CR>
 
 " nnoremap <leader>a <Esc>:Ack!<Space>
 nnoremap <leader>a :Grepper -tool ag<cr>
+" nnoremap <leader>a :Grepper -tool ag --path-to-ignore ~/.ignore<cr>
 nnoremap <leader>g :Grepper -tool git<cr>
 
 nmap go <plug>(GrepperOperator)
