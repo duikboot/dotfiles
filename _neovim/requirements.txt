@@ -1,0 +1,14 @@
+astroid
+autopep8
+flake8
+greenlet
+isort
+lazy-object-proxy
+mccabe
+msgpack-python
+neovim
+pycodestyle
+pyflakes
+pylint
+six
+wrapt
