@@ -39,7 +39,7 @@
 (defvar *home-dir* (getenv "HOME"))
 
 
-(setf *command-history-file* (merge-pathnames (format nil "~A/.stumpwm.d/history" *home-dir*)))
+(defvar *command-history-file* (merge-pathnames (format nil "~A/.stumpwm.d/history" *home-dir*)))
 (setf *debug-level* 1)
 
 (defun load-input-history ()
@@ -50,13 +50,15 @@
         (setf *input-history* (read in))))))
 
 (defun save-input-history ()
-  "Save current *input-history* to file."
-  (with-open-file (out *command-history-file*
-                   :direction :output
-                   :if-does-not-exist :create
-                   :if-exists :supersede)
-    (with-standard-io-syntax
-      (print (remove-duplicates *input-history* :test #'equal) out))))
+ "Save current *input-history* to file."
+ (with-open-file (out *command-history-file*
+                  :direction :output
+                  :if-does-not-exist :create
+                  :if-exists :supersede)
+   (with-standard-io-syntax
+     (print
+       (remove-duplicates *input-history* :test #'string= :from-end t)
+       out))))
 
 ; (save-input-history)
 ; (load-input-history)
