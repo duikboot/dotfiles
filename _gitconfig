@@ -16,3 +16,5 @@
 	root = !pwd
   co = checkout
   st = status
+[web]
+	browser = firefox

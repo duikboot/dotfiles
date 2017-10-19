@@ -7,7 +7,8 @@ https://github.com/tpope/vim-commentary.git                   commentary
 https://github.com/Olical/vim-enmasse                         enmasse
 https://github.com/terryma/vim-expand-region                  expand-region
 https://github.com/tpope/vim-fugitive                         fugitive
-https://github.com/sjl/gundo.vim.git                          gundo
+# https://github.com/sjl/gundo.vim.git                          gundo
+https://github.com/mbbill/undotree                            undotree
 https://github.com/Raimondi/delimitMate                       delimitMate
 # https://github.com/sheerun/vim-polyglot                       vim-polyglot
 # https://github.com/vim-scripts/The-NERD-tree.git             nerdtree
@@ -65,3 +66,4 @@ https://github.com/junegunn/fzf.vim                         fzf.vim
 # https://bitbucket.org/kovisoft/paredit                      paredit
 # https://github.com/bhurlow/vim-parinfer                     vim-parinfer
 https://github.com/abaldwin88/roamer.vim                    roamer.vim
+https://github.com/junegunn/gv.vim                          gv

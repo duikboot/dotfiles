@@ -41,7 +41,7 @@ set inccommand=split
 
 set dictionary=/usr/share/dict/words
 
-if v:version >= 703
+if has("persistent_undo")
     " Keep a persistend backupfile
     set undofile
     set undodir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -81,9 +81,43 @@ nnoremap <leader>q :q<CR>
 
 nnoremap <Leader>f :find<space>
 
+" ============================================================================
+" FZF {{{
+" ============================================================================
+
+if has('nvim') || has('gui_running')
+  let $FZF_DEFAULT_OPTS .= ' --inline-info'
+  " let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+endif
+
 " " fzf plugin
 set runtimepath+=~/.fzf
-nnoremap <Leader>o :FZF<CR>
+nnoremap <Leader>o :Files<CR>
+
+function! s:change_branch(e)
+    let res = system("git checkout " . a:e)
+    :e!
+    :AirlineRefresh
+    echom "Changed branch to " . a:e
+endfunction
+
+command! Gbranch call fzf#run(
+    \ {
+    \ 'source': 'git branch',
+    \ 'sink': function('<sid>change_branch'),
+    \ 'options': '-m',
+    \ 'down': '20%'
+    \ })
+
+command! -bang -nargs=? -complete=dir Files
+\ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+" Just to seen if it works
+" command! -nargs=1 -bang HGrep call fzf#run(fzf#wrap(
+"       \ {'source': 'hgrep <q-args>', 'options': '-m'}, <bang>0))
+
+" }}}
+
 
 " Make Vim able to edit crontab files again.
 "set backupskip=/tmp/*,/private/tmp/*"
@@ -280,6 +314,7 @@ nnoremap <silent> <leader>gf :vertical botright wincmd f<CR>
 
 " nnoremap <leader>a <Esc>:Ack!<Space>
 nnoremap <leader>a :Grepper -tool ag<cr>
+nnoremap <leader>A :Ag<cr>
 " nnoremap <leader>a :Grepper -tool ag --path-to-ignore ~/.ignore<cr>
 nnoremap <leader>g :Grepper -tool git<cr>
 
@@ -353,8 +388,9 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 noremap <leader>bq :bp <BAR> bd #<CR>
 
 " Load the Gundo window
-let g:gundo_prefer_python3 = 1
-nnoremap <leader>G :GundoToggle<CR>
+" let g:gundo_prefer_python3 = 1
+" nnoremap <leader>G :GundoToggle<CR>
+nnoremap <leader>G :UndotreeToggle<CR>
 
 " in command mode expand directory with current directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -427,9 +463,10 @@ let g:ale_python_pylint_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/p
 let g:ale_python_isort_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/isort'
 " let g:pymode_rope_autoimport = 1
 " TEMPORARY!!
-let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
+" let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
+" let g:ale_python_pylint_options = "--load-plugins pylint_django"
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_python_pylint_options='--disable=C0111,R0903'
+let g:ale_python_pylint_options='--disable=C0111,R0903 --load-plugins pylint_django'
 let g:ale_python_flake8_args='--ignore=H301 --max-complexity=10'
 
 let b:ale_virtualenv_dir_names=['ENV']
@@ -491,7 +528,7 @@ set wildignore+=lib
 """ Insert completion
 " don't select first item, follow typing in autocomplete
 " set complete=.,w,b,u,t
-set completeopt=menuone,longest,preview,noinsert
+set completeopt=menuone,longest,noinsert
 set pumheight=8             " Keep a small completion window
 
 """ Moving Around/Editing
@@ -662,9 +699,11 @@ smap <c-k>     <Plug>(neosnippet_expand_or_jump)
 
 xmap <c-k>     <Plug>(neosnippet_expand_target)
 
+
 " SuperTab like snippets behavior.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
 
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 "imap <expr><TAB>
 " \ pumvisible() ? "\<C-n>" :
 " \ neosnippet#expandable_or_jumpable() ?
@@ -678,75 +717,11 @@ if has('conceal')
   autocmd FileType roamer setlocal conceallevel=0
 endif
 
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsListSnippets="<c-t>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-"
-
-" " Unite keybindings
-
-" " nnoremap [unite] <Nop>
-" " nnoremap \\\ [unite]
-" " Unite
-" let g:unite_source_history_yank_enable = 1
-" call unite#filters#matcher_default#use(['matcher_fuzzy'])
-
-" nnoremap <localleader>r :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
-" nnoremap <localleader>c :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
-" nnoremap <localleader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-" " nnoremap <localleader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert -auto-preview outline<cr>
-" nnoremap <localleader>o :<C-u>Unite  -buffer-name=outline -start-insert outline<cr>
-" " nnoremap <localleader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-" nnoremap <localleader>b :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
-" nnoremap <localleader>l :<C-u>Unite -no-split -buffer-name=line -start-insert line<cr>
-" nnoremap <localleader>g :<C-u>Unite -no-split -no-empty -buffer-name=grep  grep:.<cr>
-" nnoremap <localleader>qb :<C-u>Unite -no-split -quick-match buffer<cr>
-" " nnoremap <localleader>ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-
 nnoremap <localleader>o :<C-u>Denite  -buffer-name=outline outline<cr>
-" " Custom mappings for the unite buffer
-" autocmd FileType unite call s:unite_settings()
-" function! s:unite_settings()
-"   " Play nice with supertab
-"   let b:SuperTabDisabled=1
-"   " Enable navigation with control-j and control-k in insert mode
-"   imap <buffer> <C-j> <Plug>(unite_select_next_line)
-"   imap <buffer> <C-k> <Plug>(unite_select_previous_line)
 
-"   " Quit unite on backspace from normal mode, or using leader-q
-"   nnoremap <buffer> <BS> :UniteClose<CR>
-"   nnoremap <buffer> <leader>q :UniteClose<CR>
-" endfunction
-
-" function! UltiSnipsCallUnite()
-"     Unite -start-insert -immediately -no-empty ultisnips
-"     return ''
-" endfunction
-
-" inoremap <silent> <F12> <C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
-" nnoremap <silent> <F12> a<C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnipsCallUnite()<CR>
-
-
-" " let g:acp_completeoptPreview=1
-" let g:neocomplcache_enable_at_startup = 1
-" " Use smartcase.
-" let g:neocomplcache_enable_smart_case = 1
-" " Set minimum syntax keyword length.
-" let g:neocomplcache_min_syntax_length = 2
-
-" 3. Call |deoplete#enable()| or set let g:deoplete#enable_at_startup = 1 in
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#show_docstring = 0
 let g:deoplete#complete_method='omnifunc'
-
-" let g:neocomplete#enable_at_startup = 1
-" " Use smartcase.
-" let g:neocomplete#enable_smart_case = 1
-" " Set minimum syntax keyword length.
-" " let g:neocomplete#sources#syntax#min_keyword_length = 2
-" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" let g:neocomplete#min_keyword_length = 2
 
 " vim-highlightedyank plugin
 let g:highlightedyank_highlight_duration = 100
@@ -785,7 +760,7 @@ autocmd FileType racket set commentstring=;%s
 
 " common lisp {{{
 augroup ft_lisp
-    " let g:delimitMate_excluded_ft = 'clojure,lisp'
+    let g:delimitMate_excluded_ft = 'clojure,lisp'
     autocmd BufRead,BufNewFile *.asd set filetype=lisp
     autocmd BufRead,BufNewFile *.ros set filetype=lisp
 
