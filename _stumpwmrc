@@ -33,13 +33,19 @@
 ; *data-dir*
 ; *debug-stream*
 ; *quit-hook*
+; (xinerama:screen-info-number screen-info)
+; (describe (first (refresh-heads)))
+; *version*
 
 (in-package :stumpwm)
 
 (defvar *home-dir* (getenv "HOME"))
 
 
-(defvar *command-history-file* (merge-pathnames (format nil "~A/.stumpwm.d/history" *home-dir*)))
+(defvar *command-history-file*
+  (merge-pathnames
+    (format nil "~A/.stumpwm.d/history" *home-dir*)))
+
 (setf *debug-level* 1)
 
 (defun load-input-history ()
@@ -110,6 +116,7 @@
           "cpu"
           "battery-portable"
           "stumptray"
+          "screenshot"
           "clipboard-history"))
 
 (define-key *root-map* (kbd "C-y") "show-clipboard-history")
@@ -144,13 +151,16 @@
 
 ;;; run shell commmands
 
-(run-shell-command "feh --bg-center $HOME/config/dotfiles/_wallpapers/groningen_station.jpg")
+(run-shell-command
+  "feh --bg-center $HOME/config/dotfiles/_wallpapers/groningen_station.jpg")
+
 (run-shell-command "xscreensaver")
+
 (run-shell-command "redshift-gtk")
 
 (stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
 
-(setf *mouse-focus-policy* :sloppy) ;; :click, :ignore, :sloppy
+(setf *mouse-focus-policy* :click) ;; :click, :ignore, :sloppy
 
 ;;; Mappings
 
@@ -242,6 +252,9 @@
 (define-frame-preference "chat"
   ;; frame raise lock (lock AND raise == jumpto)
   (0 nil   t :class "Franz"))
+
+(firefox)
+(Franz)
 
 ;; Pull window by id to current frame.
 ;; <c-t><c-id>
