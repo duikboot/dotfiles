@@ -160,7 +160,7 @@
 
 (stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
 
-(setf *mouse-focus-policy* :click) ;; :click, :ignore, :sloppy
+(setf *mouse-focus-policy* :sloppy) ;; :click, :ignore, :sloppy
 
 ;;; Mappings
 
@@ -253,8 +253,8 @@
   ;; frame raise lock (lock AND raise == jumpto)
   (0 nil   t :class "Franz"))
 
-(firefox)
-(Franz)
+(run-commands "firefox")
+(run-commands "Franz")
 
 ;; Pull window by id to current frame.
 ;; <c-t><c-id>

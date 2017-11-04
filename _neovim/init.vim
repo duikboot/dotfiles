@@ -591,7 +591,7 @@ set list
 """ Searching and Patterns
 set ignorecase              " Default to using case insensitive searches,
 set smartcase               " unless uppercase letters are used in the regex.
-" autocmd BufNewFile,BufRead *.js set nosmarttab  " If Javascript, don't use smarttab"
+" autocmd BufNewFile,BufRead *.js set nosmarttab  " If  don't use smarttab"
 " autocmd BufNewFile,BufRead *.js set noexpandtab " Use tabs, not spaces, for autoindent/tab key.
 " autocmd BufNewFile,BufRead *.coffee set noexpandtab " Use tabs, not spaces, for autoindent/tab key.
 " map /  <Plug>(incsearch-forward)
@@ -884,4 +884,37 @@ endif
 
 if filereadable($HOME . '/.config/nvim/python.vim')
     source $HOME/.config/nvim/python.vim
+endif
+
+" Use location list instead of quickfix
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_diagnosticsList = 'location'
+
+augroup LanguageClientConfig
+  autocmd!
+
+  " <leader>ld to go to definition
+  autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>ld :call LanguageClient_textDocument_definition()<cr>
+  " <leader>lf to autoformat document
+  autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lf :call LanguageClient_textDocument_formatting()<cr>
+  " <leader>lh for type info under cursor
+  autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lh :call LanguageClient_textDocument_hover()<cr>
+  " <leader>lr to rename variable under cursor
+  autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lr :call LanguageClient_textDocument_rename()<cr>
+  " <leader>lc to switch omnifunc to LanguageClient
+  autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lc :setlocal omnifunc=LanguageClient#complete<cr>
+  " <leader>ls to fuzzy find the symbols in the current document
+  autocmd FileType python,json,css,html,htmldjango nnoremap <buffer> <leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
+
+  " Use as omnifunc by default
+  autocmd FileType python,json,css,html setlocal omnifunc=LanguageClient#complete
+augroup END
+
+let g:LanguageClient_serverCommands = {}
+let g:LanguageClient_serverCommands.python = ['pyls']
+" let g:LanguageClient_serverCommands.lisp = ['cl-lsp']
+
+if executable("pyls")
+  setlocal omnifunc=LanguageClient#complete
+  setlocal signcolumn=yes
 endif
