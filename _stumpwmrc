@@ -89,6 +89,14 @@
 
 (start-vlime)
 
+(defvar *redshift* nil)
+
+(defun redshift ()
+  (unless *redshift*
+    (run-shell-command "redshift-gtk")
+    (setf *redshift* t)))
+
+(redshift)
 ; Turn on the modeline
 
 ;; mode line
@@ -156,15 +164,6 @@
   "feh --bg-center $HOME/config/dotfiles/_wallpapers/groningen_station.jpg")
 
 (run-shell-command "xscreensaver")
-
-(defvar *redshift* nil)
-
-(defun redshift ()
-  (unless *redshift*
-    (run-shell-command "redshift-gtk")
-    (setf *redshift* t)))
-
-(redshift)
 
 
 
@@ -269,4 +268,5 @@
 ;; Pull window by id to current frame.
 ;; <c-t><c-id>
 
+;; vim: ft=lisp
 ;; vim: ft=lisp
