@@ -33,6 +33,7 @@
 ; *data-dir*
 ; *debug-stream*
 ; *quit-hook*
+; *shell-program*
 ; (xinerama:screen-info-number screen-info)
 ; (describe (first (refresh-heads)))
 ; *version*
@@ -156,7 +157,16 @@
 
 (run-shell-command "xscreensaver")
 
-(run-shell-command "redshift-gtk")
+(defvar *redshift* nil)
+
+(defun redshift ()
+  (unless *redshift*
+    (run-shell-command "redshift-gtk")
+    (setf *redshift* t)))
+
+(redshift)
+
+
 
 (stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
 
