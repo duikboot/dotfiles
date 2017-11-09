@@ -96,6 +96,7 @@
     (run-shell-command "redshift-gtk")
     (setf *redshift* t)))
 
+; (setf *redshift* nil)
 (redshift)
 ; Turn on the modeline
 
