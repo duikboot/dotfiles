@@ -11,6 +11,8 @@
 ; (swank-loader:init)
 
 ; (run-commands "stumptray")
+; (commands)
+; (lastmsg)
 
 ; (get-x-selection)
 ; (window-number (current-window))
@@ -67,8 +69,6 @@
        (remove-duplicates *input-history* :test #'string= :from-end t)
        out))))
 
-; (save-input-history)
-; (load-input-history)
 
 (add-hook *start-hook* 'load-input-history)
 
@@ -96,7 +96,6 @@
     (run-shell-command "redshift-gtk")
     (setf *redshift* t)))
 
-; (setf *redshift* nil)
 (redshift)
 ; Turn on the modeline
 
@@ -121,6 +120,7 @@
 ; ; (load-module "app-menu")
 ; (load-module "stumptray")
 ; (load-module "clipboard-history")
+
 (mapcar #'load-module
         '("net"
           "cpu"
@@ -269,5 +269,4 @@
 ;; Pull window by id to current frame.
 ;; <c-t><c-id>
 
-;; vim: ft=lisp
 ;; vim: ft=lisp

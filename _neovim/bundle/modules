@@ -1,4 +1,4 @@
-https://github.com/w0rp/ale                                   ale
+https://github.com/w0rp/ale                                   ale  ## async lint checker
 https://github.com/tpope/vim-abolish                          abolish
 https://github.com/bling/vim-airline                          airline
 https://github.com/tpope/vim-commentary.git                   commentary
@@ -43,7 +43,7 @@ https://github.com/Shougo/vimproc.vim.git                     vimproc
 # https://github.com/JarrodCTaylor/vim-python-test-runner      vim-python-test-runner
 # https://github.com/honza/vim-snippets                         vim-snippets
 # https://github.com/janko-m/vim-test                           vim-test
-https://github.com/nelstrom/vim-visual-star-search            visual-star-search
+# https://github.com/nelstrom/vim-visual-star-search            visual-star-search
 https://github.com/vim-scripts/YankRing.vim.git               yankring
 # https://github.com/benekastah/neomake                         neomake
 https://github.com/kassio/neoterm                             neoterm
@@ -51,7 +51,7 @@ https://github.com/kassio/neoterm                             neoterm
 https://github.com/wellle/targets.vim                         targets
 https://github.com/keith/tmux.vim                               tmux
 https://github.com/kien/rainbow_parentheses.vim             rainbow_parentheses
-https://github.com/neovim/node-host                         node-host
+# https://github.com/neovim/node-host                         node-host
 # https://github.com/neovim/node-client                       node-client
 https://github.com/clojure-vim/nvim-parinfer.js             nvim-parinfer.js
 https://github.com/machakann/vim-highlightedyank            highlightedyank
@@ -64,8 +64,9 @@ https://github.com/mhinz/vim-randomtag                      randomtag
 https://github.com/l04m33/vlime                             vlime-repo
 https://github.com/junegunn/fzf.vim                         fzf.vim
 # https://bitbucket.org/kovisoft/paredit                      paredit
-# https://github.com/bhurlow/vim-parinfer                     vim-parinfer
 https://github.com/abaldwin88/roamer.vim                    roamer.vim
 https://github.com/junegunn/gv.vim                          gv
-https://github.com/autozimu/LanguageClient-neovim           LanguageClient-neovim
+# https://github.com/autozimu/LanguageClient-neovim           LanguageClient-neovim
 https://github.com/henrik/vim-indexed-search                indexed-search
+https://github.com/Shougo/echodoc.vim                       echodoc
+https://github.com/Shougo/neco-vim                          neco-vim  ## completions for viml

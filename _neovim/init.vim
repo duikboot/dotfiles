@@ -369,6 +369,8 @@ set clipboard+=unnamedplus
 " " swap word with next word
 " nmap <localleader>sw cxiWEwcxiW
 
+let g:echodoc#enable_at_startup = 1
+
 let g:airline_powerline_fonts = 1
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
@@ -452,7 +454,7 @@ nnoremap <localleader>j :%!python -m json.tool<cr>
 let b:ale_python_flake8_use_global=1
 let b:ale_python_pylint_use_global=1
 
-let g:ale_fixers = {'python': ['autopep8', 'isort', 'remove_trailing_lines'], 'vim': ['remove_trailing_lines']}
+let g:ale_fixers = {'python': ['autopep8', 'add_blank_lines_for_python_control_statements', 'yapf', 'isort', 'remove_trailing_lines'], 'vim': ['remove_trailing_lines']}
 let g:ale_python_autopep8_options = '--aggressive'
 let g:ale_fix_on_save= 0
 " nnoremap <localleader>a8 :call ale#fix#Fix()
@@ -461,6 +463,8 @@ nmap <localleader>a8 <Plug>(ale_fix)
 let g:ale_python_flake8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/flake8'
 let g:ale_python_pylint_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pyflakes'
 let g:ale_python_isort_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/isort'
+let g:ale_python_yapf_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/yapf'
+let g:ale_python_autopep8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/autopep8'
 " let g:pymode_rope_autoimport = 1
 " TEMPORARY!!
 " let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
@@ -548,6 +552,9 @@ set shiftround              " rounds indent to a multiple of shiftwidth
 set shiftwidth=4            " but an indent level is 2 spaces wide.
 set showmatch               " Briefly jump to a paren once it's balanced
 set noshowmode
+set cmdheight=2
+
+set shortmess+=c
 "set smartindent             " use smart indent if there is no indent file
 set softtabstop=4           " <BS> over an autoindent deletes both spaces.
 set tabstop=4               " <tab> inserts 4 spaces
@@ -617,9 +624,14 @@ else
     " set nocursorline
     set t_Co=256
     set termguicolors
-    set background=light           " We are using dark background in vim
+    set background=dark           " We are using dark background in vim
     " colorscheme NeoSolarized
     colorscheme PaperColor
+endif
+
+if has('nvim')
+    highlight! link TermCursor Cursor
+    highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 endif
 
 let g:hostname=hostname()
@@ -886,35 +898,39 @@ if filereadable($HOME . '/.config/nvim/python.vim')
     source $HOME/.config/nvim/python.vim
 endif
 
+
+
+
+
 " Use location list instead of quickfix
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_diagnosticsList = 'location'
+" let g:LanguageClient_autoStart = 1
+" let g:LanguageClient_diagnosticsList = 'location'
 
-augroup LanguageClientConfig
-  autocmd!
+" augroup LanguageClientConfig
+"   autocmd!
 
-  " <leader>ld to go to definition
-  autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>ld :call LanguageClient_textDocument_definition()<cr>
-  " <leader>lf to autoformat document
-  autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lf :call LanguageClient_textDocument_formatting()<cr>
-  " <leader>lh for type info under cursor
-  autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lh :call LanguageClient_textDocument_hover()<cr>
-  " <leader>lr to rename variable under cursor
-  autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lr :call LanguageClient_textDocument_rename()<cr>
-  " <leader>lc to switch omnifunc to LanguageClient
-  autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lc :setlocal omnifunc=LanguageClient#complete<cr>
-  " <leader>ls to fuzzy find the symbols in the current document
-  autocmd FileType python,json,css,html,htmldjango nnoremap <buffer> <leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
+"   " <leader>ld to go to definition
+"   autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>ld :call LanguageClient_textDocument_definition()<cr>
+"   " <leader>lf to autoformat document
+"   autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lf :call LanguageClient_textDocument_formatting()<cr>
+"   " <leader>lh for type info under cursor
+"   autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lh :call LanguageClient_textDocument_hover()<cr>
+"   " <leader>lr to rename variable under cursor
+"   autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lr :call LanguageClient_textDocument_rename()<cr>
+"   " <leader>lc to switch omnifunc to LanguageClient
+"   autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lc :setlocal omnifunc=LanguageClient#complete<cr>
+"   " <leader>ls to fuzzy find the symbols in the current document
+"   autocmd FileType python,json,css,html,htmldjango nnoremap <buffer> <leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
 
-  " Use as omnifunc by default
-  autocmd FileType python,json,css,html setlocal omnifunc=LanguageClient#complete
-augroup END
+"   " Use as omnifunc by default
+"   autocmd FileType python,json,css,html setlocal omnifunc=LanguageClient#complete
+" augroup END
 
-let g:LanguageClient_serverCommands = {}
-let g:LanguageClient_serverCommands.python = ['pyls']
-" let g:LanguageClient_serverCommands.lisp = ['cl-lsp']
+" let g:LanguageClient_serverCommands = {}
+" let g:LanguageClient_serverCommands.python = ['pyls']
+" " let g:LanguageClient_serverCommands.lisp = ['cl-lsp']
 
-if executable("pyls")
-  setlocal omnifunc=LanguageClient#complete
-  setlocal signcolumn=yes
-endif
+" if executable("pyls")
+"   setlocal omnifunc=LanguageClient#complete
+"   setlocal signcolumn=yes
+" endif
