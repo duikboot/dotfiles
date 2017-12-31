@@ -184,6 +184,47 @@ let g:netrw_list_hide= '.*\.pyc$'
 " map <c-l> <c-w>l
 " map <c-h> <c-w>h
 
+
+if !exists('g:neorepl_debug') && (exists('loaded_neorepl') || &cp)
+    finish
+endif
+
+let loaded_neorepl = 1
+let g:neorepl_jobid = 0
+
+"}}}
+" Functions {{{
+
+function! s:NeoRepl(command) " {{{
+    vnew
+    let result = termopen(a:command)
+
+    let g:neorepl_jobid = result
+endfunction " }}}
+
+function! NeoReplSendRaw(payload) " {{{
+    for line in (split(a:payload, '\n'))
+        call jobsend(g:neorepl_jobid, line . "\n")
+        sleep 2m " please kill me
+    endfor
+endfunction " }}}
+
+function! NeoReplSendSelection() " {{{
+    let old_z = @z
+    normal! gv"zy
+
+    call NeoReplSendRaw(@z . "\n")
+    let @z = old_z
+endfunction " }}}
+
+" }}}
+" Command {{{
+
+command! -range=0 -complete=shellcmd -nargs=1 NeoRepl call s:NeoRepl(<q-args>)
+
+" }}}
+
+
 " Terminal
 " let g:neoterm_fixedsize = 0
 let g:neoterm_position = 'vertical'
@@ -346,7 +387,7 @@ endfunction
 nnoremap <leader>cf :call <SID>AddFilenameToRegister('absolute')<CR>
 nnoremap <leader>cr :call <SID>AddFilenameToRegister('relative')<CR>
 
-
+let g:vlime_cl_use_terminal = 1
 let g:vlime_window_settings = {'repl': {'vertical': v:true, 'pos': 'botright'}}
 
 function! s:ConnectVlimeToStumpwm()
@@ -456,7 +497,8 @@ let b:ale_python_pylint_use_global=1
 
 let g:ale_fixers = {'python': ['autopep8', 'add_blank_lines_for_python_control_statements', 'yapf', 'isort', 'remove_trailing_lines'], 'vim': ['remove_trailing_lines']}
 let g:ale_python_autopep8_options = '--aggressive'
-let g:ale_fix_on_save= 0
+let g:ale_fix_on_save = 0
+let g:ale_set_highlights = 0
 " nnoremap <localleader>a8 :call ale#fix#Fix()
 nmap <localleader>a8 <Plug>(ale_fix)
 
@@ -779,10 +821,11 @@ augroup ft_lisp
     autocmd FileType lisp setlocal colorcolumn=80
 
     setlocal tabstop=2
-    " setlocal shiftwidth=2            " but an indent level is 2 spaces wide.
+    setlocal shiftwidth=2            " but an indent level is 2 spaces wide.
     set softtabstop=2           " <BS> over an autoindent deletes both spaces.
     autocmd BufRead *.lisp set makeprg=sblint
     " let g:syntastic_lisp_checkers = ['sblint']
+    autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
 augroup END
 
 

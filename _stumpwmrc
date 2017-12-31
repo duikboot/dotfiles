@@ -4,11 +4,6 @@
 ; (run-shell-command "xfce4-panel &> /dev/null &")
 ; (run-shell-command "nm-applet &> /dev/null &")
 ; (run-shell-command "pnmixer &> /dev/null &")
-; (swank:create-server :port 4004
-;                      :style swank:*communication-style*
-;                      :dont-close t)
-; (require :swank)
-; (swank-loader:init)
 
 ; (run-commands "stumptray")
 ; (commands)
@@ -29,16 +24,17 @@
 ; (set-font (make-instance 'xft:font :family "Source Code Pro Black"
 ;                           :subfamily "Regular"
 ;                           :size 9))
-
+; CPU:*ACPI-THERMAL-ZONE*
 ; xft:*font-dirs*
 ; (data-dir-file)
 ; *data-dir*
 ; *debug-stream*
 ; *quit-hook*
 ; *shell-program*
-; (xinerama:screen-info-number screen-info)
+; (all-windows)
 ; (describe (first (refresh-heads)))
 ; *version*
+; (echo-groups (current-screen) *group-format* t)
 
 (in-package :stumpwm)
 
@@ -74,6 +70,8 @@
 
 (add-hook *quit-hook* 'save-input-history)
 
+(add-hook *quit-hook* #'(lambda () (run-shell-command "pkill redshift")))
+
 ; Same as: (set-module-dir "/home/arjen/stumpwm/contrib/")
 (setf *module-dir* (make-pathname :directory
                     (format nil "~A/stumpwm/contrib" *home-dir*)))
@@ -89,14 +87,7 @@
 
 (start-vlime)
 
-(defvar *redshift* nil)
 
-(defun redshift ()
-  (unless *redshift*
-    (run-shell-command "redshift-gtk")
-    (setf *redshift* t)))
-
-(redshift)
 ; Turn on the modeline
 
 ;; mode line
@@ -123,6 +114,7 @@
 
 (mapcar #'load-module
         '("net"
+          "app-menu"
           "cpu"
           "battery-portable"
           "stumptray"
@@ -152,20 +144,30 @@
 
 (run-with-timer 3 10 'modeline)
 
-; Wait for tray before firing stumptray
-(sb-thread:make-thread
-  (lambda ()
-    (progn
-     (sleep 10)
-     (run-commands "stumptray"))))
+; ; Wait for tray before firing stumptray
+; (sb-thread:make-thread
+;   (lambda ()
+;     (progn
+;      (sleep 10)
+;      (run-commands "stumptray"))))
 
 ;;; run shell commmands
 
-(run-shell-command
-  "feh --bg-center $HOME/config/dotfiles/_wallpapers/groningen_station.jpg")
+; Wait for tray before firing stumptray
+(defmacro start-with-delay (seconds &body body)
+  `(sb-thread:make-thread
+    (lambda ()
+      (progn
+       (sleep ,seconds)
+       ,@body))))
+
+(start-with-delay 5
+ (run-shell-command
+   "feh --bg-scale $HOME/config/dotfiles/_wallpapers/groningen_station.jpg"))
+
+(start-with-delay 10 (run-commands "stumptray"))
 
 (run-shell-command "xscreensaver")
-
 
 
 (stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
@@ -198,6 +200,8 @@
 (define-key *top-map* (kbd "M-g") "exec gnome-control-center")
 
 (define-key *top-map* (kbd "M-ESC") "gother")
+
+(define-key *top-map* (kbd "M-TAB") "next")
 
 (stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "M-RET") "exec gnome-terminal")
 ; (stumpwm::run-shell-command "stalonetray")
@@ -255,9 +259,10 @@
 (define-frame-preference "documentation"
   ;; frame raise lock (lock AND raise == jumpto)
   (0 nil   t :title "calibre"))
+
 (define-frame-preference "media"
   ;; frame raise lock (lock AND raise == jumpto)
-  (0 t   t :class "Spotify"))
+  (0 nil   t :class "Spotify"))
 
 (define-frame-preference "chat"
   ;; frame raise lock (lock AND raise == jumpto)
@@ -266,7 +271,47 @@
 (run-commands "firefox")
 (run-commands "Franz")
 
+(run-shell-command "redshift-gtk")
+
 ;; Pull window by id to current frame.
 ;; <c-t><c-id>
 
+
+(setf *table*
+  '(("firefox"   :command "exec firefox")
+    ("terminal" :command "exec gnome-terminal")))
+
+(defun switch-to-window (window)
+  (stumpwm::switch-to-group (stumpwm::window-group window))
+  (focus-window window))
+
+(defun window-table ()
+  (mapcar (lambda (w)
+            (list (stumpwm::format-expand *window-formatters* "%t" w)
+                  :window w))
+          (stumpwm::all-windows)))
+
+(defun otherwise-command (input)
+  (run-shell-command (format nil "firefox http://google.com/~A" input)))
+
+(defcommand stump-quick-menu () ()
+  (multiple-value-bind (elt input)
+      (select-from-menu (current-screen)
+                        (append *table*
+                                '(("--------------------" nil nil))
+                                (window-table)))
+    (cond (elt
+           (ecase (second elt)
+             ((:command)
+              (stumpwm::eval-command (third elt)))
+             ((:window)
+              (switch-to-window (third elt)))
+             ((nil))))
+          ((string/= input "")
+           (otherwise-command input)))))
+
+
+; (define-key *top-map* (kbd "M-TAB") "windowlist")
+(define-key stumpwm::*menu-map* (kbd "TAB") 'stumpwm::menu-down)
+(define-key stumpwm::*menu-map* (kbd "M-TAB") 'stumpwm::menu-down)
 ;; vim: ft=lisp

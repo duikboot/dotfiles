@@ -66,8 +66,10 @@ def main():
     Main runner
     """
     process_list, obsolete_dirs = list_processes()
-    _ = [proc.communicate() for proc in process_list]
-    _ = [shutil.rmtree(d) for d in obsolete_dirs if not os.path.islink(d)]
+    [proc.communicate() for proc in process_list]
+    to_remove = [d for d in obsolete_dirs if not os.path.islink(d)]
+    [shutil.rmtree(d) for d in to_remove]
+    print("removed following directories", to_remove)
 
 
 if __name__ == '__main__':

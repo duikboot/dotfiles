@@ -1,4 +1,4 @@
-https://github.com/w0rp/ale                                   ale  ## async lint checker
+https://github.com/w0rp/ale                                   ale
 https://github.com/tpope/vim-abolish                          abolish
 https://github.com/bling/vim-airline                          airline
 https://github.com/tpope/vim-commentary.git                   commentary
@@ -69,4 +69,5 @@ https://github.com/junegunn/gv.vim                          gv
 # https://github.com/autozimu/LanguageClient-neovim           LanguageClient-neovim
 https://github.com/henrik/vim-indexed-search                indexed-search
 https://github.com/Shougo/echodoc.vim                       echodoc
-https://github.com/Shougo/neco-vim                          neco-vim  ## completions for viml
+https://github.com/Shougo/neco-vim                          neco-vim
+https://github.com/junegunn/vim-slash                     vim-slash
