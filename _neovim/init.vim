@@ -249,12 +249,12 @@ nnoremap <silent> ,ta mzvaw:TREPLSendSelection<cr>`z
 
 " Send selection
 vnoremap  ,tv :TREPLSendSelection<cr>
-nnoremap ,tr :TREPLSendLine<cr>
+nnoremap ,tl :TREPLSendLine<cr>
 
 " hide/close terminal
 nnoremap <silent> ,tt :Ttoggle<cr>
 " clear terminal
-nnoremap <silent> ,tl :call neoterm#clear()<cr>
+nnoremap <silent> ,tr :call neoterm#clear()<cr>
 " kills the current job (send a <c-c>)
 nnoremap <silent> ,tc :call neoterm#kill()<cr>
 
@@ -515,7 +515,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_python_pylint_options='--disable=C0111,R0903 --load-plugins pylint_django'
 let g:ale_python_flake8_args='--ignore=H301 --max-complexity=10'
 
-let b:ale_virtualenv_dir_names=['ENV']
+let b:ale_virtualenv_dir_names=['ENV', '.env']
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
 
 "let g:pymode_python = 'python3'
@@ -869,6 +869,9 @@ autocmd FileType haskell setlocal ai sw=4 ts=4 sta et fo=croql
 " autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,from,import
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent
 " autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+"
+
+autocmd FileType python setlocal path+=.venv/**
 
 
 function! s:OpenTestFile(split)

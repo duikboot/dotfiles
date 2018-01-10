@@ -1,4 +1,4 @@
-all: update build-vimproc build-python-mode
+all: update build-vimproc build-jedi build-python-mode
 
 build-vimproc:
 	make -C vimproc clean

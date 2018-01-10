@@ -11,7 +11,6 @@
 
 ; (get-x-selection)
 ; (window-number (current-window))
-; (describle current-group)
 
 ; swap current window with window in frame left:
 ; C-t x left (C-t x h)
@@ -35,6 +34,7 @@
 ; (describe (first (refresh-heads)))
 ; *version*
 ; (echo-groups (current-screen) *group-format* t)
+; (set-font (list (make-instance 'xft:font :family "Source Code Pro Powerline" :subfamily "Regular" :size 22)))
 
 (in-package :stumpwm)
 
@@ -275,7 +275,6 @@
 
 ;; Pull window by id to current frame.
 ;; <c-t><c-id>
-
 
 (setf *table*
   '(("firefox"   :command "exec firefox")
