@@ -29,6 +29,7 @@
 ; *data-dir*
 ; *debug-stream*
 ; *quit-hook*
+; *start-hook*
 ; *shell-program*
 ; (all-windows)
 ; (describe (first (refresh-heads)))
@@ -40,41 +41,13 @@
 
 (defvar *home-dir* (getenv "HOME"))
 
-
-(defvar *command-history-file*
-  (merge-pathnames
-    (format nil "~A/.stumpwm.d/history" *home-dir*)))
-
 (setf *debug-level* 1)
-
-(defun load-input-history ()
-  "Load *input-history* to file."
-  (with-open-file (in *command-history-file* :if-does-not-exist nil)
-    (when in
-      (with-standard-io-syntax
-        (setf *input-history* (read in))))))
-
-(defun save-input-history ()
- "Save current *input-history* to file."
- (with-open-file (out *command-history-file*
-                  :direction :output
-                  :if-does-not-exist :create
-                  :if-exists :supersede)
-   (with-standard-io-syntax
-     (print
-       (remove-duplicates *input-history* :test #'string= :from-end t)
-       out))))
-
-
-(add-hook *start-hook* 'load-input-history)
-
-(add-hook *quit-hook* 'save-input-history)
 
 (add-hook *quit-hook* #'(lambda () (run-shell-command "pkill redshift")))
 
 ; Same as: (set-module-dir "/home/arjen/stumpwm/contrib/")
 (setf *module-dir* (make-pathname :directory
-                    (format nil "~A/stumpwm/contrib" *home-dir*)))
+                    (format nil "~A/stumpwm/stumpwm-contrib" *home-dir*)))
 
 (set-module-dir *module-dir*)
 
@@ -119,6 +92,7 @@
           "battery-portable"
           "stumptray"
           "screenshot"
+          "command-history"
           "clipboard-history"))
 
 (define-key *root-map* (kbd "C-y") "show-clipboard-history")
@@ -205,7 +179,6 @@
 
 (stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "M-RET") "exec gnome-terminal")
 ; (stumpwm::run-shell-command "stalonetray")
-; (stumpwm::run-shell-command "nm-applet")
 
 ;; Web jump (works for Google and Imdb)
 (defmacro make-web-jump (name prefix)
@@ -269,9 +242,11 @@
   (0 nil   t :class "Franz"))
 
 (run-commands "firefox")
-(run-commands "Franz")
+; (run-commands "Franz")
 
 (run-shell-command "redshift-gtk")
+(run-shell-command "pasystray")
+(run-shell-command "nm-applet")
 
 ;; Pull window by id to current frame.
 ;; <c-t><c-id>
