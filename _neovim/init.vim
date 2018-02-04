@@ -854,7 +854,7 @@ let g:necoghc_enable_detailed_browse = 1
 "
 
 " Rebuild Ctags (mnemonic RC -> CR -> <cr>)
-nnoremap <leader><cr> :silent !ctags -R --exclude=ENV/lib64 --exclude=node_modules --exclude=.buildozer --languages=-javascript --languages=-css >/dev/null 2>&1 &<cr>:redraw!<cr>
+nnoremap <leader><cr> :silent !ctags -R --links=no --exclude=.buildozer --languages=-javascript --languages=-css >/dev/null 2>&1 &<cr>:redraw!<cr>
 
 " Python
 " ==========================================================

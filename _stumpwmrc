@@ -11,6 +11,7 @@
 
 ; (get-x-selection)
 ; (window-number (current-window))
+; (group-windows (current-group))
 
 ; swap current window with window in frame left:
 ; C-t x left (C-t x h)
@@ -171,7 +172,7 @@
 
 (define-key *top-map* (kbd "M-s") "lock-screen")
 
-(define-key *top-map* (kbd "M-g") "exec gnome-control-center")
+(define-key *top-map* (kbd "M-g") "exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center")
 
 (define-key *top-map* (kbd "M-ESC") "gother")
 
@@ -199,9 +200,12 @@
 (make-web-jump "wikipedia" "firefox --new-tab https://wikipedia.org/w/index.php?search=")
 
 ;;; Group thingies
-(run-commands "grename browser")
-(run-commands "gnewbg code" "gnewbg chat" "gnewbg documentation" "gnewbg media"
-           "gnewbg root")
+(run-commands "grename browser"
+              "gnewbg code"
+              "gnewbg chat"
+              "gnewbg documentation"
+              "gnewbg media"
+              "gnewbg root")
 
 (dotimes (i 10) (format t "~A" i)
  (define-key *top-map* (kbd (format nil "M-~a" i)) (format nil "gselect ~a" i)))
