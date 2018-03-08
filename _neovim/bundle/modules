@@ -15,7 +15,7 @@ https://github.com/Raimondi/delimitMate                       delimitMate
 # https://github.com/haya14busa/incsearch.vim                   incsearch.vim
 https://github.com/tpope/vim-markdown.git                     markdown
 https://github.com/thisivan/vim-matchit.git                   matchit
-https://github.com/ujihisa/neco-ghc.git                       neco-ghc
+# https://github.com/ujihisa/neco-ghc.git                       neco-ghc
 https://github.com/Shougo/deoplete.nvim                       deoplete
 https://github.com/tpope/vim-obsession                        obsession
 https://github.com/NLKNguyen/papercolor-theme                 papercolor

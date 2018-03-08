@@ -5,6 +5,7 @@
 ; (run-shell-command "nm-applet &> /dev/null &")
 ; (run-shell-command "pnmixer &> /dev/null &")
 
+; (simpletray:create)
 ; (run-commands "stumptray")
 ; (commands)
 ; (lastmsg)
@@ -33,6 +34,7 @@
 ; *start-hook*
 ; *shell-program*
 ; (all-windows)
+; (describe 'float-this)
 ; (describe (first (refresh-heads)))
 ; *version*
 ; (echo-groups (current-screen) *group-format* t)
@@ -91,6 +93,7 @@
           "app-menu"
           "cpu"
           "battery-portable"
+          "end-session"
           "stumptray"
           "screenshot"
           "command-history"
@@ -164,6 +167,7 @@
 (make-program-binding "vlc" "vlc")
 (make-program-binding "firefox" "Firefox" :key-binding "b")
 (make-program-binding "arandr" "arandr")
+(make-program-binding "chromium-browser" "chromium-browser")
 (make-program-binding "Franz" "Franz" :key-binding "c")
 (make-program-binding "spotify" "Spotify" :key-binding "m")
 (make-program-binding "calibre" "calibre" :key-binding "C")
@@ -188,6 +192,10 @@
     (run-shell-command (concatenate 'string ,prefix search))))
 
 (make-web-jump "open" "firefox --new-tab ")
+
+(make-web-jump "search" "firefox --new-tab https://www.duckduckgo.com/?q=")
+(make-web-jump "duckduckgo" "firefox --new-tab https://www.duckduckgo.com/?q=")
+(make-web-jump "d" "firefox --new-tab  https://www.duckduckgo.com/?q=")
 
 (make-web-jump "google" "firefox --new-tab http://www.google.nl/search?q=")
 (make-web-jump "g" "firefox --new-tab http://www.google.nl/search?q=")
@@ -219,6 +227,17 @@
             (let ((win (current-window)))
               (fnext)
               (pull-window win)))
+
+(defmacro create-sudo-command (defcommand command)
+  `(defcommand ,defcommand () ()
+     (run-shell-command
+       (concatenate 'string "xterm -e sudo " ,command))))
+
+(create-sudo-command sudo-gnome-control-center "XDG_CURRENT_DESKTOP=GNOME gnome-control-center")
+(create-sudo-command sudo-dnfdragora "dnfdragora")
+
+(defcommand shell-output (command) ((:shell "/bin/sh -c "))
+  (message "~a" (run-shell-command command t)))
 
 (define-key *top-map* (kbd "M-l") "move-to-next-frame-with-window")
 
@@ -254,6 +273,7 @@
 
 ;; Pull window by id to current frame.
 ;; <c-t><c-id>
+
 
 (setf *table*
   '(("firefox"   :command "exec firefox")
@@ -292,4 +312,24 @@
 ; (define-key *top-map* (kbd "M-TAB") "windowlist")
 (define-key stumpwm::*menu-map* (kbd "TAB") 'stumpwm::menu-down)
 (define-key stumpwm::*menu-map* (kbd "M-TAB") 'stumpwm::menu-down)
+
+(defun mode-line-scroll-through-windows (ml bt x y)
+  "Allows scrolling through windows and groups with the mouse-wheel.
+Using the left 100px of mode-line (where the group is displayed) will
+scroll through the groups, while using any other part of the mode-line
+will scroll through windows in the current group."
+  (declare (ignore ml y))
+  (cond ((>= x 100)
+         (cond ((eq bt 5)
+                (run-commands "next"))
+               ((eq bt 4)
+                (run-commands "prev"))))
+        (t
+         (cond ((eq bt 5)
+                (run-commands "gnext"))
+               ((eq bt 4)
+                (run-commands "gprev"))))))
+
+(add-hook *mode-line-click-hook* 'mode-line-scroll-through-windows)
+
 ;; vim: ft=lisp

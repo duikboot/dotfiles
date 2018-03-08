@@ -176,6 +176,7 @@ nnoremap R :%s//g<left><left>
 " open link in browser
 let g:netrw_browsex_viewer= 'firefox'
 let g:netrw_list_hide= '.*\.pyc$'
+let g:netrw_liststyle=0
 
 " let g:BASH_Ctrl_j = 'off'
 " " ctrl-jklm  changes to that split
@@ -515,7 +516,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_python_pylint_options='--disable=C0111,R0903 --load-plugins pylint_django'
 let g:ale_python_flake8_args='--ignore=H301 --max-complexity=10'
 
-let b:ale_virtualenv_dir_names=['ENV', '.env']
+let b:ale_virtualenv_dir_names=['ENV', '.env', '.venv']
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
 
 "let g:pymode_python = 'python3'
@@ -579,6 +580,11 @@ set pumheight=8             " Keep a small completion window
 
 """ Moving Around/Editing
 set cursorline              " have a line indicate the cursor location
+" set cursorcolumn              " have a bar indicate the cursor location
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+" autocmd BufEnter * setlocal cursorcolumn
+" autocmd BufLeave * setlocal nocursorcolumn
 set expandtab               " Use spaces, not tabs, for autoindent/tab key.
 set foldcolumn=0            " show the fold column
 set foldlevel=666            " don't fold by default
@@ -687,7 +693,7 @@ let g:hostname=hostname()
 autocmd VimEnter * RainbowParenthesesToggle
 autocmd Syntax * RainbowParenthesesLoadRound
 autocmd Syntax * RainbowParenthesesLoadSquare
-autocmd Syntax * RainbowParenthesesLoadBraces
+" autocmd Syntax * RainbowParenthesesLoadBraces
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
