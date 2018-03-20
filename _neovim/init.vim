@@ -124,7 +124,7 @@ command! -bang -nargs=? -complete=dir Files
 
 " Save when losing focus
 "
-autocmd FocusLost * :wa
+" autocmd FocusLost * :wa
 
 " Load templates file
 autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
@@ -141,6 +141,15 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
 " let Y be more consistent
 nnoremap Y y$
+
+" Snippets from:
+" https://github.com/mattboehm/dotfiles/blob/master/vim/vimrc
+
+"vv selects til end of line (not incl newline)
+vnoremap v $h
+
+"swap highlighted text with last deleted text
+xnoremap <C-x> <Esc>`.``gvP``P
 
 " nnoremap <silent> n nzt
 " nnoremap <silent> N Nzt
@@ -228,7 +237,7 @@ command! -range=0 -complete=shellcmd -nargs=1 NeoRepl call s:NeoRepl(<q-args>)
 
 " Terminal
 " let g:neoterm_fixedsize = 0
-let g:neoterm_position = 'vertical'
+let g:neoterm_default_mod = 'vertical'
 " nnoremap <leader>ot :vs \| term<space>
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-h> <C-\><C-n><C-w>h
@@ -530,7 +539,7 @@ let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
 autocmd VimResized * silent! :wincmd =
 
 
-set suffixesadd=.tex,.latex,.java,.js,.hrl,.erl
+set suffixesadd=.tex,.latex,.java,.js,.hrl,.erl,.lisp,.asd
 
 " set guifont=Andale\ Mono\ 10\ for\ Powerline
 " set guifont=Inconsolata\ 10
@@ -672,7 +681,7 @@ else
     " set nocursorline
     set t_Co=256
     set termguicolors
-    set background=dark           " We are using dark background in vim
+    set background=light           " We are using dark background in vim
     " colorscheme NeoSolarized
     colorscheme PaperColor
 endif
@@ -826,9 +835,9 @@ augroup ft_lisp
 
     autocmd FileType lisp setlocal colorcolumn=80
 
-    setlocal tabstop=2
-    setlocal shiftwidth=2            " but an indent level is 2 spaces wide.
-    set softtabstop=2           " <BS> over an autoindent deletes both spaces.
+    autocmd FileType lisp setlocal tabstop=2
+    autocmd FileType lisp setlocal shiftwidth=2            " but an indent level is 2 spaces wide.
+    autocmd FileType lisp set softtabstop=2           " <BS> over an autoindent deletes both spaces.
     autocmd BufRead *.lisp set makeprg=sblint
     " let g:syntastic_lisp_checkers = ['sblint']
     autocmd FileType lisp let b:deoplete_disable_auto_complete = 1

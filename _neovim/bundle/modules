@@ -11,7 +11,6 @@ https://github.com/tpope/vim-fugitive                         fugitive
 https://github.com/mbbill/undotree                            undotree
 https://github.com/Raimondi/delimitMate                       delimitMate
 # https://github.com/sheerun/vim-polyglot                       vim-polyglot
-# https://github.com/vim-scripts/The-NERD-tree.git             nerdtree
 # https://github.com/haya14busa/incsearch.vim                   incsearch.vim
 https://github.com/tpope/vim-markdown.git                     markdown
 https://github.com/thisivan/vim-matchit.git                   matchit
@@ -53,7 +52,7 @@ https://github.com/keith/tmux.vim                               tmux
 https://github.com/kien/rainbow_parentheses.vim             rainbow_parentheses
 # https://github.com/neovim/node-host                         node-host
 # https://github.com/neovim/node-client                       node-client
-https://github.com/clojure-vim/nvim-parinfer.js             nvim-parinfer.js
+# https://github.com/clojure-vim/nvim-parinfer.js             nvim-parinfer.js
 https://github.com/machakann/vim-highlightedyank            highlightedyank
 https://github.com/mhinz/vim-grepper                        grepper
 https://github.com/zchee/deoplete-jedi                      jedi
@@ -64,10 +63,12 @@ https://github.com/mhinz/vim-randomtag                      randomtag
 https://github.com/l04m33/vlime                             vlime-repo
 https://github.com/junegunn/fzf.vim                         fzf.vim
 # https://bitbucket.org/kovisoft/paredit                      paredit
-https://github.com/abaldwin88/roamer.vim                    roamer.vim
+# https://github.com/abaldwin88/roamer.vim                    roamer.vim
 https://github.com/junegunn/gv.vim                          gv
 # https://github.com/autozimu/LanguageClient-neovim           LanguageClient-neovim
 https://github.com/henrik/vim-indexed-search                indexed-search
 https://github.com/Shougo/echodoc.vim                       echodoc
 https://github.com/Shougo/neco-vim                          neco-vim
 https://github.com/junegunn/vim-slash                     vim-slash
+https://github.com/tpope/vim-dadbod                       vim-dadbod
+https://github.com/eraserhd/parinfer-rust                 parinfer-rust
