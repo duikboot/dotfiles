@@ -398,7 +398,7 @@ nnoremap <leader>cf :call <SID>AddFilenameToRegister('absolute')<CR>
 nnoremap <leader>cr :call <SID>AddFilenameToRegister('relative')<CR>
 
 let g:vlime_cl_use_terminal = 1
-let g:vlime_window_settings = {'repl': {'vertical': v:true, 'pos': 'botright'}}
+let g:vlime_window_settings = {'repl': {'vertical': v:false, 'pos': 'botright'}}
 
 function! s:ConnectVlimeToStumpwm()
     call vlime#plugin#ConnectREPL('127.0.0.1', 4005)
@@ -491,6 +491,8 @@ nnoremap <f9> mzggg?G`z
 " Emacs bindings in command line mode
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
+
+command! Vs :vs
 
 " Split line (sister to [J]oin lines)
 " " The normal use of S is covered by cc, so don't worry about shadowing it.
@@ -683,7 +685,7 @@ else
     set termguicolors
     set background=light           " We are using dark background in vim
     " colorscheme NeoSolarized
-    colorscheme PaperColor
+     colorscheme PaperColor
 endif
 
 if has('nvim')
@@ -833,7 +835,7 @@ augroup ft_lisp
     autocmd BufRead,BufNewFile *.asd set filetype=lisp
     autocmd BufRead,BufNewFile *.ros set filetype=lisp
 
-    autocmd FileType lisp setlocal colorcolumn=80
+    autocmd FileType lisp setlocal colorcolumn=79
 
     autocmd FileType lisp setlocal tabstop=2
     autocmd FileType lisp setlocal shiftwidth=2            " but an indent level is 2 spaces wide.

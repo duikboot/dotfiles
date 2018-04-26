@@ -1,6 +1,6 @@
 --langmap=scheme:.rkt
 
---langmap=lisp:.ros
+--langmap=lisp:.ros.lisp.asd
 
 --exclude=node_modules
 

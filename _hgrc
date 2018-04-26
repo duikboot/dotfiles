@@ -9,19 +9,19 @@ merge = vimdiff
 color =
 graphlog =
 hgext.bookmarks =
+hggit = ~/Programms/hg-git/hggit/
 #hgext.convert =
 #hgext.fetch =
- =
 hgk =
 mq =
 pager =
 progress =
 prompt = ~/Programms/hg-prompt/prompt.py
-rebase =
-record =
-share =
-shelve =
-extdiff =
+# rebase =
+# record =
+# share =
+# shelve =
+# extdiff =
 
 [pager]
 pager = less

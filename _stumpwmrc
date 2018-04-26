@@ -82,8 +82,9 @@
 ; (load-module "cpu")
 ; (load-module "battery-portable")
 ; ; (load-module "ttf-fonts")
-; ; (load-module "notifications")
+; ; (load-module "notify")
 ;  ; (load-module "urgentwindows")
+;  ; (load-module "globalwindows")
 ; ; (load-module "app-menu")
 ; (load-module "stumptray")
 ; (load-module "clipboard-history")
@@ -96,6 +97,7 @@
           "end-session"
           "stumptray"
           "screenshot"
+          "globalwindows"
           "command-history"
           "clipboard-history"))
 
@@ -147,7 +149,6 @@
 
 (run-shell-command "xscreensaver")
 
-
 (stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
 
 (setf *mouse-focus-policy* :sloppy) ;; :click, :ignore, :sloppy
@@ -163,6 +164,26 @@
 
 (defcommand lock-screen ()()
             (run-shell-command "xscreensaver-command -lock"))
+
+(defcommand layout-home-screen ()()
+  (run-shell-command "layout_home_screen.sh")
+  (refresh-heads)
+  (sleep 2)
+  (refresh-heads))
+
+(defcommand layout-purm ()()
+  (run-shell-command "layout_purm.sh")
+  (refresh-heads)
+  (sleep 2)
+  (refresh-heads))
+
+(defcommand layout-laptop ()()
+  (run-shell-command "layout_laptop.sh")
+  (refresh-heads)
+  (refresh-heads)
+  (sleep 2)
+  (refresh-heads))
+
 
 (make-program-binding "vlc" "vlc")
 (make-program-binding "firefox" "Firefox" :key-binding "b")
@@ -276,7 +297,7 @@
 
 
 (setf *table*
-  '(("firefox"   :command "exec firefox")
+  '(("firefox"  :command "exec firefox")
     ("terminal" :command "exec gnome-terminal")))
 
 (defun switch-to-window (window)
