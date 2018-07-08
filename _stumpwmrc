@@ -4,6 +4,10 @@
 ; (run-shell-command "xfce4-panel &> /dev/null &")
 ; (run-shell-command "nm-applet &> /dev/null &")
 ; (run-shell-command "pnmixer &> /dev/null &")
+; (command-history::save-input-history)
+; (command-history::load-input-history)
+
+; (list-modules)
 
 ; (simpletray:create)
 ; (run-commands "stumptray")
@@ -27,7 +31,6 @@
 ;                           :size 9))
 ; CPU:*ACPI-THERMAL-ZONE*
 ; xft:*font-dirs*
-; (data-dir-file)
 ; *data-dir*
 ; *debug-stream*
 ; *quit-hook*
@@ -38,13 +41,17 @@
 ; (describe (first (refresh-heads)))
 ; *version*
 ; (echo-groups (current-screen) *group-format* t)
-; (set-font (list (make-instance 'xft:font :family "Source Code Pro Powerline" :subfamily "Regular" :size 22)))
+; (set-font (list (make-instance 'xft:font :family "Source Code Pro for Powerline" :subfamily "Medium" :size 22)))
 
 (in-package :stumpwm)
 
 (defvar *home-dir* (getenv "HOME"))
 
-(setf *debug-level* 1)
+(setf *debug-level* 0)
+
+(setf *debug-stream* (open "~/.stumpwm.d/debug-output.txt"
+                        :direction :output
+                        :if-exists :supersede))
 
 (add-hook *quit-hook* #'(lambda () (run-shell-command "pkill redshift")))
 
@@ -352,5 +359,14 @@ will scroll through windows in the current group."
                 (run-commands "gprev"))))))
 
 (add-hook *mode-line-click-hook* 'mode-line-scroll-through-windows)
+
+(defcommand screen-layout-menu () ()
+  (let ((selection (select-from-menu (current-screen) *layout-menu*)))
+    (run-commands (second selection))))
+
+(setf *layout-menu*
+  '(("Big home screen" "layout-home-screen")
+    ("Laptop screen" "layout-laptop")
+    ("Purmerend" "layout-purm")))
 
 ;; vim: ft=lisp
