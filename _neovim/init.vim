@@ -11,6 +11,7 @@ call pathogen#helptags()
 let g:python_host_prog='/home/arjen/config/dotfiles/_neovim/ENV2/bin/python'
 let g:python3_host_prog='/home/arjen/config/dotfiles/_neovim/ENV/bin/python'
 
+
 " Basic Settings {{{
 syntax on                     " syntax highlighting
 filetype on                   " try to detect filetypes
@@ -408,11 +409,10 @@ let g:vlime_enable_autodoc = 1
 nnoremap <localleader>c :call <SID>ConnectVlimeToStumpwm()<CR>
 
 " Show yankring
-nnoremap <silent> <leader>y :YRShow<CR>
+nnoremap <silent> <leader>y :Denite neoyank<CR>
 
 " Please do check if the system clipboad has changed if we're running vim in
 " console
-let g:yankring_manual_clipboard_check = 1
 set clipboard+=unnamedplus
 
 " vim-exchange
@@ -525,7 +525,7 @@ let g:ale_python_autopep8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin
 " let g:ale_python_pylint_options = "--load-plugins pylint_django"
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_python_pylint_options='--disable=C0111,R0903 --load-plugins pylint_django'
-let g:ale_python_flake8_args='--ignore=H301 --max-complexity=10'
+let g:ale_python_flake8_options='--ignore=H301 --max-complexity=10'
 
 let b:ale_virtualenv_dir_names=['ENV', '.env', '.venv']
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
@@ -586,6 +586,7 @@ set wildignore+=lib
 """ Insert completion
 " don't select first item, follow typing in autocomplete
 " set complete=.,w,b,u,t
+set complete=.,b,u,kspell
 set completeopt=menuone,longest,noinsert
 set pumheight=8             " Keep a small completion window
 
@@ -794,6 +795,10 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#show_docstring = 0
 let g:deoplete#complete_method='omnifunc'
 
+" let g:deoplete#ignore_sources = {'_': ['tags']}
+let g:deoplete#ignore_sources = {'_': ['tag']}
+set tags=./tags,tags
+
 " vim-highlightedyank plugin
 let g:highlightedyank_highlight_duration = 100
 
@@ -843,6 +848,8 @@ augroup ft_lisp
     autocmd BufRead *.lisp set makeprg=sblint
     " let g:syntastic_lisp_checkers = ['sblint']
     autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
+    " let g:parinfer_force_balance = 0
+    let g:parinfer_enabled = 0
 augroup END
 
 
@@ -876,14 +883,14 @@ nnoremap <leader><cr> :silent !ctags -R --links=no --exclude=.buildozer --langua
 " Python
 " ==========================================================
 "autocmd BufRead *.py compiler nose
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType tex setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-autocmd FileType haskell setlocal ai sw=4 ts=4 sta et fo=croql
-" autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,from,import
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType tex setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+" autocmd FileType haskell setlocal ai sw=4 ts=4 sta et fo=croql
+" " autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,from,import
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent
 " autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 "
@@ -981,16 +988,17 @@ endif
 "   " <leader>lr to rename variable under cursor
 "   autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lr :call LanguageClient_textDocument_rename()<cr>
 "   " <leader>lc to switch omnifunc to LanguageClient
-"   autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lc :setlocal omnifunc=LanguageClient#complete<cr>
+"   " autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lc :setlocal omnifunc=LanguageClient#complete<cr>
 "   " <leader>ls to fuzzy find the symbols in the current document
 "   autocmd FileType python,json,css,html,htmldjango nnoremap <buffer> <leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
 
 "   " Use as omnifunc by default
-"   autocmd FileType python,json,css,html setlocal omnifunc=LanguageClient#complete
+"   " autocmd FileType python,json,css,html setlocal omnifunc=LanguageClient#complete
 " augroup END
 
+
 " let g:LanguageClient_serverCommands = {}
-" let g:LanguageClient_serverCommands.python = ['pyls']
+" let g:LanguageClient_serverCommands = {'python': ['pyls']}
 " " let g:LanguageClient_serverCommands.lisp = ['cl-lsp']
 
 " if executable("pyls")

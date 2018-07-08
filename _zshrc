@@ -85,7 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 # Customize to your needs...
-export PATH=/home/arjen/Programms/node-v8.9.1-linux-x64/bin:/home/arjen/.cabal/bin:/home/arjen/bin:/home/arjen/.local/bin:/home/arjen/local/bin:$HOME/bin/neovim/bin:/home/arjen/bin/racket/bin:/home/arjen/.roswell/bin:$PATH
+export PATH=/home/arjen/Programms/node-v8.9.1-linux-x64/bin:$HOME/.cabal/bin:$HOME/.local/bin:$HOME/local/bin:$HOME/bin/neovim/bin:$HOME/bin/racket/bin:$HOME/.roswell/bin:$PATH
 
 # OPAM configuration
 . /home/arjen/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
@@ -99,7 +99,7 @@ then
   source ENV/bin/activate
 fi
 
-alias clisp="rlwrap -H $HOME/.rlwrap/clisp_history -f $HOME/.rlwrap/keywords clisp"
+# alias clisp="rlwrap -H $HOME/.rlwrap/clisp_history -f $HOME/.rlwrap/keywords clisp"
 alias hgg='hg glog'
 
 # source /home/arjen/Programms/tmuxinator/completion/tmuxinator.zsh

@@ -67,6 +67,8 @@ def main():
     """
     process_list, obsolete_dirs = list_processes()
     [proc.communicate() for proc in process_list]
+
+    # Remove commented repositories
     to_remove = [d for d in obsolete_dirs if not os.path.islink(d)]
     [shutil.rmtree(d) for d in to_remove]
     print("removed following directories", to_remove)
