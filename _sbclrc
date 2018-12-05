@@ -14,9 +14,7 @@
 (defvar *cached-prompt* nil)
 
 (require 'sb-aclrepl)
-; (require 'sb-introspect)
-
-
+(require 'sb-introspect)
 
 (defun package-prompt (stream)
   (when (not (eq *last-package* *package*))
@@ -34,6 +32,14 @@
 (defun :fg ()
   (sb-thread:release-foreground))
 
+
+;;; Check for --no-linedit command-line option.
+(if (member "--no-linedit" sb-ext:*posix-argv* :test 'equal)
+    (setf sb-ext:*posix-argv* (remove "--no-linedit" sb-ext:*posix-argv* :test 'equal))
+    (when (interactive-stream-p *terminal-io*)
+      (require :sb-aclrepl)
+      (require :linedit)
+      (funcall (intern "INSTALL-REPL" :linedit) :wrap-current t :eof-quits t :history "~/.linedit_history")))
 ; '(ql:update-client)' --eval '(ql:update-all-dists)'
 
 ; vim: filetype=lisp

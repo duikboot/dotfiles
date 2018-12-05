@@ -54,7 +54,8 @@ https://github.com/kien/rainbow_parentheses.vim             rainbow_parentheses
 https://github.com/machakann/vim-highlightedyank            highlightedyank
 https://github.com/mhinz/vim-grepper                        grepper
 https://github.com/Shougo/deoplete.nvim                       deoplete
-https://github.com/zchee/deoplete-jedi                      jedi
+https://github.com/zchee/deoplete-jedi                      deoplete-jedi
+https://github.com/zchee/deoplete-jedi                      deoplete-jedi
 # https://github.com/iCyMind/NeoSolarized                     NeoSolarized
 https://github.com/Shougo/neosnippet.vim                    neosnippet
 https://github.com/Shougo/neosnippet-snippets               neosnippet-snippets
@@ -65,7 +66,7 @@ https://github.com/junegunn/fzf.vim                         fzf.vim
 # https://github.com/abaldwin88/roamer.vim                    roamer.vim
 https://github.com/junegunn/gv.vim                          gv
 # https://github.com/autozimu/LanguageClient-neovim           LanguageClient-neovim
-https://github.com/henrik/vim-indexed-search                indexed-search
+# https://github.com/henrik/vim-indexed-search                indexed-search
 https://github.com/Shougo/echodoc.vim                       echodoc
 https://github.com/Shougo/neco-vim                          neco-vim
 https://github.com/junegunn/vim-slash                     vim-slash
@@ -74,5 +75,5 @@ https://github.com/eraserhd/parinfer-rust                 parinfer-rust
 https://github.com/guns/vim-sexp                            vim-sexp
 https://github.com/Olical/vim-scheme                        vim-scheme
 # https://github.com/soywod/vim-keepeye                       keepeye
-# https://github.com/vim-scripts/YankRing.vim.git               yankring
+https://github.com/vim-scripts/YankRing.vim.git               yankring
 # https://github.com/shougo/neoyank.vim                           neoyank

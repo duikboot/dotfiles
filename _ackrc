@@ -1,4 +1,3 @@
 --ignore-file=is:tags
---ignore-file=match:.js
 --ignore-file=match:.css
 --ignore-file=match:.scss

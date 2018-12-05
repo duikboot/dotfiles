@@ -1,11 +1,14 @@
-all: update build-vimproc build-jedi build-python-mode build-parinfer-rust
+all: update build-vimproc build-python-mode build-parinfer-rust build-jedi
 
 build-vimproc:
 	make -C vimproc clean
 	make -C vimproc
 
 build-jedi:
-	git -C jedi submodule update --init
+	git -C deoplete-jedi submodule update --init
+
+# build-LanguageClient-neovim:
+# 	cd LanguageClient-neovim && ./install.sh
 
 build-python-mode:
 	git -C python-mode submodule update --init

@@ -7,8 +7,6 @@ lazy-object-proxy
 mccabe
 msgpack-python
 neovim
-pycodestyle
-pyflakes
 pylint
 six
 wrapt

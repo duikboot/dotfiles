@@ -6,6 +6,7 @@
 ; (run-shell-command "pnmixer &> /dev/null &")
 ; (command-history::save-input-history)
 ; (command-history::load-input-history)
+; (balance-frames)
 
 ; (list-modules)
 
@@ -36,6 +37,7 @@
 ; *quit-hook*
 ; *start-hook*
 ; *shell-program*
+; (getenv "USER")
 ; (all-windows)
 ; (describe 'float-this)
 ; (describe (first (refresh-heads)))
@@ -47,7 +49,7 @@
 
 (defvar *home-dir* (getenv "HOME"))
 
-(setf *debug-level* 0)
+(setf *debug-level* 1)
 
 (setf *debug-stream* (open "~/.stumpwm.d/debug-output.txt"
                         :direction :output
@@ -85,17 +87,6 @@
 
 ;;; load modules
 
-; (load-module "net")
-; (load-module "cpu")
-; (load-module "battery-portable")
-; ; (load-module "ttf-fonts")
-; ; (load-module "notify")
-;  ; (load-module "urgentwindows")
-;  ; (load-module "globalwindows")
-; ; (load-module "app-menu")
-; (load-module "stumptray")
-; (load-module "clipboard-history")
-
 (mapcar #'load-module
         '("net"
           "app-menu"
@@ -122,7 +113,6 @@
             " | %l" ; network
             " | Battery: %B " ; battery
             " | Groups: %g " ; groups
-            ; " | [^B%n^b] %W"  ; application
             " | %W"  ; application
             " || %T"))  ; stumptray
 
@@ -196,7 +186,7 @@
 (make-program-binding "firefox" "Firefox" :key-binding "b")
 (make-program-binding "arandr" "arandr")
 (make-program-binding "chromium-browser" "chromium-browser")
-(make-program-binding "Franz" "Franz" :key-binding "c")
+(make-program-binding "rambox" "Rambox" :key-binding "c")
 (make-program-binding "spotify" "Spotify" :key-binding "m")
 (make-program-binding "calibre" "calibre" :key-binding "C")
 
@@ -243,8 +233,10 @@
               "gnewbg media"
               "gnewbg root")
 
-(dotimes (i 10) (format t "~A" i)
- (define-key *top-map* (kbd (format nil "M-~a" i)) (format nil "gselect ~a" i)))
+(dotimes (i 10) 
+  (when (> i 0)
+    (format t "~A" i)
+    (define-key *top-map* (kbd (format nil "M-~a" i)) (format nil "gselect ~a" i))))
 
 (define-key *top-map* (kbd "M-Right") "gnext")
 (define-key *top-map* (kbd "M-Left") "gprev")
@@ -268,6 +260,8 @@
   (message "~a" (run-shell-command command t)))
 
 (define-key *top-map* (kbd "M-l") "move-to-next-frame-with-window")
+(define-key *top-map* (kbd "M-=") "balance-frames")
+(define-key *top-map* (kbd "M-0") "only")
 
 ; (define-key *top-map* (kbd "XF86AudioLowerVolume") "exec amixer set Master 5%-")
 ; (define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer set Master 5%+")
@@ -290,12 +284,11 @@
 
 (define-frame-preference "chat"
   ;; frame raise lock (lock AND raise == jumpto)
-  (0 nil   t :class "Franz"))
+  (0 nil   t :class "Rambox"))
 
 (run-commands "firefox")
-; (run-commands "Franz")
 
-(run-shell-command "redshift-gtk")
+; (run-shell-command "redshift-gtk")
 (run-shell-command "pasystray")
 (run-shell-command "nm-applet")
 

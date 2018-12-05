@@ -29,8 +29,8 @@ set nojoinspaces " Use only 1 space after "." when joining lines, not 2"
 set showfulltag               " Show full tags when doing search completion
 " set relativenumber            " show linenumber relative to line cursor is on
 setlocal keywordprg=:help     " Use K to show help on subject under cursor
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp  "set directory for swapfiles
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/.tmp//
+set directory=~/.tmp//  "set directory for swapfiles
 
 set splitright
 set splitbelow
@@ -141,7 +141,10 @@ iabbrev @@ dijkstra.arjen@gmail.com
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
 " let Y be more consistent
-nnoremap Y y$
+nmap Y y$
+
+" open tag in the middle of the screen
+nnoremap <C-]> <C-]>zz
 
 " Snippets from:
 " https://github.com/mattboehm/dotfiles/blob/master/vim/vimrc
@@ -365,8 +368,11 @@ nnoremap <silent> <leader>gf :vertical botright wincmd f<CR>
 
 
 " nnoremap <leader>a <Esc>:Ack!<Space>
-nnoremap <leader>a :Grepper -tool ag<cr>
-nnoremap <leader>A :Ag<cr>
+let g:grepper = {}
+nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
+nnoremap <leader>a :Grepper -tool rg<cr>
+nnoremap <leader>A :Rg<cr>
+let g:grepper.rg = { 'grepprg': 'rg --vimgrep -i'}
 " nnoremap <leader>a :Grepper -tool ag --path-to-ignore ~/.ignore<cr>
 nnoremap <leader>g :Grepper -tool git<cr>
 
@@ -382,7 +388,7 @@ nnoremap <leader>ts <Esc>:tselect<Space>
 
 " use ,T to jump to tag in a vertical split
 " nnoremap <silent> <Leader>F :let word=expand("<cword>")<CR>:vsp<CR>:wincmd w<cr>:exec("tselect ". word)<cr>
-nnoremap  <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<cr>zt
+nnoremap  <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<cr>zz
 
 " Toggle Tagbar
 nnoremap <leader>tl :TagbarToggle<CR>
@@ -409,7 +415,8 @@ let g:vlime_enable_autodoc = 1
 nnoremap <localleader>c :call <SID>ConnectVlimeToStumpwm()<CR>
 
 " Show yankring
-nnoremap <silent> <leader>y :Denite neoyank<CR>
+" nnoremap <silent> <leader>y :Denite neoyank<CR>
+nnoremap <silent> <leader>y :YRShow<CR>
 
 " Please do check if the system clipboad has changed if we're running vim in
 " console
@@ -498,16 +505,26 @@ command! Vs :vs
 " " The normal use of S is covered by cc, so don't worry about shadowing it.
 nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 nnoremap <localleader>j :%!python -m json.tool<cr>
 
 
 " let g:ale_lint_on_text_changed='never'
 " let g:ale_lint_on_insert_leave=1
+" let g:ale_virtualtext_cursor=1
 let b:ale_python_flake8_use_global=1
 let b:ale_python_pylint_use_global=1
+let b:ale_python_vulture_use_global=1
+let g:ale_linters = {
+            \ 'python' : ['flake8', 'mypy', 'pyflakes', 'pylint'],
+\ }
 
-let g:ale_fixers = {'python': ['autopep8', 'add_blank_lines_for_python_control_statements', 'yapf', 'isort', 'remove_trailing_lines'], 'vim': ['remove_trailing_lines']}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'python': ['autopep8', 'yapf', 'isort', 'add_blank_lines_for_python_control_statements'],
+\}
+
 let g:ale_python_autopep8_options = '--aggressive'
 let g:ale_fix_on_save = 0
 let g:ale_set_highlights = 0
@@ -516,6 +533,8 @@ nmap <localleader>a8 <Plug>(ale_fix)
 
 let g:ale_python_flake8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/flake8'
 let g:ale_python_pylint_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pyflakes'
+let g:ale_python_vulture_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/vulture'
+let g:ale_python_mypy_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/mypy'
 let g:ale_python_isort_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/isort'
 let g:ale_python_yapf_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/yapf'
 let g:ale_python_autopep8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/autopep8'
@@ -526,9 +545,13 @@ let g:ale_python_autopep8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_python_pylint_options='--disable=C0111,R0903 --load-plugins pylint_django'
 let g:ale_python_flake8_options='--ignore=H301 --max-complexity=10'
+let g:ale_python_mypy_options = '--ignore-missing-imports'
 
 let b:ale_virtualenv_dir_names=['ENV', '.env', '.venv']
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
+
+let g:ale_completion_enabled=1
+let g:ale_completion_delay=50
 
 "let g:pymode_python = 'python3'
 " yet let it open on toggle.
@@ -587,7 +610,9 @@ set wildignore+=lib
 " don't select first item, follow typing in autocomplete
 " set complete=.,w,b,u,t
 set complete=.,b,u,kspell
+" set completeopt=menuone,longest
 set completeopt=menuone,longest,noinsert
+" set completeopt=menu,menuone,preview,noselect,noinsert
 set pumheight=8             " Keep a small completion window
 
 """ Moving Around/Editing
@@ -752,7 +777,7 @@ autocmd FileType mail setlocal spelllang=nl
 " Javascript
 " ==========================================================
 autocmd BufRead *.js set makeprg=jslint\ %
-let g:syntastic_javascript_checkers = ['jslint', 'jshint']
+" let g:syntastic_javascript_checkers = ['jslint', 'jshint']
 
 " Don't allow snipmate to take over tab
 "TODO remap, so you don't override the movement keys
@@ -792,7 +817,7 @@ endif
 nnoremap <localleader>o :<C-u>Denite  -buffer-name=outline outline<cr>
 
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#show_docstring = 0
+" let g:deoplete#sources#jedi#show_docstring = 0
 let g:deoplete#complete_method='omnifunc'
 
 " let g:deoplete#ignore_sources = {'_': ['tags']}
@@ -848,8 +873,8 @@ augroup ft_lisp
     autocmd BufRead *.lisp set makeprg=sblint
     " let g:syntastic_lisp_checkers = ['sblint']
     autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
-    " let g:parinfer_force_balance = 0
-    let g:parinfer_enabled = 0
+    let g:parinfer_force_balance = 1
+    let g:parinfer_enabled = 1
 augroup END
 
 
@@ -986,9 +1011,9 @@ endif
 "   " <leader>lh for type info under cursor
 "   autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lh :call LanguageClient_textDocument_hover()<cr>
 "   " <leader>lr to rename variable under cursor
-"   autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lr :call LanguageClient_textDocument_rename()<cr>
+  " autocmd FileType python,htmldjango  nnoremap <buffer> <leader>lr :call LanguageClient_textDocument_rename()<cr>
 "   " <leader>lc to switch omnifunc to LanguageClient
-"   " autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lc :setlocal omnifunc=LanguageClient#complete<cr>
+ " autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lc :setlocal omnifunc=LanguageClient#complete<cr>
 "   " <leader>ls to fuzzy find the symbols in the current document
 "   autocmd FileType python,json,css,html,htmldjango nnoremap <buffer> <leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
 

@@ -17,6 +17,7 @@ def clone(link, directory):
     else:
         command[0] = 'git'
         command.append('-v')
+
     return subprocess.Popen(command)
 
 
@@ -24,6 +25,7 @@ def update(link, directory):
     """
     Create update command.
     """
+
     if "bitbucket" in link:
         return subprocess.Popen(['hg', 'pull', '-u', '--cwd', directory])
     elif "git" in link:
@@ -32,9 +34,11 @@ def update(link, directory):
 
 def procs(module):
     """
+
     Return update or clone subprocess object.
     """
     link, directory = module.split()
+
     if not os.path.exists(directory):
         return clone(link, directory)
 
@@ -43,7 +47,8 @@ def procs(module):
 
 def is_obsolete(file_):
     """Check if `file_` is a hidden file or a directory"""
-    return not(file_.startswith(".") or os.path.isfile(file_))
+
+    return not (file_.startswith(".") or os.path.isfile(file_))
 
 
 def list_processes():
@@ -58,6 +63,7 @@ def list_processes():
         # Filter directories which are obsolete
         obsolete_dirs = (d for d in os.listdir('.')
                          if is_obsolete(d) and d not in dirs)
+
     return process_list, obsolete_dirs
 
 
