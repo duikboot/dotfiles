@@ -18,7 +18,7 @@ https://github.com/thisivan/vim-matchit.git                   matchit
 https://github.com/tpope/vim-obsession                        obsession
 https://github.com/NLKNguyen/papercolor-theme                 papercolor
 git://github.com/tpope/vim-pathogen.git                       pathogen
-https://github.com/klen/python-mode.git                       python-mode
+# https://github.com/klen/python-mode.git                       python-mode
 https://github.com/tpope/vim-repeat                           repeat
 # https://github.com/mtth/scratch.vim                           scratch
 https://github.com/mhinz/vim-signify                          sigcnify
@@ -59,7 +59,8 @@ https://github.com/zchee/deoplete-jedi                      deoplete-jedi
 # https://github.com/iCyMind/NeoSolarized                     NeoSolarized
 https://github.com/Shougo/neosnippet.vim                    neosnippet
 https://github.com/Shougo/neosnippet-snippets               neosnippet-snippets
-https://github.com/mhinz/vim-randomtag                      randomtag
+https://github.com/tbodt/deoplete-tabnine                   deoplete-tabnine
+# https://github.com/mhinz/vim-randomtag                      randomtag
 https://github.com/l04m33/vlime                             vlime-repo
 https://github.com/junegunn/fzf.vim                         fzf.vim
 # https://bitbucket.org/kovisoft/paredit                      paredit
@@ -70,10 +71,10 @@ https://github.com/junegunn/gv.vim                          gv
 https://github.com/Shougo/echodoc.vim                       echodoc
 https://github.com/Shougo/neco-vim                          neco-vim
 https://github.com/junegunn/vim-slash                     vim-slash
-https://github.com/tpope/vim-dadbod                       vim-dadbod
+# https://github.com/tpope/vim-dadbod                       vim-dadbod
 https://github.com/eraserhd/parinfer-rust                 parinfer-rust
 https://github.com/guns/vim-sexp                            vim-sexp
-https://github.com/Olical/vim-scheme                        vim-scheme
+# https://github.com/Olical/vim-scheme                        vim-scheme
 # https://github.com/soywod/vim-keepeye                       keepeye
 https://github.com/vim-scripts/YankRing.vim.git               yankring
 # https://github.com/shougo/neoyank.vim                           neoyank
