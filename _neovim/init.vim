@@ -372,7 +372,7 @@ let g:grepper = {}
 nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
 nnoremap <leader>a :Grepper -tool rg<cr>
 nnoremap <leader>A :Rg<cr>
-let g:grepper.rg = { 'grepprg': 'rg --vimgrep -i'}
+let g:grepper.rg = { 'grepprg': 'rg --vimgrep --ignore-case'}
 " nnoremap <leader>a :Grepper -tool ag --path-to-ignore ~/.ignore<cr>
 nnoremap <leader>g :Grepper -tool git<cr>
 
@@ -819,10 +819,12 @@ nnoremap <localleader>o :<C-u>Denite  -buffer-name=outline outline<cr>
 let g:deoplete#enable_at_startup = 1
 " let g:deoplete#sources#jedi#show_docstring = 0
 let g:deoplete#complete_method='omnifunc'
+let g:deoplete#sources#jedi#ignore_errors = v:true
 
 " let g:deoplete#ignore_sources = {'_': ['tags']}
 let g:deoplete#ignore_sources = {'_': ['tag']}
 set tags=./tags,tags
+
 
 " vim-highlightedyank plugin
 let g:highlightedyank_highlight_duration = 100

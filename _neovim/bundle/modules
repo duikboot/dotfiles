@@ -12,8 +12,9 @@ https://github.com/mbbill/undotree                            undotree
 https://github.com/Raimondi/delimitMate                       delimitMate
 # https://github.com/sheerun/vim-polyglot                       vim-polyglot
 # https://github.com/haya14busa/incsearch.vim                   incsearch.vim
-https://github.com/tpope/vim-markdown.git                     markdown
-https://github.com/thisivan/vim-matchit.git                   matchit
+# https://github.com/tpope/vim-markdown.git                     markdown
+# https://github.com/thisivan/vim-matchit.git                   matchit
+https://github.com/andymass/vim-matchup                     vim-matchup
 # https://github.com/ujihisa/neco-ghc.git                       neco-ghc
 https://github.com/tpope/vim-obsession                        obsession
 https://github.com/NLKNguyen/papercolor-theme                 papercolor
@@ -37,7 +38,7 @@ https://github.com/tpope/vim-unimpaired                       unimpaired
 https://github.com/Shougo/denite.nvim                         denite
 https://github.com/vim-scripts/vcscommand.vim.git             vcscommand
 # https://github.com/dag/vim2hs                                 vim2hs
-https://github.com/Shougo/vimproc.vim.git                     vimproc
+# https://github.com/Shougo/vimproc.vim.git                     vimproc
 # https://github.com/JarrodCTaylor/vim-python-test-runner      vim-python-test-runner
 # https://github.com/honza/vim-snippets                         vim-snippets
 # https://github.com/janko-m/vim-test                           vim-test
@@ -54,7 +55,6 @@ https://github.com/kien/rainbow_parentheses.vim             rainbow_parentheses
 https://github.com/machakann/vim-highlightedyank            highlightedyank
 https://github.com/mhinz/vim-grepper                        grepper
 https://github.com/Shougo/deoplete.nvim                       deoplete
-https://github.com/zchee/deoplete-jedi                      deoplete-jedi
 https://github.com/zchee/deoplete-jedi                      deoplete-jedi
 # https://github.com/iCyMind/NeoSolarized                     NeoSolarized
 https://github.com/Shougo/neosnippet.vim                    neosnippet
