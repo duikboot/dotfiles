@@ -167,7 +167,7 @@ xnoremap <C-x> <Esc>`.``gvP``P
 
 " ,v brings up my .vimrc
 " ,V reloads it -- making all changes active (have to save first)
-nnoremap <leader>v :sp ~/.config/nvim/init.vim<CR><C-W>_
+" nnoremap <leader>v :sp ~/.config/nvim/init.vim<CR><C-W>_
 nnoremap <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
 
 " open/close the quickfix window
@@ -548,7 +548,7 @@ let g:ale_python_flake8_options='--ignore=H301 --max-complexity=10'
 let g:ale_python_mypy_options = '--ignore-missing-imports'
 
 let b:ale_virtualenv_dir_names=['ENV', '.env', '.venv']
-let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
+" let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
 
 let g:ale_completion_enabled=1
 let g:ale_completion_delay=50
@@ -821,7 +821,7 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#complete_method='omnifunc'
 let g:deoplete#sources#jedi#ignore_errors = v:true
 
-" let g:deoplete#ignore_sources = {'_': ['tags']}
+" let g:deoplete#ignore_sources = {'': ['tags']}
 let g:deoplete#ignore_sources = {'_': ['tag']}
 set tags=./tags,tags
 
