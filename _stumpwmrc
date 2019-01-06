@@ -6,6 +6,7 @@
 ; (run-shell-command "pnmixer &> /dev/null &")
 ; (command-history::save-input-history)
 ; (command-history::load-input-history)
+; *input-history-ignore-duplicates*
 ; (balance-frames)
 
 ; (list-modules)
@@ -54,8 +55,9 @@
 (setf *debug-stream* (open "~/.stumpwm.d/debug-output.txt"
                         :direction :output
                         :if-exists :supersede))
+(redirect-all-output (data-dir-file "debug-output" "txt"))
 
-(add-hook *quit-hook* #'(lambda () (run-shell-command "pkill redshift")))
+; (add-hook *quit-hook* #'(lambda () (run-shell-command "pkill redshift")))
 
 ; Same as: (set-module-dir "/home/arjen/stumpwm/contrib/")
 (setf *module-dir* (make-pathname :directory
@@ -98,6 +100,8 @@
           "globalwindows"
           "command-history"
           "clipboard-history"))
+
+(setf *input-history-ignore-duplicates*)
 
 (define-key *root-map* (kbd "C-y") "show-clipboard-history")
 
@@ -233,7 +237,7 @@
               "gnewbg media"
               "gnewbg root")
 
-(dotimes (i 10) 
+(dotimes (i 10)
   (when (> i 0)
     (format t "~A" i)
     (define-key *top-map* (kbd (format nil "M-~a" i)) (format nil "gselect ~a" i))))
@@ -286,7 +290,7 @@
   ;; frame raise lock (lock AND raise == jumpto)
   (0 nil   t :class "Rambox"))
 
-(run-commands "firefox")
+;;(run-commands "firefox")
 
 ; (run-shell-command "redshift-gtk")
 (run-shell-command "pasystray")
@@ -353,13 +357,39 @@ will scroll through windows in the current group."
 
 (add-hook *mode-line-click-hook* 'mode-line-scroll-through-windows)
 
-(defcommand screen-layout-menu () ()
-  (let ((selection (select-from-menu (current-screen) *layout-menu*)))
-    (run-commands (second selection))))
-
 (setf *layout-menu*
   '(("Big home screen" "layout-home-screen")
     ("Laptop screen" "layout-laptop")
     ("Purmerend" "layout-purm")))
 
+(defcommand screen-layout-menu () ()
+  (let ((selection (select-from-menu (current-screen) *layout-menu*)))
+    (run-commands (second selection))))
+
+
+
+;;(defmacro -<> (expr &rest forms)
+;;  "Thread the given forms, with `<>` as a placeholder."
+;;  ;; I am going to lose my fucking mind if I have to program lisp without
+;;  ;; a threading macro, but I don't want to add another dep to this library, so
+;;  ;; here we are.
+;;  `(let* ((<> ,expr)
+;;          ,@(mapcar (lambda (form)
+;;                      (if (symbolp form)
+;;                        `(<> (,form <>))
+;;                        `(<> ,form)))
+;;                    forms))
+;;     <>))
+;;
+;;
+;;(defun keywordize (string)
+;;  (-<> string
+;;    (string-trim (string #\newline) <>)
+;;    string-upcase
+;;    (intern <> (find-package :keyword))))
+;;
+;;(defparameter *host* (keywordize (run-shell-command "hostname" t)))
+
 ;; vim: ft=lisp
+
+

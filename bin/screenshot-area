@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+sleep 0.2 ; scrot 'screenshot_%Y-%m-%d_%H-%M-%S.png' -s -e 'mv $f ~/screenshots && echo -n ~/screenshots/$f' | xsel --clipboard --input

@@ -198,47 +198,6 @@ let g:netrw_liststyle=0
 " map <c-l> <c-w>l
 " map <c-h> <c-w>h
 
-
-if !exists('g:neorepl_debug') && (exists('loaded_neorepl') || &cp)
-    finish
-endif
-
-let loaded_neorepl = 1
-let g:neorepl_jobid = 0
-
-"}}}
-" Functions {{{
-
-function! s:NeoRepl(command) " {{{
-    vnew
-    let result = termopen(a:command)
-
-    let g:neorepl_jobid = result
-endfunction " }}}
-
-function! NeoReplSendRaw(payload) " {{{
-    for line in (split(a:payload, '\n'))
-        call jobsend(g:neorepl_jobid, line . "\n")
-        sleep 2m " please kill me
-    endfor
-endfunction " }}}
-
-function! NeoReplSendSelection() " {{{
-    let old_z = @z
-    normal! gv"zy
-
-    call NeoReplSendRaw(@z . "\n")
-    let @z = old_z
-endfunction " }}}
-
-" }}}
-" Command {{{
-
-command! -range=0 -complete=shellcmd -nargs=1 NeoRepl call s:NeoRepl(<q-args>)
-
-" }}}
-
-
 " Terminal
 " let g:neoterm_fixedsize = 0
 let g:neoterm_default_mod = 'vertical'
@@ -370,10 +329,11 @@ nnoremap <silent> <leader>gf :vertical botright wincmd f<CR>
 " nnoremap <leader>a <Esc>:Ack!<Space>
 let g:grepper = {}
 nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
-nnoremap <leader>a :Grepper -tool rg<cr>
+nnoremap <leader>r :Grepper -tool rg<cr>
 nnoremap <leader>A :Rg<cr>
-let g:grepper.rg = { 'grepprg': 'rg --vimgrep --ignore-case'}
-" nnoremap <leader>a :Grepper -tool ag --path-to-ignore ~/.ignore<cr>
+let g:grepper.rg = { 'grepprg': 'rg --vimgrep --smart-case'}
+nnoremap <leader>a :Grepper -tool ag<cr>
+let g:grepper.ag = { 'grepprg': 'ag --path-to-ignore ~/.ignore'}
 nnoremap <leader>g :Grepper -tool git<cr>
 
 nmap go <plug>(GrepperOperator)
@@ -981,19 +941,19 @@ noremap <f6> :Dispatch<cr>
 "     \'python': 'nosetests'
 "     \}
 
-if has("python") && filereadable($HOME . '/.vimrc_python2')
-    source $HOME/.vimrc_python2
-elseif has("python3") && filereadable($HOME . '/.vimrc_default')
-    source $HOME/.vimrc_default
-endif
+" if has("python") && filereadable($HOME . '/.vimrc_python2')
+"     source $HOME/.vimrc_python2
+" elseif has("python3") && filereadable($HOME . '/.vimrc_default')
+"     source $HOME/.vimrc_default
+" endif
 
 if filereadable('.local.vim')
   source .local.vim
 endif
 
-if filereadable($HOME . '/.config/nvim/python.vim')
-    source $HOME/.config/nvim/python.vim
-endif
+" if filereadable($HOME . '/.config/nvim/python.vim')
+"     source $HOME/.config/nvim/python.vim
+" endif
 
 
 
@@ -1032,3 +992,4 @@ endif
 "   setlocal omnifunc=LanguageClient#complete
 "   setlocal signcolumn=yes
 " endif
+"

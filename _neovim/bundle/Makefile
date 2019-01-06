@@ -1,11 +1,13 @@
-all: update build-vimproc build-python-mode build-parinfer-rust build-jedi
+.PHONY: all deoplete-jedi jedi-vim update build-deoplete-tabnine
 
-build-vimproc:
-	make -C vimproc clean
-	make -C vimproc
+all: update build-parinfer-rust deoplete-jedi jedi-vim deoplete-tabnine
+# all: update deoplete-jedi jedi-vim
 
-build-jedi:
+deoplete-jedi:
 	git -C deoplete-jedi submodule update --init
+
+jedi-vim:
+	git -C jedi-vim submodule update --init
 
 # build-LanguageClient-neovim:
 # 	cd LanguageClient-neovim && ./install.sh
@@ -14,8 +16,11 @@ build-python-mode:
 	git -C python-mode submodule update --init
 
 build-parinfer-rust:
-	# cd parinfer-rust/cparinfer && cargo clean && cargo build --release
-	cd parinfer-rust/cparinfer  && cargo build --release
+	cd parinfer-rust && cargo clean && cargo build --release
+	# cd parinfer-rust/cparinfer  && cargo build --release
+	#
+build-deoplete-tabnine:
+	cd deoplete-tabnine && ./install.sh
 
 update:
 	./update.py
