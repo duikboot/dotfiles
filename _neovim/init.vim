@@ -38,7 +38,7 @@ set splitbelow
 " shows preview of the changes
 " "nosplit": Shows the effects of a command incrementally, as you type.
 " "split" : Also shows partial off-screen results in a preview window.
-set inccommand=split
+set inccommand=nosplit
 
 set dictionary=/usr/share/dict/words
 
@@ -469,6 +469,9 @@ nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 nnoremap <localleader>j :%!python -m json.tool<cr>
 
 
+let g:ale_completion_enabled=1
+let g:ale_completion_delay=50
+
 " let g:ale_lint_on_text_changed='never'
 " let g:ale_lint_on_insert_leave=1
 " let g:ale_virtualtext_cursor=1
@@ -509,9 +512,8 @@ let g:ale_python_mypy_options = '--ignore-missing-imports'
 
 let b:ale_virtualenv_dir_names=['ENV', '.env', '.venv']
 " let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
+autocmd FileType python nnoremap <localleader>b Oimport ipdb; ipdb.set_trace()<esc>
 
-let g:ale_completion_enabled=1
-let g:ale_completion_delay=50
 
 "let g:pymode_python = 'python3'
 " yet let it open on toggle.
@@ -569,9 +571,10 @@ set wildignore+=lib
 """ Insert completion
 " don't select first item, follow typing in autocomplete
 " set complete=.,w,b,u,t
-set complete=.,b,u,kspell
+" set complete=.,b,u,kspell
+set complete=.,b,u
 " set completeopt=menuone,longest
-set completeopt=menuone,longest,noinsert
+set completeopt=menuone,noinsert,noselect
 " set completeopt=menu,menuone,preview,noselect,noinsert
 set pumheight=8             " Keep a small completion window
 
@@ -781,6 +784,13 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#complete_method='omnifunc'
 let g:deoplete#sources#jedi#ignore_errors = v:true
 
+let g:jedi#popup_select_first = 0
+let g:jedi#completions_enabled = 0
+
+" select from top to bottom
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+
 " let g:deoplete#ignore_sources = {'': ['tags']}
 let g:deoplete#ignore_sources = {'_': ['tag']}
 set tags=./tags,tags
@@ -867,22 +877,12 @@ let g:necoghc_enable_detailed_browse = 1
 " Rebuild Ctags (mnemonic RC -> CR -> <cr>)
 nnoremap <leader><cr> :silent !ctags -R --links=no --exclude=.buildozer --languages=-javascript --languages=-css >/dev/null 2>&1 &<cr>:redraw!<cr>
 
-" Python
-" ==========================================================
-"autocmd BufRead *.py compiler nose
-" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-" autocmd FileType tex setlocal omnifunc=csscomplete#CompleteCSS
-" autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-" autocmd FileType haskell setlocal ai sw=4 ts=4 sta et fo=croql
-" " autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,from,import
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent
 " autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 "
 
 autocmd FileType python setlocal path+=.venv/**
+autocmd FileType python setlocal colorcolumn=79
 
 
 function! s:OpenTestFile(split)

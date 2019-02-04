@@ -1,6 +1,6 @@
 .PHONY: all deoplete-jedi jedi-vim update build-deoplete-tabnine
 
-all: update build-parinfer-rust deoplete-jedi jedi-vim deoplete-tabnine
+all: update build-parinfer-rust -jedi jedi-vim deoplete-tabnine
 # all: update deoplete-jedi jedi-vim
 
 deoplete-jedi:

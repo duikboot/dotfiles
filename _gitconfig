@@ -18,3 +18,5 @@
   st = status
 [web]
 	browser = firefox
+[gui]
+	spellingdictionary = none

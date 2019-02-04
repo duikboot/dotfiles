@@ -91,7 +91,7 @@
 
 (mapcar #'load-module
         '("net"
-          "app-menu"
+          ; "app-menu"
           "cpu"
           "battery-portable"
           "end-session"
@@ -101,7 +101,7 @@
           "command-history"
           "clipboard-history"))
 
-(setf *input-history-ignore-duplicates*)
+(setf *input-history-ignore-duplicates* t)
 
 (define-key *root-map* (kbd "C-y") "show-clipboard-history")
 
@@ -113,7 +113,7 @@
 (setf *screen-mode-line-format*
       (list '(:eval (run-shell-command "date '+%R, %F %a'|tr -d [:cntrl:]" t))  ;date command
             ; " | %t" ; temperature
-            " | %c" ; cpu
+            " | %C" ; cpu
             " | %l" ; network
             " | Battery: %B " ; battery
             " | Groups: %g " ; groups
@@ -142,9 +142,12 @@
        (sleep ,seconds)
        ,@body))))
 
-(start-with-delay 5
+(defun wallpaper ()
  (run-shell-command
    "feh --bg-scale $HOME/config/dotfiles/_wallpapers/groningen_station.jpg"))
+
+(start-with-delay 5
+  (wallpaper))
 
 (start-with-delay 10 (run-commands "stumptray"))
 
@@ -169,6 +172,8 @@
 (defcommand layout-home-screen ()()
   (run-shell-command "layout_home_screen.sh")
   (refresh-heads)
+  (refresh-heads)
+  (wallpaper)
   (sleep 2)
   (refresh-heads))
 
@@ -176,12 +181,17 @@
   (run-shell-command "layout_purm.sh")
   (refresh-heads)
   (sleep 2)
+  (refresh-heads)
+  (run-shell-command "layout_purm.sh")
+  (wallpaper)
+  (sleep 2)
   (refresh-heads))
 
 (defcommand layout-laptop ()()
   (run-shell-command "layout_laptop.sh")
   (refresh-heads)
   (refresh-heads)
+  (wallpaper)
   (sleep 2)
   (refresh-heads))
 
@@ -267,9 +277,9 @@
 (define-key *top-map* (kbd "M-=") "balance-frames")
 (define-key *top-map* (kbd "M-0") "only")
 
-; (define-key *top-map* (kbd "XF86AudioLowerVolume") "exec amixer set Master 5%-")
-; (define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer set Master 5%+")
-; (define-key *top-map* (kbd "XF86AudioMute") "exec amixer set Master toggle")
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "exec amixer set Master 5%-")
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer set Master 5%+")
+(define-key *top-map* (kbd "XF86AudioMute") "exec amixer set Master toggle")
 
 ;; Clear rules
 (clear-window-placement-rules)
