@@ -19,7 +19,6 @@ filetype plugin indent on     " enable loading indent file for filetype
 set number                    " Display line numbers
 set numberwidth=1             " using only 1 column (and 1 space) while possible
 set hidden
-" set background=dark           " We are using dark background in vim
 set title                     " show title in console title bar
 set wildmenu
 set wildmode=full             " <Tab> cycles between all matching choices.
@@ -35,12 +34,15 @@ set directory=~/.tmp//  "set directory for swapfiles
 set splitright
 set splitbelow
 
+" Very cool transparant completion menu, but it's distracting me.
+" set pumblend=10
+
 " shows preview of the changes
 " "nosplit": Shows the effects of a command incrementally, as you type.
 " "split" : Also shows partial off-screen results in a preview window.
 set inccommand=nosplit
 
-set dictionary=/usr/share/dict/words
+" set dictionary=/usr/share/dict/words
 
 if has("persistent_undo")
     " Keep a persistend backupfile
@@ -469,8 +471,14 @@ nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 nnoremap <localleader>j :%!python -m json.tool<cr>
 
 
+ let g:indentLine_fileType = ['python']
+
+
 let g:ale_completion_enabled=1
 let g:ale_completion_delay=50
+
+autocmd FileType python :iabbrev <buffer> .. self
+
 
 " let g:ale_lint_on_text_changed='never'
 " let g:ale_lint_on_insert_leave=1
@@ -512,7 +520,7 @@ let g:ale_python_mypy_options = '--ignore-missing-imports'
 
 let b:ale_virtualenv_dir_names=['ENV', '.env', '.venv']
 " let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
-autocmd FileType python nnoremap <localleader>b Oimport ipdb; ipdb.set_trace()<esc>
+autocmd FileType python nnoremap <localleader>b Oimport ipdb; ipdb.set_trace()<esc>:w<CR>
 
 
 "let g:pymode_python = 'python3'
@@ -577,6 +585,12 @@ set complete=.,b,u
 set completeopt=menuone,noinsert,noselect
 " set completeopt=menu,menuone,preview,noselect,noinsert
 set pumheight=8             " Keep a small completion window
+
+" autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
 
 """ Moving Around/Editing
 set cursorline              " have a line indicate the cursor location
@@ -672,9 +686,10 @@ else
     " set nocursorline
     set t_Co=256
     set termguicolors
-    set background=light           " We are using dark background in vim
-    " colorscheme NeoSolarized
-     colorscheme PaperColor
+    set background=dark           " We are using dark background in vim
+    colorscheme NeoSolarized
+     " colorscheme PaperColor
+     " colorscheme gruvbox
 endif
 
 if has('nvim')
@@ -773,15 +788,15 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 
 " For conceal markers.
 if has('conceal')
-  set conceallevel=2 concealcursor=niv
+  set conceallevel=0 concealcursor=niv
   autocmd FileType roamer setlocal conceallevel=0
 endif
 
-nnoremap <localleader>o :<C-u>Denite  -buffer-name=outline outline<cr>
+" nnoremap <localleader>o :<C-u>Denite  -buffer-name=outline outline<cr>
 
 let g:deoplete#enable_at_startup = 1
 " let g:deoplete#sources#jedi#show_docstring = 0
-let g:deoplete#complete_method='omnifunc'
+" let g:deoplete#complete_method='omnifunc'
 let g:deoplete#sources#jedi#ignore_errors = v:true
 
 let g:jedi#popup_select_first = 0
@@ -830,6 +845,12 @@ autocmd FileType racket set commentstring=;%s
 " "}}}
 "
 "
+"
+augroup ft_tree
+    autocmd!
+    autocmd FileType tree setlocal foldmethod=expr
+    autocmd FileType tree setlocal foldlevel=1
+augroup END
 
 " common lisp {{{
 augroup ft_lisp
@@ -856,6 +877,10 @@ augroup set_lisp_repl
           \ if executable('lisp') |
           \   call neoterm#repl#set('lisp') |
           \ end
+augroup END
+
+augroup ft_prolog
+    autocmd BufRead,BufNewFile *.pl set filetype=prolog
 augroup END
 
 " let g:slimv_repl_split = 4

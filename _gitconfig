@@ -1,5 +1,5 @@
 [user]
-	name = Arjen Dijksta
+    name = Arjen Dijksta
     email = arjen.dijkstra@devmob.com
 
 [color]
@@ -11,12 +11,13 @@
     default = matching
 [core]
     editor = vim
-[gui]
 [alias]
-	root = !pwd
-  co = checkout
-  st = status
+    root = !pwd
+    co = checkout
+    st = status
 [web]
-	browser = firefox
+    browser = firefox
 [gui]
-	spellingdictionary = none
+    spellingdictionary = none
+[commit]
+    verbose = true

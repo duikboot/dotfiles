@@ -27,9 +27,9 @@ def update(link, directory):
     """
 
     if "bitbucket" in link:
-        return subprocess.Popen(['hg', 'pull', '-u', '--cwd', directory])
+        return subprocess.run(['hg', 'pull', '-u', '--cwd', directory])
     elif "git" in link:
-        return subprocess.Popen(["git", "-C", directory, "pull", "-v"])
+        return subprocess.run(["git", "-C", directory, "pull", "-v"])
 
 
 def procs(module):
@@ -72,7 +72,7 @@ def main():
     Main runner
     """
     process_list, obsolete_dirs = list_processes()
-    [proc.communicate() for proc in process_list]
+    # [proc.communicate() for proc in process_list]
 
     # Remove commented repositories
     to_remove = [d for d in obsolete_dirs if not os.path.islink(d)]

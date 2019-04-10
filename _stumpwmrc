@@ -10,11 +10,21 @@
 ; (balance-frames)
 
 ; (list-modules)
-
-; (simpletray:create)
+(mode-line)
 ; (run-commands "stumptray")
+
+; (restart-hard)
+; (restart-soft)
+; (getenv "GDK_CORE_DEVICE_EVENTS")
+
+; (set-font (make-instance 'xft:font :family "Droid Sans Mono" :subfamily "Powerline" :size 10))
+; (set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 10))
+; (make-instance 'xft:font :family "Source Code Pro" :subfamily "Powerline" :size 11)
+; (xft:get-font-families)
+; (xft:cache-fonts)
 ; (commands)
 ; (lastmsg)
+; (quit)
 
 ; (get-x-selection)
 ; (window-number (current-window))
@@ -28,9 +38,6 @@
 ; *timer-list*
 ; (make-pathname :directory *home-dir*)
 ; (ql:quickload :ttf-fonts)
-; (set-font (make-instance 'xft:font :family "Source Code Pro Black"
-;                           :subfamily "Regular"
-;                           :size 9))
 ; CPU:*ACPI-THERMAL-ZONE*
 ; xft:*font-dirs*
 ; *data-dir*
@@ -44,18 +51,20 @@
 ; (describe (first (refresh-heads)))
 ; *version*
 ; (echo-groups (current-screen) *group-format* t)
-; (set-font (list (make-instance 'xft:font :family "Source Code Pro for Powerline" :subfamily "Medium" :size 22)))
 
 (in-package :stumpwm)
 
+
+(setf *startup-message* (format nil "^B~A" *version*))
+
 (defvar *home-dir* (getenv "HOME"))
 
-(setf *debug-level* 1)
+(setf *debug-level* 5)
 
 (setf *debug-stream* (open "~/.stumpwm.d/debug-output.txt"
                         :direction :output
                         :if-exists :supersede))
-(redirect-all-output (data-dir-file "debug-output" "txt"))
+; (redirect-all-output (data-dir-file "debug-output" "txt"))
 
 ; (add-hook *quit-hook* #'(lambda () (run-shell-command "pkill redshift")))
 
@@ -113,7 +122,7 @@
 (setf *screen-mode-line-format*
       (list '(:eval (run-shell-command "date '+%R, %F %a'|tr -d [:cntrl:]" t))  ;date command
             ; " | %t" ; temperature
-            " | %C" ; cpu
+            ; " | %C  " ; cpu
             " | %l" ; network
             " | Battery: %B " ; battery
             " | Groups: %g " ; groups
@@ -123,7 +132,7 @@
 (setf *message-window-gravity* :center)
 (setf *input-window-gravity* :center)
 
-(run-with-timer 3 10 'modeline)
+; (run-with-timer 3 10 'modeline)
 
 ; ; Wait for tray before firing stumptray
 ; (sb-thread:make-thread
@@ -149,7 +158,7 @@
 (start-with-delay 5
   (wallpaper))
 
-(start-with-delay 10 (run-commands "stumptray"))
+; (start-with-delay 10 (run-commands "stumptray"))
 
 (run-shell-command "xscreensaver")
 
@@ -177,15 +186,15 @@
   (sleep 2)
   (refresh-heads))
 
-(defcommand layout-purm ()()
-  (run-shell-command "layout_purm.sh")
-  (refresh-heads)
-  (sleep 2)
-  (refresh-heads)
-  (run-shell-command "layout_purm.sh")
-  (wallpaper)
-  (sleep 2)
-  (refresh-heads))
+; (defcommand layout-purm ()()
+;   (run-shell-command "layout_purm.sh")
+;   (refresh-heads)
+;   (sleep 2)
+;   (refresh-heads)
+;   (run-shell-command "layout_purm.sh")
+;   (wallpaper)
+;   (sleep 2)
+;   (refresh-heads))
 
 (defcommand layout-laptop ()()
   (run-shell-command "layout_laptop.sh")
@@ -229,8 +238,9 @@
 (make-web-jump "duckduckgo" "firefox --new-tab https://www.duckduckgo.com/?q=")
 (make-web-jump "d" "firefox --new-tab  https://www.duckduckgo.com/?q=")
 
-(make-web-jump "google" "firefox --new-tab http://www.google.nl/search?q=")
-(make-web-jump "g" "firefox --new-tab http://www.google.nl/search?q=")
+(make-web-jump "google" "firefox --new-tab https://www.google.nl/search?q=")
+(make-web-jump "g" "firefox --new-tab https://www.google.nl/search?q=")
+(make-web-jump "translate" "firefox --new-tab https://translate.google.com/?q=")
 
 (make-web-jump "github" "firefox --new-tab https://github.com/search?q=")
 
@@ -369,14 +379,12 @@ will scroll through windows in the current group."
 
 (setf *layout-menu*
   '(("Big home screen" "layout-home-screen")
-    ("Laptop screen" "layout-laptop")
-    ("Purmerend" "layout-purm")))
+    ("Laptop screen" "layout-laptop")))
+    ; ("Purmerend" "layout-purm")))
 
 (defcommand screen-layout-menu () ()
   (let ((selection (select-from-menu (current-screen) *layout-menu*)))
     (run-commands (second selection))))
-
-
 
 ;;(defmacro -<> (expr &rest forms)
 ;;  "Thread the given forms, with `<>` as a placeholder."
@@ -400,6 +408,11 @@ will scroll through windows in the current group."
 ;;
 ;;(defparameter *host* (keywordize (run-shell-command "hostname" t)))
 
+
+; (defun print-transition (new-window current-window)
+;   (with-open-file (stream "~/stumpwm-debug.txt" :direction :output :if-exists :append)
+;     (format stream "~A => ~A~%" current-window new-window)))
+
+; (add-hook *focus-window-hook* 'print-transition)
+
 ;; vim: ft=lisp
-
-

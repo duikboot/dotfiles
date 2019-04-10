@@ -30,7 +30,7 @@
 # https://github.com/thisivan/vim-matchit.git                   matchit
 # https://github.com/tpope/vim-dadbod                       vim-dadbod
 # https://github.com/tpope/vim-endwise                          endwise
-# https://github.com/tpope/vim-markdown.git                     markdown
+https://github.com/tpope/vim-markdown.git                     markdown
 # https://github.com/ujihisa/neco-ghc.git                       neco-ghc
 # https://github.com/vim-scripts/tracwiki.git                   tracwiki
 git://github.com/tpope/vim-pathogen.git                       pathogen
@@ -38,7 +38,7 @@ https://github.com/sheerun/vim-polyglot                       vim-polyglot
 https://github.com/NLKNguyen/papercolor-theme                 papercolor
 https://github.com/Olical/vim-enmasse                         enmasse
 https://github.com/Raimondi/delimitMate                       delimitMate
-https://github.com/Shougo/denite.nvim                         denite
+# https://github.com/Shougo/denite.nvim                         denite
 https://github.com/Shougo/deoplete.nvim                       deoplete
 https://github.com/Shougo/echodoc.vim                       echodoc
 https://github.com/Shougo/neco-vim                          neco-vim
@@ -65,7 +65,7 @@ https://github.com/majutsushi/tagbar                          tagbar
 https://github.com/mbbill/undotree                            undotree
 https://github.com/mhinz/vim-grepper                        grepper
 https://github.com/mhinz/vim-signify                          sigcnify
-https://github.com/tbodt/deoplete-tabnine                   deoplete-tabnine
+# https://github.com/tbodt/deoplete-tabnine                   deoplete-tabnine
 https://github.com/tpope/vim-abolish                          abolish
 https://github.com/tpope/vim-commentary.git                   commentary
 https://github.com/tpope/vim-fugitive                         fugitive
@@ -80,3 +80,6 @@ https://github.com/w0rp/ale                                   ale
 https://github.com/wellle/targets.vim                         targets
 https://github.com/zchee/deoplete-jedi                      deoplete-jedi
 https://github.com/ervandew/supertab                        supertab
+# https://github.com/mhinz/vim-tree                           vim-tree
+https://github.com/michaeljsmith/vim-indent-object          vim-indent-object
+https://github.com/iCyMind/NeoSolarized                     NeoSolarized
