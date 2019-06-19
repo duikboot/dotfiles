@@ -49,6 +49,7 @@ https://github.com/andymass/vim-matchup                     vim-matchup
 https://github.com/bling/vim-airline                          airline
 https://github.com/christoomey/vim-tmux-navigator             tmux-navigator
 https://github.com/davidhalter/jedi-vim                 jedi-vim
+https://github.com/zchee/deoplete-jedi                      deoplete-jedi
 https://github.com/eraserhd/parinfer-rust                 parinfer-rust
 https://github.com/godlygeek/tabular                          tabular
 https://github.com/guns/vim-sexp                            vim-sexp
@@ -78,8 +79,7 @@ https://github.com/vim-scripts/YankRing.vim.git               yankring
 https://github.com/vim-scripts/vcscommand.vim.git             vcscommand
 https://github.com/w0rp/ale                                   ale
 https://github.com/wellle/targets.vim                         targets
-https://github.com/zchee/deoplete-jedi                      deoplete-jedi
 https://github.com/ervandew/supertab                        supertab
-# https://github.com/mhinz/vim-tree                           vim-tree
 https://github.com/michaeljsmith/vim-indent-object          vim-indent-object
 https://github.com/iCyMind/NeoSolarized                     NeoSolarized
+https://github.com/lervag/vimtex                            vimtex

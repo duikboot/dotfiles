@@ -13,9 +13,9 @@ let g:python3_host_prog='/home/arjen/config/dotfiles/_neovim/ENV/bin/python'
 
 
 " Basic Settings {{{
-syntax on                     " syntax highlighting
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
+syntax on                     " syntax highlighting
 set number                    " Display line numbers
 set numberwidth=1             " using only 1 column (and 1 space) while possible
 set hidden
@@ -30,6 +30,7 @@ set showfulltag               " Show full tags when doing search completion
 setlocal keywordprg=:help     " Use K to show help on subject under cursor
 set backupdir=~/.tmp//
 set directory=~/.tmp//  "set directory for swapfiles
+set conceallevel=0
 
 set splitright
 set splitbelow
@@ -56,7 +57,6 @@ endif
 " ==========================================================
 let g:mapleader="\<space>"             " change the leader to be a comma vs slash
 let g:maplocalleader="\\"       " map localleader to \\
-" noremap - ,
 
 
 " Seriously, guys. It's not like :W is bound to anything anyway.
@@ -84,6 +84,8 @@ nnoremap <leader>q :q<CR>
 
 nnoremap <Leader>f :find<space>
 
+let g:csv_no_conceal=1
+
 " ============================================================================
 " FZF {{{
 " ============================================================================
@@ -103,6 +105,16 @@ function! s:change_branch(e)
     :AirlineRefresh
     echom "Changed branch to " . a:e
 endfunction
+
+
+function! Only()
+    :mksession!
+    :only
+endfunction
+
+nnoremap <Leader>0 :call Only()<cr>
+
+nnoremap <Leader>SS :source Session.vim<cr>
 
 command! Gbranch call fzf#run(
     \ {
@@ -145,8 +157,13 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 " let Y be more consistent
 nmap Y y$
 
-" open tag in the middle of the screen
-nnoremap <C-]> <C-]>zz
+" open tag on the top of the screen
+nnoremap <C-]> <C-]>zt
+
+" " open next toplevel thingie to top of the screen.
+nnoremap ]] ]]zt
+nnoremap [[ [[zt
+
 
 " Snippets from:
 " https://github.com/mattboehm/dotfiles/blob/master/vim/vimrc
@@ -179,8 +196,6 @@ nnoremap <leader>cc :cclose<CR>
 " open/close the location window
 nnoremap <leader>l :lopen<CR>
 nnoremap <leader>ll :lclose<CR>
-
-nnoremap <Leader>SS :source Session.vim<cr>
 
 " for when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
@@ -350,6 +365,8 @@ nnoremap <leader>ts <Esc>:tselect<Space>
 
 " use ,T to jump to tag in a vertical split
 " nnoremap <silent> <Leader>F :let word=expand("<cword>")<CR>:vsp<CR>:wincmd w<cr>:exec("tselect ". word)<cr>
+
+" Open in vertical split the tag under the cursur.
 nnoremap  <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<cr>zz
 
 " Toggle Tagbar
@@ -477,7 +494,7 @@ nnoremap <localleader>j :%!python -m json.tool<cr>
 let g:ale_completion_enabled=1
 let g:ale_completion_delay=50
 
-autocmd FileType python :iabbrev <buffer> .. self
+" autocmd FileType python :iabbrev <buffer> .. self
 
 
 " let g:ale_lint_on_text_changed='never'
@@ -485,15 +502,17 @@ autocmd FileType python :iabbrev <buffer> .. self
 " let g:ale_virtualtext_cursor=1
 let b:ale_python_flake8_use_global=1
 let b:ale_python_pylint_use_global=1
-let b:ale_python_vulture_use_global=1
+let b:ale_python_pycodestyle_use_global=1
+" let b:ale_python_vulture_use_global=1
 let g:ale_linters = {
-            \ 'python' : ['flake8', 'mypy', 'pyflakes', 'pylint'],
+            \ 'python' : ['pycodestyle', 'mypy', 'pyflakes', 'pylint'],
 \ }
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint'],
 \   'python': ['autopep8', 'yapf', 'isort', 'add_blank_lines_for_python_control_statements'],
+\   'tex': ['latexindent', 'textlint', 'remove_trailing_lines', 'trim_whitespace'],
 \}
 
 let g:ale_python_autopep8_options = '--aggressive'
@@ -502,7 +521,8 @@ let g:ale_set_highlights = 0
 " nnoremap <localleader>a8 :call ale#fix#Fix()
 nmap <localleader>a8 <Plug>(ale_fix)
 
-let g:ale_python_flake8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/flake8'
+" let g:ale_python_flake8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/flake8'
+let g:ale_python_pycodestyle_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pycodestyle'
 let g:ale_python_pylint_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pyflakes'
 let g:ale_python_vulture_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/vulture'
 let g:ale_python_mypy_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/mypy'
@@ -686,9 +706,9 @@ else
     " set nocursorline
     set t_Co=256
     set termguicolors
-    set background=dark           " We are using dark background in vim
-    colorscheme NeoSolarized
-     " colorscheme PaperColor
+    set background=light           " We are using dark background in vim
+    " colorscheme NeoSolarized
+     colorscheme PaperColor
      " colorscheme gruvbox
 endif
 
@@ -786,11 +806,11 @@ xmap <c-k>     <Plug>(neosnippet_expand_target)
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-" For conceal markers.
-if has('conceal')
-  set conceallevel=0 concealcursor=niv
-  autocmd FileType roamer setlocal conceallevel=0
-endif
+" " For conceal markers.
+" if has('conceal')
+"   set conceallevel=0 concealcursor=niv
+"   autocmd FileType roamer setlocal conceallevel=0
+" endif
 
 " nnoremap <localleader>o :<C-u>Denite  -buffer-name=outline outline<cr>
 
@@ -936,6 +956,20 @@ nnoremap <localleader>ot :call <SID>OpenTestFile("")<cr>
 let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
 let tlist_make_settings  = 'make;m:makros;t:targets'
 
+let g:tex_flavor='latexmk'
+let g:vimtex_view_method='zathura'
+let g:vimtex_compiler_progname = 'nvr'
+
+let g:vimtex_latexmk_progname= '/home/arjen/config/dotfiles/_neovim/ENV/bin/nvr'
+
+let g:vimtex_quickfix_mode=1
+let g:tex_conceal='abdmg'
+
+autocmd FileType tex setlocal spell
+set spelllang=nl,en_gb
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+let g:vimtex_compiler_progname = 'nvr'
+
 
 " let s:ocamlmerlin=substitute(system('opam config var share'),'\n$','','''') .  "/ocamlmerlin"
 " execute "set rtp+=".s:ocamlmerlin."/vim"
@@ -958,8 +992,6 @@ augroup END
 " let g:signify_update_on_focusgained = 1
 let g:signify_vcs_list = ['git', 'hg']
 
-noremap <f5> :Start<cr>
-noremap <f6> :Dispatch<cr>
 " noremap <Leader>C :Copen<cr>
 
 " let g:dispatch_compilers = {

@@ -1,6 +1,6 @@
 [user]
     name = Arjen Dijksta
-    email = arjen.dijkstra@devmob.com
+    email = dijkstra.arjen@gmail.com
 
 [color]
     diff = auto
@@ -11,6 +11,7 @@
     default = matching
 [core]
     editor = vim
+    excludesfile = /home/arjen/.gitignore
 [alias]
     root = !pwd
     co = checkout

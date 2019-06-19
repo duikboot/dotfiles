@@ -1,5 +1,12 @@
+#+test-modeline
+(progn
+  (mode-line)
+  (run-commands "stumptray")
+  (refresh-heads))
+
+#+test-modeline
+(layout-laptop)
 ; *startup-message*
-; (setf *startup-message* (format nil "^B~A^b~&~A" (machine-instance) *startup-message*))
 ; *input-history*
 ; (run-shell-command "xfce4-panel &> /dev/null &")
 ; (run-shell-command "nm-applet &> /dev/null &")
@@ -7,19 +14,15 @@
 ; (command-history::save-input-history)
 ; (command-history::load-input-history)
 ; *input-history-ignore-duplicates*
+; *features*
 ; (balance-frames)
 
 ; (list-modules)
-(mode-line)
-; (run-commands "stumptray")
 
 ; (restart-hard)
 ; (restart-soft)
 ; (getenv "GDK_CORE_DEVICE_EVENTS")
 
-; (set-font (make-instance 'xft:font :family "Droid Sans Mono" :subfamily "Powerline" :size 10))
-; (set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 10))
-; (make-instance 'xft:font :family "Source Code Pro" :subfamily "Powerline" :size 11)
 ; (xft:get-font-families)
 ; (xft:cache-fonts)
 ; (commands)
@@ -29,6 +32,7 @@
 ; (get-x-selection)
 ; (window-number (current-window))
 ; (group-windows (current-group))
+; (tile-group-current-frame (current-group))
 
 ; swap current window with window in frame left:
 ; C-t x left (C-t x h)
@@ -48,12 +52,12 @@
 ; (getenv "USER")
 ; (all-windows)
 ; (describe 'float-this)
-; (describe (first (refresh-heads)))
 ; *version*
 ; (echo-groups (current-screen) *group-format* t)
 
 (in-package :stumpwm)
 
+(set-prefix-key (kbd "C-space"))
 
 (setf *startup-message* (format nil "^B~A" *version*))
 
@@ -76,13 +80,42 @@
 
 (defvar *vlime-instance* nil)
 
+(defmacro start-with-delay (seconds &body body)
+  "Wait with executing command with x seconds."
+  `(sb-thread:make-thread
+    (lambda ()
+      (progn
+       (sleep ,seconds)
+       ,@body))))
+
+(defmacro make-program-binding (command value &key (key-binding nil))
+  `(progn
+    (defcommand ,(intern command) ()()
+       (run-or-raise ,command '(:class ,value)))
+    ,(when key-binding
+      `(define-key *top-map* (kbd (format nil "M-~a" ,key-binding)) ,command))))
+
+;; Web jump (works for Google and Imdb)
+(defmacro make-web-jump (name prefix)
+  `(defcommand ,(intern name) (search) ((:rest ,(concatenate 'string name " search: ")))
+    (nsubstitute #\+ #\Space search)
+    (run-shell-command (concatenate 'string ,prefix search))))
+
+(defmacro create-sudo-command (defcommand command)
+  `(defcommand ,defcommand () ()
+     (run-shell-command
+       (concatenate 'string "xterm -e sudo " ,command))))
+
+(defun wallpaper ()
+ (run-shell-command
+   "feh --bg-scale $HOME/config/dotfiles/_wallpapers/groningen_station.jpg"))
+
 (defun start-vlime ()
  (unless *vlime-instance*
   (vlime:main :port 4005 :backend :vlime-usocket)
   (setf *vlime-instance* "Vlime running")))
 
 (start-vlime)
-
 
 ; Turn on the modeline
 
@@ -143,20 +176,8 @@
 
 ;;; run shell commmands
 
-; Wait for tray before firing stumptray
-(defmacro start-with-delay (seconds &body body)
-  `(sb-thread:make-thread
-    (lambda ()
-      (progn
-       (sleep ,seconds)
-       ,@body))))
 
-(defun wallpaper ()
- (run-shell-command
-   "feh --bg-scale $HOME/config/dotfiles/_wallpapers/groningen_station.jpg"))
-
-(start-with-delay 5
-  (wallpaper))
+(wallpaper)
 
 ; (start-with-delay 10 (run-commands "stumptray"))
 
@@ -168,12 +189,13 @@
 
 ;;; Mappings
 
-(defmacro make-program-binding (command value &key (key-binding nil))
-  `(progn
-    (defcommand ,(intern command) ()()
-       (run-or-raise ,command '(:class ,value)))
-    ,(when key-binding
-      `(define-key *top-map* (kbd (format nil "M-~a" ,key-binding)) ,command))))
+(make-program-binding "vlc" "vlc")
+(make-program-binding "firefox" "Firefox" :key-binding "b")
+(make-program-binding "arandr" "arandr")
+(make-program-binding "chromium-browser" "chromium-browser")
+(make-program-binding "/opt/Rambox/rambox" "Rambox" :key-binding "c")
+(make-program-binding "spotify" "Spotify" :key-binding "m")
+(make-program-binding "calibre" "calibre" :key-binding "C")
 
 (defcommand lock-screen ()()
             (run-shell-command "xscreensaver-command -lock"))
@@ -186,15 +208,6 @@
   (sleep 2)
   (refresh-heads))
 
-; (defcommand layout-purm ()()
-;   (run-shell-command "layout_purm.sh")
-;   (refresh-heads)
-;   (sleep 2)
-;   (refresh-heads)
-;   (run-shell-command "layout_purm.sh")
-;   (wallpaper)
-;   (sleep 2)
-;   (refresh-heads))
 
 (defcommand layout-laptop ()()
   (run-shell-command "layout_laptop.sh")
@@ -204,14 +217,15 @@
   (sleep 2)
   (refresh-heads))
 
+(defcommand layout-multi ()()
+  (run-shell-command "/home/arjen/.screenlayout/multi.sh")
+  (refresh-heads)
+  (refresh-heads)
+  (wallpaper)
+  (sleep 2)
+  (refresh-heads))
 
-(make-program-binding "vlc" "vlc")
-(make-program-binding "firefox" "Firefox" :key-binding "b")
-(make-program-binding "arandr" "arandr")
-(make-program-binding "chromium-browser" "chromium-browser")
-(make-program-binding "/opt/Rambox/rambox" "Rambox" :key-binding "c")
-(make-program-binding "spotify" "Spotify" :key-binding "m")
-(make-program-binding "calibre" "calibre" :key-binding "C")
+
 
 (define-key *top-map* (kbd "M-f") "exec nautilus")
 
@@ -225,12 +239,6 @@
 
 (stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "M-RET") "exec gnome-terminal")
 ; (stumpwm::run-shell-command "stalonetray")
-
-;; Web jump (works for Google and Imdb)
-(defmacro make-web-jump (name prefix)
-  `(defcommand ,(intern name) (search) ((:rest ,(concatenate 'string name " search: ")))
-    (nsubstitute #\+ #\Space search)
-    (run-shell-command (concatenate 'string ,prefix search))))
 
 (make-web-jump "open" "firefox --new-tab ")
 
@@ -272,11 +280,6 @@
               (fnext)
               (pull-window win)))
 
-(defmacro create-sudo-command (defcommand command)
-  `(defcommand ,defcommand () ()
-     (run-shell-command
-       (concatenate 'string "xterm -e sudo " ,command))))
-
 (create-sudo-command sudo-gnome-control-center "XDG_CURRENT_DESKTOP=GNOME gnome-control-center")
 (create-sudo-command sudo-dnfdragora "dnfdragora")
 
@@ -287,9 +290,13 @@
 (define-key *top-map* (kbd "M-=") "balance-frames")
 (define-key *top-map* (kbd "M-0") "only")
 
+(defcommand mute-sound () ()
+  "Mute sound."
+  (run-shell-command  "amixer set Master toggle"))
+
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "exec amixer set Master 5%-")
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer set Master 5%+")
-(define-key *top-map* (kbd "XF86AudioMute") "exec amixer set Master toggle")
+(define-key *top-map* (kbd "XF86AudioMute") "mute-sound")
 
 ;; Clear rules
 (clear-window-placement-rules)
@@ -314,7 +321,7 @@
 
 ; (run-shell-command "redshift-gtk")
 (run-shell-command "pasystray")
-(run-shell-command "nm-applet")
+(run-shell-command "nm-applet --sm-disable")
 
 ;; Pull window by id to current frame.
 ;; <c-t><c-id>
@@ -379,12 +386,48 @@ will scroll through windows in the current group."
 
 (setf *layout-menu*
   '(("Big home screen" "layout-home-screen")
-    ("Laptop screen" "layout-laptop")))
-    ; ("Purmerend" "layout-purm")))
+    ("Laptop screen" "layout-laptop")
+    ("Multi screen" "layout-multi")))
 
 (defcommand screen-layout-menu () ()
   (let ((selection (select-from-menu (current-screen) *layout-menu*)))
     (run-commands (second selection))))
+
+; (defparameter *pop-timer-minutes* nil)
+; (defparameter *pop-timer-seconds* nil)
+
+; (defun speak (text)
+;   (message text)
+;   (run-shell-command (format nil "espeak '~A'" text)))
+
+; (defun pop-timer ()
+;   (if (or (null *pop-timer-minutes*)
+;           (null *pop-timer-seconds*))
+;     (message "Pop timer is not configured.")
+;     (progn
+;       (message "Setting pop timer for ~D:~2,'0D."
+;                *pop-timer-minutes* *pop-timer-seconds*)
+;       (let* ((warning-time 30)
+;              (total-time (+ (* *pop-timer-minutes* 60) *pop-timer-seconds*))
+;              (initial-time (- total-time warning-time)))
+;         (sb-thread:make-thread
+;           (lambda ()
+;             (if (plusp initial-time)
+;               (progn (sleep initial-time)
+;                      (speak "Pop soon.")
+;                      (sleep warning-time))
+;               (sleep total-time))
+;             (speak "Pop!"))
+;           :name "Pop Timer")))))
+
+; (defcommand run-pop-timer () ()
+;   (pop-timer))
+
+; (defcommand set-pop-timer (minutes seconds)
+;     ((:number "Minutes: ")
+;      (:number "Seconds: "))
+;   (setf *pop-timer-minutes* minutes
+;         *pop-timer-seconds* seconds))
 
 ;;(defmacro -<> (expr &rest forms)
 ;;  "Thread the given forms, with `<>` as a placeholder."
@@ -414,5 +457,10 @@ will scroll through windows in the current group."
 ;     (format stream "~A => ~A~%" current-window new-window)))
 
 ; (add-hook *focus-window-hook* 'print-transition)
+
+; (defcommand restart-hard-temp () ()
+;   (mode-line)
+;   (restart-hard))
+;   ; (mode-line))
 
 ;; vim: ft=lisp
