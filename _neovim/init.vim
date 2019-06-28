@@ -107,14 +107,24 @@ function! s:change_branch(e)
 endfunction
 
 
-function! Only()
+nnoremap <Leader>ti :call <SID>ToggleIntrusive()<cr>
+
+function! s:Only()
     :mksession!
     :only
 endfunction
 
-nnoremap <Leader>0 :call Only()<cr>
+nnoremap <Leader>0 :call <SID>Only()<cr>
 
 nnoremap <Leader>SS :source Session.vim<cr>
+
+let intrusive = 1
+
+function! s:ToggleIntrusive()
+    set number!
+    ALEToggle
+    SignifyToggle
+endfunction
 
 command! Gbranch call fzf#run(
     \ {
@@ -374,14 +384,17 @@ nnoremap <leader>tl :TagbarToggle<CR>
 
 function! s:AddFilenameToRegister(from)
     if a:from==#'absolute'
-        let @* = expand('%:p')
-    else
-        let @* = expand('%')
+        let @+ = expand('%:p')
     endif
+    if a:from==#'relative'
+        let @+ = expand('%')
+    endif
+    echom expand('%')
 endfunction
 
 nnoremap <leader>cf :call <SID>AddFilenameToRegister('absolute')<CR>
 nnoremap <leader>cr :call <SID>AddFilenameToRegister('relative')<CR>
+nnoremap <leader>cs :call <SID>AddFilenameToRegister('show')<CR>
 
 let g:vlime_cl_use_terminal = 1
 let g:vlime_window_settings = {'repl': {'vertical': v:false, 'pos': 'botright'}}
@@ -422,9 +435,12 @@ let g:airline#extensions#tagbar#enabled = 0
 " let g:airline#extensions#tabline#fnamemod = ':~'"
 " let g:airline#extensions#tabline#buffer_idx_mode = 1
 " let g:airline#extensions#branch#use_vcscommand = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#formatter = 'short_path'
 
+" Delete buffer from buffelist and open previous buffer in split.
 noremap <leader>bq :bp <BAR> bd #<CR>
+" Delete buffer from buffelist and close split
+noremap <leader>bd :bd<CR>
 
 " Load the Gundo window
 " let g:gundo_prefer_python3 = 1
@@ -435,7 +451,7 @@ nnoremap <leader>G :UndotreeToggle<CR>
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 nnoremap <c-e> :Explore %:p:h<cr>
-autocmd FileType netrw setl bufhidden=wipe
+autocmd FileType netrw setlocal bufhidden=wipe
 
 " "uppercase word" mapping.
 " from: https://github.com/sjl/dotfiles/blob/master/vim/vimrc
@@ -579,22 +595,11 @@ set wildignore+=*.DS_Store                       " OSX bullshit
 set wildignore+=*.luac                           " Lua byte code
 
 set wildignore+=migrations                       " Django migrations
-set wildignore+=*.pyc,*.pyo                            " Python byte code
 
 set wildignore+=*.orig                           " Merge resolution files
 
-" Clojure/Leiningen
-set wildignore+=classes
-set wildignore+=lib
-" set grepprg=ack          " replace the default grep program with ack
-" search for tag under cursor and open in new split
-" nnoremap <c-\> <c-w>v<c-]>zvzz
-" map backspace for searching for word under cursor using ack
-" nnoremap <bs> :Ack! '\b<c-r><c-w>\b'<cr>
-
 " Set working directory
 " nnoremap <leader>. :lcd %:p:h<CR>
-
 
 """ Insert completion
 " don't select first item, follow typing in autocomplete
@@ -821,6 +826,8 @@ let g:deoplete#sources#jedi#ignore_errors = v:true
 
 let g:jedi#popup_select_first = 0
 let g:jedi#completions_enabled = 0
+
+let g:jedi#smart_auto_mappings = 1
 
 " select from top to bottom
 let g:SuperTabDefaultCompletionType = "<c-n>"
