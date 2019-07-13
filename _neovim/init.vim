@@ -98,6 +98,7 @@ endif
 " " fzf plugin
 set runtimepath+=~/.fzf
 nnoremap <Leader>o :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
 
 function! s:change_branch(e)
     let res = system("git checkout " . a:e)
@@ -106,8 +107,6 @@ function! s:change_branch(e)
     echom "Changed branch to " . a:e
 endfunction
 
-
-nnoremap <Leader>ti :call <SID>ToggleIntrusive()<cr>
 
 function! s:Only()
     :mksession!
@@ -125,6 +124,8 @@ function! s:ToggleIntrusive()
     ALEToggle
     SignifyToggle
 endfunction
+
+nnoremap <Leader>ti :call <SID>ToggleIntrusive()<cr>
 
 command! Gbranch call fzf#run(
     \ {
@@ -156,9 +157,6 @@ autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
 
 " Abbreviations
 iabbrev @@ dijkstra.arjen@gmail.com
-
-" Toggle the tasklist
-" nnoremap <leader>td <Plug>TaskList
 
 
 " silence search string
@@ -377,7 +375,9 @@ nnoremap <leader>ts <Esc>:tselect<Space>
 " nnoremap <silent> <Leader>F :let word=expand("<cword>")<CR>:vsp<CR>:wincmd w<cr>:exec("tselect ". word)<cr>
 
 " Open in vertical split the tag under the cursur.
-nnoremap  <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<cr>zz
+nnoremap  <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<cr>zt
+
+nnoremap  <Leader>TS :let word=expand("<cword>")<CR>:vsp<CR>:exec("tselect ". word)<cr>zt
 
 " Toggle Tagbar
 nnoremap <leader>tl :TagbarToggle<CR>
@@ -402,6 +402,8 @@ let g:vlime_window_settings = {'repl': {'vertical': v:false, 'pos': 'botright'}}
 function! s:ConnectVlimeToStumpwm()
     call vlime#plugin#ConnectREPL('127.0.0.1', 4005)
 endfunction
+
+let g:vlime_compiler_policy = {"DEBUG": 3}
 
 let g:vlime_enable_autodoc = 1
 nnoremap <localleader>c :call <SID>ConnectVlimeToStumpwm()<CR>
@@ -567,7 +569,7 @@ autocmd FileType python nnoremap <localleader>b Oimport ipdb; ipdb.set_trace()<e
 " map <leader>r :RopeRename<CR>
 
 " Resize splits when the window is resized
-autocmd VimResized * silent! :wincmd =
+" autocmd VimResized * silent! :wincmd =
 
 
 set suffixesadd=.tex,.latex,.java,.js,.hrl,.erl,.lisp,.asd
@@ -1018,8 +1020,6 @@ endif
 " if filereadable($HOME . '/.config/nvim/python.vim')
 "     source $HOME/.config/nvim/python.vim
 " endif
-
-
 
 
 

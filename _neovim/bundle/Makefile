@@ -1,4 +1,4 @@
-.PHONY: all deoplete-jedi jedi-vim update
+.PHONY: all deoplete-jedi jedi-vim update build-python-mode build-deoplete-tabnine build-parinfer-rust
 
 all: update build-parinfer-rust deoplete-jedi jedi-vim
 # all: update deoplete-jedi jedi-vim

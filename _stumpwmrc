@@ -4,6 +4,8 @@
   (run-commands "stumptray")
   (refresh-heads))
 
+; (set-prefix-key (kbd "s-t"))
+
 #+test-modeline
 (layout-laptop)
 ; *startup-message*
@@ -181,7 +183,7 @@
 
 ; (start-with-delay 10 (run-commands "stumptray"))
 
-(run-shell-command "xscreensaver")
+(run-shell-command "xscreensaver -no-splash")
 
 (stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
 
@@ -198,7 +200,10 @@
 (make-program-binding "calibre" "calibre" :key-binding "C")
 
 (defcommand lock-screen ()()
-            (run-shell-command "xscreensaver-command -lock"))
+            (run-shell-command "xscreensaver-command -lock" t))
+
+(defcommand suspend ()()
+            (run-shell-command "systemctl suspend" t))
 
 (defcommand layout-home-screen ()()
   (run-shell-command "layout_home_screen.sh")
@@ -285,6 +290,12 @@
 
 (defcommand shell-output (command) ((:shell "/bin/sh -c "))
   (message "~a" (run-shell-command command t)))
+
+(defcommand redshift (temp) ((:number "Temp: "))
+  (message (format nil "redshift -O ~A00" temp))
+  (run-shell-command "redshift -x")
+  (if (> temp 0)
+    (run-shell-command (format nil "redshift -O ~A00" temp))))
 
 (define-key *top-map* (kbd "M-l") "move-to-next-frame-with-window")
 (define-key *top-map* (kbd "M-=") "balance-frames")
