@@ -77,6 +77,8 @@
 ; Same as: (set-module-dir "/home/arjen/stumpwm/contrib/")
 (setf *module-dir* (make-pathname :directory
                     (format nil "~A/stumpwm/stumpwm-contrib" *home-dir*)))
+(setf *wallpapers* (make-pathname :directory
+                     (format nil "~A/config/dotfiles/_wallpapers" *home-dir*)))
 
 (set-module-dir *module-dir*)
 
@@ -89,6 +91,9 @@
       (progn
        (sleep ,seconds)
        ,@body))))
+
+(defun spotify-wallpaper (url)
+  (run-shell-command (concatenate 'string "feh" url)))
 
 (defmacro make-program-binding (command value &key (key-binding nil))
   `(progn
@@ -109,8 +114,9 @@
        (concatenate 'string "xterm -e sudo " ,command))))
 
 (defun wallpaper ()
- (run-shell-command
-   "feh --bg-scale $HOME/config/dotfiles/_wallpapers/groningen_station.jpg"))
+  (let ((files (uiop:directory-files *wallpapers*)))
+    (run-shell-command
+      (concatenate 'string "feh --bg-scale " (namestring (random-elt files)))))) 
 
 (defun start-vlime ()
  (unless *vlime-instance*
@@ -179,7 +185,27 @@
 ;;; run shell commmands
 
 
-(wallpaper)
+(defun set-wallpaper ()
+ (sb-thread:make-thread
+   (lambda ()
+     (progn
+       (loop
+          (wallpaper)
+          (sleep (* 10 60)))))
+   :name "wallpaper"))
+
+(set-wallpaper)
+
+(defun kill-thread (thread)
+  (bt:destroy-thread thread))
+
+(defun search-thread (needle)
+  (find-if (lambda (th)
+              (search needle (bt:thread-name th)))
+           (bt:all-threads)))
+
+
+; (kill-thread (search-thread "wallpaper"))
 
 ; (start-with-delay 10 (run-commands "stumptray"))
 
@@ -209,7 +235,7 @@
   (run-shell-command "layout_home_screen.sh")
   (refresh-heads)
   (refresh-heads)
-  (wallpaper)
+  ; (wallpaper)
   (sleep 2)
   (refresh-heads))
 
@@ -218,7 +244,7 @@
   (run-shell-command "layout_laptop.sh")
   (refresh-heads)
   (refresh-heads)
-  (wallpaper)
+  ; (wallpaper)
   (sleep 2)
   (refresh-heads))
 
@@ -226,7 +252,7 @@
   (run-shell-command "/home/arjen/.screenlayout/multi.sh")
   (refresh-heads)
   (refresh-heads)
-  (wallpaper)
+  ; (wallpaper)
   (sleep 2)
   (refresh-heads))
 
@@ -292,10 +318,12 @@
   (message "~a" (run-shell-command command t)))
 
 (defcommand redshift (temp) ((:number "Temp: "))
-  (message (format nil "redshift -O ~A00" temp))
   (run-shell-command "redshift -x")
+  (message (format nil "redshift -x"))
   (if (> temp 0)
-    (run-shell-command (format nil "redshift -O ~A00" temp))))
+    (progn
+      (run-shell-command (format nil "redshift -O ~A00" temp))
+      (message (format nil "redshift -O ~A00" temp)))))
 
 (define-key *top-map* (kbd "M-l") "move-to-next-frame-with-window")
 (define-key *top-map* (kbd "M-=") "balance-frames")
