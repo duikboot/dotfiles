@@ -188,7 +188,7 @@
            (bt:all-threads)))
 
 (defun set-wallpaper ()
-  (unless search-thread "wallpaper"
+  (unless (search-thread "wallpaper")
     (sb-thread:make-thread
       (lambda ()
         (progn
