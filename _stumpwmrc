@@ -4,8 +4,6 @@
   (run-commands "stumptray")
   (refresh-heads))
 
-; (set-prefix-key (kbd "s-t"))
-
 #+test-modeline
 (layout-laptop)
 ; *startup-message*
@@ -184,25 +182,25 @@
 
 ;;; run shell commmands
 
+(defun search-thread (needle)
+  (find-if (lambda (th)
+              (search needle (bt:thread-name th)))
+           (bt:all-threads)))
 
 (defun set-wallpaper ()
- (sb-thread:make-thread
-   (lambda ()
-     (progn
-       (loop
-          (wallpaper)
-          (sleep (* 10 60)))))
-   :name "wallpaper"))
+  (unless search-thread "wallpaper"
+    (sb-thread:make-thread
+      (lambda ()
+        (progn
+          (loop
+             (wallpaper)
+             (sleep (* 10 60)))))
+      :name "wallpaper")))
 
 (set-wallpaper)
 
 (defun kill-thread (thread)
   (bt:destroy-thread thread))
-
-(defun search-thread (needle)
-  (find-if (lambda (th)
-              (search needle (bt:thread-name th)))
-           (bt:all-threads)))
 
 
 ; (kill-thread (search-thread "wallpaper"))
@@ -309,7 +307,7 @@
             "Navigate to next frame and take current window with you"
             (let ((win (current-window)))
               (fnext)
-              (pull-window win)))
+              (ignore-errors (pull-window win))))
 
 (create-sudo-command sudo-gnome-control-center "XDG_CURRENT_DESKTOP=GNOME gnome-control-center")
 (create-sudo-command sudo-dnfdragora "dnfdragora")
