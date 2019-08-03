@@ -20,7 +20,7 @@ prompt = ~/Programms/hg-prompt/prompt.py
 # rebase =
 # record =
 # share =
-# shelve =
+shelve =
 # extdiff =
 
 [pager]

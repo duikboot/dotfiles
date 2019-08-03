@@ -41,3 +41,4 @@ eval `keychain --eval --agents ssh id_dsa id_rsa`
 # unset GREP_OPTIONS
 
 # vim: ft=sh
+if [ -e /home/arjen/.nix-profile/etc/profile.d/nix.sh ]; then . /home/arjen/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
