@@ -1,11 +1,15 @@
 #+test-modeline
 (progn
+  (ql:quickload :ttf-fonts)
+  (set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 11))
   (mode-line)
   (run-commands "stumptray")
   (refresh-heads))
 
-#+test-modeline
-(layout-laptop)
+#+laptop-rotterdam
+(layout-rotterdam-dell)
+
+
 ; *startup-message*
 ; *input-history*
 ; (run-shell-command "xfce4-panel &> /dev/null &")
@@ -41,7 +45,6 @@
 ; C-t x right (C-t x l)
 ; *timer-list*
 ; (make-pathname :directory *home-dir*)
-; (ql:quickload :ttf-fonts)
 ; CPU:*ACPI-THERMAL-ZONE*
 ; xft:*font-dirs*
 ; *data-dir*
@@ -58,7 +61,7 @@
 (in-package :stumpwm)
 
 (set-prefix-key (kbd "C-space"))
-
+;
 (setf *startup-message* (format nil "^B~A" *version*))
 
 (defvar *home-dir* (getenv "HOME"))
@@ -122,8 +125,6 @@
   (setf *vlime-instance* "Vlime running")))
 
 (start-vlime)
-
-; Turn on the modeline
 
 ;; mode line
 (setf *mode-line-background-color*  "black"
@@ -194,7 +195,7 @@
         (progn
           (loop
              (wallpaper)
-             (sleep (* 10 60)))))
+             (sleep (* 30 60)))))
       :name "wallpaper")))
 
 (set-wallpaper)
@@ -239,12 +240,15 @@
 
 
 (defcommand layout-laptop ()()
-  (run-shell-command "layout_laptop.sh")
+  (run-shell-command "~/.screenlayout/laptop.sh")
+  ; (wallpaper)
   (refresh-heads)
   (refresh-heads)
   ; (wallpaper)
   (sleep 2)
   (refresh-heads))
+
+(layout-laptop)
 
 (defcommand layout-multi ()()
   (run-shell-command "/home/arjen/.screenlayout/multi.sh")
@@ -253,6 +257,17 @@
   ; (wallpaper)
   (sleep 2)
   (refresh-heads))
+
+
+(defcommand layout-rotterdam-dell ()()
+  (run-shell-command "/home/arjen/.screenlayout/dell_rotterdam.sh")
+  (refresh-heads)
+  (refresh-heads)
+  ; (wallpaper)
+  (sleep 2)
+  (refresh-heads))
+
+
 
 
 
@@ -500,4 +515,4 @@ will scroll through windows in the current group."
 ;   (restart-hard))
 ;   ; (mode-line))
 
-;; vim: ft=lisp
+; vim: ft=lisp

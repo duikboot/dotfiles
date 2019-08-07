@@ -16,7 +16,7 @@ let g:python3_host_prog='/home/arjen/config/dotfiles/_neovim/ENV/bin/python'
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
 syntax on                     " syntax highlighting
-set number                    " Display line numbers
+set nonumber                    " Display line numbers
 set numberwidth=1             " using only 1 column (and 1 space) while possible
 set hidden
 set title                     " show title in console title bar
@@ -377,7 +377,7 @@ nnoremap <leader>ts <Esc>:tselect<Space>
 " Open in vertical split the tag under the cursur.
 nnoremap  <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<cr>zt
 
-nnoremap  <Leader>TS :let word=expand("<cword>")<CR>:vsp<CR>:exec("tselect ". word)<cr>zt
+" nnoremap  <Leader>TS :let word=expand("<cword>")<CR>:vsp<CR>:exec("tselect ". word)<cr>zt
 
 " Toggle Tagbar
 nnoremap <leader>tl :TagbarToggle<CR>

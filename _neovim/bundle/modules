@@ -52,7 +52,7 @@ https://github.com/davidhalter/jedi-vim                 jedi-vim
 https://github.com/zchee/deoplete-jedi                      deoplete-jedi
 https://github.com/eraserhd/parinfer-rust                 parinfer-rust
 https://github.com/godlygeek/tabular                          tabular
-https://github.com/guns/vim-sexp                            vim-sexp
+# https://github.com/guns/vim-sexp                            vim-sexp
 https://github.com/junegunn/fzf.vim                         fzf.vim
 https://github.com/junegunn/gv.vim                          gv
 # https://github.com/junegunn/vim-slash                     vim-slash

@@ -17,8 +17,7 @@ build-python-mode:
 
 build-parinfer-rust:
 	cd parinfer-rust && cargo clean && cargo build --release
-	# cd parinfer-rust/cparinfer  && cargo build --release
-	#
+
 build-deoplete-tabnine:
 	cd deoplete-tabnine && ./install.sh
 

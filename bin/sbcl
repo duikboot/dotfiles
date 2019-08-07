@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
 
 set -e
-BREAK_CHARS="(){}[],^%$#@\"\";''|\\"
-
-rlwrap -r --histsize 100000 --history-filename "$HOME/.rlwrap-lisp-history" -c -b $BREAK_CHARS -f $HOME/.sbcl_completions ros run -l ~/.sbclrc "$@"
-# rlwrap /home/arjen/.roswell/impls/x86-64/linux/sbcl/1.4.1/bin/sbcl --noinform "$@"
+rlwrap-lisp /usr/local/bin/sbcl --dynamic-space-size 49152 --noinform "$@"

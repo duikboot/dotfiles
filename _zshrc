@@ -24,7 +24,7 @@ function review() {
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias tmuxn='tmux -2 new -s'
- alias mux='pgrep -vx tmux && tmux new -d -s delete-me && tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux kill-session -t delete-me && tmux attach || tmux attach'
+alias mux='pgrep -vx tmux && tmux new -d -s delete-me && tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux kill-session -t delete-me && tmux attach || tmux attach'
 
 # Make a new session connecting to the socket of the pers tmux server
 # alias tmuxp='tmux -L pers -2 new -s'

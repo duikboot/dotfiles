@@ -2,7 +2,4 @@
 
 set -e
 
-BREAK_CHARS="(){}[],^%$#@\"\";''|\\"
-# rlwrap -r -f ~/.rlwrap/keywords sbcl --load ~/quicklisp/setup.lisp "$@"
-
-rlwrap -r --histsize 100000 --history-filename "$HOME/.rlwrap-lisp-history" -c -b $BREAK_CHARS -f $HOME/.sbcl_completions ros run -l ~/.sbclrc "$@"
+sbcl
