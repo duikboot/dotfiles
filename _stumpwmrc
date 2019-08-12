@@ -240,7 +240,7 @@
 
 
 (defcommand layout-laptop ()()
-  (run-shell-command "~/.screenlayout/laptop.sh")
+  (run-shell-command "~/.screenlayout/laptop.sh" t)
   ; (wallpaper)
   (refresh-heads)
   (refresh-heads)

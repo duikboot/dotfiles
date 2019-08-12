@@ -415,6 +415,7 @@ nnoremap <silent> <leader>y :YRShow<CR>
 " Please do check if the system clipboad has changed if we're running vim in
 " console
 set clipboard+=unnamedplus
+let g:loaded_clipboard_provider="xsel"
 
 " vim-exchange
 
@@ -569,7 +570,7 @@ autocmd FileType python nnoremap <localleader>b Oimport ipdb; ipdb.set_trace()<e
 " map <leader>r :RopeRename<CR>
 
 " Resize splits when the window is resized
-" autocmd VimResized * silent! :wincmd =
+autocmd VimResized * silent! :wincmd =
 
 
 set suffixesadd=.tex,.latex,.java,.js,.hrl,.erl,.lisp,.asd
