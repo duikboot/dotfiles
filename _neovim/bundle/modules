@@ -59,7 +59,8 @@ https://github.com/junegunn/gv.vim                          gv
 https://github.com/kassio/neoterm                             neoterm
 https://github.com/keith/tmux.vim                               tmux
 https://github.com/kien/rainbow_parentheses.vim             rainbow_parentheses
-https://github.com/l04m33/vlime                             vlime-repo
+# https://github.com/l04m33/vlime                             vlime-repo
+https://github.com/fukamachi/vlime                          vlime-repo
 https://github.com/machakann/vim-highlightedyank            highlightedyank
 https://github.com/machakann/vim-swap                         swap
 https://github.com/majutsushi/tagbar                          tagbar
@@ -77,7 +78,7 @@ https://github.com/tpope/vim-surround.git                     surround
 https://github.com/tpope/vim-unimpaired                       unimpaired
 https://github.com/vim-scripts/YankRing.vim.git               yankring
 https://github.com/vim-scripts/vcscommand.vim.git             vcscommand
-https://github.com/w0rp/ale                                   ale
+https://github.com/dense-analysis/ale                           ale
 https://github.com/wellle/targets.vim                         targets
 https://github.com/ervandew/supertab                        supertab
 https://github.com/michaeljsmith/vim-indent-object          vim-indent-object

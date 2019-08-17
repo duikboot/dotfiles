@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+rlwrap -m$$$$ \
+       --multi-line-ext .lisp \
+       -a___ \
+       --only-cook '^\[[a-zA-Z ]+\] [-a-zA-Z0-9._/]+>' \
+       -p'1;36' \
+       --quote-characters '"' \
+       --histsize 1000 \
+       --history-filename "$HOME/.rlwrap-lisp-history" \
+       "$@"
+

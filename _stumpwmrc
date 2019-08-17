@@ -9,6 +9,8 @@
 #+laptop-rotterdam
 (layout-rotterdam-dell)
 
+; hide windows (flear)
+
 
 ; *startup-message*
 ; *input-history*
@@ -34,7 +36,7 @@
 ; (quit)
 
 ; (get-x-selection)
-; (window-number (current-window))
+; (window-number (window-group (current-window))
 ; (group-windows (current-group))
 ; (tile-group-current-frame (current-group))
 
@@ -117,7 +119,7 @@
 (defun wallpaper ()
   (let ((files (uiop:directory-files *wallpapers*)))
     (run-shell-command
-      (concatenate 'string "feh --bg-scale " (namestring (random-elt files)))))) 
+      (concatenate 'string "feh --bg-scale " (namestring (random-elt files))))))
 
 (defun start-vlime ()
  (unless *vlime-instance*
@@ -188,21 +190,27 @@
               (search needle (bt:thread-name th)))
            (bt:all-threads)))
 
+
+(defun kill-thread (thread)
+  (bt:destroy-thread thread))
+
 (defun set-wallpaper ()
-  (unless (search-thread "wallpaper")
+  (let ((message ""))
+    (handler-case
+        (kill-thread (search-thread "wallpaper"))
+      (error ()
+        (setf message (format nil "Killing wallpaper thread"))))
     (sb-thread:make-thread
       (lambda ()
         (progn
           (loop
              (wallpaper)
              (sleep (* 30 60)))))
-      :name "wallpaper")))
+      :name "wallpaper")
+    (setf message (concatenate 'string message (format nil "~%New wallpaper set")))
+    (message message)))
 
 (set-wallpaper)
-
-(defun kill-thread (thread)
-  (bt:destroy-thread thread))
-
 
 ; (kill-thread (search-thread "wallpaper"))
 
@@ -435,6 +443,14 @@ will scroll through windows in the current group."
                 (run-commands "gprev"))))))
 
 (add-hook *mode-line-click-hook* 'mode-line-scroll-through-windows)
+
+; (defun position-mouse-in-window (current-window last-window)
+;   (message  "~A" current-window)
+;   (ratwarp 0 0))
+
+
+; (add-hook *focus-window-hook* 'position-mouse-in-window)
+; (remove-hook *focus-window-hook* 'position-mouse-in-window)
 
 (setf *layout-menu*
   '(("Big home screen" "layout-home-screen")
