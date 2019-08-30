@@ -1,14 +1,14 @@
 #+test-modeline
 (progn
   (ql:quickload :ttf-fonts)
+  (xft:cache-fonts)
   (set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 11))
   (mode-line)
   (run-commands "stumptray")
   (refresh-heads))
 
-#+laptop-rotterdam
-(layout-rotterdam-dell)
-
+; (layout-laptop)
+; (set-wallpaper)
 ; hide windows (flear)
 
 
@@ -39,6 +39,7 @@
 ; (window-number (window-group (current-window))
 ; (group-windows (current-group))
 ; (tile-group-current-frame (current-group))
+; (get-edge (current-frame) :bottom)
 
 ; swap current window with window in frame left:
 ; C-t x left (C-t x h)
@@ -57,6 +58,7 @@
 ; (getenv "USER")
 ; (all-windows)
 ; (describe 'float-this)
+; (describe 'fclear)
 ; *version*
 ; (echo-groups (current-screen) *group-format* t)
 
@@ -145,6 +147,7 @@
           ; "app-menu"
           "cpu"
           "battery-portable"
+          "desktop-entry"
           "end-session"
           "stumptray"
           "screenshot"
@@ -152,7 +155,17 @@
           "command-history"
           "clipboard-history"))
 
+(defvar *entry-paths*
+  '(#P"/usr/share/applications"
+    #P"~/.local/share/applications"))
+
+(desktop-entry:init-entry-list)
+
+
+;; the screen border)
+
 (setf *input-history-ignore-duplicates* t)
+
 
 (define-key *root-map* (kbd "C-y") "show-clipboard-history")
 
@@ -164,7 +177,7 @@
 (setf *screen-mode-line-format*
       (list '(:eval (run-shell-command "date '+%R, %F %a'|tr -d [:cntrl:]" t))  ;date command
             ; " | %t" ; temperature
-            ; " | %C  " ; cpu
+            " | %C  " ; cpu
             " | %l" ; network
             " | Battery: %B " ; battery
             " | Groups: %g " ; groups
@@ -173,6 +186,22 @@
 
 (setf *message-window-gravity* :center)
 (setf *input-window-gravity* :center)
+
+(defparameter *layouts* (make-hash-table :test #'eql))
+
+(defcommand toggle-full-layout () ()
+  (let* ((gnum (group-number (current-group)))
+         (currlay (gethash gnum *layouts*)))
+    (if currlay
+      (progn
+        (restore-group (current-group) currlay)
+        (setf (gethash gnum *layouts*) nil))
+      (progn
+        (setf (gethash gnum *layouts*) (dump-group (current-group)))
+        (run-commands "only")))))
+
+; (define-key *root-map* (kbd "q") "toggle-full-layout")
+(define-key *top-map* (kbd "M-0") "toggle-full-layout")
 
 ; (run-with-timer 3 10 'modeline)
 
@@ -197,9 +226,11 @@
 (defun set-wallpaper ()
   (let ((message ""))
     (handler-case
-        (kill-thread (search-thread "wallpaper"))
+        (progn
+          (kill-thread (search-thread "wallpaper"))
+          (setf message (format nil "Killing wallpaper thread")))
       (error ()
-        (setf message (format nil "Killing wallpaper thread"))))
+        (setf message (format nil "No thead wallpaper running"))))
     (sb-thread:make-thread
       (lambda ()
         (progn
@@ -249,11 +280,10 @@
 
 (defcommand layout-laptop ()()
   (run-shell-command "~/.screenlayout/laptop.sh" t)
-  ; (wallpaper)
   (refresh-heads)
   (refresh-heads)
-  ; (wallpaper)
   (sleep 2)
+  (set-wallpaper)
   (refresh-heads))
 
 (layout-laptop)

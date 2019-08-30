@@ -33,6 +33,8 @@ alias vi='vim'
 #
 alias f='roamer'
 alias ag='ag --path-to-ignore ~/.ignore'
+
+alias e="vim ."
 export PLATFORM=`python -c 'import os; print(os.uname()[1]),'`
 
 export EDITOR=vim
