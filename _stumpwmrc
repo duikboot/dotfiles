@@ -8,6 +8,7 @@
   (refresh-heads))
 
 ; (layout-laptop)
+; (layout-home-screen)
 ; (set-wallpaper)
 ; hide windows (flear)
 
@@ -39,7 +40,6 @@
 ; (window-number (window-group (current-window))
 ; (group-windows (current-group))
 ; (tile-group-current-frame (current-group))
-; (get-edge (current-frame) :bottom)
 
 ; swap current window with window in frame left:
 ; C-t x left (C-t x h)
@@ -270,7 +270,7 @@
             (run-shell-command "systemctl suspend" t))
 
 (defcommand layout-home-screen ()()
-  (run-shell-command "layout_home_screen.sh")
+  (run-shell-command "~/.screenlayout/screenlayout/big_screen.sh")
   (refresh-heads)
   (refresh-heads)
   ; (wallpaper)

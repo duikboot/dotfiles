@@ -157,6 +157,7 @@ autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
 
 " Abbreviations
 iabbrev @@ dijkstra.arjen@gmail.com
+iabbrev /\ (lambda )
 
 
 " silence search string
@@ -415,7 +416,7 @@ nnoremap <silent> <leader>y :YRShow<CR>
 " Please do check if the system clipboad has changed if we're running vim in
 " console
 set clipboard+=unnamedplus
-let g:loaded_clipboard_provider="xsel"
+" let g:loaded_clipboard_provider="xsel"
 
 " vim-exchange
 
@@ -966,11 +967,9 @@ nnoremap <localleader>ot :call <SID>OpenTestFile("")<cr>
 let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
 let tlist_make_settings  = 'make;m:makros;t:targets'
 
-let g:tex_flavor='latexmk'
-let g:vimtex_view_method='zathura'
-let g:vimtex_compiler_progname = 'nvr'
 
 let g:vimtex_latexmk_progname= '/home/arjen/config/dotfiles/_neovim/ENV/bin/nvr'
+
 
 let g:vimtex_quickfix_mode=1
 let g:tex_conceal='abdmg'
