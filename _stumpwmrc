@@ -5,13 +5,21 @@
   (set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 11))
   (mode-line)
   (run-commands "stumptray")
-  (refresh-heads))
+  (refresh-heads)
+  (set-wallpaper))
 
 ; (layout-laptop)
 ; (layout-home-screen)
 ; (set-wallpaper)
 ; hide windows (flear)
 
+
+(defun enable-mode-line-all-heads ()
+  (dolist (screen *screen-list*)
+    (dolist (head (screen-heads screen))
+      (enable-mode-line screen head t))))
+
+; (enable-mode-line-all-heads)
 
 ; *startup-message*
 ; *input-history*
@@ -177,7 +185,7 @@
 (setf *screen-mode-line-format*
       (list '(:eval (run-shell-command "date '+%R, %F %a'|tr -d [:cntrl:]" t))  ;date command
             ; " | %t" ; temperature
-            " | %C  " ; cpu
+            ; " | %C  " ; cpu
             " | %l" ; network
             " | Battery: %B " ; battery
             " | Groups: %g " ; groups

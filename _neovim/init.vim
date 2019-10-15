@@ -108,6 +108,27 @@ function! s:change_branch(e)
 endfunction
 
 
+
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let height = &lines - 8
+  let width = float2nr(&columns - (&columns * 2 / 10))
+  let col = float2nr((&columns - width) / 2)
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': 4,
+        \ 'col': col,
+        \ 'width': width,
+        \ 'height': height
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+endfunction
+
 function! s:Only()
     :mksession!
     :only
@@ -896,7 +917,7 @@ augroup ft_lisp
     autocmd FileType lisp set softtabstop=2           " <BS> over an autoindent deletes both spaces.
     autocmd BufRead *.lisp set makeprg=sblint
     " let g:syntastic_lisp_checkers = ['sblint']
-    autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
+    " autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
     let g:parinfer_force_balance = 1
     let g:parinfer_enabled = 1
 augroup END
