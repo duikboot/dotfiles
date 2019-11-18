@@ -154,6 +154,7 @@
         '("net"
           ; "app-menu"
           "cpu"
+          "swm-gaps"
           "battery-portable"
           "desktop-entry"
           "end-session"
@@ -194,6 +195,10 @@
 
 (setf *message-window-gravity* :center)
 (setf *input-window-gravity* :center)
+
+(setf swm-gaps:*inner-gaps-size* 5)
+(setf swm-gaps:*outer-gaps-size* 5)
+; (swm-gaps:toggle-gaps)
 
 (defparameter *layouts* (make-hash-table :test #'eql))
 

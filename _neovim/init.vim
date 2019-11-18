@@ -34,6 +34,11 @@ set conceallevel=0
 
 set splitright
 set splitbelow
+call lsp#add_filetype_config({
+        \ 'filetype': 'python',
+        \ 'name': 'pyls',
+        \ 'cmd': 'pyls'
+        \ })
 
 " Very cool transparant completion menu, but it's distracting me.
 " set pumblend=10
