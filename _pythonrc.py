@@ -37,7 +37,7 @@ class Completer(object):
 
 c = Completer()
 
-WELCOME='Hi %s, welcome to Python' % (os.environ['USERNAME'])
+WELCOME = ""
 # Color Support
 class TermColors(dict):
     """Gives easy access to ANSI color codes. Attempts to fall back to no color

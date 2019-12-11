@@ -11,7 +11,7 @@ PYTHONSTARTUP=~/.pythonstartup
 
 export PYTHONSTARTUP=~/.pythonrc
 export PYTHONPATH
-export HGEDITOR=vim
+#export HGEDITOR=vim
 export EDITOR=vim
 # export GREP_OPTIONS='--color=auto' GREP_COLOR='100;1'
 # export XDG_CONFIG_HOME=/home/arjend/.config
@@ -24,7 +24,7 @@ export ANDROIDNDK=$HOME/.buildozer/android/platform/android-ndk-r9c
 export ANDROIDNDKVER=r9c
 export ANDROIDAPI=21
 
-PATH=$HOME/bin:/usr/lib64:$ANDROIDNDK:$ANDROIDSDK/platform-tools:$ANDROIDSDK/tools:$PATH:$HOME/bin/neovim/bin
+PATH=$HOME/bin/nvim/bin:$HOME/bin:/usr/lib64:$ANDROIDNDK:$ANDROIDSDK/platform-tools:$ANDROIDSDK/tools:$PATH:
 
 export PATH
 
@@ -34,7 +34,7 @@ xmodmap -e 'keycode 66 = Control_L'
 xmodmap -e 'clear Lock'
 xmodmap -e 'add Control = Control_L'
 
-eval `keychain --eval --agents ssh id_dsa id_rsa`
+# eval `keychain --eval --agents ssh id_dsa id_rsa`
 # syndaemon -k -i 2 -d
 
 # # alias grep="/usr/bin/grep $GREP_OPTIONS"

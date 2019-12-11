@@ -1,14 +1,14 @@
-.PHONY: all deoplete-jedi jedi-vim update build-python-mode build-deoplete-tabnine build-parinfer-rust
+.PHONY: all deoplete-jedi jedi-vim update build-python-mode build-deoplete-tabnine
 
-all: update build-parinfer-rust deoplete-jedi jedi-vim
+all: update 
 # all: update deoplete-jedi jedi-vim
 
-deoplete-jedi:
-	git -C deoplete-jedi submodule update --init --recursive
-
-jedi-vim:
-	git -C jedi-vim submodule update --init --recursive
-
+# deoplete-jedi:
+# 	git -C deoplete-jedi submodule update --init --recursive
+# 
+# jedi-vim:
+# 	git -C jedi-vim submodule update --init --recursive
+# 
 # build-LanguageClient-neovim:
 # 	cd LanguageClient-neovim && ./install.sh
 

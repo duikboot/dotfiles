@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.7
+#!/usr/bin/env python3
 
 import os
 import shutil
@@ -42,7 +42,6 @@ def procs(module):
     if not os.path.exists(directory):
         return clone(link, directory)
 
-    return update(link, directory)
 
 
 def is_obsolete(file_):

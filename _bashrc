@@ -20,7 +20,7 @@ export HISTFILESIZE=1000000
 shopt -s histappend
 export HISTCONTROL=ignoredups:erasedups
 export HISTTIMEFORMAT="[$(tput setaf 6)%F %T$(tput sgr0)]: " # colorful date
-export PATH=$HOME/local/bin:$HOME/.local/bin:$PATH:/home/arjend/Downloads/bin
+export PATH=$HOME/bin/nvim/bin:$HOME/local/bin:$HOME/.local/bin:$PATH:/home/arjend/Downloads/bin
 # export PROMPT_COMMAND="history -a; history -n"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
@@ -50,6 +50,14 @@ PS1='\[`[ $? = 0 ] && X=2 || X=1; tput setaf $X`\][\t] [\u@\h]\[`tput sgr0`\]: $
 
 # vim: ft=sh
 
+if [ -f .venv/bin/activate ];
+then
+  source .venv/bin/activate
+fi
+if [ -f ENV/bin/activate ];
+then
+  source ENV/bin/activate
+fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # added by Anaconda2 4.0.0 installer

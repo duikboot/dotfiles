@@ -16,7 +16,7 @@ let g:python3_host_prog='/home/arjen/config/dotfiles/_neovim/ENV/bin/python'
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
 syntax on                     " syntax highlighting
-set nonumber                    " Display line numbers
+set number                    " Display line numbers
 set numberwidth=1             " using only 1 column (and 1 space) while possible
 set hidden
 set title                     " show title in console title bar
@@ -35,6 +35,23 @@ set conceallevel=0
 set splitright
 set splitbelow
 
+autocmd User lsp_setup call lsp#register_server({
+    \ 'name': 'pyls',
+    \ 'cmd': {server_info->['pyls']},
+    \ 'whitelist': ['python'],
+    \ 'workspace_config': {
+    \   'pyls': {
+    \     'plugins': {'pydocstyle': {'enabled': v:true},
+    \                 'pycodestyle' : {'maxLineLength': 100},
+    \                 'jedi_completion': {'include_params': v:true},
+    \                 'pyls_mypy': {'enabled': v:true},
+    \                 'pyls_black': {'enabled': v:true},
+    \     }
+    \   }
+    \ }
+    \ })
+
+" autocmd Filetype python setl omnifunc=v:lua.vim.lsp.omnifunc
 " Very cool transparant completion menu, but it's distracting me.
 " set pumblend=10
 
@@ -109,7 +126,7 @@ endfunction
 
 
 
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+" let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
   call setbufvar(buf, '&signcolumn', 'no')
@@ -532,7 +549,7 @@ nnoremap <localleader>j :%!python -m json.tool<cr>
  let g:indentLine_fileType = ['python']
 
 
-let g:ale_completion_enabled=1
+let g:ale_completion_enabled=0
 let g:ale_completion_delay=50
 
 " autocmd FileType python :iabbrev <buffer> .. self
@@ -683,6 +700,9 @@ inoremap # #
 " close preview window automatically when we move around
 " autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 " autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 """" Reading/Writing
 " set noautowrite             " Never write a file unless I request it.
@@ -844,22 +864,22 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 
 " nnoremap <localleader>o :<C-u>Denite  -buffer-name=outline outline<cr>
 
-let g:deoplete#enable_at_startup = 1
-" let g:deoplete#sources#jedi#show_docstring = 0
-" let g:deoplete#complete_method='omnifunc'
-let g:deoplete#sources#jedi#ignore_errors = v:true
+" let g:deoplete#enable_at_startup = 1
+" " let g:deoplete#sources#jedi#show_docstring = 0
+" " let g:deoplete#complete_method='omnifunc'
+" let g:deoplete#sources#jedi#ignore_errors = v:true
 
-let g:jedi#popup_select_first = 0
-let g:jedi#completions_enabled = 0
+" let g:jedi#popup_select_first = 0
+" let g:jedi#completions_enabled = 0
 
-let g:jedi#smart_auto_mappings = 1
+" let g:jedi#smart_auto_mappings = 1
 
-" select from top to bottom
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" " select from top to bottom
+" let g:SuperTabDefaultCompletionType = "<c-n>"
 
 
-" let g:deoplete#ignore_sources = {'': ['tags']}
-let g:deoplete#ignore_sources = {'_': ['tag']}
+" " let g:deoplete#ignore_sources = {'': ['tags']}
+" let g:deoplete#ignore_sources = {'_': ['tag']}
 set tags=./tags,tags
 
 
@@ -952,7 +972,7 @@ let g:necoghc_enable_detailed_browse = 1
 "
 
 " Rebuild Ctags (mnemonic RC -> CR -> <cr>)
-nnoremap <leader><cr> :silent !ctags -R --links=no --exclude=.buildozer --languages=-javascript --languages=-css >/dev/null 2>&1 &<cr>:redraw!<cr>
+nnoremap <leader><cr> :silent !ctags -R --links=no --exclude=.buildozer --exclude=.tox --languages=-javascript --languages=-css >/dev/null 2>&1 &<cr>:redraw!<cr>
 
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent
 " autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
@@ -1037,44 +1057,3 @@ let g:signify_vcs_list = ['git', 'hg']
 if filereadable('.local.vim')
   source .local.vim
 endif
-
-" if filereadable($HOME . '/.config/nvim/python.vim')
-"     source $HOME/.config/nvim/python.vim
-" endif
-
-
-
-" Use location list instead of quickfix
-" let g:LanguageClient_autoStart = 1
-" let g:LanguageClient_diagnosticsList = 'location'
-
-" augroup LanguageClientConfig
-"   autocmd!
-
-"   " <leader>ld to go to definition
-"   autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>ld :call LanguageClient_textDocument_definition()<cr>
-"   " <leader>lf to autoformat document
-"   autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lf :call LanguageClient_textDocument_formatting()<cr>
-"   " <leader>lh for type info under cursor
-"   autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lh :call LanguageClient_textDocument_hover()<cr>
-"   " <leader>lr to rename variable under cursor
-  " autocmd FileType python,htmldjango  nnoremap <buffer> <leader>lr :call LanguageClient_textDocument_rename()<cr>
-"   " <leader>lc to switch omnifunc to LanguageClient
- " autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lc :setlocal omnifunc=LanguageClient#complete<cr>
-"   " <leader>ls to fuzzy find the symbols in the current document
-"   autocmd FileType python,json,css,html,htmldjango nnoremap <buffer> <leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
-
-"   " Use as omnifunc by default
-"   " autocmd FileType python,json,css,html setlocal omnifunc=LanguageClient#complete
-" augroup END
-
-
-" let g:LanguageClient_serverCommands = {}
-" let g:LanguageClient_serverCommands = {'python': ['pyls']}
-" " let g:LanguageClient_serverCommands.lisp = ['cl-lsp']
-
-" if executable("pyls")
-"   setlocal omnifunc=LanguageClient#complete
-"   setlocal signcolumn=yes
-" endif
-"
