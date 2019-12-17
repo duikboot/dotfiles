@@ -569,7 +569,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint'],
-\   'python': ['autopep8', 'yapf', 'isort', 'add_blank_lines_for_python_control_statements'],
+\   'python': ['black', 'isort'],
 \   'tex': ['latexindent', 'textlint', 'remove_trailing_lines', 'trim_whitespace'],
 \}
 
