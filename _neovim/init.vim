@@ -34,11 +34,6 @@ set conceallevel=0
 
 set splitright
 set splitbelow
-call lsp#add_filetype_config({
-        \ 'filetype': 'python',
-        \ 'name': 'pyls',
-        \ 'cmd': 'pyls'
-        \ })
 
 " Very cool transparant completion menu, but it's distracting me.
 " set pumblend=10
@@ -77,15 +72,6 @@ noremap <Leader>w :w<cr>
 
 " Quit window on <leader>q
 nnoremap <leader>q :q<CR>
-
-" Open :CtrlP
-" nnoremap <Leader>o :CtrlP<CR>
-" nnoremap <Leader>ot :CtrlPTag<CR>
-" let g:ctrlp_extensions = ['tag', 'buffertag']
-" let g:ctrlp_custom_ignore = {
-"   \ 'dir':  '\v[\/](\.git|\.hg|\.svn|build-image|build)$',
-"   \ 'file': '\v\.(css|js)$',
-"   \ }
 
 nnoremap <Leader>f :find<space>
 
@@ -164,12 +150,6 @@ command! Gbranch call fzf#run(
 command! -bang -nargs=? -complete=dir Files
 \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
-" Just to seen if it works
-" command! -nargs=1 -bang HGrep call fzf#run(fzf#wrap(
-"       \ {'source': 'hgrep <q-args>', 'options': '-m'}, <bang>0))
-
-" }}}
-
 
 " Make Vim able to edit crontab files again.
 "set backupskip=/tmp/*,/private/tmp/*"
@@ -183,8 +163,7 @@ autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
 
 " Abbreviations
 iabbrev @@ dijkstra.arjen@gmail.com
-iabbrev /\ (lambda )
-
+" iabbrev /\ (lambda )
 
 " silence search string
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
@@ -867,6 +846,51 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:deoplete#ignore_sources = {'_': ['tag']}
 set tags=./tags,tags
 
+" let settings = {
+"           \   "pyls" : {
+"           \     "enable" : v:true,
+"           \     "trace" : { "server" : "verbose", },
+"           \     "commandPath" : "",
+"           \     "configurationSources" : [ "pycodestyle" ],
+"           \     "plugins" : {
+"           \       "jedi_completion" : { "enabled" : v:true, },
+"           \       "jedi_hover" : { "enabled" : v:true, },
+"           \       "jedi_references" : { "enabled" : v:true, },
+"           \       "jedi_signature_help" : { "enabled" : v:true, },
+"           \       "jedi_symbols" : {
+"           \         "enabled" : v:true,
+"           \         "all_scopes" : v:true,
+"           \       },
+"           \       "mccabe" : {
+"           \         "enabled" : v:true,
+"           \         "threshold" : 15,
+"           \       },
+"           \       "preload" : { "enabled" : v:true, },
+"           \       "pycodestyle" : { "enabled" : v:true, },
+"           \       "pydocstyle" : {
+"           \         "enabled" : v:false,
+"           \         "match" : "(?!test_).*\\.py",
+"           \         "matchDir" : "[^\\.].*",
+"           \       },
+"           \       "pyflakes" : { "enabled" : v:true, },
+"           \       "rope_completion" : { "enabled" : v:true, },
+"           \       "yapf" : { "enabled" : v:true, },
+"           \     }}}
+
+" call nvim_lsp#setup("pyls", settings)
+
+" disable preview window
+" set completeopt-=preview
+
+" use omni completion provided by lsp
+
+" autocmd Filetype python setl omnifunc=v:lua.vim.lsp.omnifunc
+" nnoremap  <localleader>dc <cmd>lua vim.lsp.buf.declaration()<CR>
+" nnoremap  <localleader>df <cmd>lua vim.lsp.buf.definition()<CR>
+" nnoremap  <localleader>h  <cmd>lua vim.lsp.buf.hover()<CR>
+" nnoremap  <localleader>i  <cmd>lua vim.lsp.buf.implementation()<CR>
+" nnoremap  <localleader>s  <cmd>lua vim.lsp.buf.signature_help()<CR>
+" nnoremap  <localleader>td <cmd>lua vim.lsp.buf.type_definition()<CR>
 
 " vim-highlightedyank plugin
 let g:highlightedyank_highlight_duration = 100
@@ -940,13 +964,6 @@ augroup ft_prolog
     autocmd BufRead,BufNewFile *.pl set filetype=prolog
 augroup END
 
-" let g:slimv_repl_split = 4
-" }}}
-" Haskellmode {{{
-
-" let $PATH = $PATH . ':' . expand("~/.cabal/bin")
-" set path+=~/.cabal/bin
-
 
 let g:haddock_browser = "firefox"
 let g:haddock_browser_callformat = "%s %s"
@@ -960,8 +977,6 @@ let g:necoghc_enable_detailed_browse = 1
 nnoremap <leader><cr> :silent !ctags -R --links=no --exclude=.buildozer --languages=-javascript --languages=-css >/dev/null 2>&1 &<cr>:redraw!<cr>
 
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent
-" autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-"
 
 autocmd FileType python setlocal path+=.venv/**
 autocmd FileType python setlocal colorcolumn=79
@@ -1006,12 +1021,6 @@ inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 let g:vimtex_compiler_progname = 'nvr'
 
 
-" let s:ocamlmerlin=substitute(system('opam config var share'),'\n$','','''') .  "/ocamlmerlin"
-" execute "set rtp+=".s:ocamlmerlin."/vim"
-" execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
-" let g:syntastic_ocaml_checkers = ['merlin']
-
-
 set path+=**
 " set path+=.,,**
 
@@ -1021,65 +1030,9 @@ augroup ft_java
     autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
 augroup END
 
-" let g:dbext_default_profile_survey = 'type=PGSQL:user=arjend:@askg:host=localhost:dbname=survey'
-
-" let g:signify_update_on_bufenter = 1
-" let g:signify_update_on_focusgained = 1
 let g:signify_vcs_list = ['git', 'hg']
 
-" noremap <Leader>C :Copen<cr>
-
-" let g:dispatch_compilers = {
-"     \'python': 'nosetests'
-"     \}
-
-" if has("python") && filereadable($HOME . '/.vimrc_python2')
-"     source $HOME/.vimrc_python2
-" elseif has("python3") && filereadable($HOME . '/.vimrc_default')
-"     source $HOME/.vimrc_default
-" endif
 
 if filereadable('.local.vim')
   source .local.vim
 endif
-
-" if filereadable($HOME . '/.config/nvim/python.vim')
-"     source $HOME/.config/nvim/python.vim
-" endif
-
-
-
-" Use location list instead of quickfix
-" let g:LanguageClient_autoStart = 1
-" let g:LanguageClient_diagnosticsList = 'location'
-
-" augroup LanguageClientConfig
-"   autocmd!
-
-"   " <leader>ld to go to definition
-"   autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>ld :call LanguageClient_textDocument_definition()<cr>
-"   " <leader>lf to autoformat document
-"   autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lf :call LanguageClient_textDocument_formatting()<cr>
-"   " <leader>lh for type info under cursor
-"   autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lh :call LanguageClient_textDocument_hover()<cr>
-"   " <leader>lr to rename variable under cursor
-  " autocmd FileType python,htmldjango  nnoremap <buffer> <leader>lr :call LanguageClient_textDocument_rename()<cr>
-"   " <leader>lc to switch omnifunc to LanguageClient
- " autocmd FileType python,json,css,html,htmldjango  nnoremap <buffer> <leader>lc :setlocal omnifunc=LanguageClient#complete<cr>
-"   " <leader>ls to fuzzy find the symbols in the current document
-"   autocmd FileType python,json,css,html,htmldjango nnoremap <buffer> <leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
-
-"   " Use as omnifunc by default
-"   " autocmd FileType python,json,css,html setlocal omnifunc=LanguageClient#complete
-" augroup END
-
-
-" let g:LanguageClient_serverCommands = {}
-" let g:LanguageClient_serverCommands = {'python': ['pyls']}
-" " let g:LanguageClient_serverCommands.lisp = ['cl-lsp']
-
-" if executable("pyls")
-"   setlocal omnifunc=LanguageClient#complete
-"   setlocal signcolumn=yes
-" endif
-"

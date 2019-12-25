@@ -115,6 +115,21 @@
     ,(when key-binding
       `(define-key *top-map* (kbd (format nil "M-~a" ,key-binding)) ,command))))
 
+
+(defvar *xterm-font* "Hack"
+  "The name of the font to use for xterm.")
+
+(defvar *xterm-font-pt* 12
+  "The font size to call xterm with.")
+
+(defcommand xterm (&optional additional-argstr) ()
+  "Call xterm with a couple of settings arguments."
+  (run-shell-command
+   (concatenate 'string
+                "xterm -fa '" *xterm-font* "'"
+                " " "-fs " (format nil "~D" *xterm-font-pt*)
+                " " additional-argstr)))
+
 ;; Web jump (works for Google and Imdb)
 (defmacro make-web-jump (name prefix)
   `(defcommand ,(intern name) (search) ((:rest ,(concatenate 'string name " search: ")))
@@ -216,15 +231,6 @@
 ; (define-key *root-map* (kbd "q") "toggle-full-layout")
 (define-key *top-map* (kbd "M-0") "toggle-full-layout")
 
-; (run-with-timer 3 10 'modeline)
-
-; ; Wait for tray before firing stumptray
-; (sb-thread:make-thread
-;   (lambda ()
-;     (progn
-;      (sleep 10)
-;      (run-commands "stumptray"))))
-
 ;;; run shell commmands
 
 (defun search-thread (needle)
@@ -317,9 +323,6 @@
   ; (wallpaper)
   (sleep 2)
   (refresh-heads))
-
-
-
 
 
 (define-key *top-map* (kbd "M-f") "exec nautilus")
@@ -420,7 +423,6 @@
   ;; frame raise lock (lock AND raise == jumpto)
   (0 nil   t :class "Rambox"))
 
-;;(run-commands "firefox")
 
 ; (run-shell-command "redshift-gtk")
 (run-shell-command "pasystray")
@@ -503,42 +505,6 @@ will scroll through windows in the current group."
 (defcommand screen-layout-menu () ()
   (let ((selection (select-from-menu (current-screen) *layout-menu*)))
     (run-commands (second selection))))
-
-; (defparameter *pop-timer-minutes* nil)
-; (defparameter *pop-timer-seconds* nil)
-
-; (defun speak (text)
-;   (message text)
-;   (run-shell-command (format nil "espeak '~A'" text)))
-
-; (defun pop-timer ()
-;   (if (or (null *pop-timer-minutes*)
-;           (null *pop-timer-seconds*))
-;     (message "Pop timer is not configured.")
-;     (progn
-;       (message "Setting pop timer for ~D:~2,'0D."
-;                *pop-timer-minutes* *pop-timer-seconds*)
-;       (let* ((warning-time 30)
-;              (total-time (+ (* *pop-timer-minutes* 60) *pop-timer-seconds*))
-;              (initial-time (- total-time warning-time)))
-;         (sb-thread:make-thread
-;           (lambda ()
-;             (if (plusp initial-time)
-;               (progn (sleep initial-time)
-;                      (speak "Pop soon.")
-;                      (sleep warning-time))
-;               (sleep total-time))
-;             (speak "Pop!"))
-;           :name "Pop Timer")))))
-
-; (defcommand run-pop-timer () ()
-;   (pop-timer))
-
-; (defcommand set-pop-timer (minutes seconds)
-;     ((:number "Minutes: ")
-;      (:number "Seconds: "))
-;   (setf *pop-timer-minutes* minutes
-;         *pop-timer-seconds* seconds))
 
 ;;(defmacro -<> (expr &rest forms)
 ;;  "Thread the given forms, with `<>` as a placeholder."
