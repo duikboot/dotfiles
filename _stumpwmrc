@@ -292,7 +292,6 @@
   (run-shell-command "~/.screenlayout/screenlayout/big_screen.sh")
   (refresh-heads)
   (refresh-heads)
-  ; (wallpaper)
   (sleep 2)
   (refresh-heads))
 
@@ -391,6 +390,23 @@
     (progn
       (run-shell-command (format nil "redshift -O ~A00" temp))
       (message (format nil "redshift -O ~A00" temp)))))
+
+(let ((temp 45))
+  (defun adjust-temp (n)
+    (setf temp (+ temp n))
+    (run-shell-command "redshift -x")
+    (run-shell-command (format nil "redshift -O ~A00" temp))
+    (message (format nil "redshift -O ~A00" temp))))
+
+(defcommand temp-up ()()
+  (adjust-temp 10))
+
+(defcommand temp-down ()()
+  (adjust-temp -10))
+
+(define-key *top-map* (kbd "M-+") "temp-up")
+(define-key *top-map* (kbd "M--") "temp-down")
+
 
 (define-key *top-map* (kbd "M-l") "move-to-next-frame-with-window")
 (define-key *top-map* (kbd "M-=") "balance-frames")
