@@ -42,3 +42,5 @@ xmodmap -e 'add Control = Control_L'
 
 # vim: ft=sh
 if [ -e /home/arjen/.nix-profile/etc/profile.d/nix.sh ]; then . /home/arjen/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+export PATH="$HOME/.poetry/bin:$PATH"

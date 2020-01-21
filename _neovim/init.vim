@@ -196,6 +196,7 @@ autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
 " Abbreviations
 iabbrev @@ dijkstra.arjen@gmail.com
 iabbrev /\ (lambda )
+iabbrev teh the
 
 
 " silence search string
@@ -236,9 +237,16 @@ xnoremap <C-x> <Esc>`.``gvP``P
 " nnoremap <leader>v :sp ~/.config/nvim/init.vim<CR><C-W>_
 nnoremap <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
 
+function! s:CloseLocationListAndQuicklist()
+    :lclose
+    :cclose
+endfunction
+
+nnoremap <Leader>cc :call <SID>CloseLocationListAndQuicklist()<cr>
+
 " open/close the quickfix window
 nnoremap <leader>c :copen<CR>
-nnoremap <leader>cc :cclose<CR>
+" nnoremap <leader>cc :cclose<CR>
 
 " open/close the location window
 nnoremap <leader>l :lopen<CR>
@@ -392,9 +400,9 @@ nnoremap <silent> <leader>gf :vertical botright wincmd f<CR>
 
 " nnoremap <leader>a <Esc>:Ack!<Space>
 let g:grepper = {}
-nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
-nnoremap <leader>r :Grepper -tool rg<cr>
-nnoremap <leader>A :Rg<cr>
+nnoremap <leader>* :Grepper -tool ag -cword -noprompt<cr>
+nnoremap <leader>r :Grepper -tool ag<cr>
+nnoremap <leader>A :Ag<cr>
 let g:grepper.rg = { 'grepprg': 'rg --vimgrep --smart-case'}
 nnoremap <leader>a :Grepper -tool ag<cr>
 let g:grepper.ag = { 'grepprg': 'ag --path-to-ignore ~/.ignore'}
@@ -454,7 +462,7 @@ nnoremap <silent> <leader>y :YRShow<CR>
 " Please do check if the system clipboad has changed if we're running vim in
 " console
 set clipboard+=unnamedplus
-" let g:loaded_clipboard_provider="xsel"
+let g:loaded_clipboard_provider="xsel"
 
 " vim-exchange
 
@@ -598,7 +606,7 @@ let g:ale_python_mypy_options = '--ignore-missing-imports'
 
 let b:ale_virtualenv_dir_names=['ENV', '.env', '.venv']
 " let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
-autocmd FileType python nnoremap <localleader>b Oimport ipdb; ipdb.set_trace()<esc>:w<CR>
+autocmd FileType python nnoremap <localleader>b Oimport pdb; pdb.set_trace()<esc>:w<CR>
 
 
 "let g:pymode_python = 'python3'

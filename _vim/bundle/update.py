@@ -41,7 +41,7 @@ def procs(module):
 
     if not os.path.exists(directory):
         return clone(link, directory)
-
+    return update(link, directory)
 
 
 def is_obsolete(file_):
@@ -71,7 +71,7 @@ def main():
     Main runner
     """
     process_list, obsolete_dirs = list_processes()
-    # [proc.communicate() for proc in process_list]
+    [proc.communicate() for proc in process_list]
 
     # Remove commented repositories
     to_remove = [d for d in obsolete_dirs if not os.path.islink(d)]
