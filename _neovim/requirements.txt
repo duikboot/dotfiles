@@ -1,5 +1,6 @@
 astroid
 autopep8
+black
 entrypoints
 greenlet
 hacking

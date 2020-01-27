@@ -35,21 +35,6 @@ set conceallevel=0
 set splitright
 set splitbelow
 
-autocmd User lsp_setup call lsp#register_server({
-    \ 'name': 'pyls',
-    \ 'cmd': {server_info->['pyls']},
-    \ 'whitelist': ['python'],
-    \ 'workspace_config': {
-    \   'pyls': {
-    \     'plugins': {'pydocstyle': {'enabled': v:true},
-    \                 'pycodestyle' : {'maxLineLength': 100},
-    \                 'jedi_completion': {'include_params': v:true},
-    \                 'pyls_mypy': {'enabled': v:true},
-    \                 'pyls_black': {'enabled': v:true},
-    \     }
-    \   }
-    \ }
-    \ })
 
 " autocmd Filetype python setl omnifunc=v:lua.vim.lsp.omnifunc
 " Very cool transparant completion menu, but it's distracting me.
@@ -584,7 +569,6 @@ let g:ale_fixers = {
 let g:ale_python_autopep8_options = '--aggressive'
 let g:ale_fix_on_save = 0
 let g:ale_set_highlights = 0
-" nnoremap <localleader>a8 :call ale#fix#Fix()
 nmap <localleader>a8 <Plug>(ale_fix)
 
 " let g:ale_python_flake8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/flake8'
@@ -595,6 +579,7 @@ let g:ale_python_mypy_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/myp
 let g:ale_python_isort_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/isort'
 let g:ale_python_yapf_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/yapf'
 let g:ale_python_autopep8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/autopep8'
+let g:ale_python_black_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/black'
 " let g:pymode_rope_autoimport = 1
 " TEMPORARY!!
 " let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
