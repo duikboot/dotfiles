@@ -102,16 +102,6 @@ set runtimepath+=~/.fzf
 nnoremap <Leader>o :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 
-function! s:change_branch(e)
-    let res = system("git checkout " . a:e)
-    :e!
-    :AirlineRefresh
-    echom "Changed branch to " . a:e
-endfunction
-
-
-
-" let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
   call setbufvar(buf, '&signcolumn', 'no')
@@ -131,24 +121,19 @@ function! FloatingFZF()
   call nvim_open_win(buf, v:true, opts)
 endfunction
 
-function! s:Only()
-    :mksession!
-    :only
-endfunction
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
-nnoremap <Leader>0 :call <SID>Only()<cr>
+let g:goyo_height=95
+nnoremap <Leader>0 :Goyo<cr>
 
 nnoremap <Leader>SS :source Session.vim<cr>
 
-let intrusive = 1
-
-function! s:ToggleIntrusive()
-    set number!
-    ALEToggle
-    SignifyToggle
+function! s:change_branch(e)
+    let res = system("git checkout " . a:e)
+    :e!
+    :AirlineRefresh
+    echom "Changed branch to " . a:e
 endfunction
-
-nnoremap <Leader>ti :call <SID>ToggleIntrusive()<cr>
 
 command! Gbranch call fzf#run(
     \ {
@@ -914,7 +899,7 @@ autocmd FileType racket set commentstring=;%s
 augroup ft_tree
     autocmd!
     autocmd FileType tree setlocal foldmethod=expr
-    autocmd FileType tree setlocal foldlevel=1
+    " autocmd FileType tree setlocal setlocal foldlevel=1
 augroup END
 
 " common lisp {{{
