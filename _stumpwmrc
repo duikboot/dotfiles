@@ -401,10 +401,10 @@
     (message (format nil "redshift -O ~A00" temp))))
 
 (defcommand temp-up ()()
-  (adjust-temp 10))
+  (adjust-temp 5))
 
 (defcommand temp-down ()()
-  (adjust-temp -10))
+  (adjust-temp -5))
 
 (define-key *top-map* (kbd "M-+") "temp-up")
 (define-key *top-map* (kbd "M--") "temp-down")
