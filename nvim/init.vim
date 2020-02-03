@@ -217,7 +217,7 @@ nnoremap <leader>cc :cclose<CR>
 " open/close the location window
 nnoremap <leader>l :lopen<CR>
 nnoremap <leader>ll :lclose<CR>
-nnoremap  <C-W>z :wincmd z<Bar>cclose<Bar>lclose<CR>
+nnoremap  <leader>cc :wincmd z<Bar>cclose<Bar>lclose<CR>
 
 " for when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
@@ -399,12 +399,12 @@ xmap go <plug>(GrepperOperator)
 
 " }}}
 
-" {{{ LSP
-lua << EOF
-  require'nvim_lsp'.pyls.setup{}
-EOF
+" " {{{ LSP
+" lua << EOF
+"   require'nvim_lsp'.pyls.setup{}
+" EOF
 
-autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
+" autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 " set omnifunc=lsp#omnifunc
 " autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 " autocmd Filetype sh setlocal omnifunc=v:lua.vim.lsp.omnifunc
@@ -517,7 +517,7 @@ let g:ale_python_isort_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/is
 let g:ale_python_yapf_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/yapf'
 let g:ale_python_black_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/black'
 let g:ale_python_autopep8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/autopep8'
-let g:ale_python_prospector_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/prospector'
+" let g:ale_python_prospector_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/prospector'
 " let g:pymode_rope_autoimport = 1
 " TEMPORARY!!
 " let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
@@ -661,3 +661,9 @@ autocmd BufRead,BufNewFile *.md set ft=markdown
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 let g:delimitMate_excluded_ft = 'clojure,lisp'
 " }}}
+
+
+
+if filereadable('.local.vim')
+  source .local.vim
+endif
