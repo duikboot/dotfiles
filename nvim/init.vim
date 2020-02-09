@@ -44,7 +44,6 @@ endif
 
 set suffixesadd=.tex,.latex,.java,.js,.hrl,.erl,.lisp,.asd
 
-" set guifont=Andale\ Mono\ 10\ for\ Powerline
 " set guifont=Inconsolata\ 10
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
 " set guifont=DejaVu\ Sans\ Mono\ Book\ 8
@@ -291,6 +290,7 @@ nnoremap <localleader>j :%!python -m json.tool<cr>
 " " Note that this will overwrite the contents of the z mark. I never use it,
 " but
 " " if you do you'll probably want to use another mark.
+
 inoremap <C-u> <esc>mzgUiw`za
 noremap <C-u> mzgUiw`za
 
@@ -325,6 +325,7 @@ let g:csv_no_conceal=1
 " {{{ Goyo
 
 nnoremap <Leader>0 :Goyo<cr>
+let g:goyo_height=95
 
 " }}}
 
@@ -400,21 +401,22 @@ xmap go <plug>(GrepperOperator)
 " }}}
 
 " " {{{ LSP
-" lua << EOF
-"   require'nvim_lsp'.pyls.setup{}
-" EOF
+lua << EOF
+  require'nvim_lsp'.pyls.setup{}
+EOF
 
 " autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 " set omnifunc=lsp#omnifunc
 " autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 " autocmd Filetype sh setlocal omnifunc=v:lua.vim.lsp.omnifunc
 "
-" TODO: nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-" TODO: nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-" TODO: nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-" TODO: nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-" TODO: nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-" TODO: nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+" nnoremap <silent> <leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+" nnoremap <silent> <leader><c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <leader>K     <cmd>lua vim.lsp.buf.hover()<CR>
+" nnoremap <silent> <leader>RN     <cmd>lua vim.lsp.buf.rename()<CR>
+"  nnoremap <silent> <leader>gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+"  nnoremap <silent> <leader><c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+"  nnoremap <silent> <leader>1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 " }}}
 
 " {{{ Tags
@@ -453,6 +455,7 @@ let g:jedi#popup_select_first = 0
 let g:jedi#completions_enabled = 0
 
 let g:jedi#smart_auto_mappings = 1
+autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
 " }}}
 
 " {{{ Supertab
@@ -605,7 +608,6 @@ let g:vlime_compiler_policy = {"DEBUG": 3}
 let g:vlime_enable_autodoc = 1
 nnoremap <localleader>c :call <SID>ConnectVlimeToStumpwm()<CR>
 
-
 " }}}
 
 " {{{ Signify
@@ -661,7 +663,6 @@ autocmd BufRead,BufNewFile *.md set ft=markdown
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 let g:delimitMate_excluded_ft = 'clojure,lisp'
 " }}}
-
 
 
 if filereadable('.local.vim')

@@ -21,6 +21,7 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-fugitive'
