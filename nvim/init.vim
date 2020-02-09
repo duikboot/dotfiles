@@ -411,10 +411,10 @@ EOF
 " autocmd Filetype sh setlocal omnifunc=v:lua.vim.lsp.omnifunc
 "
 " nnoremap <silent> <leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-" nnoremap <silent> <leader><c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <leader><c-]> <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> <leader>K     <cmd>lua vim.lsp.buf.hover()<CR>
 " nnoremap <silent> <leader>RN     <cmd>lua vim.lsp.buf.rename()<CR>
-"  nnoremap <silent> <leader>gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+" nnoremap <silent> <leader>gD    <cmd>lua vim.lsp.buf.implementation()<CR>
 "  nnoremap <silent> <leader><c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 "  nnoremap <silent> <leader>1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 " }}}
@@ -497,7 +497,7 @@ let b:ale_python_pycodestyle_use_global=1
 "             \ 'python' : ['prospector', 'pycodestyle', 'mypy', 'pyflakes', 'pylint'],
 " \ }
 let g:ale_linters = {
-            \ 'python' : ['prospector'],
+            \ 'python' : ['prospector', 'mypy'],
 \ }
 
 let g:ale_fixers = {

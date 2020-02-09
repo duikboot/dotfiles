@@ -35,6 +35,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Olical/vim-enmasse'
 Plug 'eraserhd/parinfer-rust', {'do':  'cargo build --release'}
 Plug 'dense-analysis/ale'
+" Plug 'desmap/ale-sensible' | Plug 'w0rp/ale'
 Plug 'vim-scripts/vcscommand.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'simnalamburt/vim-mundo'
