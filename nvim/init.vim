@@ -387,9 +387,9 @@ endfunction
 " {{{ Grepper
 " nnoremap <leader>a <Esc>:Ack!<Space>
 let g:grepper = {}
-nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
+nnoremap <leader>* :Grepper -tool ag -cword -noprompt<cr>
 nnoremap <leader>r :Grepper -tool rg<cr>
-nnoremap <leader>A :Rg<cr>
+nnoremap <leader>A :Ag<cr>
 let g:grepper.rg = { 'grepprg': 'rg --vimgrep --smart-case'}
 nnoremap <leader>a :Grepper -tool ag<cr>
 let g:grepper.ag = { 'grepprg': 'ag --path-to-ignore ~/.ignore'}
@@ -401,9 +401,9 @@ xmap go <plug>(GrepperOperator)
 " }}}
 
 " " {{{ LSP
-lua << EOF
-  require'nvim_lsp'.pyls.setup{}
-EOF
+" lua << EOF
+"   require'nvim_lsp'.pyls.setup{}
+" EOF
 
 " autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 " set omnifunc=lsp#omnifunc
@@ -411,8 +411,8 @@ EOF
 " autocmd Filetype sh setlocal omnifunc=v:lua.vim.lsp.omnifunc
 "
 " nnoremap <silent> <leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> <leader><c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> <leader>K     <cmd>lua vim.lsp.buf.hover()<CR>
+" nnoremap <silent> <leader><c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+" nnoremap <silent> <leader>K     <cmd>lua vim.lsp.buf.hover()<CR>
 " nnoremap <silent> <leader>RN     <cmd>lua vim.lsp.buf.rename()<CR>
 " nnoremap <silent> <leader>gD    <cmd>lua vim.lsp.buf.implementation()<CR>
 "  nnoremap <silent> <leader><c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
