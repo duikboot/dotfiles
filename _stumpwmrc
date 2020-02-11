@@ -352,6 +352,9 @@
 (make-web-jump "stackoverflow" "firefox --new-tab https://stackoverflow.com/search?q=")
 (make-web-jump "so" "firefox --new-tab https://stackoverflow.com/search?q=")
 
+(make-web-jump "youtube" "firefox --new-tab https://www.youtube.com/results?search_query=")
+(make-web-jump "yt" "firefox --new-tab https://www.youtube.com/results?search_query=")
+
 (make-web-jump "wikipedia" "firefox --new-tab https://wikipedia.org/w/index.php?search=")
 
 ;;; Group thingies
