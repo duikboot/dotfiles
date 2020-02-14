@@ -41,6 +41,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'junegunn/goyo.vim'
 Plug 'https://github.com/Raimondi/delimitMate'
+
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
