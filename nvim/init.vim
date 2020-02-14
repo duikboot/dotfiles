@@ -382,6 +382,28 @@ function! FloatingFZF()
   call nvim_open_win(buf, v:true, opts)
 endfunction
 
+" https://github.com/junegunn/fzf.vim/issues/647#issuecomment-520259307
+function! s:get_registers() abort
+  redir => l:regs
+  silent registers
+  redir END
+
+  return split(l:regs, '\n')[1:]
+endfunction
+
+function! s:registers(...) abort
+  let l:opts = {
+        \ 'source': s:get_registers(),
+        \ 'sink': {x -> feedkeys(matchstr(x, '\v^\S+\ze.*') . (a:1 ? 'P' : 'p'), 'x')},
+        \ 'options': '--prompt="Reg> "'
+        \ }
+  call fzf#run(fzf#wrap(l:opts))
+endfunction
+
+command! -bang Registers call s:registers('<bang>' ==# '!')
+
+nnoremap <leader>y :Registers<cr>
+
 " }}}
 
 " {{{ Grepper
@@ -668,3 +690,4 @@ let g:delimitMate_excluded_ft = 'clojure,lisp'
 if filereadable('.local.vim')
   source .local.vim
 endif
+
