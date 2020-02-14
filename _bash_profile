@@ -7,9 +7,9 @@ if [ -f ~/.bashrc ]; then
 
 # User specific environment and startup programs
 
-PYTHONSTARTUP=~/.pythonstartup
+# PYTHONSTARTUP=~/.pythonstartup
 
-export PYTHONSTARTUP=~/.pythonrc
+# export PYTHONSTARTUP=~/.pythonrc
 export PYTHONPATH
 export HGEDITOR=vim
 export EDITOR=vim
@@ -42,3 +42,5 @@ eval `keychain --eval --agents ssh id_dsa id_rsa`
 
 # vim: ft=sh
 if [ -e /home/arjen/.nix-profile/etc/profile.d/nix.sh ]; then . /home/arjen/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+export PATH="$HOME/.poetry/bin:$PATH"
