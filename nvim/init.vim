@@ -472,11 +472,11 @@ let g:deoplete#ignore_sources = {'_': ['tag']}
 " let g:deoplete#complete_method='omnifunc'
 
 let g:deoplete#sources#jedi#ignore_errors = v:true
-
+let g:jedi#use_splits_not_buffers = "right"
 let g:jedi#popup_select_first = 0
 let g:jedi#completions_enabled = 0
-
-let g:jedi#smart_auto_mappings = 1
+let g:jedi#show_call_signatures = 2  "Show call signatures in the command line instead of a popup window.
+let g:jedi#smart_auto_mappings = 1  "Automatic add `import` statement to from <modulename> import
 autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
 " }}}
 
