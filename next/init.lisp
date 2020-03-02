@@ -36,5 +36,5 @@
 
 (add-to-default-list 'vi-normal-mode 'buffer 'default-modes)
 
-(define-key :keymap *my-keymap* "+" 'zoom-in-page)
-(define-key :keymap *my-keymap* "_" 'zoom-out-page)
+(define-key :keymap *my-keymap* "+" #'zoom-in-page)
+(define-key :keymap *my-keymap* "_" #'zoom-out-page)

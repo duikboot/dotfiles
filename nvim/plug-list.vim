@@ -52,6 +52,7 @@ else
 endif
 
 Plug 'zchee/deoplete-jedi'
+Plug 'https://github.com/majutsushi/tagbar'
 
 if has('nvim')
     Plug 'neovim/nvim-lsp'

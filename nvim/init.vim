@@ -422,7 +422,8 @@ xmap go <plug>(GrepperOperator)
 
 " }}}
 
-" " {{{ LSP
+" {{{ LSP
+
 " lua << EOF
 "   require'nvim_lsp'.pyls.setup{}
 " EOF
@@ -688,6 +689,10 @@ autocmd BufRead,BufNewFile *.md set ft=markdown
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 let g:delimitMate_excluded_ft = 'clojure,lisp'
 " }}}
+
+" {{{ Tagbar
+
+nnoremap <localleader> :TagbarToggle<cr>
 
 
 if filereadable('.local.vim')
