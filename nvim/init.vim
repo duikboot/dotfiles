@@ -6,7 +6,7 @@ source ~/.config/nvim/plug-list.vim
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
 syntax on                     " syntax highlighting
-set nonumber                    " Display line numbers
+set number                    " Display line numbers
 set numberwidth=1             " using only 1 column (and 1 space) while possible
 set hidden
 set title                     " show title in console title bar
@@ -164,7 +164,7 @@ set t_Co=256
 set termguicolors
 set background=dark           " We are using dark background in vim
 " colorscheme NeoSolarized
-colorscheme PaperColor
+colorscheme gruvbox8_hard
 
 let g:hostname=hostname()
 
@@ -325,7 +325,7 @@ let g:csv_no_conceal=1
 " {{{ Goyo
 
 nnoremap <Leader>0 :Goyo<cr>
-let g:goyo_height=95
+let g:goyo_height=100
 
 " }}}
 
@@ -426,6 +426,9 @@ xmap go <plug>(GrepperOperator)
 " lua << EOF
 "   require'nvim_lsp'.pyls.setup{}
 " EOF
+
+" " Disable diagnostics, it's handled by Ale.
+" let g:lsp_diagnostics_enabled = 0
 
 " autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 " set omnifunc=lsp#omnifunc
