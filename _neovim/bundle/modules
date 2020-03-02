@@ -32,56 +32,54 @@
 https://github.com/tpope/vim-markdown.git                     markdown
 # https://github.com/ujihisa/neco-ghc.git                       neco-ghc
 # https://github.com/vim-scripts/tracwiki.git                   tracwiki
-https://github.com/tpope/vim-pathogen.git                       pathogen
-https://github.com/sheerun/vim-polyglot                       vim-polyglot
-https://github.com/NLKNguyen/papercolor-theme                 papercolor
-https://github.com/Olical/vim-enmasse                         enmasse
+git://github.com/tpope/vim-pathogen.git                       pathogen
+✓ https://github.com/sheerun/vim-polyglot                       vim-polyglot
+✓ https://github.com/NLKNguyen/papercolor-theme                 papercolor
+✓ https://github.com/Olical/vim-enmasse                         enmasse
 https://github.com/Raimondi/delimitMate                       delimitMate
 # https://github.com/Shougo/denite.nvim                         denite
-https://github.com/Shougo/deoplete.nvim                       deoplete
-https://github.com/Shougo/echodoc.vim                       echodoc
+✓ https://github.com/Shougo/deoplete.nvim                       deoplete
 https://github.com/Shougo/neco-vim                          neco-vim
 https://github.com/Shougo/neosnippet-snippets               neosnippet-snippets
 https://github.com/Shougo/neosnippet.vim                    neosnippet
-https://github.com/altercation/vim-colors-solarized.git       solarized
 https://github.com/andymass/vim-matchup                     vim-matchup
-https://github.com/bling/vim-airline                          airline
-https://github.com/christoomey/vim-tmux-navigator             tmux-navigator
-https://github.com/davidhalter/jedi-vim                 jedi-vim
-https://github.com/zchee/deoplete-jedi                      deoplete-jedi
+✓ https://github.com/bling/vim-airline                          airline
+✓ https://github.com/christoomey/vim-tmux-navigator             tmux-navigator
+✓ https://github.com/davidhalter/jedi-vim                 jedi-vim
+✓ https://github.com/zchee/deoplete-jedi                      deoplete-jedi
 https://github.com/eraserhd/parinfer-rust                 parinfer-rust
 https://github.com/godlygeek/tabular                          tabular
 # https://github.com/guns/vim-sexp                            vim-sexp
-https://github.com/junegunn/fzf.vim                         fzf.vim
+✓ https://github.com/junegunn/fzf.vim                         fzf.vim
 https://github.com/junegunn/gv.vim                          gv
 # https://github.com/junegunn/vim-slash                     vim-slash
-https://github.com/kassio/neoterm                             neoterm
+✓ https://github.com/kassio/neoterm                             neoterm
 https://github.com/keith/tmux.vim                               tmux
 https://github.com/kien/rainbow_parentheses.vim             rainbow_parentheses
 # https://github.com/l04m33/vlime                             vlime-repo
 https://github.com/fukamachi/vlime                          vlime-repo
-https://github.com/machakann/vim-highlightedyank            highlightedyank
+✓ https://github.com/machakann/vim-highlightedyank            highlightedyank
 https://github.com/machakann/vim-swap                         swap
 https://github.com/majutsushi/tagbar                          tagbar
 https://github.com/mbbill/undotree                            undotree
-https://github.com/mhinz/vim-grepper                        grepper
-https://github.com/mhinz/vim-signify                          sigcnify
+✓ https://github.com/mhinz/vim-grepper                        grepper
+✓ https://github.com/mhinz/vim-signify                          sigcnify
 # https://github.com/tbodt/deoplete-tabnine                   deoplete-tabnine
 https://github.com/tpope/vim-abolish                          abolish
-https://github.com/tpope/vim-commentary.git                   commentary
-https://github.com/tpope/vim-fugitive                         fugitive
-https://github.com/tpope/vim-obsession                        obsession
-https://github.com/tpope/vim-repeat                           repeat
+✓ https://github.com/tpope/vim-commentary.git                   commentary
+✓ https://github.com/tpope/vim-fugitive                         fugitive
+✓ https://github.com/tpope/vim-obsession                        obsession
+✓ https://github.com/tpope/vim-repeat                           repeat
 https://github.com/tpope/vim-speeddating                      speeddating
-https://github.com/tpope/vim-surround.git                     surround
-https://github.com/tpope/vim-unimpaired                       unimpaired
+✓ https://github.com/tpope/vim-surround.git                     surround
+✓ https://github.com/tpope/vim-unimpaired                       unimpaired
 https://github.com/vim-scripts/YankRing.vim.git               yankring
-https://github.com/vim-scripts/vcscommand.vim.git             vcscommand
-https://github.com/dense-analysis/ale                           ale
-https://github.com/wellle/targets.vim                         targets
-# https://github.com/ervandew/supertab                        supertab
+✓ https://github.com/vim-scripts/vcscommand.vim.git             vcscommand
+✓ https://github.com/dense-analysis/ale                           ale
+✓ https://github.com/wellle/targets.vim                         targets
+✓ https://github.com/ervandew/supertab                        supertab
 https://github.com/michaeljsmith/vim-indent-object          vim-indent-object
-https://github.com/iCyMind/NeoSolarized                     NeoSolarized
-https://github.com/lervag/vimtex                            vimtex
-https://github.com/junegunn/seoul256.vim                    seoul256.vim
-https://github.com/neoclide/coc.nvim                        coc.nvim
+✓ https://github.com/iCyMind/NeoSolarized                     NeoSolarized
+✓ https://github.com/lervag/vimtex                            vimtex
+✓ https://github.com/neovim/nvim-lsp                         nvim-lsp
+✓ https://github.com/conweller/endarkened.vim               endarkened.vim

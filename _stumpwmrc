@@ -115,6 +115,21 @@
     ,(when key-binding
       `(define-key *top-map* (kbd (format nil "M-~a" ,key-binding)) ,command))))
 
+
+(defvar *xterm-font* "Hack"
+  "The name of the font to use for xterm.")
+
+(defvar *xterm-font-pt* 12
+  "The font size to call xterm with.")
+
+(defcommand xterm (&optional additional-argstr) ()
+  "Call xterm with a couple of settings arguments."
+  (run-shell-command
+   (concatenate 'string
+                "xterm -fa '" *xterm-font* "'"
+                " " "-fs " (format nil "~D" *xterm-font-pt*)
+                " " additional-argstr)))
+
 ;; Web jump (works for Google and Imdb)
 (defmacro make-web-jump (name prefix)
   `(defcommand ,(intern name) (search) ((:rest ,(concatenate 'string name " search: ")))
@@ -154,6 +169,7 @@
         '("net"
           ; "app-menu"
           "cpu"
+          "swm-gaps"
           "battery-portable"
           "desktop-entry"
           "end-session"
@@ -195,6 +211,10 @@
 (setf *message-window-gravity* :center)
 (setf *input-window-gravity* :center)
 
+(setf swm-gaps:*inner-gaps-size* 5)
+(setf swm-gaps:*outer-gaps-size* 5)
+; (swm-gaps:toggle-gaps)
+
 (defparameter *layouts* (make-hash-table :test #'eql))
 
 (defcommand toggle-full-layout () ()
@@ -210,15 +230,6 @@
 
 ; (define-key *root-map* (kbd "q") "toggle-full-layout")
 (define-key *top-map* (kbd "M-0") "toggle-full-layout")
-
-; (run-with-timer 3 10 'modeline)
-
-; ; Wait for tray before firing stumptray
-; (sb-thread:make-thread
-;   (lambda ()
-;     (progn
-;      (sleep 10)
-;      (run-commands "stumptray"))))
 
 ;;; run shell commmands
 
@@ -281,7 +292,6 @@
   (run-shell-command "~/.screenlayout/screenlayout/big_screen.sh")
   (refresh-heads)
   (refresh-heads)
-  ; (wallpaper)
   (sleep 2)
   (refresh-heads))
 
@@ -314,9 +324,6 @@
   (refresh-heads))
 
 
-
-
-
 (define-key *top-map* (kbd "M-f") "exec nautilus")
 
 (define-key *top-map* (kbd "M-s") "lock-screen")
@@ -344,6 +351,9 @@
 
 (make-web-jump "stackoverflow" "firefox --new-tab https://stackoverflow.com/search?q=")
 (make-web-jump "so" "firefox --new-tab https://stackoverflow.com/search?q=")
+
+(make-web-jump "youtube" "firefox --new-tab https://www.youtube.com/results?search_query=")
+(make-web-jump "yt" "firefox --new-tab https://www.youtube.com/results?search_query=")
 
 (make-web-jump "wikipedia" "firefox --new-tab https://wikipedia.org/w/index.php?search=")
 
@@ -384,6 +394,25 @@
       (run-shell-command (format nil "redshift -O ~A00" temp))
       (message (format nil "redshift -O ~A00" temp)))))
 
+(let ((temp 45))
+  (defun adjust-temp (n)
+    (if (<= temp 10)
+      (setf temp 45)
+      (setf temp (+ temp n)))
+    (run-shell-command "redshift -x")
+    (run-shell-command (format nil "redshift -O ~A00" temp))
+    (message (format nil "redshift -O ~A00" temp))))
+
+(defcommand temp-up ()()
+  (adjust-temp 5))
+
+(defcommand temp-down ()()
+  (adjust-temp -5))
+
+(define-key *top-map* (kbd "M-+") "temp-up")
+(define-key *top-map* (kbd "M--") "temp-down")
+
+
 (define-key *top-map* (kbd "M-l") "move-to-next-frame-with-window")
 (define-key *top-map* (kbd "M-=") "balance-frames")
 (define-key *top-map* (kbd "M-0") "only")
@@ -415,7 +444,6 @@
   ;; frame raise lock (lock AND raise == jumpto)
   (0 nil   t :class "Rambox"))
 
-;;(run-commands "firefox")
 
 ; (run-shell-command "redshift-gtk")
 (run-shell-command "pasystray")
@@ -498,42 +526,6 @@ will scroll through windows in the current group."
 (defcommand screen-layout-menu () ()
   (let ((selection (select-from-menu (current-screen) *layout-menu*)))
     (run-commands (second selection))))
-
-; (defparameter *pop-timer-minutes* nil)
-; (defparameter *pop-timer-seconds* nil)
-
-; (defun speak (text)
-;   (message text)
-;   (run-shell-command (format nil "espeak '~A'" text)))
-
-; (defun pop-timer ()
-;   (if (or (null *pop-timer-minutes*)
-;           (null *pop-timer-seconds*))
-;     (message "Pop timer is not configured.")
-;     (progn
-;       (message "Setting pop timer for ~D:~2,'0D."
-;                *pop-timer-minutes* *pop-timer-seconds*)
-;       (let* ((warning-time 30)
-;              (total-time (+ (* *pop-timer-minutes* 60) *pop-timer-seconds*))
-;              (initial-time (- total-time warning-time)))
-;         (sb-thread:make-thread
-;           (lambda ()
-;             (if (plusp initial-time)
-;               (progn (sleep initial-time)
-;                      (speak "Pop soon.")
-;                      (sleep warning-time))
-;               (sleep total-time))
-;             (speak "Pop!"))
-;           :name "Pop Timer")))))
-
-; (defcommand run-pop-timer () ()
-;   (pop-timer))
-
-; (defcommand set-pop-timer (minutes seconds)
-;     ((:number "Minutes: ")
-;      (:number "Seconds: "))
-;   (setf *pop-timer-minutes* minutes
-;         *pop-timer-seconds* seconds))
 
 ;;(defmacro -<> (expr &rest forms)
 ;;  "Thread the given forms, with `<>` as a placeholder."

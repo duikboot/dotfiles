@@ -15,6 +15,7 @@ hgk =
 mq =
 pager =
 progress =
+# prompt = ~/Programms/hg-prompt/prompt.py
 # rebase =
 # record =
 # share =

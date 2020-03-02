@@ -7,9 +7,9 @@ if [ -f ~/.bashrc ]; then
 
 # User specific environment and startup programs
 
-PYTHONSTARTUP=~/.pythonstartup
+# PYTHONSTARTUP=~/.pythonstartup
 
-export PYTHONSTARTUP=~/.pythonrc
+# export PYTHONSTARTUP=~/.pythonrc
 export PYTHONPATH
 #export HGEDITOR=vim
 export EDITOR=vim
