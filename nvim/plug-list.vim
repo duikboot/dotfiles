@@ -33,7 +33,7 @@ Plug 'lervag/vimtex'
 Plug 'iCyMind/NeoSolarized'
 Plug 'sheerun/vim-polyglot'
 Plug 'Olical/vim-enmasse'
-Plug 'eraserhd/parinfer-rust', {'do':  'cargo build --release'}
+" Plug 'eraserhd/parinfer-rust', {'do':  'cargo build --release'}
 Plug 'dense-analysis/ale'
 " Plug 'desmap/ale-sensible' | Plug 'w0rp/ale'
 Plug 'vim-scripts/vcscommand.vim'
