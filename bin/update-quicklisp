@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+sbcl --eval '(ql:update-client)' --eval '(ql:update-all-dists)' --quit
