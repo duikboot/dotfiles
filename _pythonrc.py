@@ -36,4 +36,3 @@ class Completer(object):
 
 
 c = Completer()
-
