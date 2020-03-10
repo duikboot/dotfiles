@@ -8,3 +8,5 @@ xmodmap -e 'add Control = Control_L'
 export GDK_CORE_DEVICE_EVENTS=1
 
 # setxkbmap -option ctrl:swapcaps
+
+export PATH="$HOME/.poetry/bin:$PATH"

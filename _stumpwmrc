@@ -1,8 +1,8 @@
 #+test-modeline
 (progn
-  (ql:quickload :ttf-fonts)
-  (xft:cache-fonts)
-  (set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 11))
+  ; (ql:quickload :ttf-fonts)
+  ; (xft:cache-fonts)
+  ; (set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 11))
   (mode-line)
   (run-commands "stumptray")
   (refresh-heads)
@@ -13,6 +13,7 @@
 ; (set-wallpaper)
 ; hide windows (flear)
 
+(ql:quickload :bordeaux-threads)
 
 (defun enable-mode-line-all-heads ()
   (dolist (screen *screen-list*)

@@ -18,3 +18,4 @@ pynvim
 six
 typed-ast
 wrapt
+vulture
