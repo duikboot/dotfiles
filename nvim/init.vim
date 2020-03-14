@@ -509,9 +509,6 @@ let g:airline#extensions#tabline#formatter = 'short_path'
 let g:ale_completion_enabled=1
 let g:ale_completion_delay=50
 
-" autocmd FileType python :iabbrev <buffer> .. self
-
-
 " let g:ale_lint_on_text_changed='never'
 " let g:ale_lint_on_insert_leave=1
 " let g:ale_virtualtext_cursor=1
@@ -547,9 +544,7 @@ let g:ale_python_yapf_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/yap
 let g:ale_python_black_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/black'
 let g:ale_python_autopep8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/autopep8'
 " let g:ale_python_prospector_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/prospector'
-" let g:pymode_rope_autoimport = 1
 " TEMPORARY!!
-" let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
 " let g:ale_python_pylint_options = "--load-plugins pylint_django"
 " let g:ale_python_autopep8_options = '--aggressive'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
@@ -560,7 +555,6 @@ let g:ale_python_prospector_options = '--strictness veryhigh --member-warnings'
 
 let b:ale_virtualenv_dir_names=['ENV', '.env', '.venv']
 " let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
-autocmd FileType python nnoremap <localleader>b Oimport ipdb; ipdb.set_trace()<esc>:w<CR>
 
 
 
@@ -642,16 +636,6 @@ let g:signify_vcs_list = ['git', 'hg']
 
 " }}}
 
-" {{{ Python
-
-autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent
-
-autocmd FileType python setlocal path+=.venv/**
-autocmd FileType python setlocal colorcolumn=79
-
-"
-" }}}
-
 " {{{ Abbreviations
 
 iabbrev @@ dijkstra.arjen@gmail.com
@@ -686,8 +670,10 @@ autocmd BufRead,BufNewFile *.md set ft=markdown
 " }}}
 
 " {{{ Delimitmate
+
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 let g:delimitMate_excluded_ft = 'clojure,lisp'
+
 " }}}
 
 " {{{ Tagbar
@@ -702,6 +688,47 @@ let g:CoolTotalMatches = 1
 
 " }}}
 
+" {{{ Python
+
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent
+
+autocmd FileType python setlocal path+=.venv/**
+autocmd FileType python setlocal colorcolumn=79
+
+autocmd FileType python nnoremap <localleader>b Oimport ipdb; ipdb.set_trace()<esc>:w<CR>
+
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent
+
+
+" }}}
+
+" {{{ common lisp 
+
+augroup ft_lisp
+    let g:delimitMate_excluded_ft = 'clojure,lisp'
+    autocmd BufRead,BufNewFile *.asd set filetype=lisp
+    autocmd BufRead,BufNewFile *.ros set filetype=lisp
+
+    autocmd FileType lisp setlocal colorcolumn=79
+
+    autocmd FileType lisp setlocal tabstop=2
+    autocmd FileType lisp setlocal shiftwidth=2            " but an indent level is 2 spaces wide.
+    autocmd FileType lisp set softtabstop=2           " <BS> over an autoindent deletes both spaces.
+    autocmd BufRead *.lisp set makeprg=sblint
+    " let g:syntastic_lisp_checkers = ['sblint']
+    " autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
+    let g:parinfer_force_balance = 1
+    let g:parinfer_enabled = 1
+augroup END
+
+augroup set_lisp_repl
+    autocmd FileType lisp
+          \ if executable('lisp') |
+          \   call neoterm#repl#set('lisp') |
+          \ end
+augroup END
+
+" }}}
 
 if filereadable('.local.vim')
   source .local.vim

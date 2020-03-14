@@ -294,32 +294,6 @@ augroup ft_tree
     autocmd FileType tree setlocal foldlevel=1
 augroup END
 
-" common lisp {{{
-augroup ft_lisp
-    let g:delimitMate_excluded_ft = 'clojure,lisp'
-    autocmd BufRead,BufNewFile *.asd set filetype=lisp
-    autocmd BufRead,BufNewFile *.ros set filetype=lisp
-
-    autocmd FileType lisp setlocal colorcolumn=79
-
-    autocmd FileType lisp setlocal tabstop=2
-    autocmd FileType lisp setlocal shiftwidth=2            " but an indent level is 2 spaces wide.
-    autocmd FileType lisp set softtabstop=2           " <BS> over an autoindent deletes both spaces.
-    autocmd BufRead *.lisp set makeprg=sblint
-    " let g:syntastic_lisp_checkers = ['sblint']
-    " autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
-    let g:parinfer_force_balance = 1
-    let g:parinfer_enabled = 1
-augroup END
-
-
-" lisp
-augroup set_lisp_repl
-    autocmd FileType lisp
-          \ if executable('lisp') |
-          \   call neoterm#repl#set('lisp') |
-          \ end
-augroup END
 
 augroup ft_prolog
     autocmd BufRead,BufNewFile *.pl set filetype=prolog
