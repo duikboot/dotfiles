@@ -523,7 +523,7 @@ let b:ale_python_pycodestyle_use_global=1
 "             \ 'python' : ['prospector', 'pycodestyle', 'mypy', 'pyflakes', 'pylint'],
 " \ }
 let g:ale_linters = {
-            \ 'python' : ['prospector', 'mypy', 'vulture'],
+            \ 'python' : ['prospector', 'mypy'],
 \ }
 
 let g:ale_fixers = {
@@ -693,6 +693,14 @@ let g:delimitMate_excluded_ft = 'clojure,lisp'
 " {{{ Tagbar
 
 nnoremap <localleader> :TagbarToggle<cr>
+
+" }}}
+
+" {{{ vim-cool
+
+let g:CoolTotalMatches = 1
+
+" }}}
 
 
 if filereadable('.local.vim')
