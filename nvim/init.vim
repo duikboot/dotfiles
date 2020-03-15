@@ -462,10 +462,6 @@ nnoremap <leader>ts <Esc>:tselect<Space>
 " Open in vertical split the tag under the cursur.
 nnoremap  <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<cr>zt
 
-" Toggle Tagbar
-nnoremap <leader>tl :TagbarToggle<CR>
-
-
 " }}}
 
 " {{{ Deoplete
@@ -678,7 +674,8 @@ let g:delimitMate_excluded_ft = 'clojure,lisp'
 
 " {{{ Tagbar
 
-nnoremap <localleader> :TagbarToggle<cr>
+" Toggle Tagbar
+nnoremap <leader>tl :TagbarToggle<CR>
 
 " }}}
 
