@@ -162,7 +162,7 @@ set inccommand=nosplit
 
 set t_Co=256
 set termguicolors
-set background=dark           " We are using dark background in vim
+set background=light           " We are using dark background in vim
 " colorscheme NeoSolarized
 colorscheme gruvbox8_hard
 
@@ -310,6 +310,9 @@ vnoremap // y/<C-R>"<CR>
 " Remove trailing whitespace on <leader>S
 nnoremap <leader>S mz:%s/\s\+$//<cr>:let @/=''<CR>`z
 
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
 " }}}
 
 
@@ -321,6 +324,7 @@ autocmd FileType vim setlocal foldlevel=0
 autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
 
 let g:csv_no_conceal=1
+let g:md_no_conceal=0
 
 " {{{ Goyo
 
@@ -716,6 +720,7 @@ augroup ft_lisp
     " autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
     let g:parinfer_force_balance = 1
     let g:parinfer_enabled = 1
+    autocmd FileType lisp setlocal path+=/home/arjen/quicklisp/dists/quicklisp/installed/system/
 augroup END
 
 augroup set_lisp_repl

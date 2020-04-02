@@ -178,6 +178,7 @@
           "screenshot"
           "globalwindows"
           "command-history"
+          "shell-command-history"
           "clipboard-history"))
 
 (defvar *entry-paths*
@@ -315,16 +316,6 @@
   (sleep 2)
   (refresh-heads))
 
-
-(defcommand layout-rotterdam-dell ()()
-  (run-shell-command "/home/arjen/.screenlayout/dell_rotterdam.sh")
-  (refresh-heads)
-  (refresh-heads)
-  ; (wallpaper)
-  (sleep 2)
-  (refresh-heads))
-
-
 (define-key *top-map* (kbd "M-f") "exec nautilus")
 
 (define-key *top-map* (kbd "M-s") "lock-screen")
@@ -342,7 +333,7 @@
 
 (make-web-jump "search" "firefox --new-tab https://www.duckduckgo.com/?q=")
 (make-web-jump "duckduckgo" "firefox --new-tab https://www.duckduckgo.com/?q=")
-(make-web-jump "d" "firefox --new-tab  https://www.duckduckgo.com/?q=")
+(make-web-jump "ddg" "firefox --new-tab  https://www.duckduckgo.com/?q=")
 
 (make-web-jump "google" "firefox --new-tab https://www.google.nl/search?q=")
 (make-web-jump "g" "firefox --new-tab https://www.google.nl/search?q=")

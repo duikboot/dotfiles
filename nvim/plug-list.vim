@@ -43,6 +43,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'https://github.com/romainl/vim-cool'
+Plug 'https://github.com/arzg/vim-colors-xcode'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
