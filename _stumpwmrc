@@ -5,6 +5,7 @@
   ; (set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 11))
   (mode-line)
   (run-commands "stumptray")
+  (run-shell-command "pasystray")
   (refresh-heads)
   (set-wallpaper))
 
@@ -438,7 +439,6 @@
 
 
 ; (run-shell-command "redshift-gtk")
-(run-shell-command "pasystray")
 (run-shell-command "nm-applet --sm-disable")
 
 ;; Pull window by id to current frame.

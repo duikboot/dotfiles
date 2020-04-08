@@ -85,7 +85,6 @@ set pumheight=8             " Keep a small completion window
 
 """ Moving Around/Editing
 set cursorline              " have a line indicate the cursor location
-" set cursorcolumn              " have a bar indicate the cursor location
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
 " autocmd BufEnter * setlocal cursorcolumn
@@ -106,6 +105,8 @@ set shiftwidth=4            " but an indent level is 2 spaces wide.
 set showmatch               " Briefly jump to a paren once it's balanced
 set noshowmode
 set cmdheight=2
+
+autocmd BufRead,BufNewFile,BufEnter *  hi MatchParen guifg=reverse guibg=lightgray
 
 set shortmess+=c
 "set smartindent             " use smart indent if there is no indent file
@@ -164,7 +165,7 @@ set t_Co=256
 set termguicolors
 set background=light           " We are using dark background in vim
 " colorscheme NeoSolarized
-colorscheme gruvbox8_hard
+colorscheme xcodelighthc
 
 let g:hostname=hostname()
 
@@ -224,6 +225,8 @@ cmap w!! w !sudo tee % >/dev/null
 " replace snippet
 nnoremap R :%s//g<left><left>
 
+let g:UltiSnipsExpandTrigger='<c-j>'
+let g:UltiSnipsListSnippets='<c-k>'
 
 " ,v brings up my .vimrc
 " ,V reloads it -- making all changes active (have to save first)
@@ -538,7 +541,7 @@ nmap <localleader>a8 <Plug>(ale_fix)
 let g:ale_python_pycodestyle_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pycodestyle'
 let g:ale_python_pylint_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pyflakes'
 let g:ale_python_vulture_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/vulture'
-let g:ale_python_mypy_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/mypy'
+" let g:ale_python_mypy_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/mypy'
 let g:ale_python_isort_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/isort'
 let g:ale_python_yapf_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/yapf'
 let g:ale_python_black_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/black'
