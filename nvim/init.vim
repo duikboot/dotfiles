@@ -235,6 +235,8 @@ nnoremap <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<
 
 nnoremap <leader>e :edit<cr>
 nnoremap <c-e> :Explore %:p:h<cr>
+" nnoremap <c-e> :Fern . -reveal=% -drawer -toggle<cr>
+" nnoremap <c-e> :Fern . -reveal=% -drawer -toggle<cr>
 autocmd FileType netrw setlocal bufhidden=wipe
 
 " in command mode expand directory with current directory

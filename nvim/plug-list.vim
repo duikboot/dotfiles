@@ -64,5 +64,6 @@ if has('nvim')
     Plug 'neovim/nvim-lsp'
 endif
 
+Plug 'https://github.com/lambdalisue/fern.vim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

@@ -292,10 +292,11 @@
             (run-shell-command "systemctl suspend" t))
 
 (defcommand layout-home-screen ()()
-  (run-shell-command "~/.screenlayout/screenlayout/big_screen.sh")
+  (run-shell-command "sh ~/.screenlayout/big_screen.sh" t)
   (refresh-heads)
   (refresh-heads)
   (sleep 2)
+  (set-wallpaper)
   (refresh-heads))
 
 
