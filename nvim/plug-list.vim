@@ -44,6 +44,7 @@ Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'https://github.com/romainl/vim-cool'
 Plug 'https://github.com/arzg/vim-colors-xcode'
+" Plug 'liuchengxu/vista.vim'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -64,6 +65,11 @@ if has('nvim')
     Plug 'neovim/nvim-lsp'
 endif
 
+Plug 'https://github.com/prabirshrestha/asyncomplete.vim'
+Plug 'https://github.com/Shougo/deoplete-lsp'
+" Plug 'haorenW1025/diagnostic-nvim'
+
 Plug 'https://github.com/lambdalisue/fern.vim'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

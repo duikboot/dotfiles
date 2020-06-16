@@ -169,7 +169,7 @@
 
 (mapcar #'load-module
         '("net"
-          ; "app-menu"
+         ;   "app-menu"
           "cpu"
           "swm-gaps"
           "battery-portable"
@@ -284,6 +284,7 @@
 (make-program-binding "/opt/Rambox/rambox" "Rambox" :key-binding "c")
 (make-program-binding "spotify" "Spotify" :key-binding "m")
 (make-program-binding "calibre" "calibre" :key-binding "C")
+(make-program-binding "keepassxc" "keepassxc")
 
 (defcommand lock-screen ()()
             (run-shell-command "xscreensaver-command -lock" t))

@@ -235,7 +235,7 @@ nnoremap <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<
 
 nnoremap <leader>e :edit<cr>
 nnoremap <c-e> :Explore %:p:h<cr>
-" nnoremap <c-e> :Fern . -reveal=% -drawer -toggle<cr>
+nnoremap <leader>F :Fern . -reveal=% -drawer -toggle<cr>
 " nnoremap <c-e> :Fern . -reveal=% -drawer -toggle<cr>
 autocmd FileType netrw setlocal bufhidden=wipe
 
@@ -321,7 +321,7 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 " }}}
 
 
-autocmd VimResized * silent! :wincmd =
+" autocmd VimResized * silent! :wincmd =
 
 autocmd FileType vim setlocal foldmarker={{{,}}}
 autocmd FileType vim setlocal foldmethod=marker
@@ -433,25 +433,38 @@ xmap go <plug>(GrepperOperator)
 
 " {{{ LSP
 
-" lua << EOF
-"   require'nvim_lsp'.pyls.setup{}
-" EOF
+"lua << EOF
+"  require'nvim_lsp'.pyls.setup{}
+"  -- require'nvim_lsp'.pyls.setup{on_attach=require'diagnostic'.on_attach}
 
-" " Disable diagnostics, it's handled by Ale.
-" let g:lsp_diagnostics_enabled = 0
+"  -- Disable unsolicited diagnostics.
+"  -- function vim.lsp.util.buf_diagnostics_virtual_text() end
 
-" autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
-" set omnifunc=lsp#omnifunc
-" autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
-" autocmd Filetype sh setlocal omnifunc=v:lua.vim.lsp.omnifunc
-"
-" nnoremap <silent> <leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-" nnoremap <silent> <leader><c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-" nnoremap <silent> <leader>K     <cmd>lua vim.lsp.buf.hover()<CR>
-" nnoremap <silent> <leader>RN     <cmd>lua vim.lsp.buf.rename()<CR>
-" nnoremap <silent> <leader>gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-"  nnoremap <silent> <leader><c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-"  nnoremap <silent> <leader>1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+
+"EOF
+
+" autocmd ColorScheme * hi! link LspDiagnosticsUnderlineError SpellCap
+" autocmd ColorScheme * hi! link LspDiagnosticsUnderlineWarning SpellBad
+" autocmd ColorScheme * hi! link LspDiagnosticsUnderlineHint SpellRare
+" autocmd ColorScheme * hi! link LspDiagnosticsUnderlineInformation SpellRare
+
+"" " Disable diagnostics, it's handled by Ale.
+"let g:lsp_diagnostics_enabled = 1
+"set omnifunc=v:lua.vim.lsp.omnifunc
+"nnoremap <silent> <leader><leader> <cmd>lua vim.lsp.util.show_line_diagnostics()<cr>
+
+"" autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
+"" set omnifunc=lsp#omnifunc
+"" autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
+"" autocmd Filetype sh setlocal omnifunc=v:lua.vim.lsp.omnifunc
+""
+"nnoremap <silent> <leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+"nnoremap <silent> <leader><c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+"nnoremap <silent> <leader>K     <cmd>lua vim.lsp.buf.hover()<CR>
+"nnoremap <silent> <leader>RN     <cmd>lua vim.lsp.buf.rename()<CR>
+"nnoremap <silent> <leader>gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+"nnoremap <silent> <leader><c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+"nnoremap <silent> <leader>1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 " }}}
 
 " {{{ Tags
@@ -465,7 +478,7 @@ nnoremap <leader><cr> :silent !ctags -R --links=no --exclude=.buildozer --langua
 nnoremap <C-]> <C-]>zt
 
 " Toggle tag
-nnoremap <leader>t <Esc>:tag<Space>
+nnoremap <leader>t <Esc>:Tags<cr>
 nnoremap <leader>ts <Esc>:tselect<Space>
 
 " Open in vertical split the tag under the cursur.
@@ -476,7 +489,7 @@ nnoremap  <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<c
 " {{{ Deoplete
 
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#ignore_sources = {'_': ['tag']}
+call g:deoplete#custom#option('ignore_sources', {'_': ['tag']})
 " let g:deoplete#sources#jedi#show_docstring = 0
 " let g:deoplete#complete_method='omnifunc'
 
@@ -708,7 +721,7 @@ autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 
 
 " }}}
 
-" {{{ common lisp 
+" {{{ common lisp
 
 augroup ft_lisp
     let g:delimitMate_excluded_ft = 'clojure,lisp'
@@ -725,7 +738,9 @@ augroup ft_lisp
     " autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
     let g:parinfer_force_balance = 1
     let g:parinfer_enabled = 1
-    autocmd FileType lisp setlocal path+=/home/arjen/quicklisp/dists/quicklisp/installed/system/
+    autocmd FileType User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#vlime#get_source_options({ 'priority': 10 }))
+
+    " autocmd FileType lisp setlocal path+=/home/arjen/quicklisp/dists/quicklisp/installed/system/
 augroup END
 
 augroup set_lisp_repl
@@ -741,3 +756,14 @@ if filereadable('.local.vim')
   source .local.vim
 endif
 
+inoremap <buffer><expr><m-i>CreateMatrix()
+    function! CreateMatrix(rows, ...) abort
+      let save_pos=getpos(".")
+      let cols = a:0 ? a:1 : 3
+      let matrix = ['\begin{pmatrix}']
+      call extend(matrix, repeat([repeat('<++> & ', cols - 1) . '<++>\\'], a:rows))
+      call add(matrix, '\end{pmatrix}')
+      call append(line('.') - 1, matrix)
+      call setpos('.', save_pos)
+    endfunction
+    command! -nargs=+ Matrix silent call CreateMatrix(<f-args>)
