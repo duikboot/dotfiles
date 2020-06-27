@@ -22,7 +22,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim', {'do': 'git submodule update --init --recursive'}
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-fugitive'
 Plug 'psf/black'
@@ -61,12 +61,12 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'https://github.com/Shougo/context_filetype.vim'
 
-if has('nvim')
-    Plug 'neovim/nvim-lsp'
-endif
+" if has('nvim')
+"     Plug 'neovim/nvim-lsp'
+" endif
 
 Plug 'https://github.com/prabirshrestha/asyncomplete.vim'
-Plug 'https://github.com/Shougo/deoplete-lsp'
+" Plug 'https://github.com/Shougo/deoplete-lsp'
 " Plug 'haorenW1025/diagnostic-nvim'
 
 Plug 'https://github.com/lambdalisue/fern.vim'
