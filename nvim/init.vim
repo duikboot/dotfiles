@@ -752,18 +752,14 @@ augroup END
 
 " }}}
 
+"{{{ quickscope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+highlight QuickScopePrimary guifg=purple guibg=lightgray gui=underline ctermfg=5 cterm=underline
+highlight QuickScopeSecondary guifg=purple guibg=lightgray gui=underline ctermfg=2 cterm=underline
+
+"}}}
+
 if filereadable('.local.vim')
   source .local.vim
 endif
-
-inoremap <buffer><expr><m-i>CreateMatrix()
-    function! CreateMatrix(rows, ...) abort
-      let save_pos=getpos(".")
-      let cols = a:0 ? a:1 : 3
-      let matrix = ['\begin{pmatrix}']
-      call extend(matrix, repeat([repeat('<++> & ', cols - 1) . '<++>\\'], a:rows))
-      call add(matrix, '\end{pmatrix}')
-      call append(line('.') - 1, matrix)
-      call setpos('.', save_pos)
-    endfunction
-    command! -nargs=+ Matrix silent call CreateMatrix(<f-args>)

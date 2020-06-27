@@ -70,6 +70,7 @@ Plug 'https://github.com/prabirshrestha/asyncomplete.vim'
 " Plug 'haorenW1025/diagnostic-nvim'
 
 Plug 'https://github.com/lambdalisue/fern.vim'
+Plug 'https://github.com/unblevable/quick-scope'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
