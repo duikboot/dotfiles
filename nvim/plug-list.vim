@@ -45,6 +45,7 @@ Plug 'lifepillar/vim-gruvbox8'
 Plug 'https://github.com/romainl/vim-cool'
 Plug 'https://github.com/arzg/vim-colors-xcode'
 " Plug 'liuchengxu/vista.vim'
+Plug 'https://github.com/idanarye/vim-merginal'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
