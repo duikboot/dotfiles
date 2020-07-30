@@ -16,6 +16,7 @@
     root = !pwd
     co = checkout
     st = status
+	up = pull --rebase --autostash
 [web]
     browser = firefox
 [gui]
