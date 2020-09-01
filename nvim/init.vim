@@ -321,7 +321,7 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 " }}}
 
 
-" autocmd VimResized * silent! :wincmd =
+autocmd VimResized * silent! :wincmd =
 
 autocmd FileType vim setlocal foldmarker={{{,}}}
 autocmd FileType vim setlocal foldmethod=marker
@@ -433,15 +433,14 @@ xmap go <plug>(GrepperOperator)
 
 " {{{ LSP
 
-"lua << EOF
-"  require'nvim_lsp'.pyls.setup{}
-"  -- require'nvim_lsp'.pyls.setup{on_attach=require'diagnostic'.on_attach}
+lua << EOF
+ -- require'nvim_lsp'.pyls.setup{}
+ require'nvim_lsp'.pyls.setup{on_attach=require'diagnostic'.on_attach}
 
-"  -- Disable unsolicited diagnostics.
-"  -- function vim.lsp.util.buf_diagnostics_virtual_text() end
+  -- Disable unsolicited diagnostics.
+  function vim.lsp.util.buf_diagnostics_virtual_text() end
 
-
-"EOF
+EOF
 
 " autocmd ColorScheme * hi! link LspDiagnosticsUnderlineError SpellCap
 " autocmd ColorScheme * hi! link LspDiagnosticsUnderlineWarning SpellBad
@@ -461,8 +460,8 @@ xmap go <plug>(GrepperOperator)
 "nnoremap <silent> <leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 "nnoremap <silent> <leader><c-]> <cmd>lua vim.lsp.buf.definition()<CR>
 "nnoremap <silent> <leader>K     <cmd>lua vim.lsp.buf.hover()<CR>
-"nnoremap <silent> <leader>RN     <cmd>lua vim.lsp.buf.rename()<CR>
-"nnoremap <silent> <leader>gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <leader>RN     <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> <leader>gD    <cmd>lua vim.lsp.buf.implementation()<CR>
 "nnoremap <silent> <leader><c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 "nnoremap <silent> <leader>1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 " }}}
@@ -490,19 +489,19 @@ nnoremap  <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<c
 
 let g:deoplete#enable_at_startup = 1
 call g:deoplete#custom#option('ignore_sources', {'_': ['tag']})
-" let g:deoplete#sources#jedi#show_docstring = 0
+let g:deoplete#sources#jedi#show_docstring = 1
 " let g:deoplete#complete_method='omnifunc'
 
 let g:deoplete#sources#jedi#ignore_errors = v:true
 let g:jedi#use_splits_not_buffers = "right"
 let g:jedi#popup_select_first = 0
 let g:jedi#completions_enabled = 0
-let g:jedi#show_call_signatures = 2  "Show call signatures in the command line instead of a popup window.
+let g:jedi#show_call_signatures = 1  "Show call signatures in the command line instead of a popup window.
 let g:jedi#smart_auto_mappings = 1  "Automatic add `import` statement to from <modulename> import
 autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
 " }}}
 
-" {{{ Supertab
+" {{{ autocmd BufEnter *.lisp   Supertab
 
 " select from top to bottom
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -524,7 +523,7 @@ let g:airline#extensions#tabline#formatter = 'short_path'
 
 " {{{ Ale
 
-let g:ale_completion_enabled=1
+let g:ale_completion_enabled=0
 let g:ale_completion_delay=50
 
 " let g:ale_lint_on_text_changed='never'
@@ -716,9 +715,6 @@ autocmd FileType python setlocal colorcolumn=79
 
 autocmd FileType python nnoremap <localleader>b Oimport ipdb; ipdb.set_trace()<esc>:w<CR>
 
-autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent
-
-
 " }}}
 
 " {{{ common lisp
@@ -760,6 +756,36 @@ highlight QuickScopeSecondary guifg=purple guibg=lightgray gui=underline ctermfg
 
 "}}}
 
-if filereadable('.local.vim')
-  source .local.vim
-endif
+autocmd BufEnter *.lisp call ncm2#enable_for_buffer()
+" suppress the annoying 'match x of y', 'The only match' and 'Pattern not
+" found' messages
+set shortmess+=c
+
+" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+inoremap <c-c> <ESC>
+
+" When the <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new
+" line.
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+
+" {{{ comments
+
+
+autocmd FileType kivy set commentstring=#\ %s
+autocmd FileType spec set commentstring=#\ %s
+autocmd FileType tmux set commentstring=#\ %s
+autocmd FileType tex set commentstring=%\ %s
+
+"}}}
+
+" sml
+" autocmd FileType sml setlocal shiftwidth=4
+autocmd FileType sml set commentstring=(*%s*)
+
+autocmd FileType xml setlocal commentstring={#%s#}
