@@ -4,11 +4,20 @@
   ; (xft:cache-fonts)
   ; (set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 11))
   (mode-line)
+  (sleep 1)
   (run-commands "stumptray")
-  (run-shell-command "pasystray")
-  (run-shell-command "octopi-notifier")
+  (sleep .1)
+  (start-apps)
+  (sleep .1)
   (refresh-heads)
+  (sleep .1)
   (set-wallpaper))
+
+(defparameter *stumptray-apps* '("nm-applet --sm-disable" "pasystray" "octopi-notifier"))
+
+
+(defun start-apps ()
+  (mapc (lambda (x) (sleep .1) (run-shell-command x)) *stumptray-apps*))
 
 ; (layout-laptop)
 ; (layout-home-screen)
@@ -148,8 +157,11 @@
 
 (defun start-vlime ()
  (unless *vlime-instance*
-  (vlime:main :port 4005 :backend :vlime-usocket)
-  (setf *vlime-instance* "Vlime running")))
+   (handler-case
+       (vlime:main :port 4005 :backend :vlime-usocket)
+     (error (c)
+       (message "~A" c))))
+ (setf *vlime-instance* "Vlime running"))
 
 (start-vlime)
 
@@ -269,8 +281,6 @@
 
 ; (spotify-wallpaper "https://i.scdn.co/image/ab67616d0000b273dc60cf9a010f86354e6735dd")
 ; (kill-thread (search-thread "wallpaper"))
-
-; (start-with-delay 10 (run-commands "stumptray"))
 
 (run-shell-command "xscreensaver -no-splash")
 
@@ -445,7 +455,6 @@
 
 
 ; (run-shell-command "redshift-gtk")
-(run-shell-command "nm-applet --sm-disable")
 ;; Pull window by id to current frame.
 ;; <c-t><c-id>
 

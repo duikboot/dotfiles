@@ -71,7 +71,7 @@ Plug 'https://github.com/prabirshrestha/asyncomplete.vim'
 " Plug 'https://github.com/Shougo/deoplete-lsp'
 Plug 'haorenW1025/diagnostic-nvim'
 
-Plug 'https://github.com/lambdalisue/fern.vim'
+" Plug 'https://github.com/lambdalisue/fern.vim'
 Plug 'https://github.com/unblevable/quick-scope'
 " Plug 'https://github.com/tpope/vim-dadbod'
 " Plug 'https://github.com/kristijanhusak/vim-dadbod-ui'
@@ -81,5 +81,20 @@ Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 Plug 'https://github.com/HiPhish/ncm2-vlime'
 
+Plug 'https://github.com/nvim-lua/completion-nvim'
+
+
+
+Plug 'Olical/conjure', {'tag': 'v4.3.1'}
+
+Plug 'Olical/aniseed', { 'tag': 'v3.6.2' }
+Plug 'bakpakin/fennel.vim'
+
+
+Plug 'https://github.com/srcery-colors/srcery-vim'
+
+Plug 'https://github.com/barlog-m/oceanic-primal-vim' , { 'branch': 'main' }
+
+Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

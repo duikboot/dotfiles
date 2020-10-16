@@ -25,6 +25,8 @@ set conceallevel=0
 set splitright
 set splitbelow
 
+let g:vimsyn_embed = 'lP'
+
 " Very cool transparant completion menu, but it's distracting me.
 " set pumblend=10
 
@@ -43,6 +45,8 @@ endif
 
 
 set suffixesadd=.tex,.latex,.java,.js,.hrl,.erl,.lisp,.asd
+
+let g:tex_flavor = 'latex'
 
 " set guifont=Inconsolata\ 10
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
@@ -163,9 +167,15 @@ set inccommand=nosplit
 
 set t_Co=256
 set termguicolors
-set background=light           " We are using dark background in vim
+" set background=light           " We are using dark background in vim
 " colorscheme NeoSolarized
-colorscheme xcodelighthc
+" colorscheme xcodelighthc
+
+let g:srcery_italic = 1
+let g:srcery_transparent_background = 1
+let g:srcery_inverse_match_paren = 1
+" colorscheme srcery
+colorscheme oceanic-primal
 
 let g:hostname=hostname()
 
@@ -235,7 +245,7 @@ nnoremap <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<
 
 nnoremap <leader>e :edit<cr>
 nnoremap <c-e> :Explore %:p:h<cr>
-nnoremap <leader>F :Fern . -reveal=% -drawer -toggle<cr>
+" nnoremap <leader>F :Fern . -reveal=% -drawer -toggle<cr>
 " nnoremap <c-e> :Fern . -reveal=% -drawer -toggle<cr>
 autocmd FileType netrw setlocal bufhidden=wipe
 
@@ -435,12 +445,16 @@ xmap go <plug>(GrepperOperator)
 
 lua << EOF
  -- require'nvim_lsp'.pyls.setup{}
- require'nvim_lsp'.pyls.setup{on_attach=require'diagnostic'.on_attach}
+ --require'cl_lsp'.cl_lsp.setup{}
+ --require'nvim_lsp'.pyls.setup{on_attach=require'diagnostic'.on_attach}
+ require'nvim_lsp'.jedi_language_server.setup{on_attach=require'diagnostic'.on_attach}
 
   -- Disable unsolicited diagnostics.
-  function vim.lsp.util.buf_diagnostics_virtual_text() end
+  -- function vim.lsp.util.buf_diagnostics_virtual_text() end
 
 EOF
+
+autocmd BufEnter * lua require'completion'.on_attach()
 
 " autocmd ColorScheme * hi! link LspDiagnosticsUnderlineError SpellCap
 " autocmd ColorScheme * hi! link LspDiagnosticsUnderlineWarning SpellBad
@@ -457,13 +471,13 @@ EOF
 "" autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 "" autocmd Filetype sh setlocal omnifunc=v:lua.vim.lsp.omnifunc
 ""
-"nnoremap <silent> <leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-"nnoremap <silent> <leader><c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-"nnoremap <silent> <leader>K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <leader><c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <leader>K     <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <leader>RN     <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> <leader>gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-"nnoremap <silent> <leader><c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-"nnoremap <silent> <leader>1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+" nnoremap <silent> <leader>gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <leader><c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+" nnoremap <silent> <leader>1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 " }}}
 
 " {{{ Tags
@@ -487,7 +501,7 @@ nnoremap  <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<c
 
 " {{{ Deoplete
 
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
 call g:deoplete#custom#option('ignore_sources', {'_': ['tag']})
 let g:deoplete#sources#jedi#show_docstring = 1
 " let g:deoplete#complete_method='omnifunc'
@@ -496,7 +510,7 @@ let g:deoplete#sources#jedi#ignore_errors = v:true
 let g:jedi#use_splits_not_buffers = "right"
 let g:jedi#popup_select_first = 0
 let g:jedi#completions_enabled = 0
-let g:jedi#show_call_signatures = 1  "Show call signatures in the command line instead of a popup window.
+let g:jedi#show_call_signatures = 0  "Show call signatures in the command line instead of a popup window.
 let g:jedi#smart_auto_mappings = 1  "Automatic add `import` statement to from <modulename> import
 autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
 " }}}
@@ -623,6 +637,7 @@ vnoremap  ,tv :TREPLSendSelection<cr>
 nnoremap ,tl :TREPLSendLine<cr>
 
 " hide/close terminal
+nnoremap <silent> ,t :Tnew<cr>
 nnoremap <silent> ,tt :Ttoggle<cr>
 " clear terminal
 nnoremap <silent> ,tr :call neoterm#clear()<cr>
@@ -789,3 +804,16 @@ autocmd FileType tex set commentstring=%\ %s
 autocmd FileType sml set commentstring=(*%s*)
 
 autocmd FileType xml setlocal commentstring={#%s#}
+
+
+" {{{ Treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "all",     -- one of "all", "language", or a list of languages
+  highlight = {
+        enable = true,              -- false will disable the whole extension
+        -- disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF
+" }}}
