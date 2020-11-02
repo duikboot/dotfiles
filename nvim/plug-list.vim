@@ -22,7 +22,6 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'davidhalter/jedi-vim', {'do': 'git submodule update --init --recursive'}
 " Plug 'ervandew/supertab'
 Plug 'tpope/vim-fugitive'
@@ -89,7 +88,6 @@ Plug 'Olical/conjure', {'tag': 'v4.3.1'}
 
 Plug 'Olical/aniseed', { 'tag': 'v3.6.2' }
 Plug 'bakpakin/fennel.vim'
-
 
 Plug 'https://github.com/srcery-colors/srcery-vim'
 

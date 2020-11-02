@@ -13,7 +13,8 @@
   (sleep .1)
   (set-wallpaper))
 
-(defparameter *stumptray-apps* '("nm-applet --sm-disable" "pasystray" "octopi-notifier"))
+(defparameter *stumptray-apps*
+  '("nm-applet --sm-disable" "pasystray" "octopi-notifier"))
 
 
 (defun start-apps ()
@@ -351,6 +352,8 @@
 (make-web-jump "search" "firefox --new-tab https://www.duckduckgo.com/?q=")
 (make-web-jump "duckduckgo" "firefox --new-tab https://www.duckduckgo.com/?q=")
 (make-web-jump "ddg" "firefox --new-tab  https://www.duckduckgo.com/?q=")
+
+(make-web-jump "twitter" "firefox --new-tab https://twitter.com/search?q=")
 
 (make-web-jump "google" "firefox --new-tab https://www.google.nl/search?q=")
 (make-web-jump "g" "firefox --new-tab https://www.google.nl/search?q=")
