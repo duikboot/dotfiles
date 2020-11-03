@@ -4,10 +4,21 @@
   ; (xft:cache-fonts)
   ; (set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 11))
   (mode-line)
+  (sleep 1)
   (run-commands "stumptray")
-  (run-shell-command "pasystray")
+  (sleep .1)
+  (start-apps)
+  (sleep .1)
   (refresh-heads)
+  (sleep .1)
   (set-wallpaper))
+
+(defparameter *stumptray-apps*
+  '("nm-applet --sm-disable" "pasystray" "octopi-notifier"))
+
+
+(defun start-apps ()
+  (mapc (lambda (x) (sleep .1) (run-shell-command x)) *stumptray-apps*))
 
 ; (layout-laptop)
 ; (layout-home-screen)
@@ -76,7 +87,7 @@
 
 (set-prefix-key (kbd "C-space"))
 ;
-(setf *startup-message* (format nil "^B~A" *version*))
+(setf *startup-message* (format nil "Version: ~A" *version*))
 
 (defvar *home-dir* (getenv "HOME"))
 
@@ -106,9 +117,6 @@
       (progn
        (sleep ,seconds)
        ,@body))))
-
-(defun spotify-wallpaper (url)
-  (run-shell-command (concatenate 'string "feh" url)))
 
 (defmacro make-program-binding (command value &key (key-binding nil))
   `(progn
@@ -150,8 +158,11 @@
 
 (defun start-vlime ()
  (unless *vlime-instance*
-  (vlime:main :port 4005 :backend :vlime-usocket)
-  (setf *vlime-instance* "Vlime running")))
+   (handler-case
+       (vlime:main :port 4005 :backend :vlime-usocket)
+     (error (c)
+       (message "~A" c))))
+ (setf *vlime-instance* "Vlime running"))
 
 (start-vlime)
 
@@ -173,20 +184,20 @@
           "cpu"
           "swm-gaps"
           "battery-portable"
-          "desktop-entry"
+          ;"desktop-entry"
           "end-session"
           "stumptray"
-          "screenshot"
+          ;"screenshot"
           "globalwindows"
           "command-history"
-          "shell-command-history"
+          ;"shell-command-history"
           "clipboard-history"))
 
 (defvar *entry-paths*
   '(#P"/usr/share/applications"
     #P"~/.local/share/applications"))
 
-(desktop-entry:init-entry-list)
+;(desktop-entry:init-entry-list)
 
 
 ;; the screen border)
@@ -265,9 +276,12 @@
 
 (set-wallpaper)
 
-; (kill-thread (search-thread "wallpaper"))
+(defun spotify-wallpaper (url)
+  (run-shell-command
+    (concatenate 'string "feh --bg-scale " url)))
 
-; (start-with-delay 10 (run-commands "stumptray"))
+; (spotify-wallpaper "https://i.scdn.co/image/ab67616d0000b273dc60cf9a010f86354e6735dd")
+; (kill-thread (search-thread "wallpaper"))
 
 (run-shell-command "xscreensaver -no-splash")
 
@@ -281,7 +295,7 @@
 (make-program-binding "firefox" "Firefox" :key-binding "b")
 (make-program-binding "arandr" "arandr")
 (make-program-binding "chromium-browser" "chromium-browser")
-(make-program-binding "/opt/Rambox/rambox" "Rambox" :key-binding "c")
+(make-program-binding "rambox" "Rambox" :key-binding "c")
 (make-program-binding "spotify" "Spotify" :key-binding "m")
 (make-program-binding "calibre" "calibre" :key-binding "C")
 (make-program-binding "keepassxc" "keepassxc")
@@ -319,7 +333,7 @@
   (sleep 2)
   (refresh-heads))
 
-(define-key *top-map* (kbd "M-f") "exec nautilus")
+(define-key *top-map* (kbd "M-f") "exec thunar")
 
 (define-key *top-map* (kbd "M-s") "lock-screen")
 
@@ -330,6 +344,7 @@
 (define-key *top-map* (kbd "M-TAB") "next")
 
 (stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "M-RET") "exec gnome-terminal")
+(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "M-RET") "exec xfce4-terminal")
 ; (stumpwm::run-shell-command "stalonetray")
 
 (make-web-jump "open" "firefox --new-tab ")
@@ -337,6 +352,8 @@
 (make-web-jump "search" "firefox --new-tab https://www.duckduckgo.com/?q=")
 (make-web-jump "duckduckgo" "firefox --new-tab https://www.duckduckgo.com/?q=")
 (make-web-jump "ddg" "firefox --new-tab  https://www.duckduckgo.com/?q=")
+
+(make-web-jump "twitter" "firefox --new-tab https://twitter.com/search?q=")
 
 (make-web-jump "google" "firefox --new-tab https://www.google.nl/search?q=")
 (make-web-jump "g" "firefox --new-tab https://www.google.nl/search?q=")
@@ -441,8 +458,6 @@
 
 
 ; (run-shell-command "redshift-gtk")
-(run-shell-command "nm-applet --sm-disable")
-
 ;; Pull window by id to current frame.
 ;; <c-t><c-id>
 

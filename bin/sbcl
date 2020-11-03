@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 set -e
-rlwrap-lisp /usr/local/bin/sbcl --dynamic-space-size 49152 --noinform "$@"
+BREAK_CHARS="(){}[],^%$#@\"\";''|\\"
+rlwrap -r --histsize 100000 --history-filename "$HOME/.rlwrap-lisp-history" -c -b $BREAK_CHARS /usr/bin/sbcl  --noinform --dynamic-space-size 49152 "$@"

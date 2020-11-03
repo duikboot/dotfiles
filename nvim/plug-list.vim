@@ -7,6 +7,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'conweller/endarkened.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'https://github.com/stsewd/fzf-checkout.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'machakann/vim-swap'
 Plug 'mhinz/vim-grepper'
@@ -21,9 +22,8 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'davidhalter/jedi-vim', {'do': 'git submodule update --init --recursive'}
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'tpope/vim-fugitive'
 Plug 'psf/black'
 Plug 'kassio/neoterm'
@@ -62,16 +62,37 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'https://github.com/Shougo/context_filetype.vim'
 
-" if has('nvim')
-"     Plug 'neovim/nvim-lsp'
-" endif
+if has('nvim')
+    Plug 'neovim/nvim-lspconfig'
+endif
 
 Plug 'https://github.com/prabirshrestha/asyncomplete.vim'
 " Plug 'https://github.com/Shougo/deoplete-lsp'
-" Plug 'haorenW1025/diagnostic-nvim'
+Plug 'haorenW1025/diagnostic-nvim'
 
-Plug 'https://github.com/lambdalisue/fern.vim'
+" Plug 'https://github.com/lambdalisue/fern.vim'
 Plug 'https://github.com/unblevable/quick-scope'
+" Plug 'https://github.com/tpope/vim-dadbod'
+" Plug 'https://github.com/kristijanhusak/vim-dadbod-ui'
+Plug 'https://github.com/MarcWeber/vim-addon-local-vimrc'
 
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'https://github.com/HiPhish/ncm2-vlime'
+
+Plug 'https://github.com/nvim-lua/completion-nvim'
+
+
+
+Plug 'Olical/conjure', {'tag': 'v4.3.1'}
+
+Plug 'Olical/aniseed', { 'tag': 'v3.6.2' }
+Plug 'bakpakin/fennel.vim'
+
+Plug 'https://github.com/srcery-colors/srcery-vim'
+
+Plug 'https://github.com/barlog-m/oceanic-primal-vim' , { 'branch': 'main' }
+
+Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

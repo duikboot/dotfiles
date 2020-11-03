@@ -30,6 +30,13 @@ ZSH_THEME="xiong-chiamiov-plus"
 alias tmuxn='tmux -2 new -s'
 alias mux='pgrep -vx tmux && tmux new -d -s delete-me && tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux kill-session -t delete-me && tmux attach || tmux attach'
 
+#source ~/bin/gitcompletion/git-completion-config
+# xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+# xmodmap -e 'keycode 66 = Control_L'
+# xmodmap -e 'clear Lock'
+# xmodmap -e 'add Control = Control_L'
+
+
 # Make a new session connecting to the socket of the pers tmux server
 # alias tmuxp='tmux -L pers -2 new -s'
 alias vi='vim'
@@ -77,7 +84,7 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(zsh-autosuggestions autojump colorize compleat django docker docker-compose git github git-flow-avh jump cp kubectl mercurial pip python sudo tmux tmuxinator vagrant virtualenv)
+plugins=(autojump colorize compleat django docker docker-compose git github git-flow-avh jump cp kubectl mercurial pip python sudo tmux tmuxinator vagrant virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
