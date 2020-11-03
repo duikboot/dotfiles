@@ -1,4 +1,5 @@
 ;;; The following lines added by ql:add-to-init-file:
+(require "asdf")
 #-quicklisp
 (let ((quicklisp-init (merge-pathnames "~/quicklisp/setup.lisp"
                                        (user-homedir-pathname))))
@@ -13,8 +14,8 @@
 (defvar *last-package* nil)
 (defvar *cached-prompt* nil)
 
-(require 'sb-aclrepl)
-(require 'sb-introspect)
+(require "sb-aclrepl")
+(require "sb-introspect")
 
 (defun package-prompt (stream)
   (when (not (eq *last-package* *package*))
