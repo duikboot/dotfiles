@@ -82,17 +82,15 @@ Plug 'https://github.com/HiPhish/ncm2-vlime'
 
 Plug 'https://github.com/nvim-lua/completion-nvim'
 
-
-
-Plug 'Olical/conjure', {'tag': 'v4.3.1'}
-
-Plug 'Olical/aniseed', { 'tag': 'v3.6.2' }
-Plug 'bakpakin/fennel.vim'
-
 Plug 'https://github.com/srcery-colors/srcery-vim'
 
 Plug 'https://github.com/barlog-m/oceanic-primal-vim' , { 'branch': 'main' }
 
+Plug 'https://github.com/rhysd/git-messenger.vim'
+
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 " List ends here. Plugins become visible to Vim after this call.
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/telescope.nvim'
 call plug#end()

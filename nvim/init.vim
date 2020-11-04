@@ -16,7 +16,7 @@ set undolevels=1000           " use many levels of undo
 set display=lastline
 set nojoinspaces " Use only 1 space after "." when joining lines, not 2"
 set showfulltag               " Show full tags when doing search completion
-" set relativenumber            " show linenumber relative to line cursor is on
+set relativenumber            " show linenumber relative to line cursor is on
 setlocal keywordprg=:help     " Use K to show help on subject under cursor
 set backupdir=~/.tmp//
 set directory=~/.tmp//  "set directory for swapfiles
@@ -822,3 +822,6 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 " }}}
+
+set report=2
+nnoremap <Leader>p <cmd>lua require'telescope.builtin'.find_files{}<CR>

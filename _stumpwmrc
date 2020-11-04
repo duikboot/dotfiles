@@ -190,7 +190,7 @@
           ;"screenshot"
           "globalwindows"
           "command-history"
-          ;"shell-command-history"
+          "shell-command-history"
           "clipboard-history"))
 
 (defvar *entry-paths*
