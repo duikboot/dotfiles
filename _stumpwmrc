@@ -1,3 +1,5 @@
+(in-package :stumpwm)
+
 #+test-modeline
 (progn
   ; (ql:quickload :ttf-fonts)
@@ -83,7 +85,6 @@
 ; *version*
 ; (echo-groups (current-screen) *group-format* t)
 
-(in-package :stumpwm)
 
 (set-prefix-key (kbd "C-space"))
 ;
