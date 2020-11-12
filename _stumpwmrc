@@ -16,7 +16,7 @@
   (set-wallpaper))
 
 (defparameter *stumptray-apps*
-  '("nm-applet --sm-disable" "pasystray" "octopi-notifier"))
+  '("numlockx" "nm-applet --sm-disable" "pasystray" "octopi-notifier"))
 
 
 (defun start-apps ()

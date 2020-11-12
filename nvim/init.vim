@@ -110,8 +110,6 @@ set showmatch               " Briefly jump to a paren once it's balanced
 set noshowmode
 set cmdheight=2
 
-autocmd BufRead,BufNewFile,BufEnter *  hi MatchParen guifg=reverse guibg=lightgray
-
 set shortmess+=c
 "set smartindent             " use smart indent if there is no indent file
 set softtabstop=4           " <BS> over an autoindent deletes both spaces.
@@ -235,9 +233,7 @@ cmap w!! w !sudo tee % >/dev/null
 " replace snippet
 nnoremap R :%s//g<left><left>
 
-let g:UltiSnipsExpandTrigger='<c-j>'
-let g:UltiSnipsListSnippets='<c-k>'
-
+let g:completion_enable_snippet = 'UltiSnips'
 " ,v brings up my .vimrc
 " ,V reloads it -- making all changes active (have to save first)
 " nnoremap <leader>v :sp ~/.config/nvim/init.vim<CR><C-W>_
@@ -443,41 +439,10 @@ xmap go <plug>(GrepperOperator)
 
 " {{{ LSP
 
-lua << EOF
- -- require'nvim_lsp'.pyls.setup{}
- --require'cl_lsp'.cl_lsp.setup{}
- --require'nvim_lsp'.pyls.setup{on_attach=require'diagnostic'.on_attach}
- require'nvim_lsp'.jedi_language_server.setup{on_attach=require'diagnostic'.on_attach}
-
-  -- Disable unsolicited diagnostics.
-  -- function vim.lsp.util.buf_diagnostics_virtual_text() end
-
-EOF
+lua require('init')
 
 autocmd BufEnter * lua require'completion'.on_attach()
 
-" autocmd ColorScheme * hi! link LspDiagnosticsUnderlineError SpellCap
-" autocmd ColorScheme * hi! link LspDiagnosticsUnderlineWarning SpellBad
-" autocmd ColorScheme * hi! link LspDiagnosticsUnderlineHint SpellRare
-" autocmd ColorScheme * hi! link LspDiagnosticsUnderlineInformation SpellRare
-
-"" " Disable diagnostics, it's handled by Ale.
-"let g:lsp_diagnostics_enabled = 1
-"set omnifunc=v:lua.vim.lsp.omnifunc
-"nnoremap <silent> <leader><leader> <cmd>lua vim.lsp.util.show_line_diagnostics()<cr>
-
-"" autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
-"" set omnifunc=lsp#omnifunc
-"" autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
-"" autocmd Filetype sh setlocal omnifunc=v:lua.vim.lsp.omnifunc
-""
-nnoremap <silent> <leader>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> <leader><c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> <leader>K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> <leader>RN     <cmd>lua vim.lsp.buf.rename()<CR>
-" nnoremap <silent> <leader>gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <leader><c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-" nnoremap <silent> <leader>1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 " }}}
 
 " {{{ Tags
@@ -811,17 +776,9 @@ autocmd FileType sml set commentstring=(*%s*)
 autocmd FileType xml setlocal commentstring={#%s#}
 
 
-" {{{ Treesitter
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all",     -- one of "all", "language", or a list of languages
-  highlight = {
-        enable = true,              -- false will disable the whole extension
-        -- disable = { "c", "rust" },  -- list of language that will be disabled
-  },
-}
-EOF
-" }}}
-
+" {{{ telescope
 set report=2
 nnoremap <Leader>p <cmd>lua require'telescope.builtin'.find_files{}<CR>
+nnoremap <silent> gr <cmd>lua require'telescope.builtin'.lsp_references{ shorten_path = true }<CR>
+
+" }}}

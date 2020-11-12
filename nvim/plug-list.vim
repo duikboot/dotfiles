@@ -60,7 +60,7 @@ Plug 'https://github.com/majutsushi/tagbar'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'https://github.com/Shougo/context_filetype.vim'
+" Plug 'https://github.com/Shougo/context_filetype.vim'
 
 if has('nvim')
     Plug 'neovim/nvim-lspconfig'
@@ -89,8 +89,9 @@ Plug 'https://github.com/barlog-m/oceanic-primal-vim' , { 'branch': 'main' }
 Plug 'https://github.com/rhysd/git-messenger.vim'
 
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
-" List ends here. Plugins become visible to Vim after this call.
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
+
+" List ends here. Plugins become visible to Vim after this call.
 call plug#end()

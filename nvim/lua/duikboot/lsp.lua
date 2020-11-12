@@ -1,0 +1,39 @@
+local nvim_lsp = require'nvim_lsp'
+
+local mapper = function(mode, key, result)
+      vim.api.nvim_buf_set_keymap(0, mode, key, result, {noremap = true, silent = true})
+end
+
+
+local on_attach_simple = function(client)
+      require'completion'.on_attach(client)
+end
+
+
+local on_attach_vim = function(client)
+    require'completion'.on_attach(client)
+    require'diagnostic'.on_attach(client)
+end
+
+
+local on_attach_vim_plus_keymaps = function(client)
+    on_attach_vim(client)
+    mapper('n', '1gD',        '<cmd> lua vim.lsp.buf.type_definition()<CR>')
+    mapper('n', '<c-k>',      '<cmd> lua vim.lsp.buf.signature_help()<CR>')
+    mapper('n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename()<CR>')
+    mapper('n', 'K',          '<cmd> lua vim.lsp.buf.hover()<CR>')
+    mapper('n', 'H',          '<cmd> lua vim.lsp.buf.hover()<CR>')
+    mapper('n', 'g0',         '<cmd> lua vim.lsp.buf.document_symbol()<CR>')
+    mapper('n', 'gD',         '<cmd> lua vim.lsp.buf.implementation()<CR>')
+    mapper('n', 'gW',         '<cmd> lua vim.lsp.buf.workspace_symbol()<CR>')
+    mapper('n', '<leader>gd',         '<cmd> lua vim.lsp.buf.declaration()<CR>')
+    mapper('n', '<c-]>',       '<cmd> lua vim.lsp.buf.definition()<CR>')
+end
+
+nvim_lsp.jedi_language_server.setup( {on_attach=on_attach_vim_plus_keymaps })
+nvim_lsp.sumneko_lua.setup( { on_attach=on_attach_vim_plus_keymaps })
+
+
+  -- Disable unsolicited diagnostics.
+  -- function vim.lsp.util.buf_diagnostics_virtual_text() end
+
