@@ -1,3 +1,4 @@
+local vim = vim
 local nvim_lsp = require'nvim_lsp'
 
 local mapper = function(mode, key, result)
@@ -5,19 +6,26 @@ local mapper = function(mode, key, result)
 end
 
 
-local on_attach_simple = function(client)
-      require'completion'.on_attach(client)
-end
-
-
 local on_attach_vim = function(client)
     require'completion'.on_attach(client)
-    require'diagnostic'.on_attach(client)
+    -- require'diagnostic'.on_attach(client)
 end
 
 
 local on_attach_vim_plus_keymaps = function(client)
     on_attach_vim(client)
+    mapper(
+        'n',
+        '<leader>dn',
+        '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'
+        )
+
+    mapper(
+        'n',
+        '<leader>dp',
+        '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'
+        )
+    mapper('n', '<leader>dl',    '<cmd> lua vim.lsp.diagnostic.set_loclist()<CR>')
     mapper('n', '1gD',        '<cmd> lua vim.lsp.buf.type_definition()<CR>')
     mapper('n', '<c-k>',      '<cmd> lua vim.lsp.buf.signature_help()<CR>')
     mapper('n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename()<CR>')
