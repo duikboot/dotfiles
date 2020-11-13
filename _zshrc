@@ -134,3 +134,5 @@ export FZF_COMPLETION_OPTS='--tiebreak=begin,length'
 
 export SWIVM_DIR="/home/arjen/.swivm"
 [ -s "$SWIVM_DIR/swivm.sh" ] && . "$SWIVM_DIR/swivm.sh"  # This loads swivm
+
+export PATH="$HOME/.poetry/bin:$PATH"
