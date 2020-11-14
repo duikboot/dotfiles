@@ -233,7 +233,7 @@ cmap w!! w !sudo tee % >/dev/null
 " replace snippet
 nnoremap R :%s//g<left><left>
 
-let g:completion_enable_snippet = 'UltiSnips'
+let g:completion_enable_snippet = 'snippets.nvim'
 " ,v brings up my .vimrc
 " ,V reloads it -- making all changes active (have to save first)
 " nnoremap <leader>v :sp ~/.config/nvim/init.vim<CR><C-W>_
@@ -442,6 +442,9 @@ xmap go <plug>(GrepperOperator)
 lua require('init')
 
 autocmd BufEnter * lua require'completion'.on_attach()
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " }}}
 

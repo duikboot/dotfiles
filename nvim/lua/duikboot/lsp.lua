@@ -25,8 +25,10 @@ local on_attach_vim_plus_keymaps = function(client)
         '<leader>dp',
         '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'
         )
-    mapper('n', '<leader>dl',    '<cmd> lua vim.lsp.diagnostic.set_loclist()<CR>')
+    mapper('n', '<leader>dl', '<cmd> lua vim.lsp.diagnostic.set_loclist()<CR>')
     mapper('n', '1gD',        '<cmd> lua vim.lsp.buf.type_definition()<CR>')
+    mapper('n', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>')
+    mapper('v', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>')
     mapper('n', '<c-k>',      '<cmd> lua vim.lsp.buf.signature_help()<CR>')
     mapper('n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename()<CR>')
     mapper('n', 'K',          '<cmd> lua vim.lsp.buf.hover()<CR>')
@@ -40,6 +42,7 @@ end
 
 nvim_lsp.jedi_language_server.setup( {on_attach=on_attach_vim_plus_keymaps })
 nvim_lsp.sumneko_lua.setup( { on_attach=on_attach_vim_plus_keymaps })
+nvim_lsp.vimls.setup( { on_attach=on_attach_vim_plus_keymaps })
 
 
   -- Disable unsolicited diagnostics.
