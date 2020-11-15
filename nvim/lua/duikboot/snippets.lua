@@ -33,5 +33,8 @@ for $1 in $2:
 class $1:
     def __init__(self, $2):
        $0]];
+        ["def"] = U.match_indentation [[
+def $1($2):
+    $0]];
     };
 }
