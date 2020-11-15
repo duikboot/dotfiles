@@ -1,5 +1,5 @@
 local vim = vim
-local nvim_lsp = require'nvim_lsp'
+local nvim_lsp = require'lspconfig'
 
 local mapper = function(mode, key, result)
       vim.api.nvim_buf_set_keymap(0, mode, key, result, {noremap = true, silent = true})
@@ -47,4 +47,3 @@ nvim_lsp.vimls.setup( { on_attach=on_attach_vim_plus_keymaps })
 
   -- Disable unsolicited diagnostics.
   -- function vim.lsp.util.buf_diagnostics_virtual_text() end
-

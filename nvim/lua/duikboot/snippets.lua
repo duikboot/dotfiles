@@ -29,6 +29,9 @@ for ${1:i} in ${2:t}:
 for $1 in $2:
     $3
         ]];
+--     NOTE:
+--     Find a way to sync arguments and init
+--     - Arjen, zo 15 nov 2020 12:05:30 CET
         ["class"] = U.match_indentation [[
 class $1:
     def __init__(self, $2):
