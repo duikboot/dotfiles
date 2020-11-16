@@ -22,19 +22,32 @@ require'snippets'.snippets = {
     };
     python = {
         -- Match the indentation of the current line for newlines.
+
         ["for"] = U.match_indentation [[
-for ${1:i} in ${2:t}:
-    $0]];
-        ["for-simple"] = U.match_indentation [[
 for $1 in $2:
     $3
         ]];
+
+        ["try"] = U.match_indentation [[
+try:
+    ${1:pass}
+except ${2:Exception} as ${3:e}:
+    ${4:pass}
+        ]];
+
 --     NOTE:
 --     Find a way to sync arguments and init
 --     - Arjen, zo 15 nov 2020 12:05:30 CET
         ["class"] = U.match_indentation [[
 class $1:
     def __init__(self, $2):
+        self.$2
        $0]];
+
+        ["ifmain"] = U.match_indentation [[
+if __name__ == "__main__":
+    $1
+        ]];
+
     };
 }

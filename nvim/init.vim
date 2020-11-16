@@ -47,6 +47,7 @@ endif
 set suffixesadd=.tex,.latex,.java,.js,.hrl,.erl,.lisp,.asd
 
 let g:tex_flavor = 'latex'
+let g:vimtex_compiler_progname = 'nvr'
 
 " set guifont=Inconsolata\ 10
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
