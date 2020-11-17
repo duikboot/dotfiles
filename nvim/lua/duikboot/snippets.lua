@@ -46,8 +46,7 @@ class $1:
 
         ["ifmain"] = U.match_indentation [[
 if __name__ == "__main__":
-    $1
-        ]];
+    ${1:main()}]];
 
     };
 }
