@@ -1,5 +1,12 @@
 (in-package :stumpwm)
 
+
+(defparameter *stumptray-apps*
+  '("numlockx" "nm-applet --sm-disable" "pasystray" "octopi-notifier"))
+
+(defun start-apps ()
+  (mapc (lambda (x) (sleep .1) (run-shell-command x)) *stumptray-apps*))
+
 #+test-modeline
 (progn
   ; (ql:quickload :ttf-fonts)
@@ -14,13 +21,6 @@
   (refresh-heads)
   (sleep .1)
   (set-wallpaper))
-
-(defparameter *stumptray-apps*
-  '("numlockx" "nm-applet --sm-disable" "pasystray" "octopi-notifier"))
-
-
-(defun start-apps ()
-  (mapc (lambda (x) (sleep .1) (run-shell-command x)) *stumptray-apps*))
 
 ; (layout-laptop)
 ; (layout-home-screen)

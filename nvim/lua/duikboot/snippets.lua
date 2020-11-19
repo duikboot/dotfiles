@@ -15,6 +15,16 @@ local function note_snippet(header)
     end)
 end
 
+function complete_arg_list(string)
+    local rest_completion = string .. '):\n    '
+
+    for str in string.gmatch(string, "([^"..','.."]+)") do
+      rest_completion = rest_completion .. "self." .. str:gsub(" ", "") .. ' = ' .. str:gsub(" ", "") .. '\n    '
+    end
+
+    return rest_completion
+end
+
 require'snippets'.snippets = {
     _global = {
         todo = note_snippet "TODO";
@@ -38,15 +48,15 @@ except ${2:Exception} as ${3:e}:
 --     NOTE:
 --     Find a way to sync arguments and init
 --     - Arjen, zo 15 nov 2020 12:05:30 CET
-        ["class"] = U.match_indentation [[
-class $1:
-    def __init__(self, $2):
-        self.$2
-       $0]];
 
         ["ifmain"] = U.match_indentation [[
 if __name__ == "__main__":
     ${1:main()}]];
+
+
+      ['init'] = U.match_indentation [[
+def __init__(self, ${1|complete_arg_list(S.v)}
+]];
 
     };
 }
