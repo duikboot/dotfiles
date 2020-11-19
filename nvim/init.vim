@@ -782,7 +782,10 @@ autocmd FileType xml setlocal commentstring={#%s#}
 
 " {{{ telescope
 set report=2
-nnoremap <Leader>p <cmd>lua require'telescope.builtin'.find_files{}<CR>
-nnoremap <silent> gr <cmd>lua require'telescope.builtin'.lsp_references{ shorten_path = true }<CR>
+nnoremap <Leader>p  <cmd>lua require'telescope.builtin'.find_files{}<CR>
+nnoremap <silent>gr <cmd>lua require'telescope.builtin'.lsp_references{ shorten_path = true }<CR>
+nnoremap <leader>gc <cmd>lua require'telescope.builtin'.git_commits{}<CR>
+nnoremap <leader>gs <cmd>lua require'telescope.builtin'.git_status{}<CR>
+nnoremap <leader>lg <cmd>lua require'telescope.builtin'.live_grep{}<CR>
 
 " }}}

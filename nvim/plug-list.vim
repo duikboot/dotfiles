@@ -24,6 +24,7 @@ Plug 'tpope/vim-obsession'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'davidhalter/jedi-vim', {'do': 'git submodule update --init --recursive'}
 " Plug 'ervandew/supertab'
+" Plug 'https://github.com/godlygeek/tabular'
 Plug 'tpope/vim-fugitive'
 Plug 'psf/black'
 Plug 'kassio/neoterm'
@@ -65,6 +66,7 @@ Plug 'https://github.com/norcalli/snippets.nvim'
 
 if has('nvim')
     Plug 'neovim/nvim-lspconfig'
+    " Plug 'https://github.com/nvim-lua/lsp-status.nvim'
 endif
 
 Plug 'https://github.com/prabirshrestha/asyncomplete.vim'

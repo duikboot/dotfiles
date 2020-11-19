@@ -45,18 +45,19 @@ except ${2:Exception} as ${3:e}:
     ${4:pass}
         ]];
 
---     NOTE:
---     Find a way to sync arguments and init
---     - Arjen, zo 15 nov 2020 12:05:30 CET
-
         ["ifmain"] = U.match_indentation [[
 if __name__ == "__main__":
     ${1:main()}]];
 
 
-      ['init'] = U.match_indentation [[
+        ['init'] = U.match_indentation [[
 def __init__(self, ${1|complete_arg_list(S.v)}
 ]];
 
+    };
+    lisp = {
+        ['def'] = U.match_indentation [[
+(defun $1 ($2)
+  ($0))]];
     };
 }
