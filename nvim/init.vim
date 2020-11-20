@@ -44,7 +44,7 @@ if has("persistent_undo")
 endif
 
 
-set suffixesadd=.tex,.latex,.java,.js,.hrl,.erl,.lisp,.asd
+set suffixesadd=.tex,.latex,.java,.js,.hrl,.erl,.lisp,.asd,.lua
 
 let g:tex_flavor = 'latex'
 let g:vimtex_compiler_progname = 'nvr'
@@ -441,6 +441,8 @@ xmap go <plug>(GrepperOperator)
 " {{{ LSP
 
 lua require('init')
+
+autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
 
 autocmd BufEnter * lua require'completion'.on_attach()
 " Use <Tab> and <S-Tab> to navigate through popup menu

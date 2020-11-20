@@ -2,7 +2,7 @@ local vim = vim
 local nvim_lsp = require'lspconfig'
 
 local mapper = function(mode, key, result)
-      vim.api.nvim_buf_set_keymap(0, mode, key, result, {noremap = true, silent = true})
+    vim.api.nvim_buf_set_keymap(0, mode, key, result, {noremap = true, silent = true})
 end
 
 
@@ -37,13 +37,9 @@ local on_attach_vim_plus_keymaps = function(client)
     mapper('n', 'gD',         '<cmd> lua vim.lsp.buf.implementation()<CR>')
     mapper('n', 'gW',         '<cmd> lua vim.lsp.buf.workspace_symbol()<CR>')
     mapper('n', '<leader>gd',         '<cmd> lua vim.lsp.buf.declaration()<CR>')
-    mapper('n', '<c-]>',       '<cmd> lua vim.lsp.buf.definition()<CR>')
+    mapper('n', '<c-]>',      '<cmd> lua vim.lsp.buf.definition()<CR>')
 end
 
 nvim_lsp.jedi_language_server.setup( {on_attach=on_attach_vim_plus_keymaps })
 nvim_lsp.sumneko_lua.setup( { on_attach=on_attach_vim_plus_keymaps })
 nvim_lsp.vimls.setup( { on_attach=on_attach_vim_plus_keymaps })
-
-
-  -- Disable unsolicited diagnostics.
-  -- function vim.lsp.util.buf_diagnostics_virtual_text() end
