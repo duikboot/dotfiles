@@ -8,8 +8,16 @@ end
 
 local on_attach_vim = function(client, bufnr)
     require'completion'.on_attach(client, bufnr)
-    -- require'diagnostic'.on_attach(client)
 end
+
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = false,
+    signs = true,
+    update_in_insert = false,
+    underline = false
+  }
+)
 
 
 local on_attach_vim_plus_keymaps = function(client)

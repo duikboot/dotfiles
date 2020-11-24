@@ -234,7 +234,7 @@ cmap w!! w !sudo tee % >/dev/null
 " replace snippet
 nnoremap R :%s//g<left><left>
 
-let g:completion_enable_snippet = 'snippets.nvim'
+
 " ,v brings up my .vimrc
 " ,V reloads it -- making all changes active (have to save first)
 " nnoremap <leader>v :sp ~/.config/nvim/init.vim<CR><C-W>_
@@ -449,6 +449,29 @@ autocmd BufEnter * lua require'completion'.on_attach()
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+let g:completion_enable_snippet = 'snippets.nvim'
+
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
+
+
+
+let g:completion_chain_complete_list = {
+            \ 'default': {
+            \   'default': [
+            \      {'complete_items': ['lsp', 'snippet']},
+            \   ],
+            \   'string': [
+            \      {'complete_items': ['path']},
+            \   ],
+            \   'comment': [
+            \      {'complete_items': ['path']},
+            \   ],
+            \ },
+            \ }
+
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+set signcolumn=yes
+
 " }}}
 
 " {{{ Tags
@@ -621,7 +644,10 @@ nnoremap <silent> ,tc :call neoterm#kill()<cr>
 " {{{ Vlime
 
 let g:vlime_cl_use_terminal = 1
-let g:vlime_window_settings = {'repl': {'vertical': v:false, 'pos': 'botright'}}
+let g:vlime_window_settings = {
+            \ 'repl': {'vertical': v:true, 'pos': 'belowright'},
+            \ 'server': {'vertical': v:true, 'pos': 'belowright'}
+    \ }
 
 function! s:ConnectVlimeToStumpwm()
     call vlime#plugin#ConnectREPL('127.0.0.1', 4005)

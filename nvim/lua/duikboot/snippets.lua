@@ -1,6 +1,9 @@
-local snippets = require'snippets'.use_suggested_mappings()
+local snippets = require'snippets'
 local U = require('snippets.utils')
 
+snippets.use_suggested_mappings()
+
+snippets.set_ux(require'snippets.inserters.floaty')
 
 local function note_snippet(header)
     -- Put a dummy value for -1 and add a default later.
@@ -25,13 +28,14 @@ function complete_arg_list(string)
     return rest_completion
 end
 
-require'snippets'.snippets = {
+snippets.snippets = {
     _global = {
         todo = note_snippet "TODO";
         note = note_snippet "NOTE";
     };
     python = {
         -- Match the indentation of the current line for newlines.
+        ["#!"] = [[#!/usr/bin/env python]],
 
         ["for"] = U.match_indentation [[
 for $1 in $2:
@@ -60,4 +64,16 @@ def __init__(self, ${1|complete_arg_list(S.v)}
 (defun $1 ($2)
   ($0))]];
     };
+
+    markdown = {
+        ["code"] = U.match_indentation "```\n$0\n```";
+    };
 }
+
+-- snippets.snippets = {
+--     _global = {
+--         note = [[NOTE(${1=io.popen("id -un"):read"*l"}): ]];
+--         todo = [[TODO(${1=io.popen("id -un"):read"*l"}): ]];
+--         fixme = [[FIXME(${1=io.popen("id -un"):read"*l"}): ]];
+--     };
+-- }

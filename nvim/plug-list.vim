@@ -71,7 +71,6 @@ endif
 
 Plug 'https://github.com/prabirshrestha/asyncomplete.vim'
 " Plug 'https://github.com/Shougo/deoplete-lsp'
-Plug 'haorenW1025/diagnostic-nvim'
 
 " Plug 'https://github.com/lambdalisue/fern.vim'
 Plug 'https://github.com/unblevable/quick-scope'
