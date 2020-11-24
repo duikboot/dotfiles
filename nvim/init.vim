@@ -468,6 +468,7 @@ nnoremap <leader>ts <Esc>:tselect<Space>
 " Open in vertical split the tag under the cursur.
 nnoremap  <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<cr>zt
 
+
 " }}}
 
 " {{{ Deoplete
@@ -705,6 +706,13 @@ autocmd FileType python setlocal path+=.venv/**
 autocmd FileType python setlocal colorcolumn=79
 
 autocmd FileType python nnoremap <localleader>b Oimport ipdb; ipdb.set_trace()<esc>:w<CR>
+
+function! s:OpenPythonDocs(word)
+    execute '!xdg-open https://docs.python.org/3/search.html\?q\=' . a:word
+endfunction
+
+nnoremap <localleader>d :call <SID>OpenPythonDocs(expand('<cword>'))<CR>
+nnoremap <localleader>sd :call <SID>OpenPythonDocs()
 
 " }}}
 
