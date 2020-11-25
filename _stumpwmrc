@@ -188,7 +188,7 @@
           ;"desktop-entry"
           "end-session"
           "stumptray"
-          ;"screenshot"
+          "screenshot"
           "globalwindows"
           "command-history"
           "shell-command-history"
@@ -245,6 +245,13 @@
 
 ; (define-key *root-map* (kbd "q") "toggle-full-layout")
 (define-key *top-map* (kbd "M-0") "toggle-full-layout")
+
+(defcommand timestamp-screenshot () ()
+  (let ((filename (format nil "screenshots/~d.png" (get-universal-time))))
+    (screenshot:screenshot filename)
+    (message "Screenshot ~A saved" filename)))
+
+(define-key *root-map* (kbd "SunPrint_Screen") "timestamp-screenshot")
 
 ;;; run shell commmands
 

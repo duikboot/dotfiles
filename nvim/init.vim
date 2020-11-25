@@ -733,12 +733,14 @@ autocmd FileType python setlocal colorcolumn=79
 
 autocmd FileType python nnoremap <localleader>b Oimport ipdb; ipdb.set_trace()<esc>:w<CR>
 
-function! s:OpenPythonDocs(word)
-    execute '!xdg-open https://docs.python.org/3/search.html\?q\=' . a:word
+let g:document_urls = {'lisp': 'http://www.lispworks.com/cgi-bin/search.cgi\?t=-D--HB-\&\q\=',
+                      \ 'python': 'https://docs.python.org/3/search.html\?q\='}
+function! s:OpenDocs(word)
+    execute '!xdg-open ' . g:document_urls[&filetype] . a:word
 endfunction
 
-nnoremap <localleader>d :call <SID>OpenPythonDocs(expand('<cword>'))<CR>
-nnoremap <localleader>sd :call <SID>OpenPythonDocs()
+nnoremap <localleader>d :call <SID>OpenDocs(expand('<cword>'))<CR>
+nnoremap <localleader>sd :call <SID>OpenDocs(input('enter search query: '))<CR>
 
 " }}}
 
