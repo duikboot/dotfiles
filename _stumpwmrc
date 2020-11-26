@@ -246,12 +246,16 @@
 ; (define-key *root-map* (kbd "q") "toggle-full-layout")
 (define-key *top-map* (kbd "M-0") "toggle-full-layout")
 
+
+(defun get-datetime-string ()
+  (string-trim '(#\Space #\Tab #\Newline) (run-shell-command "date +%F-%H%M%S" t)))
+
 (defcommand timestamp-screenshot () ()
-  (let ((filename (format nil "screenshots/~d.png" (get-universal-time))))
+  (let ((filename (format nil "~A/screenshots/~d.png" *home-dir* (get-datetime-string))))
     (screenshot:screenshot filename)
     (message "Screenshot ~A saved" filename)))
 
-(define-key *root-map* (kbd "SunPrint_Screen") "timestamp-screenshot")
+(define-key *top-map* (kbd "SunPrint_Screen") "timestamp-screenshot")
 
 ;;; run shell commmands
 

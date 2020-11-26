@@ -44,7 +44,7 @@ local on_attach_vim_plus_keymaps = function(client)
     mapper('n', 'g0',         '<cmd> lua vim.lsp.buf.document_symbol()<CR>')
     mapper('n', 'gD',         '<cmd> lua vim.lsp.buf.implementation()<CR>')
     mapper('n', 'gW',         '<cmd> lua vim.lsp.buf.workspace_symbol()<CR>')
-    mapper('n', '<leader>gd',         '<cmd> lua vim.lsp.buf.declaration()<CR>')
+    mapper('n', '<leader>gd', '<cmd> lua vim.lsp.buf.declaration()<CR>')
     mapper('n', '<c-]>',      '<cmd> lua vim.lsp.buf.definition()<CR>')
 end
 
