@@ -25,6 +25,13 @@ set conceallevel=0
 set splitright
 set splitbelow
 
+set formatoptions=
+set formatoptions+=c
+set formatoptions+=q
+set formatoptions+=r
+set formatoptions+=n
+set formatoptions+=j
+
 let g:vimsyn_embed = 'lP'
 
 " Very cool transparant completion menu, but it's distracting me.
@@ -186,7 +193,6 @@ set path+=**
 
 let g:python_host_prog='/home/arjen/config/dotfiles/_neovim/ENV2/bin/python'
 let g:python3_host_prog='/home/arjen/config/dotfiles/_neovim/ENV/bin/python'
-
 
 " {{{ Mappings
 
@@ -353,7 +359,7 @@ let g:highlightedyank_highlight_duration = 100
 
 " {{{ FZF
 set runtimepath+=~/.fzf
-nnoremap <Leader>o :Files<CR>
+" nnoremap <Leader>o :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 
 if has('nvim') || has('gui_running')
@@ -454,11 +460,10 @@ let g:completion_enable_snippet = 'snippets.nvim'
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 
 
-
 let g:completion_chain_complete_list = {
-            \ 'default': {
             \   'default': [
-            \      {'complete_items': ['lsp', 'snippet']},
+            \      {'complete_items': ['lsp', 'file', 'omni', 'snippet']},
+            \      {'complete_items': ['path'], 'triggered_only': ['/']},
             \   ],
             \   'string': [
             \      {'complete_items': ['path']},
@@ -466,11 +471,15 @@ let g:completion_chain_complete_list = {
             \   'comment': [
             \      {'complete_items': ['path']},
             \   ],
-            \ },
             \ }
+
+let g:completion_auto_change_source = 1
 
 autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 set signcolumn=yes
+" use <c-j> to switch to previous completion
+imap <c-j> <Plug>(completion_next_source)
+imap <c-k> <Plug>(completion_prev_source)
 
 " }}}
 
@@ -820,7 +829,7 @@ autocmd FileType xml setlocal commentstring={#%s#}
 
 " {{{ telescope
 set report=2
-nnoremap <Leader>p  <cmd>lua require'telescope.builtin'.find_files{}<CR>
+nnoremap <Leader>o  <cmd>lua require'telescope.builtin'.find_files{}<CR>
 nnoremap <silent>gr <cmd>lua require'telescope.builtin'.lsp_references{ shorten_path = true }<CR>
 nnoremap <leader>gc <cmd>lua require'telescope.builtin'.git_commits{}<CR>
 nnoremap <leader>gs <cmd>lua require'telescope.builtin'.git_status{}<CR>

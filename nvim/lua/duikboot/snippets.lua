@@ -38,8 +38,8 @@ snippets.snippets = {
         ["#!"] = [[#!/usr/bin/env python]],
 
         ["for"] = U.match_indentation [[
-for $1 in $2:
-    $3
+for ${1:item} in ${2:items}:
+    $0
         ]];
 
         ["try"] = U.match_indentation [[

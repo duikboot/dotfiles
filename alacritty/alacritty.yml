@@ -1,10 +1,13 @@
 env:
   WINIT_X11_SCALE_FACTOR: "1.0"
 
+# window:
+#   decorations: full
+
 colors:
   # Default colors
   primary:
-    background: '0x0A0E14'
+    background: '0x2e2c28'
     foreground: '0xB3B1AD'
 
   # Normal colors
@@ -28,6 +31,8 @@ colors:
     magenta: '0xFFEE99'
     cyan: '0x95E6CB'
     white: '0xFFFFFF'
+
+  # background_opacity: 0.4
 
 font:
   # Normal (roman) font face

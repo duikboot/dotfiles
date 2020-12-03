@@ -1,11 +1,15 @@
+(ql:quickload '(bordeaux-threads log4cl))
 (in-package :stumpwm)
-
 
 (defparameter *stumptray-apps*
   '("numlockx" "nm-applet --sm-disable" "pasystray" "octopi-notifier"))
 
 (defun start-apps ()
-  (mapc (lambda (x) (sleep .1) (run-shell-command x)) *stumptray-apps*))
+  (mapc (lambda (x)
+          (sleep .1)
+          (log:info "starting ~A" x)
+          (run-shell-command x))
+        *stumptray-apps*))
 
 #+test-modeline
 (progn
@@ -14,6 +18,7 @@
   ; (set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 11))
   (mode-line)
   (sleep 1)
+  (log:info "loading stumptray")
   (run-commands "stumptray")
   (sleep .1)
   (start-apps)
@@ -27,7 +32,6 @@
 ; (set-wallpaper)
 ; hide windows (flear)
 
-(ql:quickload :bordeaux-threads)
 
 (defun enable-mode-line-all-heads ()
   (dolist (screen *screen-list*)
@@ -35,7 +39,7 @@
       (enable-mode-line screen head t))))
 
 ; (enable-mode-line-all-heads)
-
+; *shell-command-history-file*
 ; *startup-message*
 ; *input-history*
 ; (run-shell-command "xfce4-panel &> /dev/null &")

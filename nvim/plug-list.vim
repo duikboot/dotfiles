@@ -60,8 +60,6 @@ Plug 'zchee/deoplete-jedi'
 Plug 'https://github.com/majutsushi/tagbar'
 
 Plug 'https://github.com/norcalli/snippets.nvim'
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
 " Plug 'https://github.com/Shougo/context_filetype.vim'
 
 if has('nvim')
