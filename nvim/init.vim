@@ -455,7 +455,7 @@ autocmd BufEnter * lua require'completion'.on_attach()
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-let g:completion_enable_snippet = 'snippets.nvim'
+let g:completion_enable_snippet = 'vim-vsnip'
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 
@@ -478,8 +478,35 @@ let g:completion_auto_change_source = 1
 autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 set signcolumn=yes
 " use <c-j> to switch to previous completion
-imap <c-j> <Plug>(completion_next_source)
-imap <c-k> <Plug>(completion_prev_source)
+" imap <c-j> <Plug>(completion_next_source)
+" imap <c-k> <Plug>(completion_prev_source)
+
+" Expand
+imap <expr> <C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
+smap <expr> <C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
+
+" Expand or jump
+imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
+" Jump forward or backward
+imap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'
+smap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
+
+" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
+" See https://github.com/hrsh7th/vim-vsnip/pull/50
+nmap s <Plug>(vsnip-select-text)
+xmap s <Plug>(vsnip-select-text)
+nmap S <Plug>(vsnip-cut-text)
+xmap S <Plug>(vsnip-cut-text)
+
+let g:vsnip_filetypes = {}
+let g:vsnip_filetypes.javascriptreact = ['javascript']
+let g:vsnip_filetypes.typescriptreact = ['typescript']
+let g:vsnip_snippet_dir = expand('~/.vim/plugged')
+
 
 " }}}
 
