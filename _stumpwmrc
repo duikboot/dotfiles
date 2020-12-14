@@ -247,7 +247,6 @@
         (setf (gethash gnum *layouts*) (dump-group (current-group)))
         (run-commands "only")))))
 
-; (define-key *root-map* (kbd "q") "toggle-full-layout")
 (define-key *top-map* (kbd "M-0") "toggle-full-layout")
 
 
@@ -444,7 +443,6 @@
 
 (define-key *top-map* (kbd "M-l") "move-to-next-frame-with-window")
 (define-key *top-map* (kbd "M-=") "balance-frames")
-(define-key *top-map* (kbd "M-0") "only")
 
 (defcommand mute-sound () ()
   "Mute sound."
