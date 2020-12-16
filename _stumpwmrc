@@ -437,6 +437,16 @@
 (defcommand temp-down ()()
   (adjust-temp -5))
 
+(defun ssh (host)
+    (run-shell-command
+      (concatenate 'string "xfce4-terminal -x ssh " host)))
+
+(defcommand ssh-pi-hole ()()
+  (ssh "pi-hole"))
+
+(defcommand ssh-cl-duikboot ()()
+  (ssh "digitalocean"))
+
 (define-key *top-map* (kbd "M-+") "temp-up")
 (define-key *top-map* (kbd "M--") "temp-down")
 
