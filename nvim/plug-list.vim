@@ -34,7 +34,8 @@ Plug 'lervag/vimtex'
 Plug 'iCyMind/NeoSolarized'
 Plug 'sheerun/vim-polyglot'
 Plug 'Olical/vim-enmasse'
-Plug 'eraserhd/parinfer-rust', {'do':  'cargo build --release'}
+" Plug 'eraserhd/parinfer-rust', {'do':  'cargo build --release'}
+Plug 'https://github.com/guns/vim-sexp'
 Plug 'dense-analysis/ale'
 " Plug 'desmap/ale-sensible' | Plug 'w0rp/ale'
 Plug 'vim-scripts/vcscommand.vim'
@@ -96,6 +97,7 @@ Plug 'https://github.com/rhysd/git-messenger.vim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
+Plug 'https://github.com/kevinhwang91/nvim-hlslens'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
