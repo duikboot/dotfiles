@@ -2,7 +2,10 @@
 (in-package :stumpwm)
 
 (defparameter *stumptray-apps*
-  '("numlockx" "nm-applet --sm-disable" "pasystray" "octopi-notifier"))
+  '("numlockx"
+    "nm-applet --sm-disable"
+    "pasystray"))
+    ; "octopi-notifier"
 
 (defun start-apps ()
   (mapc (lambda (x)

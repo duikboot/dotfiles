@@ -798,6 +798,8 @@ augroup ft_lisp
     " autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
     let g:parinfer_force_balance = 1
     let g:parinfer_enabled = 1
+    let g:parinfer_enabled = 1
+    let g:parinfer_mode = 'paren'
     autocmd FileType User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#vlime#get_source_options({ 'priority': 10 }))
 
     " autocmd FileType lisp setlocal path+=/home/arjen/quicklisp/dists/quicklisp/installed/system/
