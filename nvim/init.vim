@@ -191,8 +191,9 @@ set path+=**
 
 " }}}
 
-let g:python_host_prog='/home/arjen/config/dotfiles/_neovim/ENV2/bin/python'
-let g:python3_host_prog='/home/arjen/config/dotfiles/_neovim/ENV/bin/python'
+let g:python3_host_prog=$HOME . '/.dotfiles/.venv/bin/python'
+
+let g:python3_host_prog_bin=$HOME . '/.dotfiles/.venv/bin/'
 
 " {{{ Mappings
 
@@ -597,16 +598,16 @@ let g:ale_fix_on_save = 0
 let g:ale_set_highlights = 0
 nmap <localleader>a8 <Plug>(ale_fix)
 
-" let g:ale_python_flake8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/flake8'
-let g:ale_python_pycodestyle_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pycodestyle'
-let g:ale_python_pylint_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pyflakes'
-let g:ale_python_vulture_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/vulture'
-" let g:ale_python_mypy_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/mypy'
-let g:ale_python_isort_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/isort'
-let g:ale_python_yapf_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/yapf'
-let g:ale_python_black_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/black'
-let g:ale_python_autopep8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/autopep8'
-" let g:ale_python_prospector_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/prospector'
+" let g:ale_python_flake8_executable = g:python3_host_prog_bin . 'flake8'
+let g:ale_python_pycodestyle_executable = g:python3_host_prog_bin . 'pycodestyle'
+let g:ale_python_pylint_executable = g:python3_host_prog_bin . 'pyflakes'
+let g:ale_python_vulture_executable = g:python3_host_prog_bin . 'vulture'
+" let g:ale_python_mypy_executable = g:python3_host_prog_bin . 'mypy'
+let g:ale_python_isort_executable = g:python3_host_prog_bin . 'isort'
+let g:ale_python_yapf_executable = g:python3_host_prog_bin . 'yapf'
+let g:ale_python_black_executable = g:python3_host_prog_bin . 'black'
+let g:ale_python_autopep8_executable = g:python3_host_prog_bin . 'autopep8'
+" let g:ale_python_prospector_executable = g:python3_host_prog_bin . 'prospector'
 " TEMPORARY!!
 " let g:ale_python_pylint_options = "--load-plugins pylint_django"
 " let g:ale_python_autopep8_options = '--aggressive'
