@@ -112,7 +112,7 @@
 (setf *module-dir* (make-pathname :directory
                     (format nil "~A/stumpwm/stumpwm-contrib" *home-dir*)))
 (setf *wallpapers* (make-pathname :directory
-                     (format nil "~A/config/dotfiles/_wallpapers" *home-dir*)))
+                     (format nil "~A/Wallpapers" *home-dir*)))
 
 (set-module-dir *module-dir*)
 
