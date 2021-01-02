@@ -17,8 +17,8 @@ stumpwm:
 nvim: vim-plug
 	ln -s ${PWD}/config/$@ $(HOME_DIR)/.config/$@
 
-test:
-	ln -s ${PWD}/config/test $(HOME_DIR)/.config/test
+alacritty:
+	ln -s ${PWD}/config/$@ $(HOME_DIR)/.config/$@
 
 vim-plug:
 	curl -fLo "$${XDG_DATA_HOME:-$$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
