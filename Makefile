@@ -18,8 +18,10 @@ stumpwm:
 tmux:
 	ln -s ${PWD}/_tmux.conf ${HOME_DIR}/.tmux.conf
 
-zsh:
+oh-my-zsh:
 	git clone https://github.com/ohmyzsh/ohmyzsh.git ${HOME_DIR}/.oh-my-zsh
+
+zsh: oh-my-zsh
 	ln -s ${PWD}/_zshrc ${HOME_DIR}/.zshrc
 
 
