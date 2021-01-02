@@ -11,6 +11,9 @@ all: bin nvim test subs
 bin:
 	mkdir -p $${HOME}/bin
 
+stumpwm:
+	ln -s ${PWD}/_stumpwmrc ${HOME_DIR}/.stumpwmrc
+
 nvim: vim-plug
 	ln -s ${PWD}/config/$@ $(HOME_DIR)/.config/$@
 
