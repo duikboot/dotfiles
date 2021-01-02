@@ -14,6 +14,11 @@ bin:
 stumpwm:
 	ln -s ${PWD}/_stumpwmrc ${HOME_DIR}/.stumpwmrc
 
+
+tmux:
+	ln -s ${PWD}/_tmux.conf ${HOME_DIR}/.tmux.conf
+
+
 nvim: vim-plug
 	ln -s ${PWD}/config/$@ $(HOME_DIR)/.config/$@
 
