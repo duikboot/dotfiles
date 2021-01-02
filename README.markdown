@@ -1,10 +1,10 @@
 Based on https://github.com/sontek/dotfiles
 
 ## Files
-.vim
-    directory of file type configurations and plugins
-.vimrc
-    my vim configuration
+config/nvim
+    my neovim configuration
 
-Install stumpwm
+Install:
+- stumpwm
+- the_silver_searcher
 
