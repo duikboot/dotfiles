@@ -1,1 +1,0 @@
-/home/arjen/config/dotfiles/nvim/init.vim
