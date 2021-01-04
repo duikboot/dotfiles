@@ -4,6 +4,7 @@ Based on https://github.com/sontek/dotfiles
 config/nvim
     my neovim configuration
 
+Prerequisites:
     - fd
     - the_silver_searcher
     - bat
