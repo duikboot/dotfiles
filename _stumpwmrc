@@ -45,6 +45,7 @@
 ; *shell-command-history-file*
 ; *startup-message*
 ; *input-history*
+; *honor-window-moves*
 ; (run-shell-command "xfce4-panel &> /dev/null &")
 ; (run-shell-command "nm-applet &> /dev/null &")
 ; (run-shell-command "pnmixer &> /dev/null &")

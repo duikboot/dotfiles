@@ -40,7 +40,6 @@ Plug 'https://github.com/bhurlow/vim-parinfer'
 Plug 'dense-analysis/ale'
 " Plug 'desmap/ale-sensible' | Plug 'w0rp/ale'
 Plug 'vim-scripts/vcscommand.vim'
-Plug 'arcticicestudio/nord-vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'junegunn/goyo.vim'
 Plug 'https://github.com/Raimondi/delimitMate'
@@ -94,7 +93,8 @@ Plug 'https://github.com/barlog-m/oceanic-primal-vim' , { 'branch': 'main' }
 
 Plug 'https://github.com/rhysd/git-messenger.vim'
 
-" Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
+Plug 'https://github.com/ChristianChiarulli/nvcode-color-schemes.vim'
+Plug 'https://github.com/nvim-treesitter/nvim-treesitter' , {'do': ':TSUpdate'}
 Plug 'https://github.com/nvim-lua/popup.nvim'
 Plug 'https://github.com/nvim-lua/plenary.nvim'
 Plug 'https://github.com/nvim-lua/telescope.nvim'

@@ -4,7 +4,13 @@ Based on https://github.com/sontek/dotfiles
 config/nvim
     my neovim configuration
 
+    - fd
+    - the_silver_searcher
+    - bat
+    -
+
+
 Install:
 - stumpwm
-- the_silver_searcher
+
 

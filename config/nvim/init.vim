@@ -183,6 +183,21 @@ let g:srcery_inverse_match_paren = 1
 " colorscheme srcery
 colorscheme oceanic-primal
 
+" configure nvcode-color-schemes
+let g:nvcode_termcolors=256
+
+syntax on
+colorscheme nord
+" colorscheme nvcode " Or whatever colorscheme you make
+
+
+" checks if your terminal has 24-bit color support
+if (has("termguicolors"))
+    set termguicolors
+    hi LineNr ctermbg=NONE guibg=NONE
+endif
+
+
 let g:hostname=hostname()
 
 set clipboard+=unnamedplus
@@ -463,7 +478,7 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 
 let g:completion_chain_complete_list = {
             \   'default': [
-            \      {'complete_items': ['lsp', 'file', 'omni', 'snippet']},
+            \      {'complete_items': ['lsp', 'file', 'ts', 'omni', 'snippet']},
             \      {'complete_items': ['path'], 'triggered_only': ['/']},
             \   ],
             \   'string': [
