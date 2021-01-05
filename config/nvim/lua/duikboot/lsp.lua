@@ -49,10 +49,10 @@ local on_attach_vim_plus_keymaps = function(client)
 end
 
 lspconfig.jedi_language_server.setup( {on_attach=on_attach_vim_plus_keymaps })
-lspconfig.sumneko_lua.setup(
-    { on_attach=on_attach_vim_plus_keymaps },
-    {settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim'}}}}})
+-- lspconfig.lua_language_server.setup(
+--     { on_attach=on_attach_vim_plus_keymaps },
+--     {settings = {
+--         Lua = {
+--             diagnostics = {
+--                 globals = { 'vim'}}}}})
 lspconfig.vimls.setup( { on_attach=on_attach_vim_plus_keymaps })
