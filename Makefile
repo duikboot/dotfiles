@@ -34,7 +34,10 @@ vim-venv:
 	$(VIM_VIRTUALENV)//bin/pip install pip -U
 	$(VIM_VIRTUALENV)/bin/pip install -r config/nvim/requirements.txt
 
-nvim: vim-plug
+ctags:
+	ln -s ${PWD}/_$@ $(HOME_DIR)/.$@
+
+nvim: vim-plug ctags
 	ln -s ${PWD}/config/$@ $(HOME_DIR)/.config/$@
 
 alacritty:
