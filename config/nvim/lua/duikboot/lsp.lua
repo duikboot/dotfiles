@@ -48,6 +48,7 @@ local on_attach_vim_plus_keymaps = function(client)
     mapper('n', '<c-]>',      '<cmd> lua vim.lsp.buf.definition()<CR>')
 end
 
+-- From the lspconfig repo
 
 local system_name
 if vim.fn.has("mac") == 1 then

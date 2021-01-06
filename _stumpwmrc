@@ -471,7 +471,7 @@
 
 (define-frame-preference "browser"
   ;; frame raise lock (lock AND raise == jumpto)
-  (0 nil   t :class "Firefox"))
+  (0 nil   t :title "Firefox"))
 
 (define-frame-preference "documentation"
   ;; frame raise lock (lock AND raise == jumpto)
@@ -479,11 +479,11 @@
 
 (define-frame-preference "media"
   ;; frame raise lock (lock AND raise == jumpto)
-  (0 nil   t :class "Spotify"))
+  (0 nil   t :title "Spotify"))
 
 (define-frame-preference "chat"
   ;; frame raise lock (lock AND raise == jumpto)
-  (0 nil   t :class "Rambox"))
+  (0 nil   t :title "Rambox"))
 
 
 ; (run-shell-command "redshift-gtk")
