@@ -89,4 +89,13 @@ require'lspconfig'.sumneko_lua.setup {
 }
 
 lspconfig.jedi_language_server.setup( {on_attach=on_attach_vim_plus_keymaps })
+-- lspconfig.pyls.setup( {
+--   on_attach=on_attach_vim_plus_keymaps ,
+--   plugins = {
+--       jedi_completion = { fuzzy = true },
+--       pyls_black = { enabled = true },
+--       yapf = { enabled = true },
+--       pylint = { enabled = true },
+--       pydocstyle = { enabled = true },
+--       }})
 lspconfig.vimls.setup( { on_attach=on_attach_vim_plus_keymaps })
