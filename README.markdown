@@ -8,6 +8,9 @@ Prerequisites:
     - fd
     - the_silver_searcher
     - bat
+    - jedi-language-server (`pip install jedi-language-server --user`)
+    - vimls (vim language server)
+    - lua-language-server
 
 Then run:
 `make vim-venv nvim`
