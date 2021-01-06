@@ -5,6 +5,7 @@ config/nvim
     my neovim configuration
 
 Prerequisites:
+
     - fd
     - the_silver_searcher
     - bat
