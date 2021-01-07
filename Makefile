@@ -1,7 +1,7 @@
 
 HOME_DIR = $${HOME}
 BIN = $(HOME_DIR)/bin
-PWD = $${PWD}
+PWD_DIR = $${PWD}
 SUBDIRS = $(PWD)/CONFIG
 VIM_VIRTUALENV = $(HOME_DIR)/.dotfiles/.venv
 
@@ -51,7 +51,7 @@ ctags:
 	ln -s ${PWD}/_$@ ${HOME_DIR}/.$@
 
 .PHONY: nvim
-nvim: #vim-venv vim-plug ctags
+nvim: vim-venv vim-plug ctags
 	-rm ${HOME_DIR}/.config/$@
 	ln -sf ${PWD}/config/$@ ${HOME_DIR}/.config/$@
 

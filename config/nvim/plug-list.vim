@@ -86,6 +86,7 @@ Plug 'roxma/nvim-yarp'
 Plug 'https://github.com/HiPhish/ncm2-vlime'
 
 Plug 'https://github.com/nvim-lua/completion-nvim'
+Plug 'https://github.com/steelsojka/completion-buffers'
 
 Plug 'https://github.com/srcery-colors/srcery-vim'
 

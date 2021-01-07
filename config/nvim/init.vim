@@ -478,16 +478,48 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 
 let g:completion_chain_complete_list = {
             \   'default': [
-            \      {'complete_items': ['lsp', 'file', 'ts', 'omni', 'snippet']},
+            \      {'complete_items': ['lsp', 'buffers']},
             \      {'complete_items': ['path'], 'triggered_only': ['/']},
+            \      {'mode': '<c-p>'},
+            \      {'mode': '<c-n>'}
             \   ],
             \   'string': [
-            \      {'complete_items': ['path']},
+            \      {'complete_items': ['path', 'buffers']},
             \   ],
             \   'comment': [
-            \      {'complete_items': ['path']},
+            \      {'complete_items': ['path', 'buffers']},
             \   ],
             \ }
+
+let g:completion_chain_complete_list = [
+    \{'complete_items': ['lsp', 'snippet', 'path']},
+    \{'mode': '<c-p>'},
+    \{'mode': '<c-n>'}
+\]
+" " Configure the completion chains
+" let g:completion_chain_complete_list = {
+" 			\'default' : {
+" 			\	'default' : [
+" 			\		{'complete_items' : ['lsp', 'snippet']},
+" 			\		{'mode' : 'file'}
+" 			\	],
+" 			\	'comment' : [],
+" 			\	'string' : []
+" 			\	},
+" 			\'vim' : [
+" 			\	{'complete_items': ['snippet']},
+" 			\	{'mode' : 'cmd'}
+" 			\	],
+" 			\'c' : [
+" 			\	{'complete_items': ['ts']}
+" 			\	],
+" 			\'python' : [
+" 			\	{'complete_items': ['lsp', 'ts']}
+" 			\	],
+" 			\'lua' : [
+" 			\	{'complete_items': ['ts']}
+" 			\	],
+" 			\}
 
 let g:completion_auto_change_source = 1
 
