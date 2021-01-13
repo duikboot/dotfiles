@@ -354,7 +354,7 @@ autocmd VimResized * silent! :wincmd =
 
 autocmd FileType vim setlocal foldmarker={{{,}}}
 autocmd FileType vim setlocal foldmethod=marker
-autocmd FileType vim setlocal foldlevel=0
+autocmd FileType vim setlocal foldlevel=1
 autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
 
 let g:csv_no_conceal=1
@@ -478,7 +478,7 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 
 let g:completion_chain_complete_list = {
             \   'default': [
-            \      {'complete_items': ['lsp', 'buffers']},
+            \      {'complete_items': ['lsp', 'buffers', 'snippet', 'path']},
             \      {'complete_items': ['path'], 'triggered_only': ['/']},
             \      {'mode': '<c-p>'},
             \      {'mode': '<c-n>'}
@@ -491,11 +491,12 @@ let g:completion_chain_complete_list = {
             \   ],
             \ }
 
-let g:completion_chain_complete_list = [
-    \{'complete_items': ['lsp', 'snippet', 'path']},
-    \{'mode': '<c-p>'},
-    \{'mode': '<c-n>'}
-\]
+
+" let g:completion_chain_complete_list = [
+"     \{'complete_items': ['lsp', 'snippet', 'path']},
+"     \{'mode': '<c-p>'},
+"     \{'mode': '<c-n>'}
+" \]
 " " Configure the completion chains
 " let g:completion_chain_complete_list = {
 " 			\'default' : {

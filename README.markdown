@@ -27,4 +27,6 @@ So within neovim run
 Windowmanager:
 Install Stumpwm, well, because Lisp!
 
-
+Then:
+    - clone https://github.com/stumpwm/stumpwm-contrib into ~/stumpwm/stumpwm-contrib
+`make stumpwm`
