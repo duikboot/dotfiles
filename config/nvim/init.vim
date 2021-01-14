@@ -480,6 +480,7 @@ let g:completion_chain_complete_list = {
             \   'default': [
             \      {'complete_items': ['lsp', 'buffers', 'snippet', 'path']},
             \      {'complete_items': ['path'], 'triggered_only': ['/']},
+            \      {'mode': 'dict'},
             \      {'mode': '<c-p>'},
             \      {'mode': '<c-n>'}
             \   ],
@@ -489,8 +490,30 @@ let g:completion_chain_complete_list = {
             \   'comment': [
             \      {'complete_items': ['path', 'buffers']},
             \   ],
+            \ 'markdown' : {
+            \   'default': [
+            \       {'mode': 'spel'}
+            \   ],
+            \   'comment': []
+            \   }
             \ }
 
+\let g:completion_items_priority = {
+        \ 'Field': 8,
+        \ 'Function': 8,
+        \ 'Variables': 7,
+        \ 'Method': 10,
+        \ 'Interfaces': 6,
+        \ 'Constant': 6,
+        \ 'Class': 6,
+        \ 'Struct': 6,
+        \ 'Keyword': 5,
+        \ 'Treesitter': 4,
+        \ 'vim-vsnip' : 0,
+        \ 'Buffers' : 0,
+        \ 'TabNine' : 1,
+        \ 'File' : 2,
+        \ }
 
 " let g:completion_chain_complete_list = [
 "     \{'complete_items': ['lsp', 'snippet', 'path']},
