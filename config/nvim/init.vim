@@ -177,17 +177,17 @@ set termguicolors
 " colorscheme NeoSolarized
 " colorscheme xcodelighthc
 
-let g:srcery_italic = 1
-let g:srcery_transparent_background = 1
-let g:srcery_inverse_match_paren = 1
+" let g:srcery_italic = 1
+" let g:srcery_transparent_background = 1
+" let g:srcery_inverse_match_paren = 1
 " colorscheme srcery
-colorscheme oceanic-primal
+" colorscheme oceanic-primal
 
 " configure nvcode-color-schemes
 let g:nvcode_termcolors=256
 
 syntax on
-colorscheme nord
+colorscheme gruvbox
 " colorscheme nvcode " Or whatever colorscheme you make
 
 
@@ -478,21 +478,24 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 
 let g:completion_chain_complete_list = {
             \   'default': [
-            \      {'complete_items': ['lsp', 'buffers', 'snippet', 'path']},
+            \      {'complete_items': ['lsp', 'buffer', 'snippet', 'path']},
             \      {'complete_items': ['path'], 'triggered_only': ['/']},
             \      {'mode': 'dict'},
             \      {'mode': '<c-p>'},
             \      {'mode': '<c-n>'}
             \   ],
             \   'string': [
-            \      {'complete_items': ['path', 'buffers']},
+            \      {'complete_items': ['path', 'buffer']},
+            \      {'mode': 'dict'},
             \   ],
             \   'comment': [
-            \      {'complete_items': ['path', 'buffers']},
+            \      {'complete_items': ['path', 'buffer']},
+            \      {'mode': 'dict'},
             \   ],
             \ 'markdown' : {
             \   'default': [
-            \       {'mode': 'spel'}
+            \      {'mode': 'dict'},
+            \      {'mode': 'spel'}
             \   ],
             \   'comment': []
             \   }
@@ -511,6 +514,7 @@ let g:completion_chain_complete_list = {
         \ 'Treesitter': 4,
         \ 'vim-vsnip' : 0,
         \ 'Buffers' : 0,
+        \ 'Buffer' : 0,
         \ 'TabNine' : 1,
         \ 'File' : 2,
         \ }
