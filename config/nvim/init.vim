@@ -441,6 +441,7 @@ endfunction
 command! -bang Registers call s:registers('<bang>' ==# '!')
 
 nnoremap <leader>y :Registers<cr>
+nnoremap <leader>o :Files<cr>
 
 " }}}
 
@@ -935,7 +936,7 @@ autocmd FileType xml setlocal commentstring={#%s#}
 
 " {{{ telescope
 set report=2
-nnoremap <Leader>o  <cmd>lua require'telescope.builtin'.find_files{}<CR>
+" nnoremap <Leader>o  <cmd>lua require'telescope.builtin'.find_files{}<CR>
 nnoremap <silent>gr <cmd>lua require'telescope.builtin'.lsp_references{ shorten_path = true }<CR>
 nnoremap <leader>gc <cmd>lua require'telescope.builtin'.git_commits{}<CR>
 nnoremap <leader>gs <cmd>lua require'telescope.builtin'.git_status{}<CR>
