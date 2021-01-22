@@ -16,9 +16,6 @@
 
 #+test-modeline
 (progn
-  ; (ql:quickload :ttf-fonts)
-  ; (xft:cache-fonts)
-  ; (set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 11))
   (mode-line)
   (sleep 1)
   (log:info "loading stumptray")
@@ -206,10 +203,6 @@
   '(#P"/usr/share/applications"
     #P"~/.local/share/applications"))
 
-;(desktop-entry:init-entry-list)
-
-
-;; the screen border)
 
 (setf *input-history-ignore-duplicates* t)
 
@@ -298,9 +291,6 @@
 (defun spotify-wallpaper (url)
   (run-shell-command
     (concatenate 'string "feh --bg-scale " url)))
-
-; (spotify-wallpaper "https://i.scdn.co/image/ab67616d0000b273dc60cf9a010f86354e6735dd")
-; (kill-thread (search-thread "wallpaper"))
 
 (run-shell-command "xscreensaver -no-splash")
 
@@ -548,14 +538,6 @@ will scroll through windows in the current group."
 
 (add-hook *mode-line-click-hook* 'mode-line-scroll-through-windows)
 
-; (defun position-mouse-in-window (current-window last-window)
-;   (message  "~A" current-window)
-;   (ratwarp 0 0))
-
-
-; (add-hook *focus-window-hook* 'position-mouse-in-window)
-; (remove-hook *focus-window-hook* 'position-mouse-in-window)
-
 (setf *layout-menu*
   '(("Big home screen" "layout-home-screen")
     ("Laptop screen" "layout-laptop")
@@ -564,39 +546,5 @@ will scroll through windows in the current group."
 (defcommand screen-layout-menu () ()
   (let ((selection (select-from-menu (current-screen) *layout-menu*)))
     (run-commands (second selection))))
-
-;;(defmacro -<> (expr &rest forms)
-;;  "Thread the given forms, with `<>` as a placeholder."
-;;  ;; I am going to lose my fucking mind if I have to program lisp without
-;;  ;; a threading macro, but I don't want to add another dep to this library, so
-;;  ;; here we are.
-;;  `(let* ((<> ,expr)
-;;          ,@(mapcar (lambda (form)
-;;                      (if (symbolp form)
-;;                        `(<> (,form <>))
-;;                        `(<> ,form)))
-;;                    forms))
-;;     <>))
-;;
-;;
-;;(defun keywordize (string)
-;;  (-<> string
-;;    (string-trim (string #\newline) <>)
-;;    string-upcase
-;;    (intern <> (find-package :keyword))))
-;;
-;;(defparameter *host* (keywordize (run-shell-command "hostname" t)))
-
-
-; (defun print-transition (new-window current-window)
-;   (with-open-file (stream "~/stumpwm-debug.txt" :direction :output :if-exists :append)
-;     (format stream "~A => ~A~%" current-window new-window)))
-
-; (add-hook *focus-window-hook* 'print-transition)
-
-; (defcommand restart-hard-temp () ()
-;   (mode-line)
-;   (restart-hard))
-;   ; (mode-line))
 
 ; vim: ft=lisp

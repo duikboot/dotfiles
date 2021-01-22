@@ -255,6 +255,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 " replace snippet
 nnoremap R :%s//g<left><left>
+xnoremap R :s/\%V/g<Left><Left>
 
 
 " ,v brings up my .vimrc
@@ -264,6 +265,7 @@ nnoremap <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<
 
 nnoremap <leader>e :edit<cr>
 nnoremap <c-e> :Explore %:p:h<cr>
+nnoremap <c-e> :CHADopen<cr>
 " nnoremap <leader>F :Fern . -reveal=% -drawer -toggle<cr>
 " nnoremap <c-e> :Fern . -reveal=% -drawer -toggle<cr>
 autocmd FileType netrw setlocal bufhidden=wipe

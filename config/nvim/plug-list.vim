@@ -102,6 +102,8 @@ Plug 'https://github.com/nvim-lua/telescope.nvim'
 Plug 'https://github.com/kevinhwang91/nvim-hlslens'
 Plug 'https://github.com/dbeniamine/cheat.sh-vim'
 
+Plug 'https://github.com/ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+
 " Plug 'RishabhRD/popfix'
 " Plug 'https://github.com/RishabhRD/nvim-cheat.sh'
 " Plug 'https://github.com/gabrielpoca/replacer.nvim'
