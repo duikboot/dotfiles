@@ -265,7 +265,6 @@ nnoremap <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<
 
 nnoremap <leader>e :edit<cr>
 nnoremap <c-e> :Explore %:p:h<cr>
-nnoremap <c-e> :CHADopen<cr>
 " nnoremap <leader>F :Fern . -reveal=% -drawer -toggle<cr>
 " nnoremap <c-e> :Fern . -reveal=% -drawer -toggle<cr>
 autocmd FileType netrw setlocal bufhidden=wipe
@@ -481,18 +480,18 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 
 let g:completion_chain_complete_list = {
             \   'default': [
-            \      {'complete_items': ['lsp', 'buffer', 'snippet', 'path']},
+            \      {'complete_items': ['lsp', 'buffers', 'snippet', 'path']},
             \      {'complete_items': ['path'], 'triggered_only': ['/']},
             \      {'mode': 'dict'},
             \      {'mode': '<c-p>'},
             \      {'mode': '<c-n>'}
             \   ],
             \   'string': [
-            \      {'complete_items': ['path', 'buffer']},
+            \      {'complete_items': ['path', 'buffers']},
             \      {'mode': 'dict'},
             \   ],
             \   'comment': [
-            \      {'complete_items': ['path', 'buffer']},
+            \      {'complete_items': ['path', 'buffers']},
             \      {'mode': 'dict'},
             \   ],
             \ 'markdown' : {

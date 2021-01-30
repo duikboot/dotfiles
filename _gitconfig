@@ -20,3 +20,5 @@
     spellingdictionary = none
 [commit]
     verbose = true
+[user]
+	email = dijkstra.arjen@gmail.com
