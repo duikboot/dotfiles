@@ -70,3 +70,5 @@ vim-plug:
 git:
 	-rm $(HOME_DIR)/.gitconfig
 	ln -s ${PWD}/_gitconfig $(HOME_DIR)/.gitconfig
+	-rm $(HOME_DIR)/.gitignore
+	ln -s ${PWD}/_gitignore $(HOME_DIR)/.gitignore
