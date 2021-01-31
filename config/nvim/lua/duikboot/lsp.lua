@@ -6,9 +6,9 @@ local mapper = function(mode, key, result)
 end
 
 
-local on_attach_vim = function(client, bufnr)
-    require'completion'.on_attach(client, bufnr)
-end
+-- local on_attach_vim = function(client, bufnr)
+--     require'completion'.on_attach(client, bufnr)
+-- end
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -21,7 +21,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 
 
 local on_attach_vim_plus_keymaps = function(client)
-    on_attach_vim(client)
+    -- on_attach_vim(client)
     mapper(
         'n',
         '<leader>dn',
@@ -45,7 +45,7 @@ local on_attach_vim_plus_keymaps = function(client)
     mapper('n', 'gD',         '<cmd> lua vim.lsp.buf.implementation()<CR>')
     mapper('n', 'gW',         '<cmd> lua vim.lsp.buf.workspace_symbol()<CR>')
     mapper('n', '<leader>gd', '<cmd> lua vim.lsp.buf.declaration()<CR>')
-    mapper('n', '<c-]>',      '<cmd> lua vim.lsp.buf.definition()<CR>')
+    mapper('n', '<leader><c-]>',      '<cmd> lua vim.lsp.buf.definition()<CR>')
 end
 
 -- From the lspconfig repo
