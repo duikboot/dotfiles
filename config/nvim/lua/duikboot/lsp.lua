@@ -19,8 +19,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   }
 )
 
-
-local on_attach_vim_plus_keymaps = function(client)
+local on_attach_vim_plus_keymaps = function()
     -- on_attach_vim(client)
     mapper(
         'n',
@@ -41,6 +40,7 @@ local on_attach_vim_plus_keymaps = function(client)
     mapper('n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename()<CR>')
     mapper('n', '<leader>K',          '<cmd> lua vim.lsp.buf.hover()<CR>')
     -- mapper('n', 'lh',          '<cmd> lua vim.lsp.buf.hover()<CR>')
+    mapper('n','gr',          '<cmd>lua vim.lsp.buf.references()<CR>')
     mapper('n', 'g0',         '<cmd> lua vim.lsp.buf.document_symbol()<CR>')
     mapper('n', 'gD',         '<cmd> lua vim.lsp.buf.implementation()<CR>')
     mapper('n', 'gW',         '<cmd> lua vim.lsp.buf.workspace_symbol()<CR>')
@@ -60,11 +60,12 @@ elseif vim.fn.has('win32') == 1 then
 else
   print("Unsupported system for sumneko")
 end
--- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
+-- set the path to the sumneko installation; if you ereviously installed via the now deprecated :LspInstall, use
 local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'
 local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
 require'lspconfig'.sumneko_lua.setup {
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+  on_attach=on_attach_vim_plus_keymaps ,
   settings = {
     Lua = {
       runtime = {

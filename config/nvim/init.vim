@@ -467,6 +467,17 @@ xmap go <plug>(GrepperOperator)
 
 lua require('init')
 
+lua <<EOF
+vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
+vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler
+vim.lsp.handlers['textDocument/definition'] = require'lsputil.locations'.definition_handler
+vim.lsp.handlers['textDocument/declaration'] = require'lsputil.locations'.declaration_handler
+vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typeDefinition_handler
+vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
+vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
+vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
+EOF
+
 let g:compe = {}
 let g:compe.enabled = v:true
 let g:compe.autocomplete = v:true
@@ -622,7 +633,7 @@ nnoremap <leader><cr> :silent !ctags -R --links=no --exclude=.buildozer --langua
 nnoremap <C-]> <C-]>zt
 
 " Toggle tag
-nnoremap <leader>t <Esc>:Tags<cr>
+nnoremap <leader>t <Esc>:tag<Space>
 nnoremap <leader>ts <Esc>:tselect<Space>
 
 " Open in vertical split the tag under the cursur.
