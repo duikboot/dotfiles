@@ -1,3 +1,6 @@
+[user]
+    name = Arjen Dijksta
+    email = dijkstra.arjen@gmail.com
 
 [color]
     diff = auto
@@ -8,7 +11,7 @@
     default = matching
 [core]
     editor = vim
-    excludesfile = /home/arjen/.gitignore
+	excludesfile = /home/arjend/.gitignore
 [alias]
     root = !pwd
     co = checkout
@@ -20,5 +23,7 @@
     spellingdictionary = none
 [commit]
     verbose = true
-[user]
-	email = dijkstra.arjen@gmail.com
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
