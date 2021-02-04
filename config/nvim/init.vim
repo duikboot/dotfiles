@@ -488,17 +488,20 @@ let g:compe.preselect = 'enable'
 let g:compe.throttle_time = 80
 let g:compe.source_timeout = 200
 let g:compe.incomplete_delay = 400
-let g:compe.allow_prefix_unmatch = v:false
+let g:compe.max_abbr_width = 100
+let g:compe.max_kind_width = 100
+let g:compe.max_menu_width = 100
 
 let g:compe.source = {}
 let g:compe.source.path = v:true
 let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
 let g:compe.source.vsnip = v:true
 let g:compe.source.nvim_lsp = v:true
 let g:compe.source.nvim_lua = v:true
 let g:compe.source.spell = v:true
-" let g:compe.source.snippets_nvim= v:true
-let g:compe.source.your_awesome_source = {}
+" let g:compe.source.tags = v:true
+let g:compe.source.snippets_nvim = v:true
 
 autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
 
