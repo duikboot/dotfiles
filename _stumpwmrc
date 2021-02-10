@@ -1,4 +1,4 @@
-(ql:quickload '(bordeaux-threads log4cl))
+(ql:quickload '(bordeaux-threads log4cl split-sequence))
 (in-package :stumpwm)
 
 (defparameter *stumptray-apps*
@@ -435,11 +435,28 @@
     (run-shell-command
       (concatenate 'string "xfce4-terminal -x ssh " host)))
 
-(defcommand ssh-pi-hole ()()
-  (ssh "pi-hole"))
+(defun ssh-host-list (hosts)
+  (mapcar (lambda (x) (list (second x)
+                            (second x)))
+            (mapcar (lambda (y)
+                      (split-sequence:split-sequence #\Space y))
+                    hosts)))
 
-(defcommand ssh-cl-duikboot ()()
-  (ssh "digitalocean"))
+(defun read-ssh-config ()
+  "Read .ssh/config and remove every line that doesn't start with Host"
+  (let ((sshconfig (uiop:read-file-lines "~/.ssh/config")))
+    (remove-if-not
+      (lambda (x)
+        (string= "Host"
+                (first
+                  (split-sequence:split-sequence #\Space x)))) sshconfig)))
+
+
+(defcommand ssh-menu () ()
+  (let ((ssh-host (select-from-menu
+                    (current-screen)
+                    (ssh-host-list (read-ssh-config)))))
+    (ssh (first ssh-host))))
 
 (define-key *top-map* (kbd "M-+") "temp-up")
 (define-key *top-map* (kbd "M--") "temp-down")

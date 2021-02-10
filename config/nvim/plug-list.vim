@@ -102,6 +102,7 @@ Plug 'https://github.com/nvim-lua/popup.nvim'
 Plug 'https://github.com/nvim-lua/plenary.nvim'
 Plug 'https://github.com/nvim-lua/telescope.nvim'
 Plug 'https://github.com/kevinhwang91/nvim-hlslens'
+" Plug 'https://github.com/kyazdani42/nvim-tree.lua'
 Plug 'https://github.com/dbeniamine/cheat.sh-vim'
 
 " Plug 'https://github.com/glepnir/lspsaga.nvim'
