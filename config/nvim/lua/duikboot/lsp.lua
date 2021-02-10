@@ -100,3 +100,4 @@ lspconfig.jedi_language_server.setup( {on_attach=on_attach_vim_plus_keymaps })
 --       pydocstyle = { enabled = true },
 --       }})
 lspconfig.vimls.setup( { on_attach=on_attach_vim_plus_keymaps })
+lspconfig.bashls.setup( { on_attach=on_attach_vim_plus_keymaps })
