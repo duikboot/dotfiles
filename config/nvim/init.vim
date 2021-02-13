@@ -32,6 +32,7 @@ set formatoptions+=q
 set formatoptions+=r
 set formatoptions+=n
 set formatoptions+=j
+set formatoptions-=o
 
 let g:vimsyn_embed = 'lP'
 
@@ -466,7 +467,7 @@ xmap go <plug>(GrepperOperator)
 
 " {{{ LSP
 
-lua require('init')
+lua pcall(require, 'init')
 
 lua <<EOF
 vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
