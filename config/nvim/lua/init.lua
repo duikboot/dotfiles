@@ -1,6 +1,6 @@
 
 -- require('duikboot.saga')
-require('duikboot.lsp')
--- require('duikboot.treesitter')
+pcall(require, 'duikboot.lsp')
+pcall(require, 'duikboot.treesitter')
 -- require('duikboot.snippets')
-require('duikboot.telescope')
+pcall(require, 'duikboot.telescope')

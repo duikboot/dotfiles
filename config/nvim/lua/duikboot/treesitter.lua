@@ -5,7 +5,8 @@ require'nvim-treesitter.configs'.setup {
         -- disable = { "c", "rust" },  -- list of language that will be disabled
   },
   indent = {
-    enable = true
+    enable = true,
+    disable = { "python" }
   }
 }
 

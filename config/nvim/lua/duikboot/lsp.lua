@@ -19,6 +19,12 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   }
 )
 
+local on_init = function()
+    print("LSP Started")
+end
+
+
+
 local on_attach_vim_plus_keymaps = function()
     -- on_attach_vim(client)
     mapper(
@@ -33,7 +39,7 @@ local on_attach_vim_plus_keymaps = function()
         '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'
         )
     mapper('n', '<leader>dl', '<cmd> lua vim.lsp.diagnostic.set_loclist()<CR>')
-    mapper('n', '1gD',        '<cmd> lua vim.lsp.buf.type_definition()<CR>')
+    mapper('n', '<leader>td',        '<cmd> lua vim.lsp.buf.type_definition()<CR>')
     mapper('n', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>')
     mapper('v', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>')
     mapper('n', '<c-k>',      '<cmd> lua vim.lsp.buf.signature_help()<CR>')
@@ -66,6 +72,7 @@ local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-s
 require'lspconfig'.sumneko_lua.setup {
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
   on_attach=on_attach_vim_plus_keymaps ,
+  on_init=on_init,
   settings = {
     Lua = {
       runtime = {
@@ -89,7 +96,10 @@ require'lspconfig'.sumneko_lua.setup {
   },
 }
 
-lspconfig.jedi_language_server.setup( {on_attach=on_attach_vim_plus_keymaps })
+lspconfig.jedi_language_server.setup( {
+        on_attach=on_attach_vim_plus_keymaps,
+        on_init=on_init
+    })
 -- lspconfig.pyls.setup( {
 --   on_attach=on_attach_vim_plus_keymaps ,
 --   plugins = {
@@ -99,5 +109,11 @@ lspconfig.jedi_language_server.setup( {on_attach=on_attach_vim_plus_keymaps })
 --       pylint = { enabled = true },
 --       pydocstyle = { enabled = true },
 --       }})
-lspconfig.vimls.setup( { on_attach=on_attach_vim_plus_keymaps })
-lspconfig.bashls.setup( { on_attach=on_attach_vim_plus_keymaps })
+lspconfig.vimls.setup( {
+    on_attach=on_attach_vim_plus_keymaps,
+    on_init=on_init
+})
+lspconfig.bashls.setup( {
+    on_attach=on_attach_vim_plus_keymaps,
+    on_init=on_init
+})

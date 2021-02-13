@@ -110,6 +110,9 @@ Plug 'https://github.com/dbeniamine/cheat.sh-vim'
 
 Plug 'RishabhRD/popfix'
 Plug 'https://github.com/RishabhRD/nvim-lsputils'
+
+Plug 'https://github.com/sainnhe/edge'
+Plug 'https://github.com/rhysd/committia.vim'
 " Plug 'https://github.com/RishabhRD/nvim-cheat.sh'
 " Plug 'https://github.com/gabrielpoca/replacer.nvim'
 
