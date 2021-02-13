@@ -111,10 +111,10 @@ then
   source ENV/bin/activate
 fi
 
-if [ -d src ];
-then
-  export PYTHONPATH=src:$PYTHONPATH
-fi
+# if [ -d src ];
+# then
+#   export PYTHONPATH=src:$PYTHONPATH
+# fi
 
 # alias clisp="rlwrap -H $HOME/.rlwrap/clisp_history -f $HOME/.rlwrap/keywords clisp"
 alias hgg='hg glog'
