@@ -96,24 +96,33 @@ require'lspconfig'.sumneko_lua.setup {
   },
 }
 
-lspconfig.jedi_language_server.setup( {
+local local_lsps = {'jedi_language_server', 'vimls', 'bashls'}
+
+for _, lsp in ipairs(local_lsps) do
+    lspconfig[lsp].setup{
         on_attach=on_attach_vim_plus_keymaps,
         on_init=on_init
-    })
--- lspconfig.pyls.setup( {
---   on_attach=on_attach_vim_plus_keymaps ,
---   plugins = {
---       jedi_completion = { fuzzy = true },
---       pyls_black = { enabled = true },
---       yapf = { enabled = true },
---       pylint = { enabled = true },
---       pydocstyle = { enabled = true },
---       }})
-lspconfig.vimls.setup( {
-    on_attach=on_attach_vim_plus_keymaps,
-    on_init=on_init
-})
-lspconfig.bashls.setup( {
-    on_attach=on_attach_vim_plus_keymaps,
-    on_init=on_init
-})
+    }
+end
+
+-- lspconfig.jedi_language_server.setup( {
+--         on_attach=on_attach_vim_plus_keymaps,
+--         on_init=on_init
+--     })
+-- -- lspconfig.pyls.setup( {
+-- --   on_attach=on_attach_vim_plus_keymaps ,
+-- --   plugins = {
+-- --       jedi_completion = { fuzzy = true },
+-- --       pyls_black = { enabled = true },
+-- --       yapf = { enabled = true },
+-- --       pylint = { enabled = true },
+-- --       pydocstyle = { enabled = true },
+-- --       }})
+-- lspconfig.vimls.setup( {
+--     on_attach=on_attach_vim_plus_keymaps,
+--     on_init=on_init
+-- })
+-- lspconfig.bashls.setup( {
+--     on_attach=on_attach_vim_plus_keymaps,
+--     on_init=on_init
+-- })
