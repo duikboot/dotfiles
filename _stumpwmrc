@@ -305,6 +305,7 @@
 (make-program-binding "arandr" "arandr")
 (make-program-binding "chromium-browser" "chromium-browser")
 (make-program-binding "rambox" "Rambox" :key-binding "c")
+(make-program-binding "slack" "Slack")
 (make-program-binding "spotify" "Spotify" :key-binding "m")
 (make-program-binding "calibre" "calibre" :key-binding "C")
 (make-program-binding "keepassxc" "keepassxc")
@@ -490,7 +491,8 @@
 
 (define-frame-preference "chat"
   ;; frame raise lock (lock AND raise == jumpto)
-  (0 nil   t :title "Rambox"))
+  (0 nil   t :title "Rambox")
+  (0 nil   t :title "slack"))
 
 
 ; (run-shell-command "redshift-gtk")
