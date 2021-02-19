@@ -504,6 +504,12 @@ let g:compe.source.spell = v:true
 " let g:compe.source.tags = v:true
 let g:compe.source.snippets_nvim = v:true
 
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
 autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
 
 " autocmd BufEnter * lua require'completion'.on_attach()
@@ -592,6 +598,7 @@ let g:completion_chain_complete_list = {
 let g:completion_auto_change_source = 1
 
 autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+
 set signcolumn=yes
 " use <c-j> to switch to previous completion
 " imap <c-j> <Plug>(completion_next_source)

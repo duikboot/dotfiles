@@ -566,4 +566,16 @@ will scroll through windows in the current group."
   (let ((selection (select-from-menu (current-screen) *layout-menu*)))
     (run-commands (second selection))))
 
+;;;; from https://github.com/vhallac/dotfiles/blob/14463bf01f25efd0be891b596b88aabde4555bad/.config/stumpwm/init.lisp
+
+(defun float-dialogs-hook (win)
+  (let ((grp (current-group)))
+    (when (and (not (typep grp 'float-group))
+               (or
+                (eq (window-type win) :dialog)
+                (string-match (window-res win) "pinentry-gtk-2")))
+      (float-window win grp)
+      (focus-window win t))))
+
+(add-hook *new-window-hook* #'float-dialogs-hook)
 ; vim: ft=lisp
