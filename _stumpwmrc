@@ -578,4 +578,5 @@ will scroll through windows in the current group."
       (focus-window win t))))
 
 (add-hook *new-window-hook* #'float-dialogs-hook)
+
 ; vim: ft=lisp
