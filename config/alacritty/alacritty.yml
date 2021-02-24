@@ -32,7 +32,7 @@ colors:
     cyan: '0x95E6CB'
     white: '0xFFFFFF'
 
-  # background_opacity: 0.4
+background_opacity: 0.75
 
 font:
   # Normal (roman) font face

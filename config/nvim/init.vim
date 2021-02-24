@@ -189,7 +189,7 @@ set termguicolors
 let g:nvcode_termcolors=256
 
 syntax on
-colorscheme gruvbox
+colorscheme edge
 " colorscheme nvcode " Or whatever colorscheme you make
 
 

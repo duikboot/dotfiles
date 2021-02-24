@@ -32,7 +32,7 @@ Plug 'vlime/vlime', {'rtp': 'vim/'}
 Plug 'wellle/targets.vim'
 Plug 'lervag/vimtex'
 Plug 'iCyMind/NeoSolarized'
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'Olical/vim-enmasse'
 " Plug 'eraserhd/parinfer-rust', {'do':  'cargo build --release'}
 Plug 'https://github.com/bhurlow/vim-parinfer'
