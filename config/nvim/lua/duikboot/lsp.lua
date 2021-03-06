@@ -51,7 +51,7 @@ local on_attach_vim_plus_keymaps = function()
     mapper('n', 'gD',         '<cmd> lua vim.lsp.buf.implementation()<CR>')
     mapper('n', 'gW',         '<cmd> lua vim.lsp.buf.workspace_symbol()<CR>')
     mapper('n', '<leader>gd', '<cmd> lua vim.lsp.buf.declaration()<CR>')
-    mapper('n', '<leader><c-]>',      '<cmd> lua vim.lsp.buf.definition()<CR>')
+    mapper('n', '<c-]>',      '<cmd> lua vim.lsp.buf.definition()<CR>')
 end
 
 -- From the lspconfig repo
@@ -96,7 +96,7 @@ require'lspconfig'.sumneko_lua.setup {
   },
 }
 
-local local_lsps = {'jedi_language_server', 'vimls', 'bashls'}
+local local_lsps = {'pyls', 'vimls', 'bashls'}
 
 for _, lsp in ipairs(local_lsps) do
     lspconfig[lsp].setup{

@@ -190,6 +190,7 @@ let g:nvcode_termcolors=256
 
 syntax on
 colorscheme edge
+lua require('colorbuddy').colorscheme('gruvbuddy')
 " colorscheme nvcode " Or whatever colorscheme you make
 
 
@@ -217,6 +218,37 @@ let g:python3_host_prog_bin=$HOME . '/.dotfiles/.venv/bin/'
 let g:mapleader="\<space>"             " change the leader to be a comma vs slash
 let g:maplocalleader="\\"       " map localleader to \\
 
+" {{{ tjdevries goodies
+" https://github.com/tjdevries/config_manager/tree/master/xdg_config/nvim
+" Map execute this line
+function! s:executor() abort
+  if &ft == 'lua'
+    call execute(printf(":lua %s", getline(".")))
+    echom printf(":lua %s", getline("."))
+  elseif &ft == 'vim'
+    exe getline(">")
+    echom printf(getline("."))
+  endif
+endfunction
+nnoremap <leader>x :call <SID>executor()<CR>
+vnoremap <leader>x :<C-w>exe join(getline("'<","'>"),'<Bar>')<CR>
+
+
+" Execute this file
+function! s:save_and_exec() abort
+  if &filetype == 'vim'
+    :silent! write
+    :source %
+  elseif &filetype == 'lua'
+    :silent! write
+    :luafile %
+  endif
+
+  return
+endfunction
+nnoremap <leader><leader>x :call <SID>save_and_exec()<CR>
+
+" }}}
 
 " Seriously, guys. It's not like :W is bound to anything anyway.
 command! W :w
@@ -483,7 +515,7 @@ EOF
 let g:compe = {}
 let g:compe.enabled = v:true
 let g:compe.autocomplete = v:true
-let g:compe.debug = v:false
+let g:compe.debug = v:true
 let g:compe.min_length = 1
 let g:compe.preselect = 'enable'
 let g:compe.throttle_time = 80
@@ -501,8 +533,8 @@ let g:compe.source.vsnip = v:true
 let g:compe.source.nvim_lsp = v:true
 let g:compe.source.nvim_lua = v:true
 let g:compe.source.spell = v:true
-" let g:compe.source.tags = v:true
-let g:compe.source.snippets_nvim = v:true
+let g:compe.source.tags = v:false
+let g:compe.source.snippets_nvim = v:false
 
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
@@ -522,48 +554,48 @@ let g:completion_enable_snippet = 'vim-vsnip'
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 
 
-let g:completion_chain_complete_list = {
-            \   'default': [
-            \      {'complete_items': ['lsp', 'buffers', 'snippet', 'path']},
-            \      {'complete_items': ['path'], 'triggered_only': ['/']},
-            \      {'mode': 'dict'},
-            \      {'mode': '<c-p>'},
-            \      {'mode': '<c-n>'}
-            \   ],
-            \   'string': [
-            \      {'complete_items': ['path', 'buffers']},
-            \      {'mode': 'dict'},
-            \   ],
-            \   'comment': [
-            \      {'complete_items': ['path', 'buffers']},
-            \      {'mode': 'dict'},
-            \   ],
-            \ 'markdown' : {
-            \   'default': [
-            \      {'mode': 'dict'},
-            \      {'mode': 'spel'}
-            \   ],
-            \   'comment': []
-            \   }
-            \ }
+" let g:completion_chain_complete_list = {
+"             \   'default': [
+"             \      {'complete_items': ['lsp', 'buffers', 'snippet', 'path']},
+"             \      {'complete_items': ['path'], 'triggered_only': ['/']},
+"             \      {'mode': 'dict'},
+"             \      {'mode': '<c-p>'},
+"             \      {'mode': '<c-n>'}
+"             \   ],
+"             \   'string': [
+"             \      {'complete_items': ['path', 'buffers']},
+"             \      {'mode': 'dict'},
+"             \   ],
+"             \   'comment': [
+"             \      {'complete_items': ['path', 'buffers']},
+"             \      {'mode': 'dict'},
+"             \   ],
+"             \ 'markdown' : {
+"             \   'default': [
+"             \      {'mode': 'dict'},
+"             \      {'mode': 'spel'}
+"             \   ],
+"             \   'comment': []
+"             \   }
+"             \ }
 
-\let g:completion_items_priority = {
-        \ 'Field': 8,
-        \ 'Function': 8,
-        \ 'Variables': 7,
-        \ 'Method': 10,
-        \ 'Interfaces': 6,
-        \ 'Constant': 6,
-        \ 'Class': 6,
-        \ 'Struct': 6,
-        \ 'Keyword': 5,
-        \ 'Treesitter': 4,
-        \ 'vim-vsnip' : 0,
-        \ 'Buffers' : 0,
-        \ 'Buffer' : 0,
-        \ 'TabNine' : 1,
-        \ 'File' : 2,
-        \ }
+" \let g:completion_items_priority = {
+"         \ 'Field': 8,
+"         \ 'Function': 8,
+"         \ 'Variables': 7,
+"         \ 'Method': 10,
+"         \ 'Interfaces': 6,
+"         \ 'Constant': 6,
+"         \ 'Class': 6,
+"         \ 'Struct': 6,
+"         \ 'Keyword': 5,
+"         \ 'Treesitter': 4,
+"         \ 'vim-vsnip' : 0,
+"         \ 'Buffers' : 0,
+"         \ 'Buffer' : 0,
+"         \ 'TabNine' : 1,
+"         \ 'File' : 2,
+"         \ }
 
 " let g:completion_chain_complete_list = [
 "     \{'complete_items': ['lsp', 'snippet', 'path']},
@@ -624,7 +656,7 @@ smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
 " nmap s <Plug>(vsnip-select-text)
 xmap s <Plug>(vsnip-select-text)
 " nmap S <Plug>(vsnip-cut-text)
-xmap S <Plug>(vsnip-cut-text)
+xmap D <Plug>(vsnip-cut-text)
 
 let g:vsnip_filetypes = {}
 let g:vsnip_filetypes.javascriptreact = ['javascript']

@@ -3,6 +3,8 @@ call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'tjdevries/colorbuddy.vim'
+Plug 'tjdevries/gruvbuddy.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'conweller/endarkened.vim'
 Plug 'junegunn/fzf.vim'
@@ -69,7 +71,7 @@ Plug 'https://github.com/duikboot/vs-snippets'
 
 if has('nvim')
     Plug 'neovim/nvim-lspconfig'
-    " Plug 'https://github.com/nvim-lua/lsp-status.nvim'
+    Plug 'https://github.com/nvim-lua/lsp-status.nvim'
 endif
 
 Plug 'https://github.com/prabirshrestha/asyncomplete.vim'
@@ -113,6 +115,9 @@ Plug 'https://github.com/RishabhRD/nvim-lsputils'
 
 Plug 'https://github.com/sainnhe/edge'
 Plug 'https://github.com/rhysd/committia.vim'
+Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+Plug 'kyazdani42/nvim-web-devicons' " lua
+Plug 'https://github.com/nvim-telescope/telescope-fzy-native.nvim', {'do': 'git submodule update --init --recursive'}
 " Plug 'https://github.com/RishabhRD/nvim-cheat.sh'
 " Plug 'https://github.com/gabrielpoca/replacer.nvim'
 

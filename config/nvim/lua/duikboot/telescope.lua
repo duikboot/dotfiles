@@ -1,16 +1,7 @@
-telescope = require'telescope'
-sorters = require'telescope.sorters'
--- require('telescope').setup {
---   defaults = {
---     layout_strategy = "flex",
---     winblend = 5,
---     generic_sorter = require'telescope.sorters'.get_fzy_sorter,
---     file_sorter = require'telescope.sorters'.get_fzy_sorter,
---   }
--- }
--- defaults:
+Telescope = require'telescope'
+Sorters = require'telescope.sorters'
 
-telescope.setup{
+Telescope.setup{
   defaults = {
     vimgrep_arguments = {
       'rg',
@@ -21,17 +12,18 @@ telescope.setup{
       '--column',
       '--smart-case'
     },
-    prompt_position = "bottom",
-    prompt_prefix = ">",
+    prompt_position = "top",
+    prompt_prefix = "> ",
     selection_strategy = "reset",
     sorting_strategy = "descending",
+    scroll_strategy = "cycle",
     layout_strategy = "horizontal",
     layout_defaults = {
       -- TODO add builtin options.
     },
-    file_sorter = sorters.get_fuzzy_file ,
+    file_sorter = Sorters.get_fuzzy_file ,
     file_ignore_patterns = {},
-    generic_sorter =  telescope.get_generic_fuzzy_sorter,
+    generic_sorter =  Telescope.get_generic_fuzzy_sorter,
     shorten_path = true,
     winblend = 0,
     width = 0.75,
@@ -45,3 +37,6 @@ telescope.setup{
     set_env = { ['COLORTERM'] = 'truecolor' }, -- default { }, currently unsupported for shells like cmd.exe / powershell.exe
   }
 }
+
+require('telescope').load_extension('fzy_native')
+-- pcall(require('telescope').load_extension, 'frecency')
