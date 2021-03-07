@@ -1,7 +1,8 @@
-Telescope = require'telescope'
-Sorters = require'telescope.sorters'
+local telescope = require'telescope'
+local sorters = require'telescope.sorters'
+local actions = require'telescope.actions'
 
-Telescope.setup{
+telescope.setup{
   defaults = {
     vimgrep_arguments = {
       'rg',
@@ -12,7 +13,7 @@ Telescope.setup{
       '--column',
       '--smart-case'
     },
-    prompt_position = "top",
+    prompt_position = "bottom",
     prompt_prefix = "> ",
     selection_strategy = "reset",
     sorting_strategy = "descending",
@@ -21,9 +22,9 @@ Telescope.setup{
     layout_defaults = {
       -- TODO add builtin options.
     },
-    file_sorter = Sorters.get_fuzzy_file ,
+    file_sorter = sorters.get_fzy_sorter,
     file_ignore_patterns = {},
-    generic_sorter =  Telescope.get_generic_fuzzy_sorter,
+    generic_sorter =  telescope.get_generic_fuzzy_sorter,
     shorten_path = true,
     winblend = 0,
     width = 0.75,
@@ -35,6 +36,12 @@ Telescope.setup{
     color_devicons = true,
     use_less = true,
     set_env = { ['COLORTERM'] = 'truecolor' }, -- default { }, currently unsupported for shells like cmd.exe / powershell.exe
+
+    mappings = {
+        i = {
+            ["<C-c>"] = actions.send_to_qflist + actions.open_qflist,
+            },
+    }
   }
 }
 

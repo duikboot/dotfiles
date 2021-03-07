@@ -488,7 +488,7 @@ nnoremap <leader>* :Grepper -tool ag -cword -noprompt<cr>
 nnoremap <leader>r :Grepper -tool rg<cr>
 nnoremap <leader>A :Ag<cr>
 let g:grepper.rg = { 'grepprg': 'rg --vimgrep --smart-case'}
-nnoremap <leader>a :Grepper -tool ag<cr>
+" nnoremap <leader>a :Grepper -tool ag<cr>
 let g:grepper.ag = { 'grepprg': 'ag --path-to-ignore ~/.ignore'}
 nnoremap <leader>g :Grepper -tool git<cr>
 
@@ -1014,7 +1014,8 @@ autocmd FileType xml setlocal commentstring={#%s#}
 
 " {{{ telescope
 set report=2
-" nnoremap <Leader>o  <cmd>lua require'telescope.builtin'.find_files{}<CR>
+nnoremap <Leader>o  <cmd>lua require'telescope.builtin'.find_files{}<CR>
+nnoremap <leader>a <cmd>lua require'telescope.builtin'.live_grep{}<CR>
 nnoremap <silent>gr <cmd>lua require'telescope.builtin'.lsp_references{ shorten_path = true }<CR>
 nnoremap <leader>gc <cmd>lua require'telescope.builtin'.git_commits{}<CR>
 nnoremap <leader>gs <cmd>lua require'telescope.builtin'.git_status{}<CR>
