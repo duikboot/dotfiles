@@ -39,7 +39,7 @@ telescope.setup{
 
     mappings = {
         i = {
-            ["<C-c>"] = actions.send_to_qflist + actions.open_qflist,
+            ["<C-x>"] = actions.send_to_qflist + actions.open_qflist,
             },
     }
   }

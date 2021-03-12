@@ -116,7 +116,7 @@ Plug 'https://github.com/RishabhRD/nvim-lsputils'
 Plug 'https://github.com/sainnhe/edge'
 Plug 'https://github.com/rhysd/committia.vim'
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
-Plug 'kyazdani42/nvim-web-devicons' " lua
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'https://github.com/nvim-telescope/telescope-fzy-native.nvim', {'do': 'git submodule update --init --recursive'}
 " Plug 'https://github.com/RishabhRD/nvim-cheat.sh'
 " Plug 'https://github.com/gabrielpoca/replacer.nvim'
