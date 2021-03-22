@@ -209,6 +209,7 @@ set path+=**
 
 " }}}
 
+let g:loaded_python_provider = 0 " DISABLE Python 2
 let g:python3_host_prog=$HOME . '/.dotfiles/.venv/bin/python'
 
 let g:python3_host_prog_bin=$HOME . '/.dotfiles/.venv/bin/'
@@ -219,6 +220,7 @@ let g:mapleader="\<space>"             " change the leader to be a comma vs slas
 let g:maplocalleader="\\"       " map localleader to \\
 
 " {{{ tjdevries goodies
+
 " https://github.com/tjdevries/config_manager/tree/master/xdg_config/nvim
 " Map execute this line
 function! s:executor() abort
@@ -527,6 +529,8 @@ let g:compe.max_menu_width = 100
 
 let g:compe.source = {}
 let g:compe.source.path = v:true
+let g:compe.source.omni = v:false
+let g:compe.source.treesitter = v:true
 let g:compe.source.buffer = v:true
 let g:compe.source.calc = v:true
 let g:compe.source.vsnip = v:true
@@ -549,9 +553,9 @@ autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-let g:completion_enable_snippet = 'vim-vsnip'
+" let g:completion_enable_snippet = 'vim-vsnip'
 
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
+" let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 
 
 " let g:completion_chain_complete_list = {
@@ -989,10 +993,6 @@ inoremap <c-c> <ESC>
 " hides the menu. Use this mapping to close the menu and also start a new
 " line.
 inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-
-" Use <TAB> to select the popup menu:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 
 " {{{ comments

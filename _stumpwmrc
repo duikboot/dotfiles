@@ -1,5 +1,9 @@
-(ql:quickload '(bordeaux-threads log4cl split-sequence))
+(ql:quickload '(bordeaux-threads log4cl split-sequence drakma))
 (in-package :stumpwm)
+
+; TODO (arjen)
+; 15-03-2021
+; vertical resize command
 
 (defparameter *stumptray-apps*
   '("numlockx"
@@ -37,6 +41,7 @@
   (dolist (screen *screen-list*)
     (dolist (head (screen-heads screen))
       (enable-mode-line screen head t))))
+
 
 ; (enable-mode-line-all-heads)
 ; *shell-command-history-file*
@@ -177,6 +182,10 @@
       *mode-line-foreground-color*  "lightgreen"
       *mode-line-border-color* "black")
 
+(setf *window-border-style*  :thick
+      *normal-border-width*  1
+      *maxsize-border-width* 1)
+
 
 (defun modeline ()
   (if (not (head-mode-line (current-head)))
@@ -256,6 +265,36 @@
     (message "Screenshot ~A saved" filename)))
 
 (define-key *top-map* (kbd "SunPrint_Screen") "timestamp-screenshot")
+
+(defparameter *bookmarks-url* "http://localhost:5000/api/1/bookmark/add/")
+(defparameter *bookmarks-api-key* "123456")
+
+(defun bookmarkpage-in-cl-duikboot (tags)
+  (let ((req
+    (drakma:http-request
+      *bookmarks-url*
+      :method :post
+      :parameters
+      `(("url" . ,(run-shell-command "xclip -o -selection clipboard" t))
+        ("api-key" . ,*bookmarks-api-key*)
+        ("tags" . ,(if (string= tags "")
+                      "from-api"
+                      tags))))))
+    (log:info req)))
+
+(defcommand enlarge-frame () ()
+  (resize 50 0)
+  (message "enlarged"))
+
+(defcommand bookmark-page (tags)((:string "Tags: "))
+  (window-send-string "yy")
+  (start-with-delay 1 (bookmarkpage-in-cl-duikboot tags)))
+
+(defcommand timestamp-screenshot () ()
+  (let ((filename (format nil "~A/screenshots/~d.png" *home-dir* (get-datetime-string))))
+    (screenshot:screenshot filename)
+    (message "Screenshot ~A saved" filename)))
+
 
 ;;; run shell commmands
 

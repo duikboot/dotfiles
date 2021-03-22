@@ -9,6 +9,32 @@ end
 -- local on_attach_vim = function(client, bufnr)
 --     require'completion'.on_attach(client, bufnr)
 -- end
+local function disable()
+  vim.b.lsp_diagnostics_enabled = false
+
+  -- Clear existing diagnostics
+  local clients = vim.lsp.get_active_clients()
+  for _, client in pairs(clients) do
+    vim.lsp.diagnostic.clear(vim.fn.bufnr(), client.id, nil, nil)
+  end
+end
+
+local function enable()
+  vim.b.lsp_diagnostics_enabled = true
+
+  -- Cheat and reload the file to trigger a `publishDiagnostics` event.
+  -- TODO: Find a way to actually reload the thing :(
+  vim.cmd('edit')
+end
+
+function Toggle()
+  if vim.b.lsp_diagnostics_enabled then
+    disable()
+  else
+    enable()
+  end
+end
+
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -38,8 +64,9 @@ local on_attach_vim_plus_keymaps = function()
         '<leader>dp',
         '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'
         )
+    mapper("n", "<leader>at", '<cmd>lua Toggle()<cr>')
     mapper('n', '<leader>dl', '<cmd> lua vim.lsp.diagnostic.set_loclist()<CR>')
-    mapper('n', '<leader>td',        '<cmd> lua vim.lsp.buf.type_definition()<CR>')
+    mapper('n', '<leader>td', '<cmd> lua vim.lsp.buf.type_definition()<CR>')
     mapper('n', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>')
     mapper('v', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>')
     mapper('n', '<c-k>',      '<cmd> lua vim.lsp.buf.signature_help()<CR>')

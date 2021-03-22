@@ -37,10 +37,19 @@ telescope.setup{
     use_less = true,
     set_env = { ['COLORTERM'] = 'truecolor' }, -- default { }, currently unsupported for shells like cmd.exe / powershell.exe
 
+    file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
+    grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
+    qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
     mappings = {
         i = {
             ["<C-x>"] = actions.send_to_qflist + actions.open_qflist,
             },
+    }
+  },
+  extensions = {
+    fzy_native =  {
+        override_generic_sorter = false,
+        override_file_sorter = true
     }
   }
 }
