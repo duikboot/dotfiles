@@ -82,6 +82,9 @@ flake8.txt
 # local environment files
 .env
 
+#the shitiest
+node-modules/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
