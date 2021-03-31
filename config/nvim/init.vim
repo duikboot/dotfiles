@@ -414,7 +414,7 @@ let g:highlightedyank_highlight_duration = 100
 " {{{ FZF
 set runtimepath+=~/.fzf
 " nnoremap <Leader>o :Files<CR>
-nnoremap <Leader>b :Buffers<CR>
+" nnoremap <Leader>b :Buffers<CR>
 
 if has('nvim') || has('gui_running')
   let $FZF_DEFAULT_OPTS .= ' --inline-info'
@@ -502,16 +502,16 @@ xmap go <plug>(GrepperOperator)
 
 lua pcall(require, 'init')
 
-lua <<EOF
-vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
-vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler
-vim.lsp.handlers['textDocument/definition'] = require'lsputil.locations'.definition_handler
-vim.lsp.handlers['textDocument/declaration'] = require'lsputil.locations'.declaration_handler
-vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typeDefinition_handler
-vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
-vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
-vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
-EOF
+" lua <<EOF
+" vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
+" vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler
+" vim.lsp.handlers['textDocument/definition'] = require'lsputil.locations'.definition_handler
+" vim.lsp.handlers['textDocument/declaration'] = require'lsputil.locations'.declaration_handler
+" vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typeDefinition_handler
+" vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
+" vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
+" vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
+" EOF
 
 let g:compe = {}
 let g:compe.enabled = v:true
@@ -1014,9 +1014,10 @@ autocmd FileType xml setlocal commentstring={#%s#}
 " {{{ telescope
 set report=2
 nnoremap <Leader>o  <cmd>lua require'telescope.builtin'.find_files{}<CR>
-nnoremap gr <cmd>lua require'telescope.builtin'.lsp_references{ shorten_path = true }<CR>
+nnoremap         gr <cmd>lua require'telescope.builtin'.lsp_references{ shorten_path = true }<CR>
 nnoremap <leader>gc <cmd>lua require'telescope.builtin'.git_commits{}<CR>
 nnoremap <leader>gs <cmd>lua require'telescope.builtin'.git_status{}<CR>
 nnoremap <leader>lg <cmd>lua require'telescope.builtin'.live_grep{}<CR>
+nnoremap <leader>b <cmd>lua require'telescope.builtin'.buffers{}<CR>
 
 " }}}
