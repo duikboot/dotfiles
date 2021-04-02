@@ -13,7 +13,7 @@ Plug 'https://github.com/stsewd/fzf-checkout.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'machakann/vim-swap'
 Plug 'mhinz/vim-grepper'
-Plug 'mhinz/vim-signify'
+" Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
@@ -102,6 +102,8 @@ Plug 'https://github.com/ChristianChiarulli/nvcode-color-schemes.vim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter' , {'do': ':TSUpdate'}
 Plug 'https://github.com/nvim-lua/popup.nvim'
 Plug 'https://github.com/nvim-lua/plenary.nvim'
+
+Plug 'https://github.com/lewis6991/gitsigns.nvim'
 Plug 'https://github.com/nvim-lua/telescope.nvim'
 Plug 'https://github.com/kevinhwang91/nvim-hlslens'
 " Plug 'https://github.com/kyazdani42/nvim-tree.lua'
@@ -115,7 +117,6 @@ Plug 'https://github.com/RishabhRD/nvim-lsputils'
 
 Plug 'https://github.com/sainnhe/edge'
 Plug 'https://github.com/rhysd/committia.vim'
-" Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'https://github.com/nvim-telescope/telescope-fzy-native.nvim', {'do': 'git submodule update --init --recursive'}
 Plug 'https://github.com/aklt/plantuml-syntax'

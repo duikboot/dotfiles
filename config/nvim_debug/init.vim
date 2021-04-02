@@ -1,34 +1,7 @@
 source ~/config/dotfiles/config/nvim_debug/plug-list.vim
 
-set completeopt=menuone,noselect
+let g:mapleader="\<space>"             " change the leader to be a comma vs slash
+let g:maplocalleader="\\"       " map localleader to \\
 
-let g:compe = {}
-let g:compe.enabled = v:true
-let g:compe.autocomplete = v:true
-let g:compe.debug = v:true
-let g:compe.min_length = 1
-let g:compe.preselect = 'enable'
-let g:compe.throttle_time = 80
-let g:compe.source_timeout = 200
-let g:compe.incomplete_delay = 400
-let g:compe.max_abbr_width = 100
-let g:compe.max_kind_width = 100
-let g:compe.max_menu_width = 100
 
-let g:compe.source = {}
-let g:compe.source.path = v:false
-let g:compe.source.buffer = v:true
-let g:compe.source.calc = v:true
-let g:compe.source.vsnip = v:false
-let g:compe.source.nvim_lsp = v:false
-let g:compe.source.nvim_lua = v:false
-let g:compe.source.spell = v:false
-let g:compe.source.tags = v:false
-let g:compe.source.snippets_nvim = v:false
-
-inoremap <silent><expr> <C-n> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
-
+nnoremap <silent> <leader>V :source /home/arjen/config/dotfiles/config/nvim_debug/init.vim <CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>

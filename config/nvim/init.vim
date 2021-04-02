@@ -511,7 +511,10 @@ lua pcall(require, 'init')
 " vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
 " vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
 " vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
-" EOF
+"lua <<EOF
+
+lua require('gitsigns').setup()
+
 
 let g:compe = {}
 let g:compe.enabled = v:true
@@ -840,8 +843,8 @@ nnoremap <silent> ,tc :call neoterm#kill()<cr>
 
 let g:vlime_cl_use_terminal = 1
 let g:vlime_window_settings = {
-            \ 'repl': {'vertical': v:true, 'pos': 'belowright'},
-            \ 'server': {'vertical': v:true, 'pos': 'belowright'}
+            \ 'repl': {'vertical': v:true, 'pos': 'topright'},
+            \ 'server': {'vertical': v:true, 'pos': 'botright'}
     \ }
 
 function! s:ConnectVlimeToStumpwm()
@@ -862,7 +865,7 @@ nnoremap <localleader>c :call <SID>ConnectVlimeToStumpwm()<CR>
 
 " {{{ Signify
 
-let g:signify_vcs_list = ['git', 'hg']
+" let g:signify_vcs_list = ['git', 'hg']
 
 " }}}
 
