@@ -515,7 +515,6 @@ lua pcall(require, 'init')
 
 lua require('gitsigns').setup()
 
-
 let g:compe = {}
 let g:compe.enabled = v:true
 let g:compe.autocomplete = v:true
@@ -552,8 +551,8 @@ autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
 
 " autocmd BufEnter * lua require'completion'.on_attach()
 " Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " let g:completion_enable_snippet = 'vim-vsnip'
 

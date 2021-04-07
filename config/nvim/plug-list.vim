@@ -120,6 +120,7 @@ Plug 'https://github.com/rhysd/committia.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'https://github.com/nvim-telescope/telescope-fzy-native.nvim', {'do': 'git submodule update --init --recursive'}
 Plug 'https://github.com/aklt/plantuml-syntax'
+Plug 'https://github.com/windwp/nvim-spectre'
 
 " Plug 'https://github.com/RishabhRD/nvim-cheat.sh'
 " Plug 'https://github.com/gabrielpoca/replacer.nvim'
