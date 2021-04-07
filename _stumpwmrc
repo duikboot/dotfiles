@@ -266,12 +266,8 @@
 
 (define-key *top-map* (kbd "SunPrint_Screen") "timestamp-screenshot")
 
-(defparameter *bookmarks-url* "https://cl-duikboot.nl/api/1/bookmark/add/")
-(defparameter *bookmarks-api-key* "$2b$15$Wo2D5Yvbc6N7ZJqtJQnNwu0FpdMvNdLmsH54scPwbCDnqwdWJ/Z5.")
 (defparameter *bookmarks-url* "http://localhost:5000/api/1/bookmark/add/")
 (defparameter *bookmarks-api-key* "123456")
-(defparameter *bookmarks-url* "https://cl-duikboot.nl/api/1/bookmark/add/")
-(defparameter *bookmarks-api-key* "$2b$15$Wo2D5Yvbc6N7ZJqtJQnNwu0FpdMvNdLmsH54scPwbCDnqwdWJ/Z5.")
 
 (defun bookmarkpage-in-cl-duikboot (tags)
   (let ((req
