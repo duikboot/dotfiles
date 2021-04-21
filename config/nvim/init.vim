@@ -111,7 +111,7 @@ set foldmethod=indent       " allow us to fold on indents
 set linebreak               " don't wrap textin the middle of a word
 set matchpairs+=<:>         " show matching <> (html mainly) as well
 set nostartofline           " Avoid moving cursor to BOL when jumping around
-"set nowrap                  " don't wrap text
+set nowrap                  " don't wrap text
 set ruler                   " show the cursor position all the time
 set scrolloff=3             " Keep 3 context lines above and below the cursor
 set shiftround              " rounds indent to a multiple of shiftwidth
@@ -1021,5 +1021,3 @@ nnoremap <leader>gc <cmd>lua require'telescope.builtin'.git_commits{}<CR>
 nnoremap <leader>gs <cmd>lua require'telescope.builtin'.git_status{}<CR>
 nnoremap <leader>lg <cmd>lua require'telescope.builtin'.live_grep{}<CR>
 nnoremap <leader>b <cmd>lua require'telescope.builtin'.buffers{}<CR>
-
-" }}}

@@ -1,11 +1,6 @@
 local vim = vim
 local lspconfig = require'lspconfig'
 
-local mapper = function(mode, key, result)
-    vim.api.nvim_buf_set_keymap(0, mode, key, result, {noremap = true, silent = true})
-end
-
-
 -- local on_attach_vim = function(client, bufnr)
 --     require'completion'.on_attach(client, bufnr)
 -- end
@@ -53,32 +48,32 @@ end
 
 local on_attach_vim_plus_keymaps = function()
     -- on_attach_vim(client)
-    mapper(
+    Mapper(
         'n',
         '<leader>dn',
         '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'
         )
 
-    mapper(
+    Mapper(
         'n',
         '<leader>dp',
         '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'
         )
-    mapper("n", "<leader>at", '<cmd>lua Toggle()<cr>')
-    mapper('n', '<leader>dl', '<cmd> lua vim.lsp.diagnostic.set_loclist()<CR>')
-    mapper('n', '<leader>td', '<cmd> lua vim.lsp.buf.type_definition()<CR>')
-    mapper('n', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>')
-    mapper('v', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>')
-    mapper('n', '<c-k>',      '<cmd> lua vim.lsp.buf.signature_help()<CR>')
-    mapper('n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename()<CR>')
-    mapper('n', '<leader>K',          '<cmd> lua vim.lsp.buf.hover()<CR>')
+    Mapper("n", "<leader>at", '<cmd>lua Toggle()<cr>')
+    Mapper('n', '<leader>dl', '<cmd> lua vim.lsp.diagnostic.set_loclist()<CR>')
+    Mapper('n', '<leader>td', '<cmd> lua vim.lsp.buf.type_definition()<CR>')
+    Mapper('n', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>')
+    Mapper('v', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>')
+    Mapper('n', '<c-k>',      '<cmd> lua vim.lsp.buf.signature_help()<CR>')
+    Mapper('n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename()<CR>')
+    Mapper('n', '<leader>K',          '<cmd> lua vim.lsp.buf.hover()<CR>')
     -- mapper('n', 'lh',          '<cmd> lua vim.lsp.buf.hover()<CR>')
     -- mapper('n','gr',          '<cmd>lua vim.lsp.buf.references()<CR>')
-    mapper('n', 'g0',         '<cmd> lua vim.lsp.buf.document_symbol()<CR>')
-    mapper('n', 'gD',         '<cmd> lua vim.lsp.buf.implementation()<CR>')
-    mapper('n', 'gW',         '<cmd> lua vim.lsp.buf.workspace_symbol()<CR>')
-    mapper('n', '<leader>gd', '<cmd> lua vim.lsp.buf.declaration()<CR>')
-    mapper('n', '<c-]>',      '<cmd> lua vim.lsp.buf.definition()<CR>')
+    Mapper('n', 'g0',         '<cmd> lua vim.lsp.buf.document_symbol()<CR>')
+    Mapper('n', 'gD',         '<cmd> lua vim.lsp.buf.implementation()<CR>')
+    Mapper('n', 'gW',         '<cmd> lua vim.lsp.buf.workspace_symbol()<CR>')
+    Mapper('n', '<leader>gd', '<cmd> lua vim.lsp.buf.declaration()<CR>')
+    Mapper('n', '<c-]>',      '<cmd> lua vim.lsp.buf.definition()<CR>')
 end
 
 -- From the lspconfig repo
@@ -95,7 +90,7 @@ else
 end
 -- set the path to the sumneko installation; if you ereviously installed via the now deprecated :LspInstall, use
 local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'
-local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
+local sumneko_binary = "/bin/lua-language-server"
 require'lspconfig'.sumneko_lua.setup {
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
   on_attach=on_attach_vim_plus_keymaps ,
