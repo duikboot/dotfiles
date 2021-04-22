@@ -10,10 +10,11 @@ set show-all-if-unmodified on
 set visible-stats on
 
 set completion-query-items 10000
-set completion-ignore-case On
 
 # Useful stuff for UTF-8
 set meta-flag on
 set input-meta on
 set output-meta on
 set convert-meta off
+
+set enable-bracketed-paste off

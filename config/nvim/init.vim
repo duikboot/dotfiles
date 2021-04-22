@@ -188,10 +188,25 @@ set termguicolors
 " configure nvcode-color-schemes
 let g:nvcode_termcolors=256
 
-syntax on
 colorscheme edge
 lua require('colorbuddy').colorscheme('gruvbuddy')
-" colorscheme nvcode " Or whatever colorscheme you make
+"" colorscheme nvcode " Or whatever colorscheme you make
+""
+" colorscheme material
+" let g:material_style = 'palenight'
+" let g:material_italic_comments=1
+
+"Vim-Script:
+
+" nnoremap <C-m> :lua require('material').toggle_style()<CR>
+
+    " darker
+    " lighter
+    " default
+    " oceanic
+    " palenight
+    " deep ocean
+
 
 
 " checks if your terminal has 24-bit color support
@@ -459,27 +474,9 @@ function! FloatingFZF()
 endfunction
 
 " https://github.com/junegunn/fzf.vim/issues/647#issuecomment-520259307
-function! s:get_registers() abort
-  redir => l:regs
-  silent registers
-  redir END
-
-  return split(l:regs, '\n')[1:]
-endfunction
-
-function! s:registers(...) abort
-  let l:opts = {
-        \ 'source': s:get_registers(),
-        \ 'sink': {x -> feedkeys(matchstr(x, '\v^\S+\ze.*') . (a:1 ? 'P' : 'p'), 'x')},
-        \ 'options': '--prompt="Reg> "'
-        \ }
-  call fzf#run(fzf#wrap(l:opts))
-endfunction
-
-command! -bang Registers call s:registers('<bang>' ==# '!')
 
 nnoremap <leader>y :Registers<cr>
-nnoremap <leader>o :Files<cr>
+" nnoremap <leader>o :Files<cr>
 
 " }}}
 
@@ -511,7 +508,7 @@ lua pcall(require, 'init')
 " vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
 " vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
 " vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
-"lua <<EOF
+"lua <<aOF
 
 lua require('gitsigns').setup()
 
@@ -541,11 +538,12 @@ let g:compe.source.spell = v:true
 let g:compe.source.tags = v:false
 let g:compe.source.snippets_nvim = v:false
 
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+inoremap <expr> <c-n>    compe#complete()
+inoremap <expr> <CR>         compe#confirm('<CR>')
+inoremap <silent><expr> <CR> compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
+inoremap <expr> <C-e>        compe#close('<C-e>')
+inoremap <expr> <C-f>        compe#scroll({ 'delta': +4 })
+inoremap <expr> <C-d>        compe#scroll({ 'delta': -4 })
 
 autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
 
@@ -841,10 +839,10 @@ nnoremap <silent> ,tc :call neoterm#kill()<cr>
 " {{{ Vlime
 
 let g:vlime_cl_use_terminal = 1
-let g:vlime_window_settings = {
-            \ 'repl': {'vertical': v:true, 'pos': 'topright'},
-            \ 'server': {'vertical': v:true, 'pos': 'botright'}
-    \ }
+" let g:vlime_window_settings = {
+"             \ 'repl': {'vertical': v:true, 'pos': 'topright'},
+"             \ 'server': {'vertical': v:true, 'pos': 'botright'}
+"     \ }
 
 function! s:ConnectVlimeToStumpwm()
     call vlime#plugin#ConnectREPL('127.0.0.1', 4005)
@@ -926,7 +924,7 @@ let g:CoolTotalMatches = 0
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 cindent
 
 autocmd FileType python setlocal path+=.venv/**
-autocmd FileType python setlocal colorcolumn=79
+autocmd FileType python setlocal colorcolumn=89
 
 autocmd FileType python nnoremap <localleader>b Obreakpoint()<esc>:w<CR>
 

@@ -42,7 +42,6 @@
     (dolist (head (screen-heads screen))
       (enable-mode-line screen head t))))
 
-
 ; (enable-mode-line-all-heads)
 ; *shell-command-history-file*
 ; *startup-message*
@@ -266,8 +265,11 @@
 
 (define-key *top-map* (kbd "SunPrint_Screen") "timestamp-screenshot")
 
+(load "~/config/bookmarks")
 (defparameter *bookmarks-url* "http://localhost:5000/api/1/bookmark/add/")
 (defparameter *bookmarks-api-key* "123456")
+(defparameter *bookmarks-url* (getenv "BOOKMARK_API"))
+(defparameter *bookmarks-api-key* (getenv "BOOKMARK_API_KEY"))
 
 (defun bookmarkpage-in-cl-duikboot (tags)
   (let ((req

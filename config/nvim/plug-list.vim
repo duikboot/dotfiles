@@ -65,7 +65,8 @@ Plug 'https://github.com/majutsushi/tagbar'
 " Plug 'https://github.com/norcalli/snippets.nvim'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'https://github.com/duikboot/vs-snippets'
+" Plug 'https://github.com/duikboot/vs-snippets'
+Plug 'https://github.com/rafamadriz/friendly-snippets'
 
 " Plug 'https://github.com/Shougo/context_filetype.vim'
 
@@ -119,11 +120,17 @@ Plug 'https://github.com/sainnhe/edge'
 Plug 'https://github.com/rhysd/committia.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'https://github.com/nvim-telescope/telescope-fzy-native.nvim', {'do': 'git submodule update --init --recursive'}
+Plug 'https://github.com/folke/lsp-trouble.nvim'
+
 Plug 'https://github.com/aklt/plantuml-syntax'
 
 Plug 'https://github.com/windwp/nvim-spectre'
 
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 " Plug 'https://github.com/gabrielpoca/replacer.nvim'
 
+Plug 'https://github.com/tversteeg/registers.nvim'
+
+Plug 'https://github.com/folke/material.nvim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

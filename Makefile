@@ -17,6 +17,11 @@ stumpwm:
 	-rm ${HOME_DIR}/.stumpwmrc
 	ln -s ${PWD}/_stumpwmrc ${HOME_DIR}/.stumpwmrc
 
+.PHONY: inputrc
+inputrc:
+	-rm ${HOME_DIR}/.inputrc
+	ln -s ${PWD}/_inputrc ${HOME_DIR}/.inputrc
+
 
 .PHONY: tmux
 tmux:

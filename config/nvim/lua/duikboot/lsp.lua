@@ -127,6 +127,12 @@ for _, lsp in ipairs(local_lsps) do
     }
 end
 
+require("trouble").setup {
+-- your configuration comes here
+-- or leave it empty to use the default settings
+-- refer to the configuration section below
+}
+
 -- lspconfig.jedi_language_server.setup( {
 --         on_attach=on_attach_vim_plus_keymaps,
 --         on_init=on_init
