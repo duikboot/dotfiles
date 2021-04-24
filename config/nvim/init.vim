@@ -189,7 +189,7 @@ set termguicolors
 let g:nvcode_termcolors=256
 
 colorscheme edge
-lua require('colorbuddy').colorscheme('gruvbuddy')
+" lua require('colorbuddy').colorscheme('gruvbuddy')
 "" colorscheme nvcode " Or whatever colorscheme you make
 ""
 " colorscheme material
@@ -510,6 +510,23 @@ lua pcall(require, 'init')
 " vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
 "lua <<aOF
 
+lua <<EOF
+
+local opts = {
+    -- whether to highlight the currently hovered symbol
+    -- disable if your cpu usage is higher than you want it
+    -- or you just hate the highlight
+    -- default: true
+    highlight_hovered_item = true,
+
+    -- whether to show outline guides 
+    -- default: true
+    show_guides = true,
+}
+
+require('symbols-outline').setup(opts)
+EOF
+
 lua require('gitsigns').setup()
 
 let g:compe = {}
@@ -631,8 +648,6 @@ autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
 " 			\}
 
 let g:completion_auto_change_source = 1
-
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 
 set signcolumn=yes
 " use <c-j> to switch to previous completion
