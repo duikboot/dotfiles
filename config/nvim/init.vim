@@ -1034,3 +1034,16 @@ nnoremap <leader>gc <cmd>lua require'telescope.builtin'.git_commits{}<CR>
 nnoremap <leader>gs <cmd>lua require'telescope.builtin'.git_status{}<CR>
 nnoremap <leader>lg <cmd>lua require'telescope.builtin'.live_grep{}<CR>
 nnoremap <leader>b <cmd>lua require'telescope.builtin'.buffers{}<CR>
+
+" }}}
+
+" {{{ lsp-trouble
+
+nnoremap <leader>xx <cmd>LspTroubleToggle<cr>
+" }}} lsp-trouble
+
+" {{{ symbols-outline
+
+nnoremap <leader>O <cmd>lua require'symbols-outline'.toggle_outline{}<cr>
+
+" }}} symbols-outline
