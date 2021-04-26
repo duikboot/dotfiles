@@ -84,6 +84,8 @@ Plug 'https://github.com/unblevable/quick-scope'
 " Plug 'https://github.com/kristijanhusak/vim-dadbod-ui'
 Plug 'https://github.com/MarcWeber/vim-addon-local-vimrc'
 
+Plug 'https://github.com/romainl/vim-qf'
+
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 Plug 'https://github.com/HiPhish/ncm2-vlime'

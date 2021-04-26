@@ -1,6 +1,8 @@
 local vim = vim
 local lspconfig = require'lspconfig'
 
+local M = {}
+
 -- local on_attach_vim = function(client, bufnr)
 --     require'completion'.on_attach(client, bufnr)
 -- end
@@ -22,7 +24,7 @@ local function enable()
   vim.cmd('edit')
 end
 
-function Toggle()
+function Toggle_diagnostics()
   if vim.b.lsp_diagnostics_enabled then
     disable()
   else
@@ -44,6 +46,17 @@ local on_init = function()
     print("LSP Started")
 end
 
+-- local default_handler = vim.lsp.handlers["textDocument/definition"]
+-- vim.lsp.handlers["textDocument/definition"] = function(_, method, result)
+--   if result ~= nil then
+--     default_handler(nil, method, result)
+--   else
+--     -- there's a literal "ctrl-]" after `normal!`, might be able to craft
+--     -- something with `execute "normal! \<C-]>"` instead for something more
+--     -- readable.
+--     vim.cmd("normal! ")
+--   end
+-- end
 
 
 local on_attach_vim_plus_keymaps = function()
@@ -59,7 +72,7 @@ local on_attach_vim_plus_keymaps = function()
         '<leader>dp',
         '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'
         )
-    Mapper("n", "<leader>at", '<cmd>lua Toggle()<cr>')
+    Mapper("n", "<leader>at", '<cmd>lua Toggle_diagnostics()<cr>')
     Mapper('n', '<leader>dl', '<cmd> lua vim.lsp.diagnostic.set_loclist()<CR>')
     Mapper('n', '<leader>td', '<cmd> lua vim.lsp.buf.type_definition()<CR>')
     Mapper('n', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>')
@@ -78,16 +91,6 @@ end
 
 -- From the lspconfig repo
 
-local system_name
-if vim.fn.has("mac") == 1 then
-  system_name = "macOS"
-elseif vim.fn.has("unix") == 1 then
-  system_name = "Linux"
-elseif vim.fn.has('win32') == 1 then
-  system_name = "Windows"
-else
-  print("Unsupported system for sumneko")
-end
 -- set the path to the sumneko installation; if you ereviously installed via the now deprecated :LspInstall, use
 local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'
 local sumneko_binary = "/bin/lua-language-server"
@@ -154,3 +157,5 @@ require("trouble").setup {
 --     on_attach=on_attach_vim_plus_keymaps,
 --     on_init=on_init
 -- })
+
+return M

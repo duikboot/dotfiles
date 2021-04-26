@@ -61,7 +61,9 @@ telescope.setup{
 }
 
 
-function FindVirtualEnv()
+local T = {}
+
+function T.findvirtualenv()
   require('telescope.builtin').find_files({
       shorten_path = false,
       cwd = ".venv/",
@@ -71,3 +73,5 @@ end
 
 require('telescope').load_extension('fzy_native')
 -- require('telescope').load_extension('fzf')
+--
+return T
