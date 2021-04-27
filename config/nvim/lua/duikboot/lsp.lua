@@ -72,7 +72,7 @@ local on_attach_vim_plus_keymaps = function()
         '<leader>dp',
         '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'
         )
-    Mapper("n", "<leader>at", '<cmd>lua Toggle_diagnostics()<cr>')
+    Mapper("n", "<leader>ta", '<cmd>lua Toggle_diagnostics()<cr>')
     Mapper('n', '<leader>dl', '<cmd> lua vim.lsp.diagnostic.set_loclist()<CR>')
     Mapper('n', '<leader>td', '<cmd> lua vim.lsp.buf.type_definition()<CR>')
     Mapper('n', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>')
@@ -121,7 +121,7 @@ require'lspconfig'.sumneko_lua.setup {
   },
 }
 
-local local_lsps = {'pyright', 'vimls', 'bashls'}
+local local_lsps = {'pyls', 'vimls', 'bashls'}
 
 for _, lsp in ipairs(local_lsps) do
     lspconfig[lsp].setup{

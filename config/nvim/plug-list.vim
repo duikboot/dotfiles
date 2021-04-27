@@ -62,12 +62,6 @@ endif
 Plug 'zchee/deoplete-jedi'
 Plug 'https://github.com/majutsushi/tagbar'
 
-" Plug 'https://github.com/norcalli/snippets.nvim'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
-" Plug 'https://github.com/duikboot/vs-snippets'
-Plug 'https://github.com/rafamadriz/friendly-snippets'
-
 " Plug 'https://github.com/Shougo/context_filetype.vim'
 
 if has('nvim')

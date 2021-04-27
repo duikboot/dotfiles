@@ -519,7 +519,7 @@ local opts = {
     -- default: true
     highlight_hovered_item = true,
 
-    -- whether to show outline guides 
+    -- whether to show outline guides
     -- default: true
     show_guides = true,
 }
@@ -548,7 +548,7 @@ let g:compe.source.omni = v:false
 let g:compe.source.treesitter = v:true
 let g:compe.source.buffer = v:true
 let g:compe.source.calc = v:true
-let g:compe.source.vsnip = v:true
+let g:compe.source.vsnip = v:false
 let g:compe.source.nvim_lsp = v:true
 let g:compe.source.nvim_lua = v:true
 let g:compe.source.spell = v:true
@@ -564,123 +564,8 @@ inoremap <expr> <C-d>        compe#scroll({ 'delta': -4 })
 
 autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
 
-" autocmd BufEnter * lua require'completion'.on_attach()
-" Use <Tab> and <S-Tab> to navigate through popup menu
-" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" let g:completion_enable_snippet = 'vim-vsnip'
-
-" let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
-
-
-" let g:completion_chain_complete_list = {
-"             \   'default': [
-"             \      {'complete_items': ['lsp', 'buffers', 'snippet', 'path']},
-"             \      {'complete_items': ['path'], 'triggered_only': ['/']},
-"             \      {'mode': 'dict'},
-"             \      {'mode': '<c-p>'},
-"             \      {'mode': '<c-n>'}
-"             \   ],
-"             \   'string': [
-"             \      {'complete_items': ['path', 'buffers']},
-"             \      {'mode': 'dict'},
-"             \   ],
-"             \   'comment': [
-"             \      {'complete_items': ['path', 'buffers']},
-"             \      {'mode': 'dict'},
-"             \   ],
-"             \ 'markdown' : {
-"             \   'default': [
-"             \      {'mode': 'dict'},
-"             \      {'mode': 'spel'}
-"             \   ],
-"             \   'comment': []
-"             \   }
-"             \ }
-
-" \let g:completion_items_priority = {
-"         \ 'Field': 8,
-"         \ 'Function': 8,
-"         \ 'Variables': 7,
-"         \ 'Method': 10,
-"         \ 'Interfaces': 6,
-"         \ 'Constant': 6,
-"         \ 'Class': 6,
-"         \ 'Struct': 6,
-"         \ 'Keyword': 5,
-"         \ 'Treesitter': 4,
-"         \ 'vim-vsnip' : 0,
-"         \ 'Buffers' : 0,
-"         \ 'Buffer' : 0,
-"         \ 'TabNine' : 1,
-"         \ 'File' : 2,
-"         \ }
-
-" let g:completion_chain_complete_list = [
-"     \{'complete_items': ['lsp', 'snippet', 'path']},
-"     \{'mode': '<c-p>'},
-"     \{'mode': '<c-n>'}
-" \]
-" " Configure the completion chains
-" let g:completion_chain_complete_list = {
-" 			\'default' : {
-" 			\	'default' : [
-" 			\		{'complete_items' : ['lsp', 'snippet']},
-" 			\		{'mode' : 'file'}
-" 			\	],
-" 			\	'comment' : [],
-" 			\	'string' : []
-" 			\	},
-" 			\'vim' : [
-" 			\	{'complete_items': ['snippet']},
-" 			\	{'mode' : 'cmd'}
-" 			\	],
-" 			\'c' : [
-" 			\	{'complete_items': ['ts']}
-" 			\	],
-" 			\'python' : [
-" 			\	{'complete_items': ['lsp', 'ts']}
-" 			\	],
-" 			\'lua' : [
-" 			\	{'complete_items': ['ts']}
-" 			\	],
-" 			\}
-
-let g:completion_auto_change_source = 1
 
 set signcolumn=yes
-" use <c-j> to switch to previous completion
-" imap <c-j> <Plug>(completion_next_source)
-" imap <c-k> <Plug>(completion_prev_source)
-
-" Expand
-imap <expr> <C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
-smap <expr> <C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
-
-" Expand or jump
-imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-
-
-" Jump forward or backward
-imap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'
-smap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'
-imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
-smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
-
-" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
-" See https://github.com/hrsh7th/vim-vsnip/pull/50
-" nmap s <Plug>(vsnip-select-text)
-xmap s <Plug>(vsnip-select-text)
-" nmap S <Plug>(vsnip-cut-text)
-xmap D <Plug>(vsnip-cut-text)
-
-let g:vsnip_filetypes = {}
-let g:vsnip_filetypes.javascriptreact = ['javascript']
-let g:vsnip_filetypes.typescriptreact = ['typescript']
-let g:vsnip_snippet_dir = expand('~/.vim/plugged/vs-snippets/snippets/')
-
 
 " }}}
 
@@ -720,7 +605,7 @@ let g:jedi#smart_auto_mappings = 1  "Automatic add `import` statement to from <m
 autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
 " }}}
 
-" {{{ autocmd BufEnter *.lisp   Supertab
+" {{{ Supertab
 
 " select from top to bottom
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -921,12 +806,6 @@ let g:delimitMate_excluded_ft = 'clojure,lisp'
 
 " }}}
 
-" {{{ Tagbar
-
-" Toggle Tagbar
-nnoremap <leader>tl :TagbarToggle<CR>
-
-" }}}
 
 " {{{ vim-cool
 

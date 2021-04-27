@@ -56,7 +56,7 @@ ctags:
 	ln -s ${PWD}/_$@ ${HOME_DIR}/.$@
 
 .PHONY: nvim
-nvim: vim-venv vim-plug ctags
+nvim: vim-plug ctags
 	-rm ${HOME_DIR}/.config/$@
 	ln -sf ${PWD}/config/$@ ${HOME_DIR}/.config/$@
 
