@@ -4,6 +4,8 @@ call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tjdevries/colorbuddy.vim'
+Plug 'https://github.com/Th3Whit3Wolf/onebuddy'
+Plug 'https://github.com/Th3Whit3Wolf/one-nvim'
 Plug 'tjdevries/gruvbuddy.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'conweller/endarkened.vim'
@@ -24,7 +26,7 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'davidhalter/jedi-vim', {'do': 'git submodule update --init --recursive'}
+" Plug 'davidhalter/jedi-vim', {'do': 'git submodule update --init --recursive'}
 " Plug 'ervandew/supertab'
 " Plug 'https://github.com/godlygeek/tabular'
 Plug 'tpope/vim-fugitive'
@@ -39,7 +41,7 @@ Plug 'Olical/vim-enmasse'
 " Plug 'eraserhd/parinfer-rust', {'do':  'cargo build --release'}
 Plug 'https://github.com/bhurlow/vim-parinfer'
 " Plug 'https://github.com/guns/vim-sexp'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 " Plug 'desmap/ale-sensible' | Plug 'w0rp/ale'
 Plug 'vim-scripts/vcscommand.vim'
 Plug 'simnalamburt/vim-mundo'
@@ -51,16 +53,7 @@ Plug 'https://github.com/arzg/vim-colors-xcode'
 " Plug 'liuchengxu/vista.vim'
 Plug 'https://github.com/idanarye/vim-merginal'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-Plug 'zchee/deoplete-jedi'
-Plug 'https://github.com/majutsushi/tagbar'
+" Plug 'https://github.com/majutsushi/tagbar'
 
 " Plug 'https://github.com/Shougo/context_filetype.vim'
 
@@ -70,7 +63,6 @@ if has('nvim')
 endif
 
 Plug 'https://github.com/prabirshrestha/asyncomplete.vim'
-" Plug 'https://github.com/Shougo/deoplete-lsp'
 
 " Plug 'https://github.com/lambdalisue/fern.vim'
 Plug 'https://github.com/unblevable/quick-scope'
@@ -83,9 +75,6 @@ Plug 'https://github.com/romainl/vim-qf'
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 Plug 'https://github.com/HiPhish/ncm2-vlime'
-
-" Plug 'https://github.com/nvim-lua/completion-nvim'
-" Plug 'https://github.com/steelsojka/completion-buffers'
 
 Plug 'https://github.com/hrsh7th/nvim-compe'
 
@@ -130,6 +119,10 @@ Plug 'https://github.com/tversteeg/registers.nvim'
 Plug 'https://github.com/folke/lsp-colors.nvim'
 Plug 'https://github.com/simrat39/symbols-outline.nvim'
 
+" Plug 'https://github.com/ray-x/lsp_signature.nvim'
+
 Plug 'https://github.com/folke/material.nvim'
+Plug 'https://github.com/kosayoda/nvim-lightbulb'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

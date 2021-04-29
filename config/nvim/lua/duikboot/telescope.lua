@@ -61,17 +61,16 @@ telescope.setup{
 }
 
 
-local T = {}
 
-function T.findvirtualenv()
+function Findvirtualenv()
   require('telescope.builtin').find_files({
       shorten_path = false,
-      cwd = ".venv/",
+      cwd = ".venv/lib",
       prompt = "~ venv ~",
     })
 end
 
+-- Mapper("n", "fv", "<cmd> lua Findvirtualenv()<cr>")
+
 require('telescope').load_extension('fzy_native')
 -- require('telescope').load_extension('fzf')
---
-return T

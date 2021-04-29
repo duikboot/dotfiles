@@ -121,7 +121,7 @@ require'lspconfig'.sumneko_lua.setup {
   },
 }
 
-local local_lsps = {'pyls', 'vimls', 'bashls'}
+local local_lsps = {'jedi_language_server','pyls', 'vimls', 'bashls'}
 
 for _, lsp in ipairs(local_lsps) do
     lspconfig[lsp].setup{

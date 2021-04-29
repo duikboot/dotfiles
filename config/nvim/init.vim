@@ -58,6 +58,11 @@ set suffixesadd=.tex,.latex,.java,.js,.hrl,.erl,.lisp,.asd,.lua
 let g:tex_flavor = 'latex'
 let g:vimtex_compiler_progname = 'nvr'
 
+if has('nvim') && executable('nvr')
+  let $GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
+endif
+
+
 " set guifont=Inconsolata\ 10
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
 " set guifont=DejaVu\ Sans\ Mono\ Book\ 8
@@ -188,13 +193,14 @@ set termguicolors
 " configure nvcode-color-schemes
 let g:nvcode_termcolors=256
 
-colorscheme edge
+" colorscheme edge
 " lua require('colorbuddy').colorscheme('gruvbuddy')
 "" colorscheme nvcode " Or whatever colorscheme you make
 ""
 " colorscheme material
 " let g:material_style = 'palenight'
 " let g:material_italic_comments=1
+colorscheme one-nvim
 
 "Vim-Script:
 
@@ -435,48 +441,10 @@ if has('nvim') || has('gui_running')
   let $FZF_DEFAULT_OPTS .= ' --inline-info'
   " let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 endif
-function! s:change_branch(e)
-    let res = system("git checkout " . a:e)
-    :e!
-    :AirlineRefresh
-    echom "Changed branch to " . a:e
-endfunction
-
-command! Gbranch call fzf#run(
-    \ {
-    \ 'source': 'git branch',
-    \ 'sink': function('<sid>change_branch'),
-    \ 'options': '-m',
-    \ 'down': '20%'
-    \ })
-
-command! -bang -nargs=? -complete=dir Files
-\ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-function! FloatingFZF()
-  let buf = nvim_create_buf(v:false, v:true)
-  call setbufvar(buf, '&signcolumn', 'no')
-
-  let height = &lines - 8
-  let width = float2nr(&columns - (&columns * 2 / 10))
-  let col = float2nr((&columns - width) / 2)
-
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': 4,
-        \ 'col': col,
-        \ 'width': width,
-        \ 'height': height
-        \ }
-
-  call nvim_open_win(buf, v:true, opts)
-endfunction
 
 " https://github.com/junegunn/fzf.vim/issues/647#issuecomment-520259307
 
 nnoremap <leader>y :Registers<cr>
-" nnoremap <leader>o :Files<cr>
 
 " }}}
 
@@ -512,20 +480,17 @@ lua pcall(require, 'init')
 
 lua <<EOF
 
-local opts = {
-    -- whether to highlight the currently hovered symbol
-    -- disable if your cpu usage is higher than you want it
-    -- or you just hate the highlight
-    -- default: true
-    highlight_hovered_item = true,
 
-    -- whether to show outline guides
-    -- default: true
-    show_guides = true,
+require('symbols-outline')
+
+vim.g.symbols_outline = {
+    lsp_blacklist = { "pyls", "pyright" }
 }
 
-require('symbols-outline').setup(opts)
+
+-- require'lsp_signature'.on_attach()
 EOF
+autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
 
 lua require('gitsigns').setup()
 
@@ -589,22 +554,6 @@ nnoremap  <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<c
 
 " }}}
 
-" {{{ Deoplete
-
-let g:deoplete#enable_at_startup = 0
-call g:deoplete#custom#option('ignore_sources', {'_': ['tag']})
-let g:deoplete#sources#jedi#show_docstring = 1
-" let g:deoplete#complete_method='omnifunc'
-
-let g:deoplete#sources#jedi#ignore_errors = v:true
-let g:jedi#use_splits_not_buffers = "right"
-let g:jedi#popup_select_first = 0
-let g:jedi#completions_enabled = 0
-let g:jedi#show_call_signatures = 0  "Show call signatures in the command line instead of a popup window.
-let g:jedi#smart_auto_mappings = 1  "Automatic add `import` statement to from <modulename> import
-autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
-" }}}
-
 " {{{ Supertab
 
 " select from top to bottom
@@ -622,62 +571,6 @@ let g:airline_inactive_collapse = 0
 let g:airline#extensions#tagbar#enabled = 0
 
 let g:airline#extensions#tabline#formatter = 'short_path'
-
-" }}}
-
-" {{{ Ale
-
-let g:ale_completion_enabled=0
-let g:ale_completion_delay=50
-
-" let g:ale_lint_on_text_changed='never'
-" let g:ale_lint_on_insert_leave=1
-" let g:ale_virtualtext_cursor=1
-let b:ale_python_flake8_use_global=1
-let b:ale_python_pylint_use_global=1
-let b:ale_python_pycodestyle_use_global=1
-" let b:ale_python_vulture_use_global=1
-" let g:ale_linters = {
-"             \ 'python' : ['prospector', 'pycodestyle', 'mypy', 'pyflakes', 'pylint'],
-" \ }
-let g:ale_linters = {
-            \ 'python' : ['prospector', 'mypy'],
-\ }
-
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
-\   'python': ['black', 'isort', 'add_blank_lines_for_python_control_statements'],
-\   'tex': ['latexindent', 'textlint', 'remove_trailing_lines', 'trim_whitespace'],
-\}
-
-let g:ale_fix_on_save = 0
-let g:ale_set_highlights = 0
-nmap <localleader>a8 <Plug>(ale_fix)
-
-" let g:ale_python_flake8_executable = g:python3_host_prog_bin . 'flake8'
-let g:ale_python_pycodestyle_executable = g:python3_host_prog_bin . 'pycodestyle'
-let g:ale_python_pylint_executable = g:python3_host_prog_bin . 'pyflakes'
-let g:ale_python_vulture_executable = g:python3_host_prog_bin . 'vulture'
-" let g:ale_python_mypy_executable = g:python3_host_prog_bin . 'mypy'
-let g:ale_python_isort_executable = g:python3_host_prog_bin . 'isort'
-let g:ale_python_yapf_executable = g:python3_host_prog_bin . 'yapf'
-let g:ale_python_black_executable = g:python3_host_prog_bin . 'black'
-let g:ale_python_autopep8_executable = g:python3_host_prog_bin . 'autopep8'
-" let g:ale_python_prospector_executable = g:python3_host_prog_bin . 'prospector'
-" TEMPORARY!!
-" let g:ale_python_pylint_options = "--load-plugins pylint_django"
-" let g:ale_python_autopep8_options = '--aggressive'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_python_pylint_options='--disable=C0111,R0903 --load-plugins pylint_django'
-let g:ale_python_flake8_options='--ignore=H301 --max-complexity=10'
-let g:ale_python_mypy_options = '--ignore-missing-imports'
-let g:ale_python_prospector_options = '--strictness veryhigh --member-warnings'
-
-let b:ale_virtualenv_dir_names=['ENV', '.env', '.venv']
-" let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXXX breakpoint'
-
-
 
 " }}}
 
@@ -847,7 +740,6 @@ augroup ft_lisp
     autocmd FileType lisp set softtabstop=2           " <BS> over an autoindent deletes both spaces.
     autocmd BufRead *.lisp set makeprg=sblint
     " let g:syntastic_lisp_checkers = ['sblint']
-    " autocmd FileType lisp let b:deoplete_disable_auto_complete = 1
     let g:parinfer_force_balance = 1
     let g:parinfer_enabled = 1
     let g:parinfer_enabled = 1
@@ -914,7 +806,8 @@ nnoremap <leader>gs <cmd>lua require'telescope.builtin'.git_status{}<CR>
 nnoremap <leader>lg <cmd>lua require'telescope.builtin'.live_grep{}<CR>
 nnoremap <leader>b <cmd>lua require'telescope.builtin'.buffers{}<CR>
 
-" }}}
+nnoremap <leader>fv <cmd>lua Findvirtualenv()<cr>
+" }}
 
 " {{{ lsp-trouble
 
