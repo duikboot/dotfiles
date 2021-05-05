@@ -7,6 +7,19 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true,
     disable = { "python" }
-  }
+  },
+  incremental_selection = { enable = true },
+  textobjects = { enable = true },
+  -- refactor = {
+  --   highlight_definitions = {enable = true},
+  --   highlight_current_scope = {enable = false},
+  --   smart_rename = {
+  --     enable = true,
+  --     keymaps = {
+  --       -- mapping to rename reference under cursor
+  --       smart_rename = 'grr',
+  --     },
+  --   },
+-- }
 }
 
