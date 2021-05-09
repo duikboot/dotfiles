@@ -122,7 +122,7 @@ Plug 'https://github.com/simrat39/symbols-outline.nvim'
 " Plug 'https://github.com/ray-x/lsp_signature.nvim'
 
 Plug 'https://github.com/folke/material.nvim'
-Plug 'https://github.com/kosayoda/nvim-lightbulb'
+" Plug 'https://github.com/kosayoda/nvim-lightbulb'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

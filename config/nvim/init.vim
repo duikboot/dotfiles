@@ -478,21 +478,17 @@ lua pcall(require, 'init')
 " vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
 "lua <<aOF
 
+" lua <<EOF
+
+" autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+
 lua <<EOF
 
-
-require('symbols-outline')
-
-vim.g.symbols_outline = {
-    lsp_blacklist = { "pyls", "pyright" }
+require('gitsigns').setup {
+  use_internal_diff = false,  -- If luajit is present
 }
 
-
--- require'lsp_signature'.on_attach()
 EOF
-autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
-
-lua require('gitsigns').setup()
 
 let g:compe = {}
 let g:compe.enabled = v:true
@@ -566,11 +562,12 @@ let g:airline_powerline_fonts = 1
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'short_path'
+
 let g:airline_inactive_collapse = 0
 
 let g:airline#extensions#tagbar#enabled = 0
 
-let g:airline#extensions#tabline#formatter = 'short_path'
 
 " }}}
 
@@ -805,6 +802,7 @@ nnoremap <leader>gc <cmd>lua require'telescope.builtin'.git_commits{}<CR>
 nnoremap <leader>gs <cmd>lua require'telescope.builtin'.git_status{}<CR>
 nnoremap <leader>lg <cmd>lua require'telescope.builtin'.live_grep{}<CR>
 nnoremap <leader>b <cmd>lua require'telescope.builtin'.buffers{}<CR>
+nnoremap <leader>t <cmd>lua require'telescope.builtin'.tags{only_sort_tags=true}<CR>
 
 nnoremap <leader>fv <cmd>lua Findvirtualenv()<cr>
 " }}
@@ -815,6 +813,28 @@ nnoremap <leader>xx <cmd>LspTroubleToggle<cr>
 " }}} lsp-trouble
 
 " {{{ symbols-outline
+
+lua <<EOF
+
+require('symbols-outline')
+
+vim.g.symbols_outline = {
+    highlight_hovered_item = true,
+    show_guides = true,
+    auto_preview = false, -- experimental
+    position = 'right',
+    keymaps = {
+        close = "<Esc>",
+        goto_location = "<Cr>",
+        focus_location = "o",
+        hover_symbol = "<C-space>",
+        rename_symbol = "r",
+        code_actions = "a",
+    },
+    lsp_blacklist = {"pylsp"},
+}
+
+EOF
 
 nnoremap <leader>O <cmd>lua require'symbols-outline'.toggle_outline{}<cr>
 

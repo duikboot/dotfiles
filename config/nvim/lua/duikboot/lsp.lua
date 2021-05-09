@@ -1,7 +1,28 @@
 local vim = vim
 local lspconfig = require'lspconfig'
 
-local M = {}
+
+local configs = require 'lspconfig/configs'
+
+-- configs.pylsp = {
+--   default_config = {
+--     cmd = {"pylsp"};
+--     filetypes = {"python"};
+--     root_dir = function(fname)
+--       return vim.fn.getcwd()
+--     end;
+--   };
+--   docs = {
+--     package_json = "https://raw.githubusercontent.com/palantir/python-language-server/develop/vscode-client/package.json";
+--     description = [[
+-- https://github.com/palantir/python-language-server
+-- `python-language-server`, a language server for Python.
+--     ]];
+--     default_config = {
+--       root_dir = "vim's starting directory";
+--     };
+--   };
+-- };
 
 -- local on_attach_vim = function(client, bufnr)
 --     require'completion'.on_attach(client, bufnr)
@@ -121,7 +142,7 @@ require'lspconfig'.sumneko_lua.setup {
   },
 }
 
-local local_lsps = {'jedi_language_server','pyls', 'vimls', 'bashls'}
+local local_lsps = {'pylsp', 'pyright', 'vimls', 'bashls'}
 
 for _, lsp in ipairs(local_lsps) do
     lspconfig[lsp].setup{
@@ -135,6 +156,13 @@ require("trouble").setup {
 -- or leave it empty to use the default settings
 -- refer to the configuration section below
 }
+
+-- lspconfig.pylsp.setup({
+--      on_attach=on_attach_vim_plus_keymaps,
+--      on_init=on_init,
+--     plugins = {
+--         pydocstyle = { enabled = true }}
+-- })
 
 -- lspconfig.jedi_language_server.setup( {
 --         on_attach=on_attach_vim_plus_keymaps,
@@ -157,5 +185,3 @@ require("trouble").setup {
 --     on_attach=on_attach_vim_plus_keymaps,
 --     on_init=on_init
 -- })
-
-return M
