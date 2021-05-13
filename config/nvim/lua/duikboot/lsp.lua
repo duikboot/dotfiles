@@ -142,7 +142,12 @@ require'lspconfig'.sumneko_lua.setup {
   },
 }
 
-local local_lsps = {'pylsp', 'pyright', 'vimls', 'bashls'}
+local local_lsps = {
+    'pylsp',
+    'pyright',
+    'vimls',
+    'bashls'
+}
 
 for _, lsp in ipairs(local_lsps) do
     lspconfig[lsp].setup{

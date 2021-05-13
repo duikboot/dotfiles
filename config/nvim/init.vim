@@ -803,6 +803,7 @@ nnoremap <leader>gs <cmd>lua require'telescope.builtin'.git_status{}<CR>
 nnoremap <leader>lg <cmd>lua require'telescope.builtin'.live_grep{}<CR>
 nnoremap <leader>b <cmd>lua require'telescope.builtin'.buffers{}<CR>
 nnoremap <leader>t <cmd>lua require'telescope.builtin'.tags{only_sort_tags=true}<CR>
+nnoremap <leader>* <cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 
 nnoremap <leader>fv <cmd>lua Findvirtualenv()<cr>
 " }}
