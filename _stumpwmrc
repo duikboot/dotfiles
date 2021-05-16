@@ -101,7 +101,7 @@
 
 (defvar *home-dir* (getenv "HOME"))
 
-(setf *debug-level* 2)
+(setf *debug-level* 0)
 
 (setf *debug-stream* (open "~/.stumpwm.d/debug-output.txt"
                         :direction :output

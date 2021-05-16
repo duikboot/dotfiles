@@ -27,6 +27,9 @@ local configs = require 'lspconfig/configs'
 -- local on_attach_vim = function(client, bufnr)
 --     require'completion'.on_attach(client, bufnr)
 -- end
+
+vim.b.lsp_diagnostics_enabled = true
+
 local function disable()
   vim.b.lsp_diagnostics_enabled = false
 
