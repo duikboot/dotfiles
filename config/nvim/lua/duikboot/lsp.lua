@@ -1,9 +1,6 @@
 local vim = vim
 local lspconfig = require'lspconfig'
 
-
-local configs = require 'lspconfig/configs'
-
 -- configs.pylsp = {
 --   default_config = {
 --     cmd = {"pylsp"};
@@ -148,6 +145,7 @@ require'lspconfig'.sumneko_lua.setup {
 local local_lsps = {
     'pylsp',
     -- 'pyright',
+    -- 'jedi_language_server',
     'vimls',
     'bashls'
 }

@@ -810,7 +810,7 @@ nnoremap <leader>fv <cmd>lua Findvirtualenv()<cr>
 
 " {{{ lsp-trouble
 
-nnoremap <leader>xx <cmd>LspTroubleToggle<cr>
+nnoremap <leader>xx <cmd>TroubleToggle lsp_document_diagnostics<cr>
 " }}} lsp-trouble
 
 " {{{ symbols-outline
@@ -832,7 +832,7 @@ vim.g.symbols_outline = {
         rename_symbol = "r",
         code_actions = "a",
     },
-    lsp_blacklist = {"pylsp"},
+---    " lsp_blacklist = {"pylsp"},
 }
 
 EOF
