@@ -497,7 +497,7 @@
 (defcommand ssh-menu () ()
   (let ((ssh-host (select-from-menu
                     (current-screen)
-                    (ssh-host-list (read-ssh-config)))))
+                    (ssh-host-list (sort (read-ssh-config) #'string<)))))
     (ssh (first ssh-host))))
 
 (define-key *top-map* (kbd "M-+") "temp-up")
