@@ -517,7 +517,7 @@ let g:compe.source.tags = v:false
 let g:compe.source.snippets_nvim = v:false
 
 inoremap <expr> <c-n>    compe#complete()
-inoremap <expr> <CR>         compe#confirm('<CR>')
+inoremap <expr> <c-i>         compe#confirm('<CR>')
 inoremap <silent><expr> <CR> compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
 inoremap <expr> <C-e>        compe#close('<C-e>')
 inoremap <expr> <C-f>        compe#scroll({ 'delta': +4 })

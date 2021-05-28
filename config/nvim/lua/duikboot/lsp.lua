@@ -1,25 +1,6 @@
 local vim = vim
 local lspconfig = require'lspconfig'
 
--- configs.pylsp = {
---   default_config = {
---     cmd = {"pylsp"};
---     filetypes = {"python"};
---     root_dir = function(fname)
---       return vim.fn.getcwd()
---     end;
---   };
---   docs = {
---     package_json = "https://raw.githubusercontent.com/palantir/python-language-server/develop/vscode-client/package.json";
---     description = [[
--- https://github.com/palantir/python-language-server
--- `python-language-server`, a language server for Python.
---     ]];
---     default_config = {
---       root_dir = "vim's starting directory";
---     };
---   };
--- };
 
 -- local on_attach_vim = function(client, bufnr)
 --     require'completion'.on_attach(client, bufnr)
