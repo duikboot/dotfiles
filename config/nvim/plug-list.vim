@@ -14,7 +14,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/stsewd/fzf-checkout.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'machakann/vim-swap'
-Plug 'mhinz/vim-grepper'
+" Plug 'mhinz/vim-grepper'
 " Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-obsession'

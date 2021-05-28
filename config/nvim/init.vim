@@ -99,7 +99,7 @@ set complete=.,b,u
 " set completeopt=menuone,longest
 set completeopt=menuone,noinsert,noselect
 " set completeopt=menu,menuone,preview,noselect,noinsert
-set pumheight=8             " Keep a small completion window
+set pumheight=18             " Keep a small completion window
 
 
 """ Moving Around/Editing
@@ -450,16 +450,16 @@ nnoremap <leader>y :Registers<cr>
 
 " {{{ Grepper
 " nnoremap <leader>a <Esc>:Ack!<Space>
-let g:grepper = {}
-nnoremap <leader>* :Grepper -tool ag -cword -noprompt<cr>
-nnoremap <leader>r :Grepper -tool rg<cr>
-let g:grepper.rg = { 'grepprg': 'rg --vimgrep --smart-case'}
-nnoremap <leader>a :Grepper -tool ag<cr>
-let g:grepper.ag = { 'grepprg': 'ag --path-to-ignore ~/.ignore'}
-nnoremap <leader>g :Grepper -tool git<cr>
+" let g:grepper = {}
+" nnoremap <leader>* :Grepper -tool ag -cword -noprompt<cr>
+" nnoremap <leader>r :Grepper -tool rg<cr>
+" let g:grepper.rg = { 'grepprg': 'rg --vimgrep --smart-case'}
+" nnoremap <leader>a :Grepper -tool ag<cr>
+" let g:grepper.ag = { 'grepprg': 'ag --path-to-ignore ~/.ignore'}
+" nnoremap <leader>g :Grepper -tool git<cr>
 
-nmap go <plug>(GrepperOperator)
-xmap go <plug>(GrepperOperator)
+" nmap go <plug>(GrepperOperator)
+" xmap go <plug>(GrepperOperator)
 
 " }}}
 
@@ -796,6 +796,7 @@ autocmd FileType xml setlocal commentstring={#%s#}
 
 " {{{ telescope
 set report=2
+nnoremap <Leader>a  <cmd>lua GrepPrompt()<CR>
 nnoremap <Leader>o  <cmd>lua require'telescope.builtin'.find_files{}<CR>
 nnoremap         gr <cmd>lua require'telescope.builtin'.lsp_references{ shorten_path = true }<CR>
 nnoremap <leader>gc <cmd>lua require'telescope.builtin'.git_commits{}<CR>
@@ -832,7 +833,7 @@ vim.g.symbols_outline = {
         rename_symbol = "r",
         code_actions = "a",
     },
----    " lsp_blacklist = {"pylsp"},
+    lsp_blacklist = {"pylsp"},
 }
 
 EOF

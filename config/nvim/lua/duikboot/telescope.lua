@@ -66,6 +66,13 @@ telescope.setup{
 }
 
 
+function GrepPrompt()
+    require('telescope.builtin').grep_string {
+       shorten_path = false,
+       search = vim.fn.input "Grep String > ",
+    }
+end
+
 
 function Findvirtualenv()
   require('telescope.builtin').find_files({
@@ -78,4 +85,4 @@ end
 -- Mapper("n", "fv", "<cmd> lua Findvirtualenv()<cr>")
 
 require('telescope').load_extension('fzy_native')
--- require('telescope').load_extension('fzf')
+require('telescope').load_extension('fzf')

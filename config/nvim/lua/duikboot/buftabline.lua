@@ -5,5 +5,5 @@ require("buftabline").setup {
     auto_hide = true,
     icons = true,
     icon_colors = "normal",
-        next_indicator = ">",
+    next_indicator = ">",
 }
