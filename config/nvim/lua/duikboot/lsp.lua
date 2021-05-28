@@ -144,7 +144,7 @@ require'lspconfig'.sumneko_lua.setup {
 
 local local_lsps = {
     'pylsp',
-    -- 'pyright',
+    'pyright',
     -- 'jedi_language_server',
     'vimls',
     'bashls'

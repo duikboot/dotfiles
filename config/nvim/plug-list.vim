@@ -22,7 +22,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'bling/vim-airline'
+" Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -123,6 +123,8 @@ Plug 'https://github.com/simrat39/symbols-outline.nvim'
 
 Plug 'https://github.com/folke/material.nvim'
 " Plug 'https://github.com/kosayoda/nvim-lightbulb'
+
+Plug 'https://github.com/jose-elias-alvarez/buftabline.nvim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
