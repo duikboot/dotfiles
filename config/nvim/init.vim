@@ -22,6 +22,7 @@ setlocal keywordprg=:help     " Use K to show help on subject under cursor
 set backupdir=~/.tmp//
 set directory=~/.tmp//  "set directory for swapfiles
 set conceallevel=0
+set updatetime=500
 
 set splitright
 set splitbelow
@@ -466,21 +467,23 @@ nnoremap <leader>y :Registers<cr>
 " {{{ LSP
 
 lua pcall(require, 'init')
+lua require'lsp_signature'.on_attach()
+
+lua <<EOF
+-- vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
+-- vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler
+-- vim.lsp.handlers['textDocument/definition'] = require'lsputil.locations'.definition_handler
+-- vim.lsp.handlers['textDocument/declaration'] = require'lsputil.locations'.declaration_handler
+-- vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typeDefinition_handler
+-- vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
+-- vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
+-- vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
+EOF
+
+" nnoremap <silent><leader>ca :Lspsaga code_action<CR>
+" vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
 
 " lua <<EOF
-" vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
-" vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler
-" vim.lsp.handlers['textDocument/definition'] = require'lsputil.locations'.definition_handler
-" vim.lsp.handlers['textDocument/declaration'] = require'lsputil.locations'.declaration_handler
-" vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typeDefinition_handler
-" vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
-" vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
-" vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
-"lua <<aOF
-
-" lua <<EOF
-
-" autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
 
 lua <<EOF
 
@@ -517,7 +520,6 @@ let g:compe.source.tags = v:false
 let g:compe.source.snippets_nvim = v:false
 
 inoremap <expr> <c-n>    compe#complete()
-inoremap <expr> <c-i>         compe#confirm('<CR>')
 inoremap <silent><expr> <CR> compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
 inoremap <expr> <C-e>        compe#close('<C-e>')
 inoremap <expr> <C-f>        compe#scroll({ 'delta': +4 })
@@ -812,6 +814,11 @@ nnoremap <leader>fv <cmd>lua Findvirtualenv()<cr>
 " {{{ lsp-trouble
 
 nnoremap <leader>xx <cmd>TroubleToggle lsp_document_diagnostics<cr>
+
+autocmd FileType python let b:lsp_current_function = ''
+" autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+autocmd CursorHold,CursorHoldI * lua require'lsp-status'.update_current_function()
+
 " }}} lsp-trouble
 
 " {{{ symbols-outline

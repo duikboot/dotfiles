@@ -23,6 +23,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 " Plug 'bling/vim-airline'
+Plug 'https://github.com/hoob3rt/lualine.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -52,8 +53,6 @@ Plug 'https://github.com/romainl/vim-cool'
 Plug 'https://github.com/arzg/vim-colors-xcode'
 " Plug 'liuchengxu/vista.vim'
 Plug 'https://github.com/idanarye/vim-merginal'
-
-" Plug 'https://github.com/majutsushi/tagbar'
 
 " Plug 'https://github.com/Shougo/context_filetype.vim'
 
@@ -98,14 +97,15 @@ Plug 'https://github.com/dbeniamine/cheat.sh-vim'
 " Plug 'https://github.com/glepnir/lspsaga.nvim'
 " Plug 'https://github.com/ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 
-Plug 'RishabhRD/popfix'
-Plug 'https://github.com/RishabhRD/nvim-lsputils'
+" Plug 'RishabhRD/popfix'
+" Plug 'https://github.com/RishabhRD/nvim-lsputils'
 
 Plug 'https://github.com/sainnhe/edge'
 Plug 'https://github.com/rhysd/committia.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'https://github.com/nvim-telescope/telescope-fzy-native.nvim', {'do': 'git submodule update --init --recursive'}
 Plug 'https://github.com/folke/lsp-trouble.nvim'
+Plug 'ray-x/lsp_signature.nvim'
 
 Plug 'https://github.com/aklt/plantuml-syntax'
 
@@ -125,6 +125,8 @@ Plug 'https://github.com/folke/material.nvim'
 " Plug 'https://github.com/kosayoda/nvim-lightbulb'
 
 Plug 'https://github.com/jose-elias-alvarez/buftabline.nvim'
+
+Plug 'https://github.com/weilbith/nvim-lsp-smag'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

@@ -1,5 +1,10 @@
 local vim = vim
+local lsp_status = require('lsp-status')
+lsp_status.register_progress()
+
 local lspconfig = require'lspconfig'
+
+vim.lsp.set_log_level("info")
 
 
 -- local on_attach_vim = function(client, bufnr)
@@ -61,8 +66,8 @@ end
 -- end
 
 
-local on_attach_vim_plus_keymaps = function()
-    -- on_attach_vim(client)
+local on_attach_vim_plus_keymaps = function(client)
+    lsp_status.on_attach(client)
     Mapper(
         'n',
         '<leader>dn',
@@ -89,6 +94,7 @@ local on_attach_vim_plus_keymaps = function()
     Mapper('n', 'gW',         '<cmd> lua vim.lsp.buf.workspace_symbol()<CR>')
     Mapper('n', '<leader>gd', '<cmd> lua vim.lsp.buf.declaration()<CR>')
     Mapper('n', '<c-]>',      '<cmd> lua vim.lsp.buf.definition()<CR>')
+    print('Lsp attached.')
 end
 
 -- From the lspconfig repo
@@ -133,8 +139,9 @@ local local_lsps = {
 
 for _, lsp in ipairs(local_lsps) do
     lspconfig[lsp].setup{
+        -- on_init=on_init,
         on_attach=on_attach_vim_plus_keymaps,
-        on_init=on_init
+        capabilities=lsp_status.capabilities
     }
 end
 
