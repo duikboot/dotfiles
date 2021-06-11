@@ -65,7 +65,7 @@ endif
 
 
 " set guifont=Inconsolata\ 10
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
+" set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9
 " set guifont=DejaVu\ Sans\ Mono\ Book\ 8
 " i1g
 " 0O
@@ -466,6 +466,7 @@ nnoremap <leader>y :Registers<cr>
 
 " {{{ LSP
 
+lua require'nvim-web-devicons'.setup()
 lua pcall(require, 'init')
 lua require'lsp_signature'.on_attach()
 

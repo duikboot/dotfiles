@@ -38,7 +38,7 @@ font:
   # Normal (roman) font face
   normal:
     # family: "monospace"
-    family: "NotoSansMono Nerd Font"
+    # family: "NotoSansMono Nerd Font"
     family: "Source Code Variable"
     # Font family
     #

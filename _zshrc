@@ -41,12 +41,12 @@ alias mux='pgrep -vx tmux && tmux new -d -s delete-me && tmux run-shell ~/.tmux/
 # Make a new session connecting to the socket of the pers tmux server
 # alias tmuxp='tmux -L pers -2 new -s'
 alias vi='vim'
+alias e='nvim'
 # alias clisp="rlwrap -f $HOME/.rlwrap/keywords clisp"
 #
 alias f='roamer'
 alias ag='ag --path-to-ignore ~/.ignore'
 
-alias e="vim ."
 export PLATFORM=`python -c 'import os; print(os.uname()[1]),'`
 
 export EDITOR=vim

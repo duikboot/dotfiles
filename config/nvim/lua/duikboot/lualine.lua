@@ -8,10 +8,10 @@ end
 local config = {
     sections = {
         lualine_c = {
-      {'filename'},
-      lsp_function,
-    },}
+            {'filename'},
+            lsp_function,
+        },
+    },
 }
 
 require('lualine').setup(config)
--- require('lualine').setup(config)
