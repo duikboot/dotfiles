@@ -28,7 +28,7 @@ Plug 'tpope/vim-obsession'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'davidhalter/jedi-vim', {'do': 'git submodule update --init --recursive'}
 " Plug 'ervandew/supertab'
-" Plug 'https://github.com/godlygeek/tabular'
+Plug 'https://github.com/godlygeek/tabular'
 Plug 'tpope/vim-fugitive'
 Plug 'psf/black'
 Plug 'kassio/neoterm'

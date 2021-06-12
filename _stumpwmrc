@@ -8,6 +8,7 @@
 (defparameter *stumptray-apps*
   '("numlockx"
     "nm-applet --sm-disable"
+    "blueman-applet"
     "pasystray"))
     ; "octopi-notifier"
 
