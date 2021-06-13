@@ -272,6 +272,17 @@ function! s:save_and_exec() abort
 endfunction
 nnoremap <leader><leader>x :call <SID>save_and_exec()<CR>
 
+function! OpenURLUnderCursor()
+  let s:uri = expand('<cWORD>')
+  let s:uri = substitute(s:uri, '?', '\\?', '')
+  let s:uri = shellescape(s:uri, 1)
+  if s:uri != ''
+    execute '!xdg-open ' . s:uri
+    :redraw!
+  endif
+endfunction
+nnoremap gx :call OpenURLUnderCursor()<CR>
+
 " }}}
 
 " Seriously, guys. It's not like :W is bound to anything anyway.
@@ -484,8 +495,6 @@ EOF
 " nnoremap <silent><leader>ca :Lspsaga code_action<CR>
 " vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
 
-" lua <<EOF
-
 lua <<EOF
 
 require('gitsigns').setup {
@@ -589,6 +598,17 @@ endfunction
 nnoremap <leader>cf :call <SID>AddFilenameToRegister('absolute')<CR>
 nnoremap <leader>cr :call <SID>AddFilenameToRegister('relative')<CR>
 nnoremap <leader>cs :call <SID>AddFilenameToRegister('show')<CR>
+
+function! OpenURLUnderCursor()
+  let s:uri = expand('<cWORD>')
+  let s:uri = substitute(s:uri, '?', '\\?', '')
+  let s:uri = shellescape(s:uri, 1)
+  if s:uri != ''
+    silent exec "!open '".s:uri."'"
+    :redraw!
+  endif
+endfunction
+nnoremap gx :call OpenURLUnderCursor()<CR>
 
 " }}}
 
@@ -799,18 +819,18 @@ autocmd FileType xml setlocal commentstring={#%s#}
 
 " {{{ telescope
 set report=2
-nnoremap <Leader>a      <cmd >lua GrepPrompt()<CR>
-nnoremap <Leader>o      <cmd >lua require'telescope.builtin'.find_files{}<CR>
-nnoremap         gr     <cmd >lua require'telescope.builtin'.lsp_references{ shorten_path = true }<CR>
-nnoremap <leader>gc     <cmd >lua require'telescope.builtin'.git_commits{}<CR>
-nnoremap <leader>gs     <cmd >lua require'telescope.builtin'.git_status{}<CR>
-nnoremap <leader>lg     <cmd >lua require'telescope.builtin'.live_grep{}<CR>
-nnoremap <leader>b      <cmd >lua require'telescope.builtin'.buffers{}<CR>
-nnoremap <leader>t      <cmd >lua require'telescope.builtin'.tags{only_sort_tags=true}<CR>
-nnoremap <leader>*      <cmd >lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
-nnoremap <localleader>f <cmd >lua require'telescope.builtin'.current_buffer_fuzzy_find{sorting_strategy="ascending"}<CR>
+nnoremap <Leader>a      <cmd>lua require'duikboot.telescope'.grep_prompt()<CR>
+nnoremap <Leader>o      <cmd>lua require'telescope.builtin'.find_files{}<CR>
+nnoremap         gr     <cmd>lua require'telescope.builtin'.lsp_references{ shorten_path = true }<CR>
+nnoremap <leader>gc     <cmd>lua require'telescope.builtin'.git_commits{}<CR>
+nnoremap <leader>gs     <cmd>lua require'telescope.builtin'.git_status{}<CR>
+nnoremap <leader>lg     <cmd>lua require'telescope.builtin'.live_grep{}<CR>
+nnoremap <leader>b      <cmd>lua require'telescope.builtin'.buffers{}<CR>
+nnoremap <leader>t      <cmd>lua require'telescope.builtin'.tags{only_sort_tags=true}<CR>
+nnoremap <leader>*      <cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
+nnoremap <localleader>f <cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>
 
-nnoremap <leader>fv     <cmd >lua Findvirtualenv()<cr>
+nnoremap <leader>fv     <cmd>lua require'duikboot.telescope'.find_virtual_env()<cr>
 " }}
 
 " {{{ lsp-trouble
