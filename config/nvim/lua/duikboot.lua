@@ -1,0 +1,25 @@
+local M = {}
+
+-- require('duikboot.saga')
+
+local modules = {
+    'duikboot.lsp',
+    'duikboot.treesitter',
+    'duikboot.telescope',
+    'duikboot.lualine',
+    'duikboot.saga',
+}
+
+for _, name in ipairs(modules) do
+    package.loaded[name] = nil
+end
+for _, name in ipairs(modules) do
+    pcall(require, name)
+end
+
+
+Mapper = function(mode, key, result)
+    vim.api.nvim_buf_set_keymap(0, mode, key, result, {noremap = true, silent = true})
+end
+
+return M

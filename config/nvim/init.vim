@@ -241,6 +241,15 @@ let g:python3_host_prog_bin=$HOME . '/.dotfiles/.venv/bin/'
 let g:mapleader="\<space>"             " change the leader to be a comma vs slash
 let g:maplocalleader="\\"       " map localleader to \\
 
+" ,v brings up my .vimrc
+" ,V reloads it -- making all changes active (have to save first)
+" nnoremap <leader>v :sp ~/.config/nvim/init.vim<CR><C-W>_
+
+nnoremap <leader>V :lua package.loaded.duikboot = nil <cr>:source ~/.config/nvim/init.vim<CR>:filetype detect<CR>
+
+nnoremap <leader>e :edit<cr>
+nnoremap <c-e> :Explore %:p:h<cr>
+
 " {{{ tjdevries goodies
 
 " https://github.com/tjdevries/config_manager/tree/master/xdg_config/nvim
@@ -326,14 +335,6 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap R :%s//g<left><left>
 xnoremap R :s/\%V/g<Left><Left>
 
-
-" ,v brings up my .vimrc
-" ,V reloads it -- making all changes active (have to save first)
-" nnoremap <leader>v :sp ~/.config/nvim/init.vim<CR><C-W>_
-nnoremap <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
-
-nnoremap <leader>e :edit<cr>
-nnoremap <c-e> :Explore %:p:h<cr>
 
 " nnoremap <leader>F :Fern . -reveal=% -drawer -toggle<cr>
 " nnoremap <c-e> :Fern . -reveal=% -drawer -toggle<cr>
@@ -478,7 +479,7 @@ nnoremap <leader>y :Registers<cr>
 " {{{ LSP
 
 lua require'nvim-web-devicons'.setup()
-lua pcall(require, 'init')
+lua pcall(require, 'duikboot')
 lua require'lsp_signature'.on_attach()
 
 lua <<EOF
