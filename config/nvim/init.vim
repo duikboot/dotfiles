@@ -245,7 +245,7 @@ let g:maplocalleader="\\"       " map localleader to \\
 " ,V reloads it -- making all changes active (have to save first)
 " nnoremap <leader>v :sp ~/.config/nvim/init.vim<CR><C-W>_
 
-nnoremap <leader>V :lua package.loaded.duikboot = nil <cr>:source ~/.config/nvim/init.vim<CR>:filetype detect<CR>
+nnoremap <leader>V :source ~/.config/nvim/init.vim<CR>:lua package.loaded.duikboot = nil <cr>:filetype detect<CR>
 
 nnoremap <leader>e :edit<cr>
 nnoremap <c-e> :Explore %:p:h<cr>
