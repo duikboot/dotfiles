@@ -6,7 +6,7 @@ local trouble = require("trouble.providers.telescope")
 telescope.setup{
     defaults = {
         -- prompt_prefix = "🔍 ",
-        prompt_prefix = "> ",
+        winblend = 10,
         file_sorter = sorters.get_fzy_sorter,
         file_ignore_patterns = {"%js"},
         mappings = {
@@ -58,7 +58,7 @@ M.find_virtual_env = function()
   require('telescope.builtin').find_files({
       shorten_path = false,
       cwd = ".venv/lib",
-      prompt = "~ venv ~",
+      results_title = "~ Virtual Environment ~",
     })
 end
 

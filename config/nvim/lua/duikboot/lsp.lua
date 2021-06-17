@@ -4,7 +4,7 @@ lsp_status.register_progress()
 
 local lspconfig = require'lspconfig'
 
-vim.lsp.set_log_level("info")
+-- vim.lsp.set_log_level("info")
 
 
 -- local on_attach_vim = function(client, bufnr)

@@ -871,3 +871,31 @@ EOF
 nnoremap <leader>O <cmd>lua require'symbols-outline'.toggle_outline{}<cr>
 
 " }}} symbols-outline
+
+" {{{ ALE 
+" let g:ale_python_flake8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/flake8'
+" let g:ale_python_pycodestyle_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pycodestyle'
+" let g:ale_python_pylint_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pyflakes'
+" let g:ale_python_vulture_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/vulture'
+" let g:ale_python_mypy_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/mypy'
+" let g:ale_python_isort_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/isort'
+" let g:ale_python_yapf_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/yapf'
+" let g:ale_python_autopep8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/autopep8'
+let g:ale_python_autopep8_executable = g:python3_host_prog_bin . 'prospector'
+" let g:pymode_rope_autoimport = 1
+" TEMPORARY!!
+" let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
+" let g:ale_python_pylint_options = "--load-plugins pylint_django"
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_python_pylint_options='--disable=C0111,R0903 --load-plugins pylint_django'
+let g:ale_python_flake8_options='--ignore=H301 --max-complexity=10'
+let g:ale_python_mypy_options = '--ignore-missing-imports'
+
+let b:ale_virtualenv_dir_names=['ENV', '.env', '.venv']
+
+ let g:ale_linters = {
+            \ 'python' : ['prospector', 'mypy'],
+ \ }
+
+
+" }}}

@@ -7,6 +7,7 @@ local modules = {
     'duikboot.treesitter',
     'duikboot.telescope',
     'duikboot.saga',
+    -- 'duikboot.efm'
 }
 
 for _, name in ipairs(modules) do
