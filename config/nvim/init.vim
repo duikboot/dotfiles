@@ -873,14 +873,14 @@ nnoremap <leader>O <cmd>lua require'symbols-outline'.toggle_outline{}<cr>
 " }}} symbols-outline
 
 " {{{ ALE 
-" let g:ale_python_flake8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/flake8'
-" let g:ale_python_pycodestyle_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pycodestyle'
-" let g:ale_python_pylint_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/pyflakes'
-" let g:ale_python_vulture_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/vulture'
-" let g:ale_python_mypy_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/mypy'
-" let g:ale_python_isort_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/isort'
-" let g:ale_python_yapf_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/yapf'
-" let g:ale_python_autopep8_executable = $HOME . '/config/dotfiles/_neovim/ENV/bin/autopep8'
+let g:ale_python_flake8_executable = g:python3_host_prog_bin . 'flake8'
+let g:ale_python_pycodestyle_executable = g:python3_host_prog_bin . 'pycodestyle'
+let g:ale_python_pylint_executable = g:python3_host_prog_bin . 'pyflakes'
+let g:ale_python_vulture_executable = g:python3_host_prog_bin . 'vulture'
+let g:ale_python_mypy_executable = g:python3_host_prog_bin . 'mypy'
+let g:ale_python_isort_executable = g:python3_host_prog_bin . 'isort'
+let g:ale_python_yapf_executable = g:python3_host_prog_bin . 'yapf'
+let g:ale_python_autopep8_executable = g:python3_host_prog_bin . 'autopep8'
 let g:ale_python_autopep8_executable = g:python3_host_prog_bin . 'prospector'
 " let g:pymode_rope_autoimport = 1
 " TEMPORARY!!
