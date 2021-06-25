@@ -24,7 +24,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 " Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-obsession'
+" Plug 'tpope/vim-obsession'
+Plug 'https://github.com/rmagatti/auto-session'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'davidhalter/jedi-vim', {'do': 'git submodule update --init --recursive'}
 " Plug 'ervandew/supertab'
@@ -41,9 +42,8 @@ Plug 'Olical/vim-enmasse'
 " Plug 'eraserhd/parinfer-rust', {'do':  'cargo build --release'}
 Plug 'https://github.com/bhurlow/vim-parinfer'
 " Plug 'https://github.com/guns/vim-sexp'
-" Plug 'dense-analysis/ale'
 Plug 'https://github.com/dense-analysis/ale'
-" Plug 'desmap/ale-sensible' | Plug 'w0rp/ale'
+
 Plug 'vim-scripts/vcscommand.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'junegunn/goyo.vim'
@@ -118,7 +118,6 @@ Plug 'https://github.com/tversteeg/registers.nvim'
 
 Plug 'https://github.com/folke/lsp-colors.nvim'
 Plug 'https://github.com/simrat39/symbols-outline.nvim'
-
 " Plug 'https://github.com/ray-x/lsp_signature.nvim'
 
 Plug 'https://github.com/folke/material.nvim'
