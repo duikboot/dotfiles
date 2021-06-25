@@ -11,7 +11,7 @@
     default = matching
 [core]
     editor = vim
-	excludesfile = /home/arjend/.gitignore
+   excludesfile = /home/arjend/.gitignore
 [alias]
     root = !pwd
     co = checkout
@@ -27,3 +27,15 @@
 	rebase = true
 [rebase]
 	autoStash = true
+# Add the following to your .gitconfig file.
+# Add the following to your .gitconfig file.
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+[merge]
+    tool = meld
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
