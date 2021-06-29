@@ -127,5 +127,7 @@ Plug 'https://github.com/jose-elias-alvarez/buftabline.nvim'
 
 Plug 'https://github.com/weilbith/nvim-lsp-smag'
 
+" Plug 'https://github.com/kristijanhusak/orgmode.nvim'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

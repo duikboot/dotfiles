@@ -335,6 +335,7 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap R :%s//g<left><left>
 xnoremap R :s/\%V/g<Left><Left>
 
+nnoremap gx :call netrw#BrowseX(expand("<cfile>"), netrw#CheckIfRemote())<CR>
 
 " nnoremap <leader>F :Fern . -reveal=% -drawer -toggle<cr>
 " nnoremap <c-e> :Fern . -reveal=% -drawer -toggle<cr>
@@ -529,6 +530,7 @@ let g:compe.source.nvim_lua = v:true
 let g:compe.source.spell = v:true
 let g:compe.source.tags = v:false
 let g:compe.source.snippets_nvim = v:false
+let g:compe.source.orgmode = v:true
 
 inoremap <expr> <c-n>    compe#complete()
 inoremap <silent><expr> <CR> compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
@@ -600,16 +602,6 @@ nnoremap <leader>cf :call <SID>AddFilenameToRegister('absolute')<CR>
 nnoremap <leader>cr :call <SID>AddFilenameToRegister('relative')<CR>
 nnoremap <leader>cs :call <SID>AddFilenameToRegister('show')<CR>
 
-function! OpenURLUnderCursor()
-  let s:uri = expand('<cWORD>')
-  let s:uri = substitute(s:uri, '?', '\\?', '')
-  let s:uri = shellescape(s:uri, 1)
-  if s:uri != ''
-    silent exec "!open '".s:uri."'"
-    :redraw!
-  endif
-endfunction
-nnoremap gx :call OpenURLUnderCursor()<CR>
 
 " }}}
 
