@@ -34,7 +34,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'psf/black'
 Plug 'kassio/neoterm'
 Plug 'vlime/vlime', {'rtp': 'vim/'}
-Plug 'wellle/targets.vim'
+" Plug 'wellle/targets.vim'
 Plug 'lervag/vimtex'
 Plug 'iCyMind/NeoSolarized'
 " Plug 'sheerun/vim-polyglot'
@@ -84,6 +84,12 @@ Plug 'https://github.com/barlog-m/oceanic-primal-vim' , { 'branch': 'main' }
 Plug 'https://github.com/rhysd/git-messenger.vim'
 
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter' , {'do': ':TSUpdate'}
+Plug 'https://github.com/nvim-treesitter/playground'
+Plug 'https://github.com/nvim-treesitter/nvim-treesitter-refactor'
+Plug 'https://github.com/romgrk/nvim-treesitter-context'
+" Plug 'https://github.com/JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
+
 Plug 'https://github.com/ChristianChiarulli/nvcode-color-schemes.vim'
 Plug 'https://github.com/nvim-lua/popup.nvim'
 Plug 'https://github.com/nvim-lua/plenary.nvim'

@@ -250,50 +250,6 @@ nnoremap <leader>V :source ~/.config/nvim/init.vim<CR>:lua package.loaded.duikbo
 nnoremap <leader>e :edit<cr>
 nnoremap <c-e> :Explore %:p:h<cr>
 
-" {{{ tjdevries goodies
-
-" https://github.com/tjdevries/config_manager/tree/master/xdg_config/nvim
-" Map execute this line
-function! s:executor() abort
-  if &ft == 'lua'
-    call execute(printf(":lua %s", getline(".")))
-    echom printf(":lua %s", getline("."))
-  elseif &ft == 'vim'
-    exe getline(">")
-    echom printf(getline("."))
-  endif
-endfunction
-nnoremap <leader>x :call <SID>executor()<CR>
-vnoremap <leader>x :<C-w>exe join(getline("'<","'>"),'<Bar>')<CR>
-
-
-" Execute this file
-function! s:save_and_exec() abort
-  if &filetype == 'vim'
-    :silent! write
-    :source %
-  elseif &filetype == 'lua'
-    :silent! write
-    :luafile %
-  endif
-
-  return
-endfunction
-nnoremap <leader><leader>x :call <SID>save_and_exec()<CR>
-
-function! OpenURLUnderCursor()
-  let s:uri = expand('<cWORD>')
-  let s:uri = substitute(s:uri, '?', '\\?', '')
-  let s:uri = shellescape(s:uri, 1)
-  if s:uri != ''
-    execute '!xdg-open ' . s:uri
-    :redraw!
-  endif
-endfunction
-nnoremap gx :call OpenURLUnderCursor()<CR>
-
-" }}}
-
 " Seriously, guys. It's not like :W is bound to anything anyway.
 command! W :w
 command! Q :quitall

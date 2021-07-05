@@ -1,3 +1,16 @@
+#+test-modeline
+(progn
+  (mode-line)
+  (sleep 1)
+  (log:info "loading stumptray")
+  (run-commands "stumptray")
+  (sleep .1)
+  (start-apps)
+  (sleep .1)
+  (refresh-heads)
+  (sleep .1)
+  (set-wallpaper))
+
 (ql:quickload '(bordeaux-threads log4cl split-sequence drakma))
 (in-package :stumpwm)
 
@@ -18,19 +31,6 @@
           (log:info "starting ~A" x)
           (run-shell-command x))
         *stumptray-apps*))
-
-#+test-modeline
-(progn
-  (mode-line)
-  (sleep 1)
-  (log:info "loading stumptray")
-  (run-commands "stumptray")
-  (sleep .1)
-  (start-apps)
-  (sleep .1)
-  (refresh-heads)
-  (sleep .1)
-  (set-wallpaper))
 
 ; (layout-laptop)
 ; (layout-home-screen)
