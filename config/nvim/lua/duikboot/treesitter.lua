@@ -41,6 +41,8 @@ require'nvim-treesitter.configs'.setup {
                 ["if"] = "@function.inner",
                 ["ac"] = "@class.outer",
                 ["ic"] = "@class.inner",
+                ["ai"] = "@conditional.outer",
+                ["ii"] = "@conditional.inner",
 
             }
         },
@@ -59,8 +61,3 @@ require'nvim-treesitter.configs'.setup {
     --     enable = true
     -- },
 }
-
-require'treesitter-context.config'.setup{
-    enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-}
-
