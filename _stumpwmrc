@@ -331,7 +331,6 @@
     (setf message (concatenate 'string message (format nil "~%New wallpaper set")))
     (message message)))
 
-
 (defun spotify-wallpaper (url)
   (run-shell-command
     (concatenate 'string "feh --bg-scale " url)))
