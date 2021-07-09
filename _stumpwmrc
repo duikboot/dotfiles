@@ -28,6 +28,9 @@
 (defun start-apps ()
   (mapc (lambda (x)
           (sleep .1)
+          (log:info "killing ~A" x)
+          (run-shell-command (format nil "pkill ~A" x))
+          (sleep .4)
           (log:info "starting ~A" x)
           (run-shell-command x))
         *stumptray-apps*))
@@ -328,7 +331,6 @@
     (setf message (concatenate 'string message (format nil "~%New wallpaper set")))
     (message message)))
 
-(set-wallpaper)
 
 (defun spotify-wallpaper (url)
   (run-shell-command
