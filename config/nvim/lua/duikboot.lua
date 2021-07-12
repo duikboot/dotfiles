@@ -7,6 +7,7 @@ local modules = {
     'duikboot.treesitter',
     'duikboot.telescope',
     'duikboot.saga',
+    'duikboot.compe',
     -- 'duikboot.orgmode'
     -- 'duikboot.efm'
 }
