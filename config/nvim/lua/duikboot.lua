@@ -8,7 +8,7 @@ local modules = {
     'duikboot.telescope',
     'duikboot.saga',
     'duikboot.compe',
-    'duikboot.buftabline',
+    -- 'duikboot.buftabline',
     -- 'duikboot.orgmode'
     -- 'duikboot.efm'
 }

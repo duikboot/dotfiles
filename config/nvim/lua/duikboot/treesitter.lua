@@ -56,6 +56,14 @@ require'nvim-treesitter.configs'.setup {
     refactor = {
         highlight_definitions = {enable = true},
         highlight_current_scope = {enable = false},
+
+        smart_rename = {
+            enable = true,
+            keymaps = {
+                -- mapping to rename reference under cursor
+                smart_rename = "grr",
+            },
+        },
     },
     -- context_commentstring = {
     --     enable = true

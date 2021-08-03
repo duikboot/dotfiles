@@ -25,7 +25,7 @@ Plug 'tpope/vim-unimpaired'
 " Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-obsession'
-Plug 'https://github.com/rmagatti/auto-session'
+" Plug 'https://github.com/rmagatti/auto-session'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'davidhalter/jedi-vim', {'do': 'git submodule update --init --recursive'}
 " Plug 'ervandew/supertab'
