@@ -315,10 +315,24 @@ noremap <leader>bq :bp <BAR> bd #<CR>
 noremap <leader>bd :bd<CR>
 
 " let Y be more consistent
-nmap Y y$
+nnoremap Y y$
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Undo breakpoints
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" nnoremap <leader>k :move .-2<cr>==
+" nnoremap <leader>j :move .+1<cr>==
+" vnoremap <leader>J :move '>+1<cr>gv=gv
+" vnoremap <leader>K :move '<-2<cr>gv=gv
 
 " Split line (sister to [J]oin lines)
 " " The normal use of S is covered by cc, so don't worry about shadowing it.
+nnoremap J mzJ`z
 nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 
 " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
