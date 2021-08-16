@@ -7,6 +7,10 @@ telescope.setup{
     defaults = {
         -- prompt_prefix = "🔍 ",
         winblend = 10,
+        -- path_display = {
+        --     "shorten",
+        --     "absolute"
+        -- },
         file_sorter = sorters.get_fzy_sorter,
         -- file_ignore_patterns = {"%js"},
         mappings = {
