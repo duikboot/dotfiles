@@ -2,62 +2,62 @@
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'tjdevries/colorbuddy.vim'
+Plug 'https://github.com/NLKNguyen/papercolor-theme'
+Plug 'https://github.com/tjdevries/colorbuddy.vim'
 Plug 'https://github.com/Th3Whit3Wolf/onebuddy'
 Plug 'https://github.com/Th3Whit3Wolf/one-nvim'
-Plug 'tjdevries/gruvbuddy.nvim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'conweller/endarkened.vim'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'https://github.com/tjdevries/gruvbuddy.nvim'
+Plug 'https://github.com/christoomey/vim-tmux-navigator'
+Plug 'https://github.com/conweller/endarkened.vim'
+Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/stsewd/fzf-checkout.vim'
-Plug 'machakann/vim-highlightedyank'
-Plug 'machakann/vim-swap'
+Plug 'https://github.com/machakann/vim-highlightedyank'
+Plug 'https://github.com/machakann/vim-swap'
 " Plug 'mhinz/vim-grepper'
 " Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-" Plug 'bling/vim-airline'
-Plug 'tpope/vim-commentary'
-" Plug 'tpope/vim-obsession'
+Plug 'https://github.com/tpope/vim-markdown'
+Plug 'https://github.com/tpope/vim-obsession'
+Plug 'https://github.com/tpope/vim-repeat'
+Plug 'https://github.com/tpope/vim-sensible'
+Plug 'https://github.com/tpope/vim-surround'
+Plug 'https://github.com/tpope/vim-unimpaired'
+" Plug 'https://github.com/bling/vim-airline'
+Plug 'https://github.com/tpope/vim-commentary'
+" Plug 'https://github.com/tpope/vim-obsession'
 " Plug 'https://github.com/rmagatti/auto-session'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'davidhalter/jedi-vim', {'do': 'git submodule update --init --recursive'}
-" Plug 'ervandew/supertab'
+" Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'https://github.com/davidhalter/jedi-vim', {'do': 'git submodule update --init --recursive'}
+" Plug 'https://github.com/ervandew/supertab'
 Plug 'https://github.com/godlygeek/tabular'
-Plug 'tpope/vim-fugitive'
-Plug 'psf/black'
-Plug 'kassio/neoterm'
-Plug 'vlime/vlime', {'rtp': 'vim/'}
-" Plug 'wellle/targets.vim'
-Plug 'lervag/vimtex'
-Plug 'iCyMind/NeoSolarized'
-" Plug 'sheerun/vim-polyglot'
-Plug 'Olical/vim-enmasse'
-" Plug 'eraserhd/parinfer-rust', {'do':  'cargo build --release'}
+Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/psf/black'
+Plug 'https://github.com/kassio/neoterm'
+Plug 'https://github.com/vlime/vlime', {'rtp': 'vim/'}
+" Plug 'https://github.com/wellle/targets.vim'
+Plug 'https://github.com/lervag/vimtex'
+Plug 'https://github.com/iCyMind/NeoSolarized'
+" Plug 'https://github.com/sheerun/vim-polyglot'
+Plug 'https://github.com/Olical/vim-enmasse'
+" Plug 'https://github.com/eraserhd/parinfer-rust', {'do':  'cargo build --release'}
 Plug 'https://github.com/bhurlow/vim-parinfer'
 " Plug 'https://github.com/guns/vim-sexp'
 Plug 'https://github.com/dense-analysis/ale'
 
-Plug 'vim-scripts/vcscommand.vim'
-Plug 'simnalamburt/vim-mundo'
-Plug 'junegunn/goyo.vim'
+Plug 'https://github.com/vim-scripts/vcscommand.vim'
+Plug 'https://github.com/simnalamburt/vim-mundo'
+Plug 'https://github.com/junegunn/goyo.vim'
 Plug 'https://github.com/Raimondi/delimitMate'
-Plug 'lifepillar/vim-gruvbox8'
+Plug 'https://github.com/lifepillar/vim-gruvbox8'
 Plug 'https://github.com/romainl/vim-cool'
 Plug 'https://github.com/arzg/vim-colors-xcode'
-" Plug 'liuchengxu/vista.vim'
+" Plug 'https://github.com/liuchengxu/vista.vim'
 Plug 'https://github.com/idanarye/vim-merginal'
 
 " Plug 'https://github.com/Shougo/context_filetype.vim'
 
 if has('nvim')
-    Plug 'neovim/nvim-lspconfig'
+    Plug 'https://github.com/neovim/nvim-lspconfig'
     Plug 'https://github.com/nvim-lua/lsp-status.nvim'
 endif
 
@@ -71,8 +71,8 @@ Plug 'https://github.com/MarcWeber/vim-addon-local-vimrc'
 
 Plug 'https://github.com/romainl/vim-qf'
 
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
+Plug 'https://github.com/ncm2/ncm2'
+Plug 'https://github.com/roxma/nvim-yarp'
 Plug 'https://github.com/HiPhish/ncm2-vlime'
 
 Plug 'https://github.com/hrsh7th/nvim-compe'
@@ -106,11 +106,11 @@ Plug 'https://github.com/dbeniamine/cheat.sh-vim'
 
 Plug 'https://github.com/sainnhe/edge'
 Plug 'https://github.com/rhysd/committia.vim'
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'https://github.com/kyazdani42/nvim-web-devicons'
 Plug 'https://github.com/hoob3rt/lualine.nvim'
 Plug 'https://github.com/nvim-telescope/telescope-fzy-native.nvim', {'do': 'git submodule update --init --recursive'}
 Plug 'https://github.com/folke/lsp-trouble.nvim'
-Plug 'ray-x/lsp_signature.nvim'
+Plug 'https://github.com/ray-x/lsp_signature.nvim'
 
 Plug 'https://github.com/aklt/plantuml-syntax'
 
