@@ -88,6 +88,7 @@ Plug 'https://github.com/nvim-treesitter/playground'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter-refactor'
 " Plug 'https://github.com/JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'https://github.com/polarmutex/contextprint.nvim'
 
 Plug 'https://github.com/ChristianChiarulli/nvcode-color-schemes.vim'
 Plug 'https://github.com/nvim-lua/popup.nvim'

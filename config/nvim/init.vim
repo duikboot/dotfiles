@@ -779,6 +779,12 @@ autocmd CursorHold,CursorHoldI * lua require'lsp-status'.update_current_function
 
 " }}} lsp-trouble
 
+" {{{ contextprint
+
+nnoremap <leader>cp :lua require("contextprint").add_statement()<CR>
+
+" }}} lsp-trouble
+
 " {{{ symbols-outline
 
 lua <<EOF
