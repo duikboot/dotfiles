@@ -93,6 +93,7 @@ Plug 'https://github.com/polarmutex/contextprint.nvim'
 Plug 'https://github.com/ChristianChiarulli/nvcode-color-schemes.vim'
 Plug 'https://github.com/nvim-lua/popup.nvim'
 Plug 'https://github.com/nvim-lua/plenary.nvim'
+Plug 'https://github.com/ThePrimeagen/refactoring.nvim'
 
 Plug 'https://github.com/lewis6991/gitsigns.nvim'
 Plug 'https://github.com/nvim-lua/telescope.nvim'
