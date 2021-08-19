@@ -132,7 +132,9 @@ Plug 'https://github.com/folke/material.nvim'
 
 Plug 'https://github.com/jose-elias-alvarez/buftabline.nvim'
 
-Plug 'https://github.com/weilbith/nvim-lsp-smag'
+" Plug 'https://github.com/weilbith/nvim-lsp-smag'
+Plug 'https://github.com/haringsrob/nvim_context_vt'
+Plug 'https://github.com/theHamsta/nvim-treesitter-commonlisp'
 
 " Plug 'https://github.com/kristijanhusak/orgmode.nvim'
 

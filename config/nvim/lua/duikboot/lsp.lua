@@ -53,17 +53,17 @@ local on_init = function()
     print("LSP Started")
 end
 
--- local default_handler = vim.lsp.handlers["textDocument/definition"]
--- vim.lsp.handlers["textDocument/definition"] = function(_, method, result)
---   if result ~= nil then
---     default_handler(nil, method, result)
---   else
---     -- there's a literal "ctrl-]" after `normal!`, might be able to craft
---     -- something with `execute "normal! \<C-]>"` instead for something more
---     -- readable.
---     vim.cmd("normal! ")
---   end
--- end
+local default_handler = vim.lsp.handlers["textDocument/definition"]
+vim.lsp.handlers["textDocument/definition"] = function(_, method, result)
+  if result ~= nil then
+    default_handler(nil, method, result)
+  else
+    -- there's a literal "ctrl-]" after `normal!`, might be able to craft
+    -- something with `execute "normal! \<C-]>"` instead for something more
+    -- readable.
+    vim.cmd("normal! ")
+  end
+end
 
 
 local on_attach_vim_plus_keymaps = function(client)

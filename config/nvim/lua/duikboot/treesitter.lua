@@ -22,6 +22,13 @@ require'nvim-treesitter.configs'.setup {
             enable = true,
             set_jumps = true,
         },
+        lsp_interop = {
+            enable = true,
+            peek_definition_code = {
+                ["<leader>pf"] = "@function.outer",
+                ["<leader>pc"] = "@class.outer"
+            }
+        },
 
         select = {
             enable = true,
