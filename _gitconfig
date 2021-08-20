@@ -28,14 +28,22 @@
 [rebase]
 	autoStash = true
 # Add the following to your .gitconfig file.
-# Add the following to your .gitconfig file.
-[diff]
-    tool = meld
-[difftool]
-    prompt = false
-[difftool "meld"]
-    cmd = meld "$LOCAL" "$REMOTE"
+# define command which will be used when "nvim" is set as a merge tool
+[mergetool "nvim"]
+  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+# set "nvim" as tool for merging
 [merge]
-    tool = meld
-[mergetool "meld"]
-    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+  tool = nvim
+# automatically launch merge tool without displaying a prompt
+[mergetool]
+  prompt = false
+; [diff]
+;     tool = meld
+; [difftool]
+;     prompt = false
+; [difftool "meld"]
+;     cmd = meld "$LOCAL" "$REMOTE"
+; [merge]
+;     tool = meld
+; [mergetool "meld"]
+;     cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
