@@ -73,6 +73,8 @@ functions are passed this structure as their first argument."
 ; *input-history-ignore-duplicates*
 ; *features*
 ; (balance-frames)
+; *all-modifiers*
+; *modifiers*
 
 ; (list-modules)
 

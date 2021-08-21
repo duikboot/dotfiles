@@ -9,6 +9,8 @@ local modules = {
     'duikboot.saga',
     'duikboot.compe',
     'duikboot.refactoring',
+    'duikboot.treesitter_unit',
+    'duikboot.neogit',
     -- 'duikboot.buftabline',
     -- 'duikboot.orgmode'
     -- 'duikboot.efm'
