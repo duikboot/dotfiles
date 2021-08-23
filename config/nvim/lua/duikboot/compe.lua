@@ -33,6 +33,6 @@ require'compe'.setup{
         },
         tags = false,
         snippets_nvim = true,
-        orgmode = true,
+        neorg = true,
     }
 }

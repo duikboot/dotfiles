@@ -1,3 +1,4 @@
-vim.api.nvim_set_keymap('n', 'vu', ':lua require"treesitter-unit".select()<cr>', {noremap=true})
-vim.api.nvim_set_keymap('n', 'du', ':lua require"treesitter-unit".delete()<CR>', {noremap=true})
-vim.api.nvim_set_keymap('n', 'cu', ':lua require"treesitter-unit".change()<CR>', {noremap=true})
+vim.api.nvim_set_keymap('x', 'iu', ':lua require"treesitter-unit".select()<CR>', {noremap=true})
+vim.api.nvim_set_keymap('x', 'au', ':lua require"treesitter-unit".select(true)<CR>', {noremap=true})
+vim.api.nvim_set_keymap('o', 'iu', ':<c-u>lua require"treesitter-unit".select()<CR>', {noremap=true})
+vim.api.nvim_set_keymap('o', 'au', ':<c-u>lua require"treesitter-unit".select(true)<CR>', {noremap=true})

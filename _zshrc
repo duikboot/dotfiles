@@ -45,7 +45,7 @@ alias e='nvim'
 # alias clisp="rlwrap -f $HOME/.rlwrap/keywords clisp"
 #
 #
-alias bat='cat'
+alias cat='bat'
 
 alias f='roamer'
 alias ag='ag --path-to-ignore ~/.ignore'

@@ -11,6 +11,7 @@ local modules = {
     'duikboot.refactoring',
     'duikboot.treesitter_unit',
     'duikboot.neogit',
+    'duikboot.neorg',
     -- 'duikboot.buftabline',
     -- 'duikboot.orgmode'
     -- 'duikboot.efm'

@@ -31,7 +31,7 @@ Plug 'https://github.com/tpope/vim-commentary'
 " Plug 'https://github.com/ervandew/supertab'
 Plug 'https://github.com/godlygeek/tabular'
 Plug 'https://github.com/tpope/vim-fugitive'
-Plug 'https://github.com/TimUntersberger/neogit'
+" Plug 'https://github.com/TimUntersberger/neogit'
 Plug 'https://github.com/psf/black'
 Plug 'https://github.com/kassio/neoterm'
 Plug 'https://github.com/vlime/vlime', {'rtp': 'vim/'}
@@ -48,7 +48,8 @@ Plug 'https://github.com/dense-analysis/ale'
 Plug 'https://github.com/vim-scripts/vcscommand.vim'
 Plug 'https://github.com/simnalamburt/vim-mundo'
 Plug 'https://github.com/junegunn/goyo.vim'
-Plug 'https://github.com/Raimondi/delimitMate'
+" Plug 'https://github.com/Raimondi/delimitMate'
+Plug 'https://github.com/cohama/lexima.vim'
 Plug 'https://github.com/lifepillar/vim-gruvbox8'
 Plug 'https://github.com/romainl/vim-cool'
 Plug 'https://github.com/arzg/vim-colors-xcode'
@@ -139,6 +140,7 @@ Plug 'https://github.com/haringsrob/nvim_context_vt'
 Plug 'https://github.com/theHamsta/nvim-treesitter-commonlisp'
 
 " Plug 'https://github.com/kristijanhusak/orgmode.nvim'
+Plug 'https://github.com/vhyrro/neorg'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
