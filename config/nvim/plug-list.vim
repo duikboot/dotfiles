@@ -142,5 +142,7 @@ Plug 'https://github.com/theHamsta/nvim-treesitter-commonlisp'
 " Plug 'https://github.com/kristijanhusak/orgmode.nvim'
 Plug 'https://github.com/vhyrro/neorg'
 
+Plug 'https://github.com/skywind3000/asyncrun.vim'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
