@@ -333,7 +333,7 @@ inoremap ? ?<c-g>u
 " Split line (sister to [J]oin lines)
 " " The normal use of S is covered by cc, so don't worry about shadowing it.
 nnoremap J mzJ`z
-nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
+" nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 
 " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 nnoremap <localleader>j :%!python -m json.tool<cr>
@@ -401,7 +401,7 @@ autocmd FileType vim setlocal foldlevel=1
 autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
 
 let g:csv_no_conceal=1
-let g:md_no_conceal=0
+let g:md_no_conceal=1
 
 " {{{ Goyo
 
@@ -504,6 +504,7 @@ nnoremap <leader>ts <Esc>:tselect<Space>
 
 " Open in vertical split the tag under the cursur.
 nnoremap  <Leader>T :let word=expand("<cword>")<CR>:vsp<CR>:exec("tag ". word)<cr>zt
+nnoremap  <Leader>T :vs<CR><c-]>zz
 
 
 " }}}

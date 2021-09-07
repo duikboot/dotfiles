@@ -1,4 +1,7 @@
-local M = {}
+P = function(v)
+    print(vim.inspect(v))
+    return v
+end
 
 -- require('duikboot.saga')
 
@@ -28,5 +31,3 @@ pcall(require, 'duikboot.lualine')
 Mapper = function(mode, key, result)
     vim.api.nvim_buf_set_keymap(0, mode, key, result, {noremap = true, silent = true})
 end
-
-return M
