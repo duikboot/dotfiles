@@ -15,6 +15,7 @@ local modules = {
     'duikboot.treesitter_unit',
     'duikboot.neogit',
     'duikboot.neorg',
+    'duikboot.gitsigns',
     -- 'duikboot.buftabline',
     -- 'duikboot.orgmode'
     -- 'duikboot.efm'

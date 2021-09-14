@@ -21,7 +21,7 @@ set number            " show linenumber relative to line cursor is on
 setlocal keywordprg=:help     " Use K to show help on subject under cursor
 set backupdir=~/.tmp//
 set directory=~/.tmp//  "set directory for swapfiles
-set conceallevel=0
+"set conceallevel=0
 set updatetime=500
 
 set splitright
@@ -400,8 +400,8 @@ autocmd FileType vim setlocal foldmethod=marker
 autocmd FileType vim setlocal foldlevel=1
 autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
 
-let g:csv_no_conceal=1
-let g:md_no_conceal=1
+"let g:csv_no_conceal=1
+"let g:md_no_conceal=1
 
 " {{{ Goyo
 
@@ -467,13 +467,6 @@ EOF
 " nnoremap <silent><leader>ca :Lspsaga code_action<CR>
 " vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
 
-lua <<EOF
-
-require('gitsigns').setup {
-  use_internal_diff = false,  -- If luajit is present
-}
-
-EOF
 
 inoremap <expr> <c-n>    compe#complete()
 inoremap <silent><expr> <CR> compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
