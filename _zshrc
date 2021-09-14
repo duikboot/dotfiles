@@ -55,6 +55,7 @@ export PLATFORM=`python -c 'import os; print(os.uname()[1]),'`
 export EDITOR=vim
 
 export GDK_CORE_DEVICE_EVENTS=1
+export PYTHONBREAKPOINT=ipdb.set_trace
 
 # export PIPENV_DEFAULT_PYTHON_VERSION=3.6
 # export PIPENV_VENV_IN_PROJECT=1
