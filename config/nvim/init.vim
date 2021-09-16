@@ -333,7 +333,7 @@ inoremap ? ?<c-g>u
 " Split line (sister to [J]oin lines)
 " " The normal use of S is covered by cc, so don't worry about shadowing it.
 nnoremap J mzJ`z
-" nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
+nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 
 " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 nnoremap <localleader>j :%!python -m json.tool<cr>
