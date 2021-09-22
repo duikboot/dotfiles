@@ -143,7 +143,6 @@ Plug 'https://github.com/vhyrro/neorg'
 Plug 'https://github.com/AndrewRadev/splitjoin.vim'
 
 " Plug 'https://github.com/ggandor/lightspeed.nvim'
-Plug 'https://github.com/GustavoKatel/sidebar.nvim'
 
 
 " List ends here. Plugins become visible to Vim after this call.
