@@ -16,6 +16,7 @@ local modules = {
     'duikboot.neogit',
     'duikboot.neorg',
     'duikboot.gitsigns',
+    'duikboot.utils'
     -- 'duikboot.sidebar'
     -- 'duikboot.buftabline',
     -- 'duikboot.orgmode'
