@@ -141,6 +141,7 @@ Plug 'https://github.com/theHamsta/nvim-treesitter-commonlisp'
 " Plug 'https://github.com/kristijanhusak/orgmode.nvim'
 Plug 'https://github.com/vhyrro/neorg'
 Plug 'https://github.com/AndrewRadev/splitjoin.vim'
+Plug 'https://github.com/weilbith/nvim-code-action-menu'
 
 " Plug 'https://github.com/ggandor/lightspeed.nvim'
 

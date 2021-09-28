@@ -1,13 +1,9 @@
-function _G.copy_python_module ()
+function _G.copy_module_path ()
     local path = vim.fn.expand('%')
     local filetype = vim.fn.expand('%:e')
 
     path = string.gsub(path, "/", ".")
-    path = string.gsub(
-        path,
-        string.format("%%.%s", filetype),
-        ""
-    )
+    path = string.gsub( path, string.format("%%.%s", filetype), "")
 
     vim.cmd('let @+="' .. path .. '""')
 end
@@ -15,6 +11,6 @@ end
 vim.api.nvim_set_keymap(
     'n',
     'cpp',
-    'v:lua.copy_python_module()',
-    {expr = true, noremap = false, silent = true}
+    '<Cmd>lua copy_module_path()<CR>',
+    {noremap = true, silent = true}
 )
