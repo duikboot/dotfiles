@@ -443,8 +443,8 @@ functions are passed this structure as their first argument."
 (run-commands "grename browser"
               "gnewbg code"
               "gnewbg chat"
-              "gnewbg documentation"
               "gnewbg media"
+              "gnewbg documentation"
               "gnewbg root")
 
 (dotimes (i 10)
@@ -551,7 +551,7 @@ functions are passed this structure as their first argument."
 (define-frame-preference "chat"
   ;; frame raise lock (lock AND raise == jumpto)
   (0 nil   t :title "Rambox")
-  (0 nil   t :title "slack"))
+  (0 nil   t :title "Slack"))
 
 
 ; (run-shell-command "redshift-gtk")
