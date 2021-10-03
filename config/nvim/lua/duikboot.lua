@@ -10,13 +10,15 @@ local modules = {
     'duikboot.treesitter',
     'duikboot.telescope',
     'duikboot.saga',
-    'duikboot.compe',
+    -- 'duikboot.compe',
+    'duikboot.cmp',
     'duikboot.refactoring',
     'duikboot.treesitter_unit',
     'duikboot.neogit',
     'duikboot.neorg',
     'duikboot.gitsigns',
-    'duikboot.utils'
+    'duikboot.utils',
+    'duikboot.luasnip',
     -- 'duikboot.sidebar'
     -- 'duikboot.buftabline',
     -- 'duikboot.orgmode'

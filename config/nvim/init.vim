@@ -98,7 +98,7 @@ set wildignore+=*.orig                           " Merge resolution files
 " set complete=.,b,u,kspell
 set complete=.,b,u
 " set completeopt=menuone,longest
-set completeopt=menuone,noinsert,noselect
+" set completeopt=menuone,noinsert,noselect
 " set completeopt=menu,menuone,preview,noselect,noinsert
 set pumheight=18             " Keep a small completion window
 
@@ -403,13 +403,6 @@ autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
 "let g:csv_no_conceal=1
 "let g:md_no_conceal=1
 
-" {{{ Goyo
-
-nnoremap <Leader>0 :Goyo<cr>
-let g:goyo_height=100
-
-" }}}
-
 " {{{ Highlight Yank
 
 let g:highlightedyank_highlight_duration = 100
@@ -468,11 +461,11 @@ EOF
 " vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
 
 
-inoremap <expr> <c-n>    compe#complete()
-inoremap <silent><expr> <CR> compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
-inoremap <expr> <C-e>        compe#close('<C-e>')
-inoremap <expr> <C-f>        compe#scroll({ 'delta': +4 })
-inoremap <expr> <C-d>        compe#scroll({ 'delta': -4 })
+" inoremap <expr> <c-n>    compe#complete()
+" inoremap <silent><expr> <CR> compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
+" inoremap <expr> <C-e>        compe#close('<C-e>')
+" inoremap <expr> <C-f>        compe#scroll({ 'delta': +4 })
+" inoremap <expr> <C-d>        compe#scroll({ 'delta': -4 })
 
 autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
 
@@ -771,7 +764,7 @@ nnoremap <leader>xx <cmd>TroubleToggle lsp_document_diagnostics<cr>
 
 autocmd FileType python let b:lsp_current_function = ''
 " autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
-autocmd CursorHold,CursorHoldI * lua require'lsp-status'.update_current_function()
+" autocmd CursorHold,CursorHoldI * lua require'lsp-status'.update_current_function()
 
 " }}} lsp-trouble
 

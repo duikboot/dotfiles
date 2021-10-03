@@ -1,6 +1,6 @@
 local vim = vim
-local lsp_status = require('lsp-status')
-lsp_status.register_progress()
+-- local lsp_status = require('lsp-status')
+-- lsp_status.register_progress()
 
 local lspconfig = require'lspconfig'
 
@@ -67,7 +67,6 @@ end
 
 
 local on_attach_vim_plus_keymaps = function(client)
-    lsp_status.on_attach(client)
     Mapper(
         'n',
         '<leader>dn',
@@ -141,7 +140,8 @@ for _, lsp in ipairs(local_lsps) do
     lspconfig[lsp].setup{
         -- on_init=on_init,
         on_attach=on_attach_vim_plus_keymaps,
-        capabilities=lsp_status.capabilities
+        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        -- capabilities=lsp_status.capabilities
     }
 end
 

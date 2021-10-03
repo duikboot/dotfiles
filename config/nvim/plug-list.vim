@@ -35,7 +35,7 @@ Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'https://github.com/psf/black'
 Plug 'https://github.com/kassio/neoterm'
 Plug 'https://github.com/vlime/vlime', {'rtp': 'vim/'}
-" Plug 'https://github.com/wellle/targets.vim'
+Plug 'https://github.com/wellle/targets.vim'
 Plug 'https://github.com/lervag/vimtex'
 Plug 'https://github.com/iCyMind/NeoSolarized'
 " Plug 'https://github.com/sheerun/vim-polyglot'
@@ -47,7 +47,6 @@ Plug 'https://github.com/dense-analysis/ale'
 
 Plug 'https://github.com/vim-scripts/vcscommand.vim'
 Plug 'https://github.com/simnalamburt/vim-mundo'
-Plug 'https://github.com/junegunn/goyo.vim'
 " Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'https://github.com/cohama/lexima.vim'
 Plug 'https://github.com/lifepillar/vim-gruvbox8'
@@ -60,7 +59,7 @@ Plug 'https://github.com/idanarye/vim-merginal'
 
 if has('nvim')
     Plug 'https://github.com/neovim/nvim-lspconfig'
-    Plug 'https://github.com/nvim-lua/lsp-status.nvim'
+    " Plug 'https://github.com/nvim-lua/lsp-status.nvim'
 endif
 
 Plug 'https://github.com/prabirshrestha/asyncomplete.vim'
@@ -77,7 +76,15 @@ Plug 'https://github.com/ncm2/ncm2'
 Plug 'https://github.com/roxma/nvim-yarp'
 Plug 'https://github.com/HiPhish/ncm2-vlime'
 
-Plug 'https://github.com/hrsh7th/nvim-compe'
+" Plug 'https://github.com/hrsh7th/nvim-compe'
+Plug 'https://github.com/hrsh7th/cmp-nvim-lsp'
+Plug 'https://github.com/hrsh7th/cmp-buffer'
+Plug 'https://github.com/hrsh7th/nvim-cmp'
+Plug 'https://github.com/L3MON4D3/LuaSnip'
+Plug 'https://github.com/saadparwaiz1/cmp_luasnip'
+Plug 'https://github.com/hrsh7th/cmp-path'
+Plug 'https://github.com/octaltree/cmp-look'
+Plug 'https://github.com/ray-x/cmp-treesitter'
 
 Plug 'https://github.com/srcery-colors/srcery-vim'
 
