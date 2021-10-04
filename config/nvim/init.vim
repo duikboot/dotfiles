@@ -811,7 +811,7 @@ let g:ale_python_mypy_executable = g:python3_host_prog_bin . 'mypy'
 let g:ale_python_isort_executable = g:python3_host_prog_bin . 'isort'
 let g:ale_python_yapf_executable = g:python3_host_prog_bin . 'yapf'
 let g:ale_python_autopep8_executable = g:python3_host_prog_bin . 'autopep8'
-let g:ale_python_autopep8_executable = g:python3_host_prog_bin . 'prospector'
+" let g:ale_python_autopep8_executable = g:python3_host_prog_bin . 'prospector'
 " let g:pymode_rope_autoimport = 1
 " TEMPORARY!!
 " let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
@@ -826,6 +826,8 @@ let b:ale_virtualenv_dir_names=['ENV', '.env', '.venv']
  let g:ale_linters = {
             \ 'python' : ['prospector', 'mypy'],
  \ }
+
+ nnoremap <localleader>a8 :Black<cr>
 
 
 " }}}
