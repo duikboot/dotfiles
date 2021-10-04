@@ -131,7 +131,7 @@ Plug 'https://github.com/windwp/nvim-spectre'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 " Plug 'https://github.com/gabrielpoca/replacer.nvim'
 
-Plug 'https://github.com/tversteeg/registers.nvim'
+" Plug 'https://github.com/tversteeg/registers.nvim'
 
 Plug 'https://github.com/folke/lsp-colors.nvim'
 Plug 'https://github.com/simrat39/symbols-outline.nvim'
@@ -149,6 +149,10 @@ Plug 'https://github.com/theHamsta/nvim-treesitter-commonlisp'
 Plug 'https://github.com/vhyrro/neorg'
 Plug 'https://github.com/AndrewRadev/splitjoin.vim'
 Plug 'https://github.com/weilbith/nvim-code-action-menu'
+
+Plug 'https://github.com/AckslD/nvim-neoclip.lua'
+
+Plug 'https://github.com/gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Plug 'https://github.com/ggandor/lightspeed.nvim'
 

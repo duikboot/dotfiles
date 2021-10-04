@@ -421,7 +421,7 @@ endif
 
 " https://github.com/junegunn/fzf.vim/issues/647#issuecomment-520259307
 
-nnoremap <leader>y :Registers<cr>
+nnoremap <leader>y :Telescope neoclip<cr>
 
 " }}}
 
@@ -756,6 +756,7 @@ nnoremap <leader>*      <cmd>lua require('telescope.builtin').grep_string { sear
 nnoremap <localleader>f <cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>
 
 nnoremap <leader>fv     <cmd>lua require'duikboot.telescope'.find_virtual_env()<cr>
+
 " }}
 
 " {{{ lsp-trouble
@@ -827,5 +828,11 @@ let b:ale_virtualenv_dir_names=['ENV', '.env', '.venv']
             \ 'python' : ['prospector', 'mypy'],
  \ }
 
+
+" }}}
+
+" {{{ Wilder
+
+call wilder#setup({'modes': [':', '/', '?']})
 
 " }}}
