@@ -151,6 +151,7 @@ Plug 'https://github.com/AndrewRadev/splitjoin.vim'
 Plug 'https://github.com/weilbith/nvim-code-action-menu'
 
 Plug 'https://github.com/AckslD/nvim-neoclip.lua'
+Plug 'https://github.com/tami5/sqlite.lua'
 
 Plug 'https://github.com/gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 
