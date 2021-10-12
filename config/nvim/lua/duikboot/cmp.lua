@@ -1,4 +1,5 @@
 local cmp = require'cmp'
+local types = require'cmp.types'
 
 cmp.setup({
     snippet = {
@@ -40,6 +41,7 @@ cmp.setup({
 
         { name = 'look', keyword=4 }
     },
+    preselect = types.cmp.PreselectMode.None,
     -- formatting = {
     --     format = require("lspkind").cmp_format({
     --         with_text = true,
