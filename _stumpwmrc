@@ -198,7 +198,7 @@ functions are passed this structure as their first argument."
 
 ;; mode line
 (setf *mode-line-background-color*  "black"
-      *mode-line-foreground-color*  "lightgreen"
+      *mode-line-foreground-color*  "white"
       *mode-line-border-color* "black")
 
 (setf *window-border-style*  :thick

@@ -3,6 +3,7 @@ local sorters = require'telescope.sorters'
 local actions = require'telescope.actions'
 local trouble = require("trouble.providers.telescope")
 
+
 telescope.setup{
     defaults = {
         -- prompt_prefix = "🔍 ",

@@ -38,9 +38,18 @@ cmp.setup({
 
         { name = 'path' },
 
-        { name = 'look', keyword=2 }
+        { name = 'look', keyword=4 }
     },
+    -- formatting = {
+    --     format = require("lspkind").cmp_format({
+    --         with_text = true,
+    --         menu = ({
+    --             treesitter = "[Treesitter]",
+    --             buffer = "[Buffer]",
+    --             nvim_lsp = "[LSP]",
+    --             luasnip = "[LuaSnip]",
+    --     })}),
+    -- },
 })
-
 
 -- Setup lspconfig.
