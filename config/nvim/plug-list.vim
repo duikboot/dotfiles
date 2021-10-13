@@ -86,6 +86,7 @@ Plug 'https://github.com/rafamadriz/friendly-snippets'
 Plug 'https://github.com/hrsh7th/cmp-path'
 Plug 'https://github.com/octaltree/cmp-look'
 Plug 'https://github.com/ray-x/cmp-treesitter'
+Plug 'https://github.com/onsails/lspkind-nvim'
 
 Plug 'https://github.com/srcery-colors/srcery-vim'
 
