@@ -7,7 +7,7 @@ source ~/.config/nvim/plug-list.vim
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
 syntax on                     " syntax highlighting
-set relativenumber                    " Display line numbers
+set number                    " Display line numbers
 set numberwidth=1             " using only 1 column (and 1 space) while possible
 set hidden
 set title                     " show title in console title bar
@@ -17,6 +17,7 @@ set undolevels=1000           " use many levels of undo
 set display=lastline
 set nojoinspaces " Use only 1 space after "." when joining lines, not 2"
 set showfulltag               " Show full tags when doing search completion
+set relativenumber            " show linenumber relative to line cursor is on
 setlocal keywordprg=:help     " Use K to show help on subject under cursor
 set backupdir=~/.tmp//
 set directory=~/.tmp//  "set directory for swapfiles
