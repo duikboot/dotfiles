@@ -20,6 +20,7 @@ local modules = {
     'duikboot.gitsigns',
     'duikboot.utils',
     'duikboot.luasnip',
+    'duikboot.hop',
     -- 'duikboot.sidebar'
     -- 'duikboot.buftabline',
     -- 'duikboot.orgmode'

@@ -460,13 +460,6 @@ EOF
 " nnoremap <silent><leader>ca :Lspsaga code_action<CR>
 " vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
 
-
-" inoremap <expr> <c-n>    compe#complete()
-" inoremap <silent><expr> <CR> compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
-" inoremap <expr> <C-e>        compe#close('<C-e>')
-" inoremap <expr> <C-f>        compe#scroll({ 'delta': +4 })
-" inoremap <expr> <C-d>        compe#scroll({ 'delta': -4 })
-
 autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
 
 

@@ -25,10 +25,12 @@ cmp.setup({
             behavior = cmp.ConfirmBehavior.Insert,
             select = true,
         },
+        -- ["<c-"] = cmp.mapping.complete()
     },
     sources = {
         { name = 'treesitter' },
         { name = 'nvim_lsp' },
+        { name = 'nvim_lua' },
         { name = 'buffer', keyword_length = 5 },
         { name = 'path' },
         -- For luasnip user.

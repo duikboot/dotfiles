@@ -11,11 +11,6 @@ require('neorg').setup {
             }
         },
 
-        ["core.norg.completion"] = { -- Manage your completions with Neorg
-            config = {
-                engine = "nvim-compe"
-            }
-        }
     },
 }
 
