@@ -51,7 +51,11 @@ cmp.setup({
                 luasnip = "[snip]",
             }
         })
-    }
+    },
+    experimental = {
+        native_menu = false,
+        ghost_text = true,
+    },
 })
 
 -- Setup lspconfig.
