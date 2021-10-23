@@ -39,7 +39,18 @@ cmp.setup({
     },
     preselect = types.cmp.PreselectMode.None,
     formatting = {
-        format = lspkind.cmp_format({with_text = true, maxwidth = 50})
+        format = lspkind.cmp_format({
+            with_text = true,
+            maxwidth = 50,
+            menu = {
+                treesitter = "[TS]",
+                nvim_lsp = "[LSP]",
+                nvim_lua = "[API]",
+                buffer = "[BUF]",
+                path = "[PATH]",
+                luasnip = "[snip]",
+            }
+        })
     }
 })
 
