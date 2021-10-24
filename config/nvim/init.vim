@@ -296,6 +296,7 @@ nnoremap gx :call netrw#BrowseX(expand("<cfile>"), netrw#CheckIfRemote())<CR>
 " nnoremap <leader>F :Fern . -reveal=% -drawer -toggle<cr>
 " nnoremap <c-e> :Fern . -reveal=% -drawer -toggle<cr>
 autocmd FileType netrw setlocal bufhidden=wipe
+autocmd FileType gitcommit setlocal spell
 
 " in command mode expand directory with current directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
