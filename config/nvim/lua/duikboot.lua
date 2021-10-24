@@ -10,7 +10,7 @@ local modules = {
     'duikboot.treesitter',
     'duikboot.telescope',
     'duikboot.neoclip',
-    'duikboot.saga',
+    -- 'duikboot.saga',
     -- 'duikboot.compe',
     'duikboot.cmp',
     'duikboot.refactoring',

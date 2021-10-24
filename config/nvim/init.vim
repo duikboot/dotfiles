@@ -296,7 +296,17 @@ nnoremap gx :call netrw#BrowseX(expand("<cfile>"), netrw#CheckIfRemote())<CR>
 " nnoremap <leader>F :Fern . -reveal=% -drawer -toggle<cr>
 " nnoremap <c-e> :Fern . -reveal=% -drawer -toggle<cr>
 autocmd FileType netrw setlocal bufhidden=wipe
-autocmd FileType gitcommit setlocal spell
+
+augroup gitcommitSpell
+    autocmd!
+    autocmd FileType gitcommit setlocal spell
+augroup END
+
+augroup markdownSpell
+    autocmd!
+    autocmd FileType markdown setlocal spell
+    autocmd BufRead,BufNewFile *.md setlocal spell
+augroup END
 
 " in command mode expand directory with current directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -457,9 +467,6 @@ lua <<EOF
 -- vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
 -- vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
 EOF
-
-" nnoremap <silent><leader>ca :Lspsaga code_action<CR>
-" vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
 
 autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
 
