@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
 Plug 'https://github.com/NLKNguyen/papercolor-theme'
+Plug 'https://github.com/folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'https://github.com/tjdevries/colorbuddy.vim'
 Plug 'https://github.com/Th3Whit3Wolf/onebuddy'
 Plug 'https://github.com/Th3Whit3Wolf/one-nvim'
