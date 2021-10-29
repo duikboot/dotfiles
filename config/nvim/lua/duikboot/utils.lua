@@ -8,9 +8,25 @@ function _G.copy_module_path ()
     vim.cmd('let @+="' .. path .. '""')
 end
 
+function _G.echo_filename ()
+    local path = vim.fn.expand('%')
+    -- print(path)
+    vim.api.nvim_echo({{path, 'None'}, {'', 'None'}}, false, {})
+end
+
+
 vim.api.nvim_set_keymap(
     'n',
     'cpp',
     '<Cmd>lua copy_module_path()<CR>',
     {noremap = true, silent = true}
 )
+
+vim.api.nvim_set_keymap(
+    'n',
+    '<localleader>sf',
+    '<Cmd>lua echo_filename()<CR>',
+    {noremap = true, silent = true}
+)
+-- autocmd BufRead,BufNewFile *.md set ft=markdown
+-- vim.cmd[[autocmd BufWinEnter * echo_filename()]]

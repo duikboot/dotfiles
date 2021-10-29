@@ -159,6 +159,8 @@ Plug 'https://github.com/tami5/sqlite.lua'
 
 Plug 'https://github.com/gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 
+Plug 'https://github.com/wesQ3/vim-windowswap'
+
 " Plug 'https://github.com/ggandor/lightspeed.nvim'
 
 
