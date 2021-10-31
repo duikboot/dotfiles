@@ -161,6 +161,8 @@ Plug 'https://github.com/gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'https://github.com/wesQ3/vim-windowswap'
 
+Plug 'https://github.com/code-biscuits/nvim-biscuits'
+
 " Plug 'https://github.com/ggandor/lightspeed.nvim'
 
 

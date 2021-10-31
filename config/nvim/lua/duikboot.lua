@@ -21,7 +21,8 @@ local modules = {
     'duikboot.utils',
     'duikboot.luasnip',
     'duikboot.hop',
-    'duikboot.tokyonight'
+    'duikboot.tokyonight',
+    'duikboot.biscuits',
     -- 'duikboot.sidebar'
     -- 'duikboot.buftabline',
     -- 'duikboot.orgmode'
