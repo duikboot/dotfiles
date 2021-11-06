@@ -43,15 +43,6 @@ require'nvim-treesitter.configs'.setup {
         select = {
             enable = true,
             lookahead = true,
-            -- keymaps = {
-            --   ["af"] = "@function.outer",
-            --   ["if"] = "@function.inner",
-
-            --   ["ac"] = "@conditional.outer",
-            --   ["ic"] = "@conditional.inner",
-
-            --   ["aa"] = "@parameter.outer",
-            --   ["ia"] = "@parameter.inner",
             keymaps = {
                 -- You can use the capture groups defined in textobjects.scm
                 ["af"] = "@function.outer",
@@ -60,6 +51,14 @@ require'nvim-treesitter.configs'.setup {
                 ["ic"] = "@class.inner",
                 ["ai"] = "@conditional.outer",
                 ["ii"] = "@conditional.inner",
+            --   ["af"] = "@function.outer",
+            --   ["if"] = "@function.inner",
+
+            --   ["ac"] = "@conditional.outer",
+            --   ["ic"] = "@conditional.inner",
+
+            --   ["aa"] = "@parameter.outer",
+            --   ["ia"] = "@parameter.inner",
 
             }
         },
