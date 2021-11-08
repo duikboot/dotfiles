@@ -33,10 +33,11 @@ functions are passed this structure as their first argument."
   (incf (input-line-position input)))
 
 (defparameter *stumptray-apps*
-  '("numlockx"
+  '(
+    "pasystray"
+    "numlockx"
     "nm-applet --sm-disable"
-    "blueman-applet"
-    "pasystray"))
+    "blueman-applet"))
     ; "octopi-notifier"
 
 (defun start-apps ()
