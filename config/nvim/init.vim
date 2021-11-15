@@ -502,20 +502,20 @@ nnoremap  <Leader>T :vs<CR><c-]>zz
 let g:SuperTabDefaultCompletionType = "<c-n>"
 " }}}
 
- " {{{ Airline
+ " " {{{ Airline
 
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'short_path'
+" " Enable the list of buffers
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#formatter = 'short_path'
 
-let g:airline_inactive_collapse = 0
+" let g:airline_inactive_collapse = 0
 
-let g:airline#extensions#tagbar#enabled = 0
+" let g:airline#extensions#tagbar#enabled = 0
 
 
-" }}}
+" " }}}
 
 " {{{ Add filename to register
 

@@ -1,10 +1,10 @@
-require('lualine').setup {
-  options = {
-    -- ... your lualine config
-    theme = 'tokyonight'
-    -- ... your lualine config
-  }
-}
+-- require('lualine').setup {
+--   options = {
+--     -- ... your lualine config
+--     theme = 'tokyonight'
+--     -- ... your lualine config
+--   }
+-- }
 
 -- vim.g.tokyonight_style = "storm"
 -- vim.g.tokyonight_italic_functions = true
@@ -15,3 +15,5 @@ require('lualine').setup {
 
 
 vim.cmd[[colorscheme tokyonight]]
+
+
