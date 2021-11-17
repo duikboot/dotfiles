@@ -745,7 +745,7 @@ autocmd FileType xml setlocal commentstring={#%s#}
 
 " {{{ telescope
 set report=2
-nnoremap <Leader>a      <cmd>lua require'duikboot.telescope'.grep_prompt()<CR>
+nnoremap <Leader>g      <cmd>lua require'duikboot.telescope'.grep_prompt()<CR>
 nnoremap <Leader>o      <cmd>lua require'telescope.builtin'.find_files{}<CR>
 nnoremap         gr     <cmd>lua require'telescope.builtin'.lsp_references{}<CR>
 nnoremap <leader>gc     <cmd>lua require'telescope.builtin'.git_commits{}<CR>

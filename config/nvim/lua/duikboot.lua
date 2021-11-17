@@ -13,7 +13,7 @@ local modules = {
     -- 'duikboot.saga',
     -- 'duikboot.compe',
     'duikboot.cmp',
-    -- 'duikboot.refactoring',
+    'duikboot.refactoring',
     'duikboot.treesitter_unit',
     'duikboot.neogit',
     'duikboot.neorg',
@@ -22,6 +22,7 @@ local modules = {
     'duikboot.luasnip',
     'duikboot.hop',
     'duikboot.tokyonight',
+    'duikboot.harpoon',
     -- 'duikboot.biscuits',
     -- 'duikboot.sidebar'
     -- 'duikboot.buftabline',

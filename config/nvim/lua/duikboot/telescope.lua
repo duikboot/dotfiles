@@ -1,6 +1,6 @@
-local telescope = require'telescope'
-local sorters = require'telescope.sorters'
-local actions = require'telescope.actions'
+local telescope = require("telescope")
+local sorters = require("telescope.sorters")
+local actions = require("telescope.actions")
 local trouble = require("trouble.providers.telescope")
 
 -- local pickers = require("telescope.pickers")
