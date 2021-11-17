@@ -5,46 +5,39 @@ if (status) then return lib end
 end
 
 local luasnip = prequire('luasnip')
+local snippets = luasnip.snippets
+local s = luasnip.snippet
+local sn = luasnip.snippet_node
+local tn = luasnip.text_node
+local i = luasnip.insert_node
+local f = luasnip.function_node
+local c = luasnip.choice_node
+local d = luasnip.dynamic_node
 
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
-local check_back_space = function()
-    local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
-    end
-end
+snippets.python =  {
+    s({
+        trig = 'from',
+        name = 'from … import …',
+        dscr = {
+            'import from module',
+        },
+    }, {
+            tn { 'from ' },
+            i(1, ''),
+            tn { ' import ' },
+            i(0, ''),
+        }),
+}
 
-_G.tab_complete = function()
-    if vim.fn.pumvisible() == 1 then
-        return t "<C-n>"
-    elseif luasnip and luasnip.expand_or_jumpable() then
-        return t "<Plug>luasnip-expand-or-jump"
-    elseif check_back_space() then
-        return t "<Tab>"
-    -- else
-    --     return vim.fn['compe#complete']()
-    end
-end
-_G.s_tab_complete = function()
-    if vim.fn.pumvisible() == 1 then
-        return t "<C-p>"
-    elseif luasnip and luasnip.jumpable(-1) then
-        return t "<Plug>luasnip-jump-prev"
-    else
-        return t "<S-Tab>"
-    end
-end
-
-require("luasnip/loaders/from_vscode").load()
-vim.cmd [[
-  imap <silent><expr> <c-k> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<c-k>'
-  inoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<CR>
-  imap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-l>'
-  snoremap <silent> <c-k> <cmd>lua require('luasnip').jump(1)<CR>
-  snoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<CR>
+    require("luasnip/loaders/from_vscode").load()
+        vim.cmd [[
+        imap <silent><expr> <c-k> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<c-k>'
+        inoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<CR>
+        imap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-l>'
+        snoremap <silent> <c-k> <cmd>lua require('luasnip').jump(1)<CR>
+        snoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<CR>
 ]]

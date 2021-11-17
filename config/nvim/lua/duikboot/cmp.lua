@@ -21,7 +21,7 @@ cmp.setup({
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-e>"] = cmp.mapping.close(),
-        ["<c-y>"] = cmp.mapping.confirm {
+        ["<enter>"] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Insert,
             select = true,
         },
@@ -30,14 +30,14 @@ cmp.setup({
     sources = {
         { name = 'treesitter' },
         { name = 'nvim_lsp' },
+        { name = 'luasnip' },
         { name = 'nvim_lua' },
         { name = 'buffer', keyword_length = 5 },
         { name = 'path' },
         -- For luasnip user.
-        { name = 'luasnip' },
         -- { name = 'look', keyword_length = 5}
     },
-    preselect = types.cmp.PreselectMode.None,
+    -- preselect = types.cmp.PreselectMode.Item,
     formatting = {
         format = lspkind.cmp_format({
             with_text = true,

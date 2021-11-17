@@ -3,6 +3,19 @@ local sorters = require'telescope.sorters'
 local actions = require'telescope.actions'
 local trouble = require("trouble.providers.telescope")
 
+-- local pickers = require("telescope.pickers")
+-- local finders = require("telescope.finders")
+
+-- local input = {'rg', '--line-number', '--column', ''}
+
+-- local opts = {
+--     finder = finders.new_oneshot_job(input),
+--     sorter = sorters.get_generic_fuzzy_sorter()
+-- }
+
+-- local picker = pickers.new(opts)
+-- picker:find()
+
 
 telescope.setup{
     defaults = {
