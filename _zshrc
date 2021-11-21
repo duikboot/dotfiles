@@ -104,7 +104,6 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 # Customize to your needs...
-export PATH=$HOME/bin:$HOME/.cabal/bin:$HOME/.local/bin:$HOME/local/bin:$HOME/bin/racket/bin:$HOME/.roswell/bin:$PATH
 
 
 if [ -f .venv/bin/activate ];
@@ -114,6 +113,11 @@ fi
 if [ -f ENV/bin/activate ];
 then
   source ENV/bin/activate
+fi
+
+if [ -n "$GUIX_ENVIRONMENT" ]
+then
+    export PS1="%n at %M [%~][dev]\$ "
 fi
 
 # if [ -d src ];
@@ -130,7 +134,6 @@ alias hgg='hg glog'
 
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_COMPLETION_OPTS='--tiebreak=begin,length'
 
@@ -139,5 +142,3 @@ export FZF_COMPLETION_OPTS='--tiebreak=begin,length'
 
 export SWIVM_DIR="/home/arjen/.swivm"
 [ -s "$SWIVM_DIR/swivm.sh" ] && . "$SWIVM_DIR/swivm.sh"  # This loads swivm
-
-export PATH="$HOME/.poetry/bin:$PATH"
