@@ -432,7 +432,8 @@ endif
 
 " https://github.com/junegunn/fzf.vim/issues/647#issuecomment-520259307
 
-nnoremap <leader>y :Telescope neoclip<cr>
+" nnoremap <leader>y :Telescope neoclip<cr>
+nnoremap <leader>y :Registers<cr>
 
 " }}}
 
@@ -745,7 +746,7 @@ autocmd FileType xml setlocal commentstring={#%s#}
 
 " {{{ telescope
 set report=2
-nnoremap <Leader>g      <cmd>lua require'duikboot.telescope'.grep_prompt()<CR>
+nnoremap cg      <cmd>lua require'duikboot.telescope'.grep_prompt()<CR>
 nnoremap <Leader>o      <cmd>lua require'telescope.builtin'.find_files{}<CR>
 nnoremap         gr     <cmd>lua require'telescope.builtin'.lsp_references{}<CR>
 nnoremap <leader>gc     <cmd>lua require'telescope.builtin'.git_commits{}<CR>

@@ -136,7 +136,7 @@ Plug 'https://github.com/windwp/nvim-spectre'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 " Plug 'https://github.com/gabrielpoca/replacer.nvim'
 
-" Plug 'https://github.com/tversteeg/registers.nvim'
+Plug 'https://github.com/tversteeg/registers.nvim'
 
 Plug 'https://github.com/folke/lsp-colors.nvim'
 Plug 'https://github.com/simrat39/symbols-outline.nvim'
