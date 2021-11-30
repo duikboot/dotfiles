@@ -137,8 +137,10 @@ export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
 export FZF_COMPLETION_OPTS='--tiebreak=begin,length'
 
-# vim: ft=zsh sw=2 ts=2 et
-
 
 export SWIVM_DIR="/home/arjen/.swivm"
 [ -s "$SWIVM_DIR/swivm.sh" ] && . "$SWIVM_DIR/swivm.sh"  # This loads swivm
+#
+# vim: ft=zsh sw=2 ts=2 et
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

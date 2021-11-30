@@ -163,6 +163,7 @@ Plug 'https://github.com/wesQ3/vim-windowswap'
 
 Plug 'https://github.com/ThePrimeagen/harpoon'
 
+Plug 'https://github.com/Olical/vim-expand'
 " Plug 'https://github.com/ggandor/lightspeed.nvim'
 
 
