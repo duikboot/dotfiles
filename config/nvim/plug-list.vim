@@ -166,6 +166,5 @@ Plug 'https://github.com/ThePrimeagen/harpoon'
 Plug 'https://github.com/Olical/vim-expand'
 " Plug 'https://github.com/ggandor/lightspeed.nvim'
 
-
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
