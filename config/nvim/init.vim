@@ -409,6 +409,7 @@ autocmd VimResized * silent! :wincmd =
 autocmd FileType vim setlocal foldmarker={{{,}}}
 autocmd FileType vim setlocal foldmethod=marker
 autocmd FileType vim setlocal foldlevel=1
+
 autocmd BufNewFile * silent! 0r ~/Templates/%:e.tpl
 
 "let g:csv_no_conceal=1
