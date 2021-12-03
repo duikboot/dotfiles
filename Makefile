@@ -37,6 +37,11 @@ zprofile:
 	-rm ${HOME_DIR}/.$@
 	ln -s ${PWD}/_$@ ${HOME_DIR}/.$@
 
+.PHONY: profile
+profile:
+	-rm ${HOME_DIR}/.$@
+	ln -s ${PWD}/_$@ ${HOME_DIR}/.$@
+
 .PHONY: zsh
 zsh: oh-my-zsh
 	-rm ${HOME_DIR}/.$@

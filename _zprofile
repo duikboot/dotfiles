@@ -11,12 +11,3 @@ export GDK_CORE_DEVICE_EVENTS=1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH=$HOME/bin:$HOME/.cabal/bin:$HOME/.local/bin:$HOME/local/bin:$HOME/bin/racket/bin:$HOME/.roswell/bin:$PATH
-
-export PATH="$HOME/.poetry/bin:$PATH"
-
-export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
-# export GUIX_PROFILE="$HOME/.guix-profile"
-
-export GUIX_PROFILE="$HOME/.config/guix/current"
-. "$GUIX_PROFILE/etc/profile"
