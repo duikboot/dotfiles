@@ -39,15 +39,45 @@ function Toggle_diagnostics()
     end
 end
 
+-- local nnoremap = vim.keymap.nnoremap
 
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = true,
-        signs = true,
-        update_in_insert = false,
-        underline = false
-    }
-)
+vim.diagnostic.config {
+  underline = false,
+  virtual_text = {
+    severity = nil,
+    source = "if_many",
+    format = nil,
+  },
+  signs = true,
+
+  -- options for floating windows:
+  float = {
+    show_header = true,
+  },
+
+  -- general purpose
+  severity_sort = true,
+  update_in_insert = false,
+}
+
+
+-- nnoremap {
+--   "<space>sl",
+--   function()
+--     vim.diagnostic.open_float(0, {
+--       scope = "line",
+--     })
+--   end,
+-- }
+
+-- vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+--     vim.lsp.diagnostic.on_publish_diagnostics, {
+--         virtual_text = true,
+--         signs = true,
+--         update_in_insert = false,
+--         underline = false
+--     }
+-- )
 
 local on_init = function()
     print("LSP Started")
@@ -78,6 +108,11 @@ local on_attach_vim_plus_keymaps = function(client)
         '<leader>dp',
         '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'
     )
+    -- Mapper(
+    --     'n',
+    --     '<leader>sl',
+    --     '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<cr>'
+    -- )
     Mapper("n", "<leader>ta", '<cmd>lua Toggle_diagnostics()<cr>')
     Mapper('n', '<leader>dl', '<cmd> lua vim.lsp.diagnostic.set_loclist()<CR>')
     Mapper('n', '<leader>td', '<cmd> lua vim.lsp.buf.type_definition()<CR>')
