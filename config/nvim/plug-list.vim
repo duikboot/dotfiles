@@ -170,6 +170,8 @@ Plug 'https://github.com/Vimjas/vim-python-pep8-indent'
 
 Plug 'https://github.com/renerocksai/telekasten.nvim'
 Plug 'https://github.com/renerocksai/calendar-vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'https://github.com/nvim-telescope/telescope-media-files.nvim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
