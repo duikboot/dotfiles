@@ -168,5 +168,8 @@ Plug 'https://github.com/Olical/vim-expand'
 
 Plug 'https://github.com/Vimjas/vim-python-pep8-indent'
 
+Plug 'https://github.com/renerocksai/telekasten.nvim'
+Plug 'https://github.com/renerocksai/calendar-vim'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
