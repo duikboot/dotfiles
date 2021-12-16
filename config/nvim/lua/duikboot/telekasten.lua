@@ -39,7 +39,7 @@ require('telekasten').setup({
     plug_into_calendar = true,
     calendar_opts = {
         -- calendar week display mode: 1 .. 'WK01', 2 .. 'WK 1', 3 .. 'KW01', 4 .. 'KW 1', 5 .. '1'
-        weeknm = 4,
+        weeknm = 1,
         -- use monday as first day of week: 1 .. true, 0 .. false
         calendar_monday = 1,
         -- calendar mark: where to put mark for marked days: 'left', 'right', 'left-fit'
@@ -49,6 +49,7 @@ require('telekasten').setup({
     -- telescope actions behavior
     close_after_yanking = false,
     insert_after_inserting = true,
+    take_over_my_home = true,
 
     -- make syntax available to markdown buffers and telescope previewers
     install_syntax = true,
@@ -78,6 +79,7 @@ nnoremap <leader>zF :lua require('telekasten').find_friends()<CR>
 nnoremap <leader>zI :lua require('telekasten').insert_img_link({ i=true })<CR>
 nnoremap <leader>zp :lua require('telekasten').preview_img()<CR>
 nnoremap <leader>zm :lua require('telekasten').browse_media()<CR>
+nnoremap <leader># :lua require('telekasten').show_tags()<CR>
 
 " we could define [[ in **insert mode** to call insert link
 " inoremap [[ <ESC>:lua require('telekasten').insert_link()<CR>
