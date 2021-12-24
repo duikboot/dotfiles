@@ -84,8 +84,8 @@ nnoremap <leader># :lua require('telekasten').show_tags()<CR>
 " we could define [[ in **insert mode** to call insert link
 " inoremap [[ <ESC>:lua require('telekasten').insert_link()<CR>
 " alternatively: leader [
-inoremap <leader>[ <ESC>:lua require('telekasten').insert_link({ i=true })<CR>
-inoremap <leader>zt <ESC>:lua require('telekasten').toggle_todo({ i=true })<CR>
+" inoremap <localleader>[ <ESC>:lua require('telekasten').insert_link({ i=true })<CR>
+" inoremap <localleader>zt <ESC>:lua require('telekasten').toggle_todo({ i=true })<CR>
 
 
 ]]
