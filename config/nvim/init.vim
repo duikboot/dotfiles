@@ -201,6 +201,7 @@ let g:nvcode_termcolors=256
 " let g:material_style = 'palenight'
 " let g:material_italic_comments=1
 " colorscheme one-nvim
+colorscheme everforest
 
 "Vim-Script:
 

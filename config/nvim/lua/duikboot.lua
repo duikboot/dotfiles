@@ -21,7 +21,7 @@ local modules = {
     'duikboot.utils',
     'duikboot.luasnip',
     'duikboot.hop',
-    'duikboot.tokyonight',
+    -- 'duikboot.tokyonight',
     'duikboot.harpoon',
     'duikboot.telekasten',
     -- 'duikboot.biscuits',
