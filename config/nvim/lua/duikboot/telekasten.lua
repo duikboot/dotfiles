@@ -30,6 +30,8 @@ require('telekasten').setup({
     -- set to `nil` or do not specify if you do not want a template
     template_new_weekly= home .. '/' .. 'templates/weekly.md',
 
+    template_handling = "smart",
+
     -- image link style
     -- wiki:     ![[image name]]
     -- markdown: ![](image_subdir/xxxxx.png)
