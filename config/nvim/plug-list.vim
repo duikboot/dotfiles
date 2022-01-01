@@ -47,9 +47,10 @@ Plug 'https://github.com/bhurlow/vim-parinfer'
 Plug 'https://github.com/dense-analysis/ale'
 
 Plug 'https://github.com/vim-scripts/vcscommand.vim'
-Plug 'https://github.com/simnalamburt/vim-mundo'
+Plug 'https://github.com/simnalamburtvim-mundo'
 " Plug 'https://github.com/Raimondi/delimitMate'
-Plug 'https://github.com/cohama/lexima.vim'
+" Plug 'https://github.com/cohama/lexima.vim'
+Plug 'https://github.com/windwp/nvim-autopairs'
 Plug 'https://github.com/lifepillar/vim-gruvbox8'
 Plug 'https://github.com/romainl/vim-cool'
 Plug 'https://github.com/arzg/vim-colors-xcode'
@@ -151,8 +152,8 @@ Plug 'https://github.com/jose-elias-alvarez/buftabline.nvim'
 Plug 'https://github.com/theHamsta/nvim-treesitter-commonlisp'
 
 " Plug 'https://github.com/kristijanhusak/orgmode.nvim'
-Plug 'https://github.com/vhyrro/neorg'
-Plug 'https://github.com/weilbith/nvim-code-action-menu'
+" Plug 'https://github.com/vhyrro/neorg'
+" Plug 'https://github.com/weilbith/nvim-code-action-menu'
 
 Plug 'https://github.com/AckslD/nvim-neoclip.lua'
 Plug 'https://github.com/tami5/sqlite.lua'
@@ -172,6 +173,7 @@ Plug 'https://github.com/renerocksai/telekasten.nvim'
 Plug 'https://github.com/renerocksai/calendar-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'https://github.com/nvim-telescope/telescope-media-files.nvim'
+Plug 'https://github.com/nvim-telescope/telescope-symbols.nvim'
 
 Plug 'https://github.com/sainnhe/everforest'
 

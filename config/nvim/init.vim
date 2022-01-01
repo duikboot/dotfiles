@@ -643,7 +643,7 @@ autocmd BufRead,BufNewFile *.md set ft=markdown
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 let g:delimitMate_excluded_ft = 'clojure,lisp'
 
-autocmd FileType lisp let b:lexima_disabled = 1
+" autocmd FileType lisp let b:lexima_disabled = 1
 
 " }}}
 

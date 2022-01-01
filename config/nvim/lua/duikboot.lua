@@ -24,6 +24,7 @@ local modules = {
     -- 'duikboot.tokyonight',
     'duikboot.harpoon',
     'duikboot.telekasten',
+    'duikboot.autopairs',
     -- 'duikboot.biscuits',
     -- 'duikboot.sidebar'
     -- 'duikboot.buftabline',
