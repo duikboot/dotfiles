@@ -51,7 +51,7 @@ zsh: oh-my-zsh
 vim-venv:
 	rm -rf $(VIM_VIRTUALENV)
 	mkdir -p $(VIM_VIRTUALENV)
-	python3 -m venv  $(VIM_VIRTUALENV)
+	python3.9 -m venv  $(VIM_VIRTUALENV)
 	$(VIM_VIRTUALENV)//bin/pip install pip -U
 	$(VIM_VIRTUALENV)/bin/pip install -r config/nvim/requirements.txt
 

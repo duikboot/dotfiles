@@ -780,29 +780,29 @@ nnoremap <leader>cp :lua require("contextprint").add_statement()<CR>
 
 " {{{ symbols-outline
 
-lua <<EOF
+" lua <<EOF
 
-require('symbols-outline')
+" require('symbols-outline')
 
-vim.g.symbols_outline = {
-    highlight_hovered_item = true,
-    show_guides = true,
-    auto_preview = false, -- experimental
-    position = 'right',
-    keymaps = {
-        close = "<Esc>",
-        goto_location = "<Cr>",
-        focus_location = "o",
-        hover_symbol = "<C-space>",
-        rename_symbol = "r",
-        code_actions = "a",
-    },
-    lsp_blacklist = {"pylsp"},
-}
+" vim.g.symbols_outline = {
+"     highlight_hovered_item = true,
+"     show_guides = true,
+"     auto_preview = false, -- experimental
+"     position = 'right',
+"     keymaps = {
+"         close = "<Esc>",
+"         goto_location = "<Cr>",
+"         focus_location = "o",
+"         hover_symbol = "<C-space>",
+"         rename_symbol = "r",
+"         code_actions = "a",
+"     },
+"     lsp_blacklist = {"pylsp"},
+" }
 
-EOF
+" EOF
 
-nnoremap <leader>O <cmd>lua require'symbols-outline'.toggle_outline{}<cr>
+" nnoremap <leader>O <cmd>lua require'symbols-outline'.toggle_outline{}<cr>
 
 " }}} symbols-outline
 
