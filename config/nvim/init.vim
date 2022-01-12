@@ -815,7 +815,7 @@ let g:ale_python_mypy_executable = g:python3_host_prog_bin . 'mypy'
 let g:ale_python_isort_executable = g:python3_host_prog_bin . 'isort'
 let g:ale_python_yapf_executable = g:python3_host_prog_bin . 'yapf'
 let g:ale_python_autopep8_executable = g:python3_host_prog_bin . 'autopep8'
-" let g:ale_python_autopep8_executable = g:python3_host_prog_bin . 'prospector'
+let g:ale_python_prospector_executable = g:python3_host_prog_bin . 'prospector'
 " let g:pymode_rope_autoimport = 1
 " TEMPORARY!!
 " let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
@@ -842,40 +842,3 @@ call wilder#setup({'modes': [':', '/', '?']})
 
 " }}}
 
-" Overwrite / and ?.
-nnoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
-nnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
-xnoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
-xnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
-cnoremap ; <Cmd>call searchx#select()<CR>
-
-" Move to next/prev match.
-nnoremap N <Cmd>call searchx#prev()<CR>
-nnoremap n <Cmd>call searchx#next()<CR>
-xnoremap N <Cmd>call searchx#prev()<CR>
-xnoremap n <Cmd>call searchx#next()<CR>
-" nnoremap <C-k> <Cmd>call searchx#prev()<CR>
-" nnoremap <C-j> <Cmd>call searchx#next()<CR>
-" xnoremap <C-k> <Cmd>call searchx#prev()<CR>
-" xnoremap <C-j> <Cmd>call searchx#next()<CR>
-" cnoremap <C-k> <Cmd>call searchx#prev()<CR>
-" cnoremap <C-j> <Cmd>call searchx#next()<CR>
-
-" Clear highlights
-"nnoremap <C-l> <Cmd>call searchx#clear()<CR>
-
-let g:searchx = {}
-
-" Auto jump if the recent input matches to any marker.
-let g:searchx.auto_accept = v:true
-
-" Marker characters.
-let g:searchx.markers = split('ABCDEFGHIJKLMNOPQRSTUVWXYZ', '.\zs')
-
-" Convert search pattern.
-function g:searchx.convert(input) abort
-  if a:input !~# '\k'
-    return '\V' .. a:input
-  endif
-  return join(split(a:input, ' '), '.\{-}')
-endfunction
