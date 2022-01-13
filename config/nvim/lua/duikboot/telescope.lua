@@ -27,16 +27,16 @@ telescope.setup{
         -- },
         file_sorter = sorters.get_fzy_sorter,
         -- file_ignore_patterns = {"%js"},
-        mappings = {
-            i = {
-                ["<C-x>"] = actions.send_to_qflist + actions.open_qflist,
-                ["<c-t>"] = trouble.open_with_trouble,
-            },
-            n = {
-                ["<C-x>"] = actions.send_to_qflist + actions.open_qflist,
-                ["<c-t>"] = trouble.open_with_trouble,
-            },
-        }
+        -- mappings = {
+        --     i = {
+        --         ["<C-x>"] = actions.send_to_qflist + actions.open_qflist,
+        --         ["<c-t>"] = trouble.open_with_trouble,
+        --     },
+        --     n = {
+        --         ["<C-x>"] = actions.send_to_qflist + actions.open_qflist,
+        --         ["<c-t>"] = trouble.open_with_trouble,
+        --     },
+        -- }
     },
     pickers = {
         current_buffer_fuzzy_find = {

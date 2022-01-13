@@ -754,6 +754,7 @@ nnoremap <leader>gc     <cmd>lua require'telescope.builtin'.git_commits{}<CR>
 nnoremap <leader>gs     <cmd>lua require'telescope.builtin'.git_status{}<CR>
 nnoremap <leader>lg     <cmd>lua require'telescope.builtin'.live_grep{}<CR>
 nnoremap <leader>b      <cmd>lua require'telescope.builtin'.buffers{}<CR>
+nnoremap <localleader>d      <cmd>lua require'telescope.builtin'.diagnostics{}<CR>
 nnoremap <leader>t      <cmd>lua require'telescope.builtin'.tags{only_sort_tags=true}<CR>
 nnoremap <leader>*      <cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <localleader>f <cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>
@@ -806,30 +807,33 @@ nnoremap <leader>cp :lua require("contextprint").add_statement()<CR>
 
 " }}} symbols-outline
 
-" {{{ ALE
-let g:ale_python_flake8_executable = g:python3_host_prog_bin . 'flake8'
-let g:ale_python_pycodestyle_executable = g:python3_host_prog_bin . 'pycodestyle'
-let g:ale_python_pylint_executable = g:python3_host_prog_bin . 'pyflakes'
-let g:ale_python_vulture_executable = g:python3_host_prog_bin . 'vulture'
-let g:ale_python_mypy_executable = g:python3_host_prog_bin . 'mypy'
-let g:ale_python_isort_executable = g:python3_host_prog_bin . 'isort'
-let g:ale_python_yapf_executable = g:python3_host_prog_bin . 'yapf'
-let g:ale_python_autopep8_executable = g:python3_host_prog_bin . 'autopep8'
-let g:ale_python_prospector_executable = g:python3_host_prog_bin . 'prospector'
-" let g:pymode_rope_autoimport = 1
-" TEMPORARY!!
-" let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
-" let g:ale_python_pylint_options = "--load-plugins pylint_django"
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_python_pylint_options='--disable=C0111,R0903 --load-plugins pylint_django'
-let g:ale_python_flake8_options='--ignore=H301 --max-complexity=10'
-let g:ale_python_mypy_options = '--ignore-missing-imports'
+" " {{{ ALE
+" let g:ale_python_flake8_executable = g:python3_host_prog_bin . 'flake8'
+" let g:ale_python_pycodestyle_executable = g:python3_host_prog_bin . 'pycodestyle'
+" let g:ale_python_pylint_executable = g:python3_host_prog_bin . 'pylint'
+" let g:ale_python_vulture_executable = g:python3_host_prog_bin . 'vulture'
+" let g:ale_python_mypy_executable = g:python3_host_prog_bin . 'mypy'
+" let g:ale_python_isort_executable = g:python3_host_prog_bin . 'isort'
+" let g:ale_python_yapf_executable = g:python3_host_prog_bin . 'yapf'
+" let g:ale_python_autopep8_executable = g:python3_host_prog_bin . 'autopep8'
+" let g:ale_python_prospector_executable = g:python3_host_prog_bin . 'prospector'
+" " let g:pymode_rope_autoimport = 1
+" " TEMPORARY!!
+" " let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
+" " let g:ale_python_pylint_options = "--load-plugins pylint_django"
+" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" let g:ale_python_pylint_options='--load-plugins=pylint_django'
+" let g:ale_python_flake8_options='--ignore=H301 --max-complexity=10'
+" let g:ale_python_mypy_options = '--ignore-missing-imports'
 
-let b:ale_virtualenv_dir_names=['ENV', '.env', '.venv']
+" let b:ale_virtualenv_dir_names=['ENV', '.env', '.venv']
 
- let g:ale_linters = {
-            \ 'python' : ['prospector', 'mypy'],
- \ }
+"  " let g:ale_linters = {
+"  "            \ 'python' : ['prospector', 'mypy'],
+"  " \ }
+"  let g:ale_linters = {
+"             \ 'python' : ['prospector'],
+"  \ }
 
  nnoremap <localleader>a8 :Black<cr>
 

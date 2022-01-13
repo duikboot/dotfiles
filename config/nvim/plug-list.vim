@@ -44,7 +44,7 @@ Plug 'https://github.com/Olical/vim-enmasse'
 " Plug 'https://github.com/eraserhd/parinfer-rust', {'do':  'cargo build --release'}
 Plug 'https://github.com/bhurlow/vim-parinfer'
 " Plug 'https://github.com/guns/vim-sexp'
-Plug 'https://github.com/dense-analysis/ale'
+" Plug 'https://github.com/dense-analysis/ale'
 
 Plug 'https://github.com/vim-scripts/vcscommand.vim'
 Plug 'https://github.com/simnalamburt/vim-mundo'
