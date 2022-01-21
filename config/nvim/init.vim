@@ -608,7 +608,10 @@ nnoremap <localleader>c :call <SID>ConnectVlimeToStumpwm()<CR>
 " {{{ Abbreviations
 
 iabbrev @@ dijkstra.arjen@gmail.com
+iabbrev teh the
+
 " iabbrev /\ (lambda )
+
 " }}}
 
 " {{{ Tmux
@@ -749,6 +752,7 @@ autocmd FileType xml setlocal commentstring={#%s#}
 set report=2
 nnoremap cg      <cmd>lua require'duikboot.telescope'.grep_prompt()<CR>
 nnoremap <Leader>o      <cmd>lua require'telescope.builtin'.find_files{}<CR>
+nnoremap <Leader>fb     :Telescope file_browser<CR>
 nnoremap         gr     <cmd>lua require'telescope.builtin'.lsp_references{}<CR>
 nnoremap <leader>gc     <cmd>lua require'telescope.builtin'.git_commits{}<CR>
 nnoremap <leader>gs     <cmd>lua require'telescope.builtin'.git_status{}<CR>
@@ -762,6 +766,13 @@ nnoremap <localleader>f <cmd>lua require'telescope.builtin'.current_buffer_fuzzy
 nnoremap <leader>fv     <cmd>lua require'duikboot.telescope'.find_virtual_env()<cr>
 
 " }}
+
+lua <<EOF
+local sidebar = require("sidebar-nvim")
+local opts = {open = true}
+sidebar.setup(opts)
+
+EOF
 
 " {{{ lsp-trouble
 

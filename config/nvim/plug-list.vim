@@ -174,8 +174,10 @@ Plug 'https://github.com/renerocksai/calendar-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'https://github.com/nvim-telescope/telescope-media-files.nvim'
 Plug 'https://github.com/nvim-telescope/telescope-symbols.nvim'
+Plug 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
 
 Plug 'https://github.com/sainnhe/everforest'
+Plug 'https://github.com/sidebar-nvim/sidebar.nvim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
