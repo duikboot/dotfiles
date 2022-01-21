@@ -767,12 +767,12 @@ nnoremap <leader>fv     <cmd>lua require'duikboot.telescope'.find_virtual_env()<
 
 " }}
 
-lua <<EOF
-local sidebar = require("sidebar-nvim")
-local opts = {open = true}
-sidebar.setup(opts)
+" lua <<EOF
+" local sidebar = require("sidebar-nvim")
+" local opts = {open = true}
+" sidebar.setup(opts)
 
-EOF
+" EOF
 
 " {{{ lsp-trouble
 

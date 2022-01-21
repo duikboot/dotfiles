@@ -177,7 +177,7 @@ Plug 'https://github.com/nvim-telescope/telescope-symbols.nvim'
 Plug 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
 
 Plug 'https://github.com/sainnhe/everforest'
-Plug 'https://github.com/sidebar-nvim/sidebar.nvim'
+" Plug 'https://github.com/sidebar-nvim/sidebar.nvim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
