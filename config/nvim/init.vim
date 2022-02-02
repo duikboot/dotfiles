@@ -846,7 +846,7 @@ nnoremap <leader>cp :lua require("contextprint").add_statement()<CR>
 "             \ 'python' : ['prospector'],
 "  \ }
 
- nnoremap <localleader>a8 :Black<cr>
+ " nnoremap <localleader>a8 :Black<cr>
 
 
 " }}}

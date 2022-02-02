@@ -128,6 +128,7 @@ local on_attach_vim_plus_keymaps = function(client)
     Mapper('n', 'gW',         '<cmd> lua vim.lsp.buf.workspace_symbol()<CR>')
     Mapper('n', '<leader>gd', '<cmd> lua vim.lsp.buf.declaration()<CR>')
     Mapper('n', '<c-]>',      '<cmd> lua vim.lsp.buf.definition()<CR>')
+    Mapper('n', '<localleader>a8',      '<cmd> lua vim.lsp.buf.formatting()<CR>')
 end
 
 -- From the lspconfig repo
