@@ -1,6 +1,7 @@
 local telescope = require("telescope")
 local sorters = require("telescope.sorters")
 local actions = require("telescope.actions")
+local finders = require("telescope.finders")
 local trouble = require("trouble.providers.telescope")
 
 -- local pickers = require("telescope.pickers")
@@ -81,6 +82,17 @@ M.grep_prompt = function()
     }
 end
 
+local fetch_input = function()
+    local input = vim.fn.input("Tag list String > ")
+    return io.open('readtags -t tags' .. input)
+end
+
+M.tag_list = function()
+    require('telescope.builtin').grep_string{
+        shorten_path = false,
+        search = fetch_input(),
+    }
+end
 
 M.find_virtual_env = function()
     require('telescope.builtin').find_files({

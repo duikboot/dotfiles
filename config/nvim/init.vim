@@ -455,21 +455,8 @@ nnoremap <leader>y :Registers<cr>
 
 " {{{ LSP
 
-lua require'nvim-web-devicons'.setup()
+
 lua pcall(require, 'duikboot')
-lua require'lsp_signature'.on_attach()
-
-lua <<EOF
--- vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
--- vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler
--- vim.lsp.handlers['textDocument/definition'] = require'lsputil.locations'.definition_handler
--- vim.lsp.handlers['textDocument/declaration'] = require'lsputil.locations'.declaration_handler
--- vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typeDefinition_handler
--- vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
--- vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
--- vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
-EOF
-
 autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
 
 
@@ -764,6 +751,7 @@ nnoremap <leader>*      <cmd>lua require('telescope.builtin').grep_string { sear
 nnoremap <localleader>f <cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>
 
 nnoremap <leader>fv     <cmd>lua require'duikboot.telescope'.find_virtual_env()<cr>
+nnoremap <leader>tl     <cmd>lua require'duikboot.telescope'.tag_list()<cr>
 
 " }}
 
@@ -776,7 +764,7 @@ nnoremap <leader>fv     <cmd>lua require'duikboot.telescope'.find_virtual_env()<
 
 " {{{ lsp-trouble
 
-nnoremap <leader>xx <cmd>TroubleToggle lsp_document_diagnostics<cr>
+nnoremap <leader>xx <cmd>TroubleToggle document_diagnostics<cr>
 
 autocmd FileType python let b:lsp_current_function = ''
 " autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()

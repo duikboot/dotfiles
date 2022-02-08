@@ -61,24 +61,6 @@ vim.diagnostic.config {
 }
 
 
--- nnoremap {
---   "<space>sl",
---   function()
---     vim.diagnostic.open_float(0, {
---       scope = "line",
---     })
---   end,
--- }
-
--- vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
---     vim.lsp.diagnostic.on_publish_diagnostics, {
---         virtual_text = true,
---         signs = true,
---         update_in_insert = false,
---         underline = false
---     }
--- )
-
 local on_init = function()
     print("LSP Started")
 end
@@ -201,6 +183,8 @@ require("trouble").setup {
     -- refer to the configuration section below
 }
 
+require'nvim-web-devicons'.setup()
+require'lsp_signature'.on_attach()
 -- lspconfig.pylsp.setup({
 --      on_attach=on_attach_vim_plus_keymaps,
 --      on_init=on_init,
