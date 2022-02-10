@@ -4,43 +4,6 @@ local vim = vim
 
 local lspconfig = require'lspconfig'
 
--- vim.lsp.set_log_level("info")
-
-
--- local on_attach_vim = function(client, bufnr)
---     require'completion'.on_attach(client, bufnr)
--- end
-
-vim.b.lsp_diagnostics_enabled = true
-
-local function disable()
-    vim.b.lsp_diagnostics_enabled = false
-
-    -- Clear existing diagnostics
-    local clients = vim.lsp.get_active_clients()
-    for _, client in pairs(clients) do
-        vim.lsp.diagnostic.clear(vim.fn.bufnr(), client.id, nil, nil)
-    end
-end
-
-local function enable()
-    vim.b.lsp_diagnostics_enabled = true
-
-    -- Cheat and reload the file to trigger a `publishDiagnostics` event.
-    -- TODO: Find a way to actually reload the thing :(
-    vim.cmd('edit')
-end
-
-function Toggle_diagnostics()
-    if vim.b.lsp_diagnostics_enabled then
-        disable()
-    else
-        enable()
-    end
-end
-
--- local nnoremap = vim.keymap.nnoremap
-
 vim.diagnostic.config {
   underline = false,
   virtual_text = {
@@ -95,7 +58,6 @@ local on_attach_vim_plus_keymaps = function(client)
     --     '<leader>sl',
     --     '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<cr>'
     -- )
-    Mapper("n", "<leader>ta", '<cmd>lua Toggle_diagnostics()<cr>')
     Mapper('n', '<leader>dl', '<cmd> lua vim.lsp.diagnostic.set_loclist()<CR>')
     Mapper('n', '<leader>td', '<cmd> lua vim.lsp.buf.type_definition()<CR>')
     Mapper('n', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>')
@@ -113,6 +75,12 @@ local on_attach_vim_plus_keymaps = function(client)
     Mapper('n', '<localleader>a8',      '<cmd> lua vim.lsp.buf.formatting()<CR>')
 end
 
+local signature = function(client, bufnr)
+    on_attach_vim_plus_keymaps(client)
+    require("lsp_signature").on_attach()
+end
+
+
 -- From the lspconfig repo
 
 -- set the path to the sumneko installation; if you ereviously installed via the now deprecated :LspInstall, use
@@ -120,7 +88,7 @@ local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-l
 local sumneko_binary = "/bin/lua-language-server"
 require'lspconfig'.sumneko_lua.setup {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
-    on_attach=on_attach_vim_plus_keymaps ,
+    on_attach = signature,
     capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     on_init=on_init,
     settings = {
@@ -148,7 +116,7 @@ require'lspconfig'.sumneko_lua.setup {
 
 lspconfig['pylsp'].setup{
     -- on_init=on_init,
-    on_attach=on_attach_vim_plus_keymaps,
+    on_attach = signature,
     -- capabilities=lsp_status.capabilities
     capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     settings = {
@@ -164,14 +132,14 @@ lspconfig['pylsp'].setup{
 
 lspconfig['vimls'].setup{
     -- on_init=on_init,
-    on_attach=on_attach_vim_plus_keymaps,
+    on_attach = signature,
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     -- capabilities=lsp_status.capabilities
 }
 
 lspconfig['bashls'].setup{
     -- on_init=on_init,
-    on_attach=on_attach_vim_plus_keymaps,
+    on_attach = signature,
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     -- capabilities=lsp_status.capabilities
 }
@@ -184,7 +152,8 @@ require("trouble").setup {
 }
 
 require'nvim-web-devicons'.setup()
-require'lsp_signature'.on_attach()
+
+-- require'lsp_signature'.on_attach()
 -- lspconfig.pylsp.setup({
 --      on_attach=on_attach_vim_plus_keymaps,
 --      on_init=on_init,

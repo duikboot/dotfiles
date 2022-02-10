@@ -764,7 +764,13 @@ nnoremap <leader>tl     <cmd>lua require'duikboot.telescope'.tag_list()<cr>
 
 " {{{ lsp-trouble
 
+" nnoremap <leader>xx <cmd>TroubleToggle document_diagnostics<cr>
+" Vim Script
+nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
 nnoremap <leader>xx <cmd>TroubleToggle document_diagnostics<cr>
+nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
+nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
+nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 
 autocmd FileType python let b:lsp_current_function = ''
 " autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
