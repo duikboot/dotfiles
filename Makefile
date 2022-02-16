@@ -1,4 +1,4 @@
-PYTHON = python3.9
+PYTHON = python
 HOME_DIR = $${HOME}
 BIN = $(HOME_DIR)/bin
 PWD_DIR = $${PWD}
@@ -6,7 +6,7 @@ SUBDIRS = $(PWD)/CONFIG
 VIM_VIRTUALENV = $(HOME_DIR)/.dotfiles/.venv
 
 
-# all: bin nvim stumpwm zprofile zsh
+all: bin nvim stumpwm zprofile zsh profile tmux
 
 .PHONY: bin
 bin:
@@ -22,9 +22,11 @@ inputrc:
 	-rm ${HOME_DIR}/.inputrc
 	ln -s ${PWD}/_inputrc ${HOME_DIR}/.inputrc
 
+.PHONY: tpm
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 .PHONY: tmux
-tmux:
+tmux: tpm
 	-rm ${HOME_DIR}/.tmux.conf
 	ln -s ${PWD}/_tmux.conf ${HOME_DIR}/.tmux.conf
 
@@ -64,7 +66,7 @@ ctags:
 	ln -s ${PWD}/_$@ ${HOME_DIR}/.$@
 
 .PHONY: nvim
-nvim: vim-plug ctags
+nvim: vim-plug ctags lsp ctags
 	-rm ${HOME_DIR}/.config/$@
 	ln -sf ${PWD}/config/$@ ${HOME_DIR}/.config/$@
 

@@ -126,7 +126,8 @@ Plug 'https://github.com/sainnhe/edge'
 Plug 'https://github.com/rhysd/committia.vim'
 Plug 'https://github.com/kyazdani42/nvim-web-devicons'
 Plug 'https://github.com/hoob3rt/lualine.nvim'
-Plug 'https://github.com/nvim-telescope/telescope-fzy-native.nvim', {'do': 'git submodule update --init --recursive'}
+" Plug 'https://github.com/nvim-telescope/telescope-fzy-native.nvim', {'do': 'git submodule update --init --recursive'}
+Plug 'https://github.com/nvim-telescope/telescope-fzy-native.nvim', {'do': 'make'}
 Plug 'https://github.com/folke/lsp-trouble.nvim'
 Plug 'https://github.com/ray-x/lsp_signature.nvim'
 
