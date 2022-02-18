@@ -12,8 +12,11 @@ all: bin nvim stumpwm zprofile zsh profile tmux
 bin:
 	mkdir -p $${HOME}/bin
 
+Wallpapers:
+	mkdir -p ${HOME_DIR}/Wallpapers
+
 .PHONY: stumpwm
-stumpwm:
+stumpwm: Wallpapers
 	-rm ${HOME_DIR}/.stumpwmrc
 	ln -s ${PWD}/_stumpwmrc ${HOME_DIR}/.stumpwmrc
 
