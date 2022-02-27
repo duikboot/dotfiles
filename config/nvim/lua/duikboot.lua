@@ -6,6 +6,7 @@ end
 -- require('duikboot.saga')
 
 local modules = {
+    'duikboot.startify',
     'duikboot.lsp',
     'duikboot.treesitter',
     'duikboot.telescope',

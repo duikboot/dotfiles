@@ -63,6 +63,9 @@ telescope.setup{
             -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
             -- filetypes = {"png", "webp", "jpg", "jpeg"},
             -- find_cmd = "rg" -- find command (defaults to `fd`)
+        },
+        sessions_picker = {
+            sessions_dir = vim.fn.stdpath('data') ..'/session/',  -- same as '/home/user/.local/share/nvim/session'
         }
     }
 }
@@ -72,6 +75,7 @@ telescope.setup{
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('media_files')
 require('telescope').load_extension('file_browser')
+require('telescope').load_extension('sessions_picker')
 
 local M = {}
 

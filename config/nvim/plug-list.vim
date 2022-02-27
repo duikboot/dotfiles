@@ -2,6 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
+Plug 'https://github.com/mhinz/vim-startify'
 Plug 'https://github.com/NLKNguyen/papercolor-theme'
 Plug 'https://github.com/folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'https://github.com/tjdevries/colorbuddy.vim'
@@ -80,9 +81,9 @@ Plug 'https://github.com/roxma/nvim-yarp'
 Plug 'https://github.com/HiPhish/ncm2-vlime'
 
 " Plug 'https://github.com/hrsh7th/nvim-compe'
+Plug 'https://github.com/hrsh7th/nvim-cmp'
 Plug 'https://github.com/hrsh7th/cmp-nvim-lsp'
 Plug 'https://github.com/hrsh7th/cmp-buffer'
-Plug 'https://github.com/hrsh7th/nvim-cmp'
 Plug 'https://github.com/hrsh7th/cmp-nvim-lua'
 Plug 'https://github.com/L3MON4D3/LuaSnip'
 Plug 'https://github.com/saadparwaiz1/cmp_luasnip'
@@ -136,6 +137,7 @@ Plug 'https://github.com/aklt/plantuml-syntax'
 Plug 'https://github.com/windwp/nvim-spectre'
 
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'https://github.com/JoseConseco/telescope_sessions_picker.nvim'
 " Plug 'https://github.com/gabrielpoca/replacer.nvim'
 
 Plug 'https://github.com/tversteeg/registers.nvim'
