@@ -28,8 +28,8 @@ vim.g.startify_lists ={
 vim.g.startify_commands = {
 	{ s = {'Sessions' ,  ':Telescope sessions_picker' }},
 	{ r = {'Recent Files' ,  ':Telescope oldfiles' }},
-	{ o = {'Fuzzy File Brower' ,  ':Telescope find_files' }},
-	{ b = {'File Brower' ,  ':Telescope file_browser' }},
+	{ o = {'Fuzzy File Browser' ,  ':Telescope find_files' }},
+	{ b = {'File Browser' ,  ':Telescope file_browser' }},
 }
 
 -- vim.g.startify_bookmarks = {

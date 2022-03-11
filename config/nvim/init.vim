@@ -651,7 +651,8 @@ autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 
 autocmd FileType python setlocal path+=.venv/**
 autocmd FileType python setlocal colorcolumn=89
 
-autocmd FileType python nnoremap <localleader>b Obreakpoint()<esc>:w<CR>
+" autocmd FileType python nnoremap <localleader>b Obreakpoint()<esc>:w<CR>
+autocmd FileType python nnoremap <localleader>b Oimport ipdb; ipdb.set_trace()<esc>:w<CR>
 
 function! s:OpenDocs(word)
     let document_urls = {'lisp': 'http://www.lispworks.com/cgi-bin/search.cgi\?t=-D--HB-\&\q\=',
