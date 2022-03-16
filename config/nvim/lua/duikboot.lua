@@ -26,6 +26,7 @@ local modules = {
     'duikboot.harpoon',
     'duikboot.telekasten',
     'duikboot.autopairs',
+    'duikboot.null_ls'
     -- 'duikboot.biscuits',
     -- 'duikboot.sidebar'
     -- 'duikboot.buftabline',

@@ -131,6 +131,7 @@ Plug 'https://github.com/hoob3rt/lualine.nvim'
 Plug 'https://github.com/nvim-telescope/telescope-fzy-native.nvim', {'do': 'make'}
 Plug 'https://github.com/folke/lsp-trouble.nvim'
 Plug 'https://github.com/ray-x/lsp_signature.nvim'
+Plug 'https://github.com/jose-elias-alvarez/null-ls.nvim'
 
 Plug 'https://github.com/aklt/plantuml-syntax'
 
