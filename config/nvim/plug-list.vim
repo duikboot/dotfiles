@@ -139,6 +139,9 @@ Plug 'https://github.com/windwp/nvim-spectre'
 
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'https://github.com/JoseConseco/telescope_sessions_picker.nvim'
+
+Plug 'https://github.com/fcying/telescope-ctags-outline.nvim'
+
 " Plug 'https://github.com/gabrielpoca/replacer.nvim'
 
 Plug 'https://github.com/tversteeg/registers.nvim'

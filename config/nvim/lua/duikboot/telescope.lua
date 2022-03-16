@@ -66,6 +66,11 @@ telescope.setup{
         },
         sessions_picker = {
             sessions_dir = vim.fn.stdpath('data') ..'/session/',  -- same as '/home/user/.local/share/nvim/session'
+        },
+        ctags_outline = {
+            ft_opt = {
+                python = '--python-kinds=cfm',
+            },
         }
     }
 }
@@ -76,6 +81,8 @@ require('telescope').load_extension('fzf')
 require('telescope').load_extension('media_files')
 require('telescope').load_extension('file_browser')
 require('telescope').load_extension('sessions_picker')
+require('telescope').load_extension('ctags_outline')
+-- require("telescope").load_extension('harpoon')
 
 local M = {}
 
