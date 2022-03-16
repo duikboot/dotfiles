@@ -1,3 +1,4 @@
+local vim = vim
 P = function(v)
     print(vim.inspect(v))
     return v
@@ -42,6 +43,6 @@ end
 -- reload fucks up lualine.
 pcall(require, 'duikboot.lualine')
 
-Mapper = function(mode, key, result)
+function _G.Mapper(mode, key, result)
     vim.api.nvim_buf_set_keymap(0, mode, key, result, {noremap = true, silent = true})
 end

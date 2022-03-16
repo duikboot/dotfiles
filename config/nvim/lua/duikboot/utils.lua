@@ -1,3 +1,4 @@
+local vim = vim
 function _G.copy_module_path ()
     local path = vim.fn.expand('%')
     local filetype = vim.fn.expand('%:e')

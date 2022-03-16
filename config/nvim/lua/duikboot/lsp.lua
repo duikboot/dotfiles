@@ -76,9 +76,16 @@ local on_attach_vim_plus_keymaps = function(client)
 end
 
 local signature = function(client, bufnr)
-    on_attach_vim_plus_keymaps(client)
     require("lsp_signature").on_attach()
 end
+
+local attach = function(client, bufnr)
+    on_attach_vim_plus_keymaps(client)
+    signature(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+end
+
 
 
 -- From the lspconfig repo
@@ -88,7 +95,7 @@ local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-l
 local sumneko_binary = "/bin/lua-language-server"
 require'lspconfig'.sumneko_lua.setup {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
-    on_attach = signature,
+    on_attach = attach,
     capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     on_init=on_init,
     settings = {
@@ -116,7 +123,7 @@ require'lspconfig'.sumneko_lua.setup {
 
 lspconfig['pylsp'].setup{
     -- on_init=on_init,
-    on_attach = signature,
+    on_attach = attach,
     -- capabilities=lsp_status.capabilities
     capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     settings = {
@@ -132,14 +139,14 @@ lspconfig['pylsp'].setup{
 
 lspconfig['vimls'].setup{
     -- on_init=on_init,
-    on_attach = signature,
+    on_attach = attach,
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     -- capabilities=lsp_status.capabilities
 }
 
 lspconfig['bashls'].setup{
     -- on_init=on_init,
-    on_attach = signature,
+    on_attach = attach,
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     -- capabilities=lsp_status.capabilities
 }
