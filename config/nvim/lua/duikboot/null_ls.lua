@@ -21,7 +21,7 @@ null_ls.setup({
     sources = {
         -- Code Actions
         code_actions.eslint,
-        code_actions.gitsigs,
+        -- code_actions.gitsigs,
         code_actions.refactoring,
         code_actions.shellcheck,
         -- Completion
@@ -30,7 +30,7 @@ null_ls.setup({
         completion.tags,
         -- Diagnostics
         -- diagnostics.flake8,
-        diagnostics.pylint,
+        -- diagnostics.pylint,
         -- diagnostics.prospector,
         diagnostics.gitlint,
         diagnostics.hadolint,
