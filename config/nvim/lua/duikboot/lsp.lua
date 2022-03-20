@@ -159,6 +159,7 @@ require("trouble").setup {
 }
 
 require'nvim-web-devicons'.setup()
+require'figlet'.setup()
 
 -- require'lsp_signature'.on_attach()
 -- lspconfig.pylsp.setup({

@@ -31,8 +31,8 @@ local config = {
     sections = {
         lualine_b = {
             {'branch'},
-            -- lsp_function,
-            -- current_treesitter_context,
+            lsp_function,
+            current_treesitter_context,
         },
     },
 }

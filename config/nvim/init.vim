@@ -104,8 +104,8 @@ set pumheight=18             " Keep a small completion window
 
 """ Moving Around/Editing
 set cursorline              " have a line indicate the cursor location
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
+autocmd WinLeave * set nocursorline nocursorcolumn
+autocmd WinEnter * set cursorline cursorcolumn
 " autocmd BufEnter * setlocal cursorcolumn
 " autocmd BufLeave * setlocal nocursorcolumn
 set expandtab               " Use spaces, not tabs, for autoindent/tab key.
@@ -124,6 +124,7 @@ set shiftwidth=4            " but an indent level is 2 spaces wide.
 set showmatch               " Briefly jump to a paren once it's balanced
 set noshowmode
 set cmdheight=2
+set selection=exclusive     " Dont select newline in selection mode v$
 
 set shortmess+=c
 "set smartindent             " use smart indent if there is no indent file
@@ -158,7 +159,7 @@ set showcmd                 " Show incomplete normal mode commands as I type.
 set report=0                " : commands always print changed line count.
 set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
 set ruler                   " Show some info, even without statuslines.
-set laststatus=2            " Always show statusline, even if only 1 window.
+set laststatus=3            " Always show statusline, even if only 1 window.
 " set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})
 " set encoding=utf-8          " Necessary to show unicode glyphs
 
@@ -813,6 +814,14 @@ nnoremap <leader>cp :lua require("contextprint").add_statement()<CR>
 
 " }}} symbols-outline
 
+" {{{ Wilder
+
+call wilder#setup({'modes': [':', '/', '?']})
+
+" }}}
+
+autocmd BufWinEnter,BufEnter * set laststatus=3
+
 " " {{{ ALE
 " let g:ale_python_flake8_executable = g:python3_host_prog_bin . 'flake8'
 " let g:ale_python_pycodestyle_executable = g:python3_host_prog_bin . 'pycodestyle'
@@ -846,9 +855,4 @@ nnoremap <leader>cp :lua require("contextprint").add_statement()<CR>
 
 " }}}
 
-" {{{ Wilder
-
-call wilder#setup({'modes': [':', '/', '?']})
-
-" }}}
 

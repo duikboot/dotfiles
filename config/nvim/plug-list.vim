@@ -21,7 +21,7 @@ Plug 'https://github.com/machakann/vim-swap'
 Plug 'https://github.com/tpope/vim-markdown'
 Plug 'https://github.com/tpope/vim-obsession'
 Plug 'https://github.com/tpope/vim-repeat'
-Plug 'https://github.com/tpope/vim-sensible'
+" Plug 'https://github.com/tpope/vim-sensible'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/tpope/vim-unimpaired'
 " Plug 'https://github.com/bling/vim-airline'
@@ -132,6 +132,7 @@ Plug 'https://github.com/nvim-telescope/telescope-fzy-native.nvim', {'do': 'make
 Plug 'https://github.com/folke/lsp-trouble.nvim'
 Plug 'https://github.com/ray-x/lsp_signature.nvim'
 Plug 'https://github.com/jose-elias-alvarez/null-ls.nvim'
+Plug 'https://github.com/j-hui/fidget.nvim'
 
 Plug 'https://github.com/aklt/plantuml-syntax'
 
