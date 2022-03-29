@@ -1,3 +1,4 @@
+local vim = vim
 local telescope = require("telescope")
 local sorters = require("telescope.sorters")
 local actions = require("telescope.actions")

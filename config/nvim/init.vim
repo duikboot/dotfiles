@@ -181,7 +181,7 @@ set inccommand=nosplit
 
 set t_Co=256
 set termguicolors
-" set background=light           " We are using dark background in vim
+set background=light           " We are using dark background in vim
 " colorscheme NeoSolarized
 " colorscheme xcodelighthc
 

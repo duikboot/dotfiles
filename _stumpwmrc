@@ -62,7 +62,6 @@ functions are passed this structure as their first argument."
       (enable-mode-line screen head t))))
 
 ; (enable-mode-line-all-heads)
-; *shell-command-history-file*
 ; *startup-message*
 ; *input-history*
 ; *honor-window-moves*
@@ -90,19 +89,17 @@ functions are passed this structure as their first argument."
 ; (quit)
 
 ; (get-x-selection)
-; (window-number (window-group (current-window))
+; (window-group (current-window))
 ; (group-windows (current-group))
 ; (tile-group-current-frame (current-group))
 
 ; swap current window with window in frame left:
 ; C-t x left (C-t x h)
-; *last-unhandled-error*
 ; swap current window with window in frame right:
 ; C-t x right (C-t x l)
+; *last-unhandled-error*
 ; *timer-list*
 ; (make-pathname :directory *home-dir*)
-; CPU:*ACPI-THERMAL-ZONE*
-; xft:*font-dirs*
 ; *data-dir*
 ; *debug-stream*
 ; *quit-hook*

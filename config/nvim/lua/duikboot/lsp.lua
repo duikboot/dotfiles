@@ -4,6 +4,8 @@ local vim = vim
 
 local lspconfig = require'lspconfig'
 
+local opts = { noremap=true, silent=true }
+
 vim.diagnostic.config {
   underline = false,
   virtual_text = {
@@ -41,47 +43,32 @@ vim.lsp.handlers["textDocument/definition"] = function(_, method, result)
 end
 
 
-local on_attach_vim_plus_keymaps = function(client)
-    Mapper(
-        'n',
-        '<leader>dn',
-        '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'
-    )
-
-    Mapper(
-        'n',
-        '<leader>dp',
-        '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'
-    )
-    -- Mapper(
-    --     'n',
-    --     '<leader>sl',
-    --     '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<cr>'
-    -- )
-    Mapper('n', '<leader>dl', '<cmd> lua vim.lsp.diagnostic.set_loclist()<CR>')
-    Mapper('n', '<leader>td', '<cmd> lua vim.lsp.buf.type_definition()<CR>')
-    Mapper('n', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>')
-    Mapper('v', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>')
-    Mapper('n', '<c-K>',      '<cmd> lua vim.lsp.buf.signature_help()<CR>')
-    Mapper('n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename()<CR>')
-    Mapper('n', '<leader>K',          '<cmd> lua vim.lsp.buf.hover()<CR>')
-    -- mapper('n', 'lh',          '<cmd> lua vim.lsp.buf.hover()<CR>')
-    -- mapper('n','gr',          '<cmd>lua vim.lsp.buf.references()<CR>')
-    Mapper('n', 'g0',         '<cmd> lua vim.lsp.buf.document_symbol()<CR>')
-    Mapper('n', 'gD',         '<cmd> lua vim.lsp.buf.implementation()<CR>')
-    Mapper('n', 'gW',         '<cmd> lua vim.lsp.buf.workspace_symbol()<CR>')
-    Mapper('n', '<leader>gd', '<cmd> lua vim.lsp.buf.declaration()<CR>')
-    Mapper('n', '<c-]>',      '<cmd> lua vim.lsp.buf.definition()<CR>')
-    Mapper('n', '<localleader>a8',      '<cmd> lua vim.lsp.buf.formatting()<CR>')
+local on_attach_vim_plus_keymaps = function(client, bufnr)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>dn', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>dp', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>dl', '<cmd> lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>td', '<cmd> lua vim.lsp.buf.type_definition()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-K>',      '<cmd> lua vim.lsp.buf.signature_help()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>K',          '<cmd> lua vim.lsp.buf.hover()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'g0',         '<cmd> lua vim.lsp.buf.document_symbol()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD',         '<cmd> lua vim.lsp.buf.implementation()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gW',         '<cmd> lua vim.lsp.buf.workspace_symbol()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gd', '<cmd> lua vim.lsp.buf.declaration()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-]>',      '<cmd> lua vim.lsp.buf.definition()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>a8', '<cmd> lua vim.lsp.buf.formatting()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'v', '<localleader>a8', '<cmd> lua vim.lsp.buf.range_formatting()<CR>', opts)
 end
 
-local signature = function(client, bufnr)
+local signature = function()
     require("lsp_signature").on_attach()
 end
 
 local attach = function(client, bufnr)
-    on_attach_vim_plus_keymaps(client)
-    signature(client, bufnr)
+    on_attach_vim_plus_keymaps(client, bufnr)
+    signature()
     client.resolved_capabilities.document_formatting = false
     client.resolved_capabilities.document_range_formatting = false
 end

@@ -17,37 +17,29 @@ local function lsp_function ()
     return b
 end
 
--- local config = {
---     sections = {
---         lualine_c = {
---             {'filename'},
---             -- lsp_function,
---             -- current_treesitter_context,
---         },
---     },
--- }
+local function branchname ()
+    local branch = vim.fn.FugitiveHead()
+    if branch and #branch > 0 then
+        branch = ' '..branch
+    end
+    if branch:len() >= 30 then
+        return branch:sub(1, 27) .. "..."
+    end
+    return branch
+end
 
 local config = {
     sections = {
         lualine_b = {
-            {'branch'},
+            branchname,
+            -- lsp_function,
+            -- current_treesitter_context,
+        },
+        lualine_c = {
+            {'filename'},
             lsp_function,
             current_treesitter_context,
         },
     },
 }
 require('lualine').setup(config)
-
--- local fn, cmd = vim.fn, vim.cmd
-
--- function My_statusline()
---   local branch = fn.FugitiveHead()
-
---   if branch and #branch > 0 then
---     branch = '   '..branch
---   end
-
---   return branch..'  %f%m%=%y %l:%c  %p%% '
--- end
-
--- cmd[[ set statusline=%!luaeval('My_statusline()') ]]

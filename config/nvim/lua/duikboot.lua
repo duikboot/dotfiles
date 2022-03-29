@@ -42,7 +42,3 @@ end
 
 -- reload fucks up lualine.
 pcall(require, 'duikboot.lualine')
-
-function _G.Mapper(mode, key, result)
-    vim.api.nvim_buf_set_keymap(0, mode, key, result, {noremap = true, silent = false})
-end
