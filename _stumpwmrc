@@ -196,7 +196,7 @@ functions are passed this structure as their first argument."
 
 ;; mode line
 (setf *mode-line-background-color*  "black"
-      *mode-line-foreground-color*  "white"
+      *mode-line-foreground-color*  "green"
       *mode-line-border-color* "black")
 
 (setf *window-border-style*  :thick
@@ -234,6 +234,17 @@ functions are passed this structure as their first argument."
 
 
 (define-key *root-map* (kbd "C-y") "show-clipboard-history")
+
+(defcommand refresh-monitors ()()
+  (log:info "Refresh heads")
+  (refresh-heads)
+  (sleep 0.1)
+  (refresh-heads)
+  (set-wallpaper)
+  (refresh-heads)
+  (message "Refresh heads"))
+
+(define-key *root-map* (kbd "m") "refresh-monitors")
 
 ;; start the polling timer process
 
@@ -349,7 +360,7 @@ functions are passed this structure as their first argument."
   (run-shell-command
     (concatenate 'string "feh --bg-scale " url)))
 
-(run-shell-command "xscreensaver -no-splash")
+; (run-shell-command "xscreensaver -no-splash")
 
 (stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
 
@@ -368,7 +379,7 @@ functions are passed this structure as their first argument."
 (make-program-binding "keepassxc" "keepassxc")
 
 (defcommand lock-screen ()()
-            (run-shell-command "xscreensaver-command -lock" t))
+            (run-shell-command "betterlockscreen --lock"))
 
 (defcommand suspend ()()
             (run-shell-command "systemctl suspend" t))
