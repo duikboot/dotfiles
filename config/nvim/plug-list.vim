@@ -33,6 +33,7 @@ Plug 'https://github.com/tpope/vim-commentary'
 " Plug 'https://github.com/ervandew/supertab'
 Plug 'https://github.com/godlygeek/tabular'
 Plug 'https://github.com/tpope/vim-fugitive'
+
 " Plug 'https://github.com/TimUntersberger/neogit'
 Plug 'https://github.com/psf/black'
 Plug 'https://github.com/kassio/neoterm'
@@ -56,7 +57,6 @@ Plug 'https://github.com/lifepillar/vim-gruvbox8'
 Plug 'https://github.com/romainl/vim-cool'
 Plug 'https://github.com/arzg/vim-colors-xcode'
 " Plug 'https://github.com/liuchengxu/vista.vim'
-Plug 'https://github.com/idanarye/vim-merginal'
 
 " Plug 'https://github.com/Shougo/context_filetype.vim'
 
