@@ -4,8 +4,6 @@ P = function(v)
     return v
 end
 
--- require('duikboot.saga')
-
 local modules = {
     'duikboot.startify',
     'duikboot.lsp',
