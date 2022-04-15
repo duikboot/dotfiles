@@ -237,9 +237,11 @@ functions are passed this structure as their first argument."
 
 (defcommand refresh-monitors ()()
   (log:info "Refresh heads")
+  (run-shell-command "pkill xcape")
   (refresh-heads)
   (sleep 0.1)
-  (refresh-heads)
+  (run-shell-command "xcape -t 200 -e \"Shift_L=parenleft;Shift_R=parenright\"")
+  (run-shell-command "xcape")
   (set-wallpaper)
   (refresh-heads)
   (message "Refresh heads"))
