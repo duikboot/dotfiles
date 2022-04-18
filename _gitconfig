@@ -12,6 +12,7 @@
 [core]
     editor = vim
    excludesfile = /home/arjend/.gitignore
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
     root = !pwd
     co = checkout
@@ -47,3 +48,5 @@
 ;     tool = meld
 ; [mergetool "meld"]
 ;     cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+[interactive]
+	diffFilter = diff-so-fancy --patch

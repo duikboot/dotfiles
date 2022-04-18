@@ -454,8 +454,8 @@ functions are passed this structure as their first argument."
 (run-commands "grename browser"
               "gnewbg code"
               "gnewbg chat"
-              "gnewbg media"
               "gnewbg documentation"
+              "gnewbg media"
               "gnewbg root")
 
 (dotimes (i 10)
