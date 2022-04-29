@@ -780,11 +780,6 @@ autocmd FileType python let b:lsp_current_function = ''
 
 " }}} lsp-trouble
 
-" {{{ contextprint
-
-nnoremap <leader>cp :lua require("contextprint").add_statement()<CR>
-
-" }}} contextprint
 
 " {{{ symbols-outline
 
