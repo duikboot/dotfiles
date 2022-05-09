@@ -434,8 +434,9 @@ endif
 
 " https://github.com/junegunn/fzf.vim/issues/647#issuecomment-520259307
 
-" nnoremap <leader>y :Telescope neoclip<cr>
-nnoremap <leader>y :Registers<cr>
+" nnoremap <leader>y :Registers<cr>
+nnoremap <leader>y :Telescope yank_history<cr>
+" nnoremap <leader>y :YankyRingHistory<cr>
 
 " }}}
 

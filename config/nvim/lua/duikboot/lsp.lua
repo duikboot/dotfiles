@@ -69,8 +69,8 @@ end
 local attach = function(client, bufnr)
     on_attach_vim_plus_keymaps(client, bufnr)
     signature()
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
 end
 
 

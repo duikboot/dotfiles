@@ -366,7 +366,7 @@ functions are passed this structure as their first argument."
 
 (stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
 
-(setf *mouse-focus-policy* :sloppy) ;; :click, :ignore, :sloppy
+(setf *mouse-focus-policy* :click) ;; :click, :ignore, :sloppy
 
 ;;; Mappings
 

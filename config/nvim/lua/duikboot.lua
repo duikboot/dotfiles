@@ -8,6 +8,7 @@ local modules = {
     'duikboot.startify',
     'duikboot.lsp',
     'duikboot.treesitter',
+    'duikboot.yanky',
     'duikboot.telescope',
     -- 'duikboot.neoclip',
     -- 'duikboot.saga',

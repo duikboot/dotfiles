@@ -14,7 +14,7 @@ Plug 'https://github.com/conweller/endarkened.vim'
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/stsewd/fzf-checkout.vim'
-Plug 'https://github.com/machakann/vim-highlightedyank'
+" Plug 'https://github.com/machakann/vim-highlightedyank'
 Plug 'https://github.com/machakann/vim-swap'
 " Plug 'mhinz/vim-grepper'
 " Plug 'mhinz/vim-signify'
@@ -144,7 +144,7 @@ Plug 'https://github.com/fcying/telescope-ctags-outline.nvim'
 
 " Plug 'https://github.com/gabrielpoca/replacer.nvim'
 
-Plug 'https://github.com/tversteeg/registers.nvim'
+" Plug 'https://github.com/tversteeg/registers.nvim'
 
 Plug 'https://github.com/folke/lsp-colors.nvim'
 "Plug 'https://github.com/simrat39/symbols-outline.nvim'
@@ -161,7 +161,8 @@ Plug 'https://github.com/theHamsta/nvim-treesitter-commonlisp'
 " Plug 'https://github.com/vhyrro/neorg'
 " Plug 'https://github.com/weilbith/nvim-code-action-menu'
 
-Plug 'https://github.com/AckslD/nvim-neoclip.lua'
+" Plug 'https://github.com/AckslD/nvim-neoclip.lua'
+Plug 'https://github.com/gbprod/yanky.nvim'
 Plug 'https://github.com/tami5/sqlite.lua'
 
 Plug 'https://github.com/gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
