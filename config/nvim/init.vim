@@ -754,7 +754,6 @@ nnoremap <leader>*      <cmd>lua require('telescope.builtin').grep_string { sear
 nnoremap <localleader>f <cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>
 
 nnoremap <leader>fv     <cmd>lua require'duikboot.telescope'.find_virtual_env()<cr>
-nnoremap <leader>tl     <cmd>lua require'duikboot.telescope'.tag_list()<cr>
 
 " }}
 

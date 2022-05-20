@@ -68,11 +68,6 @@ telescope.setup{
         sessions_picker = {
             sessions_dir = vim.fn.stdpath('data') ..'/session/',  -- same as '/home/user/.local/share/nvim/session'
         },
-        ctags_outline = {
-            ft_opt = {
-                python = '--python-kinds=cfm',
-            },
-        }
     }
 }
 
@@ -82,7 +77,6 @@ require('telescope').load_extension('fzf')
 require('telescope').load_extension('media_files')
 require('telescope').load_extension('file_browser')
 require('telescope').load_extension('sessions_picker')
-require('telescope').load_extension('ctags_outline')
 require('telescope').load_extension('yank_history')
 -- require('telescope').load_extension('yank_history')
 -- require("telescope").load_extension('harpoon')
@@ -93,18 +87,6 @@ M.grep_prompt = function()
     require('telescope.builtin').grep_string {
         shorten_path = false,
         search = vim.fn.input "Grep String > ",
-    }
-end
-
-local fetch_input = function()
-    local input = vim.fn.input("Tag list String > ")
-    return io.open('readtags -t tags' .. input)
-end
-
-M.tag_list = function()
-    require('telescope.builtin').grep_string{
-        shorten_path = false,
-        search = fetch_input(),
     }
 end
 
