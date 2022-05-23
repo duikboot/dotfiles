@@ -78,7 +78,6 @@ require('telescope').load_extension('media_files')
 require('telescope').load_extension('file_browser')
 require('telescope').load_extension('sessions_picker')
 require('telescope').load_extension('yank_history')
--- require('telescope').load_extension('yank_history')
 -- require("telescope").load_extension('harpoon')
 
 local M = {}

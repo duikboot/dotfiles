@@ -9,7 +9,6 @@ local modules = {
     'duikboot.lsp',
     'duikboot.treesitter',
     'duikboot.yanky',
-    'duikboot.telescope',
     -- 'duikboot.neoclip',
     -- 'duikboot.saga',
     -- 'duikboot.compe',
@@ -28,6 +27,7 @@ local modules = {
     'duikboot.autopairs',
     'duikboot.null_ls',
     'duikboot.aerial',
+    'duikboot.telescope',
     -- 'duikboot.biscuits',
     -- 'duikboot.sidebar'
     -- 'duikboot.buftabline',
