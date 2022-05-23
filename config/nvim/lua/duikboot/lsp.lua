@@ -58,8 +58,9 @@ local on_attach_vim_plus_keymaps = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gW',         '<cmd> lua vim.lsp.buf.workspace_symbol()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gd', '<cmd> lua vim.lsp.buf.declaration()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-]>',      '<cmd> lua vim.lsp.buf.definition()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>a8', '<cmd> lua vim.lsp.buf.formatting()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>a8', '<cmd> lua vim.lsp.buf.formatting()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'v', '<localleader>a8', '<cmd> lua vim.lsp.buf.range_formatting()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>a8', '<cmd> lua vim.lsp.buf.format { async = true }<CR>',  opts)
 end
 
 local signature = function()
