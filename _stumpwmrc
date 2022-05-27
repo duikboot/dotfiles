@@ -479,28 +479,20 @@
 (defcommand shell-output (command) ((:shell "/bin/sh -c "))
   (message "~a" (run-shell-command command t)))
 
-(defcommand redshift (temp) ((:number "Temp: "))
-  (run-shell-command "redshift -x")
-  (message (format nil "redshift -x"))
-  (if (> temp 0)
-    (progn
-      (run-shell-command (format nil "redshift -O ~A00" temp))
-      (message (format nil "redshift -O ~A00" temp)))))
+(defun adjust-brightness (side percent)
+  (run-shell-command (format nil "xbacklight -~a ~a" side percent)) 
+  (let ((brightness (run-shell-command (format nil "xbacklight -get") t)))
+    (message (format nil "xbacklight set to ~a" brightness))))
 
-(let ((temp 45))
-  (defun adjust-temp (n)
-    (if (<= temp 10)
-      (setf temp 45)
-      (setf temp (+ temp n)))
-    (run-shell-command "redshift -x")
-    (run-shell-command (format nil "redshift -O ~A00" temp))
-    (message (format nil "redshift -O ~A00" temp))))
 
 (defcommand temp-up ()()
-  (adjust-temp 5))
+  (adjust-brightness "inc" 10))
 
 (defcommand temp-down ()()
-  (adjust-temp -5))
+  (adjust-brightness "dec" 10))
+
+(define-key *top-map* (kbd "M-+") "temp-up")
+(define-key *top-map* (kbd "M--") "temp-down")
 
 (defun ssh (host)
     (run-shell-command
@@ -528,9 +520,6 @@
                     (current-screen)
                     (ssh-host-list (sort (read-ssh-config) #'string<)))))
     (ssh (first ssh-host))))
-
-(define-key *top-map* (kbd "M-+") "temp-up")
-(define-key *top-map* (kbd "M--") "temp-down")
 
 
 (define-key *top-map* (kbd "M-l") "move-to-next-frame-with-window")
