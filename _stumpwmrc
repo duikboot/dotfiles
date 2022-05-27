@@ -480,6 +480,7 @@
   (message "~a" (run-shell-command command t)))
 
 (defun adjust-brightness (side percent)
+  "Use acpilight as a standin for backlight."
   (run-shell-command (format nil "xbacklight -~a ~a" side percent)) 
   (let ((brightness (run-shell-command (format nil "xbacklight -get") t)))
     (message (format nil "xbacklight set to ~a" brightness))))
