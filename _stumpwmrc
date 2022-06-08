@@ -487,10 +487,10 @@
 
 
 (defcommand temp-up ()()
-  (adjust-brightness "inc" 10))
+  (adjust-brightness "inc" 5))
 
 (defcommand temp-down ()()
-  (adjust-brightness "dec" 10))
+  (adjust-brightness "dec" 5))
 
 (define-key *top-map* (kbd "M-+") "temp-up")
 (define-key *top-map* (kbd "M--") "temp-down")
