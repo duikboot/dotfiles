@@ -26,11 +26,11 @@ null_ls.setup({
         code_actions.shellcheck,
         -- Completion
         completion.luasnip,
-        completion.spell,
-        completion.tags,
+        -- completion.spell,
+        -- completion.tags,
         -- Diagnostics
-        -- diagnostics.flake8,
-        -- diagnostics.pylint,
+        diagnostics.flake8,
+        diagnostics.pylint,
         diagnostics.mypy,
         diagnostics.gitlint,
         diagnostics.hadolint,

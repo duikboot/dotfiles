@@ -142,9 +142,9 @@ lspconfig['pylsp'].setup{
     settings = {
         pylsp = {
             plugins = {
-                jedi_completion = {
-                    include_params = true,
-                },
+                jedi_completion = { include_params = true, },
+                pylsp_mypy = { enabled = true, },
+                pylsp_flake8 = { enabled = true }
             },
         },
     },

@@ -188,6 +188,7 @@ Plug 'https://github.com/sainnhe/everforest'
 Plug 'https://github.com/mfussenegger/nvim-dap'
 Plug 'https://github.com/rcarriga/nvim-dap-ui'
 Plug 'https://github.com/mfussenegger/nvim-dap-python'
+Plug 'theHamsta/nvim-dap-virtual-text'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
