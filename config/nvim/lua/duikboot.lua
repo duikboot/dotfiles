@@ -28,7 +28,7 @@ local modules = {
     'duikboot.null_ls',
     'duikboot.aerial',
     'duikboot.telescope',
-    -- 'duikboot.biscuits',
+    'duikboot.dap',
     -- 'duikboot.sidebar'
     -- 'duikboot.buftabline',
     -- 'duikboot.orgmode'
