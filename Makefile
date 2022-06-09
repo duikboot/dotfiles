@@ -15,6 +15,10 @@ bin:
 Wallpapers:
 	mkdir -p ${HOME_DIR}/Wallpapers
 
+sbcl:
+	-rm ${HOME_DIR}/.sbclrc
+	ln -s ${PWD}/_sbclrc ${HOME_DIR}/.sbclrc
+
 .PHONY: stumpwm
 stumpwm: Wallpapers
 	-rm ${HOME_DIR}/.stumpwmrc
@@ -26,6 +30,7 @@ inputrc:
 	ln -s ${PWD}/_inputrc ${HOME_DIR}/.inputrc
 
 .PHONY: tpm
+tpm:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 .PHONY: tmux
@@ -68,8 +73,13 @@ ctags:
 	-rm ${HOME_DIR}/.$@
 	ln -s ${PWD}/_$@ ${HOME_DIR}/.$@
 
+.PHONY: vim-plug
+vim-plug:
+	curl -fLo "$${XDG_DATA_HOME:-$$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 .PHONY: nvim
-nvim: vim-plug ctags lsp ctags
+nvim: vim-plug ctags lsp ctags vim-plug
 	-rm ${HOME_DIR}/.config/$@
 	ln -sf ${PWD}/config/$@ ${HOME_DIR}/.config/$@
 
@@ -79,10 +89,6 @@ alacritty:
 	-rm ${HOME_DIR}/.config/$@
 	ln -s ${PWD}/config/$@ ${HOME_DIR}/.config/$@
 
-.PHONY: vim-plug
-vim-plug:
-	curl -fLo "$${XDG_DATA_HOME:-$$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 .PHONY: git
 git:
