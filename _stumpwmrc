@@ -1,15 +1,4 @@
-#+test-modeline
-(progn
-  (mode-line)
-  (sleep 1)
-  (log:info "loading stumptray")
-  (run-commands "stumptray")
-  (sleep .1)
-  (start-apps)
-  (sleep .1)
-  (refresh-heads)
-  (sleep .1)
-  (set-wallpaper))
+; #+test-modeline
 
 (ql:quickload '(bordeaux-threads log4cl split-sequence drakma))
 (in-package :stumpwm)
@@ -31,6 +20,8 @@
 ;            :start2 (input-line-position input))
 ;   (setf (char (input-line-string input) (input-line-position input)) char)
 ;   (incf (input-line-position input)))
+
+(defvar *init-load* t)
 
 (defparameter *stumptray-apps*
   '(
@@ -296,7 +287,7 @@
 
 (define-key *top-map* (kbd "SunPrint_Screen") "timestamp-screenshot")
 
-(load "~/config/bookmarks")
+; (load "~/config/bookmarks")
 (defparameter *bookmarks-url* "http://localhost:5000/api/1/bookmark/add/")
 (defparameter *bookmarks-api-key* "123456")
 (defparameter *bookmarks-url* (getenv "BOOKMARK_API"))
@@ -638,5 +629,20 @@ will scroll through windows in the current group."
       (focus-window win t))))
 
 (add-hook *new-window-hook* #'float-dialogs-hook)
+(when *init-load*
+  (progn
+    (mode-line)
+    (sleep 1)
+    (log:info "loading stumptray")
+    (run-commands "stumptray")
+    (sleep .1)
+    (start-apps)
+    (sleep .1)
+    (refresh-heads)
+    (sleep .1)
+    (set-wallpaper)
+    (run-shell-command "firefox")))
+
+(setf *init-load* nil)
 
 ; vim: ft=lisp

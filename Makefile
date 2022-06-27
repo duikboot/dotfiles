@@ -40,6 +40,7 @@ tmux: tpm
 
 .PHONY: oh-my-zsh
 oh-my-zsh:
+	rm -rf ~/.oh-my-zsh
 	git clone https://github.com/ohmyzsh/ohmyzsh.git ${HOME_DIR}/.oh-my-zsh
 
 .PHONY: zprofile
@@ -52,8 +53,8 @@ profile:
 	-rm ${HOME_DIR}/.$@
 	ln -s ${PWD}/_$@ ${HOME_DIR}/.$@
 
-.PHONY: zsh
-zsh: oh-my-zsh
+.PHONY: zshrc
+zshrc: oh-my-zsh zprofile
 	-rm ${HOME_DIR}/.$@
 	ln -s ${PWD}/_$@ ${HOME_DIR}/.$@
 
