@@ -1,4 +1,5 @@
 ; #+test-modeline
+(mode-line)
 
 (ql:quickload '(bordeaux-threads log4cl split-sequence drakma))
 (in-package :stumpwm)
@@ -32,13 +33,13 @@
     ; "octopi-notifier"
 
 (defun start-apps ()
-  (mapc (lambda (x)
+  (mapc (lambda (app)
           (sleep .1)
-          (log:info "killing ~A" x)
-          (run-shell-command (format nil "pkill ~A" x))
+          (log:info "killing ~A" app)
+          (run-shell-command (format nil "pkill ~A" app))
           (sleep .4)
-          (log:info "starting ~A" x)
-          (run-shell-command x))
+          (log:info "starting ~A" app)
+          (run-shell-command app))
         *stumptray-apps*))
 
 ; (layout-laptop)
