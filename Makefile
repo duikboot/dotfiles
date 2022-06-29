@@ -19,6 +19,13 @@ sbcl:
 	-rm ${HOME_DIR}/.sbclrc
 	ln -s ${PWD}/_sbclrc ${HOME_DIR}/.sbclrc
 
+
+.PHONY: stumpish
+stumpish:
+	-rm $(HOME_DIR)/bin/stumpish
+	ln -s $(HOME_DIR)/stumpwm/stumpwm-contrib/util/stumpish/stumpish $(HOME_DIR)/bin/stumpish
+
+
 .PHONY: stumpwm
 stumpwm: Wallpapers
 	-rm ${HOME_DIR}/.stumpwmrc
