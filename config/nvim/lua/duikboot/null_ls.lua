@@ -25,13 +25,13 @@ null_ls.setup({
         code_actions.refactoring,
         code_actions.shellcheck,
         -- Completion
-        completion.luasnip,
+        -- completion.luasnip,
         -- completion.spell,
         -- completion.tags,
         -- Diagnostics
-        diagnostics.flake8,
-        diagnostics.pylint,
-        diagnostics.mypy,
+        -- diagnostics.flake8,
+        -- diagnostics.pylint,
+        -- diagnostics.mypy,
         diagnostics.gitlint,
         diagnostics.hadolint,
         diagnostics.jsonlint,
@@ -44,11 +44,11 @@ null_ls.setup({
         diagnostics.eslint,
         -- Formating
         formatting.autopep8,
+        formatting.isort,
+        formatting.trim_whitespace,
         -- formatting.black,
         formatting.clang_format,
         formatting.eslint,
-        formatting.isort,
-        formatting.trim_whitespace,
         -- formatting.yapf,
         formatting.stylua,
         -- Hover

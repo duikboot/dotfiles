@@ -12,11 +12,6 @@ local current_treesitter_context = function()
   return " " .. fun_name
 end
 
-local function lsp_function ()
-    local b = vim.b.lsp_current_function
-    return b
-end
-
 local function branchname ()
     local branch = vim.fn.FugitiveHead()
     if branch and #branch > 0 then
@@ -37,7 +32,6 @@ local config = {
         },
         lualine_c = {
             {'filename'},
-            lsp_function,
             current_treesitter_context,
         },
     },
