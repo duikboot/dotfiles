@@ -1,5 +1,5 @@
 ; #+test-modeline
-(mode-line)
+; (mode-line)
 
 (ql:quickload '(bordeaux-threads log4cl split-sequence drakma))
 (in-package :stumpwm)
