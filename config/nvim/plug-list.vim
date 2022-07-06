@@ -33,6 +33,7 @@ Plug 'https://github.com/tpope/vim-commentary'
 " Plug 'https://github.com/ervandew/supertab'
 Plug 'https://github.com/godlygeek/tabular'
 Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/junegunn/gv.vim'
 
 " Plug 'https://github.com/TimUntersberger/neogit'
 Plug 'https://github.com/psf/black'
