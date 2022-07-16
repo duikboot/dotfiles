@@ -99,6 +99,7 @@ set complete=.,b,u
 " set completeopt=menuone,longest
 " set completeopt=menuone,noinsert,noselect
 " set completeopt=menu,menuone,preview,noselect,noinsert
+set completeopt=menu,menuone,noselect
 set pumheight=18             " Keep a small completion window
 
 

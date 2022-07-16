@@ -6,7 +6,29 @@ require("nvim-dap-virtual-text").setup()
 local dap, dapui = require("dap"), require("dapui")
 require('dap.ext.vscode').load_launchjs(".vscode/launch.json")
 require('dap').set_log_level('TRACE')
-dapui.setup()
+dapui.setup({
+  layouts = {
+    {
+      elements = {
+      -- Elements can be strings or table with id and size keys.
+        { id = "scopes", size = 0.50 },
+        "breakpoints",
+        "stacks",
+        "repl",
+      },
+      size = 60, -- 40 columns
+      position = "left",
+    },
+    {
+      elements = {
+        "watches",
+        "console",
+      },
+      size = 0.25, -- 25% of total lines
+      position = "bottom",
+    },
+  },
+})
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end

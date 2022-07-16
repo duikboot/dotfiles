@@ -6,13 +6,13 @@ end
 
 local modules = {
     'duikboot.startify',
+    'duikboot.cmp',
     'duikboot.lsp',
     'duikboot.treesitter',
     'duikboot.yanky',
     -- 'duikboot.neoclip',
     -- 'duikboot.saga',
     -- 'duikboot.compe',
-    'duikboot.cmp',
     -- 'duikboot.refactoring',
     'duikboot.treesitter_unit',
     'duikboot.neogit',

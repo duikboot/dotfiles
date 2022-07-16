@@ -74,7 +74,7 @@ end
 
 local attach = function(client, bufnr)
     on_attach_vim_plus_keymaps(client, bufnr)
-    signature()
+    -- signature()
     attach_aerial(client, bufnr)
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false

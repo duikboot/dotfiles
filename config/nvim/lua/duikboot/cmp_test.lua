@@ -1,5 +1,4 @@
-local cmp = require'cmp'
-local types = require'cmp.types'
+local cmp = require 'cmp'
 local lspkind = require('lspkind')
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
@@ -10,13 +9,17 @@ cmp.event:on(
 
 cmp.setup({
     snippet = {
+        -- REQUIRED - you must specify a snippet engine
         expand = function(args)
-            -- For `luasnip` user.
-            require('luasnip').lsp_expand(args.body)
-            -- vim.fn["UltiSnips#Anon"](args.body)
+        -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
         end,
     },
     window = {
+        -- completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -26,9 +29,6 @@ cmp.setup({
             behavior = cmp.ConfirmBehavior.Insert,
             select = true,
         },
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-p>'] = cmp.mapping.select_prev_item()
-        -- ["<c-"] = cmp.mapping.complete()
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
@@ -37,12 +37,12 @@ cmp.setup({
         { name = 'nvim_lua' },
         { name = 'buffer', keyword_length = 5 },
         { name = 'path' },
-        -- For luasnip user.
-        -- { name = 'look', keyword_length = 5}
+        -- { name = 'luasnip' }, -- For luasnip users.
+        -- { name = 'ultisnips' }, -- For ultisnips users.
+        -- { name = 'snippy' }, -- For snippy users.
     }, {
-      { name = 'buffer' },
+        { name = 'buffer' },
     }),
-    -- preselect = types.cmp.PreselectMode.Item,
     formatting = {
         format = lspkind.cmp_format({
             with_text = true,
@@ -57,8 +57,4 @@ cmp.setup({
             }
         })
     },
-    -- experimental = {
-    --     -- native_menu = false,
-    --     ghost_text = true,
-    -- },
 })
