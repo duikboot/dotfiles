@@ -20,20 +20,20 @@ install packages:
         - # enable systemd service
            systemctl enable betterlockscreen@$USER
     - pamac install nerd-fonts-source-code-pro
-    -sudo pamac install xclip/xsel
-    -sudo pamac install xcape
-    -sudo pamac install feh
-    -sudo pamac install rlwrap
-    -sudo pamac install docker
-    -sudo pamac install docker-compose
-    -sudo pamac install alacritty
-    -sudo pamac install keychain
-    -sudo pamac install cmake
-    -sudo pamac install ctags
-    -sudo pamac install treesitter
-    -sudo pamac install fzf
-    -sudo pamac install tmux
-    -install vlime
+    - sudo pamac install xclip/xsel
+    - sudo pamac install xcape
+    - sudo pamac install feh
+    - sudo pamac install rlwrap
+    - sudo pamac install docker
+    - sudo pamac install docker-compose
+    - sudo pamac install alacritty
+    - sudo pamac install keychain
+    - sudo pamac install cmake
+    - sudo pamac install ctags
+    - sudo pamac install treesitter
+    - sudo pamac install fzf
+    - sudo pamac install tmux
+    - install vlime
     -pamac install nordvpn
     - stumpwm
     - stumpwm-contrib
