@@ -2,27 +2,27 @@ local vim = vim
 -- local lsp_status = require('lsp-status')
 -- lsp_status.register_progress()
 
-local lspconfig = require'lspconfig'
+local lspconfig = require 'lspconfig'
 
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 
 vim.diagnostic.config {
-  underline = false,
-  virtual_text = {
-    severity = nil,
-    source = "if_many",
-    format = nil,
-  },
-  signs = true,
+    underline = false,
+    virtual_text = {
+        severity = nil,
+        source = "if_many",
+        format = nil,
+    },
+    signs = true,
 
-  -- options for floating windows:
-  float = {
-    show_header = true,
-  },
+    -- options for floating windows:
+    float = {
+        show_header = true,
+    },
 
-  -- general purpose
-  severity_sort = true,
-  update_in_insert = false,
+    -- general purpose
+    severity_sort = true,
+    update_in_insert = false,
 }
 
 
@@ -50,17 +50,17 @@ local on_attach_vim_plus_keymaps = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>td', '<cmd> lua vim.lsp.buf.type_definition()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-K>',      '<cmd> lua vim.lsp.buf.signature_help()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-K>', '<cmd> lua vim.lsp.buf.signature_help()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>K',          '<cmd> lua vim.lsp.buf.hover()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'g0',         '<cmd> lua vim.lsp.buf.document_symbol()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD',         '<cmd> lua vim.lsp.buf.implementation()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gW',         '<cmd> lua vim.lsp.buf.workspace_symbol()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>K', '<cmd> lua vim.lsp.buf.hover()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'g0', '<cmd> lua vim.lsp.buf.document_symbol()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd> lua vim.lsp.buf.implementation()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gW', '<cmd> lua vim.lsp.buf.workspace_symbol()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gd', '<cmd> lua vim.lsp.buf.declaration()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-]>',      '<cmd> lua vim.lsp.buf.definition()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-]>', '<cmd> lua vim.lsp.buf.definition()<CR>', opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>a8', '<cmd> lua vim.lsp.buf.formatting()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'v', '<localleader>a8', '<cmd> lua vim.lsp.buf.range_formatting()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>a8', '<cmd> lua vim.lsp.buf.format { async = true }<CR>',  opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>a8', '<cmd> lua vim.lsp.buf.format { async = true }<CR>', opts)
 end
 
 local signature = function()
@@ -68,8 +68,8 @@ local signature = function()
 end
 
 local function attach_aerial(client, bufnr)
-  -- your code here
-  require("aerial").on_attach(client, bufnr)
+    -- your code here
+    require("aerial").on_attach(client, bufnr)
 end
 
 local attach = function(client, bufnr)
@@ -82,35 +82,35 @@ end
 
 
 function PrintDiagnostics(opts, bufnr, line_nr, client_id)
-  bufnr = bufnr or 0
-  line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
-  opts = opts or {['lnum'] = line_nr}
+    bufnr = bufnr or 0
+    line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
+    opts = opts or { ['lnum'] = line_nr }
 
-  local line_diagnostics = vim.diagnostic.get(bufnr, opts)
-  if vim.tbl_isempty(line_diagnostics) then return end
+    local line_diagnostics = vim.diagnostic.get(bufnr, opts)
+    if vim.tbl_isempty(line_diagnostics) then return end
 
-  local diagnostic_message = ""
-  for i, diagnostic in ipairs(line_diagnostics) do
-    diagnostic_message = diagnostic_message .. string.format("%d: %s", i, diagnostic.message or "")
-    print(diagnostic_message)
-    if i ~= #line_diagnostics then
-      diagnostic_message = diagnostic_message .. ' '
+    local diagnostic_message = ""
+    for i, diagnostic in ipairs(line_diagnostics) do
+        diagnostic_message = diagnostic_message .. string.format("%d: %s", i, diagnostic.message or "")
+        print(diagnostic_message)
+        if i ~= #line_diagnostics then
+            diagnostic_message = diagnostic_message .. ' '
+        end
     end
-  end
-  vim.api.nvim_echo({{diagnostic_message, "Normal"}}, false, {})
+    vim.api.nvim_echo({ { diagnostic_message, "Normal" } }, false, {})
 end
 
 vim.cmd [[ autocmd! CursorHold * lua PrintDiagnostics() ]]
 -- From the lspconfig repo
 
 -- set the path to the sumneko installation; if you ereviously installed via the now deprecated :LspInstall, use
-local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'
+local sumneko_root_path = vim.fn.stdpath('cache') .. '/lspconfig/sumneko_lua/lua-language-server'
 local sumneko_binary = "/bin/lua-language-server"
-require'lspconfig'.sumneko_lua.setup {
-    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+require 'lspconfig'.sumneko_lua.setup {
+    cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" };
     on_attach = attach,
     capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    on_init=on_init,
+    on_init = on_init,
     settings = {
         Lua = {
             runtime = {
@@ -121,7 +121,7 @@ require'lspconfig'.sumneko_lua.setup {
             },
             diagnostics = {
                 -- Get the language server to recognize the `vim` global
-                globals = {'vim'},
+                globals = { 'vim' },
             },
             workspace = {
                 -- Make the server aware of Neovim runtime files
@@ -134,7 +134,7 @@ require'lspconfig'.sumneko_lua.setup {
     },
 }
 
-lspconfig['pylsp'].setup{
+lspconfig['pylsp'].setup {
     -- on_init=on_init,
     on_attach = attach,
     -- capabilities=lsp_status.capabilities
@@ -150,14 +150,14 @@ lspconfig['pylsp'].setup{
     },
 }
 
-lspconfig['vimls'].setup{
+lspconfig['vimls'].setup {
     -- on_init=on_init,
     on_attach = attach,
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     -- capabilities=lsp_status.capabilities
 }
 
-lspconfig['bashls'].setup{
+lspconfig['bashls'].setup {
     -- on_init=on_init,
     on_attach = attach,
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
@@ -165,13 +165,13 @@ lspconfig['bashls'].setup{
 }
 
 require("trouble").setup {
--- your configuration comes here
--- or leave it empty to use the default settings
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
     -- refer to the configuration section below
 }
 
-require'nvim-web-devicons'.setup()
-require'figlet'.setup()
+require 'nvim-web-devicons'.setup()
+require 'figlet'.setup()
 
 -- require'lsp_signature'.on_attach()
 -- lspconfig.pylsp.setup({

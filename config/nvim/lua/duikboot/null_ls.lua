@@ -20,7 +20,7 @@ null_ls.setup({
     debug = true,
     sources = {
         -- Code Actions
-        code_actions.eslint,
+        -- code_actions.eslint,
         -- code_actions.gitsigs,
         code_actions.refactoring,
         code_actions.shellcheck,
@@ -37,18 +37,18 @@ null_ls.setup({
         diagnostics.jsonlint,
         diagnostics.luacheck,
         diagnostics.shellcheck,
-        diagnostics.vint,
+        -- diagnostics.vint,
         diagnostics.write_good,
         diagnostics.yamllint,
-        diagnostics.editorconfig_checker,
-        diagnostics.eslint,
+        -- diagnostics.editorconfig_checker,
+        -- diagnostics.eslint,
         -- Formating
         formatting.autopep8,
         formatting.isort,
         formatting.trim_whitespace,
         -- formatting.black,
-        formatting.clang_format,
-        formatting.eslint,
+        -- formatting.clang_format,
+        -- formatting.eslint,
         -- formatting.yapf,
         formatting.stylua,
         -- Hover

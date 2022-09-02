@@ -476,7 +476,7 @@ set tags=./tags,tags
 nnoremap <leader><cr> :silent !ctags -R --links=no --exclude=.buildozer --languages=-javascript --languages=-css >/dev/null 2>&1 &<cr>:redraw!<cr>
 
 " open tag on the top of the screen
-nnoremap <C-]> <C-]>zt
+" nnoremap <C-]> <C-]>zt
 
 " Toggle tag
 nnoremap <leader>t <Esc>:tag<Space>
