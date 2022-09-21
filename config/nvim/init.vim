@@ -183,7 +183,7 @@ set inccommand=nosplit
 
 set t_Co=256
 set termguicolors
-set background=light           " We are using dark background in vim
+set background=dark           " We are using dark background in vim
 " colorscheme NeoSolarized
 " colorscheme xcodelighthc
 
@@ -568,7 +568,18 @@ nnoremap <silent> ,tc :call neoterm#kill()<cr>
 
 " {{{ Vlime
 
-let g:vlime_cl_use_terminal = 1
+nnoremap <silent> <LocalLeader>rr :call VlimeStart()<CR>
+let g:vlime_cl_impl = "mondo"
+let g:vlime_cl_use_terminal = v:true
+
+function! VlimeBuildServerCommandFor_mondo(vlime_loader, vlime_eval)
+    return ["mondo", "--server", "vlime"]
+endfunction
+
+function! VlimeStart()
+    call vlime#server#New(v:true, get(g:, "vlime_cl_use_terminal", v:false))
+endfunction
+
 " let g:vlime_window_settings = {
 "             \ 'repl': {'vertical': v:true, 'pos': 'topright'},
 "             \ 'server': {'vertical': v:true, 'pos': 'botright'}

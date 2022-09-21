@@ -107,6 +107,7 @@ Plug 'https://github.com/nvim-treesitter/nvim-treesitter-refactor'
 " Plug 'https://github.com/JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'https://github.com/David-Kunz/treesitter-unit/'
+Plug 'https://github.com/nvim-treesitter/nvim-treesitter-context'
 
 Plug 'https://github.com/ChristianChiarulli/nvcode-color-schemes.vim'
 Plug 'https://github.com/nvim-lua/popup.nvim'
@@ -116,7 +117,7 @@ Plug 'https://github.com/ThePrimeagen/refactoring.nvim'
 Plug 'https://github.com/lewis6991/gitsigns.nvim'
 Plug 'https://github.com/nvim-lua/telescope.nvim'
 Plug 'https://github.com/kevinhwang91/nvim-hlslens'
-Plug 'https://github.com/dbeniamine/cheat.sh-vim'
+" Plug 'https://github.com/dbeniamine/cheat.sh-vim'
 
 " Plug 'https://github.com/glepnir/lspsaga.nvim'
 " Plug 'https://github.com/ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}

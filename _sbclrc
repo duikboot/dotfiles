@@ -33,6 +33,4 @@
 (defun :fg ()
   (sb-thread:release-foreground))
 
-; '(ql:update-client)' --eval '(ql:update-all-dists)'
-
 ; vim: filetype=lisp
