@@ -31,6 +31,7 @@ local modules = {
     'duikboot.telescope',
     'duikboot.dap',
     'duikboot.ufo',
+    'duikboot.hlslens'
     -- 'duikboot.sidebar'
     -- 'duikboot.buftabline',
     -- 'duikboot.orgmode'

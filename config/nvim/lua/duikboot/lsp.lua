@@ -4,6 +4,7 @@ local vim = vim
 
 local lspconfig = require 'lspconfig'
 
+require("mason").setup()
 local opts = { noremap = true, silent = true }
 
 vim.diagnostic.config {
@@ -156,6 +157,14 @@ lspconfig['vimls'].setup {
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     -- capabilities=lsp_status.capabilities
 }
+
+lspconfig['tsserver'].setup {
+    -- on_init=on_init,
+    on_attach = attach,
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    -- capabilities=lsp_status.capabilities
+}
+
 
 lspconfig['bashls'].setup {
     -- on_init=on_init,

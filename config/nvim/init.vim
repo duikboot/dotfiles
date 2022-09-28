@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-source ~/.config/nvim/plug-list.vim
+"source ~/.config/nvim/plug-list.vim
 
 " Basic Settings {{{
 filetype on                   " try to detect filetypes
@@ -196,6 +196,13 @@ set background=dark           " We are using dark background in vim
 " configure nvcode-color-schemes
 let g:nvcode_termcolors=256
 
+
+lua pcall(require, 'plugins')
+
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
 " colorscheme edge
 " lua require('colorbuddy').colorscheme('gruvbuddy')
 "" colorscheme nvcode " Or whatever colorscheme you make

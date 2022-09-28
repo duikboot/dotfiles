@@ -129,7 +129,6 @@ Plug 'https://github.com/sainnhe/edge'
 Plug 'https://github.com/rhysd/committia.vim'
 Plug 'https://github.com/kyazdani42/nvim-web-devicons'
 Plug 'https://github.com/hoob3rt/lualine.nvim'
-" Plug 'https://github.com/nvim-telescope/telescope-fzy-native.nvim', {'do': 'git submodule update --init --recursive'}
 Plug 'https://github.com/nvim-telescope/telescope-fzy-native.nvim', {'do': 'make'}
 Plug 'https://github.com/folke/lsp-trouble.nvim'
 Plug 'https://github.com/ray-x/lsp_signature.nvim'
@@ -140,7 +139,6 @@ Plug 'https://github.com/aklt/plantuml-syntax'
 
 Plug 'https://github.com/windwp/nvim-spectre'
 
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'https://github.com/JoseConseco/telescope_sessions_picker.nvim'
 
 " Plug 'https://github.com/gabrielpoca/replacer.nvim'
@@ -165,7 +163,7 @@ Plug 'https://github.com/theHamsta/nvim-treesitter-commonlisp'
 
 " Plug 'https://github.com/AckslD/nvim-neoclip.lua'
 Plug 'https://github.com/gbprod/yanky.nvim'
-Plug 'https://github.com/tami5/sqlite.lua'
+" Plug 'https://github.com/tami5/sqlite.lua'
 
 Plug 'https://github.com/gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 
