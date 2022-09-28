@@ -86,8 +86,12 @@ vim-plug:
 	curl -fLo "$${XDG_DATA_HOME:-$$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+packer:
+	git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+		~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 .PHONY: nvim
-nvim: vim-plug ctags lsp ctags vim-plug
+nvim: vim-plug packer ctags lsp ctags vim-plug
 	-rm ${HOME_DIR}/.config/$@
 	ln -sf ${PWD}/config/$@ ${HOME_DIR}/.config/$@
 
