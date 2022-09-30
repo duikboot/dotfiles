@@ -575,17 +575,18 @@ nnoremap <silent> ,tc :call neoterm#kill()<cr>
 
 " {{{ Vlime
 
-nnoremap <silent> <LocalLeader>rr :call VlimeStart()<CR>
-let g:vlime_cl_impl = "mondo"
 let g:vlime_cl_use_terminal = v:true
+" nnoremap <silent> <LocalLeader>rr :call VlimeStart()<CR>
+" let g:vlime_cl_impl = "mondo"
+" let g:vlime_cl_use_terminal = v:true
 
-function! VlimeBuildServerCommandFor_mondo(vlime_loader, vlime_eval)
-    return ["mondo", "--server", "vlime"]
-endfunction
+" function! VlimeBuildServerCommandFor_mondo(vlime_loader, vlime_eval)
+"     return ["mondo", "--server", "vlime"]
+" endfunction
 
-function! VlimeStart()
-    call vlime#server#New(v:true, get(g:, "vlime_cl_use_terminal", v:false))
-endfunction
+" function! VlimeStart()
+"     call vlime#server#New(v:true, get(g:, "vlime_cl_use_terminal", v:false))
+" endfunction
 
 " let g:vlime_window_settings = {
 "             \ 'repl': {'vertical': v:true, 'pos': 'topright'},
