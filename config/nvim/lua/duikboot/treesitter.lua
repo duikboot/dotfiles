@@ -33,10 +33,6 @@ require'nvim-treesitter.configs'.setup {
         -- },
     },
     textobjects = {
-        move = {
-            enable = true,
-            set_jumps = true,
-        },
         lsp_interop = {
             enable = true,
             peek_definition_code = {
@@ -44,7 +40,21 @@ require'nvim-treesitter.configs'.setup {
                 ["<leader>pc"] = "@class.outer"
             }
         },
-
+      move = {
+        enable = true,
+        set_jumps = true, -- whether to set jumps in the jumplist
+        goto_next_start = {
+          ["]m"] = {"@function.outer", "@class.outer"},
+        },
+        goto_next_end = {
+          ["]M"] = {"@function.outer", "@class.outer"},
+        },
+        goto_previous_start = {
+          ["[m"] = {"@function.outer", "@class.outer"},
+        },
+        goto_previous_end = {
+          ["[M"] = {"@function.outer", "@class.outer"},
+        },
         select = {
             enable = true,
             lookahead = true,
@@ -56,8 +66,8 @@ require'nvim-treesitter.configs'.setup {
                 ["ic"] = "@class.inner",
                 ["ai"] = "@conditional.outer",
                 ["ii"] = "@conditional.inner",
-            --   ["af"] = "@function.outer",
-            --   ["if"] = "@function.inner",
+                --   ["af"] = "@function.outer",
+                --   ["if"] = "@function.inner",
 
             --   ["ac"] = "@conditional.outer",
             --   ["ic"] = "@conditional.inner",
