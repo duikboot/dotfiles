@@ -104,6 +104,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/David-Kunz/treesitter-unit/'
     use 'https://github.com/nvim-treesitter/nvim-treesitter-context'
     use 'https://github.com/theHamsta/nvim-treesitter-commonlisp'
+    use 'https://github.com/ThePrimeagen/refactoring.nvim'
 
     -- Vcs
     use 'https://github.com/tpope/vim-fugitive'

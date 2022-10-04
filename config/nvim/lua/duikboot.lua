@@ -13,7 +13,7 @@ local modules = {
     -- 'duikboot.neoclip',
     -- 'duikboot.saga',
     -- 'duikboot.compe',
-    -- 'duikboot.refactoring',
+    'duikboot.refactoring',
     'duikboot.treesitter_unit',
     'duikboot.treesitter_context',
     'duikboot.neogit',
