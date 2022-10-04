@@ -1,6 +1,6 @@
-local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
 
-require'nvim-treesitter.configs'.setup {
+require("nvim-treesitter.configs").setup({
     ensure_installed = {
         "python",
         "commonlisp",
@@ -16,12 +16,12 @@ require'nvim-treesitter.configs'.setup {
         "typescript",
     },
     highlight = {
-        enable = true,              -- false will disable the whole extension
+        enable = true, -- false will disable the whole extension
         -- disable = { "c", "rust" },  -- list of language that will be disabled
     },
     indent = {
         enable = true,
-        disable = { "python" }
+        disable = { "python" },
     },
     incremental_selection = {
         enable = true,
@@ -33,28 +33,28 @@ require'nvim-treesitter.configs'.setup {
         -- },
     },
     textobjects = {
-        lsp_interop = {
-            enable = true,
-            peek_definition_code = {
-                ["<leader>pf"] = "@function.outer",
-                ["<leader>pc"] = "@class.outer"
-            }
-        },
         move = {
             enable = true,
-            set_jumps = true, -- whether to set jumps in the jumplist
+            set_jumps = true,
+
             goto_next_start = {
-                ["]m"] = {"@function.outer", "@class.outer"},
+                ["]p"] = "@parameter.inner",
+                ["]m"] = "@function.outer",
+                ["]]"] = "@class.outer",
             },
             goto_next_end = {
-                ["]M"] = {"@function.outer", "@class.outer"},
+                ["]M"] = "@function.outer",
+                ["]["] = "@class.outer",
             },
             goto_previous_start = {
-                ["[m"] = {"@function.outer", "@class.outer"},
+                ["[p"] = "@parameter.inner",
+                ["[m"] = "@function.outer",
+                ["[["] = "@class.outer",
             },
             goto_previous_end = {
-                ["[M"] = {"@function.outer", "@class.outer"},
-            }
+                ["[M"] = "@function.outer",
+                ["[]"] = "@class.outer",
+            },
         },
         select = {
             enable = true,
@@ -70,18 +70,17 @@ require'nvim-treesitter.configs'.setup {
                 --   ["af"] = "@function.outer",
                 --   ["if"] = "@function.inner",
 
-            --   ["ac"] = "@conditional.outer",
-            --   ["ic"] = "@conditional.inner",
+                --   ["ac"] = "@conditional.outer",
+                --   ["ic"] = "@conditional.inner",
 
-            --   ["aa"] = "@parameter.outer",
-            --   ["ia"] = "@parameter.inner",
-
-            }
+                --   ["aa"] = "@parameter.outer",
+                --   ["ia"] = "@parameter.inner",
+            },
         },
     },
     refactor = {
-        highlight_definitions = {enable = true},
-        highlight_current_scope = {enable = false},
+        highlight_definitions = { enable = true },
+        highlight_current_scope = { enable = false },
         navigation = {
             enable = true,
             keymaps = {
@@ -103,4 +102,4 @@ require'nvim-treesitter.configs'.setup {
     -- context_commentstring = {
     --     enable = true
     -- },
-}
+})
