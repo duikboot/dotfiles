@@ -45,7 +45,7 @@ cmp.setup({
     -- preselect = types.cmp.PreselectMode.Item,
     formatting = {
         format = lspkind.cmp_format({
-            with_text = true,
+            mode = 'symbol_text',
             maxwidth = 50,
             menu = {
                 treesitter = "[TS]",

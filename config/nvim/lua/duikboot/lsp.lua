@@ -110,7 +110,7 @@ local sumneko_binary = "/bin/lua-language-server"
 require 'lspconfig'.sumneko_lua.setup {
     cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" };
     on_attach = attach,
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     on_init = on_init,
     settings = {
         Lua = {
@@ -139,7 +139,7 @@ lspconfig['pylsp'].setup {
     -- on_init=on_init,
     on_attach = attach,
     -- capabilities=lsp_status.capabilities
-    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     settings = {
         pylsp = {
             plugins = {
@@ -154,14 +154,14 @@ lspconfig['pylsp'].setup {
 lspconfig['vimls'].setup {
     -- on_init=on_init,
     on_attach = attach,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     -- capabilities=lsp_status.capabilities
 }
 
 lspconfig['tsserver'].setup {
     -- on_init=on_init,
     on_attach = attach,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     -- capabilities=lsp_status.capabilities
 }
 
@@ -169,7 +169,7 @@ lspconfig['tsserver'].setup {
 lspconfig['bashls'].setup {
     -- on_init=on_init,
     on_attach = attach,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     -- capabilities=lsp_status.capabilities
 }
 

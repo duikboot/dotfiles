@@ -1,4 +1,4 @@
-PYTHON = python
+PYTHON = python3
 HOME_DIR = $${HOME}
 BIN = $(HOME_DIR)/bin
 PWD_DIR = $${PWD}
