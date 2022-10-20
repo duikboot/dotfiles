@@ -110,7 +110,11 @@ local sumneko_binary = "/bin/lua-language-server"
 require 'lspconfig'.sumneko_lua.setup {
     cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" };
     on_attach = attach,
+<<<<<<< Updated upstream
     capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+=======
+    capabilities = require("cmp_nvim_lsp").cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+>>>>>>> Stashed changes
     on_init = on_init,
     settings = {
         Lua = {
