@@ -28,7 +28,7 @@ telescope.setup{
         --     "absolute"
         -- },
         file_sorter = sorters.get_fzy_sorter,
-        -- file_ignore_patterns = {"%js"},
+        file_ignore_patterns = {"tags"},
         mappings = {
             i = {
                 ["<C-x>"] = actions.send_to_qflist + actions.open_qflist,
