@@ -105,8 +105,8 @@ set pumheight=18             " Keep a small completion window
 
 """ Moving Around/Editing
 set cursorline              " have a line indicate the cursor location
-autocmd WinLeave * set nocursorline nocursorcolumn
-autocmd WinEnter * set cursorline cursorcolumn
+autocmd WinLeave * set nocursorline nocursorcolumn norelativenumber
+autocmd WinEnter * set cursorline cursorcolumn relativenumber
 " autocmd BufEnter * setlocal cursorcolumn
 " autocmd BufLeave * setlocal nocursorcolumn
 set expandtab               " Use spaces, not tabs, for autoindent/tab key.
@@ -770,7 +770,8 @@ nnoremap <leader>gs     <cmd>lua require'telescope.builtin'.git_status{}<CR>
 nnoremap <leader>lg     <cmd>lua require'telescope.builtin'.live_grep{}<CR>
 nnoremap <leader>b      <cmd>lua require'telescope.builtin'.buffers{}<CR>
 nnoremap <localleader>d      <cmd>lua require'telescope.builtin'.diagnostics{}<CR>
-nnoremap <leader>t      <cmd>lua require'telescope.builtin'.tags{only_sort_tags=true}<CR>
+" nnoremap <leader>t      <cmd>lua require'telescope.builtin'.tags{only_sort_tags=true}<CR>
+nnoremap <leader>t      <cmd>:Tags<CR>
 nnoremap <leader>*      <cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <localleader>f <cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>
 
