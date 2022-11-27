@@ -134,12 +134,13 @@ require 'lspconfig'.sumneko_lua.setup {
         },
     },
 }
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 lspconfig['pylsp'].setup {
     -- on_init=on_init,
     on_attach = attach,
     -- capabilities=lsp_status.capabilities
-    capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = capabilities,
     settings = {
         pylsp = {
             plugins = {
@@ -154,14 +155,14 @@ lspconfig['pylsp'].setup {
 lspconfig['vimls'].setup {
     -- on_init=on_init,
     on_attach = attach,
-    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = capabilities,
     -- capabilities=lsp_status.capabilities
 }
 
 lspconfig['tsserver'].setup {
     -- on_init=on_init,
     on_attach = attach,
-    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = capabilities,
     -- capabilities=lsp_status.capabilities
 }
 
@@ -169,7 +170,7 @@ lspconfig['tsserver'].setup {
 lspconfig['bashls'].setup {
     -- on_init=on_init,
     on_attach = attach,
-    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = capabilities,
     -- capabilities=lsp_status.capabilities
 }
 

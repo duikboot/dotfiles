@@ -37,6 +37,7 @@ cmp.setup({
         { name = 'nvim_lua' },
         { name = 'buffer', keyword_length = 5 },
         { name = 'path' },
+        { name = 'vlime'}
         -- For luasnip user.
         -- { name = 'look', keyword_length = 5}
     }, {
@@ -54,6 +55,7 @@ cmp.setup({
                 buffer = "[BUF]",
                 path = "[PATH]",
                 luasnip = "[snip]",
+                vlime = "[vlime]"
             }
         })
     },

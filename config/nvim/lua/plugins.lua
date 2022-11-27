@@ -125,7 +125,8 @@ return require('packer').startup(function(use)
     use { 'https://github.com/ncm2/ncm2',
         requires = {{ 'https://github.com/roxma/nvim-yarp'}}
     }
-    use 'https://github.com/HiPhish/ncm2-vlime'
+    -- use 'https://github.com/HiPhish/ncm2-vlime'
+    use 'https://gitlab.com/HiPhish/nvim-cmp-vlime'
 
     -- Telekastern
     use 'https://github.com/renerocksai/telekasten.nvim'
