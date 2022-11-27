@@ -706,7 +706,7 @@ augroup ft_lisp
     let g:parinfer_enabled = 1
     let g:parinfer_enabled = 1
     let g:parinfer_mode = 'paren'
-    autocmd FileType User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#vlime#get_source_options({ 'priority': 10 }))
+    " autocmd FileType User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#vlime#get_source_options({ 'priority': 10 }))
 
     " autocmd FileType lisp setlocal path+=/home/arjen/quicklisp/dists/quicklisp/installed/system/
 augroup END
