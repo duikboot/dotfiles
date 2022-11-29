@@ -63,9 +63,10 @@ return require('packer').startup(function(use)
     use 'https://github.com/hrsh7th/cmp-nvim-lsp'
     use 'https://github.com/hrsh7th/cmp-buffer'
     use 'https://github.com/hrsh7th/cmp-nvim-lua'
-    use 'https://github.com/L3MON4D3/LuaSnip'
-    use 'https://github.com/saadparwaiz1/cmp_luasnip'
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
     use 'https://github.com/rafamadriz/friendly-snippets'
+
     use 'https://github.com/hrsh7th/cmp-path'
     use 'https://github.com/octaltree/cmp-look'
     use 'https://github.com/ray-x/cmp-treesitter'
@@ -95,6 +96,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/gelguy/wilder.nvim'
     use 'https://github.com/christoomey/vim-tmux-navigator'
 
+    use 'https://github.com/nullchilly/fsread.nvim'
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'https://github.com/nvim-treesitter/playground'
