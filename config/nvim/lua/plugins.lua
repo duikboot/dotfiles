@@ -57,6 +57,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/prabirshrestha/asyncomplete.vim'
     use 'https://github.com/ThePrimeagen/vim-be-good'
     use 'https://github.com/kevinhwang91/nvim-hlslens'
+    use 'https://github.com/Olical/vim-enmasse'
 
     -- completion
     use 'https://github.com/hrsh7th/nvim-cmp'
