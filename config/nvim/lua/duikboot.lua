@@ -8,6 +8,7 @@ local modules = {
     'duikboot.startify',
     'duikboot.cmp',
     'duikboot.lsp',
+    -- 'duikboot.zero',
     'duikboot.treesitter',
     'duikboot.yanky',
     -- 'duikboot.neoclip',
