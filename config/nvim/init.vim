@@ -183,7 +183,7 @@ set inccommand=nosplit
 
 set t_Co=256
 set termguicolors
-set background=dark           " We are using dark background in vim
+" set background=dark           " We are using dark background in vim
 " colorscheme NeoSolarized
 " colorscheme xcodelighthc
 
@@ -192,10 +192,6 @@ set background=dark           " We are using dark background in vim
 " let g:srcery_inverse_match_paren = 1
 " colorscheme srcery
 " colorscheme oceanic-primal
-
-" configure nvcode-color-schemes
-let g:nvcode_termcolors=256
-
 
 lua pcall(require, 'plugins')
 
@@ -211,8 +207,9 @@ lua pcall(require, 'plugins')
 " let g:material_style = 'palenight'
 " let g:material_italic_comments=1
 " colorscheme one-nvim
-colorscheme everforest
-
+" colorscheme everforest
+colorscheme neovim_purple
+lua vim.g.nobackground = 1 -- Default 0
 "Vim-Script:
 
 " nnoremap <C-m> :lua require('material').toggle_style()<CR>
