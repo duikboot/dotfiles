@@ -183,7 +183,7 @@ set inccommand=nosplit
 
 set t_Co=256
 set termguicolors
-" set background=dark           " We are using dark background in vim
+set background=dark           " We are using dark background in vim
 " colorscheme NeoSolarized
 " colorscheme xcodelighthc
 
@@ -207,9 +207,12 @@ lua pcall(require, 'plugins')
 " let g:material_style = 'palenight'
 " let g:material_italic_comments=1
 " colorscheme one-nvim
-" colorscheme everforest
-colorscheme neovim_purple
+colorscheme everforest
+" set background=light           " We are using dark background in vim
+" colorscheme neovim_purple
 lua vim.g.nobackground = 1 -- Default 0
+" Only if colorscheme is neovim_purple
+
 "Vim-Script:
 
 " nnoremap <C-m> :lua require('material').toggle_style()<CR>
@@ -717,13 +720,6 @@ augroup END
 
 " }}}
 
-"{{{ quickscope
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
-highlight QuickScopePrimary guifg=purple guibg=lightgray gui=underline ctermfg=5 cterm=underline
-highlight QuickScopeSecondary guifg=purple guibg=lightgray gui=underline ctermfg=2 cterm=underline
-
-"}}}
 
 autocmd BufEnter *.lisp call ncm2#enable_for_buffer()
 " suppress the annoying 'match x of y', 'The only match' and 'Pattern not

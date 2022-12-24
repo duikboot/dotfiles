@@ -46,6 +46,8 @@ null_ls.setup({
         formatting.autopep8,
         formatting.isort,
         formatting.trim_whitespace,
+        formatting.gofumpt,
+        formatting.goimports,
         -- formatting.black,
         -- formatting.clang_format,
         -- formatting.eslint,

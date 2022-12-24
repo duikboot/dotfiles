@@ -68,15 +68,9 @@ local signature = function()
     require("lsp_signature").on_attach()
 end
 
-local function attach_aerial(client, bufnr)
-    -- your code here
-    require("aerial").on_attach(client, bufnr)
-end
-
 local attach = function(client, bufnr)
     on_attach_vim_plus_keymaps(client, bufnr)
     -- signature()
-    attach_aerial(client, bufnr)
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
 end
@@ -158,6 +152,15 @@ lspconfig['vimls'].setup {
     capabilities = capabilities,
     -- capabilities=lsp_status.capabilities
 }
+
+
+lspconfig['gopls'].setup {
+    -- on_init=on_init,
+    on_attach = attach,
+    capabilities = capabilities,
+    -- capabilities=lsp_status.capabilities
+}
+
 
 lspconfig['tsserver'].setup {
     -- on_init=on_init,
