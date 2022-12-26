@@ -181,6 +181,13 @@ set smartcase               " unless uppercase letters are used in the regex.
 " "split" : Also shows partial off-screen results in a preview window.
 set inccommand=nosplit
 
+lua pcall(require, 'plugins')
+
+augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+augroup end
+
 set t_Co=256
 set termguicolors
 set background=dark           " We are using dark background in vim
@@ -193,19 +200,10 @@ set background=dark           " We are using dark background in vim
 " colorscheme srcery
 " colorscheme oceanic-primal
 
-lua pcall(require, 'plugins')
-
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
 " colorscheme edge
 " lua require('colorbuddy').colorscheme('gruvbuddy')
 "" colorscheme nvcode " Or whatever colorscheme you make
 ""
-" colorscheme material
-" let g:material_style = 'palenight'
-" let g:material_italic_comments=1
 " colorscheme one-nvim
 colorscheme everforest
 " set background=light           " We are using dark background in vim
@@ -213,18 +211,7 @@ colorscheme everforest
 lua vim.g.nobackground = 1 -- Default 0
 " Only if colorscheme is neovim_purple
 
-"Vim-Script:
-
-" nnoremap <C-m> :lua require('material').toggle_style()<CR>
-
-    " darker
-    " lighter
-    " default
-    " oceanic
-    " palenight
-    " deep ocean
-
-
+let g:everforest_background = 'hard'
 
 " checks if your terminal has 24-bit color support
 if (has("termguicolors"))
@@ -824,11 +811,11 @@ autocmd FileType python let b:lsp_current_function = ''
 
 " }}} symbols-outline
 
-" {{{ Wilder
+" " {{{ Wilder
 
-call wilder#setup({'modes': [':', '/', '?']})
+" call wilder#setup({'modes': [':', '/', '?']})
 
-" }}}
+" " }}}
 
 autocmd BufWinEnter,BufEnter * set laststatus=3
 

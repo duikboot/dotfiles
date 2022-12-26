@@ -70,11 +70,22 @@ return require('packer').startup(function(use)
     use 'https://github.com/nvim-telescope/telescope-symbols.nvim'
     use 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
 
-    use 'https://github.com/stevearc/aerial.nvim'
+    use {
+        'https://github.com/stevearc/aerial.nvim',
+        config = function() require('aerial').setup() end
+    }
     use 'https://github.com/Vimjas/vim-python-pep8-indent'
     use 'https://github.com/kyazdani42/nvim-web-devicons'
     use 'https://github.com/hoob3rt/lualine.nvim'
     use 'https://github.com/romainl/vim-qf'
+    use {
+        "cbochs/portal.nvim",
+        requires = {
+            "cbochs/grapple.nvim",  -- Optional: provides the "grapple" query item
+            "ThePrimeagen/harpoon", -- Optional: provides the "harpoon" query item
+        },
+    }
+
     use 'https://github.com/unblevable/quick-scope'
     use 'https://github.com/prabirshrestha/asyncomplete.vim'
     use 'https://github.com/ThePrimeagen/vim-be-good'
@@ -86,6 +97,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/hrsh7th/cmp-nvim-lsp'
     use 'https://github.com/hrsh7th/cmp-buffer'
     use 'https://github.com/hrsh7th/cmp-nvim-lua'
+    use 'https://github.com/hrsh7th/cmp-cmdline'
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
     use 'https://github.com/rafamadriz/friendly-snippets'
@@ -116,12 +128,12 @@ return require('packer').startup(function(use)
         opt = true,
         cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
 
-    use 'https://github.com/gelguy/wilder.nvim'
+    -- use 'https://github.com/gelguy/wilder.nvim'
     use 'https://github.com/christoomey/vim-tmux-navigator'
 
     use 'https://github.com/nullchilly/fsread.nvim'
     -- Treesitter
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use { 'https://github.com/nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'https://github.com/nvim-treesitter/playground'
     use 'https://github.com/nvim-treesitter/nvim-treesitter-refactor'
     -- Plug 'https://github.com/JoosepAlviste/nvim-ts-context-commentstring'

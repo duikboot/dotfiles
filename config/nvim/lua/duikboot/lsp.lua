@@ -70,7 +70,7 @@ end
 
 local attach = function(client, bufnr)
     on_attach_vim_plus_keymaps(client, bufnr)
-    -- signature()
+    signature()
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
 end
@@ -99,10 +99,10 @@ vim.cmd [[ autocmd! CursorHold * lua PrintDiagnostics() ]]
 -- From the lspconfig repo
 
 -- set the path to the sumneko installation; if you ereviously installed via the now deprecated :LspInstall, use
-local sumneko_root_path = vim.fn.stdpath('cache') .. '/lspconfig/sumneko_lua/lua-language-server'
-local sumneko_binary = "/bin/lua-language-server"
+-- local sumneko_root_path = vim.fn.stdpath('cache') .. '/lspconfig/sumneko_lua/lua-language-server'
+-- local sumneko_binary = "/bin/lua-language-server"
 require 'lspconfig'.sumneko_lua.setup {
-    cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" };
+    -- cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" };
     on_attach = attach,
     capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     on_init = on_init,
@@ -184,7 +184,6 @@ require("trouble").setup {
 }
 
 require 'nvim-web-devicons'.setup()
-require 'figlet'.setup()
 
 -- require'lsp_signature'.on_attach()
 -- lspconfig.pylsp.setup({

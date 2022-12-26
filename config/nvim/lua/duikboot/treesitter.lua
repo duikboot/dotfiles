@@ -9,6 +9,7 @@ require("nvim-treesitter.configs").setup({
         "make",
         "vim",
         "cmake",
+        "make",
         "comment",
         "latex",
         "lua",

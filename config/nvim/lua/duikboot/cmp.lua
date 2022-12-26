@@ -1,3 +1,4 @@
+local vim = vim
 local cmp = require'cmp'
 local types = require'cmp.types'
 local lspkind = require('lspkind')
@@ -44,6 +45,24 @@ cmp.setup({
         -- { name = 'look', keyword_length = 5}
     }, {
       { name = 'buffer' },
+    }),
+
+    -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline({ '/', '?' }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+        { name = 'buffer' }
+        }
+    }),
+
+    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+            { name = 'path' }
+        }, {
+                { name = 'cmdline' }
+            })
     }),
     -- preselect = types.cmp.PreselectMode.Item,
     formatting = {
