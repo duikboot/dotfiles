@@ -1,8 +1,9 @@
+local vim = vim
 local ensure_packer = function()
     local fn = vim.fn
-    local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
     if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
         vim.cmd [[packadd packer.nvim]]
         return true
     end
@@ -64,11 +65,18 @@ return require('packer').startup(function(use)
 
     -- Telescope
     use 'https://github.com/nvim-telescope/telescope.nvim'
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'https://github.com/JoseConseco/telescope_sessions_picker.nvim'
     use 'https://github.com/nvim-telescope/telescope-media-files.nvim'
     use 'https://github.com/nvim-telescope/telescope-symbols.nvim'
     use 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
+    use { 'https://github.com/debugloop/telescope-undo.nvim',
+        requires = { 'nvim-telescope/telescope.nvim' },
+        config = function()
+            require("telescope").load_extension("undo")
+            vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
+        end,
+    }
 
     use {
         'https://github.com/stevearc/aerial.nvim',
@@ -79,9 +87,9 @@ return require('packer').startup(function(use)
     use 'https://github.com/hoob3rt/lualine.nvim'
     use 'https://github.com/romainl/vim-qf'
     use {
-        "cbochs/portal.nvim",
+        "https://github.com/cbochs/portal.nvim",
         requires = {
-            "cbochs/grapple.nvim",  -- Optional: provides the "grapple" query item
+            "cbochs/grapple.nvim", -- Optional: provides the "grapple" query item
             "ThePrimeagen/harpoon", -- Optional: provides the "harpoon" query item
         },
     }
@@ -115,7 +123,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/nvim-telescope/telescope-dap.nvim'
 
     -- TPope
-    use {'https://github.com/tpope/vim-markdown', opt = true}
+    use { 'https://github.com/tpope/vim-markdown', opt = true }
     use 'https://github.com/tpope/vim-obsession'
     use 'https://github.com/tpope/vim-repeat'
     use 'https://github.com/tpope/vim-sensible'
@@ -124,9 +132,9 @@ return require('packer').startup(function(use)
     use 'https://github.com/tpope/vim-commentary'
     -- Lazy loading:
     -- Load on specific commands
-    use {'tpope/vim-dispatch',
+    use { 'tpope/vim-dispatch',
         opt = true,
-        cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
+        cmd = { 'Dispatch', 'Make', 'Focus', 'Start' } }
 
     -- use 'https://github.com/gelguy/wilder.nvim'
     use 'https://github.com/christoomey/vim-tmux-navigator'
@@ -158,9 +166,9 @@ return require('packer').startup(function(use)
     use 'https://github.com/kassio/neoterm'
 
     -- Lisp
-    use {'https://github.com/vlime/vlime', rtp = 'vim/'}
+    use { 'https://github.com/vlime/vlime', rtp = 'vim/' }
     use { 'https://github.com/ncm2/ncm2',
-        requires = {{ 'https://github.com/roxma/nvim-yarp'}}
+        requires = { { 'https://github.com/roxma/nvim-yarp' } }
     }
     -- use 'https://github.com/HiPhish/ncm2-vlime'
     use 'https://github.com/HiPhish/nvim-cmp-vlime'
