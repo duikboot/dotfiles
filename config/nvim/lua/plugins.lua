@@ -27,7 +27,10 @@ return require('packer').startup(function(use)
     use 'https://github.com/NLKNguyen/papercolor-theme'
     use 'https://github.com/unrealjo/neovim-purple'
     use 'https://github.com/sainnhe/everforest'
-
+    use({
+        'https://github.com/rose-pine/neovim',
+        as = 'rose-pine',
+    })
     use 'https://github.com/junegunn/fzf'
     use 'https://github.com/junegunn/fzf.vim'
     use 'https://github.com/nvim-lua/plenary.nvim'
@@ -64,19 +67,13 @@ return require('packer').startup(function(use)
     -- }
 
     -- Telescope
-    use 'https://github.com/nvim-telescope/telescope.nvim'
+    use ('https://github.com/nvim-telescope/telescope.nvim', {run = ':TSUpdate'})
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'https://github.com/JoseConseco/telescope_sessions_picker.nvim'
     use 'https://github.com/nvim-telescope/telescope-media-files.nvim'
     use 'https://github.com/nvim-telescope/telescope-symbols.nvim'
     use 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
-    use { 'https://github.com/debugloop/telescope-undo.nvim',
-        requires = { 'nvim-telescope/telescope.nvim' },
-        config = function()
-            require("telescope").load_extension("undo")
-            vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
-        end,
-    }
+    use 'https://github.com/debugloop/telescope-undo.nvim'
 
     use {
         'https://github.com/stevearc/aerial.nvim',

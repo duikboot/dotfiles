@@ -6,6 +6,7 @@ end
 
 local modules = {
     'duikboot.startify',
+    'duikboot.colors',
     'duikboot.cmp',
     'duikboot.lsp',
     -- 'duikboot.zero',

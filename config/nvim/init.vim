@@ -195,7 +195,6 @@ set background=dark           " We are using dark background in vim
 " colorscheme xcodelighthc
 
 " let g:srcery_italic = 1
-" let g:srcery_transparent_background = 1
 " let g:srcery_inverse_match_paren = 1
 " colorscheme srcery
 " colorscheme oceanic-primal
@@ -205,13 +204,12 @@ set background=dark           " We are using dark background in vim
 "" colorscheme nvcode " Or whatever colorscheme you make
 ""
 " colorscheme one-nvim
-colorscheme everforest
 " set background=light           " We are using dark background in vim
 " colorscheme neovim_purple
-lua vim.g.nobackground = 1 -- Default 0
 " Only if colorscheme is neovim_purple
 
-let g:everforest_background = 'hard'
+" colorscheme everforest
+" let g:everforest_background = 'hard'
 
 " checks if your terminal has 24-bit color support
 if (has("termguicolors"))
