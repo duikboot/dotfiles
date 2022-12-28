@@ -17,7 +17,7 @@ local modules = {
     -- 'duikboot.refactoring',
     'duikboot.treesitter_unit',
     'duikboot.treesitter_context',
-    'duikboot.neogit',
+    -- 'duikboot.neogit',
     -- 'duikboot.neorg',
     'duikboot.gitsigns',
     'duikboot.utils',
