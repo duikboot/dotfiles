@@ -36,6 +36,7 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'treesitter' },
+        { name = 'nvim_lsp_signature_help'},
         { name = 'vsnip' },
         { name = 'nvim_lua' },
         { name = 'buffer', keyword_length = 5 },

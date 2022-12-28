@@ -1,5 +1,6 @@
-local refactor = require("refactoring")
-refactor.setup()
+local vim = vim
+local refactoring = require("refactoring")
+refactoring.setup()
 
 -- telescope refactoring helper
 local function refactor(prompt_bufnr)
@@ -9,6 +10,7 @@ local function refactor(prompt_bufnr)
     require("telescope.actions").close(prompt_bufnr)
     require("refactoring").refactor(content.value)
 end
+
 -- NOTE: M is a global object
 -- for the sake of simplicity in this example
 -- you can extract this function and the helper above
@@ -35,14 +37,14 @@ vim.api.nvim_set_keymap(
     "v",
     "<Leader>re",
     [[ <Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],
-    {noremap = true, silent = true, expr = false})
+    { noremap = true, silent = true, expr = false })
 vim.api.nvim_set_keymap(
     "v",
     "<Leader>rf",
     [[ <Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]],
-    {noremap = true, silent = true, expr = false})
+    { noremap = true, silent = true, expr = false })
 vim.api.nvim_set_keymap(
     "v",
     "<Leader>rt",
     [[ <Cmd>lua M.refactors()<CR>]],
-    {noremap = true, silent = true, expr = false})
+    { noremap = true, silent = true, expr = false })

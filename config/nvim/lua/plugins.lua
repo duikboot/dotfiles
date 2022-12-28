@@ -41,7 +41,6 @@ return require('packer').startup(function(use)
     use 'https://github.com/neovim/nvim-lspconfig'
     use 'https://github.com/onsails/lspkind-nvim'
     use 'https://github.com/folke/lsp-trouble.nvim'
-    use 'https://github.com/ray-x/lsp_signature.nvim'
     use 'https://github.com/folke/lsp-colors.nvim'
     use 'https://github.com/jose-elias-alvarez/null-ls.nvim'
     -- use {
@@ -106,6 +105,7 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
     use 'https://github.com/rafamadriz/friendly-snippets'
+    use 'https://github.com/hrsh7th/cmp-nvim-lsp-signature-help'
 
     use 'https://github.com/hrsh7th/cmp-path'
     use 'https://github.com/octaltree/cmp-look'

@@ -82,7 +82,7 @@ require('telescope').load_extension('dap')
 require("telescope").load_extension("undo")
 -- require("telescope").load_extension('harpoon')
 
-vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
+vim.keymap.set("n", "<localleader>u", "<cmd>Telescope undo<cr>")
 local M = {}
 
 M.grep_prompt = function()

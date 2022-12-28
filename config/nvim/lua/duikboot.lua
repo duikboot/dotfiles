@@ -14,7 +14,7 @@ local modules = {
     'duikboot.yanky',
     -- 'duikboot.neoclip',
     -- 'duikboot.saga',
-    'duikboot.refactoring',
+    -- 'duikboot.refactoring',
     'duikboot.treesitter_unit',
     'duikboot.treesitter_context',
     'duikboot.neogit',

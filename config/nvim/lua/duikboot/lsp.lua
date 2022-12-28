@@ -70,7 +70,7 @@ end
 
 local attach = function(client, bufnr)
     on_attach_vim_plus_keymaps(client, bufnr)
-    signature()
+    -- signature()
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
 end
