@@ -27,12 +27,11 @@ local config = {
     sections = {
         lualine_b = {
             branchname,
-            -- lsp_function,
             -- current_treesitter_context,
         },
         lualine_c = {
             {'filename'},
-            current_treesitter_context,
+            -- current_treesitter_context,
         },
     },
 }

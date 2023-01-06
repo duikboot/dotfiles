@@ -1,3 +1,7 @@
+local vim = vim
+
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
 
 require("harpoon").setup({
     nav_first_in_list = true,
@@ -6,17 +10,10 @@ require("harpoon").setup({
     }
 })
 
-vim.cmd [[
-    nnoremap <silent><leader-a> :lua require("harpoon.mark").add_file()<cr>
-    nnoremap <silent><leader-h> :lua require("harpoon.ui").toggle_quick_menu()<cr>
-    nnoremap <silent><leader>tc :lua require("harpoon.cmd-ui").toggle_quick_menu()<cr>
+vim.keymap.set("n", "<leader>a", mark.add_file)
+vim.keymap.set("n", "<leader>h", ui.toggle_quick_menu)
 
-    nnoremap <silent><leader>1 :lua require("harpoon.ui").nav_file(1)<cr>
-    nnoremap <silent><leader>2 :lua require("harpoon.ui").nav_file(2)<cr>
-    nnoremap <silent><leader>3 :lua require("harpoon.ui").nav_file(3)<cr>
-    nnoremap <silent><leader>4 :lua require("harpoon.ui").nav_file(4)<cr>
-    nnoremap <silent><leader>tu :lua require("harpoon.term").gotoTerminal(1)<cr>
-    nnoremap <silent><leader>te :lua require("harpoon.term").gotoTerminal(2)<cr>
-    nnoremap <silent><leader>cu :lua require("harpoon.term").sendCommand(1, 1)<cr>
-    nnoremap <silent><leader>ce :lua require("harpoon.term").sendCommand(1, 2)<cr>
-]]
+vim.keymap.set("n", "<leader>1" , function() ui.nav_file(1) end)
+vim.keymap.set("n", "<leader>2" , function() ui.nav_file(2) end)
+vim.keymap.set("n", "<leader>3" , function() ui.nav_file(3) end)
+vim.keymap.set("n", "<leader>4" , function() ui.nav_file(4) end)

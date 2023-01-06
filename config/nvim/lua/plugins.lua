@@ -82,13 +82,6 @@ return require('packer').startup(function(use)
     use 'https://github.com/kyazdani42/nvim-web-devicons'
     use 'https://github.com/hoob3rt/lualine.nvim'
     use 'https://github.com/romainl/vim-qf'
-    use {
-        "https://github.com/cbochs/portal.nvim",
-        requires = {
-            "cbochs/grapple.nvim", -- Optional: provides the "grapple" query item
-            "ThePrimeagen/harpoon", -- Optional: provides the "harpoon" query item
-        },
-    }
 
     use 'https://github.com/unblevable/quick-scope'
     use 'https://github.com/prabirshrestha/asyncomplete.vim'
@@ -136,12 +129,10 @@ return require('packer').startup(function(use)
     -- use 'https://github.com/gelguy/wilder.nvim'
     use 'https://github.com/christoomey/vim-tmux-navigator'
 
-    use 'https://github.com/nullchilly/fsread.nvim'
     -- Treesitter
     use { 'https://github.com/nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'https://github.com/nvim-treesitter/playground'
     use 'https://github.com/nvim-treesitter/nvim-treesitter-refactor'
-    -- Plug 'https://github.com/JoosepAlviste/nvim-ts-context-commentstring'
     use 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
     use 'https://github.com/David-Kunz/treesitter-unit/'
     use 'https://github.com/nvim-treesitter/nvim-treesitter-context'

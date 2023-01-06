@@ -727,6 +727,7 @@ autocmd FileType kivy set commentstring=#\ %s
 autocmd FileType spec set commentstring=#\ %s
 autocmd FileType tmux set commentstring=#\ %s
 autocmd FileType tex set commentstring=%\ %s
+autocmd FileType lua set commentstring=--\ %s
 
 "}}}
 
