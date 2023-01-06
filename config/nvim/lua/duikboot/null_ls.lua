@@ -32,6 +32,7 @@ null_ls.setup({
         -- diagnostics.flake8,
         -- diagnostics.pylint,
         -- diagnostics.mypy,
+        diagnostics.codespell,
         diagnostics.gitlint,
         diagnostics.hadolint,
         diagnostics.jsonlint,
@@ -42,7 +43,7 @@ null_ls.setup({
         diagnostics.yamllint,
         -- diagnostics.editorconfig_checker,
         -- diagnostics.eslint,
-        -- Formating
+        -- Formatting
         formatting.autopep8,
         formatting.isort,
         formatting.trim_whitespace,
