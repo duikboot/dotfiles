@@ -7,8 +7,8 @@ require("harpoon").setup({
 })
 
 vim.cmd [[
-    nnoremap <silent><m-a> :lua require("harpoon.mark").add_file()<cr>
-    nnoremap <silent><m-h> :lua require("harpoon.ui").toggle_quick_menu()<cr>
+    nnoremap <silent><leader-a> :lua require("harpoon.mark").add_file()<cr>
+    nnoremap <silent><leader-h> :lua require("harpoon.ui").toggle_quick_menu()<cr>
     nnoremap <silent><leader>tc :lua require("harpoon.cmd-ui").toggle_quick_menu()<cr>
 
     nnoremap <silent><leader>1 :lua require("harpoon.ui").nav_file(1)<cr>

@@ -1,3 +1,3 @@
 local vim = vim
 
-vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
+vim.keymap.set('n', '<localleader>a', '<cmd>AerialToggle!<CR>', {})
