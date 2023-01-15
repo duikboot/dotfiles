@@ -128,6 +128,7 @@ return require('packer').startup(function(use)
 
     -- use 'https://github.com/gelguy/wilder.nvim'
     use 'https://github.com/christoomey/vim-tmux-navigator'
+    use 'https://github.com/takac/vim-hardtime'
 
     -- Treesitter
     use { 'https://github.com/nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }

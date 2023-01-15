@@ -210,6 +210,7 @@ set background=dark           " We are using dark background in vim
 
 " colorscheme everforest
 " let g:everforest_background = 'hard'
+let g:hardtime_default_on = 1
 
 " checks if your terminal has 24-bit color support
 if (has("termguicolors"))
