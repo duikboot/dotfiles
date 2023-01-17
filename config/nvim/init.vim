@@ -36,7 +36,7 @@ set formatoptions-=o
 
 " let g:vimsyn_embed = 'lP'
 
-" Very cool transparant completion menu, but it's distracting me.
+" Very cool transparent completion menu, but it's distracting me.
 " set pumblend=10
 
 " shows preview of the changes

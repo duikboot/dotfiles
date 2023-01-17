@@ -5,6 +5,7 @@ local vim = vim
 local lspconfig = require 'lspconfig'
 
 require("mason").setup()
+
 local opts = { noremap = true, silent = true }
 
 vim.diagnostic.config {
