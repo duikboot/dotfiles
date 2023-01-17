@@ -24,9 +24,6 @@ return require('packer').startup(function(use)
     -- Startup
     use 'https://github.com/mhinz/vim-startify'
     -- Colorschemes
-    use 'https://github.com/NLKNguyen/papercolor-theme'
-    use 'https://github.com/unrealjo/neovim-purple'
-    use 'https://github.com/sainnhe/everforest'
     use({
         'https://github.com/rose-pine/neovim',
         as = 'rose-pine',
@@ -84,7 +81,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/romainl/vim-qf'
 
     use 'https://github.com/unblevable/quick-scope'
-    use 'https://github.com/prabirshrestha/asyncomplete.vim'
+
     use 'https://github.com/ThePrimeagen/vim-be-good'
     use 'https://github.com/kevinhwang91/nvim-hlslens'
     use 'https://github.com/Olical/vim-enmasse'
@@ -122,7 +119,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/tpope/vim-commentary'
     -- Lazy loading:
     -- Load on specific commands
-    use { 'tpope/vim-dispatch',
+    use { 'https://github.com/tpope/vim-dispatch',
         opt = true,
         cmd = { 'Dispatch', 'Make', 'Focus', 'Start' } }
 
@@ -138,7 +135,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/David-Kunz/treesitter-unit/'
     use 'https://github.com/nvim-treesitter/nvim-treesitter-context'
     use 'https://github.com/theHamsta/nvim-treesitter-commonlisp'
-    use 'https://github.com/ThePrimeagen/refactoring.nvim'
+    -- use 'https://github.com/ThePrimeagen/refactoring.nvim'
 
     -- Vcs
     use 'https://github.com/tpope/vim-fugitive'
@@ -156,11 +153,8 @@ return require('packer').startup(function(use)
 
     -- Lisp
     use { 'https://github.com/vlime/vlime', rtp = 'vim/' }
-    use { 'https://github.com/ncm2/ncm2',
-        requires = { { 'https://github.com/roxma/nvim-yarp' } }
-    }
-    -- use 'https://github.com/HiPhish/ncm2-vlime'
     use 'https://github.com/HiPhish/nvim-cmp-vlime'
+    -- use 'https://github.com/prabirshrestha/asyncomplete.vim'
 
     -- Telekastern
     use 'https://github.com/renerocksai/telekasten.nvim'

@@ -707,7 +707,6 @@ augroup END
 " }}}
 
 
-autocmd BufEnter *.lisp call ncm2#enable_for_buffer()
 " suppress the annoying 'match x of y', 'The only match' and 'Pattern not
 " found' messages
 set shortmess+=c

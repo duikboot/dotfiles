@@ -46,3 +46,6 @@ end
 
 -- reload fucks up lualine.
 pcall(require, 'duikboot.lualine')
+
+vim.keymap.set("n", "<leader>o", require("portal").jump_backward, {})
+vim.keymap.set("n", "<leader>i", require("portal").jump_forward, {})
