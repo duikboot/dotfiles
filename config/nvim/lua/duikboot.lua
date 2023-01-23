@@ -44,6 +44,8 @@ for _, name in ipairs(modules) do
     pcall(require, name)
 end
 
+-- Test plugins
+
 -- reload fucks up lualine.
 pcall(require, 'duikboot.lualine')
 

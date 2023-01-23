@@ -32,6 +32,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/junegunn/fzf.vim'
     use 'https://github.com/nvim-lua/plenary.nvim'
     use 'https://github.com/nvim-lua/popup.nvim'
+    use 'https://github.com/cbochs/portal.nvim'
 
     -- LSP
     use 'https://github.com/williamboman/mason.nvim'
