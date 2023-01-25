@@ -850,5 +850,3 @@ autocmd BufWinEnter,BufEnter * set laststatus=3
 
 
 " }}}
-
-

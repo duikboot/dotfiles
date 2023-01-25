@@ -29,7 +29,7 @@ vim.diagnostic.config {
 
 
 local on_init = function()
-    print("LSP Started")
+    -- print("LSP Started")
 end
 
 local default_handler = vim.lsp.handlers["textDocument/definition"]
@@ -106,7 +106,7 @@ require 'lspconfig'.sumneko_lua.setup {
     -- cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" };
     on_attach = attach,
     capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    on_init = on_init,
+    -- on_init = on_init,
     settings = {
         Lua = {
             runtime = {
