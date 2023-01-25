@@ -44,7 +44,8 @@ for _, name in ipairs(modules) do
     pcall(require, name)
 end
 
--- Test plugins
+-- Test code
+
 local highlight_on_enter = function()
     local lineNum, _ = unpack(vim.api.nvim_win_get_cursor(0))
     -- local bufnr = vim.api.nvim_get_current_buf()
@@ -63,8 +64,10 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufRead", "BufWinEnter"}, {
   group = highlightOnEnter,
 })
 
+-- Test plugins
+-- vim.keymap.set("n", "<leader>o", require("portal").jump_backward, {})
+-- vim.keymap.set("n", "<leader>i", require("portal").jump_forward, {})
+
 -- reload fucks up lualine.
 pcall(require, 'duikboot.lualine')
 
--- vim.keymap.set("n", "<leader>o", require("portal").jump_backward, {})
--- vim.keymap.set("n", "<leader>i", require("portal").jump_forward, {})
