@@ -65,6 +65,11 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufRead", "BufWinEnter"}, {
 })
 
 -- Test plugins
+
+require('smoothcursor').setup()
+require('neo-zoom').setup()
+vim.keymap.set('n', '<CR>', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
+
 -- vim.keymap.set("n", "<leader>o", require("portal").jump_backward, {})
 -- vim.keymap.set("n", "<leader>i", require("portal").jump_forward, {})
 
