@@ -105,8 +105,7 @@ set pumheight=18             " Keep a small completion window
 
 """ Moving Around/Editing
 set cursorline              " have a line indicate the cursor location
-autocmd WinLeave * set nocursorline nocursorcolumn norelativenumber
-autocmd WinEnter * set cursorline cursorcolumn relativenumber
+
 " autocmd BufEnter * setlocal cursorcolumn
 " autocmd BufLeave * setlocal nocursorcolumn
 set expandtab               " Use spaces, not tabs, for autoindent/tab key.
