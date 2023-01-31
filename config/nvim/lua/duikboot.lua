@@ -1,4 +1,6 @@
 local vim = vim
+local utils = require("duikboot.utils")
+
 P = function(v)
     print(vim.inspect(v))
     return v
@@ -54,7 +56,7 @@ local highlight_on_enter = function()
     vim.api.nvim_buf_add_highlight(0, ns, "IncSearch", lineNum - 1, 0, 220)
     vim.defer_fn(
         function() vim.api.nvim_buf_clear_namespace(0, ns, 0, -1) end,
-       500
+       400
     )
 end
 
@@ -64,21 +66,10 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufRead", "BufWinEnter"}, {
   group = highlightOnEnter,
 })
 
-
-local function has_value (tab, val)
-    for _, value in ipairs(tab) do
-        if value == val then
-            return true
-        end
-    end
-
-    return false
-end
-
 local noNumbers = { 'neoterm', 'terminal', 'help'}
 
 local set_relative_number = function ()
-    if not has_value(noNumbers, vim.bo.filetype) then
+    if not utils.has_value(noNumbers, vim.bo.filetype) then
         vim.cmd ([[
         set cursorline cursorcolumn relativenumber
         ]])
@@ -93,7 +84,7 @@ vim.api.nvim_create_autocmd({ "WinEnter" }, {
 })
 
 local set_absolute_number = function ()
-    if not has_value(noNumbers, vim.bo.filetype) then
+    if not utils.has_value(noNumbers, vim.bo.filetype) then
         vim.cmd ([[
         set nocursorline nocursorcolumn norelativenumber
         ]])
@@ -106,12 +97,6 @@ vim.api.nvim_create_autocmd({ "WinLeave" }, {
   callback = set_absolute_number,
   group = AbsNumber,
 })
--- augroup rel_and_abs_numbers
---     autocmd!
---     autocmd WinLeave * set nocursorline nocursorcolumn norelativenumber
---     autocmd WinEnter * set cursorline cursorcolumn relativenumber
--- augroup END
-
 
 -- Test plugins
 

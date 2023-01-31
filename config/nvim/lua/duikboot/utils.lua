@@ -31,3 +31,16 @@ vim.api.nvim_set_keymap(
 )
 -- autocmd BufRead,BufNewFile *.md set ft=markdown
 -- vim.cmd[[autocmd BufWinEnter * echo_filename()]]
+local M = {}
+
+function M.has_value(tab, val)
+    for _, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+
+    return false
+end
+
+return M
