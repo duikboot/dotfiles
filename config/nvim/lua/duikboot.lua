@@ -7,34 +7,34 @@ P = function(v)
 end
 
 local modules = {
-    'duikboot.startify',
-    'duikboot.colors',
-    'duikboot.cmp',
-    'duikboot.lsp',
+    "duikboot.startify",
+    "duikboot.colors",
+    "duikboot.cmp",
+    "duikboot.lsp",
     -- 'duikboot.zero',
-    'duikboot.treesitter',
-    'duikboot.yanky',
+    "duikboot.treesitter",
+    "duikboot.yanky",
     -- 'duikboot.neoclip',
     -- 'duikboot.saga',
     -- 'duikboot.refactoring',
-    'duikboot.treesitter_unit',
-    'duikboot.treesitter_context',
+    "duikboot.treesitter_unit",
+    "duikboot.treesitter_context",
     -- 'duikboot.neogit',
     -- 'duikboot.neorg',
-    'duikboot.gitsigns',
-    'duikboot.utils',
+    "duikboot.gitsigns",
+    "duikboot.utils",
     -- 'duikboot.luasnip',
-    'duikboot.vsnip',
-    'duikboot.hop',
+    "duikboot.vsnip",
+    "duikboot.hop",
     -- 'duikboot.tokyonight',
-    'duikboot.harpoon',
-    'duikboot.telekasten',
-    'duikboot.autopairs',
-    'duikboot.null_ls',
-    'duikboot.aerial',
-    'duikboot.telescope',
-    'duikboot.dap',
-    'duikboot.hlslens',
+    "duikboot.harpoon",
+    "duikboot.telekasten",
+    "duikboot.autopairs",
+    "duikboot.null_ls",
+    "duikboot.aerial",
+    "duikboot.telescope",
+    "duikboot.dap",
+    "duikboot.hlslens",
     -- 'duikboot.sidebar'
     -- 'duikboot.buftabline',
     -- 'duikboot.orgmode'
@@ -54,24 +54,26 @@ local highlight_on_enter = function()
     local ns = vim.api.nvim_create_namespace("range-highlight")
     vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
     vim.api.nvim_buf_add_highlight(0, ns, "IncSearch", lineNum - 1, 0, 220)
-    vim.defer_fn(
-        function() vim.api.nvim_buf_clear_namespace(0, ns, 0, -1) end,
-       200
-    )
+    vim.defer_fn(function()
+        vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
+    end, 200)
 end
 
 local highlightOnEnter = vim.api.nvim_create_augroup("HighlightOnEnter", { clear = true })
--- vim.api.nvim_create_autocmd({"BufEnter", "BufRead", "BufWinEnter"}, {
-vim.api.nvim_create_autocmd({ "WinEnter" }, {
-  callback = highlight_on_enter,
-  group = highlightOnEnter,
+vim.api.nvim_create_autocmd({
+    "BufEnter",
+    "BufRead",
+    "BufWinEnter",
+}, {
+    callback = highlight_on_enter,
+    group = highlightOnEnter,
 })
 
-local noNumbers = { 'neoterm', 'terminal', 'help'}
+local noNumbers = { "neoterm", "terminal", "help" }
 
-local set_relative_number = function ()
+local set_relative_number = function()
     if not utils.has_value(noNumbers, vim.bo.filetype) then
-        vim.cmd ([[
+        vim.cmd([[
         set cursorline cursorcolumn relativenumber
         ]])
     end
@@ -80,13 +82,13 @@ end
 local RelNumber = vim.api.nvim_create_augroup("RelNumber", { clear = true })
 
 vim.api.nvim_create_autocmd({ "WinEnter" }, {
-  callback = set_relative_number,
-  group = RelNumber,
+    callback = set_relative_number,
+    group = RelNumber,
 })
 
-local set_absolute_number = function ()
+local set_absolute_number = function()
     if not utils.has_value(noNumbers, vim.bo.filetype) then
-        vim.cmd ([[
+        vim.cmd([[
         set nocursorline nocursorcolumn norelativenumber
         ]])
     end
@@ -95,19 +97,20 @@ end
 local AbsNumber = vim.api.nvim_create_augroup("AbsNumber", { clear = true })
 
 vim.api.nvim_create_autocmd({ "WinLeave" }, {
-  callback = set_absolute_number,
-  group = AbsNumber,
+    callback = set_absolute_number,
+    group = AbsNumber,
 })
 
 -- Test plugins
 
-require('smoothcursor').setup()
-require('neo-zoom').setup()
-vim.keymap.set('n', '<CR>', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
+require("smoothcursor").setup()
+require("neo-zoom").setup()
+vim.keymap.set("n", "<CR>", function()
+    vim.cmd("NeoZoomToggle")
+end, { silent = true, nowait = true })
 
 -- vim.keymap.set("n", "<leader>o", require("portal").jump_backward, {})
 -- vim.keymap.set("n", "<leader>i", require("portal").jump_forward, {})
 
 -- reload fucks up lualine.
-pcall(require, 'duikboot.lualine')
-
+pcall(require, "duikboot.lualine")
