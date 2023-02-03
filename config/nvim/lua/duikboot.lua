@@ -56,12 +56,13 @@ local highlight_on_enter = function()
     vim.api.nvim_buf_add_highlight(0, ns, "IncSearch", lineNum - 1, 0, 220)
     vim.defer_fn(
         function() vim.api.nvim_buf_clear_namespace(0, ns, 0, -1) end,
-       400
+       200
     )
 end
 
 local highlightOnEnter = vim.api.nvim_create_augroup("HighlightOnEnter", { clear = true })
-vim.api.nvim_create_autocmd({"BufEnter", "BufRead", "BufWinEnter"}, {
+-- vim.api.nvim_create_autocmd({"BufEnter", "BufRead", "BufWinEnter"}, {
+vim.api.nvim_create_autocmd({ "WinEnter" }, {
   callback = highlight_on_enter,
   group = highlightOnEnter,
 })
