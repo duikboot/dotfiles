@@ -155,6 +155,8 @@ return require('packer').startup(function(use)
     use 'https://github.com/kassio/neoterm'
 
     -- Lisp
+    --  use { 'https://github.com/monkoose/parsley' }
+    -- use 'https://github.com/monkoose/nvlime'
     use { 'https://github.com/vlime/vlime', rtp = 'vim/' }
     use 'https://github.com/HiPhish/nvim-cmp-vlime'
     -- use 'https://github.com/prabirshrestha/asyncomplete.vim'
