@@ -1,9 +1,10 @@
-env:
-  WINIT_X11_SCALE_FACTOR: "1.0"
+# env:
+#   # WINIT_X11_SCALE_FACTOR: "1.0"
+  # TERM: alacritty
 
 window:
   decorations: full
-  opacity: 0.2
+  opacity: 1.0
 
 colors:
   # Default colors
@@ -67,7 +68,10 @@ font:
   normal:
     # family: "monospace"
     # family: "NotoSansMono Nerd Font"
-    family: "Source Code Variable"
+    family: "Source Code Pro"
+    family: "Hack Nerd Font"
+    family: "SauceCodePro Nerd Font"
+    # family: "Source Code Pro"
     # Font family
     #
     # Default:
@@ -79,6 +83,6 @@ font:
     # The `style` can be specified to pick a specific face.
     style: Regular
 
-    size: 11.0
+    size: 14.0
 
 

@@ -1,6 +1,6 @@
 [user]
-    name = Arjen Dijksta
-    email = dijkstra.arjen@gmail.com
+	name = Arjen Dijkstra
+	email = dijkstra.arjen@gmail.com
 
 [color]
     diff = auto
@@ -11,12 +11,13 @@
     default = matching
 [core]
     editor = vim
-   excludesfile = /home/arjend/.gitignore
+	excludesfile = /Users/arjen.dijkstra/config/dotfiles/_gitignore
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
     root = !pwd
     co = checkout
     st = status
+    sw = switch
     up = pull --rebase --autostash
 [web]
     browser = firefox
@@ -24,6 +25,7 @@
     spellingdictionary = none
 [commit]
     verbose = true
+	template = /Users/arjen.dijkstra/.stCommitMsg
 [pull]
 	rebase = true
 [rebase]
@@ -50,3 +52,9 @@
 ;     cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 [interactive]
 	diffFilter = diff-so-fancy --patch
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Users/arjen.dijkstra/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

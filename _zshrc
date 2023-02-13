@@ -51,7 +51,7 @@ alias e='nvim'
 alias f='roamer'
 alias ag='ag --path-to-ignore ~/.ignore'
 
-export PLATFORM=`python -c 'import os; print(os.uname()[1]),'`
+export PLATFORM=`python3 -c 'import os; print(os.uname()[1]),'`
 
 export EDITOR=vim
 
@@ -107,15 +107,6 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 
 
-if [ -f .venv/bin/activate ];
-then
-  source .venv/bin/activate
-fi
-if [ -f ENV/bin/activate ];
-then
-  source ENV/bin/activate
-fi
-
 if [ -n "$GUIX_ENVIRONMENT" ]
 then
     export PS1="%n at %M [%~][dev]\$ "
@@ -137,11 +128,21 @@ export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
 
 export FZF_COMPLETION_OPTS='--tiebreak=begin,length'
-
+PATH=$HOME/bin:$HOME/.local/bin:/opt/homebrew/bin:$PATH:/opt/homebrew/nvm
 
 export SWIVM_DIR="/home/arjen/.swivm"
 [ -s "$SWIVM_DIR/swivm.sh" ] && . "$SWIVM_DIR/swivm.sh"  # This loads swivm
 #
-# vim: ft=zsh sw=2 ts=2 et
+
+if [ -f .venv/bin/activate ];
+then
+  source .venv/bin/activate
+fi
+if [ -f ENV/bin/activate ];
+then
+  source ENV/bin/activate
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# vim: ft=zsh sw=2 ts=2 et
