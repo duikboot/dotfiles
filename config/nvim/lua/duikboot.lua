@@ -1,7 +1,7 @@
 local vim = vim
 local utils = require("duikboot.utils")
 
-P = function(v)
+_G.P = function(v)
     print(vim.inspect(v))
     return v
 end
@@ -103,7 +103,6 @@ vim.api.nvim_create_autocmd({ "WinLeave" }, {
 
 -- Test plugins
 
-require("smoothcursor").setup()
 require("neo-zoom").setup()
 vim.keymap.set("n", "<CR>", function()
     vim.cmd("NeoZoomToggle")

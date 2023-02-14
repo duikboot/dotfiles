@@ -101,7 +101,7 @@ vim.cmd [[ autocmd! CursorHold * lua PrintDiagnostics() ]]
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-lspconfig('lua_ls', {
+lspconfig['lua_ls'].setup {
     settings = {
         Lua = {
             diagnostics = {
@@ -109,8 +109,7 @@ lspconfig('lua_ls', {
             }
         }
     }
-})
-
+}
 
 lspconfig['pylsp'].setup {
     -- on_init=on_init,

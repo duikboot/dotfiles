@@ -127,7 +127,6 @@ return require('packer').startup(function(use)
     -- use 'https://github.com/gelguy/wilder.nvim'
     use 'https://github.com/christoomey/vim-tmux-navigator'
     use 'https://github.com/takac/vim-hardtime'
-    use 'https://github.com/gen740/SmoothCursor.nvim'
     use 'https://github.com/nyngwang/NeoZoom.lua'
 
     -- Treesitter
