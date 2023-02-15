@@ -79,9 +79,9 @@ local attach = function(client, bufnr)
 end
 
 
-function M.PrintDiagnostics(opts, bufnr, line_nr, client_id)
+function _G.PrintDiagnostics(opts, bufnr, line_nr, client_id)
     bufnr = bufnr or 0
-    line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
+    ine_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
     opts = opts or { ['lnum'] = line_nr }
 
     local line_diagnostics = vim.diagnostic.get(bufnr, opts)
