@@ -104,7 +104,7 @@ vim.api.nvim_create_autocmd({ "WinLeave" }, {
 -- Test plugins
 
 require("neo-zoom").setup()
-vim.keymap.set("n", "<CR>", function()
+vim.keymap.set("n", "C-<CR>", function()
     vim.cmd("NeoZoomToggle")
 end, { silent = true, nowait = true })
 
