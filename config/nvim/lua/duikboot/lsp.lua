@@ -1,4 +1,6 @@
 local vim = vim
+
+local M = {}
 -- local lsp_status = require('lsp-status')
 -- lsp_status.register_progress()
 
@@ -28,9 +30,9 @@ vim.diagnostic.config {
 }
 
 
-local on_init = function()
-    -- print("LSP Started")
-end
+-- local on_init = function()
+--     -- print("LSP Started")
+-- end
 
 local default_handler = vim.lsp.handlers["textDocument/definition"]
 vim.lsp.handlers["textDocument/definition"] = function(_, method, result)
@@ -77,7 +79,7 @@ local attach = function(client, bufnr)
 end
 
 
-function PrintDiagnostics(opts, bufnr, line_nr, client_id)
+function M.PrintDiagnostics(opts, bufnr, line_nr, client_id)
     bufnr = bufnr or 0
     line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
     opts = opts or { ['lnum'] = line_nr }
@@ -96,7 +98,6 @@ function PrintDiagnostics(opts, bufnr, line_nr, client_id)
     vim.api.nvim_echo({ { diagnostic_message, "Normal" } }, false, {})
 end
 
-vim.cmd [[ autocmd! CursorHold * lua PrintDiagnostics() ]]
 -- From the lspconfig repo
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -166,6 +167,8 @@ require("trouble").setup {
 
 require 'nvim-web-devicons'.setup()
 
+
+return M
 -- require'lsp_signature'.on_attach()
 -- lspconfig.pylsp.setup({
 --      on_attach=on_attach_vim_plus_keymaps,

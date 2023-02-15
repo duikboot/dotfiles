@@ -108,6 +108,7 @@ vim.keymap.set("n", "C-<CR>", function()
     vim.cmd("NeoZoomToggle")
 end, { silent = true, nowait = true })
 
+-- vim.cmd [[ autocmd! CursorHold * lua PrintDiagnostics() ]]
 -- vim.keymap.set("n", "<leader>o", require("portal").jump_backward, {})
 -- vim.keymap.set("n", "<leader>i", require("portal").jump_forward, {})
 
