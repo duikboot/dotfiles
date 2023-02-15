@@ -67,13 +67,8 @@ local on_attach_vim_plus_keymaps = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>a8', '<cmd> lua vim.lsp.buf.format { async = true }<CR>', opts)
 end
 
-local signature = function()
-    require("lsp_signature").on_attach()
-end
-
 local attach = function(client, bufnr)
     on_attach_vim_plus_keymaps(client, bufnr)
-    -- signature()
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
 end
@@ -81,7 +76,7 @@ end
 
 function _G.PrintDiagnostics(opts, bufnr, line_nr, client_id)
     bufnr = bufnr or 0
-    ine_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
+    line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
     opts = opts or { ['lnum'] = line_nr }
 
     local line_diagnostics = vim.diagnostic.get(bufnr, opts)
@@ -103,6 +98,9 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 lspconfig['lua_ls'].setup {
+    on_attach = attach,
+    -- capabilities=lsp_status.capabilities
+    capabilities = capabilities,
     settings = {
         Lua = {
             diagnostics = {
