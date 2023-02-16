@@ -36,7 +36,7 @@ null_ls.setup({
         diagnostics.gitlint,
         diagnostics.hadolint,
         diagnostics.jsonlint,
-        diagnostics.luacheck,
+        -- diagnostics.luacheck,
         diagnostics.shellcheck,
         -- diagnostics.vint,
         diagnostics.write_good,
