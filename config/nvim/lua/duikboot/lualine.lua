@@ -31,6 +31,7 @@ local config = {
         },
         lualine_c = {
             {'filename'},
+            -- { require("statusline-action-hints").statusline }
             -- current_treesitter_context,
         },
     },

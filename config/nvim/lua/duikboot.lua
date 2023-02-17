@@ -108,9 +108,11 @@ vim.keymap.set("n", "<localleader>z", function()
     vim.cmd("NeoZoomToggle")
 end, { silent = true, nowait = true })
 
+require("statusline-action-hints").setup()
 -- vim.cmd [[ autocmd! CursorHold * lua PrintDiagnostics() ]]
 -- vim.keymap.set("n", "<leader>o", require("portal").jump_backward, {})
 -- vim.keymap.set("n", "<leader>i", require("portal").jump_forward, {})
 
 -- reload fucks up lualine.
+
 pcall(require, "duikboot.lualine")
