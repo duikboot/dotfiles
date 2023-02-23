@@ -74,12 +74,12 @@ local attach = function(client, bufnr)
 end
 
 
-function _G.PrintDiagnostics(opts, bufnr, line_nr)
+function _G.PrintDiagnostics(options, bufnr, line_nr)
     bufnr = bufnr or 0
     line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
-    opts = opts or { ['lnum'] = line_nr }
+    options = options or { ['lnum'] = line_nr }
 
-    local line_diagnostics = vim.diagnostic.get(bufnr, opts)
+    local line_diagnostics = vim.diagnostic.get(bufnr, options)
     if vim.tbl_isempty(line_diagnostics) then return end
 
     local diagnostic_message = ""
