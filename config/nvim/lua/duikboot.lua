@@ -69,10 +69,10 @@ vim.api.nvim_create_autocmd({
     group = highlightOnEnter,
 })
 
-local noNumbers = { "neoterm", "terminal", "help" }
+local buffers_no_numbers = { "neoterm", "terminal", "help" }
 
 local set_relative_number = function()
-    if not utils.has_value(noNumbers, vim.bo.filetype) then
+    if not utils.has_value(buffers_no_numbers, vim.bo.filetype) then
         vim.cmd([[
         set cursorline cursorcolumn relativenumber
         ]])
@@ -87,7 +87,7 @@ vim.api.nvim_create_autocmd({ "WinEnter" }, {
 })
 
 local set_absolute_number = function()
-    if not utils.has_value(noNumbers, vim.bo.filetype) then
+    if not utils.has_value(buffers_no_numbers, vim.bo.filetype) then
         vim.cmd([[
         set nocursorline nocursorcolumn norelativenumber
         ]])
