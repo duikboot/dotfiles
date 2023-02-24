@@ -17,8 +17,8 @@ local function branchname ()
     if branch and #branch > 0 then
         branch = ' '..branch
     end
-    if branch:len() >= 30 then
-        return branch:sub(1, 27) .. "..."
+    if branch:len() >= 100 then
+        return branch:sub(1, 100) .. " ..."
     end
     return branch
 end
@@ -31,7 +31,6 @@ local config = {
         },
         lualine_c = {
             {'filename'},
-            -- { require("statusline-action-hints").statusline }
             -- current_treesitter_context,
         },
     },

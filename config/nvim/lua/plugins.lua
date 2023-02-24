@@ -71,6 +71,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/nvim-telescope/telescope-symbols.nvim'
     use 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
     use 'https://github.com/debugloop/telescope-undo.nvim'
+    use 'https://github.com/mbbill/undotree'
 
     use {
         'https://github.com/stevearc/aerial.nvim',
@@ -79,7 +80,6 @@ return require('packer').startup(function(use)
     use 'https://github.com/Vimjas/vim-python-pep8-indent'
     use 'https://github.com/kyazdani42/nvim-web-devicons'
     use 'https://github.com/hoob3rt/lualine.nvim'
-    use 'https://github.com/roobert/statusline-action-hints.nvim'
 
     use 'https://github.com/romainl/vim-qf'
 

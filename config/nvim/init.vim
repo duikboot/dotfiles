@@ -624,10 +624,10 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 let g:tmux_navigator_save_on_switch = 1
 " }}}
 
-" {{{ Mundo
+" {{{ Undotree
 
 " Load the Mundo window
-nnoremap <leader>G :MundoToggle<CR>
+nnoremap <leader>G :UndotreeToggle<CR>
 " nnoremap <leader>G :UndotreeToggle<CR>
 " }}}
 
