@@ -72,6 +72,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/nvim-telescope/telescope-file-browser.nvim'
     use 'https://github.com/debugloop/telescope-undo.nvim'
     use 'https://github.com/mbbill/undotree'
+    use 'https://github.com/aaronhallaert/advanced-git-search.nvim'
 
     use {
         'https://github.com/stevearc/aerial.nvim',

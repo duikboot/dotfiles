@@ -80,6 +80,7 @@ require('telescope').load_extension('sessions_picker')
 require('telescope').load_extension('yank_history')
 require('telescope').load_extension('dap')
 require("telescope").load_extension("undo")
+require('telescope').load_extension("advanced_git_search")
 -- require("telescope").load_extension('harpoon')
 
 vim.keymap.set("n", "<localleader>u", "<cmd>Telescope undo<cr>")
