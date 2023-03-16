@@ -101,7 +101,10 @@ vim.api.nvim_create_autocmd({ "WinLeave" }, {
     group = AbsNumber,
 })
 
--- Test plugins
+-- Test plugins and remaps
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 
 require("neo-zoom").setup()
 vim.keymap.set("n", "<localleader>z", function()
