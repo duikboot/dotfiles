@@ -1,5 +1,9 @@
-# env:
-#   # WINIT_X11_SCALE_FACTOR: "1.0"
+---
+
+env:
+  # Use this setting if font size doesn't work
+  # https://github.com/alacritty/alacritty/issues/1501
+  WINIT_X11_SCALE_FACTOR: "1.0"
   # TERM: alacritty
 
 window:
@@ -10,6 +14,7 @@ colors:
   # Default colors
   primary:
     background: '0x2e2c28'
+    # background: '0xff00ff'
     foreground: '0xB3B1AD'
 
   # Normal colors
@@ -69,8 +74,8 @@ font:
     # family: "monospace"
     # family: "NotoSansMono Nerd Font"
     family: "Source Code Pro"
-    family: "Hack Nerd Font"
-    family: "SauceCodePro Nerd Font"
+    # family: "Hack Nerd Font"
+    # family: "SauceCodePro Nerd Font"
     # family: "Source Code Pro"
     # Font family
     #
@@ -83,6 +88,4 @@ font:
     # The `style` can be specified to pick a specific face.
     style: Regular
 
-    size: 14.0
-
-
+    size: 8.0
