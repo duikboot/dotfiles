@@ -172,7 +172,7 @@ set list
 set ignorecase              " Default to using case insensitive searches,
 set smartcase               " unless uppercase letters are used in the regex.
 " autocmd BufNewFile,BufRead *.js set nosmarttab  " If  don't use smarttab"
-" Very cool transparant completion menu, but it's distracting me.
+" Very cool transparent completion menu, but it's distracting me.
 " set pumblend=10
 
 " shows preview of the changes
@@ -209,8 +209,8 @@ set background=dark           " We are using dark background in vim
 
 " colorscheme everforest
 " let g:everforest_background = 'hard'
-let g:hardtime_default_on = 1
-let g:hardtime_allow_different_key = 1
+let g:hardtime_default_on = 0
+" let g:hardtime_allow_different_key = 1
 
 " checks if your terminal has 24-bit color support
 if (has("termguicolors"))
@@ -758,13 +758,6 @@ nnoremap <leader>fv     <cmd>lua require'duikboot.telescope'.find_virtual_env()<
 
 " }}
 
-" lua <<EOF
-" local sidebar = require("sidebar-nvim")
-" local opts = {open = true}
-" sidebar.setup(opts)
-
-" EOF
-
 " {{{ lsp-trouble
 
 " nnoremap <leader>xx <cmd>TroubleToggle document_diagnostics<cr>
@@ -782,71 +775,4 @@ autocmd FileType python let b:lsp_current_function = ''
 " }}} lsp-trouble
 
 
-" {{{ symbols-outline
-
-" lua <<EOF
-
-" require('symbols-outline')
-
-" vim.g.symbols_outline = {
-"     highlight_hovered_item = true,
-"     show_guides = true,
-"     auto_preview = false, -- experimental
-"     position = 'right',
-"     keymaps = {
-"         close = "<Esc>",
-"         goto_location = "<Cr>",
-"         focus_location = "o",
-"         hover_symbol = "<C-space>",
-"         rename_symbol = "r",
-"         code_actions = "a",
-"     },
-"     lsp_blacklist = {"pylsp"},
-" }
-
-" EOF
-
-" nnoremap <leader>O <cmd>lua require'symbols-outline'.toggle_outline{}<cr>
-
-" }}} symbols-outline
-
-" " {{{ Wilder
-
-" call wilder#setup({'modes': [':', '/', '?']})
-
-" " }}}
-
 autocmd BufWinEnter,BufEnter * set laststatus=3
-
-" " {{{ ALE
-" let g:ale_python_flake8_executable = g:python3_host_prog_bin . 'flake8'
-" let g:ale_python_pycodestyle_executable = g:python3_host_prog_bin . 'pycodestyle'
-" let g:ale_python_pylint_executable = g:python3_host_prog_bin . 'pylint'
-" let g:ale_python_vulture_executable = g:python3_host_prog_bin . 'vulture'
-" let g:ale_python_mypy_executable = g:python3_host_prog_bin . 'mypy'
-" let g:ale_python_isort_executable = g:python3_host_prog_bin . 'isort'
-" let g:ale_python_yapf_executable = g:python3_host_prog_bin . 'yapf'
-" let g:ale_python_autopep8_executable = g:python3_host_prog_bin . 'autopep8'
-" let g:ale_python_prospector_executable = g:python3_host_prog_bin . 'prospector'
-" " let g:pymode_rope_autoimport = 1
-" " TEMPORARY!!
-" " let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
-" " let g:ale_python_pylint_options = "--load-plugins pylint_django"
-" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" let g:ale_python_pylint_options='--load-plugins=pylint_django'
-" let g:ale_python_flake8_options='--ignore=H301 --max-complexity=10'
-" let g:ale_python_mypy_options = '--ignore-missing-imports'
-
-" let b:ale_virtualenv_dir_names=['ENV', '.env', '.venv']
-
-"  " let g:ale_linters = {
-"  "            \ 'python' : ['prospector', 'mypy'],
-"  " \ }
-"  let g:ale_linters = {
-"             \ 'python' : ['prospector'],
-"  \ }
-
- " nnoremap <localleader>a8 :Black<cr>
-
-
-" }}}

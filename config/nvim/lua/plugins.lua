@@ -127,7 +127,6 @@ return require('packer').startup(function(use)
         opt = true,
         cmd = { 'Dispatch', 'Make', 'Focus', 'Start' } }
 
-    -- use 'https://github.com/gelguy/wilder.nvim'
     use 'https://github.com/christoomey/vim-tmux-navigator'
     use 'https://github.com/takac/vim-hardtime'
     use 'https://github.com/nyngwang/NeoZoom.lua'
