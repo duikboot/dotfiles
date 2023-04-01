@@ -47,18 +47,18 @@ vim.lsp.handlers["textDocument/definition"] = function(_, method, result)
 end
 
 
-vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, opts)
-vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, opts)
-
 local on_attach_vim_plus_keymaps = function(client, bufnr)
+    vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, opts)
+    vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, opts)
+    vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', '<leader>td', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('v', '<leader>ca', vim.lsp.buf.code_action, opts)
+
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>dn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>dp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>dl', '<cmd> lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
     -- vim.keymap.set('n', '<leader>dl', vim.lsp.diagnostic.set_loclist, opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>td', '<cmd> lua vim.lsp.buf.type_definition()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-K>', '<cmd> lua vim.lsp.buf.signature_help()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>K', '<cmd> lua vim.lsp.buf.hover()<CR>', opts)

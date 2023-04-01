@@ -41,6 +41,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/folke/lsp-trouble.nvim'
     use 'https://github.com/folke/lsp-colors.nvim'
     use 'https://github.com/jose-elias-alvarez/null-ls.nvim'
+    use("theprimeagen/refactoring.nvim")
     -- use {
     -- 'VonHeikemen/lsp-zero.nvim',
     -- requires = {
