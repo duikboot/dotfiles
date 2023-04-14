@@ -166,7 +166,13 @@ return require('packer').startup(function(use)
     -- Telekastern
     use 'https://github.com/renerocksai/telekasten.nvim'
     use 'https://github.com/renerocksai/calendar-vim'
-
+    use {
+        "SmiteshP/nvim-navbuddy",
+        requires = {
+            "SmiteshP/nvim-navic",
+            "MunifTanjim/nui.nvim"
+        }
+    }
     if packer_bootstrap then
         require('packer').sync()
     end

@@ -189,28 +189,10 @@ augroup end
 
 set t_Co=256
 set termguicolors
-set background=dark           " We are using dark background in vim
-" colorscheme NeoSolarized
-" colorscheme xcodelighthc
+set background=light           " We are using dark background in vim
 
-" let g:srcery_italic = 1
-" let g:srcery_inverse_match_paren = 1
-" colorscheme srcery
-" colorscheme oceanic-primal
-
-" colorscheme edge
-" lua require('colorbuddy').colorscheme('gruvbuddy')
-"" colorscheme nvcode " Or whatever colorscheme you make
-""
-" colorscheme one-nvim
-" set background=light           " We are using dark background in vim
-" colorscheme neovim_purple
-" Only if colorscheme is neovim_purple
-
-" colorscheme everforest
-" let g:everforest_background = 'hard'
 let g:hardtime_default_on = 0
-" let g:hardtime_allow_different_key = 1
+let g:hardtime_allow_different_key = 1
 
 " checks if your terminal has 24-bit color support
 if (has("termguicolors"))
