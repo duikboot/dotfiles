@@ -4,14 +4,14 @@ local M = {}
 -- local lsp_status = require('lsp-status')
 -- lsp_status.register_progress()
 
-local lspconfig = require 'lspconfig'
+local lspconfig = require("lspconfig")
 
 require("mason").setup()
 local navbuddy = require("nvim-navbuddy")
 
 local opts = { noremap = true, silent = true }
 
-vim.diagnostic.config {
+vim.diagnostic.config({
     underline = false,
     virtual_text = {
         severity = nil,
@@ -19,17 +19,14 @@ vim.diagnostic.config {
         format = nil,
     },
     signs = true,
-
     -- options for floating windows:
     float = {
         show_header = true,
     },
-
     -- general purpose
     severity_sort = true,
     update_in_insert = false,
-}
-
+})
 
 -- local on_init = function()
 --     -- print("LSP Started")
@@ -47,30 +44,36 @@ vim.lsp.handlers["textDocument/definition"] = function(_, method, result)
     end
 end
 
-
 local on_attach_vim_plus_keymaps = function(client, bufnr)
-    vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, opts)
-    vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, opts)
-    vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, opts)
-    vim.keymap.set('n', '<leader>td', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('v', '<leader>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, opts)
+    vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, opts)
+    vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "<leader>td", vim.lsp.buf.type_definition, opts)
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("v", "<leader>ca", vim.lsp.buf.code_action, opts)
 
-    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>dn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>dp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>dl', '<cmd> lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-    -- vim.keymap.set('n', '<leader>dl', vim.lsp.diagnostic.set_loclist, opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-K>', '<cmd> lua vim.lsp.buf.signature_help()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>K', '<cmd> lua vim.lsp.buf.hover()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'g0', '<cmd> lua vim.lsp.buf.document_symbol()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd> lua vim.lsp.buf.implementation()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gW', '<cmd> lua vim.lsp.buf.workspace_symbol()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gd', '<cmd> lua vim.lsp.buf.declaration()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-]>', '<cmd> lua vim.lsp.buf.definition()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'v', '<localleader>a8', '<cmd> lua vim.lsp.buf.range_formatting()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>a8', '<cmd> lua vim.lsp.buf.format { async = true }<CR>', opts)
-    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>a8', '<cmd> lua vim.lsp.buf.formatting()<CR>', opts)
+    vim.keymap.set("n", "<c-K>", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+    vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "g0", vim.lsp.buf.document_symbol, opts)
+    vim.keymap.set("n", "gD", vim.lsp.buf.implementation, opts)
+    vim.keymap.set("n", "gW", vim.lsp.buf.workspace_symbol, opts)
+    vim.keymap.set("n", "<leader>gd", vim.lsp.buf.declaration, opts)
+    vim.keymap.set("n", "<c-]>", vim.lsp.buf.definition, opts)
+
+    if client.supports_method("textDocument/formatting") then
+        vim.keymap.set("n", "<Localleader>a8", function()
+            vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
+            print("Formatted...")
+        end, { buffer = bufnr, desc = "[lsp] format" })
+    end
+
+    if client.supports_method("textDocument/rangeFormatting") then
+        vim.keymap.set("x", "<Localleader>a8", function()
+            vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
+            print("Formatted...")
+        end, { buffer = bufnr, desc = "[lsp] format" })
+    end
 end
 
 local attach = function(client, bufnr)
@@ -80,21 +83,22 @@ local attach = function(client, bufnr)
     navbuddy.attach(client, bufnr)
 end
 
-
 function _G.PrintDiagnostics(options, bufnr, line_nr)
     bufnr = bufnr or 0
     line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
-    options = options or { ['lnum'] = line_nr }
+    options = options or { ["lnum"] = line_nr }
 
     local line_diagnostics = vim.diagnostic.get(bufnr, options)
-    if vim.tbl_isempty(line_diagnostics) then return end
+    if vim.tbl_isempty(line_diagnostics) then
+        return
+    end
 
     local diagnostic_message = ""
     for i, diagnostic in ipairs(line_diagnostics) do
         diagnostic_message = diagnostic_message .. string.format("%d: %s", i, diagnostic.message or "")
         print(diagnostic_message)
         if i ~= #line_diagnostics then
-            diagnostic_message = diagnostic_message .. ' '
+            diagnostic_message = diagnostic_message .. " "
         end
     end
     vim.api.nvim_echo({ { diagnostic_message, "Normal" } }, false, {})
@@ -104,20 +108,20 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-lspconfig['lua_ls'].setup {
+lspconfig["lua_ls"].setup({
     on_attach = attach,
     -- capabilities=lsp_status.capabilities
     capabilities = capabilities,
     settings = {
         Lua = {
             diagnostics = {
-                 globals = { 'vim' }
-            }
-        }
-    }
-}
+                globals = { "vim" },
+            },
+        },
+    },
+})
 
-lspconfig['pylsp'].setup {
+lspconfig["pylsp"].setup({
     -- on_init=on_init,
     on_attach = attach,
     -- capabilities=lsp_status.capabilities
@@ -125,61 +129,56 @@ lspconfig['pylsp'].setup {
     settings = {
         pylsp = {
             plugins = {
-                jedi_completion = { include_params = true, },
-                pylsp_mypy = { enabled = true, },
-                pylsp_flake8 = { enabled = true }
+                jedi_completion = { include_params = true },
+                pylsp_mypy = { enabled = true },
+                pylsp_flake8 = { enabled = true },
             },
         },
     },
-}
+})
 
-lspconfig['vimls'].setup {
+lspconfig["vimls"].setup({
     -- on_init=on_init,
     on_attach = attach,
     capabilities = capabilities,
     -- capabilities=lsp_status.capabilities
-}
+})
 
-
-lspconfig['erlangls'].setup {
+lspconfig["erlangls"].setup({
     -- on_init=on_init,
     on_attach = attach,
     capabilities = capabilities,
     -- capabilities=lsp_status.capabilities
-}
+})
 
-
-lspconfig['gopls'].setup {
+lspconfig["gopls"].setup({
     -- on_init=on_init,
     on_attach = attach,
     capabilities = capabilities,
     -- capabilities=lsp_status.capabilities
-}
+})
 
-
-lspconfig['tsserver'].setup {
+lspconfig["tsserver"].setup({
     -- on_init=on_init,
     on_attach = attach,
     capabilities = capabilities,
     -- capabilities=lsp_status.capabilities
-}
+})
 
-
-lspconfig['bashls'].setup {
+lspconfig["bashls"].setup({
     -- on_init=on_init,
     on_attach = attach,
     capabilities = capabilities,
     -- capabilities=lsp_status.capabilities
-}
+})
 
-require("trouble").setup {
+require("trouble").setup({
     -- your configuration comes here
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
-}
+})
 
-require 'nvim-web-devicons'.setup()
-
+require("nvim-web-devicons").setup()
 
 return M
 -- require'lsp_signature'.on_attach()
