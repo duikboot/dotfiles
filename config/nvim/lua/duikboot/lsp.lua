@@ -95,7 +95,9 @@ function _G.PrintDiagnostics(options, bufnr, line_nr)
 
     local diagnostic_message = ""
     for i, diagnostic in ipairs(line_diagnostics) do
-        diagnostic_message = diagnostic_message .. string.format("%d: %s", i, diagnostic.message or "")
+        diagnostic_message = diagnostic_message .. string.format(
+            "%d: %s", i, diagnostic.message or ""
+        )
         print(diagnostic_message)
         if i ~= #line_diagnostics then
             diagnostic_message = diagnostic_message .. " "
