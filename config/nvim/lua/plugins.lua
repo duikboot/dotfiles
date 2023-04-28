@@ -119,9 +119,13 @@ return require('packer').startup(function(use)
     use 'https://github.com/tpope/vim-obsession'
     use 'https://github.com/tpope/vim-repeat'
     use 'https://github.com/tpope/vim-sensible'
-    use 'https://github.com/tpope/vim-surround'
+    -- use 'https://github.com/tpope/vim-surround'
     use 'https://github.com/tpope/vim-unimpaired'
     use 'https://github.com/tpope/vim-commentary'
+    use({
+        "https://github.com/kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    })
     -- Lazy loading:
     -- Load on specific commands
     use { 'https://github.com/tpope/vim-dispatch',
@@ -173,6 +177,7 @@ return require('packer').startup(function(use)
             "MunifTanjim/nui.nvim"
         }
     }
+
     if packer_bootstrap then
         require('packer').sync()
     end

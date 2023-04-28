@@ -2,7 +2,7 @@ local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
 
 require("nvim-treesitter.configs").setup({
     ensure_installed = {
-        "help",
+        "vimdoc",
         "python",
         "commonlisp",
         "bash",
