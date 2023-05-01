@@ -729,7 +729,7 @@ nnoremap         gr     <cmd>lua require'telescope.builtin'.lsp_references{}<CR>
 nnoremap <leader>gc     <cmd>lua require'telescope.builtin'.git_commits{}<CR>
 nnoremap <leader>gs     <cmd>lua require'telescope.builtin'.git_status{}<CR>
 nnoremap <leader>lg     <cmd>lua require'telescope.builtin'.live_grep{}<CR>
-nnoremap <leader>b      <cmd>lua require'telescope.builtin'.buffers{}<CR>
+nnoremap <leader>bb      <cmd>lua require'telescope.builtin'.buffers{}<CR>
 nnoremap <localleader>d      <cmd>lua require'telescope.builtin'.diagnostics{}<CR>
 " nnoremap <leader>t      <cmd>lua require'telescope.builtin'.tags{only_sort_tags=true}<CR>
 nnoremap <leader>t      <cmd>:Tags<CR>

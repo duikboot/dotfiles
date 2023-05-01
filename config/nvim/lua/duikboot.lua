@@ -32,7 +32,6 @@ local modules = {
     "duikboot.autopairs",
     "duikboot.null_ls",
     "duikboot.aerial",
-    "duikboot.telescope",
     "duikboot.dap",
     "duikboot.hlslens",
     -- 'duikboot.sidebar'

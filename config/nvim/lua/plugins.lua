@@ -28,6 +28,8 @@ return require('packer').startup(function(use)
         'https://github.com/rose-pine/neovim',
         as = 'rose-pine',
     })
+
+    -- FZF
     use 'https://github.com/junegunn/fzf'
     use 'https://github.com/junegunn/fzf.vim'
     use 'https://github.com/nvim-lua/plenary.nvim'
@@ -177,6 +179,9 @@ return require('packer').startup(function(use)
             "MunifTanjim/nui.nvim"
         }
     }
+
+    -- use 'https://github.com/mrjones2014/legendary.nvim'
+    -- use 'https://github.com/stevearc/dressing.nvim'
 
     if packer_bootstrap then
         require('packer').sync()
