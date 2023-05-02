@@ -57,3 +57,6 @@
 #[mergetool "sourcetree"]
 #	cmd = /Users/arjen.dijkstra/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 #	trustExitCode = true
+[mergetool "sourcetree"]
+	cmd = /Users/arjen.dijkstra/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
