@@ -37,7 +37,7 @@ return require('packer').startup(function(use)
     -- use 'https://github.com/cbochs/portal.nvim'
 
     -- LSP
-    use 'https://github.com/williamboman/mason.nvim'
+    use {'https://github.com/williamboman/mason.nvim', run = ":MasonUpdate"}
     use 'https://github.com/neovim/nvim-lspconfig'
     use 'https://github.com/onsails/lspkind-nvim'
     use 'https://github.com/folke/lsp-trouble.nvim'
@@ -167,6 +167,7 @@ return require('packer').startup(function(use)
     -- use 'https://github.com/monkoose/nvlime'
     use { 'https://github.com/vlime/vlime', rtp = 'vim/' }
     use 'https://github.com/HiPhish/nvim-cmp-vlime'
+    use 'https://github.com/bhurlow/vim-parinfer'
     -- use 'https://github.com/prabirshrestha/asyncomplete.vim'
 
     -- Telekastern
