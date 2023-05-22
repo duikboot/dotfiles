@@ -34,6 +34,8 @@ local modules = {
     "duikboot.aerial",
     "duikboot.dap",
     "duikboot.hlslens",
+    "duikboot.oil",
+    "duikboot.comment",
     -- 'duikboot.sidebar'
     -- 'duikboot.buftabline',
     -- 'duikboot.orgmode'

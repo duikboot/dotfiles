@@ -86,6 +86,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/hoob3rt/lualine.nvim'
 
     use 'https://github.com/romainl/vim-qf'
+    use 'https://github.com/stevearc/oil.nvim'
 
     use 'https://github.com/unblevable/quick-scope'
 
@@ -123,7 +124,8 @@ return require('packer').startup(function(use)
     use 'https://github.com/tpope/vim-sensible'
     -- use 'https://github.com/tpope/vim-surround'
     use 'https://github.com/tpope/vim-unimpaired'
-    use 'https://github.com/tpope/vim-commentary'
+    -- use 'https://github.com/tpope/vim-commentary'
+    use 'https://github.com/numToStr/Comment.nvim'
     use({
         "https://github.com/kylechui/nvim-surround",
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
