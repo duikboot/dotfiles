@@ -38,6 +38,8 @@ return require('packer').startup(function(use)
 
     -- LSP
     use {'https://github.com/williamboman/mason.nvim', run = ":MasonUpdate"}
+    use {'https://github.com/williamboman/mason-lspconfig.nvim'}
+
     use 'https://github.com/neovim/nvim-lspconfig'
     use 'https://github.com/onsails/lspkind-nvim'
     use 'https://github.com/folke/lsp-trouble.nvim'
@@ -182,7 +184,6 @@ return require('packer').startup(function(use)
             "MunifTanjim/nui.nvim"
         }
     }
-
     -- use 'https://github.com/mrjones2014/legendary.nvim'
     -- use 'https://github.com/stevearc/dressing.nvim'
 

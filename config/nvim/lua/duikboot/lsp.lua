@@ -4,9 +4,19 @@ local M = {}
 -- local lsp_status = require('lsp-status')
 -- lsp_status.register_progress()
 
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = {
+        "pylsp",
+        "lua_ls",
+        "vimls",
+        -- "mypy"
+        -- "gopls",
+        -- "erlangls",
+    }
+})
 local lspconfig = require("lspconfig")
 
-require("mason").setup()
 local navbuddy = require("nvim-navbuddy")
 
 local opts = { noremap = true, silent = true }

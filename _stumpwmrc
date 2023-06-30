@@ -21,7 +21,7 @@
 ;            :start2 (input-line-position input))
 ;   (setf (char (input-line-string input) (input-line-position input)) char)
 ;   (incf (input-line-position input)))
-
+; (find-group (current-screen) "browser")
 (defvar *init-load* t)
 
 (defparameter *stumptray-apps*
