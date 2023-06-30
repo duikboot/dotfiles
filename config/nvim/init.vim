@@ -117,7 +117,6 @@ set linebreak               " don't wrap textin the middle of a word
 set matchpairs+=<:>         " show matching <> (html mainly) as well
 set nostartofline           " Avoid moving cursor to BOL when jumping around
 set nowrap                  " don't wrap text
-set ruler                   " show the cursor position all the time
 set scrolloff=3             " Keep 3 context lines above and below the cursor
 set shiftround              " rounds indent to a multiple of shiftwidth
 set shiftwidth=4            " but an indent level is 2 spaces wide.
@@ -156,7 +155,7 @@ set ffs=unix,dos,mac        " Try recognizing dos, unix, and mac line endings.
 set vb t_vb=                " Disable all bells.  I hate ringing/flashing.
 set confirm                 " Y-N-C prompt if closing with unsaved changes.
 set showcmd                 " Show incomplete normal mode commands as I type.
-set report=0                " : commands always print changed line count.
+set report=2                " : commands always print changed line count.
 set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
 set ruler                   " Show some info, even without statuslines.
 set laststatus=3            " Always show statusline, even if only 1 window.
@@ -717,7 +716,6 @@ autocmd FileType xml setlocal commentstring={#%s#}
 
 
 " {{{ telescope
-set report=2
 nnoremap cg      <cmd>lua require'duikboot.telescope'.grep_prompt()<CR>
 nnoremap <Leader>o      <cmd>lua require'telescope.builtin'.find_files{}<CR>
 nnoremap <Leader>fb     :Telescope file_browser<CR>
