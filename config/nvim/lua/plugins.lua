@@ -28,6 +28,7 @@ return require('packer').startup(function(use)
         'https://github.com/rose-pine/neovim',
         as = 'rose-pine',
     })
+    use 'https://github.com/rmehri01/onenord.nvim'
 
     -- FZF
     use 'https://github.com/junegunn/fzf'
@@ -89,8 +90,6 @@ return require('packer').startup(function(use)
 
     use 'https://github.com/romainl/vim-qf'
     use 'https://github.com/stevearc/oil.nvim'
-
-    use 'https://github.com/unblevable/quick-scope'
 
     use 'https://github.com/ThePrimeagen/vim-be-good'
     use 'https://github.com/kevinhwang91/nvim-hlslens'

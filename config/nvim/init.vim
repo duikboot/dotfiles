@@ -223,7 +223,9 @@ let g:maplocalleader="\\"       " map localleader to \\
 " ,V reloads it -- making all changes active (have to save first)
 " nnoremap <leader>v :sp ~/.config/nvim/init.vim<CR><C-W>_
 
-nnoremap <leader>V :source ~/.config/nvim/init.vim<CR>:lua package.loaded.duikboot = nil <cr>:filetype detect<CR>
+nnoremap <leader>V :source ~/.config/nvim/init.vim<CR>
+    \:lua package.loaded.duikboot = nil <cr>
+    \:luafile ~/.config/nvim/lua/duikboot.lua<cr>:filetype detect<CR>
 
 nnoremap <leader>e :edit<cr>
 nnoremap <c-e> :Explore %:p:h<cr>
@@ -432,16 +434,10 @@ nnoremap <leader>y :Telescope yank_history<cr>
 
 " }}}
 
-" {{{ LSP
-
-
 lua pcall(require, 'duikboot')
 autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
 
-
 set signcolumn=yes
-
-" }}}
 
 " {{{ Tags
 
@@ -709,7 +705,7 @@ autocmd FileType kivy set commentstring=#\ %s
 autocmd FileType spec set commentstring=#\ %s
 autocmd FileType tmux set commentstring=#\ %s
 autocmd FileType tex set commentstring=%\ %s
-autocmd FileType lua set commentstring=--\ %s
+" autocmd FileType lua set commentstring=--\ %s
 
 "}}}
 
@@ -750,11 +746,7 @@ nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
 nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
 nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 
-autocmd FileType python let b:lsp_current_function = ''
-" autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
-" autocmd CursorHold,CursorHoldI * lua require'lsp-status'.update_current_function()
-
+" autocmd FileType python let b:lsp_current_function = ''
 " }}} lsp-trouble
-
 
 autocmd BufWinEnter,BufEnter * set laststatus=3

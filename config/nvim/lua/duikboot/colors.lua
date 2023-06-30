@@ -6,3 +6,7 @@ function Colorscheme(color)
 end
 
 Colorscheme()
+--
+-- require('onenord').setup({
+--     theme = "light"
+-- })

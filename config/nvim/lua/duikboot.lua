@@ -10,6 +10,7 @@ local modules = {
     "duikboot.startify",
     "duikboot.colors",
     "duikboot.cmp",
+    "duikboot.trouble",
     "duikboot.lsp",
     -- 'duikboot.zero',
     "duikboot.treesitter",
@@ -57,7 +58,7 @@ local highlight_on_enter = function()
     vim.api.nvim_buf_add_highlight(0, ns, "IncSearch", lineNum - 1, 0, 220)
     vim.defer_fn(function()
         vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
-    end, 200)
+    end, 150)
 end
 
 local highlightOnEnter = vim.api.nvim_create_augroup("HighlightOnEnter", { clear = true })
@@ -112,6 +113,16 @@ require("neo-zoom").setup()
 vim.keymap.set("n", "<localleader>z", function()
     vim.cmd("NeoZoomToggle")
 end, { silent = true, nowait = true })
+
+-- -- Populate loclist with the current buffer diagnostics
+-- local DiagnosticCLocation = vim.api.nvim_create_augroup("DiagnosticCLocation", { clear = true })
+--
+-- vim.api.nvim_create_autocmd({"DiagnosticChanged"}, {
+--   callback = function()
+--     vim.diagnostic.setloclist({open = false})
+--   end,
+--   group = DiagnosticCLocation,
+-- })
 
 -- reload fucks up lualine.
 
