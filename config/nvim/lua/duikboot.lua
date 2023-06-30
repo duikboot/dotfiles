@@ -124,6 +124,12 @@ end, { silent = true, nowait = true })
 --   group = DiagnosticCLocation,
 -- })
 
+require('muren').setup()
+require("flash").setup()
+-- require("symbols-outline").setup()
+
+-- require("lspsaga").setup()
+
 -- reload fucks up lualine.
 
 pcall(require, "duikboot.lualine")

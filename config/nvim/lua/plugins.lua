@@ -45,8 +45,12 @@ return require('packer').startup(function(use)
     use 'https://github.com/onsails/lspkind-nvim'
     use 'https://github.com/folke/lsp-trouble.nvim'
     use 'https://github.com/folke/lsp-colors.nvim'
+    use 'https://github.com/folke/flash.nvim'
     use 'https://github.com/jose-elias-alvarez/null-ls.nvim'
     use("theprimeagen/refactoring.nvim")
+
+    -- use 'https://github.com/simrat39/symbols-outline.nvim'
+
     -- use {
     -- 'VonHeikemen/lsp-zero.nvim',
     -- requires = {
@@ -94,6 +98,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/ThePrimeagen/vim-be-good'
     use 'https://github.com/kevinhwang91/nvim-hlslens'
     use 'https://github.com/Olical/vim-enmasse'
+    use 'https://github.com/AckslD/muren.nvim'
 
     -- completion
     use 'https://github.com/hrsh7th/nvim-cmp'
@@ -111,6 +116,21 @@ return require('packer').startup(function(use)
     use 'https://github.com/ray-x/cmp-treesitter'
     use 'https://github.com/windwp/nvim-autopairs'
 
+    -- use({
+    --     "glepnir/lspsaga.nvim",
+    --     opt = true,
+    --     branch = "main",
+    --     event = "LspAttach",
+    --     config = function()
+    --         require("lspsaga").setup({})
+    --     end,
+    --     requires = {
+    --         {"nvim-tree/nvim-web-devicons"},
+    --         --Please make sure you install markdown and markdown_inline parser
+    --         {"nvim-treesitter/nvim-treesitter"}
+    --     }
+    -- })
+    --
     -- dap
     use 'https://github.com/mfussenegger/nvim-dap'
     use 'https://github.com/rcarriga/nvim-dap-ui'

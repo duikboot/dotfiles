@@ -129,9 +129,11 @@ lspconfig["lua_ls"].setup({
             diagnostics = {
                 globals = { "vim" },
             },
+            hint = { enable = true}
         },
     },
 })
+
 
 lspconfig["pylsp"].setup({
     -- on_init=on_init,

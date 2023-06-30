@@ -50,6 +50,7 @@ null_ls.setup({
         -- formatting.black,
         formatting.gofumpt,
         formatting.goimports,
+        formatting.yamlfmt,
         -- formatting.clang_format,
         -- formatting.eslint,
         -- formatting.yapf,
