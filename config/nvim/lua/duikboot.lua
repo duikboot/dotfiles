@@ -114,16 +114,16 @@ vim.keymap.set("n", "<localleader>z", function()
     vim.cmd("NeoZoomToggle")
 end, { silent = true, nowait = true })
 
--- -- Populate loclist with the current buffer diagnostics
+-- Populate loclist with the current buffer diagnostics
 -- local DiagnosticCLocation = vim.api.nvim_create_augroup("DiagnosticCLocation", { clear = true })
---
+
 -- vim.api.nvim_create_autocmd({"DiagnosticChanged"}, {
 --   callback = function()
 --     vim.diagnostic.setloclist({open = false})
 --   end,
 --   group = DiagnosticCLocation,
 -- })
-
+--
 require('muren').setup()
 require("flash").setup()
 -- require("symbols-outline").setup()
