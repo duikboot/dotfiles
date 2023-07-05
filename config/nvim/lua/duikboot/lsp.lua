@@ -88,6 +88,9 @@ end
 
 local attach = function(client, bufnr)
     on_attach_vim_plus_keymaps(client, bufnr)
+    if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint(bufnr, true)
+    end
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
     navbuddy.attach(client, bufnr)
@@ -149,6 +152,13 @@ lspconfig["pylsp"].setup({
             },
         },
     },
+})
+
+lspconfig["texlab"].setup({
+    -- on_init=on_init,
+    on_attach = attach,
+    capabilities = capabilities,
+    -- capabilities=lsp_status.capabilities
 })
 
 lspconfig["vimls"].setup({
