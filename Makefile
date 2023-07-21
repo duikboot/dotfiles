@@ -73,25 +73,13 @@ vim-venv:
 	$(VIM_VIRTUALENV)/bin/pip install pip -U
 	$(VIM_VIRTUALENV)/bin/pip install -r config/nvim/requirements.txt
 
-lsp:
-	$(PYTHON) -m pip install 'python-lsp-server[all]' -U
-
 .PHONY: ctags
 ctags:
 	-rm ${HOME_DIR}/.$@
 	ln -s ${PWD}/_$@ ${HOME_DIR}/.$@
 
-.PHONY: vim-plug
-vim-plug:
-	curl -fLo "$${XDG_DATA_HOME:-$$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-packer:
-	git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-		~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
 .PHONY: nvim
-nvim: vim-plug packer ctags lsp ctags vim-plug
+nvim: vim-venv packer ctags
 	-rm ${HOME_DIR}/.config/$@
 	ln -sf ${PWD}/config/$@ ${HOME_DIR}/.config/$@
 

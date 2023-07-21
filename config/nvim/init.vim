@@ -39,11 +39,6 @@ set formatoptions-=o
 " Very cool transparent completion menu, but it's distracting me.
 " set pumblend=10
 
-" shows preview of the changes
-" "nosplit": Shows the effects of a command incrementally, as you type.
-" "split" : Also shows partial off-screen results in a preview window.
-set inccommand=nosplit
-
 " set dictionary=/usr/share/dict/words
 
 if has("persistent_undo")
@@ -171,8 +166,6 @@ set list
 set ignorecase              " Default to using case insensitive searches,
 set smartcase               " unless uppercase letters are used in the regex.
 " autocmd BufNewFile,BufRead *.js set nosmarttab  " If  don't use smarttab"
-" Very cool transparent completion menu, but it's distracting me.
-" set pumblend=10
 
 " shows preview of the changes
 " "nosplit": Shows the effects of a command incrementally, as you type.

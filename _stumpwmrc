@@ -354,8 +354,7 @@
   (run-shell-command
     (concatenate 'string "feh --bg-scale " url)))
 
-; (run-shell-command "xscreensaver -no-splash")
-
+(run-shell-command "xscreensaver -no-splash")
 (stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
 
 (setf *mouse-focus-policy* :click) ;; :click, :ignore, :sloppy
@@ -373,7 +372,7 @@
 (make-program-binding "keepassxc" "keepassxc")
 
 (defcommand lock-screen ()()
-            (run-shell-command "betterlockscreen --lock"))
+            (run-shell-command "xscreensaver-command -lock"))
 
 (defcommand suspend ()()
             (run-shell-command "systemctl suspend" t))
