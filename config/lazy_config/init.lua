@@ -41,6 +41,7 @@ require("lazy").setup({
             vim.cmd([[set background=light]])
         end,
     },
+    "https://github.com/subnut/nvim-ghost.nvim",
     "https://github.com/hoob3rt/lualine.nvim",
     -- { "https://github.com/folke/neodev.nvim",            opts = {} },
     "https://github.com/mhinz/vim-startify",
