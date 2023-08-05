@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+config/lazy_config/lazy-lock.json
 # C extensions
 *.so
 
