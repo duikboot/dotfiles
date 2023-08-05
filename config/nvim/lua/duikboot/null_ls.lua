@@ -31,7 +31,7 @@ null_ls.setup({
         -- Diagnostics
         -- diagnostics.flake8,
         -- diagnostics.pylint,
-        diagnostics.mypy,
+        -- diagnostics.mypy,
         diagnostics.codespell,
         diagnostics.gitlint,
         diagnostics.hadolint,

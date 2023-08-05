@@ -29,6 +29,7 @@ return require('packer').startup(function(use)
         as = 'rose-pine',
     })
     use 'https://github.com/rmehri01/onenord.nvim'
+    use 'https://github.com/folke/tokyonight.nvim'
 
     -- FZF
     use 'https://github.com/junegunn/fzf'
@@ -114,23 +115,9 @@ return require('packer').startup(function(use)
     use 'https://github.com/hrsh7th/cmp-path'
     use 'https://github.com/octaltree/cmp-look'
     use 'https://github.com/ray-x/cmp-treesitter'
+
     use 'https://github.com/windwp/nvim-autopairs'
 
-    -- use({
-    --     "glepnir/lspsaga.nvim",
-    --     opt = true,
-    --     branch = "main",
-    --     event = "LspAttach",
-    --     config = function()
-    --         require("lspsaga").setup({})
-    --     end,
-    --     requires = {
-    --         {"nvim-tree/nvim-web-devicons"},
-    --         --Please make sure you install markdown and markdown_inline parser
-    --         {"nvim-treesitter/nvim-treesitter"}
-    --     }
-    -- })
-    --
     -- dap
     use 'https://github.com/mfussenegger/nvim-dap'
     use 'https://github.com/rcarriga/nvim-dap-ui'
@@ -140,7 +127,6 @@ return require('packer').startup(function(use)
 
     -- TPope
     use { 'https://github.com/tpope/vim-markdown', opt = true }
-    use 'https://github.com/tpope/vim-obsession'
     use 'https://github.com/tpope/vim-repeat'
     use 'https://github.com/tpope/vim-sensible'
     -- use 'https://github.com/tpope/vim-surround'
@@ -174,6 +160,7 @@ return require('packer').startup(function(use)
     -- Vcs
     use 'https://github.com/tpope/vim-fugitive'
     use 'https://github.com/lewis6991/gitsigns.nvim'
+    use { 'NeogitOrg/neogit', requires = 'nvim-lua/plenary.nvim' }
 
     -- Search
     use 'https://github.com/ThePrimeagen/harpoon'
@@ -193,7 +180,7 @@ return require('packer').startup(function(use)
     use 'https://github.com/bhurlow/vim-parinfer'
     -- use 'https://github.com/prabirshrestha/asyncomplete.vim'
 
-    -- Telekastern
+    -- Telekasten
     use 'https://github.com/renerocksai/telekasten.nvim'
     use 'https://github.com/renerocksai/calendar-vim'
     use {

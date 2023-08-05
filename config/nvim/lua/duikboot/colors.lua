@@ -1,12 +1,20 @@
 local vim = vim
 
-function Colorscheme(color)
+function Rosepine(color)
     color = color or "rose-pine"
     vim.cmd.colorscheme(color)
 end
 
-Colorscheme()
+Rosepine()
 --
--- require('onenord').setup({
---     theme = "light"
--- })
+function Tokyonight(color)
+    color = color or "tokyonight"
+    vim.cmd.colorscheme(color)
+end
+
+require('tokyonight').setup({
+    style="moon"
+})
+
+-- Tokyonight()
+

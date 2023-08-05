@@ -23,7 +23,6 @@ local modules = {
     -- 'duikboot.neogit',
     -- 'duikboot.neorg',
     "duikboot.gitsigns",
-    "duikboot.utils",
     -- 'duikboot.luasnip',
     "duikboot.vsnip",
     "duikboot.hop",
@@ -126,6 +125,9 @@ end, { silent = true, nowait = true })
 --
 require('muren').setup()
 require("flash").setup()
+
+require('neogit').setup()
+
 -- require("symbols-outline").setup()
 
 -- require("lspsaga").setup()

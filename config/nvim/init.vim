@@ -1,7 +1,5 @@
 scriptencoding utf-8
 
-"source ~/.config/nvim/plug-list.vim
-
 " Basic Settings {{{
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
@@ -65,7 +63,6 @@ endif
 " 0O
 " don't bell or blink
 set noerrorbells
-set vb t_vb=
 
 " Ignore these files when completing
 set wildignore+=*.o,*.obj,.git,*.pyc,*.pyo,*.class,.hg
@@ -586,7 +583,6 @@ let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-inoremap <c-h><c-h> <Esc>:TmuxNavigateLeft<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
