@@ -5,6 +5,20 @@ vim.keymap.set('n', "<leader>w", ":w<cr>", { noremap = true })
 vim.api.nvim_create_user_command('Q', ':quitall', {})
 
 
+-- Rebuild Ctags (mnemonic RC -> CR -> <cr>)
+vim.keymap.set('n', '<leader><cr>', ':silent !ctags -R --links=no --exclude=.buildozer --languages=-javascript --languages=-css >/dev/null 2>&1 &<cr>:redraw!<cr>')
+
+-- open tag on the top of the screen
+-- vim.keymap.set('n', <C-]> <C-]>zt
+
+-- Toggle tag
+vim.keymap.set('n', '<leader>t', '<Esc>:tag<Space>')
+vim.keymap.set('n', '<leader>ts', '<Esc>:tselect<Space>')
+
+-- Open in vertical split the tag under the cursur.
+vim.keymap.set('n',  '<Leader>T', ':vs<CR><c-]>zz')
+
+
 vim.keymap.set('n', "<c-h>", ":TmuxNavigateLeft<cr>")
 vim.keymap.set('n', "<c-j>", ":TmuxNavigateDown<cr>")
 vim.keymap.set('n', "<c-k>", ":TmuxNavigateUp<cr>")
@@ -34,8 +48,8 @@ vim.keymap.set('n','<leader>bd', ':bd<CR>')
 
 -- let Y be more consistent
 vim.keymap.set('n','Y', 'y$')
-vim.keymap.set('n','n', 'nzzzv')
-vim.keymap.set('n','N', 'Nzzzv')
+-- vim.keymap.set('n','n', 'nzzzv')
+-- vim.keymap.set('n','N', 'Nzzzv')
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

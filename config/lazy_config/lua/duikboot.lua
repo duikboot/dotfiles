@@ -1,6 +1,7 @@
 local modules = {
 	"plugins.startify",
 	"plugins.treesitter",
+        "plugins.treesitter_context",
 	"plugins.telescope",
 	"plugins.cmp",
 	"plugins.lsp",

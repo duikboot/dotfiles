@@ -7,7 +7,9 @@ g.python3_host_prog = home .. '/.dotfiles/.venv/bin/python'
 
 g.python3_host_prog_bin = home .. '/.dotfiles/.venv/bin/'
 
+option.tags = "./tags,tags"
 option.clipboard = "unnamedplus"
+option.scrolloff = 3             -- Keep 3 context lines above and below the cursor
 option.expandtab = true
 option.shiftwidth = 4 -- but an indent level is 4 spaces wide.
 option.splitright = true
@@ -23,7 +25,8 @@ option.display = "lastline"
 option.joinspaces = false           -- Use only 1 space after "." when joining lines, not 2"
 option.showfulltag = true           -- Show full tags when doing search completion
 option.relativenumber = true        -- show linenumber relative to line cursor is on
-option.foldlevel = 999
+option.foldlevel = 666
+option.foldmethod = 'indent'
 option.keywordprg = ":help"         -- Use K to show help on subject under cursor
 option.backupdir = home .. ".tmp//"
 option.directory = home .. ".tmp//" --set directory for swapfiles

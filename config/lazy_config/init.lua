@@ -102,11 +102,13 @@ require("lazy").setup({
     {
         "https://github.com/folke/flash.nvim",
         config = function()
-            require("flash").setup()
+            require("flash").setup(
+                {modes = {char = { enabled = false }}}
+            )
         end,
     },
     "https://github.com/jose-elias-alvarez/null-ls.nvim",
-    "theprimeagen/refactoring.nvim",
+    "https://github.com/theprimeagen/refactoring.nvim",
 
     "https://github.com/jose-elias-alvarez/null-ls.nvim",
 
