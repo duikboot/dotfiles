@@ -110,6 +110,9 @@ vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w>l')
 
 vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 
+vim.keymap.set("n", "<leader>dw", function() require('diaglist').open_all_diagnostics() end)
+vim.keymap.set("n", "<leader>dl", function() require('diaglist').open_buffer_diagnostics() end)
+
 vim.keymap.set('n', '<localleader>c',
     function()
         vim.cmd("call vlime#plugin#ConnectREPL('127.0.0.1', 4005)")

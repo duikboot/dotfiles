@@ -99,17 +99,14 @@ require("lazy").setup({
     "https://github.com/onsails/lspkind-nvim",
     "https://github.com/folke/lsp-trouble.nvim",
     "https://github.com/folke/lsp-colors.nvim",
-    {
-        "https://github.com/folke/flash.nvim",
-        config = function()
-            require("flash").setup(
-                {modes = {char = { enabled = false }}}
-            )
-        end,
-    },
     "https://github.com/jose-elias-alvarez/null-ls.nvim",
     "https://github.com/theprimeagen/refactoring.nvim",
-
+    {'https://github.com/onsails/diaglist.nvim',
+        config = function()
+            require("diaglist").init()
+        end,
+        lazy = true
+    },
     "https://github.com/jose-elias-alvarez/null-ls.nvim",
 
     "https://github.com/christoomey/vim-tmux-navigator",
@@ -166,7 +163,7 @@ require("lazy").setup({
     -- dap
     "https://github.com/mfussenegger/nvim-dap",
     "https://github.com/rcarriga/nvim-dap-ui",
-    "https://github.com/mfussenegger/nvim-dap-python",
+    {"https://github.com/mfussenegger/nvim-dap-python", ft='python'},
     "https://github.com/theHamsta/nvim-dap-virtual-text",
     "https://github.com/nvim-telescope/telescope-dap.nvim",
     {

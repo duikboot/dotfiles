@@ -11,7 +11,6 @@ option.tags = "./tags,tags"
 option.clipboard = "unnamedplus"
 option.scrolloff = 3             -- Keep 3 context lines above and below the cursor
 option.expandtab = true
-option.shiftwidth = 4 -- but an indent level is 4 spaces wide.
 option.splitright = true
 option.splitbelow = true
 option.number = true                -- Display line numbers
@@ -27,6 +26,7 @@ option.showfulltag = true           -- Show full tags when doing search completi
 option.relativenumber = true        -- show linenumber relative to line cursor is on
 option.foldlevel = 666
 option.foldmethod = 'indent'
+option.shiftwidth = 4 -- but an indent level is 4 spaces wide.
 option.keywordprg = ":help"         -- Use K to show help on subject under cursor
 option.backupdir = home .. ".tmp//"
 option.directory = home .. ".tmp//" --set directory for swapfiles
@@ -48,6 +48,12 @@ option.list = true
 -- Searching and Patterns
 option.ignorecase = true              -- Default to using case insensitive searches,
 option.smartcase = true               -- unless uppercase letters are used in the regex.
+
+option.breakindent = true
+option.breakindentopt='shift:4'
+option.showbreak ='↳ '
+option.showmatch = true
+-- vim.cmd([[let &showbreak='↳ ']])
 
 vim.cmd(
 [[augroup highlight_yank
