@@ -19,13 +19,13 @@ vim.cmd([[cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%']])
 
 require("duikboot.options")
 
-local lua_init_file = vim.fn.stdpath("config") .. "/init.lua"
+local lua_init_file = vim.fn.stdpath("config") .. "/lua/duikboot.lua"
 
 if vim.loop.fs_stat(lua_init_file) then
     vim.keymap.set('n', '<leader>V',
         function()
             package.loaded.duikboot = nil
-            print(lua_init_file)
+            print("Reloading " .. lua_init_file .. "...")
             vim.cmd(":luafile " .. lua_init_file)
         end
     )
@@ -42,8 +42,9 @@ require("lazy").setup({
             vim.cmd([[set background=light]])
         end,
     },
+    { 'folke/which-key.nvim', opts = {} },
     "https://github.com/subnut/nvim-ghost.nvim",
-    "https://github.com/hoob3rt/lualine.nvim",
+    {"https://github.com/hoob3rt/lualine.nvim", },
     -- { "https://github.com/folke/neodev.nvim",            opts = {} },
     "https://github.com/mhinz/vim-startify",
     { "https://github.com/kyazdani42/nvim-web-devicons", lazy = true },

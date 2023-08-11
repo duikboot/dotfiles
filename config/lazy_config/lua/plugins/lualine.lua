@@ -12,16 +12,17 @@ local vim = vim
 --   return " " .. fun_name
 -- end
 --
--- local function branchname ()
---     local branch = vim.fn.FugitiveHead()
---     if branch and #branch > 0 then
---         branch = ' '..branch
---     end
---     if branch:len() >= 100 then
---         return branch:sub(1, 100) .. " ..."
---     end
---     return branch
--- end
+local function branchname ()
+    local branch = vim.fn.FugitiveHead()
+    branch = branch:gsub("feature/EMO.", "")
+    if branch and #branch > 0 then
+        branch = ' '..branch
+    end
+    if branch:len() >= 50 then
+        return branch:sub(1, 50) .. "..."
+    end
+    return branch
+end
 --
 -- local config = {
 --     sections = {
@@ -35,5 +36,13 @@ local vim = vim
 --         },
 --     },
 -- }
-require('lualine').setup()
-
+require('lualine').setup({
+    sections = {
+        lualine_b = {branchname, 'diff',
+            {
+                'diagnostics',
+                symbols = {error = 'E:', warn = 'W:', info = 'I:', hint = 'H:'}
+            }
+        }
+    }
+})
