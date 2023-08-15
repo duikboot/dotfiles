@@ -75,7 +75,7 @@ vim.keymap.set('n', '<leader>e', ":edit<cr>")
 vim.keymap.set('n', '<c-e>', ":Explore %:p:h<cr>")
 
 vim.keymap.set('n', 'J', "mzJ`z")
-vim.keymap.set('n', 'S', "i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w")
+vim.keymap.set('n', 'S', "i<cr><esc>^mwgk:silent! s/\\v +$//<cr>:noh<cr>`w")
 
 vim.keymap.set('c', "<c-a>", "<home>")
 vim.keymap.set('c', "<c-e>", "<end>")
