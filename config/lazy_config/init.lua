@@ -33,6 +33,28 @@ end
 
 require("lazy").setup({
     {
+        'martineausimon/nvim-xresources',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            --Optional config:
+            --require('nvim-xresources').setup({
+            --  xresources_path = os.getenv("HOME") .. '/.Xresources',
+            --  auto_light = {
+            --    enable = true,
+            --    value = 0.5,
+            --    exclude = {},
+            --  },
+            --  contrast = 1,
+            --  palette_overrides = {},
+            --})
+            --local C = require('nvim-xresources.colors')
+            --require('nvim-xresources').custom_highlight_groups({ })
+
+            -- vim.cmd('colorscheme xresources')
+        end
+    },
+    {
         "folke/tokyonight.nvim",
         lazy = false,    -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
@@ -42,9 +64,9 @@ require("lazy").setup({
             vim.cmd([[set background=light]])
         end,
     },
-    { 'folke/which-key.nvim', opts = {} },
+    { 'https://github.com/folke/which-key.nvim', opts = {} },
     "https://github.com/subnut/nvim-ghost.nvim",
-    {"https://github.com/hoob3rt/lualine.nvim", },
+    { "https://github.com/hoob3rt/lualine.nvim", },
     -- { "https://github.com/folke/neodev.nvim",            opts = {} },
     "https://github.com/mhinz/vim-startify",
     { "https://github.com/kyazdani42/nvim-web-devicons", lazy = true },
@@ -75,6 +97,7 @@ require("lazy").setup({
     -- Vcs
     "https://github.com/tpope/vim-fugitive",
     "https://github.com/lewis6991/gitsigns.nvim",
+    "https://github.com/sindrets/diffview.nvim",
     {
         "NeogitOrg/neogit",
         dependencies = "nvim-lua/plenary.nvim",
@@ -102,7 +125,13 @@ require("lazy").setup({
     "https://github.com/folke/lsp-colors.nvim",
     "https://github.com/jose-elias-alvarez/null-ls.nvim",
     "https://github.com/theprimeagen/refactoring.nvim",
-    {'https://github.com/onsails/diaglist.nvim',
+    {'https://github.com/nvimdev/lspsaga.nvim',
+    config = function()
+        require('lspsaga').setup({})
+    end,
+},
+    {
+        'https://github.com/onsails/diaglist.nvim',
         config = function()
             require("diaglist").init()
         end,
@@ -124,6 +153,7 @@ require("lazy").setup({
     "https://github.com/tpope/vim-unimpaired",
     'https://github.com/Olical/vim-enmasse',
     'https://github.com/kevinhwang91/nvim-hlslens',
+    'https://github.com/machakann/vim-swap',
     {
         'https://github.com/windwp/nvim-autopairs',
         event = "InsertEnter",
@@ -164,7 +194,7 @@ require("lazy").setup({
     -- dap
     "https://github.com/mfussenegger/nvim-dap",
     "https://github.com/rcarriga/nvim-dap-ui",
-    {"https://github.com/mfussenegger/nvim-dap-python", ft='python'},
+    { "https://github.com/mfussenegger/nvim-dap-python", ft = 'python' },
     "https://github.com/theHamsta/nvim-dap-virtual-text",
     "https://github.com/nvim-telescope/telescope-dap.nvim",
     {
@@ -177,9 +207,9 @@ require("lazy").setup({
     -- Lisp
     --  use { 'https://github.com/monkoose/parsley' }
     -- use 'https://github.com/monkoose/nvlime'
-    { 'https://github.com/vlime/vlime',            rtp = 'vim/', ft = 'lisp' },
-    { 'https://github.com/HiPhish/nvim-cmp-vlime', ft = 'lisp' },
-    { 'https://github.com/bhurlow/vim-parinfer',   ft = 'lisp' },
+    { 'https://github.com/vlime/vlime',                  rtp = 'vim/', ft = 'lisp' },
+    { 'https://github.com/HiPhish/nvim-cmp-vlime',       ft = 'lisp' },
+    { 'https://github.com/bhurlow/vim-parinfer',         ft = 'lisp' },
 
     -- Telekasten
     'https://github.com/renerocksai/telekasten.nvim',

@@ -104,7 +104,7 @@ function _G.PrintDiagnostics(options, bufnr, line_nr)
     local line_diagnostics = vim.diagnostic.get(bufnr, options)
     if vim.tbl_isempty(line_diagnostics) then
         return
-   end
+    end
 
     local diagnostic_message = ""
     for i, diagnostic in ipairs(line_diagnostics) do
@@ -132,7 +132,7 @@ lspconfig["lua_ls"].setup({
             diagnostics = {
                 globals = { "vim" },
             },
-           -- hint = { enable = true},
+            -- hint = { enable = true},
             workspace = {
                 checkThirdParty = false
             },

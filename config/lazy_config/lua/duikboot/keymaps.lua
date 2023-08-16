@@ -4,6 +4,15 @@ vim.keymap.set('n', "<leader>q", ":q<cr>", { noremap = true })
 vim.keymap.set('n', "<leader>w", ":w<cr>", { noremap = true })
 vim.api.nvim_create_user_command('Q', ':quitall', {})
 
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
+vim.keymap.set('v', 'j', 'gj')
+vim.keymap.set('v', 'k', 'gk')
+
+vim.keymap.set('n', 'gj', 'j')
+vim.keymap.set('n', 'gk', 'k')
+vim.keymap.set('v', 'gj', 'j')
+vim.keymap.set('v', 'gk', 'k')
 
 -- Rebuild Ctags (mnemonic RC -> CR -> <cr>)
 vim.keymap.set('n', '<leader><cr>', ':silent !ctags -R --links=no --exclude=.buildozer --languages=-javascript --languages=-css >/dev/null 2>&1 &<cr>:redraw!<cr>')
@@ -25,20 +34,22 @@ vim.keymap.set('n', "<c-k>", ":TmuxNavigateUp<cr>")
 vim.keymap.set('n', "<c-l>", ":TmuxNavigateRight<cr>")
 
 vim.keymap.set('n', 'cg', function() require('plugins.telescope').grep_prompt() end)
-vim.keymap.set('n', '<Leader>o', function() require('telescope.builtin').find_files() end)
-vim.keymap.set('n', '<Leader>fb', ":Telescope file_browser<CR>")
-vim.keymap.set('n', 'gr', function() require 'telescope.builtin'.lsp_references() end)
-vim.keymap.set('n', '<leader>gc', function() require 'telescope.builtin'.git_commits() end)
-vim.keymap.set('n', '<leader>gs', function() require 'telescope.builtin'.git_status {} end)
-vim.keymap.set('n', '<leader>lg', function() require 'telescope.builtin'.live_grep {} end)
-vim.keymap.set('n', '<leader>bb', function() require 'telescope.builtin'.buffers {} end)
-vim.keymap.set('n', '<localleader>d', function() require 'telescope.builtin'.diagnostics {} end)
+vim.keymap.set('n', '<Leader>o', function() require('telescope.builtin').find_files() end, { desc="[O]pen file" })
+vim.keymap.set('n', '<Leader>fb', ":Telescope file_browser<CR>", {desc = ""}, { desc="[F]ile [B]rowser" })
+vim.keymap.set('n', 'gr', function() require 'telescope.builtin'.lsp_references() end, { desc="[G]o to [R]eferences" })
+vim.keymap.set('n', '<leader>gc', function() require 'telescope.builtin'.git_commits() end, { desc="[G]it [C]ommits" })
+vim.keymap.set('n', '<leader>gs', function() require 'telescope.builtin'.git_status {} end, { desc="[G]it [S]tatus" })
+vim.keymap.set('n', '<leader>lg', function() require 'telescope.builtin'.live_grep {} end, { desc="[L]ive [G]rep" })
+vim.keymap.set('n', '<leader>bb', function() require 'telescope.builtin'.buffers {} end, { desc="Show [B]uffers" })
+vim.keymap.set('n', '<localleader>d', function() require 'telescope.builtin'.diagnostics {} end, { desc="[D]iagnostics" })
 --" vim.keymap.set('n',<leader>t      <cmd>lua require'telescope.builtin'.tags{only_sort_tags=true}<CR>
-vim.keymap.set('n', '<leader>t', ":Tags<CR>")
+vim.keymap.set('n', '<leader>t', ":Tags<CR>", { desc="[T]ags" })
 vim.keymap.set('n', '<leader>*',
-    function() require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") } end)
-vim.keymap.set('n', '<localleader>f', function() require 'telescope.builtin'.current_buffer_fuzzy_find {} end)
-vim.keymap.set('n', '<leader>fv', function() require 'duikboot.telescope'.find_virtual_env() end)
+    function() require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") } end, { desc="Search word" })
+vim.keymap.set('n', '<localleader>f', function() require 'telescope.builtin'.current_buffer_fuzzy_find {} end,
+    { desc="Buffer [F]uzzy find" })
+vim.keymap.set('n', '<leader>fv', function() require 'duikboot.telescope'.find_virtual_env() end,
+    { desc="[F]ind in [V]irtual env" })
 ----let g:tmux_navigator_save_on_switch = 1
 
 -- Delete buffer from buffelist and open previous buffer in split.
@@ -110,7 +121,8 @@ vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w>l')
 
 vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 
-vim.keymap.set("n", "<leader>dw", function() require('diaglist').open_all_diagnostics() end)
+vim.keymap.set("n", "<leader>dw", function() require('diaglist').open_all_diagnostics() end, { desc = "[D]iagnostics quickfix [W]orkspace"}
+)
 vim.keymap.set("n", "<leader>dl", function() require('diaglist').open_buffer_diagnostics() end)
 
 vim.keymap.set('n', '<localleader>c',
