@@ -139,7 +139,6 @@ vim.keymap.set("n", "<leader>df",
     end,
     { desc = "[D]iagnostics locationlist [F]ile"}
 )
-
 vim.keymap.set('n', '<localleader>c',
     function()
         vim.cmd("call vlime#plugin#ConnectREPL('127.0.0.1', 4005)")
