@@ -39,7 +39,7 @@ cmp.setup({
         { name = 'nvim_lsp_signature_help'},
         { name = 'vsnip' },
         { name = 'nvim_lua' },
-        { name = 'buffer', keyword_length = 5 },
+        { name = 'buffer', keyword_length = 3 },
         { name = 'path' },
         { name = 'vlime'}
         -- For luasnip user.

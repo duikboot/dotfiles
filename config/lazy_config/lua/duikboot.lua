@@ -5,6 +5,7 @@ local modules = {
     "plugins.telescope",
     "plugins.cmp",
     "plugins.lsp",
+    "plugins.lsp_saga",
     "plugins.gitsigns",
     "plugins.harpoon",
     "plugins.null_ls",

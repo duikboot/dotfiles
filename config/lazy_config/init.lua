@@ -103,7 +103,7 @@ require("lazy").setup({
         dependencies = "nvim-lua/plenary.nvim",
         config = function()
             require('neogit').setup()
-        end
+        end,
     },
 
     -- Search
@@ -128,11 +128,7 @@ require("lazy").setup({
     "https://github.com/folke/lsp-colors.nvim",
     "https://github.com/jose-elias-alvarez/null-ls.nvim",
     "https://github.com/theprimeagen/refactoring.nvim",
-    {'https://github.com/nvimdev/lspsaga.nvim',
-    config = function()
-        require('lspsaga').setup({})
-    end,
-},
+    "https://github.com/nvimdev/lspsaga.nvim",
     {
         'https://github.com/onsails/diaglist.nvim',
         config = function()

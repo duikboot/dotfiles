@@ -53,6 +53,9 @@ vim.keymap.set('n', '<localleader>f', function() require 'telescope.builtin'.cur
     { desc="Buffer [F]uzzy find" })
 vim.keymap.set('n', '<leader>fv', function() require 'duikboot.telescope'.find_virtual_env() end,
     { desc="[F]ind in [V]irtual env" })
+
+vim.keymap.set('n', '<localleader>a', ':Lspsaga outline<cr>',
+    { desc="[O]utline" })
 ----let g:tmux_navigator_save_on_switch = 1
 
 -- Delete buffer from buffelist and open previous buffer in split.
@@ -124,9 +127,18 @@ vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w>l')
 
 vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 
-vim.keymap.set("n", "<leader>dw", function() require('diaglist').open_all_diagnostics() end, { desc = "[D]iagnostics quickfix [W]orkspace"}
+vim.keymap.set("n", "<leader>dw",
+    function()
+        require('diaglist').open_all_diagnostics()
+    end,
+    { desc = "[D]iagnostics quickfix [W]orkspace"}
 )
-vim.keymap.set("n", "<leader>dl", function() require('diaglist').open_buffer_diagnostics() end)
+vim.keymap.set("n", "<leader>df",
+    function()
+        require('diaglist').open_buffer_diagnostics()
+    end,
+    { desc = "[D]iagnostics locationlist [F]ile"}
+)
 
 vim.keymap.set('n', '<localleader>c',
     function()
