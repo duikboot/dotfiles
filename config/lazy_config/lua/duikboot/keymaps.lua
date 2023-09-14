@@ -36,6 +36,7 @@ vim.keymap.set('n', "<c-j>", ":TmuxNavigateDown<cr>")
 vim.keymap.set('n', "<c-k>", ":TmuxNavigateUp<cr>")
 vim.keymap.set('n', "<c-l>", ":TmuxNavigateRight<cr>")
 
+vim.keymap.set('n', 'T', ":Telescope ", {desc="Open [T]elescope"})
 vim.keymap.set('n', 'cg', function() require('plugins.telescope').grep_prompt() end)
 vim.keymap.set('n', '<Leader>o', function() require('telescope.builtin').find_files() end, { desc="[O]pen file" })
 vim.keymap.set('n', '<Leader>fb', ":Telescope file_browser<CR>", {desc = ""}, { desc="[F]ile [B]rowser" })
@@ -93,6 +94,9 @@ vim.keymap.set('n', '<c-e>', ":Explore %:p:h<cr>")
 
 vim.keymap.set('n', 'J', "mzJ`z")
 vim.keymap.set('n', 'S', "i<cr><esc>^mwgk:silent! s/\\v +$//<cr>:noh<cr>`w")
+
+
+vim.keymap.set('n', "<localleader>j", ":%!python -m json.tool<cr>", {desc="Format [J]son"})
 
 vim.keymap.set('c', "<c-a>", "<home>")
 vim.keymap.set('c', "<c-e>", "<end>")

@@ -2,7 +2,7 @@ local vim = vim
 local telescope = require("telescope")
 local sorters = require("telescope.sorters")
 local actions = require("telescope.actions")
-local finders = require("telescope.finders")
+-- local finders = require("telescope.finders")
 local trouble = require("trouble.providers.telescope")
 
 -- local pickers = require("telescope.pickers")
@@ -29,7 +29,7 @@ telescope.setup{
         -- },
         file_sorter = sorters.get_fzy_sorter,
         file_ignore_patterns = {"tags"},
-        sorting_strategy = "ascending",
+        sorting_strategy = "descending",
         mappings = {
             i = {
                 ["<C-x>"] = actions.send_to_qflist + actions.open_qflist,

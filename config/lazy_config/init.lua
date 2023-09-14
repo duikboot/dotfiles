@@ -141,6 +141,13 @@ require("lazy").setup({
     "https://github.com/christoomey/vim-tmux-navigator",
 
     -- Editing
+{
+  'piersolenski/telescope-import.nvim',
+  requires = 'nvim-telescope/telescope.nvim',
+  config = function()
+    require("telescope").load_extension("import")
+  end
+},
     {
         "https://github.com/kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
