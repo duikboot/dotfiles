@@ -18,7 +18,6 @@ local trouble = require("trouble.providers.telescope")
 -- local picker = pickers.new(opts)
 -- picker:find()
 
-
 telescope.setup{
     defaults = {
         -- prompt_prefix = "🔍 ",

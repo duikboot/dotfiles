@@ -93,6 +93,10 @@ require("lazy").setup({
     "https://github.com/hrsh7th/cmp-path",
     "https://github.com/octaltree/cmp-look",
     "https://github.com/ray-x/cmp-treesitter",
+    {
+        "zbirenbaum/copilot-cmp",
+        opts = {},
+    },
 
     -- Vcs
     "https://github.com/tpope/vim-fugitive",
@@ -141,13 +145,32 @@ require("lazy").setup({
     "https://github.com/christoomey/vim-tmux-navigator",
 
     -- Editing
-{
-  'piersolenski/telescope-import.nvim',
-  requires = 'nvim-telescope/telescope.nvim',
-  config = function()
-    require("telescope").load_extension("import")
-  end
-},
+    {
+      'piersolenski/telescope-import.nvim',
+      requires = 'nvim-telescope/telescope.nvim',
+      config = function()
+        require("telescope").load_extension("import")
+      end
+    },
+-- --     {
+--         "zbirenbaum/copilot.lua",
+--         cmd = "Copilot",
+--         event="InsertEnter",
+--         config = function()
+--             require("copilot").setup({})
+--         end,
+-- },
+      {
+    "zbirenbaum/copilot.lua",
+    enabled = true,
+    cmd = "Copilot",
+    event = "InsertEnter",
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+    },
+  },
+    -- 'https://github.com/github/copilot.vim',
     {
         "https://github.com/kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features

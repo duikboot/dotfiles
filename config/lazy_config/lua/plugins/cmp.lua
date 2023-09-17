@@ -34,6 +34,7 @@ cmp.setup({
         -- ["<c-"] = cmp.mapping.complete()
     }),
     sources = cmp.config.sources({
+        { name = "copilot" },
         { name = 'nvim_lsp' },
         { name = 'treesitter' },
         { name = 'nvim_lsp_signature_help'},
