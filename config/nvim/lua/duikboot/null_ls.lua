@@ -12,12 +12,12 @@ local diagnostics = null_ls.builtins.diagnostics
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/code_actions
 local code_actions = null_ls.builtins.code_actions
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/completion
-local completion = null_ls.builtins.completion
+-- local completion = null_ls.builtins.completion
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/hover
 local hover = null_ls.builtins.hover
 
 null_ls.setup({
-    debug = true,
+    -- debug = true,
     sources = {
         -- Code Actions
         -- code_actions.eslint,
