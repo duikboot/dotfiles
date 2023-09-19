@@ -29,6 +29,7 @@ telescope.setup{
         file_sorter = sorters.get_fzy_sorter,
         file_ignore_patterns = {"tags"},
         sorting_strategy = "descending",
+        -- sorting_strategy = "ascending",
         mappings = {
             i = {
                 ["<C-x>"] = actions.send_to_qflist + actions.open_qflist,
