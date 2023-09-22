@@ -11,7 +11,6 @@ end
 
 function _G.echo_filename()
     local path = vim.fn.expand('%')
-    -- print(path)
     vim.api.nvim_echo({ { path, 'None' }, { '', 'None' } }, false, {})
 end
 

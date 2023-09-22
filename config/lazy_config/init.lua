@@ -147,7 +147,6 @@ require("lazy").setup({
     -- Editing
     {
       'piersolenski/telescope-import.nvim',
-      requires = 'nvim-telescope/telescope.nvim',
       config = function()
         require("telescope").load_extension("import")
       end
@@ -160,16 +159,16 @@ require("lazy").setup({
 --             require("copilot").setup({})
 --         end,
 -- },
-      {
-    "zbirenbaum/copilot.lua",
-    enabled = true,
-    cmd = "Copilot",
-    event = "InsertEnter",
-    opts = {
-      suggestion = { enabled = false },
-      panel = { enabled = false },
+    {
+        "zbirenbaum/copilot.lua",
+        enabled = true,
+        cmd = "Copilot",
+        event = "InsertEnter",
+        opts = {
+          suggestion = { enabled = false },
+          panel = { enabled = false },
+        },
     },
-  },
     -- 'https://github.com/github/copilot.vim',
     {
         "https://github.com/kylechui/nvim-surround",
