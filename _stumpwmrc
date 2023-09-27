@@ -364,7 +364,7 @@
 (make-program-binding "vlc" "vlc")
 (make-program-binding "firefox" "Firefox" :key-binding "b")
 (make-program-binding "arandr" "arandr")
-(make-program-binding "chromium-browser" "chromium-browser")
+(make-program-binding "chromium" "chromium")
 (make-program-binding "rambox" "Rambox" :key-binding "c")
 (make-program-binding "slack" "Slack")
 (make-program-binding "spotify" "Spotify" :key-binding "m")

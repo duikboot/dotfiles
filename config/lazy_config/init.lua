@@ -141,7 +141,6 @@ require("lazy").setup({
         lazy = true
     },
     "https://github.com/jose-elias-alvarez/null-ls.nvim",
-
     "https://github.com/christoomey/vim-tmux-navigator",
 
     -- Editing
