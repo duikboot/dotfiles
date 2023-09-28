@@ -83,8 +83,14 @@ nvim-ls:
 	-rm ${HOME_DIR}/.config/nvim
 	ln -sf ${PWD}/config/nvim ${HOME_DIR}/.config/nvim
 
+rm-treesitter-tmp-make:
+	-rm -rf ${HOME_DIR}/.local/share/nvim/
+
+nvim-sessions-dir:
+	mkdir -p ${HOME_DIR}/.local/share/nvim/session/
+
 .PHONY: nvim
-nvim: nvim-ls vim-venv ctags
+nvim: nvim-ls vim-venv ctags rm-treesitter-tmp-make nvim-sessions-dir
 
 .PHONY: alactitty
 alacritty:
