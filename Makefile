@@ -78,20 +78,13 @@ ctags:
 	-rm ${HOME_DIR}/.$@
 	ln -s ${PWD}/_$@ ${HOME_DIR}/.$@
 
-packer:
-	-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-		~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-nvim-plugins:
-	nvim +PackerInstall
-
 .PHONY: nvim-ls
 nvim-ls:
 	-rm ${HOME_DIR}/.config/nvim
 	ln -sf ${PWD}/config/nvim ${HOME_DIR}/.config/nvim
 
 .PHONY: nvim
-nvim: packer nvim-ls vim-venv ctags nvim-plugins
+nvim: nvim-ls vim-venv ctags
 
 .PHONY: alactitty
 alacritty:

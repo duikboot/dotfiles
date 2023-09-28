@@ -16,5 +16,6 @@ require('tokyonight').setup({
     style="moon"
 })
 
--- Tokyonight()
+Tokyonight()
+
 
