@@ -132,7 +132,8 @@ require("lazy").setup({
     "https://github.com/onsails/lspkind-nvim",
     "https://github.com/folke/lsp-trouble.nvim",
     "https://github.com/folke/lsp-colors.nvim",
-    "https://github.com/jose-elias-alvarez/null-ls.nvim",
+    -- "https://github.com/jose-elias-alvarez/null-ls.nvim",
+    "https://github.com/nvimtools/none-ls.nvim",
     "https://github.com/theprimeagen/refactoring.nvim",
     "https://github.com/nvimdev/lspsaga.nvim",
     {
@@ -202,6 +203,12 @@ require("lazy").setup({
 
     -- FZF
     { "https://github.com/junegunn/fzf",                  build = "./install --all" },
+    -- {
+    --     "https://github.com/junegunn/fzf",
+    --     dir = "~/.fzf/",
+    --     build = "./install --all",
+    --     name = 'fzf',
+    -- },
     "https://github.com/junegunn/fzf.vim",
     "https://github.com/nvim-lua/popup.nvim",
     -- use 'https://github.com/cbochs/portal.nvim'
@@ -210,7 +217,7 @@ require("lazy").setup({
 
     -- Telescope
     { "https://github.com/nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
-    { "nvim-telescope/telescope-fzf-native.nvim",         build = "make" },
+    { "https://github.com/nvim-telescope/telescope-fzf-native.nvim",         build = "make" },
     "https://github.com/JoseConseco/telescope_sessions_picker.nvim",
     "https://github.com/nvim-telescope/telescope-media-files.nvim",
     "https://github.com/nvim-telescope/telescope-symbols.nvim",
