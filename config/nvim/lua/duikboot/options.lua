@@ -55,6 +55,8 @@ option.breakindent = true
 option.breakindentopt='shift:4'
 option.showbreak ='↳ '
 option.showmatch = true
+option.wrap = true
+option.linebreak = true
 -- vim.cmd([[let &showbreak='↳ ']])
 
 vim.cmd(
