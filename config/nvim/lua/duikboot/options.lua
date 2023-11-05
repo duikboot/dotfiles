@@ -37,6 +37,8 @@ option.updatetime = 500
 option.formatoptions = { c = true, q = true, r = true, n = true, j = true }
 option.suffixesadd = ".tex,.latex,.java,.js,.hrl,.erl,.lisp,.asd,.lua"
 option.pumheight = 20 -- Keep a small completion window
+-- option.winblend = 60 -- Keep a small completion window
+
 
 -- Keep a persistend backupfile
 option.undofile = true
