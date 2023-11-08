@@ -13,6 +13,7 @@ local modules = {
     "plugins.neoterm",
     "plugins.trouble",
     "plugins.hlslens",
+    "plugins.telekasten",
 
     "duikboot.keymaps",
     "duikboot.utils",
