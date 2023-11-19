@@ -142,11 +142,7 @@ require("lazy").setup({
     -- "https://github.com/jose-elias-alvarez/null-ls.nvim",
     "https://github.com/nvimtools/none-ls.nvim",
     "https://github.com/theprimeagen/refactoring.nvim",
-    {"https://github.com/nvimdev/lspsaga.nvim",
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        }
-    },
+     "https://github.com/nvimdev/lspsaga.nvim" ,
     {
         'https://github.com/onsails/diaglist.nvim',
         config = function()
