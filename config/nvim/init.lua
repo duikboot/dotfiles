@@ -79,7 +79,14 @@ require("lazy").setup({
     "https://github.com/David-Kunz/treesitter-unit/",
     "https://github.com/nvim-treesitter/nvim-treesitter-context",
     -- "https://github.com/theHamsta/nvim-treesitter-commonlisp",
-
+    {
+      'Wansmer/treesj',
+      keys = { '<space>m', '<space>j', '<space>s' },
+      dependencies = { 'nvim-treesitter/nvim-treesitter' },
+      config = function()
+        require('treesj').setup({--[[ your config ]]})
+      end,
+    },
     -- Completion
     "https://github.com/hrsh7th/nvim-cmp",
     "https://github.com/hrsh7th/cmp-nvim-lsp",
@@ -135,7 +142,11 @@ require("lazy").setup({
     -- "https://github.com/jose-elias-alvarez/null-ls.nvim",
     "https://github.com/nvimtools/none-ls.nvim",
     "https://github.com/theprimeagen/refactoring.nvim",
-    "https://github.com/nvimdev/lspsaga.nvim",
+    {"https://github.com/nvimdev/lspsaga.nvim",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        }
+    },
     {
         'https://github.com/onsails/diaglist.nvim',
         config = function()

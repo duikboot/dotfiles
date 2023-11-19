@@ -89,7 +89,7 @@ end
 local attach = function(client, bufnr)
     on_attach_vim_plus_keymaps(client, bufnr)
     if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint(bufnr, true)
+        vim.lsp.inlay_hint.enable(bufnr, true)
     end
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false

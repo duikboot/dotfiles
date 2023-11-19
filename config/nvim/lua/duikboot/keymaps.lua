@@ -52,8 +52,8 @@ vim.keymap.set('n', '<leader>*',
     function() require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") } end, { desc="Search word" })
 vim.keymap.set('n', '<localleader>f', function() require 'telescope.builtin'.current_buffer_fuzzy_find {} end,
     { desc="Buffer [F]uzzy find" })
-vim.keymap.set('n', '<leader>fv', function() require 'plugins.telescope'.find_virtual_env() end,
-    { desc="[F]ind in [V]irtual env" })
+vim.keymap.set('n', '<leader>fv', function() require 'plugins.telescope'.find_virtual_env() end, {})
+vim.keymap.set('n', '<leader>fr', function() require 'telescope.builtin'.resume() end, { desc="[F]ind in [V]irtual env" })
 
 vim.keymap.set('n', '<localleader>a', ':Lspsaga outline<cr>',
     { desc="[O]utline" })

@@ -171,6 +171,8 @@
      (run-shell-command
        (concatenate 'string "xterm -e sudo " ,command))))
 
+(create-sudo-command package-managerpamac-manager "pamac-manager")
+
 (defun wallpaper ()
   (let ((files (uiop:directory-files *wallpapers*)))
     (run-shell-command
@@ -227,13 +229,19 @@
 
 (define-key *root-map* (kbd "C-y") "show-clipboard-history")
 
+(defcommand xcape ()()
+  (run-shell-command "pkill xcape")
+  (run-shell-command "xcape -t 200 -e \"Shift_L=parenleft;Shift_R=parenright\"")
+  (run-shell-command "xcape"))
+
+(defcommand set-touchpad ()()
+  (run-shell-command "xinput set-prop \"SynPS/2 Synaptics TouchPad\" \"libinput Tapping Enabled\" 1"))
+
 (defcommand refresh-monitors ()()
   (log:info "Refresh heads")
-  (run-shell-command "pkill xcape")
+  ;; (xcape)
   (refresh-heads)
   (sleep 0.1)
-  ;; (run-shell-command "xcape -t 200 -e \"Shift_L=parenleft;Shift_R=parenright\"")
-  ;; (run-shell-command "xcape")
   (set-wallpaper)
   (refresh-heads)
   (message "Refresh heads"))
@@ -465,23 +473,30 @@
               (ignore-errors (pull-window win))))
 
 (create-sudo-command sudo-gnome-control-center "XDG_CURRENT_DESKTOP=GNOME gnome-control-center")
-(create-sudo-command sudo-dnfdragora "dnfdragora")
+;; (create-sudo-command sudo-dnfdragora "dnfdragora")
 
 (defcommand shell-output (command) ((:shell "/bin/sh -c "))
   (message "~a" (run-shell-command command t)))
 
-(defun adjust-brightness (side percent)
+;; (defun adjust-brightness (side percent)
+;;   "Use acpilight as a standin for backlight."
+;;   (run-shell-command (format nil "xbacklight -~a ~a" side percent)) 
+;;   (let ((brightness (run-shell-command (format nil "xbacklight -get") t)))
+;;     (message (format nil "xbacklight set to ~a" brightness))))
+;;
+(defun adjust-brightness (n)
   "Use acpilight as a standin for backlight."
-  (run-shell-command (format nil "xbacklight -~a ~a" side percent)) 
-  (let ((brightness (run-shell-command (format nil "xbacklight -get") t)))
-    (message (format nil "xbacklight set to ~a" brightness))))
+  ;; (message (format nil "brightnessctl -d \"intel_backlight\" s ~a" n))
+  (run-shell-command (format nil "brightnessctl -d \"intel_backlight\" s ~a" n)) 
+  (let ((brightness (run-shell-command (format nil "brightnessctl -d \"intel_backlight\" g") t)))
+    (message (format nil "brightness set to ~a" brightness))))
 
 
 (defcommand temp-up ()()
-  (adjust-brightness "inc" 5))
+  (adjust-brightness "5%+"))
 
 (defcommand temp-down ()()
-  (adjust-brightness "dec" 5))
+  (adjust-brightness "5%-"))
 
 (define-key *top-map* (kbd "M-+") "temp-up")
 (define-key *top-map* (kbd "M--") "temp-down")
