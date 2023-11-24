@@ -1,9 +1,9 @@
 eval `keychain --eval --agents ssh id_dsa id_rsa`
 
-xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-xmodmap -e 'keycode 66 = Control_L'
-xmodmap -e 'clear Lock'
-xmodmap -e 'add Control = Control_L'
+# xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+# xmodmap -e 'keycode 66 = Control_L'
+# xmodmap -e 'clear Lock'
+# xmodmap -e 'add Control = Control_L'
 
 export GDK_CORE_DEVICE_EVENTS=1
 

@@ -1,5 +1,14 @@
 local vim = vim
 
+-- vim.keymap.set(
+--     'n',
+--     '<leader>qf',
+--     function ()
+--         require('duikboot.utils').jumps_to_qf()
+--     end,
+--     { desc="Jump to [Q]uickfix" }
+-- )
+
 vim.keymap.set('n', "<leader>q", ":q<cr>", { noremap = true })
 vim.keymap.set('n', "<leader>w", ":w<cr>", { noremap = true })
 vim.api.nvim_create_user_command('Q', ':quitall', {})

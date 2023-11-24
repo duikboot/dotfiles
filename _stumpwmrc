@@ -171,7 +171,8 @@
      (run-shell-command
        (concatenate 'string "xterm -e sudo " ,command))))
 
-(create-sudo-command package-managerpamac-manager "pamac-manager")
+(create-sudo-command package-manager "pamac-manager")
+(create-sudo-command manjaro-settings-manager "manjaro-settings-manager")
 
 (defun wallpaper ()
   (let ((files (uiop:directory-files *wallpapers*)))
@@ -233,6 +234,9 @@
   (run-shell-command "pkill xcape")
   (run-shell-command "xcape -t 200 -e \"Shift_L=parenleft;Shift_R=parenright\"")
   (run-shell-command "xcape"))
+
+(defcommand xmodmap ()()
+  (run-shell-command "xmodmap ~/.Xmodmap"))
 
 (defcommand set-touchpad ()()
   (run-shell-command "xinput set-prop \"SynPS/2 Synaptics TouchPad\" \"libinput Tapping Enabled\" 1"))
