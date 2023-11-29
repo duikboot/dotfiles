@@ -65,7 +65,7 @@ require("lazy").setup({
         end,
     },
     { 'https://github.com/folke/which-key.nvim', opts = {} },
-    "https://github.com/subnut/nvim-ghost.nvim",
+    -- "https://github.com/subnut/nvim-ghost.nvim",
     { "https://github.com/hoob3rt/lualine.nvim", },
     -- { "https://github.com/folke/neodev.nvim",            opts = {} },
     "https://github.com/mhinz/vim-startify",
@@ -79,6 +79,7 @@ require("lazy").setup({
     "https://github.com/David-Kunz/treesitter-unit/",
     "https://github.com/nvim-treesitter/nvim-treesitter-context",
     -- "https://github.com/theHamsta/nvim-treesitter-commonlisp",
+    "https://github.com/andymass/vim-matchup",
     {
       'Wansmer/treesj',
       keys = { '<space>m', '<space>j', '<space>s' },
@@ -142,7 +143,16 @@ require("lazy").setup({
     -- "https://github.com/jose-elias-alvarez/null-ls.nvim",
     "https://github.com/nvimtools/none-ls.nvim",
     "https://github.com/theprimeagen/refactoring.nvim",
-     "https://github.com/nvimdev/lspsaga.nvim" ,
+    "https://github.com/nvimdev/lspsaga.nvim" ,
+    {
+        'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            -- keymaps (<space?j....) [J]ump char...
+            require'hop'.setup {}
+        end
+    },
     {
         'https://github.com/onsails/diaglist.nvim',
         config = function()
