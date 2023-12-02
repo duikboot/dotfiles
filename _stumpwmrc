@@ -241,6 +241,20 @@
 (defcommand set-touchpad ()()
   (run-shell-command "xinput set-prop \"SynPS/2 Synaptics TouchPad\" \"libinput Tapping Enabled\" 1"))
 
+(defcommand set-keyboard ()()
+  (xcape)
+  (set-touchpad)
+  (xmodmap))
+;; (defcommand set-keyboard ()()
+;;   (run-shell-command "setxkbmap -option caps:swapescape")
+;;   (run-shell-command "setxkbmap -option compose:ralt")
+;;   (run-shell-command "setxkbmap -option ctrl:nocaps")
+;;   (run-shell-command "setxkbmap -option altwin:swap_alt_win")
+;;   (run-shell-command "setxkbmap -option altwin:meta_alt")
+;;   (run-shell-command "setxkbmap -option altwin:menu_win")
+;;   (run-shell-command "setxkbmap -option altwin:swap_lalt_lwin"))
+
+
 (defcommand refresh-monitors ()()
   (log:info "Refresh heads")
   ;; (xcape)

@@ -267,13 +267,13 @@ require("lazy").setup({
     -- Telekasten
     'https://github.com/renerocksai/telekasten.nvim',
     'https://github.com/renerocksai/calendar-vim',
-    {
-        "SmiteshP/nvim-navbuddy",
-        dependencies = {
-            "SmiteshP/nvim-navic",
-            "MunifTanjim/nui.nvim"
-        }
-    },
+    -- {
+    --     "SmiteshP/nvim-navbuddy",
+    --     dependencies = {
+    --         "SmiteshP/nvim-navic",
+    --         "MunifTanjim/nui.nvim"
+    --     }
+    -- },
 })
 
 require("duikboot")

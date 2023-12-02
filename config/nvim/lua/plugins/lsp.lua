@@ -17,7 +17,7 @@ require("mason-lspconfig").setup({
 })
 local lspconfig = require("lspconfig")
 
-local navbuddy = require("nvim-navbuddy")
+-- local navbuddy = require("nvim-navbuddy")
 
 local opts = { noremap = true, silent = true }
 
@@ -93,7 +93,7 @@ local attach = function(client, bufnr)
     end
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
-    navbuddy.attach(client, bufnr)
+    -- navbuddy.attach(client, bufnr)
 end
 
 function _G.PrintDiagnostics(options, bufnr, line_nr)
@@ -140,20 +140,48 @@ lspconfig["lua_ls"].setup({
     },
 })
 
-lspconfig["pylsp"].setup({
+-- lspconfig["pylsp"].setup({
+--     -- on_init=on_init,
+--     on_attach = attach,
+--     -- capabilities=lsp_status.capabilities
+--     capabilities = capabilities,
+--     settings = {
+--         pylsp = {
+--             plugins = {
+--                 jedi_completion = { include_params = true },
+--                 -- pylsp_mypy = { enabled = true },
+--                 pylsp_flake8 = { enabled = true },
+--             },
+--         },
+--     },
+-- })
+--
+lspconfig["pyright"].setup({
     -- on_init=on_init,
     on_attach = attach,
-    -- capabilities=lsp_status.capabilities
     capabilities = capabilities,
     settings = {
-        pylsp = {
-            plugins = {
-                jedi_completion = { include_params = true },
-                -- pylsp_mypy = { enabled = true },
-                pylsp_flake8 = { enabled = true },
+        python = {
+            analysis = {
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "workspace",
+                typeCheckingMode = "basic",
+                stubPath = "/home/arjen/.config/nvim/stubs",
+                extraPaths = {
+                    "/home/arjen/.config/nvim/stubs",
+                },
             },
         },
     },
+    -- capabilities=lsp_status.capabilities
+})
+
+lspconfig["ruff_lsp"].setup({
+    -- on_init=on_init,
+    on_attach = attach,
+    capabilities = capabilities,
+    -- capabilities=lsp_status.capabilities
 })
 
 lspconfig["texlab"].setup({
