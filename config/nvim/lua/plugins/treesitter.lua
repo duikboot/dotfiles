@@ -15,6 +15,7 @@ require("nvim-treesitter.configs").setup({
         "latex",
         "lua",
         "json",
+        "http",
         "typescript",
     },
     highlight = {

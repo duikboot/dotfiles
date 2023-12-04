@@ -12,6 +12,7 @@ local modules = {
     "plugins.vlime",
     "plugins.neoterm",
     "plugins.trouble",
+    "plugins.rest_nvim",
     "plugins.hlslens",
     "plugins.telekasten",
 

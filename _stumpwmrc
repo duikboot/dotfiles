@@ -245,6 +245,7 @@
   (xcape)
   (set-touchpad)
   (xmodmap))
+
 ;; (defcommand set-keyboard ()()
 ;;   (run-shell-command "setxkbmap -option caps:swapescape")
 ;;   (run-shell-command "setxkbmap -option compose:ralt")

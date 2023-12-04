@@ -55,7 +55,7 @@ require("lazy").setup({
         end
     },
     {
-        "folke/tokyonight.nvim",
+        "https://github.com/folke/tokyonight.nvim",
         lazy = false,    -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
@@ -263,6 +263,14 @@ require("lazy").setup({
     { 'https://github.com/vlime/vlime',                  rtp = 'vim/', ft = 'lisp' },
     { 'https://github.com/HiPhish/nvim-cmp-vlime',       ft = 'lisp' },
     { 'https://github.com/bhurlow/vim-parinfer',         ft = 'lisp' },
+
+    {
+        'https://github.com/rest-nvim/rest.nvim',
+        ft = 'http',
+        config = function()
+            require('rest-nvim').setup()
+        end,
+    },
 
     -- Telekasten
     'https://github.com/renerocksai/telekasten.nvim',
