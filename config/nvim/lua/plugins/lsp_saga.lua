@@ -15,6 +15,9 @@ lspsaga.setup( {
     },
     symbol_in_winbar = {
         enable = false
-    }
+    },
+    -- outline = {
+    --     layout = 'float',
+    -- }
 })
 
