@@ -264,6 +264,16 @@ require("lazy").setup({
     { 'https://github.com/HiPhish/nvim-cmp-vlime',       ft = 'lisp' },
     { 'https://github.com/bhurlow/vim-parinfer',         ft = 'lisp' },
 
+    { "https://github.com/DNLHC/glance.nvim",
+        config = function ()
+            require('glance').setup()
+        end
+    },
+    {'https://github.com/hedyhli/outline.nvim',
+        config = function ()
+            require("outline").setup()
+        end
+    },
     {
         'https://github.com/rest-nvim/rest.nvim',
         ft = 'http',

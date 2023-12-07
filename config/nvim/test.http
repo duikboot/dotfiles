@@ -1,0 +1,6 @@
+POST http://0.0.0.0:8888/api/process_data
+Content-Type: application/json
+
+{
+    "data": "Hello World!"
+}
