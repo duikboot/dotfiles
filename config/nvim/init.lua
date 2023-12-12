@@ -220,6 +220,21 @@ require("lazy").setup({
 
     -- FZF
     { "https://github.com/junegunn/fzf",                  build = "./install --all" },
+    {
+        "ibhagwan/fzf-lua",
+        lsp = {
+            code_actions = {
+                previewer = "codeaction_native",
+                preview_pager = "delta --side-by-side --width=$FZF_PREVIEW_COLUMNS",
+            },
+        },
+      -- optional for icon support
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      config = function()
+        -- calling `setup` is optional for customization
+        require("fzf-lua").setup({})
+      end
+    },
     -- {
     --     "https://github.com/junegunn/fzf",
     --     dir = "~/.fzf/",
