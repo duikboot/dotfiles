@@ -64,6 +64,7 @@ require("lazy").setup({
             vim.cmd([[set background=light]])
         end,
     },
+
     { 'https://github.com/folke/which-key.nvim', opts = {} },
     -- "https://github.com/subnut/nvim-ghost.nvim",
     { "https://github.com/hoob3rt/lualine.nvim", },
@@ -306,6 +307,13 @@ require("lazy").setup({
     --         "SmiteshP/nvim-navic",
     --         "MunifTanjim/nui.nvim"
     --     }
+    -- },
+
+    'https://github.com/MunifTanjim/nui.nvim/',
+    'https://github.com/nvim-neo-tree/neo-tree.nvim/',
+    'https://github.com/FabianWirth/search.nvim',
+    -- {
+    --     'https://github.com/miversen33/netman.nvim',
     -- },
 })
 

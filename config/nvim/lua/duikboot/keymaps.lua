@@ -64,7 +64,7 @@ vim.keymap.set('n', '<localleader>f', function() require 'telescope.builtin'.cur
 vim.keymap.set('n', '<leader>fv', function() require 'plugins.telescope'.find_virtual_env() end, {})
 vim.keymap.set('n', '<leader>fr', function() require 'telescope.builtin'.resume() end, { desc="[F]ind in [V]irtual env" })
 
-vim.keymap.set('n', '<localleader>a', '<cmd>Outline<cr>',
+vim.keymap.set('n', '<localleader>a', ':belowright Outline<cr>',
 -- vim.keymap.set('n', '<localleader>a', ':Lspsaga outline<cr>',
     { desc="[O]utline" })
 ----let g:tmux_navigator_save_on_switch = 1
