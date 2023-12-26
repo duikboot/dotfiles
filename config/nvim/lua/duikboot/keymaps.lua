@@ -158,3 +158,4 @@ vim.keymap.set('n', '<localleader>c',
         vim.cmd("call vlime#plugin#ConnectREPL('127.0.0.1', 4005)")
     end
 )
+vim.keymap.set("n", "<leader>i", require("lspimport").import, { noremap = true })

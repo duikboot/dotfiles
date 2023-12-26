@@ -145,6 +145,7 @@ require("lazy").setup({
     "https://github.com/nvimtools/none-ls.nvim",
     "https://github.com/theprimeagen/refactoring.nvim",
     "https://github.com/nvimdev/lspsaga.nvim" ,
+    'https://github.com/stevanmilic/nvim-lspimport',
     {
         'phaazon/hop.nvim',
         branch = 'v2', -- optional but strongly recommended
@@ -221,21 +222,6 @@ require("lazy").setup({
 
     -- FZF
     { "https://github.com/junegunn/fzf",                  build = "./install --all" },
-    {
-        "ibhagwan/fzf-lua",
-        lsp = {
-            code_actions = {
-                previewer = "codeaction_native",
-                preview_pager = "delta --side-by-side --width=$FZF_PREVIEW_COLUMNS",
-            },
-        },
-      -- optional for icon support
-      dependencies = { "nvim-tree/nvim-web-devicons" },
-      config = function()
-        -- calling `setup` is optional for customization
-        require("fzf-lua").setup({})
-      end
-    },
     -- {
     --     "https://github.com/junegunn/fzf",
     --     dir = "~/.fzf/",
@@ -276,7 +262,13 @@ require("lazy").setup({
     -- Lisp
     --  use { 'https://github.com/monkoose/parsley' }
     -- use 'https://github.com/monkoose/nvlime'
-    { 'https://github.com/vlime/vlime',                  rtp = 'vim/', ft = 'lisp' },
+    {
+        'https://github.com/vlime/vlime',
+        config = function(plugin)
+            vim.opt.rtp:append(plugin.dir .. "/vim")
+        end,
+        ft = { "lisp" },
+    },
     { 'https://github.com/HiPhish/nvim-cmp-vlime',       ft = 'lisp' },
     { 'https://github.com/bhurlow/vim-parinfer',         ft = 'lisp' },
 
