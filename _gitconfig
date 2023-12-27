@@ -1,6 +1,6 @@
 [user]
-	name = arjen
-	email = dijkstra.arjen@gmail.com
+	name = Arjen Dijkstra
+	email = arjen.dijkstra@coolblue.nl
 
 [color]
     diff = auto
@@ -60,3 +60,8 @@
 [mergetool "sourcetree"]
 	cmd = /Users/arjen.dijkstra/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
