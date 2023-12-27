@@ -155,7 +155,6 @@ lspconfig["lua_ls"].setup({
 --         },
 --     },
 -- })
---
 lspconfig["pyright"].setup({
     -- on_init=on_init,
     on_attach = attach,
@@ -167,10 +166,10 @@ lspconfig["pyright"].setup({
                 useLibraryCodeForTypes = true,
                 diagnosticMode = "workspace",
                 typeCheckingMode = "basic",
-                stubPath = "/home/arjen/.config/nvim/stubs",
-                extraPaths = {
-                    "/home/arjen/.config/nvim/stubs",
-                },
+                -- stubPath = "/home/arjen/.config/nvim/stubs",
+                -- extraPaths = {
+                --     "/home/arjen/.config/nvim/stubs",
+                -- },
             },
         },
     },

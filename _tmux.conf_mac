@@ -29,7 +29,7 @@ bind r source-file ~/.tmux.conf \; display "Reloaded ~/.tmux.conf"
 unbind ^q
 bind ^q select-pane -t :.+
 
-# set-option -g default-shell /bin/zsh
+set-option -g default-shell /bin/zsh
 
 # set -g mouse-resize-pane off
 
@@ -108,6 +108,8 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 # continuous saving/auto start/auto restore
 # set -g @plugin 'tmux-plugins/tmux-continuum'
 # set -g @continuum-restore 'on'
+
+set -g @plugin 'catppuccin/tmux'
 
 # open highlighted file/url
 set -g @plugin 'tmux-plugins/tmux-open'

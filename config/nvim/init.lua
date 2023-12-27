@@ -136,7 +136,13 @@ require("lazy").setup({
         end
     },
     "https://github.com/williamboman/mason-lspconfig.nvim",
-
+    -- {
+    --     "jay-babu/mason-null-ls.nvim",
+    --     event = { "BufReadPre", "BufNewFile" },
+    --     config = function()
+    --       require("plugins.null_ls") -- require your null-ls config here (example below)
+    --     end,
+    -- },
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/onsails/lspkind-nvim",
     "https://github.com/folke/lsp-trouble.nvim",
