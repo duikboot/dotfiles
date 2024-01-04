@@ -16,7 +16,6 @@ local modules = {
     "plugins.hlslens",
     "plugins.telekasten",
     -- "plugins.neotree",
-
     "duikboot.keymaps",
     "duikboot.utils",
     "duikboot.autocmds",
