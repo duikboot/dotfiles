@@ -313,6 +313,11 @@ require("lazy").setup({
     -- {
     --     'https://github.com/miversen33/netman.nvim',
     -- },
+    {
+        'https://github.com/tris203/hawtkeys.nvim',
+        config=true
+    }
+    --
 })
 
 require("duikboot")
