@@ -73,8 +73,8 @@ font:
   normal:
     # family: "monospace"
     # family: "NotoSansMono Nerd Font"
-    family: "Source Code Pro"
-    family: "Iosevka Nerd font"
+    # family: "Source Code Pro"
+    # family: "Iosevka Nerd font"
     family: "Hasklug Nerd font"
     # family: "Hack Nerd Font"
     # family: "SauceCodePro Nerd Font"

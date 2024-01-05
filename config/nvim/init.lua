@@ -316,7 +316,15 @@ require("lazy").setup({
         'https://github.com/echasnovski/mini.notify',
         config = function()
             require('mini.notify').setup(
-                { duration = 2000 })
+                    {
+      ERROR = { duration = 7000, hl_group = 'DiagnosticError'  },
+      WARN  = { duration = 7000, hl_group = 'DiagnosticWarn'   },
+      INFO  = { duration = 7000, hl_group = 'DiagnosticInfo'   },
+      DEBUG = { duration = 0,    hl_group = 'DiagnosticHint'   },
+      TRACE = { duration = 0,    hl_group = 'DiagnosticOk'     },
+      OFF   = { duration = 0,    hl_group = 'MiniNotifyNormal' },
+    }
+            )
         end,
     }
     --
