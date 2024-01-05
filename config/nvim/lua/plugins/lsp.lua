@@ -146,21 +146,27 @@ lspconfig["lua_ls"].setup({
     },
 })
 
--- lspconfig["pylsp"].setup({
---     -- on_init=on_init,
+lspconfig["pylsp"].setup({
+    -- on_init=on_init,
+    on_attach = attach,
+    -- capabilities=lsp_status.capabilities
+    capabilities = capabilities,
+    settings = {
+        pylsp = {
+            plugins = {
+                jedi_completion = { include_params = true },
+                -- pylsp_mypy = { enabled = true },
+                pylsp_flake8 = { enabled = true },
+            },
+        },
+    },
+})
+
+-- lspconfig['ruff_lsp'].setup({
 --     on_attach = attach,
---     -- capabilities=lsp_status.capabilities
 --     capabilities = capabilities,
---     settings = {
---         pylsp = {
---             plugins = {
---                 jedi_completion = { include_params = true },
---                 -- pylsp_mypy = { enabled = true },
---                 pylsp_flake8 = { enabled = true },
---             },
---         },
---     },
 -- })
+
 lspconfig["pyright"].setup({
     -- on_init=on_init,
     on_attach = attach,

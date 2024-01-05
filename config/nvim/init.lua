@@ -89,6 +89,7 @@ require("lazy").setup({
         require('treesj').setup({--[[ your config ]]})
       end,
     },
+
     -- Completion
     "https://github.com/hrsh7th/nvim-cmp",
     "https://github.com/hrsh7th/cmp-nvim-lsp",
