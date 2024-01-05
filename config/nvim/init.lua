@@ -278,11 +278,6 @@ require("lazy").setup({
     { 'https://github.com/HiPhish/nvim-cmp-vlime',       ft = 'lisp' },
     { 'https://github.com/bhurlow/vim-parinfer',         ft = 'lisp' },
 
-    { "https://github.com/DNLHC/glance.nvim",
-        config = function ()
-            require('glance').setup()
-        end
-    },
     {'https://github.com/hedyhli/outline.nvim',
         config = function ()
             require("outline").setup()
@@ -316,6 +311,13 @@ require("lazy").setup({
     {
         'https://github.com/tris203/hawtkeys.nvim',
         config=true
+    },
+    {
+        'https://github.com/echasnovski/mini.notify',
+        config = function()
+            require('mini.notify').setup(
+                { duration = 2000 })
+        end,
     }
     --
 })
