@@ -28,9 +28,9 @@ null_ls.setup({
         -- completion.spell,
         -- completion.tags,
         -- Diagnostics
-        -- diagnostics.flake8,
+        diagnostics.flake8,
         -- diagnostics.pylint,
-        -- diagnostics.mypy,
+        diagnostics.mypy,
         diagnostics.codespell,
         diagnostics.gitlint,
         diagnostics.hadolint,
