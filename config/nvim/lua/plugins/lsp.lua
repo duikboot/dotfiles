@@ -62,8 +62,8 @@ end
 
 local on_attach_vim_plus_keymaps = function(client, bufnr)
     vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, opts)
-    vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, opts)
-    vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "<leader>d]", vim.diagnostic.goto_next, opts)
+    vim.keymap.set("n", "<leader>d[", vim.diagnostic.goto_prev, opts)
     vim.keymap.set("n", "<leader>td", vim.lsp.buf.type_definition, opts)
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("v", "<leader>ca", vim.lsp.buf.code_action, opts)
@@ -138,7 +138,7 @@ lspconfig["lua_ls"].setup({
             diagnostics = {
                 globals = { "vim" },
             },
-            hint = { enable = true},
+            -- hint = { enable = true},
             workspace = {
                 checkThirdParty = false
             },
