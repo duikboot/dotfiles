@@ -13,7 +13,8 @@ vim.g.maplocalleader = "\\"
 
 vim.cmd([[cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%']])
 
---
+require("duikboot.options")
+
 local lua_init_file = vim.fn.stdpath("config") .. "/lua/duikboot.lua"
 
 if vim.loop.fs_stat(lua_init_file) then
@@ -23,6 +24,7 @@ if vim.loop.fs_stat(lua_init_file) then
         vim.cmd(":luafile " .. lua_init_file)
     end)
 end
+
 
 require("lazy").setup({
     {"https://github.com/folke/tokyonight.nvim",
