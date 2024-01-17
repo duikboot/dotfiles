@@ -46,7 +46,7 @@ option.undodir = home .. "/.vim"
 option.inccommand = "nosplit"
 option.winbar = "%f%m"            -- Show winbar with filename and modified flag
 
-option.listchars = "tab:>-,trail:-,precedes:<,extends:>"
+option.listchars = "tab:>-,trail:-,precedes:<,extends:>,"
 option.list = true
 
 -- Searching and Patterns
