@@ -118,6 +118,7 @@ fi
 # fi
 
 # alias clisp="rlwrap -H $HOME/.rlwrap/clisp_history -f $HOME/.rlwrap/keywords clisp"
+alias lisp="rlwrap -H $HOME/.rlwrap/lisp_history sbcl" #-f $HOME/.rlwrap/keywords "
 alias hgg='hg glog'
 
 # source /home/arjen/Programms/tmuxinator/completion/tmuxinator.zsh

@@ -9,8 +9,8 @@ local vim = vim
 --     { desc="Jump to [Q]uickfix" }
 -- )
 
-vim.keymap.set('n', "<leader>q", ":q<cr>", {noremap = true})
-vim.keymap.set('n', "<leader>w", ":w<cr>", {noremap = true})
+vim.keymap.set('n', "<leader>q", ":q<cr>", {noremap = true, desc = "[Q]quit buffer"})
+vim.keymap.set('n', "<leader>w", ":w<cr>", {noremap = true, desc = "[W]write buffer"})
 vim.api.nvim_create_user_command('Q', ':quitall', {})
 
 vim.keymap.set('n', 'j', 'gj')
@@ -46,7 +46,7 @@ vim.keymap.set('n', "<c-j>", ":TmuxNavigateDown<cr>")
 vim.keymap.set('n', "<c-k>", ":TmuxNavigateUp<cr>")
 vim.keymap.set('n', "<c-l>", ":TmuxNavigateRight<cr>")
 
-vim.keymap.set('n', 'T', ":Telescope ", {desc = "Open [T]elescope"})
+vim.keymap.set('n', 'T', ":Telescope ", {desc = "Open [T]telescope"})
 vim.keymap.set('n', '<leader>cg',
     function() require('plugins.telescope').grep_prompt() end,
     { desc = "[C]ode [G]rep" })
@@ -54,13 +54,13 @@ vim.keymap.set('n', '<Leader>o',
                function() require('telescope.builtin').find_files() end,
                {desc = "[O]pen file"})
 vim.keymap.set('n', '<Leader>fb', ":Telescope file_browser<CR>", {desc = ""},
-               {desc = "[F]ile [B]rowser"})
+               {desc = "[F]ile [B]browser"})
 vim.keymap.set('n', 'gr',
                function() require'telescope.builtin'.lsp_references() end,
-               {desc = "[G]o to [R]eferences"})
+               {desc = "[G]o to [R]references"})
 vim.keymap.set('n', '<leader>gc',
                function() require'telescope.builtin'.git_commits() end,
-               {desc = "[G]it [C]ommits"})
+               {desc = "[G]it [C]commits"})
 vim.keymap.set('n', '<leader>gs',
                function() require'telescope.builtin'.git_status {} end,
                {desc = "[G]it [S]tatus"})
@@ -69,15 +69,24 @@ vim.keymap.set('n', '<leader>lg',
                {desc = "[L]ive [G]rep"})
 vim.keymap.set('n', '<leader>bb',
                function() require'telescope.builtin'.buffers {} end,
-               {desc = "Show [B]uffers"})
+               {desc = "Show [B]buffers"})
 vim.keymap.set('n', '<localleader>d',
                function() require'telescope.builtin'.diagnostics {} end,
                {desc = "[D]iagnostics"})
--- " vim.keymap.set('n',<leader>t      <cmd>lua require'telescope.builtin'.tags{only_sort_tags=true}<CR>
-vim.keymap.set('n', '<leader>t', ":Tags<CR>", {desc = "[T]ags"})
 vim.keymap.set('n', '<leader>*', function()
     require('telescope.builtin').grep_string {search = vim.fn.expand("<cword>")}
 end, {desc = "Search word"})
+
+-- vim.keymap.set('n', '<leader>T', function()
+--     require('telescope.builtin').tags {search = vim.fn.expand("<cword>")}
+-- end, {desc = "Search word"})
+
+-- vim.keymap.set('n','<leader>t', function()
+--     require'telescope.builtin'.tags{only_sort_tags=true}
+--     end)
+
+vim.keymap.set('n', '<leader>t', ":Tags<CR>", {desc = "[T]tags"})
+
 vim.keymap.set('n', '<localleader>f', function()
     require'telescope.builtin'.current_buffer_fuzzy_find {}
 end, {desc = "Buffer [F]uzzy find"})
@@ -105,7 +114,6 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- use ,gf to go to file in a vertical split
 vim.keymap.set('n', '<leader>gf', ':vertical botright wincmd f<cr>')
