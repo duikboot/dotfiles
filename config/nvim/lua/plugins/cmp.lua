@@ -34,11 +34,11 @@ cmp.setup({
         -- ["<c-"] = cmp.mapping.complete()
     }),
     sources = cmp.config.sources({
-        { name = "copilot" },
         { name = 'nvim_lsp' },
         { name = 'treesitter' },
         { name = 'nvim_lsp_signature_help'},
         { name = 'vsnip' },
+        { name = "copilot" },
         { name = 'nvim_lua' },
         { name = 'buffer', keyword_length = 3 },
         { name = 'path' },
@@ -49,7 +49,7 @@ cmp.setup({
       { name = 'buffer' },
     }),
 
-	cmp.setup.filetype(
+    cmp.setup.filetype(
         { "sql", "mysql", "plsql" },
         { sources = {
                 { name = "vim-dadbod-completion" }
