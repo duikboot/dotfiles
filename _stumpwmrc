@@ -348,7 +348,7 @@
     (message "Screenshot ~A saved" filename)))
 
 
-;;; run shell commmands
+;;; run shell commands
 
 (defun search-thread (needle)
   (find-if (lambda (th)
@@ -377,9 +377,34 @@
     (setf message (concatenate 'string message (format nil "~%New wallpaper set")))
     (message message)))
 
+(defun send-notification (message icon)
+  (run-shell-command
+    (concatenate 'string "notify-send --expire-time=2000 --icon=" icon " \"" message "\"")))
+
 (defun spotify-wallpaper (url)
   (run-shell-command
     (concatenate 'string "feh --bg-scale " url)))
+
+(defun send-battery-low-notification ()
+    (let ((battery (run-shell-command "acpi -b" t)))
+        (when (search "Discharging" battery)
+          (when (search "Discharging, 0%" battery)
+            (send-notification "Battery empty" "battery-empty"))
+          (when (search "Discharging, 1%" battery)
+            (send-notification "Battery empty" "battery-empty"))
+          (when (search "Discharging, 10%" battery)
+            (send-notification "Battery low" "battery-low"))
+          (when (search "Discharging, 20%" battery)
+            (send-notification "Battery low" "battery-low"))
+          (when (search "Discharging, 40%" battery)
+            (send-notification "Battery low" "battery-caution")))))
+
+(defun create-background-battery-thread ()
+  (sb-thread:make-thread
+    (lambda ()
+      (loop
+         (send-battery-low-notification)
+         (sleep (* 5 60))))))
 
 (run-shell-command "xscreensaver -no-splash")
 (stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
@@ -676,6 +701,7 @@ will scroll through windows in the current group."
     (refresh-heads)
     (sleep .1)
     (set-wallpaper)
+    (create-background-battery-thread)
     (run-shell-command "firefox")))
 
 (setf *init-load* nil)
