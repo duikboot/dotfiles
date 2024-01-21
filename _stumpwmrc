@@ -386,26 +386,40 @@
     (concatenate 'string "feh --bg-scale " url)))
 
 (defun send-battery-low-notification ()
-    (let ((battery (run-shell-command "acpi -b" t)))
-        (when (search "Discharging" battery)
-          (when (search "Discharging, 0%" battery)
-            (send-notification "Battery empty" "battery-empty"))
-          (when (search "Discharging, 1%" battery)
-            (send-notification "Battery empty" "battery-empty"))
-          (when (search "Discharging, 10%" battery)
-            (send-notification "Battery low" "battery-low"))
-          (when (search "Discharging, 20%" battery)
-            (send-notification "Battery low" "battery-low"))
-          (when (search "Discharging, 40%" battery)
-            (send-notification "Battery low" "battery-caution")))
-       battery))
+  (let ((battery (run-shell-command "acpi -b" t)))
+    (when (search "Discharging" battery)
+      (when (search "Discharging, 0%" battery)
+        (send-notification (format nil "Battery empty~%0%") "battery-empty"))
+      (when (search "Discharging, 1%" battery)
+        (send-notification (format nil "Battery empty~%1%") "battery-empty"))
+      (when (search "Discharging, 10%" battery)
+        (send-notification (format nil "Battery empty~%10%") "battery-low"))
+      (when (search "Discharging, 20%" battery)
+        (send-notification (format nil "Battery empty~%20%") "battery-low"))
+      (when (search "Discharging, 30%" battery)
+        (send-notification (format nil "Battery empty~%30%") "battery-caution"))
+      (when (or (search "Discharging, 40%" battery)
+                (search "Discharging, 35" battery))
+        (send-notification (format nil "Battery empty~%35%") "battery-caution"))
+      (when (search "Discharging, 50%" battery)
+        (send-notification "Battery half way" "battery-caution")))
+    battery))
 
 (defun create-background-battery-thread ()
+    (handler-case
+        (progn
+          (kill-thread (search-thread "battery"))
+          (message (format nil "Killing battery thread")))
+      (error ()
+        (message (format nil "No thead battery running"))))
   (sb-thread:make-thread
     (lambda ()
       (loop
          (send-battery-low-notification)
-         (sleep (* 5 60))))))
+         (sleep (* 5 60))))
+    :name "battery"))
+
+;; (create-background-battery-thread)
 
 (run-shell-command "xscreensaver -no-splash")
 (stumpwm:run-shell-command "xsetroot -cursor_name left_ptr")
@@ -526,14 +540,14 @@
 
 ;; (defun adjust-brightness (side percent)
 ;;   "Use acpilight as a standin for backlight."
-;;   (run-shell-command (format nil "xbacklight -~a ~a" side percent)) 
+;;   (run-shell-command (format nil "xbacklight -~a ~a" side percent))
 ;;   (let ((brightness (run-shell-command (format nil "xbacklight -get") t)))
 ;;     (message (format nil "xbacklight set to ~a" brightness))))
 ;;
 (defun adjust-brightness (n)
   "Use acpilight as a standin for backlight."
   ;; (message (format nil "brightnessctl -d \"intel_backlight\" s ~a" n))
-  (run-shell-command (format nil "brightnessctl -d \"intel_backlight\" s ~a" n)) 
+  (run-shell-command (format nil "brightnessctl -d \"intel_backlight\" s ~a" n))
   (let ((brightness (run-shell-command (format nil "brightnessctl -d \"intel_backlight\" g") t)))
     (message (format nil "brightness set to ~a" brightness))))
 
