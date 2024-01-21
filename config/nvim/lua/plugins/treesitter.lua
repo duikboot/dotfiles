@@ -2,21 +2,21 @@ local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
 
 require("nvim-treesitter.configs").setup({
     ensure_installed = {
-        "vimdoc",
-        "python",
-        "commonlisp",
         "bash",
-        "dockerfile",
-        "make",
-        "vim",
         "cmake",
-        "make",
         "comment",
+        "commonlisp",
+        "dockerfile",
+        "http",
+        "json",
         "latex",
         "lua",
-        "json",
-        "http",
+        "make",
+        "make",
+        "python",
         "typescript",
+        "vim",
+        "vimdoc",
     },
     highlight = {
         enable = true, -- false will disable the whole extension
