@@ -268,19 +268,6 @@ require("lazy").setup({
     'https://github.com/FabianWirth/search.nvim',
     { 'https://github.com/tris203/hawtkeys.nvim', config = true },
     {
-        'https://github.com/echasnovski/mini.notify',
-        config = function()
-            require('mini.notify').setup({
-                ERROR = { duration = 7000, hl_group = 'DiagnosticError' },
-                WARN = { duration = 7000, hl_group = 'DiagnosticWarn' },
-                INFO = { duration = 7000, hl_group = 'DiagnosticInfo' },
-                DEBUG = { duration = 0, hl_group = 'DiagnosticHint' },
-                TRACE = { duration = 0, hl_group = 'DiagnosticOk' },
-                OFF = { duration = 0, hl_group = 'MiniNotifyNormal' }
-            })
-        end
-    },
-    {
         'kristijanhusak/vim-dadbod-ui',
         dependencies = {
             { 'tpope/vim-dadbod', lazy = true }, {
@@ -289,21 +276,6 @@ require("lazy").setup({
                 lazy = true
             }
         },
-    },
-    {
-        'https://github.com/echasnovski/mini.notify',
-        config = function()
-            require('mini.notify').setup(
-                {
-                    ERROR = { duration = 7000, hl_group = 'DiagnosticError'  },
-                    WARN  = { duration = 7000, hl_group = 'DiagnosticWarn'   },
-                    INFO  = { duration = 7000, hl_group = 'DiagnosticInfo'   },
-                    DEBUG = { duration = 0,    hl_group = 'DiagnosticHint'   },
-                    TRACE = { duration = 0,    hl_group = 'DiagnosticOk'     },
-                    OFF   = { duration = 0,    hl_group = 'MiniNotifyNormal' },
-                }
-            )
-        end,
     },
     {
         'kristijanhusak/vim-dadbod-ui',
@@ -331,8 +303,12 @@ require("lazy").setup({
         }
       end,
     },
+    {
+        "j-hui/fidget.nvim",
+        opts = {
+            -- options
+        },
+    }
 })
-
-
 
 require("duikboot")
