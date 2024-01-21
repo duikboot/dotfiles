@@ -397,7 +397,8 @@
           (when (search "Discharging, 20%" battery)
             (send-notification "Battery low" "battery-low"))
           (when (search "Discharging, 40%" battery)
-            (send-notification "Battery low" "battery-caution")))))
+            (send-notification "Battery low" "battery-caution")))
+       battery))
 
 (defun create-background-battery-thread ()
   (sb-thread:make-thread
@@ -676,8 +677,6 @@ will scroll through windows in the current group."
 (defcommand screen-layout-menu () ()
   (let ((selection (select-from-menu (current-screen) *layout-menu*)))
     (run-commands (second selection))))
-
-;;;; from https://github.com/vhallac/dotfiles/blob/14463bf01f25efd0be891b596b88aabde4555bad/.config/stumpwm/init.lisp
 
 (defun float-dialogs-hook (win)
   (let ((grp (current-group)))
