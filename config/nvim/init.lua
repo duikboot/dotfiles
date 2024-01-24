@@ -79,6 +79,11 @@ require("lazy").setup({
     "https://github.com/octaltree/cmp-look",
     "https://github.com/ray-x/cmp-treesitter",
     { "zbirenbaum/copilot-cmp",          opts = {} },
+    {'https://github.com/RaafatTurki/corn.nvim',
+        config = function()
+            require('corn').setup()
+        end
+    },
 
     -- Vcs
     "https://github.com/tpope/vim-fugitive",
@@ -204,7 +209,9 @@ require("lazy").setup({
     "https://github.com/nvim-lua/popup.nvim",
     -- use 'https://github.com/cbochs/portal.nvim'
 
-    'https://github.com/kassio/neoterm', -- Telescope
+    'https://github.com/kassio/neoterm',
+
+    -- Telescope
     {
         "https://github.com/nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" }
@@ -222,6 +229,12 @@ require("lazy").setup({
     "https://github.com/aaronhallaert/advanced-git-search.nvim",
     "https://github.com/folke/lsp-trouble.nvim",
     "https://github.com/gbprod/yanky.nvim",
+    {"https://github.com/cagve/telescope-texsuite",
+        ft = { "tex", "bib" },
+        config = function()
+            require('telescope').load_extension('texsuite')
+        end
+    },
 
     -- dap
     "https://github.com/mfussenegger/nvim-dap",
@@ -308,7 +321,19 @@ require("lazy").setup({
         opts = {
             -- options
         },
-    }
+    },
+    -- {
+    --     'https://github.com/rasulomaroff/reactive.nvim',
+    --     config = function()
+    --         require('reactive').setup {
+    --             builtin = {
+    --                 cursorline = false,
+    --                 cursor = true,
+    --                 modemsg = true
+    --             }
+    --         }
+    --     end
+    -- },
 })
 
 require("duikboot")

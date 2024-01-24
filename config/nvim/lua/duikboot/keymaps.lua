@@ -96,6 +96,9 @@ vim.keymap.set('n', '<leader>fr',
                function() require'telescope.builtin'.resume() end,
                {desc = "[F]ind in [V]irtual env"})
 
+-- Remove trailing whitespace on <leader>S
+vim.keymap.set('n', "<leader>S", "mz:%s/\\s\\+$//<cr>:let @/=''<CR>`z")
+
 vim.keymap.set('n', '<localleader>a', ':belowright Outline<cr>',
 -- vim.keymap.set('n', '<localleader>a', ':Lspsaga outline<cr>',
                {desc = "[O]utline"})
