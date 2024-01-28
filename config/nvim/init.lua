@@ -79,11 +79,6 @@ require("lazy").setup({
     "https://github.com/octaltree/cmp-look",
     "https://github.com/ray-x/cmp-treesitter",
     { "zbirenbaum/copilot-cmp",          opts = {} },
-    {'https://github.com/RaafatTurki/corn.nvim',
-        config = function()
-            require('corn').setup()
-        end
-    },
 
     -- Vcs
     "https://github.com/tpope/vim-fugitive",
@@ -233,6 +228,11 @@ require("lazy").setup({
         ft = { "tex", "bib" },
         config = function()
             require('telescope').load_extension('texsuite')
+        end
+    },
+    {"https://github.com/fcying/telescope-ctags-outline.nvim",
+        config = function()
+            require('telescope').load_extension('ctags_outline')
         end
     },
 
