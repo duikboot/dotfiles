@@ -183,3 +183,14 @@ vim.keymap.set('n', '<localleader>c', function()
     vim.cmd("call vlime#plugin#ConnectREPL('127.0.0.1', 4005)")
 end)
 vim.keymap.set("n", "<leader>i", require("lspimport").import, {noremap = true})
+
+
+for i=0,9 do
+    vim.keymap.set('n', '<localleader>'.. i,
+        function ()
+            vim.wo.foldlevel = i
+            print("foldlevel = " .. vim.wo.foldlevel)
+        end,
+        {desc = "Set foldlevel to " .. i}
+    )
+end
