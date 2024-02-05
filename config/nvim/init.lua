@@ -91,9 +91,15 @@ require("lazy").setup({
             require('neogit').setup()
         end
     },
-
+    {
+        'fredeeb/tardis.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = true,
+    },
     -- Search
-    "https://github.com/ThePrimeagen/harpoon",
+    {
+        "https://github.com/ThePrimeagen/harpoon",
+        branch = "harpoon2"},
     {
         "https://github.com/romainl/vim-cool",
         config = function()
