@@ -314,32 +314,11 @@ require("lazy").setup({
         end,
     },
     {
-      "pianocomposer321/officer.nvim",
-      dependencies = "stevearc/overseer.nvim",
-      config = function()
-        require("officer").setup {
-          -- config
-        }
-      end,
-    },
-    {
         "j-hui/fidget.nvim",
         opts = {
             -- options
         },
     },
-    -- {
-    --     'https://github.com/rasulomaroff/reactive.nvim',
-    --     config = function()
-    --         require('reactive').setup {
-    --             builtin = {
-    --                 cursorline = false,
-    --                 cursor = true,
-    --                 modemsg = true
-    --             }
-    --         }
-    --     end
-    -- },
 })
 
 require("duikboot")

@@ -61,8 +61,8 @@ option.wrap = true
 option.linebreak = true
 -- vim.cmd([[let &showbreak='↳ ']])
 
+-- look at db file
 g.dbs = {
-     -- mob2_prd = "postgres://arjendijkstra:0s5cgT%40JTDf9@mobility2-pg.prd.aws.servicehouse.nl:5432/mobility2",
      mob2_dev = "postgres://django:django@localhost:5432/django",
 }
 vim.cmd(
