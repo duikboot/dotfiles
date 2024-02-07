@@ -90,7 +90,7 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colorize compleat docker docker-compose git github git-flow-avh jump cp kubectl mercurial pip python sudo tmux tmuxinator vagrant virtualenv)
+# plugins=(colorize compleat docker docker-compose git github git-flow-avh jump cp kubectl mercurial pip python sudo tmux tmuxinator vagrant virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -129,7 +129,6 @@ export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
 
 export FZF_COMPLETION_OPTS='--tiebreak=begin,length'
-PATH=$HOME/bin:$HOME/.local/bin:/opt/homebrew/bin:$PATH:/opt/homebrew/nvm
 
 export SWIVM_DIR="/home/arjen/.swivm"
 [ -s "$SWIVM_DIR/swivm.sh" ] && . "$SWIVM_DIR/swivm.sh"  # This loads swivm
@@ -147,9 +146,3 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # vim: ft=zsh sw=2 ts=2 et
-OPAM_SWITCH_PREFIX='/home/arjen/.opam/default'; export OPAM_SWITCH_PREFIX;
-CAML_LD_LIBRARY_PATH='/home/arjen/.opam/default/lib/stublibs:/usr/lib/ocaml/stublibs:/usr/lib/ocaml'; export CAML_LD_LIBRARY_PATH;
-OCAML_TOPLEVEL_PATH='/home/arjen/.opam/default/lib/toplevel'; export OCAML_TOPLEVEL_PATH;
-MANPATH=':/home/arjen/.opam/default/man'; export MANPATH;
-
-PATH='/home/arjen/.opam/default/bin:/home/arjen/bin:/home/arjen/.local/bin:/opt/homebrew/bin:/home/arjen/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/opt/homebrew/nvm:/home/arjen/.local/share/nvim/lazy/fzf/bin'; export PATH;

@@ -1,13 +1,18 @@
-eval `keychain --eval --agents ssh id_dsa id_rsa`
-
-# xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-# xmodmap -e 'keycode 66 = Control_L'
-# xmodmap -e 'clear Lock'
-# xmodmap -e 'add Control = Control_L'
 
 export GDK_CORE_DEVICE_EVENTS=1
 
-# setxkbmap -option ctrl:swapcaps
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+PATH='/home/arjen/.opam/default/bin:/home/arjen/bin:/home/arjen/.local/bin:/opt/homebrew/bin:/home/arjen/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/opt/homebrew/nvm:/home/arjen/.local/share/nvim/lazy/fzf/bin'; export PATH;
+# Setting PATH for Python 3.11
+# The original version is saved in .zprofile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:${PATH}"
+export PATH
+
+# Setting PATH for Python 3.7
+# The original version is saved in .zprofile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+PATH=$HOME/bin:$HOME/.local/bin:/opt/homebrew/bin:$PATH:/opt/homebrew/nvm
+export PATH
