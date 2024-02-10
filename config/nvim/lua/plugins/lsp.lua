@@ -230,6 +230,10 @@ lspconfig["bashls"].setup({
     -- capabilities=lsp_status.capabilities
 })
 
+require('sg').setup({
+    on_attach = attach,
+    capabilities = capabilities,
+})
 require("trouble").setup({
     -- your configuration comes here
     -- or leave it empty to use the default settings

@@ -65,6 +65,11 @@ telescope.setup{
         sessions_picker = {
             sessions_dir = vim.fn.stdpath('data') ..'/session/',  -- same as '/home/user/.local/share/nvim/session'
         },
+        ctags_outline = {
+            ft_opt = {
+                python = '--python-kinds=-iv',
+            }
+        }
     }
 }
 
@@ -76,6 +81,7 @@ require('telescope').load_extension('yank_history')
 require('telescope').load_extension('dap')
 require("telescope").load_extension("undo")
 require('telescope').load_extension("advanced_git_search")
+require('telescope').load_extension("ctags_outline")
 -- require("telescope").load_extension('harpoon')
 
 vim.keymap.set("n", "<localleader>u", "<cmd>Telescope undo<cr>")
