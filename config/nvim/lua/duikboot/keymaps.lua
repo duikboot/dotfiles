@@ -188,6 +188,9 @@ vim.keymap.set("n", "<leader>i", require("lspimport").import, {noremap = true})
 for i=0,9 do
     vim.keymap.set('n', '<localleader>'.. i,
         function ()
+            if i == 9 then
+                i = 666
+            end
             vim.wo.foldlevel = i
             print("foldlevel = " .. vim.wo.foldlevel)
         end,
