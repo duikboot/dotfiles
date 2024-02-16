@@ -38,9 +38,7 @@ require("lazy").setup({
     },
     { 'https://github.com/folke/which-key.nvim', opts = {} },
 
-    -- "https://github.com/subnut/nvim-ghost.nvim",
     { "https://github.com/hoob3rt/lualine.nvim" },
-    -- { "https://github.com/folke/neodev.nvim",            opts = {} },
     "https://github.com/mhinz/vim-startify",
     { "https://github.com/kyazdani42/nvim-web-devicons", lazy = true },
 
@@ -85,17 +83,11 @@ require("lazy").setup({
     "https://github.com/lewis6991/gitsigns.nvim",
     "https://github.com/sindrets/diffview.nvim",
     {
-        "NeogitOrg/neogit",
-        dependencies = "nvim-lua/plenary.nvim",
-        config = function()
-            require('neogit').setup()
-        end
-    },
-    {
         'fredeeb/tardis.nvim',
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = true,
     },
+
     -- Search
     {
         "https://github.com/ThePrimeagen/harpoon",
@@ -154,14 +146,6 @@ require("lazy").setup({
             require("telescope").load_extension("import")
         end
     },
-    -- --     {
-    --         "zbirenbaum/copilot.lua",
-    --         cmd = "Copilot",
-    --         event="InsertEnter",
-    --         config = function()
-    --             require("copilot").setup({})
-    --         end,
-    -- },
     {
         "zbirenbaum/copilot.lua",
         enabled = true,
@@ -198,14 +182,9 @@ require("lazy").setup({
         end
     },
     "https://github.com/romainl/vim-qf",
+
     -- FZF
     { "https://github.com/junegunn/fzf", build = "./install --all" },
-    -- {
-    --     "https://github.com/junegunn/fzf",
-    --     dir = "~/.fzf/",
-    --     build = "./install --all",
-    --     name = 'fzf',
-    -- },
     "https://github.com/junegunn/fzf.vim",
     "https://github.com/nvim-lua/popup.nvim",
     -- use 'https://github.com/cbochs/portal.nvim'
@@ -273,15 +252,11 @@ require("lazy").setup({
         'https://github.com/rest-nvim/rest.nvim',
         ft = 'http',
         config = function() require('rest-nvim').setup() end
-    },                                                 -- Telekasten
+    },
+
+    -- Telekasten
     'https://github.com/renerocksai/telekasten.nvim',
-    'https://github.com/renerocksai/calendar-vim', -- {
-    --     "SmiteshP/nvim-navbuddy",
-    --     dependencies = {
-    --         "SmiteshP/nvim-navic",
-    --         "MunifTanjim/nui.nvim"
-    --     }
-    -- },
+    'https://github.com/renerocksai/calendar-vim',
     'https://github.com/MunifTanjim/nui.nvim/',
     'https://github.com/nvim-neo-tree/neo-tree.nvim/',
     'https://github.com/FabianWirth/search.nvim',
