@@ -1,7 +1,6 @@
-local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
-
 require("nvim-treesitter.configs").setup({
     ensure_installed = {
+        "c",
         "bash",
         "cmake",
         "comment",
@@ -17,7 +16,11 @@ require("nvim-treesitter.configs").setup({
         "typescript",
         "vim",
         "vimdoc",
+        "query"
     },
+
+    auto_install = true,
+
     highlight = {
         enable = true, -- false will disable the whole extension
         -- disable = { "c", "rust" },  -- list of language that will be disabled

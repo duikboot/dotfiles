@@ -31,10 +31,18 @@ require("lazy").setup({
         lazy = false,        -- make sure we load this during startup if it is your main colorscheme
         priority = 1000,     -- make sure to load this before all the other start plugins
         config = function()
-            -- load the colorscheme here
+        --     -- load the colorscheme here
             vim.cmd([[colorscheme tokyonight]])
-            vim.cmd([[set background=light]])
+        --     vim.cmd([[set background=light]])
         end
+    },
+    {
+        "https://github.com/rebelot/kanagawa.nvim",
+        -- config = function()
+        --     -- load the colorscheme here
+        --     vim.o.background = ""
+        --     vim.cmd([[colorscheme kanagawa]])
+        -- end
     },
     { 'https://github.com/folke/which-key.nvim', opts = {} },
 

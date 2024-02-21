@@ -7,6 +7,8 @@ g.python3_host_prog = home .. '/.dotfiles/.venv/bin/python'
 
 g.python3_host_prog_bin = home .. '/.dotfiles/.venv/bin/'
 
+option.termguicolors = true
+
 option.tags = "./tags,tags"
 option.clipboard = "unnamedplus"
 option.scrolloff = 3             -- Keep 3 context lines above and below the cursor

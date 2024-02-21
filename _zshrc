@@ -143,6 +143,7 @@ then
   source ENV/bin/activate
 fi
 
+PATH=$PATH:'/home/arjen/bin:/home/arjen/.opam/default/bin:/home/arjen/bin:/home/arjen/.local/bin:/opt/homebrew/bin:/home/arjen/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/opt/homebrew/nvm:/home/arjen/.local/share/nvim/lazy/fzf/bin'; export PATH;
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # vim: ft=zsh sw=2 ts=2 et
