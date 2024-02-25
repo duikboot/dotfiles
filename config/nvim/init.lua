@@ -260,7 +260,18 @@ require("lazy").setup({
     { 'https://github.com/bhurlow/vim-parinfer', ft = 'lisp' },
     {
         'https://github.com/hedyhli/outline.nvim',
-        config = function() require("outline").setup() end
+        config = function() require("outline").setup({
+            symbols = {
+                filter = {
+                    python = {"Function", "Class", "Method", "Property"},
+                }
+            },
+            providers = {
+                lsp = {
+                    blacklist_clients = { "pylsp" },
+                }
+            },
+        }) end
     },
     {
         'https://github.com/rest-nvim/rest.nvim',
