@@ -278,7 +278,10 @@ require("lazy").setup({
         ft = 'http',
         config = function() require('rest-nvim').setup() end
     },
-
+    {
+      'stevearc/overseer.nvim',
+      opts = {},
+    },
     -- Telekasten
     'https://github.com/renerocksai/telekasten.nvim',
     'https://github.com/renerocksai/calendar-vim',
