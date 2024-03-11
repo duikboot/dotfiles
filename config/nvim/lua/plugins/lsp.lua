@@ -68,6 +68,10 @@ local on_attach_vim_plus_keymaps = function(client, bufnr)
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("v", "<leader>ca", vim.lsp.buf.code_action, opts)
 
+    -- TODO: implement incoming and outgoing calls.
+    vim.keymap.set("n", "<leader>oc", vim.lsp.buf.outgoing_calls, opts)
+    vim.keymap.set("n", "<leader>ic", vim.lsp.buf.incoming_calls, opts)
+
     vim.keymap.set("n", "<c-K>", vim.lsp.buf.signature_help, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, opts)
@@ -89,7 +93,7 @@ local on_attach_vim_plus_keymaps = function(client, bufnr)
     --         vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
     --         print("Formatted range...")
     --     end, { buffer = bufnr, desc = "[lsp] format" })
-    -- end
+
 end
 
 local attach = function(client, bufnr)

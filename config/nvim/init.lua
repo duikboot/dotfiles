@@ -70,6 +70,17 @@ require("lazy").setup({
             require('treesj').setup({ --[[ your config ]] })
         end
     },
+    {
+        "https://github.com/code-biscuits/nvim-biscuits",
+        config = function()
+            require('nvim-biscuits').setup({
+                default_config = {
+                    min_distance = 15,
+                    -- prefix_string = " üüïµÔ∏èìé "
+                }
+            })
+        end
+    },
 
     -- Completion
     "https://github.com/hrsh7th/nvim-cmp",
@@ -85,7 +96,7 @@ require("lazy").setup({
     "https://github.com/octaltree/cmp-look",
     "https://github.com/ray-x/cmp-treesitter",
     { "zbirenbaum/copilot-cmp",          opts = {} },
--- Use your favorite package manager to install, for example in lazy.nvim
+    -- Use your favorite package manager to install, for example in lazy.nvim
     --  Optionally, you can also install nvim-telescope/telescope.nvim to use some search functionality.
     {
         "sourcegraph/sg.nvim",
@@ -135,13 +146,12 @@ require("lazy").setup({
     "https://github.com/nvimdev/lspsaga.nvim",
     'https://github.com/stevanmilic/nvim-lspimport',
     {
-        'phaazon/hop.nvim',
-        branch = 'v2',     -- optional but strongly recommended
-        config = function()
-            -- you can configure Hop the way you like here; see :h hop-config
-            -- keymaps (<space?j....) [J]ump char...
-            require 'hop'.setup {}
-        end
+      "zeioth/garbage-day.nvim",
+      dependencies = "neovim/nvim-lspconfig",
+      event = "VeryLazy",
+      opts = {
+        -- your options here
+      }
     },
     {
         'https://github.com/onsails/diaglist.nvim',
@@ -151,6 +161,17 @@ require("lazy").setup({
         lazy = true
     },
     "https://github.com/jose-elias-alvarez/null-ls.nvim",
+
+    -- Navigation
+    {
+        'phaazon/hop.nvim',
+        branch = 'v2',     -- optional but strongly recommended
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            -- keymaps (<space?j....) [J]ump char...
+            require 'hop'.setup {}
+        end
+    },
     "https://github.com/christoomey/vim-tmux-navigator",
 
     -- Editing
@@ -176,6 +197,11 @@ require("lazy").setup({
             require("nvim-surround").setup()
         end
     },
+    -- { 'https://codeberg.org/esensar/nvim-dev-container',
+    --     config = function()
+    --         require('devcontainer').setup({})
+    --     end
+    -- },
     "https://github.com/tpope/vim-unimpaired",
     'https://github.com/Olical/vim-enmasse',
     'https://github.com/kevinhwang91/nvim-hlslens',
@@ -204,6 +230,35 @@ require("lazy").setup({
     -- use 'https://github.com/cbochs/portal.nvim'
 
     'https://github.com/kassio/neoterm',
+    {
+        'samharju/yeet.nvim',
+        dependencies = {
+            "stevearc/dressing.nvim" -- optional, provides sane UX
+        },
+        config = function()
+            local harpoon = require("harpoon")
+            harpoon:setup({
+                yeet = {
+                    select = function(list_item, _, _)
+                        require("yeet").execute(list_item.value)
+                    end,
+                },
+            })
+
+            vim.keymap.set( "n", "<leader><BS>",
+                function() harpoon.ui:toggle_quick_menu(harpoon:list("yeet")) end
+            )
+            vim.keymap.set( "n", "<localleader><localleader>",
+                function()
+                    require("yeet").execute(nil, {clear_before_yeet = false})
+                end
+            )
+
+
+            -- other harpoon keymaps etc
+            -- ...
+        end,
+    },
 
     -- Telescope
     {

@@ -111,6 +111,15 @@
 
 (defvar *home-dir* (getenv "HOME"))
 
+(defun cleanup-path ()
+  (let ((paths (split-sequence:split-sequence #\: (getenv "PATH"))))
+    (sort (remove-duplicates paths :test #'string=) #'string<)))
+
+(cleanup-path)
+
+;; (setf paths (split-sequence:split-sequence #\: (getenv "PATH")))
+;; (remove-duplicates paths :test #'string=)
+
 (setf *debug-level* 0)
 
 (setf *debug-stream* (open "~/.stumpwm.d/debug-output.txt"
