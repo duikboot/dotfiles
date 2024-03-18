@@ -30,19 +30,25 @@ require("lazy").setup({
     {"https://github.com/folke/tokyonight.nvim",
         lazy = false,        -- make sure we load this during startup if it is your main colorscheme
         priority = 1000,     -- make sure to load this before all the other start plugins
+        -- transparent = true,
         config = function()
         --     -- load the colorscheme here
             vim.cmd([[colorscheme tokyonight]])
         --     vim.cmd([[set background=light]])
         end
     },
+    -- {'https://github.com/xiyaowong/transparent.nvim',
+    --     lazy = false,
+    -- },
     {
         "https://github.com/rebelot/kanagawa.nvim",
-        -- config = function()
-        --     -- load the colorscheme here
-        --     vim.o.background = ""
-        --     vim.cmd([[colorscheme kanagawa]])
-        -- end
+        config = function()
+            -- Set opacity in alacritty.toml
+            -- Run picom
+            -- load the colorscheme here
+            -- vim.o.background = ""
+            -- vim.cmd([[colorscheme kanagawa]])
+        end
     },
     { 'https://github.com/folke/which-key.nvim', opts = {} },
 
@@ -231,9 +237,12 @@ require("lazy").setup({
 
     'https://github.com/kassio/neoterm',
     {
-        'samharju/yeet.nvim',
+        'https://github.com/samharju/yeet.nvim',
         dependencies = {
-            "stevearc/dressing.nvim" -- optional, provides sane UX
+            "https://github.com/stevearc/dressing.nvim" -- optional, provides sane UX
+        },
+        opts = {
+            clear_before_yeet = false,
         },
         config = function()
             local harpoon = require("harpoon")
@@ -329,9 +338,20 @@ require("lazy").setup({
         }) end
     },
     {
-        'https://github.com/rest-nvim/rest.nvim',
-        ft = 'http',
-        config = function() require('rest-nvim').setup() end
+        "vhyrro/luarocks.nvim",
+        opts = {
+            rocks = {  "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }},
+        config = function()
+            require("luarocks").setup({})
+        end,
+    },
+    {
+        "https://github.com/rest-nvim/rest.nvim",
+        ft = "http",
+        dependencies = { "luarocks.nvim" },
+        config = function()
+            require("rest-nvim").setup()
+        end,
     },
     {
       'stevearc/overseer.nvim',
