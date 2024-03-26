@@ -140,6 +140,11 @@ require("lazy").setup({
     "https://github.com/theprimeagen/refactoring.nvim",
     -- "https://github.com/nvimdev/lspsaga.nvim",
     'https://github.com/stevanmilic/nvim-lspimport',
+    {"https://github.com/VidocqH/lsp-lens.nvim",
+        config = function()
+            require("lsp-lens").setup()
+        end
+    },
     {
       "zeioth/garbage-day.nvim",
       event = "VeryLazy",
@@ -333,11 +338,12 @@ require("lazy").setup({
         }) end
     },
     {
-        "vhyrro/luarocks.nvim",
+        "https://github.com/vhyrro/luarocks.nvim",
+        priority = 1000,
         opts = {
             rocks = {  "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }},
         config = function()
-            require("luarocks").setup({})
+            require("luarocks-nvim").setup({})
         end,
     },
     {
