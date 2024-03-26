@@ -76,19 +76,8 @@ require("lazy").setup({
             require('treesj').setup({ --[[ your config ]] })
         end
     },
-    {
-        "https://github.com/code-biscuits/nvim-biscuits",
-        config = function()
-            require('nvim-biscuits').setup({
-                default_config = {
-                    min_distance = 15,
-                    -- prefix_string = " üüïµÔ∏èìé "
-                }
-            })
-        end
-    },
 
-    -- Completion
+     -- CMP
     "https://github.com/hrsh7th/nvim-cmp",
     "https://github.com/hrsh7th/cmp-nvim-lsp",
     "https://github.com/hrsh7th/cmp-buffer",
@@ -149,11 +138,10 @@ require("lazy").setup({
     -- "https://github.com/jose-elias-alvarez/null-ls.nvim",
     "https://github.com/nvimtools/none-ls.nvim",
     "https://github.com/theprimeagen/refactoring.nvim",
-    "https://github.com/nvimdev/lspsaga.nvim",
+    -- "https://github.com/nvimdev/lspsaga.nvim",
     'https://github.com/stevanmilic/nvim-lspimport',
     {
       "zeioth/garbage-day.nvim",
-      dependencies = "neovim/nvim-lspconfig",
       event = "VeryLazy",
       opts = {
         -- your options here
@@ -169,15 +157,22 @@ require("lazy").setup({
     "https://github.com/jose-elias-alvarez/null-ls.nvim",
 
     -- Navigation
-    {
-        'phaazon/hop.nvim',
-        branch = 'v2',     -- optional but strongly recommended
-        config = function()
-            -- you can configure Hop the way you like here; see :h hop-config
-            -- keymaps (<space?j....) [J]ump char...
-            require 'hop'.setup {}
-        end
-    },
+
+    -- {
+    --     "folke/flash.nvim",
+    --     event = "VeryLazy",
+    --     -- @type Flash.Config
+    --     opts = {},
+    --     -- stylua: ignore
+    --     keys = {
+    --         { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+    --         { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    --         { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+    --         { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    --         { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    --     },
+    -- },
+
     "https://github.com/christoomey/vim-tmux-navigator",
 
     -- Editing

@@ -125,7 +125,6 @@ vim.keymap.set('n', '<Leader>SS', ":source Session.vim<cr>")
 
 -- open/close the quickfix window
 vim.keymap.set('n', '<leader>c', ':copen<cr>')
-vim.keymap.set('n', '<leader>cc', ':cclose<cr>')
 
 -- open/close the location window
 
