@@ -109,7 +109,7 @@ prompt_purification_setup() {
     # Display git branch
 
     autoload -Uz add-zsh-hook
-    add-zsh-hook precmd prompt_purity_precmd
+    # add-zsh-hook precmd prompt_purity_precmd
 
     ZSH_THEME_GIT_PROMPT_PREFIX=" %F{yellow}λ:%f%F{blue}"
     ZSH_THEME_GIT_PROMPT_DIRTY=""
@@ -127,7 +127,8 @@ prompt_purification_setup() {
 
     prompt_git_branch
     # RPROMPT='$(prompt_git_info) $(git_prompt_status)'
-    PROMPT=$'%F{white}%~ %B%F{blue}>%f%b $(prompt_git_info) $(git_prompt_status) > '
+    NEWLINE=$'\n'
+    PROMPT=$'$(prompt_git_info) $(git_prompt_status)${NEWLINE}[%B%F{green}%* %n@%m %~]$%f%b '
 }
 
 prompt_purification_setup
