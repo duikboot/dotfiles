@@ -34,7 +34,7 @@ require("lazy").setup({
         config = function()
         --     -- load the colorscheme here
             vim.cmd([[colorscheme tokyonight]])
-        --     vim.cmd([[set background=light]])
+            vim.cmd([[set background=light]])
         end
     },
     -- {'https://github.com/xiyaowong/transparent.nvim',
@@ -62,16 +62,13 @@ require("lazy").setup({
         build = ":TSUpdate"
     },
     { "https://github.com/nvim-treesitter/playground",   event = "VeryLazy" },
-    "https://github.com/nvim-treesitter/nvim-treesitter-refactor",
     "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
-    "https://github.com/David-Kunz/treesitter-unit/",
     "https://github.com/nvim-treesitter/nvim-treesitter-context",
     -- "https://github.com/theHamsta/nvim-treesitter-commonlisp",
     "https://github.com/andymass/vim-matchup",
     {
         'https://github.com/Wansmer/treesj',
         keys = { '<space>m', '<space>j', '<space>s' },
-        dependencies = { 'nvim-treesitter/nvim-treesitter' },
         config = function()
             require('treesj').setup({ --[[ your config ]] })
         end
@@ -83,18 +80,18 @@ require("lazy").setup({
     "https://github.com/hrsh7th/cmp-buffer",
     "https://github.com/hrsh7th/cmp-nvim-lua",
     "https://github.com/hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-vsnip",
-    "hrsh7th/vim-vsnip",
+    "https://github.com/hrsh7th/cmp-vsnip",
+    "https://github.com/hrsh7th/vim-vsnip",
     "https://github.com/rafamadriz/friendly-snippets",
     "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help",
     "https://github.com/hrsh7th/cmp-path",
     "https://github.com/octaltree/cmp-look",
     "https://github.com/ray-x/cmp-treesitter",
-    { "zbirenbaum/copilot-cmp",          opts = {} },
+    { "https://github.com/zbirenbaum/copilot-cmp",          opts = {} },
     -- Use your favorite package manager to install, for example in lazy.nvim
     --  Optionally, you can also install nvim-telescope/telescope.nvim to use some search functionality.
     {
-        "sourcegraph/sg.nvim",
+        "https://github.com/sourcegraph/sg.nvim",
         dependencies = { "nvim-lua/plenary.nvim", --[[ "nvim-telescope/telescope.nvim ]] },
     },
 
@@ -103,8 +100,8 @@ require("lazy").setup({
     "https://github.com/lewis6991/gitsigns.nvim",
     "https://github.com/sindrets/diffview.nvim",
     {
-        'fredeeb/tardis.nvim',
-        dependencies = { 'nvim-lua/plenary.nvim' },
+        'https://github.com/fredeeb/tardis.nvim',
+        dependencies = { 'https://github.com/nvim-lua/plenary.nvim' },
         config = true,
     },
 
@@ -140,13 +137,13 @@ require("lazy").setup({
     "https://github.com/theprimeagen/refactoring.nvim",
     -- "https://github.com/nvimdev/lspsaga.nvim",
     'https://github.com/stevanmilic/nvim-lspimport',
-    {"https://github.com/VidocqH/lsp-lens.nvim",
-        config = function()
-            require("lsp-lens").setup()
-        end
-    },
+    -- {"https://github.com/VidocqH/lsp-lens.nvim",
+    --     config = function()
+    --         require("lsp-lens").setup()
+    --     end
+    -- },
     {
-      "zeioth/garbage-day.nvim",
+      "https://github.com/zeioth/garbage-day.nvim",
       event = "VeryLazy",
       opts = {
         -- your options here
@@ -182,16 +179,22 @@ require("lazy").setup({
 
     -- Editing
     {
-        'piersolenski/telescope-import.nvim',
+        'https://github.com/piersolenski/telescope-import.nvim',
         config = function()
             require("telescope").load_extension("import")
         end
     },
     {
-        "zbirenbaum/copilot.lua",
+        "https://github.com/zbirenbaum/copilot.lua",
         enabled = true,
         cmd = "Copilot",
         event = "InsertEnter",
+        config = function()
+            require("copilot").setup({
+                suggestion = { enabled = true },
+                panel = { enabled = false },
+            })
+        end,
         opts = { suggestion = { enabled = false }, panel = { enabled = false } }
     },
     -- 'https://github.com/github/copilot.vim',

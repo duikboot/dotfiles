@@ -22,6 +22,7 @@
 ;   (setf (char (input-line-string input) (input-line-position input)) char)
 ;   (incf (input-line-position input)))
 ; (find-group (current-screen) "browser")
+
 (defvar *init-load* t)
 
 (defparameter *stumptray-apps*
@@ -199,8 +200,8 @@
 (start-vlime)
 
 ;; mode line
-(setf *mode-line-background-color*  "black"
-      *mode-line-foreground-color*  "green"
+(setf *mode-line-background-color*  "gray"
+      *mode-line-foreground-color*  "Black"
       *mode-line-border-color* "black")
 
 (setf *window-border-style*  :thick
@@ -362,8 +363,7 @@
 (defun search-thread (needle)
   (find-if (lambda (th)
               (search needle (bt:thread-name th)))
-           (bt:all-threads)))
-
+         (bt:all-threads)))
 
 (defun kill-thread (thread)
   (bt:destroy-thread thread))
@@ -726,6 +726,12 @@ will scroll through windows in the current group."
     (set-wallpaper)
     (create-background-battery-thread)
     (run-shell-command "firefox")))
+
+;; (ql:quickload '(clim slim))
+;; (load-module "clim-mode-line")
+;; (clim-mode-line:app-main)
+;; (kill-thread (search-thread "CLIM-MODE-LINE"))
+;; (kill-thread (search-thread "CLIM"))
 
 (setf *init-load* nil)
 

@@ -21,6 +21,20 @@
 # Display git status
 # TODO to refactor with switch / using someting else than grep
 # Might be faster using ripgrep too
+zsh_virtualenv_prompt() {
+    # If not in a virtualenv, print nothing
+    [[ "$VIRTUAL_ENV" == "" ]] && return
+
+    # Distinguish between the shell where the virtualenv was activated
+    # and its children
+    local venv_name="${VIRTUAL_ENV##*/}"
+    if typeset -f deactivate >/dev/null; then
+        echo "(%F{green}${venv_name}%f) "
+    else
+        echo "<%F{green}${venv_name}%f> "
+    fi
+}
+
 git_prompt_status() {
   local INDEX STATUS
 
@@ -96,6 +110,7 @@ prompt_git_branch() {
     zstyle ':vcs_info:git:*' formats '%b'
 }
 
+NEWLINE=$'\n'
 prompt_git_info() {
     [ ! -z "$vcs_info_msg_0_" ] && echo "$ZSH_THEME_GIT_PROMPT_PREFIX$vcs_info_msg_0_$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
@@ -108,7 +123,7 @@ prompt_purity_precmd() {
 prompt_purification_setup() {
     # Display git branch
 
-    autoload -Uz add-zsh-hook
+    # autoload -Uz add-zsh-hook
     # add-zsh-hook precmd prompt_purity_precmd
 
     ZSH_THEME_GIT_PROMPT_PREFIX=" %F{yellow}λ:%f%F{blue}"
@@ -127,8 +142,12 @@ prompt_purification_setup() {
 
     prompt_git_branch
     # RPROMPT='$(prompt_git_info) $(git_prompt_status)'
-    NEWLINE=$'\n'
-    PROMPT=$'$(prompt_git_info) $(git_prompt_status)${NEWLINE}[%B%F{green}%* %n@%m %~]$%f%b '
+    setopt PROMPT_SUBST PROMPT_PERCENT
+
+    # Display a "we are in a virtualenv" indicator that works in child shells too
+    VIRTUAL_ENV_DISABLE_PROMPT=1
+    # RPS1='$(zsh_virtualenv_prompt)'
+    PROMPT=$'$(prompt_git_info) $(git_prompt_status)${NEWLINE}$(zsh_virtualenv_prompt)[%B%F{green}%* %n@%m %~]$%f%b '
 }
 
 prompt_purification_setup

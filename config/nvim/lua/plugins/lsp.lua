@@ -171,7 +171,7 @@ lspconfig["pylsp"].setup({
 --     capabilities = capabilities,
 -- })
 
-lspconfig["pyright"].setup({
+lspconfig["basedpyright"].setup({
     -- on_init=on_init,
     on_attach = attach,
     capabilities = capabilities,
@@ -180,8 +180,7 @@ lspconfig["pyright"].setup({
             analysis = {
                 autoSearchPaths = true,
                 useLibraryCodeForTypes = true,
-                diagnosticMode = "workspace",
-                typeCheckingMode = "basic",
+                typeCheckingMode = "standard",
                 -- stubPath = "/home/arjen/.config/nvim/stubs",
                 -- extraPaths = {
                 --     "/home/arjen/.config/nvim/stubs",

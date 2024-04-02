@@ -1,10 +1,19 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias ll='ls -lah'
+
+export FZF_COMPLETION_OPTS='--tiebreak=begin,length'
+
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+setopt histignorealldups sharehistory
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
+
+alias ll='ls -lh --color'
+alias ls='ls --color'
 alias ga='git add'
 alias gc='git commit'
 alias gp='git push'
-export FZF_COMPLETION_OPTS='--tiebreak=begin,length'
 
 alias v='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse| xargs nvim'
 alias tmuxn='tmux -2 new -s'

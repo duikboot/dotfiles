@@ -64,6 +64,9 @@ vim.keymap.set('n', '<leader>gc',
 vim.keymap.set('n', '<leader>gs',
                function() require'telescope.builtin'.git_status {} end,
                {desc = "[G]it [S]tatus"})
+vim.keymap.set('n', '<leader>fg',
+               function() require'telescope.builtin'.git_files {} end,
+               {desc = "[F]ind [G]it files"})
 vim.keymap.set('n', '<leader>lg',
                function() require'telescope.builtin'.live_grep {} end,
                {desc = "[L]ive [G]rep"})

@@ -9,6 +9,7 @@ local modules = {
     -- "plugins.lsp_saga",
     "plugins.gitsigns",
     "plugins.harpoon",
+    -- "plugins.yeet",
     "plugins.vlime",
     "plugins.neoterm",
     "plugins.trouble",

@@ -1,5 +1,6 @@
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# function virtualenv_info { 
+#     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
+# }
 
 export GDK_CORE_DEVICE_EVENTS=1
 
@@ -12,12 +13,12 @@ export XDG_DATA_HOME="$XDG_CONFIG_HOME/local/share"
 # # for cached
 export XDG_DATA_CACHE="$XDG_CONFIG_HOME/cache"
 #
-export DOTFILES="$HOME/dotfiles"
+export DOTFILES="$HOME/config/dotfiles"
 #
 # export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 #
 export EDITOR="nvim"
-export VISUAL="nvim"
+# export VISUAL="nvim"
 
 
 PATH=${HOME}/bin:${HOME}/.local/bin:$PATH; export PATH;
