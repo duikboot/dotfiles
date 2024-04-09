@@ -64,7 +64,7 @@ require("lazy").setup({
     { "https://github.com/nvim-treesitter/playground",   event = "VeryLazy" },
     "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
     "https://github.com/nvim-treesitter/nvim-treesitter-context",
-    -- "https://github.com/theHamsta/nvim-treesitter-commonlisp",
+    "https://github.com/theHamsta/nvim-treesitter-commonlisp",
     "https://github.com/andymass/vim-matchup",
     {
         'https://github.com/Wansmer/treesj',
@@ -308,11 +308,11 @@ require("lazy").setup({
     { "https://github.com/mfussenegger/nvim-dap-python", ft = 'python' },
     "https://github.com/theHamsta/nvim-dap-virtual-text",
     "https://github.com/nvim-telescope/telescope-dap.nvim",
-    {
-        "https://github.com/numToStr/Comment.nvim",
-        event = "VeryLazy",
-        config = function() require("Comment").setup() end
-    },
+    -- {
+    --     "https://github.com/numToStr/Comment.nvim",
+    --     event = "VeryLazy",
+    --     config = function() require("Comment").setup() end
+    -- },
     -- Lisp
     --  use { 'https://github.com/monkoose/parsley' }
     -- use 'https://github.com/monkoose/nvlime'
@@ -368,16 +368,6 @@ require("lazy").setup({
     'https://github.com/nvim-neo-tree/neo-tree.nvim/',
     'https://github.com/FabianWirth/search.nvim',
     { 'https://github.com/tris203/hawtkeys.nvim', config = true },
-    {
-        'kristijanhusak/vim-dadbod-ui',
-        dependencies = {
-            { 'tpope/vim-dadbod', lazy = true }, {
-                'kristijanhusak/vim-dadbod-completion',
-                ft = { 'sql', 'mysql', 'plsql' },
-                lazy = true
-            }
-        },
-    },
     {
         'kristijanhusak/vim-dadbod-ui',
         dependencies = {
