@@ -31,9 +31,16 @@ WINIT_X11_SCALE_FACTOR = "1.0"
 size = 10.0
 
 [font.normal]
-family = "Source Code Pro"
+# family = "Source Code Pro"
+# family = "Iosevka nerd font"
+family = "Jetbrainsmono nerd font"
 # style = "Mono"
 
 [window]
 decorations = "full"
 opacity = 1.0
+
+
+# [window.padding]
+# x = 10
+# y = 4
