@@ -16,6 +16,8 @@ local modules = {
     "plugins.rest_nvim",
     "plugins.hlslens",
     "plugins.telekasten",
+    "plugins.yankbank",
+
     -- "plugins.neotree",
     "duikboot.keymaps",
     "duikboot.utils",

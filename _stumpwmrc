@@ -118,8 +118,11 @@
 
 (cleanup-path)
 
-;; (setf paths (split-sequence:split-sequence #\: (getenv "PATH")))
-;; (remove-duplicates paths :test #'string=)
+(defun remove-duplicates-from-path ()
+  (let ((paths (split-sequence:split-sequence #\: (getenv "PATH"))))
+    (remove-duplicates paths :test #'string=)))
+
+;(remove-duplicates-from-path)
 
 (setf *debug-level* 0)
 
