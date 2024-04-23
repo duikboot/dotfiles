@@ -46,6 +46,7 @@ vim.keymap.set('n', "<c-j>", ":TmuxNavigateDown<cr>")
 vim.keymap.set('n', "<c-k>", ":TmuxNavigateUp<cr>")
 vim.keymap.set('n', "<c-l>", ":TmuxNavigateRight<cr>")
 
+vim.keymap.set('n', '<leader>n', ":Telekasten<cr>", {desc = "Open [T]telekasten"})
 vim.keymap.set('n', 'T', ":Telescope ", {desc = "Open [T]telescope"})
 vim.keymap.set('n', '<leader>cg',
     function() require('plugins.telescope').grep_prompt() end,
