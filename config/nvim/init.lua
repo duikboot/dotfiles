@@ -92,7 +92,7 @@ require("lazy").setup({
     --  Optionally, you can also install nvim-telescope/telescope.nvim to use some search functionality.
     {
         "https://github.com/sourcegraph/sg.nvim",
-        dependencies = { "nvim-lua/plenary.nvim", --[[ "nvim-telescope/telescope.nvim ]] },
+        dependencies = { 'https://github.com/nvim-lua/plenary.nvim' },
     },
 
     -- Vcs
@@ -275,7 +275,7 @@ require("lazy").setup({
     -- Telescope
     {
         "https://github.com/nvim-telescope/telescope.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" }
+        dependencies = { 'https://github.com/nvim-lua/plenary.nvim' },
     },
     {
         "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
