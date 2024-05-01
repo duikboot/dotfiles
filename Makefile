@@ -45,15 +45,10 @@ tmux: tpm
 	-rm ${HOME_DIR}/.tmux.conf
 	ln -s ${PWD}/_tmux.conf ${HOME_DIR}/.tmux.conf
 
-.PHONY: oh-my-zsh
-oh-my-zsh:
-	rm -rf ~/.oh-my-zsh
-	git clone https://github.com/ohmyzsh/ohmyzsh.git ${HOME_DIR}/.oh-my-zsh
-
 .PHONY: zprofile
 zprofile:
 	-rm ${HOME_DIR}/.$@
-	ln -s ${PWD}/_$@ ${HOME_DIR}/.$@
+	ln -s ${PWD}/config/zsh/.zprofile ${HOME_DIR}/.$@
 
 .PHONY: profile
 profile:
@@ -61,9 +56,9 @@ profile:
 	ln -s ${PWD}/_$@ ${HOME_DIR}/.$@
 
 .PHONY: zshrc
-zshrc: oh-my-zsh zprofile
+zshrc: zprofile
 	-rm ${HOME_DIR}/.$@
-	ln -s ${PWD}/_$@ ${HOME_DIR}/.$@
+	ln -s ${PWD}/config/zsh/.zshrc ${HOME_DIR}/.$@
 
 .PHONY: vim-venv
 vim-venv:

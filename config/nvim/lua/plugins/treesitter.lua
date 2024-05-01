@@ -8,7 +8,7 @@ require("nvim-treesitter.configs").setup({
         "dockerfile",
         "http",
         "json",
-        "latex",
+        -- "latex",
         "lua",
         "make",
         "make",
