@@ -1,7 +1,3 @@
-[user]
-	name = Arjen Dijkstra
-	email = dijkstra.arjen@gmail.com
-
 [color]
     diff = auto
     status = auto
