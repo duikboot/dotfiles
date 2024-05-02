@@ -20,5 +20,4 @@ export DOTFILES="$HOME/config/dotfiles"
 export EDITOR="nvim"
 # export VISUAL="nvim"
 
-
 PATH=${HOME}/bin:${HOME}/.local/bin:$PATH; export PATH;

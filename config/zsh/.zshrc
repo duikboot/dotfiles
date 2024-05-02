@@ -46,3 +46,7 @@ if [ -f ~/.envs ];
 then
     source ~/.envs
 fi
+
+# Use emacs keybindings even if our EDITOR is set to vi
+bindkey -e
+
