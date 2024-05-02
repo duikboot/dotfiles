@@ -54,6 +54,9 @@ vim.keymap.set('n', '<leader>cg',
 vim.keymap.set('n', '<Leader>o',
                function() require('telescope.builtin').find_files() end,
                {desc = "[O]pen file"})
+vim.keymap.set('n', '<Leader>ff',
+               function() require('telescope.builtin').find_files({hidden= true, no_ignore=true}) end,
+               {desc = "[O]pen file"})
 vim.keymap.set('n', '<Leader>fb', ":Telescope file_browser<CR>", {desc = ""},
                {desc = "[F]ile [B]browser"})
 vim.keymap.set('n', 'gr',

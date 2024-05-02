@@ -142,7 +142,7 @@ lspconfig["lua_ls"].setup({
             diagnostics = {
                 globals = { "vim" },
             },
-            -- hint = { enable = true},
+            hint = { enable = true},
             workspace = {
                 checkThirdParty = false
             },

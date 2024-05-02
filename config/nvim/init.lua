@@ -92,6 +92,7 @@ require("lazy").setup({
     --  Optionally, you can also install nvim-telescope/telescope.nvim to use some search functionality.
     {
         "https://github.com/sourcegraph/sg.nvim",
+        event = "InsertEnter",
         dependencies = { 'https://github.com/nvim-lua/plenary.nvim' },
     },
 
@@ -174,7 +175,7 @@ require("lazy").setup({
     --         { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     --     },
     -- },
-
+    "https://github.com/pechorin/any-jump.vim",
     "https://github.com/christoomey/vim-tmux-navigator",
 
     -- Editing
