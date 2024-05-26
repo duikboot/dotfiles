@@ -128,6 +128,7 @@ alias lisp="rlwrap -H $HOME/.rlwrap/lisp_history sbcl" #-f $HOME/.rlwrap/keyword
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
 
+
 export FZF_COMPLETION_OPTS='--tiebreak=begin,length'
 
 export SWIVM_DIR="/home/arjen/.swivm"

@@ -3,11 +3,12 @@
 
 export FZF_COMPLETION_OPTS='--tiebreak=begin,length'
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+# Keep 10000 lines of history within the shell and save it to ~/.zsh_history:
 setopt histignorealldups sharehistory
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.zsh_history
+setopt append_history
 
 alias ll='ls -lh --color'
 alias ls='ls --color'
