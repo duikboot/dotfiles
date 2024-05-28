@@ -8,6 +8,8 @@ g.python3_host_prog = home .. '/.dotfiles/.venv/bin/python'
 g.python3_host_prog_bin = home .. '/.dotfiles/.venv/bin/'
 
 option.termguicolors = true
+option.encoding = "utf-8"
+option.fileencoding = "utf-8"
 
 option.tags = "./tags,tags"
 option.clipboard = "unnamedplus"
