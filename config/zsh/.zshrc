@@ -32,22 +32,25 @@ then
   source ENV/bin/activate
 fi
 
+# Use emacs keybindings even if our EDITOR is set to vi
+bindkey -e
+
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey "^xe" edit-command-line
+bindkey "^x^e" edit-command-line
+
 autoload -Uz compinit; compinit
 fpath=($DOTFILES/config/zsh/external $fpath)
 
 autoload -Uz prompt_purification_setup; prompt_purification_setup
 
+if [ -f ~/.envs ];
+then
+    source ~/.envs
+fi
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/arjen/Programs/google-cloud-sdk/path.zsh.inc' ]; then . '/home/arjen/Programs/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/arjen/Programs/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/arjen/Programs/google-cloud-sdk/completion.zsh.inc'; fi
-
-if [ -f ~/.envs ];
-then
-    source ~/.envs
-fi
-
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
-

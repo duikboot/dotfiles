@@ -147,7 +147,8 @@ prompt_purification_setup() {
     # Display a "we are in a virtualenv" indicator that works in child shells too
     VIRTUAL_ENV_DISABLE_PROMPT=1
     # RPS1='$(zsh_virtualenv_prompt)'
-    PROMPT=$'$(prompt_git_info) $(git_prompt_status)${NEWLINE}$(zsh_virtualenv_prompt)[%B%F{green}%* %n@%m %~]$%f%b '
+    # PROMPT=$'$(prompt_git_info) $(git_prompt_status)$(zsh_virtualenv_prompt)[%F{green}%* %n@%m %~]${NEWLINE}$%f '
+    PROMPT=$'$(prompt_git_info) $(git_prompt_status)$(zsh_virtualenv_prompt)[%F{green}%* %n@%m %~]${NEWLINE}$%f '
 }
 
 prompt_purification_setup

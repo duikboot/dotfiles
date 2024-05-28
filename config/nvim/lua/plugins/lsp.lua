@@ -98,9 +98,9 @@ end
 
 local attach = function(client, bufnr)
     on_attach_vim_plus_keymaps(client, bufnr)
-    if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint.enable(true)
-    end
+    -- if client.server_capabilities.inlayHintProvider then
+    --     vim.lsp.inlay_hint.enable(true)
+    -- end
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
     -- navbuddy.attach(client, bufnr)
@@ -166,21 +166,43 @@ lspconfig["pylsp"].setup({
     },
 })
 
--- lspconfig['ruff_lsp'].setup({
---     on_attach = attach,
---     capabilities = capabilities,
--- })
+lspconfig['ruff_lsp'].setup({
+    on_attach = attach,
+    capabilities = capabilities,
+})
 
 lspconfig["basedpyright"].setup({
     -- on_init=on_init,
     on_attach = attach,
     capabilities = capabilities,
     settings = {
-        python = {
+        basedpyright = {
             analysis = {
                 autoSearchPaths = true,
                 useLibraryCodeForTypes = true,
-                typeCheckingMode = "standard",
+                -- typeCheckingMode = "strict",
+                -- diagnosticSeverityOverrides = {
+                --     reportUnusedImport = "information",
+                --     reportUnusedFunction = "information",
+                --     reportUnusedVariable = "information",
+                --     reportGeneralTypeIssues = "none",
+                --     reportOptionalMemberAccess = "none",
+                --     reportOptionalSubscript = "none",
+                --     reportPrivateImportUsage = "none",
+                --     reportMissingTypeStubs = "none",
+                --     reportMissingParameterType = "information",
+                --     reportUnknownParameterType = "information",
+                -- },
+                typeCheckingMode = "off",
+                diagnosticSeverityOverrides = {
+                    reportUnusedImport = "error",
+                    reportUnusedFunction = "error",
+                    reportUnusedVariable = "error",
+                    reportGeneralTypeIssues = "none",
+                    reportOptionalMemberAccess = "none",
+                    reportOptionalSubscript = "none",
+                    reportPrivateImportUsage = "none",
+                },
                 -- stubPath = "/home/arjen/.config/nvim/stubs",
                 -- extraPaths = {
                 --     "/home/arjen/.config/nvim/stubs",
