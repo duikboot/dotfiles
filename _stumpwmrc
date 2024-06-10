@@ -256,7 +256,9 @@
 
 (defcommand set-keyboard ()()
   (xcape)
-  (set-touchpad)
+  (unless (string-match (run-shell-command "hostname" t) "arjen-latitude5530")
+    (log:info "Not arjen-latitude5530")
+    (set-touchpad))
   (xmodmap))
 
 ;; (defcommand set-keyboard ()()
@@ -317,6 +319,7 @@
 
 (define-key *top-map* (kbd "M-0") "toggle-full-layout")
 
+(run-shell-command "hostname" t)
 
 (defun get-datetime-string ()
   (string-trim '(#\Space #\Tab #\Newline) (run-shell-command "date +%F-%H%M%S" t)))
