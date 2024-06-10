@@ -289,7 +289,6 @@ require("lazy").setup({
     "https://github.com/debugloop/telescope-undo.nvim",
     "https://github.com/mbbill/undotree",
     "https://github.com/aaronhallaert/advanced-git-search.nvim",
-    "https://github.com/folke/lsp-trouble.nvim",
     "gbprod/yanky.nvim",
     "https://github.com/ptdewey/yankbank-nvim",
     {"https://github.com/cagve/telescope-texsuite",

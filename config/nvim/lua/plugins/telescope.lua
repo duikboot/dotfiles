@@ -33,11 +33,11 @@ telescope.setup{
         mappings = {
             i = {
                 ["<C-x>"] = actions.send_to_qflist + actions.open_qflist,
-                ["<c-t>"] = trouble.open_with_trouble,
+                -- ["<c-t>"] = trouble.open_with_trouble,
             },
             n = {
                 ["<C-x>"] = actions.send_to_qflist + actions.open_qflist,
-                ["<c-t>"] = trouble.open_with_trouble,
+                -- ["<c-t>"] = trouble.open_with_trouble,
             },
         }
     },

@@ -2,11 +2,15 @@ local vim = vim
 
 -- nvim.keymap.set('n',<leader>xx <cmd>TroubleToggle document_diagnostics<cr>
 -- Vim Script
-vim.keymap.set('n', '<leader>xw', '<cmd>TroubleToggle workspace_diagnostics<cr>')
-vim.keymap.set('n', '<leader>xx', '<cmd>TroubleToggle document_diagnostics<cr>')
-vim.keymap.set('n', '<leader>xq', '<cmd>TroubleToggle quickfix<cr>')
-vim.keymap.set('n', '<leader>xl', '<cmd>TroubleToggle loclist<cr>')
-vim.keymap.set('n', 'gR', '<cmd>TroubleToggle lsp_references<cr>')
+vim.keymap.set('n', '<leader>xw', '<cmd>Trouble diagnostics toggle<cr>')
+vim.keymap.set(
+    'n',
+    '<leader>xx',
+    '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
+    {desc='document_diagnostics<cr>'})
+-- vim.keymap.set('n', '<leader>xq', '<cmd>TroubleToggle quickfix<cr>')
+-- vim.keymap.set('n', '<leader>xl', '<cmd>TroubleToggle loclist<cr>')
+vim.keymap.set('n', 'gR', '<cmd>Trouble lsp toggle<cr>')
 -- jump to the next item, skipping the groups
 -- vim.keymap.set("n", "<leader>xn", function() trouble.next(trouble_opts) end)
 
