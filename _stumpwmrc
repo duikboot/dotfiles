@@ -584,9 +584,9 @@
 (defun ssh-host-list (hosts)
   (mapcar (lambda (x) (list (second x)
                             (second x)))
-            (mapcar (lambda (y)
-                      (split-sequence:split-sequence #\Space y))
-                    hosts)))
+          (mapcar (lambda (y)
+                    (split-sequence:split-sequence #\Space y))
+                  hosts)))
 
 (defun read-ssh-config ()
   "Read .ssh/config and remove every line that doesn't start with Host"
@@ -699,14 +699,20 @@ will scroll through windows in the current group."
 
 (add-hook *mode-line-click-hook* 'mode-line-scroll-through-windows)
 
-(setf *layout-menu*
-  '(("Big home screen" "layout-home-screen")
-    ("Laptop screen" "layout-laptop")
-    ("Multi screen" "layout-multi")))
+(defvar *screen-layout-directory* "~/.screenlayout/")
+
+(defun get-screens ()
+  (let* ((screen-layouts (run-shell-command (format nil "ls ~A" *screen-layout-directory*) t))
+         (layouts
+           (remove-if (lambda (x) (string= x ""))
+             (split-sequence:split-sequence #\Newline screen-layouts))))
+     (mapcar (lambda (x) (format nil "~A~A" *screen-layout-directory* x)) layouts)))
 
 (defcommand screen-layout-menu () ()
-  (let ((selection (select-from-menu (current-screen) *layout-menu*)))
-    (run-commands (second selection))))
+  (let ((selection (select-from-menu
+                      (current-screen)
+                      (get-screens))))
+    (run-shell-command (first selection))))
 
 (defun float-dialogs-hook (win)
   (let ((grp (current-group)))
