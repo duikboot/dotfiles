@@ -461,33 +461,6 @@
 (defcommand suspend ()()
             (run-shell-command "systemctl suspend" t))
 
-(defcommand layout-home-screen ()()
-  (run-shell-command "sh ~/.screenlayout/big_screen.sh" t)
-  (refresh-heads)
-  (refresh-heads)
-  (sleep 2)
-  (set-wallpaper)
-  (refresh-heads))
-
-
-(defcommand layout-laptop ()()
-  (run-shell-command "~/.screenlayout/laptop.sh" t)
-  (refresh-heads)
-  (refresh-heads)
-  (sleep 2)
-  (set-wallpaper)
-  (refresh-heads))
-
-(layout-laptop)
-
-(defcommand layout-multi ()()
-  (run-shell-command "/home/arjen/.screenlayout/multi.sh")
-  (refresh-heads)
-  (refresh-heads)
-  ; (wallpaper)
-  (sleep 2)
-  (refresh-heads))
-
 (define-key *top-map* (kbd "M-f") "exec thunar")
 
 (define-key *top-map* (kbd "M-s") "lock-screen")
