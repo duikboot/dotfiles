@@ -685,7 +685,9 @@ will scroll through windows in the current group."
   (let ((selection (select-from-menu
                       (current-screen)
                       (get-screens))))
-    (run-shell-command (first selection))))
+    (run-shell-command (first selection))
+    (sleep .1)
+    (refresh-heads)))
 
 (defun float-dialogs-hook (win)
   (let ((grp (current-group)))
