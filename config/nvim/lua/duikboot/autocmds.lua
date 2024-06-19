@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd({ "WinLeave" },
 
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
-        local clients = vim.lsp.buf_get_clients()
+        local clients = vim.lsp.get_clients()
         for _, client in ipairs(clients) do
             if (client.supports_method("textDocument/formatting")) then
                 vim.keymap.set('n', '<localleader>r', function()
