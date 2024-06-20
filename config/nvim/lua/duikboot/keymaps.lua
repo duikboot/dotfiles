@@ -35,7 +35,7 @@ vim.keymap.set('n', '<leader><cr>',
 -- vim.keymap.set('n', <C-]> <C-]>zt
 
 -- Toggle tag
-vim.keymap.set('n', '<leader>t', '<Esc>:tag<Space>')
+-- vim.keymap.set('n', '<leader>t', '<Esc>:tag<Space>')
 vim.keymap.set('n', '<leader>ts', '<Esc>:tselect<Space>')
 
 -- Open in vertical split the tag under the cursur.
