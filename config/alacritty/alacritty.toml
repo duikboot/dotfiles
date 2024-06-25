@@ -33,7 +33,7 @@ size = 10.0
 [font.normal]
 # family = "Source Code Pro"
 # family = "Iosevka nerd font"
-family = "Jetbrainsmono nerd font"
+# family = "Jetbrainsmono nerd font"
 # style = "Mono"
 
 [window]
