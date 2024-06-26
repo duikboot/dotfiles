@@ -64,7 +64,7 @@ require("lazy").setup({
     { "https://github.com/nvim-treesitter/playground",   event = "VeryLazy" },
     "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
     "https://github.com/nvim-treesitter/nvim-treesitter-context",
-    "https://github.com/theHamsta/nvim-treesitter-commonlisp",
+    -- "https://github.com/theHamsta/nvim-treesitter-commonlisp",
     "https://github.com/andymass/vim-matchup",
     {
         'https://github.com/Wansmer/treesj',
@@ -100,6 +100,7 @@ require("lazy").setup({
     "https://github.com/tpope/vim-fugitive",
     "https://github.com/lewis6991/gitsigns.nvim",
     "https://github.com/sindrets/diffview.nvim",
+    "https://github.com/polarmutex/git-worktree.nvim",
     {
         'https://github.com/fredeeb/tardis.nvim',
         dependencies = { 'https://github.com/nvim-lua/plenary.nvim' },
@@ -346,9 +347,7 @@ require("lazy").setup({
         priority = 1000,
         opts = {
             rocks = {  "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }},
-        config = function()
-            require("luarocks-nvim").setup({})
-        end,
+        config = true
     },
     {
         "https://github.com/rest-nvim/rest.nvim",
