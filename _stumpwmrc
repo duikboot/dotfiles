@@ -249,6 +249,7 @@
   (run-shell-command "xcape"))
 
 (defcommand xmodmap ()()
+  (log:info "Xmodmap")
   (run-shell-command "xmodmap ~/.Xmodmap"))
 
 (defcommand set-touchpad ()()
@@ -271,7 +272,7 @@
 ;;   (run-shell-command "setxkbmap -option altwin:swap_lalt_lwin"))
 
 
-(defcommand refresh-monitors ()()
+(defun refresh ()
   (log:info "Refresh heads")
   ;; (xcape)
   (refresh-heads)
@@ -279,6 +280,9 @@
   (set-wallpaper)
   (refresh-heads)
   (message "Refresh heads"))
+
+(defcommand refresh-monitors ()()
+  (refresh))
 
 (define-key *root-map* (kbd "m") "refresh-monitors")
 
@@ -686,10 +690,7 @@ will scroll through windows in the current group."
                       (current-screen)
                       (get-screens))))
     (run-shell-command (first selection))
-    (sleep .1)
-    (refresh-heads)
-    (sleep .1)
-    (refresh-heads)))
+    (refresh)))
 
 (defun float-dialogs-hook (win)
   (let ((grp (current-group)))
@@ -709,10 +710,7 @@ will scroll through windows in the current group."
     (run-commands "stumptray")
     (sleep .1)
     (start-apps)
-    (sleep .1)
-    (refresh-heads)
-    (sleep .1)
-    (set-wallpaper)
+    (refresh)
     (create-background-battery-thread)
     (run-shell-command "firefox")))
 

@@ -19,7 +19,7 @@ vim.keymap.set('n', 'yob',
             vim.cmd([[colorscheme tokyonight]])
         end
     end,
-    { desc="Yank [O]uter [B]lock" }
+    { desc="Toggle background" }
 )
 
 vim.keymap.set('n', "<leader>q", ":q<cr>", {noremap = true, desc = "[Q]quit buffer"})
