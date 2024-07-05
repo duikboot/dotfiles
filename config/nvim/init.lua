@@ -33,8 +33,8 @@ require("lazy").setup({
         -- transparent = true,
         config = function()
         --     -- load the colorscheme here
-            vim.cmd([[colorscheme tokyonight]])
             vim.cmd([[set background=light]])
+            vim.cmd([[colorscheme tokyonight]])
         end
     },
     -- {'https://github.com/xiyaowong/transparent.nvim',

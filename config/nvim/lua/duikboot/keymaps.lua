@@ -9,6 +9,19 @@ local vim = vim
 --     { desc="Jump to [Q]uickfix" }
 -- )
 
+vim.keymap.set('n', 'yob',
+    function ()
+        if vim.o.background=="light" then
+            vim.o.background = "dark"
+            vim.cmd([[colorscheme tokyonight-storm]])
+        else
+            vim.o.background = "light"
+            vim.cmd([[colorscheme tokyonight]])
+        end
+    end,
+    { desc="Yank [O]uter [B]lock" }
+)
+
 vim.keymap.set('n', "<leader>q", ":q<cr>", {noremap = true, desc = "[Q]quit buffer"})
 vim.keymap.set('n', "<leader>w", ":w<cr>", {noremap = true, desc = "[W]write buffer"})
 vim.api.nvim_create_user_command('Q', ':quitall', {})
