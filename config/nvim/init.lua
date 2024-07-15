@@ -50,7 +50,7 @@ require("lazy").setup({
             -- vim.cmd([[colorscheme kanagawa]])
         end
     },
-    { 'https://github.com/folke/which-key.nvim', opts = {} },
+    -- { 'https://github.com/folke/which-key.nvim', opts = {} },
 
     { "https://github.com/hoob3rt/lualine.nvim" },
     "https://github.com/mhinz/vim-startify",

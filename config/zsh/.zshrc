@@ -54,3 +54,6 @@ if [ -f '/home/arjen/Programs/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ar
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/arjen/Programs/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/arjen/Programs/google-cloud-sdk/completion.zsh.inc'; fi
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /var/lib/snapd/snap/terraform/711/terraform terraform

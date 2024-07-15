@@ -255,6 +255,11 @@ lspconfig["bashls"].setup({
     -- capabilities=lsp_status.capabilities
 })
 
+lspconfig['terraformls'].setup({
+    on_attach = attach,
+    capabilities = capabilities,
+})
+
 require('sg').setup({
     on_attach = attach,
     capabilities = capabilities,
