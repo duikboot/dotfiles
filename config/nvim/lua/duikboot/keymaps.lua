@@ -9,19 +9,19 @@ local vim = vim
 --     { desc="Jump to [Q]uickfix" }
 -- )
 
-vim.keymap.set('n', 'yob',
-    function ()
-        if vim.o.background=="light" then
-            vim.o.background = "dark"
-            vim.cmd([[colorscheme tokyonight-storm]])
-        else
-            vim.o.background = "light"
-            vim.cmd([[colorscheme tokyonight]])
-        end
-    end,
-    { desc="Toggle background" }
-)
-
+-- vim.keymap.set('n', 'yob',
+--     function ()
+--         if vim.o.background=="light" then
+--             vim.o.background = "dark"
+--             vim.cmd([[colorscheme tokyonight-storm]])
+--         else
+--             vim.o.background = "light"
+--             vim.cmd([[colorscheme tokyonight]])
+--         end
+--     end,
+--     { desc="Toggle background" }
+-- )
+--
 vim.keymap.set('n', "<leader>q", ":q<cr>", {noremap = true, desc = "[Q]quit buffer"})
 vim.keymap.set('n', "<leader>w", ":w<cr>", {noremap = true, desc = "[W]write buffer"})
 vim.api.nvim_create_user_command('Q', ':quitall', {})
@@ -204,6 +204,10 @@ vim.keymap.set('n', '<localleader>c', function()
 end)
 vim.keymap.set("n", "<leader>i", require("lspimport").import, {noremap = true})
 
+
+vim.keymap.set("n", "<leader>ts", ":Telescope tmux sessions<cr>", {noremap = true})
+vim.keymap.set("n", "<leader>tw", ":Telescope tmux windows<cr>", {noremap = true})
+vim.keymap.set("n", "<leader>tc", ":Telescope tmux pane_contents<cr>", {noremap = true})
 
 for i=0,9 do
     vim.keymap.set('n', '<localleader>'.. i,

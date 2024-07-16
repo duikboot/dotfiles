@@ -82,6 +82,7 @@ require('telescope').load_extension('dap')
 require("telescope").load_extension("undo")
 require('telescope').load_extension("advanced_git_search")
 require('telescope').load_extension("ctags_outline")
+require('telescope').load_extension("tmux")
 -- require("telescope").load_extension("git_worktree")
 -- require("telescope").load_extension('harpoon')
 

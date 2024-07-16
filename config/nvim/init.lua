@@ -87,7 +87,6 @@ require("lazy").setup({
     "https://github.com/hrsh7th/cmp-path",
     "https://github.com/octaltree/cmp-look",
     "https://github.com/ray-x/cmp-treesitter",
-    { "https://github.com/zbirenbaum/copilot-cmp",          opts = {} },
     -- Use your favorite package manager to install, for example in lazy.nvim
     --  Optionally, you can also install nvim-telescope/telescope.nvim to use some search functionality.
     {
@@ -178,6 +177,7 @@ require("lazy").setup({
     -- },
     "https://github.com/pechorin/any-jump.vim",
     "https://github.com/christoomey/vim-tmux-navigator",
+    "https://github.com/camgraff/telescope-tmux.nvim",
 
     -- Editing
     {
@@ -186,20 +186,19 @@ require("lazy").setup({
             require("telescope").load_extension("import")
         end
     },
-    {
-        "https://github.com/zbirenbaum/copilot.lua",
-        enabled = true,
-        cmd = "Copilot",
-        event = "InsertEnter",
-        config = function()
-            require("copilot").setup({
-                suggestion = { enabled = true },
-                panel = { enabled = false },
-            })
-        end,
-        opts = { suggestion = { enabled = false }, panel = { enabled = false } }
-    },
-    -- 'https://github.com/github/copilot.vim',
+    -- {
+    --     "https://github.com/zbirenbaum/copilot.lua",
+    --     enabled = true,
+    --     cmd = "Copilot",
+    --     event = "InsertEnter",
+    --     config = function()
+    --         require("copilot").setup({
+    --             suggestion = { enabled = true },
+    --             panel = { enabled = false },
+    --         })
+    --     end,
+    --     opts = { suggestion = { enabled = false }, panel = { enabled = false } }
+    -- },
     {
         "https://github.com/kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -357,6 +356,12 @@ require("lazy").setup({
             require("rest-nvim").setup()
         end,
     },
+    --  If rest.nvim stops working
+    -- {"https://github.com/mistweaverco/kulala.nvim",
+    --     config = function()
+    --         require('kulala').setup()
+    --     end
+    -- },
     {
       'stevearc/overseer.nvim',
       opts = {},
