@@ -25,6 +25,7 @@ vim.keymap.set('n', 'yob',
 vim.keymap.set('n', "<leader>q", ":q<cr>", {noremap = true, desc = "[Q]quit buffer"})
 vim.keymap.set('n', "<leader>w", ":w<cr>", {noremap = true, desc = "[W]write buffer"})
 vim.api.nvim_create_user_command('Q', ':quitall', {})
+vim.api.nvim_create_user_command('Vs', ':vs', {})
 
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
