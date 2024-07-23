@@ -50,6 +50,7 @@ require("lazy").setup({
             -- vim.cmd([[colorscheme kanagawa]])
         end
     },
+    "https://github.com/savq/melange-nvim",
     -- { 'https://github.com/folke/which-key.nvim', opts = {} },
 
     { "https://github.com/hoob3rt/lualine.nvim" },
@@ -64,7 +65,7 @@ require("lazy").setup({
     { "https://github.com/nvim-treesitter/playground",   event = "VeryLazy" },
     "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
     "https://github.com/nvim-treesitter/nvim-treesitter-context",
-    -- "https://github.com/theHamsta/nvim-treesitter-commonlisp",
+    "https://github.com/theHamsta/nvim-treesitter-commonlisp",
     "https://github.com/andymass/vim-matchup",
     {
         'https://github.com/Wansmer/treesj',
