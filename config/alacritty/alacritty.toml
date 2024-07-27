@@ -31,7 +31,8 @@ WINIT_X11_SCALE_FACTOR = "1.0"
 size = 10.0
 
 [font.normal]
-# family = "Source Code Pro"
+# family = "monospace"
+family = "Source Code Pro"
 # family = "Iosevka nerd font"
 # family = "Jetbrainsmono nerd font"
 # style = "Mono"
