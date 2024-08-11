@@ -478,6 +478,7 @@
 (stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "M-RET") "exec gnome-terminal")
 (stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "M-RET") "exec xfce4-terminal")
 (stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "M-RET") "exec alacritty")
+(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "M-RET") "exec kitty")
 ; (stumpwm::run-shell-command "stalonetray")
 
 (make-web-jump "open" "firefox --new-tab ")

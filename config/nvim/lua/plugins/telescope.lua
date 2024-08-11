@@ -92,6 +92,8 @@ local M = {}
 M.grep_prompt = function()
     require('telescope.builtin').grep_string {
         shorten_path = false,
+        hidden = true,
+        no_ignore = true,
         search = vim.fn.input "Grep String > ",
     }
 end
