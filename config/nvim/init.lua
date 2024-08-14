@@ -298,11 +298,7 @@ require("lazy").setup({
             require('telescope').load_extension('texsuite')
         end
     },
-    {"https://github.com/fcying/telescope-ctags-outline.nvim",
-        config = function()
-            require('telescope').load_extension('ctags_outline')
-        end
-    },
+    {"https://github.com/fcying/telescope-ctags-outline.nvim", },
 
     -- dap
     "https://github.com/mfussenegger/nvim-dap",
