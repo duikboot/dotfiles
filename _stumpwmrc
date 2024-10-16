@@ -33,6 +33,13 @@
     "blueman-applet"))
     ; "octopi-notifier"
 
+; (require :SB-ROTATE-BYTE)
+; (ql:quickload "xml-emitter")
+; (ql:quickload "cffi-grovel")
+; (ql:quickload "dbus")
+; (load-module "notify")
+; (notify:notify-server-toggle)
+
 (defun start-apps ()
   (mapc (lambda (app)
           (sleep .1)
@@ -58,6 +65,7 @@
 ; *startup-message*
 ; *input-history*
 ; *honor-window-moves*
+; *mode-line-timeout*
 ; (run-shell-command "xfce4-panel &> /dev/null &")
 ; (run-shell-command "nm-applet &> /dev/null &")
 ; (run-shell-command "pnmixer &> /dev/null &")
@@ -205,7 +213,8 @@
 ;; mode line
 (setf *mode-line-background-color*  "gray"
       *mode-line-foreground-color*  "Black"
-      *mode-line-border-color* "black")
+      *mode-line-border-color* "black"
+      *mode-line-timeout* 2)
 
 (setf *window-border-style*  :thick
       *normal-border-width*  1
