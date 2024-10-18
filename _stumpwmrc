@@ -39,6 +39,9 @@
 ; (ql:quickload "dbus")
 ; (load-module "notify")
 ; (notify:notify-server-toggle)
+; (setf notify:*notify-server-title-color* "^7")
+; (setf notify:*notify-server-body-color* "^7")
+; *colors*
 
 (defun start-apps ()
   (mapc (lambda (app)
@@ -239,8 +242,18 @@
           "screenshot"
           "globalwindows"
           "command-history"
+          "notify"
           "shell-command-history"
           "clipboard-history"))
+
+; (load-module "notify")
+; (notify:notify-server-toggle)
+(setf notify:*notify-server-title-color* "^7")
+(setf notify:*notify-server-body-color* "^7")
+
+(defun notify::show-notification (app icon summary body)
+  (declare (ignore icon))
+  (message "[~A] ~A~%~A" app summary body))
 
 (defvar *entry-paths*
   '(#P"/usr/share/applications"
@@ -433,6 +446,8 @@
            (send-notification (format nil "Battery empty~%~A%" percentage) "battery-low"))
           ((and (<= percentage 50) (= (mod percentage 10) 0))
            (send-notification (format nil "Battery empty~%~A%" percentage) "battery-caution")))))))
+
+; (send-notification (format nil "Battery empty~%~A%" 13) "battery-empty")
 
 (defun create-background-battery-thread ()
     (handler-case
@@ -722,6 +737,7 @@ will scroll through windows in the current group."
     (start-apps)
     (refresh)
     (create-background-battery-thread)
+    (notify:notify-server-toggle)
     (run-shell-command "firefox")))
 
 ;; (ql:quickload '(clim slim))
