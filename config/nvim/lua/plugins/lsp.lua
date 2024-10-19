@@ -241,7 +241,7 @@ lspconfig["gopls"].setup({
     -- capabilities=lsp_status.capabilities
 })
 
-lspconfig["tsserver"].setup({
+lspconfig["ts_ls"].setup({
     -- on_init=on_init,
     on_attach = attach,
     capabilities = capabilities,

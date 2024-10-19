@@ -202,8 +202,6 @@ vim.keymap.set("n", "<leader>df",
 vim.keymap.set('n', '<localleader>c', function()
     vim.cmd("call vlime#plugin#ConnectREPL('127.0.0.1', 4005)")
 end)
-vim.keymap.set("n", "<leader>i", require("lspimport").import, {noremap = true})
-
 
 vim.keymap.set("n", "<leader>ts", ":Telescope tmux sessions<cr>", {noremap = true})
 vim.keymap.set("n", "<leader>tw", ":Telescope tmux windows<cr>", {noremap = true})

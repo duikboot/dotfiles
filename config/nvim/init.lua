@@ -37,9 +37,13 @@ require("lazy").setup({
             vim.cmd([[colorscheme tokyonight]])
         end
     },
-    -- {'https://github.com/xiyaowong/transparent.nvim',
-    --     lazy = false,
-    -- },
+    -- {
+    --     "yorik1984/newpaper.nvim",
+    --     priority = 1000,
+    --     config = true},
+    -- -- {'https://github.com/xiyaowong/transparent.nvim',
+    -- --     lazy = false,
+    -- -- },
     {
         "https://github.com/rebelot/kanagawa.nvim",
         config = function()
@@ -76,7 +80,11 @@ require("lazy").setup({
     },
 
      -- CMP
-    "https://github.com/hrsh7th/nvim-cmp",
+    -- "https://github.com/hrsh7th/nvim-cmp",
+    {
+      "iguanacucumber/magazine.nvim",
+      name = "nvim-cmp", -- Otherwise highlighting gets messed up
+    },
     "https://github.com/hrsh7th/cmp-nvim-lsp",
     "https://github.com/hrsh7th/cmp-buffer",
     "https://github.com/hrsh7th/cmp-nvim-lua",
@@ -138,7 +146,7 @@ require("lazy").setup({
     "https://github.com/nvimtools/none-ls.nvim",
     "https://github.com/theprimeagen/refactoring.nvim",
     -- "https://github.com/nvimdev/lspsaga.nvim",
-    'https://github.com/stevanmilic/nvim-lspimport',
+    -- 'https://github.com/stevanmilic/nvim-lspimport',
     -- {"https://github.com/VidocqH/lsp-lens.nvim",
     --     config = function()
     --         require("lsp-lens").setup()
@@ -387,6 +395,16 @@ require("lazy").setup({
             vim.g.db_ui_use_nerd_fonts = 1
         end,
     },
+    -- {
+    -- "OXY2DEV/markview.nvim",
+    -- lazy = false,      -- Recommended
+    -- -- ft = "markdown" -- If you decide to lazy-load anyway
+    --
+    -- dependencies = {
+    --     "nvim-treesitter/nvim-treesitter",
+    --     "nvim-tree/nvim-web-devicons"
+    --     }
+    -- },
     {
         "j-hui/fidget.nvim",
         opts = {
