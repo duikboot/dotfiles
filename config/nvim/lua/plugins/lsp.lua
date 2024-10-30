@@ -105,9 +105,15 @@ local attach = function(client, bufnr)
     client.server_capabilities.document_range_formatting = false
     if client.name == "pylsp" then
         client.server_capabilities.renameProvider = false
+        client.server_capabilities.referencesProvider = false
     end
     -- navbuddy.attach(client, bufnr)
 end
+
+vim.keymap.set("n", '<leader>th',
+  function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({0}),{0})
+end)
 
 function _G.PrintDiagnostics(options, bufnr, line_nr)
     bufnr = bufnr or 0
