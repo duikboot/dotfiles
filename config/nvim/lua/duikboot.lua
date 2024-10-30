@@ -18,6 +18,8 @@ local modules = {
     "plugins.telekasten",
     "plugins.yankbank",
 
+    "plugins.dap",
+
     -- "plugins.neotree",
     "duikboot.keymaps",
     "duikboot.utils",

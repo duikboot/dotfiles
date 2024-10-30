@@ -70,6 +70,7 @@ require("lazy").setup({
     "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
     "https://github.com/nvim-treesitter/nvim-treesitter-context",
     -- "https://github.com/theHamsta/nvim-treesitter-commonlisp",
+    "https://github.com/nvim-treesitter/nvim-treesitter-refactor",
     "https://github.com/andymass/vim-matchup",
     {
         'https://github.com/Wansmer/treesj',
@@ -316,10 +317,11 @@ require("lazy").setup({
 
     -- dap
     "https://github.com/mfussenegger/nvim-dap",
-    "https://github.com/rcarriga/nvim-dap-ui",
+    { "https://github.com/rcarriga/nvim-dap-ui", dependencies = {"nvim-neotest/nvim-nio"} },
     { "https://github.com/mfussenegger/nvim-dap-python", ft = 'python' },
     "https://github.com/theHamsta/nvim-dap-virtual-text",
     "https://github.com/nvim-telescope/telescope-dap.nvim",
+    "https://github.com/jay-babu/mason-nvim-dap.nvim",
     -- {
     --     "https://github.com/numToStr/Comment.nvim",
     --     event = "VeryLazy",
@@ -375,7 +377,7 @@ require("lazy").setup({
     --     end
     -- },
     {
-      'stevearc/overseer.nvim',
+      'https://github.com/stevearc/overseer.nvim',
       opts = {},
     },
     -- Telekasten

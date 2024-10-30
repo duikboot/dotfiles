@@ -103,6 +103,9 @@ local attach = function(client, bufnr)
     end
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
+    if client.name == "pylsp" then
+        client.server_capabilities.renameProvider = false
+    end
     -- navbuddy.attach(client, bufnr)
 end
 
@@ -155,12 +158,17 @@ lspconfig["pylsp"].setup({
     on_attach = attach,
     -- capabilities=lsp_status.capabilities
     capabilities = capabilities,
+
     settings = {
         pylsp = {
             plugins = {
                 jedi_completion = { include_params = true },
                 -- pylsp_mypy = { enabled = true },
-                pylsp_flake8 = { enabled = true },
+                flake8 = {
+                    enabled = true,
+                    maxLineLength = 90
+                },
+                pycodestyle = { enabled = false },
             },
         },
     },
@@ -235,13 +243,6 @@ lspconfig["erlangls"].setup({
 })
 
 lspconfig["gopls"].setup({
-    -- on_init=on_init,
-    on_attach = attach,
-    capabilities = capabilities,
-    -- capabilities=lsp_status.capabilities
-})
-
-lspconfig["ts_ls"].setup({
     -- on_init=on_init,
     on_attach = attach,
     capabilities = capabilities,

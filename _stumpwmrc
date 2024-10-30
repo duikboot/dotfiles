@@ -34,6 +34,7 @@
     ; "octopi-notifier"
 
 ; (require :SB-ROTATE-BYTE)
+; (require :SB-INTROSPECT)
 ; (ql:quickload "xml-emitter")
 ; (ql:quickload "cffi-grovel")
 ; (ql:quickload "dbus")
