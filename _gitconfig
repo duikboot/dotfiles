@@ -63,6 +63,4 @@
 	required = true
 [user]
 	name = Arjen Dijkstra
-	email = arjen@adapta.nl
-[cola]
-	startupmode = folder
+	email = dijkstra.arjen@gmail.com

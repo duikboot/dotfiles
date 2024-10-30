@@ -69,7 +69,7 @@ require("lazy").setup({
     { "https://github.com/nvim-treesitter/playground",   event = "VeryLazy" },
     "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
     "https://github.com/nvim-treesitter/nvim-treesitter-context",
-    "https://github.com/theHamsta/nvim-treesitter-commonlisp",
+    -- "https://github.com/theHamsta/nvim-treesitter-commonlisp",
     "https://github.com/andymass/vim-matchup",
     {
         'https://github.com/Wansmer/treesj',
@@ -102,6 +102,12 @@ require("lazy").setup({
         "https://github.com/sourcegraph/sg.nvim",
         event = "InsertEnter",
         dependencies = { 'https://github.com/nvim-lua/plenary.nvim' },
+    },
+    {
+        "supermaven-inc/supermaven-nvim",
+        config = function()
+            require("supermaven-nvim").setup({})
+        end,
     },
 
     -- Vcs
@@ -356,6 +362,7 @@ require("lazy").setup({
     {
         "https://github.com/rest-nvim/rest.nvim",
         ft = "http",
+        cmd = {"Rest", "Http"},
         dependencies = { "luarocks.nvim" },
         config = function()
             require("rest-nvim").setup()

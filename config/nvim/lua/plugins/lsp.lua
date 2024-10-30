@@ -98,9 +98,9 @@ end
 
 local attach = function(client, bufnr)
     on_attach_vim_plus_keymaps(client, bufnr)
-    -- if client.server_capabilities.inlayHintProvider then
-    --     vim.lsp.inlay_hint.enable(true)
-    -- end
+    if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint.enable(true)
+    end
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
     -- navbuddy.attach(client, bufnr)
@@ -273,6 +273,7 @@ require("trouble").setup({
 require("nvim-web-devicons").setup()
 
 return M
+
 -- require'lsp_signature'.on_attach()
 -- lspconfig.pylsp.setup({
 --      on_attach=on_attach_vim_plus_keymaps,

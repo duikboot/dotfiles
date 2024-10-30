@@ -300,6 +300,7 @@
   (refresh-heads)
   (sleep 0.1)
   (set-wallpaper)
+  (notify:notify-server-on)
   (refresh-heads)
   (message "Refresh heads"))
 
@@ -484,6 +485,7 @@
 (make-program-binding "keepassxc" "keepassxc")
 
 (defcommand lock-screen ()()
+            (notify:notify-server-off)
             (run-shell-command "xscreensaver-command -lock"))
 
 (defcommand suspend ()()
@@ -737,7 +739,7 @@ will scroll through windows in the current group."
     (start-apps)
     (refresh)
     (create-background-battery-thread)
-    (notify:notify-server-toggle)
+    (notify:notify-server-on)
     (run-shell-command "firefox")))
 
 ;; (ql:quickload '(clim slim))
