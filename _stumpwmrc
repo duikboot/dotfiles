@@ -486,7 +486,8 @@
 (make-program-binding "keepassxc" "keepassxc")
 
 (defcommand lock-screen ()()
-            (notify:notify-server-off)
+            (when notify::*notify-server-is-on*
+                      (notify:notify-server-off))
             (run-shell-command "xscreensaver-command -lock"))
 
 (defcommand suspend ()()
