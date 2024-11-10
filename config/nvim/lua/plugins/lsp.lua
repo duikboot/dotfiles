@@ -180,7 +180,7 @@ lspconfig["pylsp"].setup({
     },
 })
 
-lspconfig['ruff_lsp'].setup({
+lspconfig['ruff'].setup({
     on_attach = attach,
     capabilities = capabilities,
 })
