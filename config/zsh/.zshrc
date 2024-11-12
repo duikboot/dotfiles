@@ -20,6 +20,8 @@ alias v='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse| xargs nvim
 alias tmuxn='tmux -2 new -s'
 alias mux='pgrep -vx tmux && tmux new -d -s delete-me && tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux kill-session -t delete-me && tmux attach || tmux attach'
 
+alias t='~/bin/tmux-sessionizer'
+
 alias vi='vim'
 alias e='nvim'
 

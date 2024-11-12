@@ -25,6 +25,10 @@ stumpish:
 	-rm $(HOME_DIR)/bin/stumpish
 	ln -s $(HOME_DIR)/stumpwm/stumpwm-contrib/util/stumpish/stumpish $(HOME_DIR)/bin/stumpish
 
+.PHONY: tmux-sessionizer
+tmux-sessionizer:
+	-rm $(HOME_DIR)/bin/tmux-sessionizer
+	ln -s ${PWD}/bin/tmux-sessionizer $(HOME_DIR)/bin/tmux-sessionizer
 
 .PHONY: stumpwm
 stumpwm: Wallpapers
