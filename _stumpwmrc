@@ -266,6 +266,22 @@
 
 (define-key *root-map* (kbd "C-y") "show-clipboard-history")
 
+(defun refresh ()
+  (log:info "Refresh heads")
+  ;; (xcape)
+  (refresh-heads)
+  (sleep 0.1)
+  (set-wallpaper)
+  (notify:notify-server-on)
+  (keyboard-layout)
+  (refresh-heads)
+  (message "Refresh heads"))
+
+(defcommand refresh-monitors ()()
+  (refresh))
+
+(define-key *root-map* (kbd "m") "refresh-monitors")
+
 (defcommand xcape ()()
   (run-shell-command "pkill xcape")
   (run-shell-command "xcape -t 200 -e \"Shift_L=parenleft;Shift_R=parenright\"")
@@ -278,12 +294,15 @@
 (defcommand set-touchpad ()()
   (run-shell-command "xinput set-prop \"SynPS/2 Synaptics TouchPad\" \"libinput Tapping Enabled\" 1"))
 
-(defcommand set-keyboard ()()
+(defun keyboard-layout ()
   (xcape)
   (unless (string-match (run-shell-command "hostname" t) "arjen-latitude5530")
     (log:info "Not arjen-latitude5530")
     (set-touchpad))
   (xmodmap))
+
+(defcommand set-keyboard ()()
+  (keyboard-layout))
 
 ;; (defcommand set-keyboard ()()
 ;;   (run-shell-command "setxkbmap -option caps:swapescape")
@@ -294,21 +313,6 @@
 ;;   (run-shell-command "setxkbmap -option altwin:menu_win")
 ;;   (run-shell-command "setxkbmap -option altwin:swap_lalt_lwin"))
 
-
-(defun refresh ()
-  (log:info "Refresh heads")
-  ;; (xcape)
-  (refresh-heads)
-  (sleep 0.1)
-  (set-wallpaper)
-  (notify:notify-server-on)
-  (refresh-heads)
-  (message "Refresh heads"))
-
-(defcommand refresh-monitors ()()
-  (refresh))
-
-(define-key *root-map* (kbd "m") "refresh-monitors")
 
 ;; start the polling timer process
 
