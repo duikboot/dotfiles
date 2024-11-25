@@ -45,7 +45,7 @@ tpm:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 .PHONY: tmux
-tmux: tpm
+tmux: tpm tmux-sessionizer
 	-rm ${HOME_DIR}/.tmux.conf
 	ln -s ${PWD}/_tmux.conf ${HOME_DIR}/.tmux.conf
 
