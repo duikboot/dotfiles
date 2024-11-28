@@ -35,10 +35,10 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
+        { name = 'treesitter' },
         { name = 'cody' },
         { name = "copilot" },
         { name = "supermaven" },
-        { name = 'treesitter' },
         { name = 'nvim_lsp_signature_help'},
         { name = 'vsnip' },
         { name = 'nvim_lua' },
