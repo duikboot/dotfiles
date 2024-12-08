@@ -37,3 +37,7 @@ vim.g.startify_commands = {
 -- 	{ z = '~/.local/share/nvim/site/pack/packer/start' },
 -- }
 
+return {
+    "https://github.com/mhinz/vim-startify",
+
+}

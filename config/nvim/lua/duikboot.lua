@@ -1,5 +1,4 @@
 local modules = {
-    "plugins.startify",
     "plugins.treesitter",
     "plugins.treesitter_context",
     "plugins.telescope",
@@ -31,7 +30,6 @@ for _, name in ipairs(modules) do
     require(name)
 end
 
-pcall(require, "plugins.lualine")
 
 -- Populate loclist with the current buffer diagnostics
 -- local DiagnosticCLocation = vim.api.nvim_create_augroup("DiagnosticCLocation", { clear = true })

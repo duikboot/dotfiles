@@ -27,7 +27,8 @@ end
 
 
 require("lazy").setup({
-    {"https://github.com/folke/tokyonight.nvim",
+    spec = {
+        {"https://github.com/folke/tokyonight.nvim",
         lazy = false,        -- make sure we load this during startup if it is your main colorscheme
         priority = 1000,     -- make sure to load this before all the other start plugins
         -- transparent = true,
@@ -57,8 +58,7 @@ require("lazy").setup({
     "https://github.com/savq/melange-nvim",
     -- { 'https://github.com/folke/which-key.nvim', opts = {} },
 
-    { "https://github.com/hoob3rt/lualine.nvim" },
-    "https://github.com/mhinz/vim-startify",
+
     { "https://github.com/kyazdani42/nvim-web-devicons", lazy = true },
 
     -- Treesitter
@@ -72,13 +72,6 @@ require("lazy").setup({
     -- "https://github.com/theHamsta/nvim-treesitter-commonlisp",
     "https://github.com/nvim-treesitter/nvim-treesitter-refactor",
     "https://github.com/andymass/vim-matchup",
-    {
-        'https://github.com/Wansmer/treesj',
-        keys = { '<space>m', '<space>j', '<space>s' },
-        config = function()
-            require('treesj').setup({ --[[ your config ]] })
-        end
-    },
 
      -- CMP
     -- "https://github.com/hrsh7th/nvim-cmp",
@@ -100,11 +93,6 @@ require("lazy").setup({
     -- Use your favorite package manager to install, for example in lazy.nvim
     --  Optionally, you can also install nvim-telescope/telescope.nvim to use some search functionality.
     {
-        "https://github.com/sourcegraph/sg.nvim",
-        event = "InsertEnter",
-        dependencies = { 'https://github.com/nvim-lua/plenary.nvim' },
-    },
-    {
         "supermaven-inc/supermaven-nvim",
         config = function()
             require("supermaven-nvim").setup({})
@@ -123,9 +111,6 @@ require("lazy").setup({
     },
 
     -- Search
-    {
-        "https://github.com/ThePrimeagen/harpoon",
-        branch = "harpoon2"},
     {
         "https://github.com/romainl/vim-cool",
         config = function()
@@ -193,7 +178,6 @@ require("lazy").setup({
     -- },
     "https://github.com/pechorin/any-jump.vim",
     "https://github.com/christoomey/vim-tmux-navigator",
-    "https://github.com/camgraff/telescope-tmux.nvim",
 
     -- Editing
     {
@@ -290,30 +274,6 @@ require("lazy").setup({
     },
 
     -- Telescope
-    {
-        "https://github.com/nvim-telescope/telescope.nvim",
-        dependencies = { 'https://github.com/nvim-lua/plenary.nvim' },
-    },
-    {
-        "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
-        build = "make"
-    },
-    "https://github.com/JoseConseco/telescope_sessions_picker.nvim",
-    "https://github.com/nvim-telescope/telescope-media-files.nvim",
-    "https://github.com/nvim-telescope/telescope-symbols.nvim",
-    "https://github.com/nvim-telescope/telescope-file-browser.nvim",
-    "https://github.com/debugloop/telescope-undo.nvim",
-    "https://github.com/mbbill/undotree",
-    "https://github.com/aaronhallaert/advanced-git-search.nvim",
-    "gbprod/yanky.nvim",
-    "https://github.com/ptdewey/yankbank-nvim",
-    {"https://github.com/cagve/telescope-texsuite",
-        ft = { "tex", "bib" },
-        config = function()
-            require('telescope').load_extension('texsuite')
-        end
-    },
-    {"https://github.com/fcying/telescope-ctags-outline.nvim", },
   {
     'https://github.com/MagicDuck/grug-far.nvim',
     config = function()
@@ -424,12 +384,8 @@ require("lazy").setup({
     --     "nvim-tree/nvim-web-devicons"
     --     }
     -- },
-    {
-        "j-hui/fidget.nvim",
-        opts = {
-            -- options
-        },
-    },
-})
+    { import = "config.plugins" },
+}})
+
 
 require("duikboot")

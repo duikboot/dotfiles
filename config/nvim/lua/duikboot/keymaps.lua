@@ -68,9 +68,9 @@ vim.keymap.set('n', '<leader>cg',
 vim.keymap.set('n', '<Leader>o',
                function() require('telescope.builtin').find_files() end,
                {desc = "[O]pen file"})
-vim.keymap.set('n', '<Leader>ff',
-               function() require('telescope.builtin').find_files({hidden= true, no_ignore=true}) end,
-               {desc = "[O]pen file"})
+-- vim.keymap.set('n', '<Leader>ff',
+--                function() require('telescope.builtin').find_files({hidden= true, no_ignore=true}) end,
+--                {desc = "[O]pen file"})
 vim.keymap.set('n', '<Leader>fb', ":Telescope file_browser<CR>", {desc = ""},
                {desc = "[F]ile [B]browser"})
 vim.keymap.set('n', 'gr',
@@ -108,9 +108,6 @@ end, {desc = "Search word"})
 
 vim.keymap.set('n', '<leader>t', ":Tags<CR>", {desc = "[T]tags"})
 
-vim.keymap.set('n', '<localleader>f', function()
-    require'telescope.builtin'.current_buffer_fuzzy_find {}
-end, {desc = "Buffer [F]uzzy find"})
 vim.keymap.set('n', '<leader>fv',
                function() require'plugins.telescope'.find_virtual_env() end, {})
 vim.keymap.set('n', '<leader>fr',
@@ -202,10 +199,6 @@ vim.keymap.set("n", "<leader>df",
 vim.keymap.set('n', '<localleader>c', function()
     vim.cmd("call vlime#plugin#ConnectREPL('127.0.0.1', 4005)")
 end)
-
-vim.keymap.set("n", "<leader>ts", ":Telescope tmux sessions<cr>", {noremap = true})
-vim.keymap.set("n", "<leader>tw", ":Telescope tmux windows<cr>", {noremap = true})
-vim.keymap.set("n", "<leader>tc", ":Telescope tmux pane_contents<cr>", {noremap = true})
 
 for i=0,9 do
     vim.keymap.set('n', '<localleader>'.. i,

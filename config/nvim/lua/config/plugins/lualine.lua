@@ -12,11 +12,11 @@ local vim = vim
 --   return " " .. fun_name
 -- end
 --
-local function branchname ()
+local function branchname()
     local branch = vim.fn.FugitiveHead()
     branch = branch:gsub("feature/EMO.", "")
     if branch and #branch > 0 then
-        branch = ' '..branch
+        branch = ' ' .. branch
     end
     if branch:len() >= 50 then
         return branch:sub(1, 50) .. "..."
@@ -36,14 +36,20 @@ end
 --         },
 --     },
 -- }
-require('lualine').setup({
-    sections = {
-        lualine_b = {branchname, 'diff',
-            {
-                'diagnostics',
-                symbols = {error = 'E:', warn = 'W:', info = 'I:', hint = 'H:'}
+
+return {
+    "https://github.com/hoob3rt/lualine.nvim",
+    config = function()
+        require('lualine').setup({
+            sections = {
+                lualine_b = { branchname, 'diff',
+                    {
+                        'diagnostics',
+                        symbols = { error = 'E:', warn = 'W:', info = 'I:', hint = 'H:' }
+                    }
+                },
             }
-        },
-        -- lualine_y = {},
-    }
-})
+        }
+        )
+    end,
+}
