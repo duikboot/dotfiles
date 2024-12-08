@@ -56,12 +56,6 @@ telescope.setup{
         --     case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
         --     -- the default case_mode is "smart_case"
         -- },
-        media_files = {
-            -- filetypes whitelist
-            -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-            -- filetypes = {"png", "webp", "jpg", "jpeg"},
-            -- find_cmd = "rg" -- find command (defaults to `fd`)
-        },
         sessions_picker = {
             sessions_dir = vim.fn.stdpath('data') ..'/session/',  -- same as '/home/user/.local/share/nvim/session'
         },
@@ -73,15 +67,8 @@ telescope.setup{
     }
 }
 
-require('telescope').load_extension('fzf')
-require('telescope').load_extension('media_files')
-require('telescope').load_extension('file_browser')
-require('telescope').load_extension('sessions_picker')
-require('telescope').load_extension('yank_history')
 require('telescope').load_extension('dap')
-require("telescope").load_extension("undo")
 require('telescope').load_extension("advanced_git_search")
-require('telescope').load_extension("ctags_outline")
 require('telescope').load_extension("tmux")
 require('telescope').load_extension("rest")
 -- require("telescope").load_extension("git_workree")
@@ -99,12 +86,5 @@ M.grep_prompt = function()
     }
 end
 
-M.find_virtual_env = function()
-    require('telescope.builtin').find_files({
-        shorten_path = false,
-        cwd = ".venv/lib",
-        results_title = "~ Virtual Environment ~",
-    })
-end
 
 return M

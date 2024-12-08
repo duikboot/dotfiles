@@ -29,16 +29,16 @@ vim.api.nvim_create_user_command('Vs', ':vs', {})
 
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
-vim.keymap.set('v', 'j', 'gj')
 vim.keymap.set('v', 'k', 'gk')
+vim.keymap.set('v', 'j', 'gj')
 
 vim.keymap.set('n', 'gj', 'j')
 vim.keymap.set('n', 'gk', 'k')
 vim.keymap.set('v', 'gj', 'j')
 vim.keymap.set('v', 'gk', 'k')
 
-vim.keymap.set('i', '<C-u>', "<esc>mzgUiw`za",
-               {desc = "Uppercase previous word"})
+vim.keymap.set('i', '<C-u>', "<esc>mzgUiw`za", {desc = "Uppercase previous word"})
+
 vim.keymap.set('n', "<C-u>", "mzgUiw`za", {desc = "Uppercase word"})
 
 -- Rebuild Ctags (mnemonic RC -> CR -> <cr>)
@@ -107,12 +107,6 @@ end, {desc = "Search word"})
 --     end)
 
 vim.keymap.set('n', '<leader>t', ":Tags<CR>", {desc = "[T]tags"})
-
-vim.keymap.set('n', '<leader>fv',
-               function() require'plugins.telescope'.find_virtual_env() end, {})
-vim.keymap.set('n', '<leader>fr',
-               function() require'telescope.builtin'.resume() end,
-               {desc = "[F]ind in [V]irtual env"})
 
 -- Remove trailing whitespace on <leader>S
 vim.keymap.set('n', "<leader>S", "mz:%s/\\s\\+$//<cr>:let @/=''<CR>`z")

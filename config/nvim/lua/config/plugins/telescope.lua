@@ -1,3 +1,13 @@
+local load_extensions = require('telescope').load_extension
+
+local Find_virtual_env = function()
+    require('telescope.builtin').find_files({
+        shorten_path = false,
+        cwd = ".venv/lib",
+        results_title = "~ Virtual Environment ~",
+    })
+end
+
 return {
     {
         "https://github.com/nvim-telescope/telescope.nvim",
@@ -7,13 +17,11 @@ return {
             {
                 "<leader>.",
                 "<cmd>Telescope resume<cr>",
-                { mode = { "n" } },
                 { desc = "Resume Telescope" }
             },
             {
                 "<leader>ff",
                 "<cmd>Telescope find_files hidden=true no_ignore=true<cr>",
-                { mode = { "n" } },
                 { desc = "Find files" }
             },
             { '<localleader>f', function()
@@ -21,11 +29,18 @@ return {
             end, { desc = "Buffer [F]uzzy find" }
             },
 
-        }
+            -- { '<C-u>', "<ESC>mzgUiw`za", mode = { "i", "n" }, desc = "Uppercase previous word" },
+
+            { '<leader>fv',
+                function() Find_virtual_env() end,
+                { desc = "[F]ind [V]irtual env" }
+            },
+        },
     },
     {
         "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
-        build = "make"
+        build = "make",
+        config = function() load_extensions('fzf') end
     },
     {
         "https://github.com/camgraff/telescope-tmux.nvim",
@@ -35,21 +50,32 @@ return {
             { "<leader>tc", ":Telescope tmux pane_contents<cr>", { noremap = true } },
         }
     },
-    "https://github.com/JoseConseco/telescope_sessions_picker.nvim",
-    "https://github.com/nvim-telescope/telescope-media-files.nvim",
-    "https://github.com/nvim-telescope/telescope-symbols.nvim",
-    "https://github.com/nvim-telescope/telescope-file-browser.nvim",
-    "https://github.com/debugloop/telescope-undo.nvim",
+    {
+        "https://github.com/JoseConseco/telescope_sessions_picker.nvim",
+        config = function() load_extensions('sessions_picker') end
+    },
+    {
+        "https://github.com/nvim-telescope/telescope-symbols.nvim",
+    },
+    {
+        "https://github.com/nvim-telescope/telescope-file-browser.nvim",
+        config = function() load_extensions('file_browser') end
+    },
+    {
+        "https://github.com/debugloop/telescope-undo.nvim",
+        config = function() load_extensions('undo') end
+    },
     "https://github.com/mbbill/undotree",
     "https://github.com/aaronhallaert/advanced-git-search.nvim",
-    "gbprod/yanky.nvim",
-    "https://github.com/ptdewey/yankbank-nvim",
-    { "https://github.com/fcying/telescope-ctags-outline.nvim", },
-    {
-        "https://github.com/cagve/telescope-texsuite",
-        ft = { "tex", "bib" },
-        config = function()
-            require('telescope').load_extension('texsuite')
-        end
-    },
+    -- {
+    --     "https://github.com/gbprod/yanky.nvim",
+    --     config = function() load_extensions('yank_history') end
+    -- },
+    -- {
+    --     "https://github.com/cagve/telescope-texsuite",
+    --     ft = { "tex", "bib" },
+    --     config = function()
+    --         require('telescope').load_extension('texsuite')
+    --     end
+    -- },
 }
