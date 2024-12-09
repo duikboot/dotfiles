@@ -182,7 +182,6 @@ vim.keymap.set('t', '<C-j>', '<C-\\><C-n><C-w>j')
 vim.keymap.set('t', '<C-k>', '<C-\\><C-n><C-w>k')
 vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w>l')
 
-vim.keymap.set("n", "-", require("oil").open, {desc = "Open parent directory"})
 
 vim.keymap.set("n", "<leader>dw",
                function() require('diaglist').open_all_diagnostics() end,

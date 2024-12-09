@@ -92,31 +92,12 @@ require("lazy").setup({
     "https://github.com/ray-x/cmp-treesitter",
     -- Use your favorite package manager to install, for example in lazy.nvim
     --  Optionally, you can also install nvim-telescope/telescope.nvim to use some search functionality.
-    {
-        "supermaven-inc/supermaven-nvim",
-        config = function()
-            require("supermaven-nvim").setup({})
-        end,
-    },
 
     -- Vcs
     "https://github.com/tpope/vim-fugitive",
     "https://github.com/lewis6991/gitsigns.nvim",
     "https://github.com/sindrets/diffview.nvim",
     "https://github.com/polarmutex/git-worktree.nvim",
-    {
-        'https://github.com/fredeeb/tardis.nvim',
-        dependencies = { 'https://github.com/nvim-lua/plenary.nvim' },
-        config = true,
-    },
-
-    -- Search
-    {
-        "https://github.com/romainl/vim-cool",
-        config = function()
-            vim.g.CoolTotalMatches = 0
-        end
-    },
 
     -- LSP
     {
@@ -136,7 +117,6 @@ require("lazy").setup({
     "https://github.com/folke/lsp-colors.nvim",
     -- "https://github.com/jose-elias-alvarez/null-ls.nvim",
     "https://github.com/nvimtools/none-ls.nvim",
-    "https://github.com/theprimeagen/refactoring.nvim",
     -- "https://github.com/nvimdev/lspsaga.nvim",
     -- 'https://github.com/stevanmilic/nvim-lspimport',
     -- {"https://github.com/VidocqH/lsp-lens.nvim",
@@ -180,12 +160,6 @@ require("lazy").setup({
     "https://github.com/christoomey/vim-tmux-navigator",
 
     -- Editing
-    {
-        'https://github.com/piersolenski/telescope-import.nvim',
-        config = function()
-            require("telescope").load_extension("import")
-        end
-    },
     -- {
     --     "https://github.com/zbirenbaum/copilot.lua",
     --     enabled = true,
@@ -199,14 +173,6 @@ require("lazy").setup({
     --     end,
     --     opts = { suggestion = { enabled = false }, panel = { enabled = false } }
     -- },
-    {
-        "https://github.com/kylechui/nvim-surround",
-        version = "*", -- Use for stability; omit to use `main` branch for the latest features
-        event = "VeryLazy",
-        config = function()
-            require("nvim-surround").setup()
-        end
-    },
     -- { 'https://codeberg.org/esensar/nvim-dev-container',
     --     config = function()
     --         require('devcontainer').setup({})
@@ -216,21 +182,6 @@ require("lazy").setup({
     'https://github.com/Olical/vim-enmasse',
     'https://github.com/kevinhwang91/nvim-hlslens',
     'https://github.com/machakann/vim-swap',
-    {
-        'https://github.com/windwp/nvim-autopairs',
-        event = "InsertEnter",
-        config = function()
-            require('nvim-autopairs').setup({
-                disable_filetype = { "TelescopePrompt" }
-            })
-        end
-    },
-    {
-        'https://github.com/stevearc/oil.nvim',
-        config = function()
-            require('oil').setup()
-        end
-    },
     "https://github.com/romainl/vim-qf",
 
     -- FZF
@@ -240,38 +191,6 @@ require("lazy").setup({
     -- use 'https://github.com/cbochs/portal.nvim'
 
     'https://github.com/kassio/neoterm',
-    {
-        'https://github.com/samharju/yeet.nvim',
-        dependencies = {
-            "https://github.com/stevearc/dressing.nvim" -- optional, provides sane UX
-        },
-        opts = {
-            clear_before_yeet = false,
-        },
-        config = function()
-            local harpoon = require("harpoon")
-            harpoon:setup({
-                yeet = {
-                    select = function(list_item, _, _)
-                        require("yeet").execute(list_item.value)
-                    end,
-                },
-            })
-
-            vim.keymap.set( "n", "<leader><BS>",
-                function() harpoon.ui:toggle_quick_menu(harpoon:list("yeet")) end
-            )
-            vim.keymap.set( "n", "<localleader><localleader>",
-                function()
-                    require("yeet").execute(nil, {clear_before_yeet = false})
-                end
-            )
-
-
-            -- other harpoon keymaps etc
-            -- ...
-        end,
-    },
 
     -- Telescope
   {
