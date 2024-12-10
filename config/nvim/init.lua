@@ -191,6 +191,7 @@ require("lazy").setup({
     -- use 'https://github.com/cbochs/portal.nvim'
 
     'https://github.com/kassio/neoterm',
+    "https://github.com/stevearc/dressing.nvim", -- optional, provides sane UX
 
     -- Telescope
   {
