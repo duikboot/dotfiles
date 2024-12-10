@@ -46,7 +46,7 @@ option.pumheight = 20 -- Keep a small completion window
 -- option.winblend = 60 -- Keep a small completion window
 
 
-option.messagesopt="history:500,wait:1000"
+option.messagesopt="hit-enter,history:500,wait:1000"
 
 -- Keep a persistend backupfile
 option.undofile = true
