@@ -106,6 +106,7 @@ local attach = function(client, bufnr)
     if client.name == "pylsp" then
         client.server_capabilities.renameProvider = false
         client.server_capabilities.referencesProvider = false
+        client.server_capabilities.definitionProvider = false
     end
     -- navbuddy.attach(client, bufnr)
 end
@@ -207,8 +208,9 @@ lspconfig["basedpyright"].setup({
                 --     reportMissingParameterType = "information",
                 --     reportUnknownParameterType = "information",
                 -- },
-                typeCheckingMode = "off",
+                typeCheckingMode = "basic",
                 diagnosticSeverityOverrides = {
+                    reportAttributeAccessIssue = "warning",
                     reportUnusedImport = "error",
                     reportUnusedFunction = "error",
                     reportUnusedVariable = "error",

@@ -43,10 +43,10 @@ null_ls.setup({
         -- diagnostics.editorconfig_checker,
         -- diagnostics.eslint,
         -- Formatting
-        formatting.autopep8,
+        -- formatting.autopep8,
         formatting.isort,
         formatting.trim_whitespace,
-        -- formatting.black,
+        formatting.black,
         formatting.gofumpt,
         formatting.goimports,
         formatting.yamlfmt,
