@@ -114,7 +114,7 @@ end
 vim.keymap.set("n", '<leader>th',
   function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({0}),{0})
-end)
+end,{desc="Toggle inlay hints"})
 
 function _G.PrintDiagnostics(options, bufnr, line_nr)
     bufnr = bufnr or 0
