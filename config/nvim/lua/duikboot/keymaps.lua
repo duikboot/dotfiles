@@ -98,6 +98,8 @@ vim.keymap.set('n', '<leader>*', function()
     require('telescope.builtin').grep_string {search = vim.fn.expand("<cword>")}
 end, {desc = "Search word"})
 
+vim.keymap.set('x', '<leader>*', "<cmd> Telescope grep_string <cr>", {desc = "Search word"})
+
 -- vim.keymap.set('n', '<leader>T', function()
 --     require('telescope.builtin').tags {search = vim.fn.expand("<cword>")}
 -- end, {desc = "Search word"})
