@@ -1,5 +1,6 @@
 return {
     "Davidyz/inlayhint-filler.nvim",
+    ft = "python",
     keys={
         {
             "<Leader>I", -- Use whatever keymap you want.
