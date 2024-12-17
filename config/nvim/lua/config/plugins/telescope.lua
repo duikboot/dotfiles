@@ -37,11 +37,13 @@ return {
             },
         },
     },
+
     {
         "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
         config = function() load_extensions('fzf') end
     },
+
     {
         "https://github.com/camgraff/telescope-tmux.nvim",
         keys = {
@@ -50,22 +52,35 @@ return {
             { "<leader>tc", ":Telescope tmux pane_contents<cr>", { noremap = true } },
         }
     },
+
     {
         "https://github.com/JoseConseco/telescope_sessions_picker.nvim",
         config = function() load_extensions('sessions_picker') end
     },
+
     {
         "https://github.com/nvim-telescope/telescope-symbols.nvim",
     },
+
     {
         "https://github.com/nvim-telescope/telescope-file-browser.nvim",
-        config = function() load_extensions('file_browser') end
+        config = function() load_extensions('file_browser') end,
+        keys = {
+            {
+                '<Leader>fb',
+                ":Telescope file_browser<CR>",
+                { desc = "[F]ile [B]browser" },
+            },
+        }
     },
+
     {
         "https://github.com/debugloop/telescope-undo.nvim",
         config = function() load_extensions('undo') end
     },
+
     "https://github.com/mbbill/undotree",
+
     "https://github.com/aaronhallaert/advanced-git-search.nvim",
     -- {
     --     "https://github.com/gbprod/yanky.nvim",
