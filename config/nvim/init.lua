@@ -27,6 +27,7 @@ end
 
 
 require("lazy").setup({
+    change_detection = { enabled = false },
     spec = {
         {"https://github.com/folke/tokyonight.nvim",
         lazy = false,        -- make sure we load this during startup if it is your main colorscheme
@@ -73,23 +74,23 @@ require("lazy").setup({
     "https://github.com/nvim-treesitter/nvim-treesitter-refactor",
     "https://github.com/andymass/vim-matchup",
 
-     -- CMP
-    -- "https://github.com/hrsh7th/nvim-cmp",
-    {
-      "iguanacucumber/magazine.nvim",
-      name = "nvim-cmp", -- Otherwise highlighting gets messed up
-    },
-    "https://github.com/hrsh7th/cmp-nvim-lsp",
-    "https://github.com/hrsh7th/cmp-buffer",
-    "https://github.com/hrsh7th/cmp-nvim-lua",
-    "https://github.com/hrsh7th/cmp-cmdline",
-    "https://github.com/hrsh7th/cmp-vsnip",
-    "https://github.com/hrsh7th/vim-vsnip",
-    "https://github.com/rafamadriz/friendly-snippets",
-    "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help",
-    "https://github.com/hrsh7th/cmp-path",
-    "https://github.com/octaltree/cmp-look",
-    "https://github.com/ray-x/cmp-treesitter",
+    --  -- CMP
+    -- -- "https://github.com/hrsh7th/nvim-cmp",
+    -- {
+    --   "iguanacucumber/magazine.nvim",
+    --   name = "nvim-cmp", -- Otherwise highlighting gets messed up
+    -- },
+    -- "https://github.com/hrsh7th/cmp-nvim-lsp",
+    -- "https://github.com/hrsh7th/cmp-buffer",
+    -- "https://github.com/hrsh7th/cmp-nvim-lua",
+    -- "https://github.com/hrsh7th/cmp-cmdline",
+    -- "https://github.com/hrsh7th/cmp-vsnip",
+    -- "https://github.com/hrsh7th/vim-vsnip",
+    -- "https://github.com/rafamadriz/friendly-snippets",
+    -- "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help",
+    -- "https://github.com/hrsh7th/cmp-path",
+    -- "https://github.com/octaltree/cmp-look",
+    -- "https://github.com/ray-x/cmp-treesitter",
     -- Use your favorite package manager to install, for example in lazy.nvim
     --  Optionally, you can also install nvim-telescope/telescope.nvim to use some search functionality.
 
@@ -227,7 +228,7 @@ require("lazy").setup({
         end,
         ft = { "lisp" }
     },
-    { 'https://github.com/HiPhish/nvim-cmp-vlime', ft = 'lisp' },
+    -- { 'https://github.com/HiPhish/nvim-cmp-vlime', ft = 'lisp' },
     { 'https://github.com/bhurlow/vim-parinfer', ft = 'lisp' },
     {
         'https://github.com/hedyhli/outline.nvim',

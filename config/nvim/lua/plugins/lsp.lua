@@ -145,7 +145,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 lspconfig["lua_ls"].setup({
     on_attach = attach,
-    -- capabilities=lsp_status.capabilities
     capabilities = capabilities,
     settings = {
         Lua = {
@@ -249,6 +248,7 @@ lspconfig["erlangls"].setup({
     capabilities = capabilities,
     -- capabilities=lsp_status.capabilities
 })
+
 
 lspconfig["gopls"].setup({
     -- on_init=on_init,
