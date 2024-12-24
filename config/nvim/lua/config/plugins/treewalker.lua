@@ -5,9 +5,9 @@ return {
         highlight = true -- default is false
     },
     keys = {
-        { "]]", "<cmd>Treewalker Down<CR>" },
-        { "[[", "<cmd>Treewalker Up<CR>" },
-        -- { "]h", "<cmd>Treewalker Left<CR>" },
-        -- { "]l", "<cmd>Treewalker Right<CR>" },
+        { "<localleader>[", "<cmd>Treewalker Up<CR>" },
+        { "<localleader>]", "<cmd>Treewalker Down<CR>" },
+        { "<localleader>;", "<cmd>Treewalker Left<CR>" },
+        { "<localleader>'", "<cmd>Treewalker Right<CR>" },
     },
 }
