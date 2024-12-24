@@ -40,7 +40,11 @@ return {
                     -- "cmdline",
                 },
                 providers = {
-                    ripgrep = {
+                    -- lsp = { name = "[LSP]" },
+                    -- path = { name = "[PATH]" },
+                    -- snippets = { name = "[SNIPPETS]" },
+                    -- buffer = { name = "[BUFFER]" }, 
+                   ripgrep = {
                         name = "Ripgrep",
                         module = "blink-ripgrep",
                     },
@@ -51,7 +55,7 @@ return {
         completion = {
                 menu = {
                     draw = {
-                    columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+                    columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" }, {"source_name" } },
                     }
                 }
             },
