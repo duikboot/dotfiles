@@ -1,9 +1,9 @@
 return {
     {
         enabled = true,
-        'saghen/blink.cmp',
+        'http://github.com/saghen/blink.cmp',
         -- optional: provides snippets for the snippet source
-        dependencies = 'rafamadriz/friendly-snippets',
+        dependencies = 'http://rafamadriz/friendly-snippets',
 
         -- use a release tag to download pre-built binaries
         version = '*',
@@ -42,19 +42,19 @@ return {
                 providers = {
                     ripgrep = {
                         name = "Ripgrep",
-                        module = "blink-cmp-rg",
+                        module = "blink-ripgrep",
                     },
                 },
-                -- cmdline = {},
+                cmdline = {},
             },
 
-        -- completion = {
-        --         menu = {
-        --             draw = {
-        --             -- columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
-        --             }
-        --         }
-        --     },
+        completion = {
+                menu = {
+                    draw = {
+                    columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+                    }
+                }
+            },
 
             signature = {
                 enabled = true,
@@ -63,6 +63,7 @@ return {
         opts_extend = { "sources.default" },
     },
     {
-        "niuiic/blink-cmp-rg.nvim",
+        "https://github.com/mikavilpas/blink-ripgrep.nvim"
+            -- "niuiic/blink-cmp-rg.nvim",
     }
 }
