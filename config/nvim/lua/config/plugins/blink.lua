@@ -1,3 +1,9 @@
+-- vim.api.nvim_create_autocmd("CmdlineEnter", {
+--   callback = function()
+--     vim.api.nvim_set_keymap('c', '<CR>', '<CR>', { noremap = true, silent = true })
+--   end,
+-- })
+
 return {
     {
         enabled = true,
@@ -12,7 +18,12 @@ return {
             -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
             -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
             -- See the full "keymap" documentation for information on defining your own keymap.
-            keymap = { preset = 'enter' },
+            keymap = {
+                preset = 'enter',
+                cmdline = {
+                    ['<CR>'] = {},
+                }
+            },
 
             appearance = {
                 -- Sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -37,7 +48,7 @@ return {
                     "snippets",
                     "buffer",
                     "ripgrep",
-                    -- "cmdline",
+                    "cmdline",
                 },
                 providers = {
                     -- lsp = { name = "[LSP]" },
@@ -49,7 +60,7 @@ return {
                         module = "blink-ripgrep",
                     },
                 },
-                cmdline = {},
+                -- cmdline = {},
             },
 
         completion = {
