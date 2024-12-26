@@ -61,31 +61,7 @@ vim.keymap.set('n', "<c-k>", ":TmuxNavigateUp<cr>")
 vim.keymap.set('n', "<c-l>", ":TmuxNavigateRight<cr>")
 
 vim.keymap.set('n', '<leader>n', ":Telekasten<cr>", {desc = "Open [T]telekasten"})
-vim.keymap.set('n', 'T', ":Telescope ", {desc = "Open [T]telescope"})
-vim.keymap.set('n', '<leader>cg',
-    function() require('plugins.telescope').grep_prompt() end,
-    { desc = "[C]ode [G]rep" })
-vim.keymap.set('n', '<Leader>o',
-               function() require('telescope.builtin').find_files() end,
-               {desc = "[O]pen file"})
-vim.keymap.set('n', 'gr',
-               function() require'telescope.builtin'.lsp_references() end,
-               {desc = "[G]o to [R]references"})
-vim.keymap.set('n', '<leader>gc',
-               function() require'telescope.builtin'.git_commits() end,
-               {desc = "[G]it [C]commits"})
-vim.keymap.set('n', '<leader>gs',
-               function() require'telescope.builtin'.git_status {} end,
-               {desc = "[G]it [S]tatus"})
-vim.keymap.set('n', '<leader>fg',
-               function() require'telescope.builtin'.git_files {} end,
-               {desc = "[F]ind [G]it files"})
-vim.keymap.set('n', '<leader>lg',
-               function() require'telescope.builtin'.live_grep {} end,
-               {desc = "[L]ive [G]rep"})
-vim.keymap.set('n', '<leader>bb',
-               function() require'telescope.builtin'.buffers {} end,
-               {desc = "Show [B]buffers"})
+
 vim.keymap.set('n', '<localleader>d',
                function() require'telescope.builtin'.diagnostics {} end,
                {desc = "[D]iagnostics"})
@@ -107,11 +83,6 @@ vim.keymap.set('n', '<leader>t', ":Tags<CR>", {desc = "[T]tags"})
 
 -- Remove trailing whitespace on <leader>S
 vim.keymap.set('n', "<leader>S", "mz:%s/\\s\\+$//<cr>:let @/=''<CR>`z")
-
-vim.keymap.set('n', '<localleader>a', ':belowright Outline<cr>',
--- vim.keymap.set('n', '<localleader>a', ':Lspsaga outline<cr>',
-               {desc = "[O]utline"})
-----let g:tmux_navigator_save_on_switch = 1
 
 -- Delete buffer from buffelist and open previous buffer in split.
 vim.keymap.set('n', '<leader>bq', ':bp <BAR> bd #<CR>')

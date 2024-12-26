@@ -1,5 +1,13 @@
 local load_extensions = require('telescope').load_extension
 
+local grep_prompt = function()
+    require('telescope.builtin').grep_string {
+        shorten_path = false,
+        hidden = true,
+        no_ignore = true,
+        search = vim.fn.input "Grep String > ",
+    }
+end
 local Find_virtual_env = function()
     require('telescope.builtin').find_files({
         shorten_path = false,
@@ -15,9 +23,40 @@ return {
         keys = {
             -- TODO: last telescope
             {
+                'T', ":Telescope ", { desc = "Open [T]telescope" }
+            },
+            { '<leader>cg',
+                function() grep_prompt() end,
+                { desc = "[C]ode [G]rep" } },
+            {
                 "<leader>.",
                 "<cmd>Telescope resume<cr>",
                 { desc = "Resume Telescope" }
+            },
+            { '<leader>gs',
+                function() require 'telescope.builtin'.git_status {} end,
+                { desc = "[G]it [S]tatus" }
+            },
+            { '<leader>fg',
+                function() require 'telescope.builtin'.git_files {} end,
+                { desc = "[F]ind [G]it files" } },
+            { '<leader>gc',
+                function() require 'telescope.builtin'.git_commits() end,
+                { desc = "[G]it [C]commits" }
+            },
+            {
+                'gr',
+                function() require 'telescope.builtin'.lsp_references() end,
+                { desc = "[G]o to [R]references" }
+            },
+            { '<leader>lg',
+                function() require 'telescope.builtin'.live_grep {} end,
+                { desc = "[L]ive [G]rep" }
+            },
+            {
+                "<leader>o",
+                function() require('telescope.builtin').find_files() end,
+                { desc = "[O]pen file" }
             },
             {
                 "<leader>ff",
@@ -29,7 +68,11 @@ return {
             end, { desc = "Buffer [F]uzzy find" }
             },
 
-            -- { '<C-u>', "<ESC>mzgUiw`za", mode = { "i", "n" }, desc = "Uppercase previous word" },
+            { '<leader>bb', function()
+                require 'telescope.builtin'.buffers {}
+            end,
+                { desc = "Show [B]buffers" }
+            },
 
             { '<leader>fv',
                 function() Find_virtual_env() end,

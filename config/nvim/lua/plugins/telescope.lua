@@ -75,16 +75,3 @@ require('telescope').load_extension("rest")
 -- require("telescope").load_extension('harpoon')
 
 vim.keymap.set("n", "<localleader>u", "<cmd>Telescope undo<cr>")
-local M = {}
-
-M.grep_prompt = function()
-    require('telescope.builtin').grep_string {
-        shorten_path = false,
-        hidden = true,
-        no_ignore = true,
-        search = vim.fn.input "Grep String > ",
-    }
-end
-
-
-return M

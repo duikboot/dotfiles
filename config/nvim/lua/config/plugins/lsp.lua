@@ -98,6 +98,24 @@ end
 
 return {
     {
+        'https://github.com/hedyhli/outline.nvim',
+        config = function() require("outline").setup({
+            symbols = {
+                filter = {
+                    python = {"Function", "Class", "Method", "Property"},
+                }
+            },
+            providers = {
+                lsp = {
+                    blacklist_clients = { "pylsp" },
+                }
+            },
+        }) end,
+        keys = {
+            { "<localleader>a", "<cmd>belowright Outline<cr>", desc = "Toggle outline" }
+        }
+    },
+    {
         'neovim/nvim-lspconfig',
         dependencies = { 'saghen/blink.cmp' },
 

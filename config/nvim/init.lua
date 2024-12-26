@@ -231,21 +231,6 @@ require("lazy").setup({
     -- { 'https://github.com/HiPhish/nvim-cmp-vlime', ft = 'lisp' },
     { 'https://github.com/bhurlow/vim-parinfer', ft = 'lisp' },
     {
-        'https://github.com/hedyhli/outline.nvim',
-        config = function() require("outline").setup({
-            symbols = {
-                filter = {
-                    python = {"Function", "Class", "Method", "Property"},
-                }
-            },
-            providers = {
-                lsp = {
-                    blacklist_clients = { "pylsp" },
-                }
-            },
-        }) end
-    },
-    {
         "https://github.com/vhyrro/luarocks.nvim",
         priority = 1000,
         opts = {
@@ -267,10 +252,10 @@ require("lazy").setup({
     --         require('kulala').setup()
     --     end
     -- },
-    {
-      'https://github.com/stevearc/overseer.nvim',
-      opts = {},
-    },
+    -- {
+    --   'https://github.com/stevearc/overseer.nvim',
+    --   opts = {},
+    -- },
     -- Telekasten
     'https://github.com/renerocksai/telekasten.nvim',
     'https://github.com/renerocksai/calendar-vim',
