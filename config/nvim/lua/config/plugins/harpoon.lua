@@ -4,7 +4,7 @@ return {
     "https://github.com/ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = {
-        "nvim-lua/plenary.nvim",
+        "https://github.com/nvim-lua/plenary.nvim",
         "https://github.com/samharju/yeet.nvim",
     },
     config = function()
@@ -42,7 +42,9 @@ return {
             end,
         })
         vim.keymap.set("n", "<leader><BS>",
-            function() harpoon.ui:toggle_quick_menu(harpoon:list("yeet")) end
+            function()
+                harpoon.ui:toggle_quick_menu(harpoon:list("yeet"))
+            end
         )
         vim.keymap.set("n", "<localleader><localleader>",
             function()
