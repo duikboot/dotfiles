@@ -6,10 +6,17 @@
 
 return {
     {
+        "https://github.com/Saghen/blink.compat",
+        version = "*",
+        lazy = true,
+        config = true
+    },
+
+    {
         enabled = true,
         'http://github.com/saghen/blink.cmp',
         -- optional: provides snippets for the snippet source
-        dependencies = 'http://rafamadriz/friendly-snippets',
+        dependencies = 'http://github.com/rafamadriz/friendly-snippets',
 
         -- use a release tag to download pre-built binaries
         version = '*',
@@ -43,30 +50,44 @@ return {
 
             sources = {
                 default = {
+                    -- "supermaven",
                     "lsp",
                     "path",
                     "snippets",
                     "buffer",
                     "ripgrep",
                     "cmdline",
+                    "vlime"
                 },
                 providers = {
                     -- lsp = { name = "[LSP]" },
                     -- path = { name = "[PATH]" },
                     -- snippets = { name = "[SNIPPETS]" },
-                    -- buffer = { name = "[BUFFER]" }, 
-                   ripgrep = {
+                    -- buffer = { name = "[BUFFER]" },
+                    ripgrep = {
                         name = "Ripgrep",
                         module = "blink-ripgrep",
                     },
+                    vlime = {
+
+                        name = "vlime",
+                        module = "blink.compat.source",
+                        score_offset = 0,
+                    },
+                    supermaven = {
+                        name = 'supermaven',
+                        module = 'blink.compat.source',
+                        async = true,
+                        opts = {}
+                    }
                 },
                 -- cmdline = {},
             },
 
-        completion = {
+            completion = {
                 menu = {
                     draw = {
-                    columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" }, {"source_name" } },
+                        columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" }, { "source_name" } },
                     }
                 }
             },
@@ -79,6 +100,6 @@ return {
     },
     {
         "https://github.com/mikavilpas/blink-ripgrep.nvim"
-            -- "niuiic/blink-cmp-rg.nvim",
+        -- "niuiic/blink-cmp-rg.nvim",
     }
 }
