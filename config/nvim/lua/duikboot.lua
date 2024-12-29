@@ -1,18 +1,11 @@
 local modules = {
     "plugins.treesitter",
     "plugins.treesitter_context",
-    "plugins.telescope",
-    -- "plugins.cmp",
     "plugins.null_ls",
-    -- "plugins.lsp",
-    -- "plugins.lsp_saga",
     "plugins.gitsigns",
-    -- "plugins.harpoon",
-    -- "plugins.yeet",
     "plugins.vlime",
     "plugins.neoterm",
     "plugins.trouble",
-    "plugins.rest_nvim",
     "plugins.hlslens",
     "plugins.telekasten",
 

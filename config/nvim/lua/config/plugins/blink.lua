@@ -9,7 +9,7 @@ return {
         "https://github.com/Saghen/blink.compat",
         version = "*",
         lazy = true,
-        config = true
+        opts = {}
     },
 
     {
@@ -51,13 +51,13 @@ return {
             sources = {
                 default = {
                     -- "supermaven",
+                    "vlime",
                     "lsp",
                     "path",
                     "snippets",
                     "buffer",
                     "ripgrep",
                     "cmdline",
-                    "vlime"
                 },
                 providers = {
                     -- lsp = { name = "[LSP]" },
@@ -72,7 +72,7 @@ return {
 
                         name = "vlime",
                         module = "blink.compat.source",
-                        score_offset = 0,
+                        score_offset = -3,
                     },
                     supermaven = {
                         name = 'supermaven',

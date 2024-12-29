@@ -20,6 +20,58 @@ return {
     {
         "https://github.com/nvim-telescope/telescope.nvim",
         dependencies = { 'https://github.com/nvim-lua/plenary.nvim' },
+        config = function()
+            local actions = require("telescope.actions")
+            local sorters = require("telescope.sorters")
+            require('telescope').setup {
+                defaults = {
+                    -- prompt_prefix = "🔍 ",
+                    winblend = 10,
+                    -- path_display = {
+                    --     "shorten",
+                    --     "absolute"
+                    -- },
+                    file_sorter = sorters.get_fzy_sorter,
+                    file_ignore_patterns = { "tags" },
+                    sorting_strategy = "descending",
+                    -- sorting_strategy = "ascending",
+                    mappings = {
+                        i = {
+                            ["<C-x>"] = actions.send_to_qflist + actions.open_qflist,
+                            -- ["<c-t>"] = trouble.open_with_trouble,
+                        },
+                        n = {
+                            ["<C-x>"] = actions.send_to_qflist + actions.open_qflist,
+                            -- ["<c-t>"] = trouble.open_with_trouble,
+                        },
+                    }
+                },
+                pickers = {
+                    current_buffer_fuzzy_find = {
+                        sorting_strategy = "ascending",
+                        layout_config = {
+                            prompt_position = "top",
+                        },
+                    }
+                },
+                extensions = {
+                    -- fzf = {
+                    --     override_generic_sorter = false, -- override the generic sorter
+                    --     override_file_sorter = true,     -- override the file sorter
+                    --     case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                    --     -- the default case_mode is "smart_case"
+                    -- },
+                    sessions_picker = {
+                        sessions_dir = vim.fn.stdpath('data') .. '/session/', -- same as '/home/user/.local/share/nvim/session'
+                    },
+                    ctags_outline = {
+                        ft_opt = {
+                            python = '--python-kinds=-iv',
+                        }
+                    }
+                }
+            }
+        end,
         keys = {
             -- TODO: last telescope
             {
@@ -89,6 +141,7 @@ return {
 
     {
         "https://github.com/camgraff/telescope-tmux.nvim",
+        config = function() load_extensions('tmux') end,
         keys = {
             { "<leader>ts", ":Telescope tmux sessions<cr>",      { noremap = true } },
             { "<leader>tw", ":Telescope tmux windows<cr>",       { noremap = true } },
@@ -119,7 +172,14 @@ return {
 
     {
         "https://github.com/debugloop/telescope-undo.nvim",
-        config = function() load_extensions('undo') end
+        config = function() load_extensions('undo') end,
+        keys = {
+            {
+                "<localleader>u",
+                "<cmd>Telescope undo<cr>",
+                { desc = "[U]ndo" },
+            },
+        }
     },
 
     "https://github.com/mbbill/undotree",

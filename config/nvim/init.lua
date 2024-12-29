@@ -228,7 +228,7 @@ require("lazy").setup({
         end,
         ft = { "lisp" }
     },
-    -- { 'https://github.com/HiPhish/nvim-cmp-vlime', ft = 'lisp' },
+    { 'https://github.com/HiPhish/nvim-cmp-vlime', ft = 'lisp' },
     { 'https://github.com/bhurlow/vim-parinfer', ft = 'lisp' },
     {
         "https://github.com/vhyrro/luarocks.nvim",
@@ -237,25 +237,7 @@ require("lazy").setup({
             rocks = {  "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }},
         config = true
     },
-    {
-        "https://github.com/rest-nvim/rest.nvim",
-        ft = "http",
-        cmd = {"Rest", "Http"},
-        dependencies = { "luarocks.nvim" },
-        config = function()
-            require("rest-nvim").setup()
-        end,
-    },
-    --  If rest.nvim stops working
-    -- {"https://github.com/mistweaverco/kulala.nvim",
-    --     config = function()
-    --         require('kulala').setup()
-    --     end
-    -- },
-    -- {
-    --   'https://github.com/stevearc/overseer.nvim',
-    --   opts = {},
-    -- },
+
     -- Telekasten
     'https://github.com/renerocksai/telekasten.nvim',
     'https://github.com/renerocksai/calendar-vim',
