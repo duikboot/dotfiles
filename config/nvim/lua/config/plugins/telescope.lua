@@ -185,6 +185,12 @@ return {
     "https://github.com/mbbill/undotree",
 
     "https://github.com/aaronhallaert/advanced-git-search.nvim",
+
+    {
+
+    "https://github.com/nvim-telescope/telescope-dap.nvim",
+        config = function() load_extensions('dap') end,
+    }
     -- {
     --     "https://github.com/gbprod/yanky.nvim",
     --     config = function() load_extensions('yank_history') end

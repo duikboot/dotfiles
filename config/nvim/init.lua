@@ -211,7 +211,6 @@ require("lazy").setup({
     { "https://github.com/rcarriga/nvim-dap-ui", dependencies = {"nvim-neotest/nvim-nio"} },
     { "https://github.com/mfussenegger/nvim-dap-python", ft = 'python' },
     "https://github.com/theHamsta/nvim-dap-virtual-text",
-    "https://github.com/nvim-telescope/telescope-dap.nvim",
     "https://github.com/jay-babu/mason-nvim-dap.nvim",
     -- {
     --     "https://github.com/numToStr/Comment.nvim",
