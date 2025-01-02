@@ -28,7 +28,7 @@ return {
             keymap = {
                 preset = 'enter',
                 cmdline = {
-                    ['<CR>'] = {},
+                    preset = 'default',
                 }
             },
 
@@ -53,19 +53,28 @@ return {
                     -- "supermaven",
                     "vlime",
                     "lsp",
+                    "cody",
                     "path",
                     "snippets",
                     "buffer",
                     "ripgrep",
-                    "cmdline",
+                    -- "cmdline",
                 },
                 providers = {
                     lsp = {
-                        -- name = "[LSP]",
+                        name = "[LSP]",
                         score_offset = 90,
                     },
+                    path = {
+                        name = "[PATH]",
+                        fallbacks = { "lsp", "buffer"},
+                        -- min_keyword_length = 2,
+                        opts = {
+                            show_hidden_files_by_default = true,
+                        },
+                    },
                     ripgrep = {
-                        name = "Ripgrep",
+                        name = "[RG]",
                         module = "blink-ripgrep",
                     },
                     vlime = {
@@ -79,6 +88,12 @@ return {
                         module = 'blink.compat.source',
                         async = true,
                         opts = {}
+                    },
+                    cody = {
+                        name = "cody",
+                        module = "blink.compat.source",
+                        enabled = true,
+                        async = true,
                     }
                 },
                 -- cmdline = {},
