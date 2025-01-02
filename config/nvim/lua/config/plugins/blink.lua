@@ -60,10 +60,10 @@ return {
                     "cmdline",
                 },
                 providers = {
-                    -- lsp = { name = "[LSP]" },
-                    -- path = { name = "[PATH]" },
-                    -- snippets = { name = "[SNIPPETS]" },
-                    -- buffer = { name = "[BUFFER]" },
+                    lsp = {
+                        -- name = "[LSP]",
+                        score_offset = 90,
+                    },
                     ripgrep = {
                         name = "Ripgrep",
                         module = "blink-ripgrep",
@@ -72,7 +72,7 @@ return {
 
                         name = "vlime",
                         module = "blink.compat.source",
-                        score_offset = -3,
+                        score_offset = 70,
                     },
                     supermaven = {
                         name = 'supermaven',
@@ -87,7 +87,11 @@ return {
             completion = {
                 menu = {
                     draw = {
-                        columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" }, { "source_name" } },
+                        columns = {
+                            { "label", "label_description", gap = 1 },
+                            { "kind_icon", "kind" },
+                            { "source_name" },
+                        },
                     }
                 }
             },

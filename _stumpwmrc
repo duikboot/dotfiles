@@ -539,8 +539,8 @@
 (run-commands "grename browser"
               "gnewbg code"
               "gnewbg chat"
-              "gnewbg documentation"
               "gnewbg media"
+              "gnewbg documentation"
               "gnewbg root")
 
 (dotimes (i 10)
