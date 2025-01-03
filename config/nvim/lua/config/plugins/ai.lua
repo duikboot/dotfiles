@@ -10,7 +10,7 @@ return {
     },
     {
         "https://github.com/sourcegraph/sg.nvim",
-        enabled = false,
+        enabled = true,
         event = "InsertEnter",
         dependencies = { 'https://github.com/nvim-lua/plenary.nvim' },
         config = function()

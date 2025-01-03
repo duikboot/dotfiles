@@ -102,7 +102,7 @@ return {
                         async = true,
                     }
                 },
-                -- cmdline = {},
+                cmdline = {},
             },
 
             completion = {

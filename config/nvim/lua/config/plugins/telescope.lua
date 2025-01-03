@@ -52,9 +52,13 @@ return {
                         layout_config = {
                             prompt_position = "top",
                         },
-                    }
+                    },
+                    -- find_files = {
+                    --     theme = "ivy"
+                    -- },
                 },
                 extensions = {
+                    fzf = {},
                     -- fzf = {
                     --     override_generic_sorter = false, -- override the generic sorter
                     --     override_file_sorter = true,     -- override the file sorter
