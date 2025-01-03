@@ -160,6 +160,10 @@ return {
                                     enabled = true,
                                     maxLineLength = 90
                                 },
+                                mccabe = {
+                                    enabled = true,
+                                    threshold = 10,
+                                },
                                 pycodestyle = { enabled = false },
                             },
                         },

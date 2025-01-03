@@ -64,6 +64,7 @@ return {
                     lsp = {
                         name = "[LSP]",
                         score_offset = 90,
+                        min_keyword_length = 2
                     },
                     path = {
                         name = "[PATH]",
@@ -76,6 +77,11 @@ return {
                     ripgrep = {
                         name = "[RG]",
                         module = "blink-ripgrep",
+                        min_keyword_length = 2
+                    },
+                    snippets = {
+                        name = "[SNIPPETS]",
+                        -- min_keyword_length = 2,
                     },
                     vlime = {
 
