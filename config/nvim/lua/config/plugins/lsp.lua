@@ -66,9 +66,9 @@ local on_attach_vim_plus_keymaps = function(client, bufnr)
     vim.keymap.set("n", "<leader>gd", vim.lsp.buf.declaration, options)
     vim.keymap.set("n", "<c-]>", vim.lsp.buf.definition, options)
     vim.keymap.set("n", '<leader>th',
-      function()
-        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({0}),{0})
-    end,{desc="Toggle inlay hints"})
+        function()
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
+        end, { desc = "Toggle inlay hints" })
 
 
     -- if client.supports_method("textDocument/formatting") then
@@ -104,18 +104,20 @@ end
 return {
     {
         'https://github.com/hedyhli/outline.nvim',
-        config = function() require("outline").setup({
-            symbols = {
-                filter = {
-                    python = {"Function", "Class", "Method", "Property"},
-                }
-            },
-            providers = {
-                lsp = {
-                    blacklist_clients = { "pylsp" },
-                }
-            },
-        }) end,
+        config = function()
+            require("outline").setup({
+                symbols = {
+                    filter = {
+                        python = { "Function", "Class", "Method", "Property" },
+                    }
+                },
+                providers = {
+                    lsp = {
+                        blacklist_clients = { "pylsp" },
+                    }
+                },
+            })
+        end,
         keys = {
             { "<localleader>a", "<cmd>belowright Outline<cr>", desc = "Toggle outline" }
         }
@@ -151,6 +153,18 @@ return {
                 ruff = {
                     on_attach = attach,
                     capabilities = capabilities,
+                },
+                rust_analyzer = {
+                    on_attach = attach,
+                    capabilities = capabilities,
+                    settings = {
+                        check = {
+                            command = "clippy",
+                        },
+                        diagnostics = {
+                            enable = true,
+                        }
+                    },
                 },
                 pylsp = {
                     on_attach = attach,

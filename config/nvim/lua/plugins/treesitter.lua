@@ -12,6 +12,7 @@ require("nvim-treesitter.configs").setup({
         "lua",
         "make",
         "python",
+        "rust",
         "vim",
         "vimdoc",
         "query"
