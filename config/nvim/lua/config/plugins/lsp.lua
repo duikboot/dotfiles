@@ -86,7 +86,7 @@ local on_attach_vim_plus_keymaps = function(client, bufnr)
 end
 
 
-local attach = function(client, bufnr)
+local function attach(client, bufnr)
     on_attach_vim_plus_keymaps(client, bufnr)
     -- if client.server_capabilities.inlayHintProvider then
     --     vim.lsp.inlay_hint.enable(true)
