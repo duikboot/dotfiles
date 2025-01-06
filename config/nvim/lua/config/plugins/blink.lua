@@ -77,7 +77,10 @@ return {
                     ripgrep = {
                         name = "[RG]",
                         module = "blink-ripgrep",
-                        min_keyword_length = 2
+                        min_keyword_length = 2,
+                        opts = {
+                            context_size = 8,
+                        },
                     },
                     snippets = {
                         name = "[SNIPPETS]",
@@ -114,7 +117,10 @@ return {
                             { "source_name" },
                         },
                     }
-                }
+                },
+                documentation = {
+                    auto_show = true,
+                },
             },
 
             signature = {
