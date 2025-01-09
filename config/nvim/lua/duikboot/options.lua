@@ -45,6 +45,7 @@ option.suffixesadd = ".tex,.latex,.java,.js,.hrl,.erl,.lisp,.asd,.lua"
 option.pumheight = 20 -- Keep a small completion window
 -- option.winblend = 60 -- Keep a small completion window
 
+option.colorcolumn = "79"
 
 option.messagesopt="hit-enter,history:500,wait:1000"
 
