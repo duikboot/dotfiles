@@ -97,6 +97,12 @@ alacritty:
 	-rm ${HOME_DIR}/.config/$@
 	ln -s ${PWD}/config/$@ ${HOME_DIR}/.config/$@
 
+.PHONY: ghostty
+ghostty:
+	@echo symlink ghostty
+	-rm ${HOME_DIR}/.config/$@
+	ln -s ${PWD}/config/$@ ${HOME_DIR}/.config/$@
+
 .PHONY: kitty
 kitty:
 	@echo symlink kitty

@@ -11,6 +11,10 @@ return {
         lazy = true,
         opts = {}
     },
+    {
+        "https://github.com/mikavilpas/blink-ripgrep.nvim"
+        -- "niuiic/blink-cmp-rg.nvim",
+    },
 
     {
         enabled = true,
@@ -68,7 +72,7 @@ return {
                     },
                     path = {
                         name = "[PATH]",
-                        fallbacks = { "lsp", "buffer"},
+                        fallbacks = { "lsp", "buffer" },
                         -- min_keyword_length = 2,
                         opts = {
                             show_hidden_files_by_default = true,
@@ -112,8 +116,8 @@ return {
                 menu = {
                     draw = {
                         columns = {
-                            { "label", "label_description", gap = 1 },
-                            { "kind_icon", "kind" },
+                            { "label",      "label_description", gap = 1 },
+                            { "kind_icon",  "kind" },
                             { "source_name" },
                         },
                     }
@@ -129,8 +133,4 @@ return {
         },
         opts_extend = { "sources.default" },
     },
-    {
-        "https://github.com/mikavilpas/blink-ripgrep.nvim"
-        -- "niuiic/blink-cmp-rg.nvim",
-    }
 }
