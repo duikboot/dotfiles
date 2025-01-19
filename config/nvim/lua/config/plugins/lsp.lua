@@ -158,6 +158,10 @@ return {
                     on_attach = attach,
                     capabilities = capabilities,
                 },
+                bashls = {
+                    on_attach = attach,
+                    capabilities = capabilities,
+                },
                 rust_analyzer = {
                     on_attach = attach,
                     capabilities = capabilities,
