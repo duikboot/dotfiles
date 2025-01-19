@@ -154,6 +154,10 @@ return {
                     on_attach = attach,
                     capabilities = capabilities,
                 },
+                docker_compose_language_service = {
+                    on_attach = attach,
+                    capabilities = capabilities,
+                },
                 rust_analyzer = {
                     on_attach = attach,
                     capabilities = capabilities,
