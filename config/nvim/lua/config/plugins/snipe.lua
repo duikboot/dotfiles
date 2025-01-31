@@ -1,7 +1,7 @@
 return
 {
     {
-        "leath-dub/snipe.nvim",
+        "https://github.com/leath-dub/snipe.nvim",
         enabled = true,
         keys = {
             { "gb", function() require("snipe").open_buffer_menu() end, desc = "Open Snipe buffer menu" }
@@ -9,7 +9,7 @@ return
         opts = {}
     },
     {
-        "kungfusheep/snipe-lsp.nvim",
+        "https://github.com/kungfusheep/snipe-lsp.nvim",
         enabled = false,
         event = "VeryLazy",
         dependencies = "leath-dub/snipe.nvim",
@@ -20,7 +20,7 @@ return
     },
 
     {
-        "nicholasxjy/snipe-marks.nvim",
+        "https://github.com/nicholasxjy/snipe-marks.nvim",
         enabled = false,
         dependencies = { "leath-dub/snipe.nvim" },
         keys = {

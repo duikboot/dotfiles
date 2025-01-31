@@ -5,6 +5,7 @@ local grep_prompt = function()
         shorten_path = false,
         hidden = true,
         no_ignore = true,
+        additional_args = { "--hidden" },
         search = vim.fn.input "Grep String > ",
     }
 end
@@ -56,6 +57,7 @@ return {
                     -- find_files = {
                     --     theme = "ivy"
                     -- },
+                    grep_string = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
                 },
                 extensions = {
                     fzf = {},
