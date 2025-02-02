@@ -31,10 +31,14 @@ size = 10.0
 
 [font.normal]
 # family = "monospace"
-family = "Source Code Pro"
+# family = "Source Code Pro"
+family = "Hasklug Nerd Font Mono Med"
 # family = "Iosevka nerd font"
 # family = "Jetbrainsmono nerd font"
 # style = "Mono"
+
+[font.italic]
+# family = "Cartograph CF"
 
 [window]
 decorations = "full"
