@@ -1,5 +1,5 @@
 return {
-    "Davidyz/inlayhint-filler.nvim",
+    "https://github.com/Davidyz/inlayhint-filler.nvim",
     ft = "python",
     keys={
         {

@@ -39,5 +39,6 @@ vim.g.startify_commands = {
 
 return {
     "https://github.com/mhinz/vim-startify",
+    enabled = false,
 
 }
