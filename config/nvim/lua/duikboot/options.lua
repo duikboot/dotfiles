@@ -50,6 +50,8 @@ option.colorcolumn = "79"
 
 option.messagesopt="hit-enter,history:500,wait:1000"
 
+vim.opt.diffopt="internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram"
+
 -- Keep a persistend backupfile
 option.undofile = true
 option.undodir = home .. "/.vim"
