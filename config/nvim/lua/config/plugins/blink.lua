@@ -15,7 +15,9 @@ return {
         "https://github.com/mikavilpas/blink-ripgrep.nvim"
         -- "niuiic/blink-cmp-rg.nvim",
     },
-
+    {
+        "giuxtaposition/blink-cmp-copilot",
+    },
     {
         enabled = true,
         'http://github.com/saghen/blink.cmp',
@@ -62,6 +64,7 @@ return {
                     "snippets",
                     "buffer",
                     "ripgrep",
+                    'copilot',
                     -- "cmdline",
                 },
                 providers = {
@@ -107,7 +110,13 @@ return {
                         module = "blink.compat.source",
                         enabled = true,
                         async = true,
-                    }
+                    },
+                    copilot = {
+                        name = "copilot",
+                        module = "blink-cmp-copilot",
+                        score_offset = 100,
+                        async = true,
+                    },
                 },
                 cmdline = {},
             },

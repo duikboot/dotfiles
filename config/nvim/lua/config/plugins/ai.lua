@@ -20,5 +20,17 @@ return {
                 -- refer to the configuration section below
             })
         end,
+    },
+    {
+        "zbirenbaum/copilot.lua",
+        enabled = true,
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            require("copilot").setup({
+                suggestion = { enabled = false },
+                panel = { enabled = false },
+            })
+        end,
     }
 }
