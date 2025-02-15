@@ -160,20 +160,6 @@ require("lazy").setup({
     "https://github.com/pechorin/any-jump.vim",
     "https://github.com/christoomey/vim-tmux-navigator",
 
-    -- Editing
-    -- {
-    --     "https://github.com/zbirenbaum/copilot.lua",
-    --     enabled = true,
-    --     cmd = "Copilot",
-    --     event = "InsertEnter",
-    --     config = function()
-    --         require("copilot").setup({
-    --             suggestion = { enabled = true },
-    --             panel = { enabled = false },
-    --         })
-    --     end,
-    --     opts = { suggestion = { enabled = false }, panel = { enabled = false } }
-    -- },
     -- { 'https://codeberg.org/esensar/nvim-dev-container',
     --     config = function()
     --         require('devcontainer').setup({})
