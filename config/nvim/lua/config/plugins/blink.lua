@@ -33,9 +33,6 @@ return {
             -- See the full "keymap" documentation for information on defining your own keymap.
             keymap = {
                 preset = 'enter',
-                cmdline = {
-                    preset = 'default',
-                }
             },
 
             appearance = {
@@ -118,7 +115,19 @@ return {
                         async = true,
                     },
                 },
-                cmdline = {},
+                -- cmdline = {},
+            },
+            cmdline = {
+                sources = {},
+                -- keymap = {
+                --     preset = 'default',
+                -- }
+            },
+            term = {
+                sources = {},
+                -- keymap = {
+                --     preset = 'default',
+                -- }
             },
 
             completion = {

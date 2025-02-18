@@ -1,6 +1,7 @@
 return {
     {
         "https://github.com/hrsh7th/nvim-cmp",
+        -- enabled = false,
         config = function()
             local cmp = require 'cmp'
             cmp.setup()
@@ -11,6 +12,7 @@ return {
     {"https://github.com/hrsh7th/cmp-path"},
 
     {"https://github.com/hrsh7th/cmp-cmdline",
+        -- enabled = false,
     config = function()
         local cmp = require 'cmp'
         cmp.setup.cmdline({ '/', '?' }, {
