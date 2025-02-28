@@ -139,7 +139,6 @@ require("lazy").setup({
         end,
         lazy = true
     },
-    "https://github.com/jose-elias-alvarez/null-ls.nvim",
 
     -- Navigation
 
