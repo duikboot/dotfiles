@@ -195,7 +195,10 @@ return {
     {
 
     "https://github.com/nvim-telescope/telescope-dap.nvim",
-        config = function() load_extensions('dap') end,
+        config = function()
+            load_extensions('dap')
+            require('telescope').load_extension('git_worktree')
+        end,
     }
     -- {
     --     "https://github.com/gbprod/yanky.nvim",

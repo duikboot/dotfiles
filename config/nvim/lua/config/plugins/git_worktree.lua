@@ -1,4 +1,3 @@
-require('telescope').load_extension('git_worktree')
 
 return {
     'polarmutex/git-worktree.nvim',
