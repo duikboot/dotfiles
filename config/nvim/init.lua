@@ -227,7 +227,7 @@ require("lazy").setup({
     'https://github.com/renerocksai/telekasten.nvim',
     'https://github.com/renerocksai/calendar-vim',
     'https://github.com/MunifTanjim/nui.nvim/',
-    'https://github.com/nvim-neo-tree/neo-tree.nvim/',
+    -- 'https://github.com/nvim-neo-tree/neo-tree.nvim/',
     'https://github.com/FabianWirth/search.nvim',
     { 'https://github.com/tris203/hawtkeys.nvim', config = true },
     {
