@@ -23,6 +23,7 @@ return {
         }
         local Hooks = require("git-worktree.hooks")
         local function on_tree_switch(op, path)
+            print("Switched to tree " .. path)
             -- vim.cmd("%bd|e#")
         end
 

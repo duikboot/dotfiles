@@ -53,7 +53,7 @@ null_ls.setup({
         -- formatting.clang_format,
         -- formatting.eslint,
         -- formatting.yapf,
-        formatting.lua_format,
+        -- formatting.lua_format,
         -- Hover
         hover.dictionary
     },
