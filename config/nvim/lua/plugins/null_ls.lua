@@ -34,7 +34,7 @@ null_ls.setup({
         diagnostics.codespell,
         diagnostics.gitlint,
         diagnostics.hadolint,
-        diagnostics.jsonlint,
+        diagnostics.trail_space,
         -- diagnostics.luacheck,
         -- diagnostics.shellcheck,
         -- diagnostics.vint,
@@ -45,7 +45,7 @@ null_ls.setup({
         -- Formatting
         -- formatting.autopep8,
         formatting.isort,
-        formatting.trim_whitespace,
+        -- formatting.trim_whitespace,
         formatting.black,
         formatting.gofumpt,
         formatting.goimports,
