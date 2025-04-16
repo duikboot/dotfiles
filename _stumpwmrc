@@ -746,7 +746,8 @@ will scroll through windows in the current group."
     (refresh)
     (create-background-battery-thread)
     (notify:notify-server-on)
-    (run-shell-command "firefox")))
+    (run-shell-command "firefox")
+    (run-shell-command "slack")))
 
 ;; (ql:quickload '(clim slim))
 ;; (load-module "clim-mode-line")
