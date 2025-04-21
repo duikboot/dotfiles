@@ -30,8 +30,8 @@ return {
             require("copilot").setup({
                 suggestion = { enabled = false },
                 panel = {
-                    enabled = true,
-                    auto_refresh = true,
+                    enabled = false,
+                    -- auto_refresh = true,
                 },
             })
         end,

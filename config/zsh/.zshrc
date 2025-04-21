@@ -59,3 +59,6 @@ if [ -f '/home/arjen/Programs/google-cloud-sdk/completion.zsh.inc' ]; then . '/h
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /var/lib/snapd/snap/terraform/711/terraform terraform
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/arjen/.lmstudio/bin"
