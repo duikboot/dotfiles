@@ -81,14 +81,14 @@ local on_attach_vim_plus_keymaps = function(client, bufnr)
     vim.keymap.set("n", "<leader>gd", vim.lsp.buf.declaration, opts)
     vim.keymap.set("n", "<c-]>", vim.lsp.buf.definition, opts)
 
-    -- if client.supports_method("textDocument/formatting") then
+    -- if client:supports_method("textDocument/formatting") then
     --     vim.keymap.set("n", "<Localleader>r", function()
     --         vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
     --         print("Formatted file...")
     --     end, { buffer = bufnr, desc = "[lsp] format" })
     -- end
     --
-    -- if client.supports_method("textDocument/rangeFormatting") then
+    -- if client:supports_method("textDocument/rangeFormatting") then
     --     vim.keymap.set("x", "<Localleader>r", function()
     --         vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
     --         print("Formatted range...")

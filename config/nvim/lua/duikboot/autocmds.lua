@@ -49,14 +49,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
         local clients = vim.lsp.get_clients()
         for _, client in ipairs(clients) do
-            if (client.supports_method("textDocument/formatting")) then
+            if (client:supports_method("textDocument/formatting")) then
                 vim.keymap.set('n', '<localleader>r', function()
                     print(client.name)
                     vim.lsp.buf.format()
                     print("Formatted buffer...")
                 end, { buffer = args.buf, desc = "[lsp] format" })
             end
-            if client.supports_method("textDocument/rangeFormatting") then
+            if client:supports_method("textDocument/rangeFormatting") then
                 vim.keymap.set("x", "<Localleader>r", function()
                     print(client.name)
                     vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
