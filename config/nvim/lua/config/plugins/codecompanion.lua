@@ -1,5 +1,5 @@
 return {
-  "olimorris/codecompanion.nvim",
+  "https://github.com/olimorris/codecompanion.nvim",
   opts = {},
   dependencies = {
     "nvim-lua/plenary.nvim",

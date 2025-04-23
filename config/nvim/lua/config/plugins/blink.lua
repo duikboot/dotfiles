@@ -67,6 +67,9 @@ return {
                     'copilot',
                     -- "cmdline",
                 },
+                per_filetype = {
+                    codecompanion = { "codecompanion" },
+                },
                 providers = {
                     lsp = {
                         name = "[LSP]",
