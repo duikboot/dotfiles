@@ -66,6 +66,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
     end
 })
+
 -- local FormatLsp = vim.api.nvim_create_augroup("FormatLsp", { clear = true })
 --
 -- vim.api.create_autocmd({ "LspAttach" }, {

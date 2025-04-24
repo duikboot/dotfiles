@@ -57,6 +57,7 @@ return {
             sources = {
                 default = {
                     -- "supermaven",
+                    'copilot',
                     "vlime",
                     "lsp",
                     "cody",
@@ -64,7 +65,6 @@ return {
                     "snippets",
                     "buffer",
                     "ripgrep",
-                    'copilot',
                     -- "cmdline",
                 },
                 per_filetype = {
