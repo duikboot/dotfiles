@@ -1,27 +1,33 @@
+[general]
+live_config_reload = true
+import = [
+    "~/.config/alacritty/themes/themes/ayu_light.toml",
+]
 
-[colors.bright]
-black = "0x686868"
-blue = "0x59C2FF"
-cyan = "0x95E6CB"
-green = "0xC2D94C"
-magenta = "0xFFEE99"
-red = "0xF07178"
-white = "0xFFFFFF"
-yellow = "0xFFB454"
 
-[colors.normal]
-black = "0x01060E"
-blue = "0x53BDFA"
-cyan = "0x90E1C6"
-green = "0x91B362"
-magenta = "0xFAE994"
-red = "0xEA6C73"
-white = "0xC7C7C7"
-yellow = "0xF9AF4F"
-
-[colors.primary]
-background = "0x2e2c28"
-foreground = "0xB3B1AD"
+# [colors.bright]
+# black = "0x686868"
+# blue = "0x59C2FF"
+# cyan = "0x95E6CB"
+# green = "0xC2D94C"
+# magenta = "0xFFEE99"
+# red = "0xF07178"
+# white = "0xFFFFFF"
+# yellow = "0xFFB454"
+#
+# [colors.normal]
+# black = "0x01060E"
+# blue = "0x53BDFA"
+# cyan = "0x90E1C6"
+# green = "0x91B362"
+# magenta = "0xFAE994"
+# red = "0xEA6C73"
+# white = "0xC7C7C7"
+# yellow = "0xF9AF4F"
+#
+# [colors.primary]
+# background = "0x2e2c28"
+# foreground = "0xB3B1AD"
 
 [env]
 WINIT_X11_SCALE_FACTOR = "1.0"
@@ -31,8 +37,8 @@ size = 10.0
 
 [font.normal]
 # family = "monospace"
-# family = "Source Code Pro"
-family = "Hasklug Nerd Font Mono Med"
+family = "Source Code Pro"
+# family = "Hasklug Nerd Font Mono Med"
 # family = "Iosevka nerd font"
 # family = "Jetbrainsmono nerd font"
 # style = "Mono"
@@ -43,10 +49,6 @@ family = "Hasklug Nerd Font Mono Med"
 [window]
 decorations = "full"
 opacity = 1.0
-
-[general]
-live_config_reload = true
-
 
 # [window.padding]
 # x = 10
