@@ -151,6 +151,33 @@
 (setf *wallpapers* (make-pathname :directory
                      (format nil "~A/Wallpapers" *home-dir*)))
 
+(setf *alacritty-config* "~/.config/alacritty/alacritty.toml")
+(defvar *alacritty-theme* "light")
+
+(defun toggle-alacritty-theme-function ()
+  (let* ((theme (if
+                 (string= *alacritty-theme* "light")
+                 "light"
+                 "dark"))
+         (new-theme (if
+                     (string= theme "light")
+                     "dark"
+                     "light"))
+         (command (concatenate 'string
+                     "sed -i 's/"
+                     theme
+                     "/"
+                     new-theme
+                     "/g'"
+                     " "
+                     *alacritty-config*)))
+    (log:info command)
+    (run-shell-command command)
+    (setf *alacritty-theme* new-theme)))
+
+(defcommand toggle-alacritty-theme () ()
+  (toggle-alacritty-theme-function))
+
 (set-module-dir *module-dir*)
 
 (defvar *vlime-instance* nil)

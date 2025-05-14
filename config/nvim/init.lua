@@ -65,7 +65,8 @@ require("lazy").setup({
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate"
+        build = ":TSUpdate",
+        dependencies = { "OXY2DEV/markview.nvim" }
     },
     { "https://github.com/nvim-treesitter/playground",   event = "VeryLazy" },
     "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",

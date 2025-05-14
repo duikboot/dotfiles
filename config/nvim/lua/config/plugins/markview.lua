@@ -2,5 +2,5 @@
 return {
     "OXY2DEV/markview.nvim",
     lazy = false,
-    -- ft = { "markdown", "norg", "rmd", "org", "vimwiki", "Avante" },
+    ft = { "markdown", "norg", "rmd", "org", "vimwiki", "Avante", "telekasten" }
 };
