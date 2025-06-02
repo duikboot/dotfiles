@@ -23,6 +23,18 @@
             "django": true,
             "justMyCode": true,
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Python Debugger: behave",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/.venv/bin/behave",
+            "args": [
+                "--no-capture", "-D", "debug=true"
+            ],
+            "justMyCode": true,
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
         }
     ]
 }
