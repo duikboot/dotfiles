@@ -4,7 +4,7 @@ require("nvim-dap-virtual-text").setup()
 
 
 local dap, dapui = require("dap"), require("dapui")
-require('dap.ext.vscode').load_launchjs("~/config/dotfiles/config/nvim/vscode/launch.json")
+-- require('dap.ext.vscode').load_launchjs("~/convscode/launch.json")
 -- require('dap').set_log_level('TRACE')
 dapui.setup({
   layouts = {
