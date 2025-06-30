@@ -57,7 +57,8 @@ return {
             sources = {
                 default = {
                     -- "supermaven",
-                    'copilot',
+                    -- "codeium",
+                    "copilot",
                     "vlime",
                     "lsp",
                     "cody",
@@ -71,6 +72,11 @@ return {
                     codecompanion = { "codecompanion" },
                 },
                 providers = {
+                    -- codeium = {
+                    --     name = 'Codeium',
+                    --     module = "blink.compat.source",
+                    --     async = true,
+                    -- },
                     lsp = {
                         name = "[LSP]",
                         score_offset = 90,
@@ -120,12 +126,6 @@ return {
                         score_offset = 100,
                         async = true,
                     },
-                    -- copilot = {
-                    --     name = "copilot",
-                    --     module = "blink-cmp-copilot",
-                    --     score_offset = 100,
-                    --     async = true,
-                    -- },
                 },
                 -- cmdline = {},
             },
