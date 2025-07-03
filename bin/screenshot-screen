@@ -2,4 +2,5 @@
 
 set -euo pipefail
 
-sleep 0.2 ; scrot 'screenshot_%Y-%m-%d_%H-%M-%S.png' -m -e 'mv $f ~/screenshots && echo -n ~/screenshots/$f' | xsel --clipboard --input
+# sleep 0.2 ; scrot 'screenshot_%Y-%m-%d_%H-%M-%S.png' -m -e 'mv $f ~/screenshots && echo -n ~/screenshots/$f' | xsel --clipboard --input
+sleep 0.2 ; scrot 'screenshot_%Y-%m-%d_%H-%M-%S.png' -m -e 'mv $f ~/screenshots && echo -n ~/screenshots/$f' 

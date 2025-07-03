@@ -22,6 +22,10 @@ return {
         "https://github.com/fang2hou/blink-copilot",
     },
     {
+        'Kaiser-Yang/blink-cmp-avante',
+        -- ... Other dependencies
+    },
+    {
         enabled = true,
         'http://github.com/saghen/blink.cmp',
         -- optional: provides snippets for the snippet source
@@ -57,15 +61,15 @@ return {
             sources = {
                 default = {
                     -- "supermaven",
-                    -- "codeium",
+                    "avante",
                     "copilot",
                     "vlime",
                     "lsp",
-                    "cody",
                     "path",
                     "snippets",
                     "buffer",
                     "ripgrep",
+                    "cody",
                     -- "cmdline",
                 },
                 per_filetype = {
@@ -81,6 +85,14 @@ return {
                         name = "[LSP]",
                         score_offset = 90,
                         min_keyword_length = 2
+                    },
+
+                    avante = {
+                        module = 'blink-cmp-avante',
+                        name = 'Avante',
+                        opts = {
+                            -- options for blink-cmp-avante
+                        }
                     },
                     path = {
                         name = "[PATH]",

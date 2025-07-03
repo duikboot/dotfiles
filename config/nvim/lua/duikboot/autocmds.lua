@@ -1,3 +1,5 @@
+local vim = vim
+
 local utils = require("duikboot.utils")
 
 local highlight_on_enter = function()

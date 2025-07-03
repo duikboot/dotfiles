@@ -32,20 +32,25 @@ import = [
 [env]
 WINIT_X11_SCALE_FACTOR = "1.0"
 
+# [font]
+
+# [font.normal]
+# # family = "monospace"
+# # family = "Source Code Pro"
+# family = "FiraCode Nerd Font"
+# # family = "Hasklug Nerd Font Mono Med"
+# # family = "Iosevka nerd font"
+# # family = "Jetbrainsmono nerd font"
+# # style = "Mono"
+#
+# [font.italic]
+# # family = "Cartograph CF"
 [font]
 size = 10.0
-
-[font.normal]
-# family = "monospace"
-family = "Source Code Pro"
-# family = "Hasklug Nerd Font Mono Med"
-# family = "Iosevka nerd font"
-# family = "Jetbrainsmono nerd font"
-# style = "Mono"
-
-[font.italic]
-# family = "Cartograph CF"
-
+normal = { family = "FiraCode Nerd Font" }
+bold = { family = "FiraCode Nerd Font", style = "Bold" }
+italic = { family = "FiraCode Nerd Font", style = "Italic" }
+bold_italic = { family = "FiraCode Nerd Font", style = "Bold Italic" }
 [window]
 decorations = "full"
 opacity = 1.0

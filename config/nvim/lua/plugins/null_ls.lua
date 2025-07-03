@@ -22,7 +22,7 @@ null_ls.setup({
         -- code_actions.eslint,
         -- code_actions.gitsigs,
         code_actions.refactoring,
-        code_actions.shellcheck,
+        -- code_actions.shellcheck,
         -- Completion
         -- completion.luasnip,
         -- completion.spell,
