@@ -20,7 +20,10 @@ end
 return {
     {
         "https://github.com/nvim-telescope/telescope.nvim",
-        dependencies = { 'https://github.com/nvim-lua/plenary.nvim' },
+        dependencies = {
+            "https://github.com/nvim-lua/plenary.nvim",
+
+        },
         config = function()
             local actions = require("telescope.actions")
             local sorters = require("telescope.sorters")

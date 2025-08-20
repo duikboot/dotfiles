@@ -614,6 +614,11 @@
 (define-key *top-map* (kbd "M-+") "temp-up")
 (define-key *top-map* (kbd "M--") "temp-down")
 
+(defcommand move-mouse-to-left-corner ()()
+  (run-shell-command "xdotool mousemove 0 0"))
+
+(define-key *root-map* (kbd "0") "move-mouse-to-left-corner")
+
 (defun ssh (host)
     (run-shell-command
       (concatenate 'string "xfce4-terminal -x ssh " host)))
