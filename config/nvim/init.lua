@@ -72,7 +72,7 @@ require("lazy").setup({
             "https://github.com/OXY2DEV/markview.nvim",
         },
     },
-    { "https://github.com/nvim-treesitter/playground",   event = "VeryLazy" },
+    { "https://github.com/nvim-treesitter/playground", event = "VeryLazy" },
     "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
     "https://github.com/nvim-treesitter/nvim-treesitter-context",
     -- "https://github.com/theHamsta/nvim-treesitter-commonlisp",
@@ -109,7 +109,7 @@ require("lazy").setup({
     {
         "https://github.com/williamboman/mason.nvim",
     },
-    "https://github.com/williamboman/mason-lspconfig.nvim",
+    -- "https://github.com/williamboman/mason-lspconfig.nvim",
     -- {
     --     "jay-babu/mason-null-ls.nvim",
     --     event = { "BufReadPre", "BufNewFile" },

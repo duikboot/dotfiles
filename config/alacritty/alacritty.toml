@@ -38,9 +38,12 @@ WINIT_X11_SCALE_FACTOR = "1.0"
 # # family = "monospace"
 family = "Source Code Pro"
 # family = "FiraCode Nerd Font"
-# # family = "Hasklug Nerd Font Mono Med"
+# <<<<<<< Updated upstream
+# # # family = "Hasklug Nerd Font Mono Med"
+# # family = "Iosevka nerd font"
+# # # family = "Jetbrainsmono nerd font"
+# family = "Hasklug Nerd Font Mono Med"
 # family = "Iosevka nerd font"
-# # family = "Jetbrainsmono nerd font"
 # # style = "Mono"
 #
 # [font.italic]

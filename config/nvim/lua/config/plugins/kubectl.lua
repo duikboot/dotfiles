@@ -1,7 +1,10 @@
 return {
     {
         "https://github.com/Ramilito/kubectl.nvim",
-        enable = true,
+        enabled = true,
+        dependencies = "saghen/blink.download",
+        build = 'cargo build --release',
+        version = '2.*',
         config = function()
             require("kubectl").setup()
         end,

@@ -8,16 +8,16 @@ local vim = vim
 local options = { noremap = true, silent = true, buffer = 0 }
 
 require("mason").setup()
-require("mason-lspconfig").setup({
-    ensure_installed = {
-        "pylsp",
-        "lua_ls",
-        "vimls",
-        -- "mypy"
-        -- "gopls",
-        -- "erlangls",
-    }
-})
+-- require("mason-lspconfig").setup({
+--     ensure_installed = {
+--         "pylsp",
+--         "lua_ls",
+--         "vimls",
+--         -- "mypy"
+--         -- "gopls",
+--         -- "erlangls",
+--     }
+-- })
 
 require("trouble").setup({
     -- your configuration comes here
@@ -44,6 +44,7 @@ vim.diagnostic.config({
 
 require("nvim-web-devicons").setup()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- vim.lsp.set_log_level("INFO")
 
 local on_attach_vim_plus_keymaps = function(client, bufnr)
     vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, options)
@@ -69,6 +70,17 @@ local on_attach_vim_plus_keymaps = function(client, bufnr)
         function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
         end, { desc = "Toggle inlay hints" })
+    -- vim.lsp.inline_completion.enable(true)
+    --
+    -- vim.keymap.set("i", "<C-CR>", function()
+    --     if not vim.lsp.inline_completion.get() then
+    --         return "<C-CR>"
+    --     end
+    -- end, {
+    --         expr = true,
+    --         replace_keycodes = true,
+    --         desc = "Get the current inline completion",
+    --     })
 
 
     -- if client:supports_method("textDocument/formatting") then
@@ -93,7 +105,7 @@ local function attach(client, bufnr)
     -- end
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
-    if client.name == "pylsp" then
+    if client.name == "pylsp" or client.name == "ruff" then
         client.server_capabilities.renameProvider = false
         client.server_capabilities.referencesProvider = false
         client.server_capabilities.definitionProvider = false
@@ -150,10 +162,6 @@ return {
                     capabilities = capabilities,
                     -- capabilities=lsp_status.capabilities
                 },
-                ruff = {
-                    on_attach = attach,
-                    capabilities = capabilities,
-                },
                 docker_compose_language_service = {
                     on_attach = attach,
                     capabilities = capabilities,
@@ -174,6 +182,10 @@ return {
                         }
                     },
                 },
+                -- pyrefly = {
+                --     on_attach = attach,
+                --     capabilities = capabilities,
+                -- },
                 pylsp = {
                     on_attach = attach,
                     -- capabilities=lsp_status.capabilities
@@ -196,7 +208,6 @@ return {
                         },
                     },
                 },
-
                 basedpyright = {
                     -- on_init=on_init,
                     on_attach = attach,
@@ -224,11 +235,11 @@ return {
                                     reportAttributeAccessIssue = "warning",
                                     reportUnusedImport = "error",
                                     reportUnusedFunction = "error",
-                                    reportUnusedVariable = "error",
-                                    reportGeneralTypeIssues = "none",
-                                    reportOptionalMemberAccess = "none",
+                                    reportUnusedVariable = "information",
+                                    reportGeneralTypeIssues =false,
+                                    reportOptionalMemberAccess =false,
+                                    reportPrivateImportUsage =false,
                                     reportOptionalSubscript = "none",
-                                    reportPrivateImportUsage = "none",
                                 },
                                 -- stubPath = "/home/arjen/.config/nvim/stubs",
                                 -- extraPaths = {
