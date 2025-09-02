@@ -1,7 +1,7 @@
 return {
     {
         "https://github.com/Ramilito/kubectl.nvim",
-        enable = false,
+        enable = true,
         config = function()
             require("kubectl").setup()
         end,
