@@ -69,7 +69,19 @@ require("lazy").setup({
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         dependencies = {
-            "https://github.com/OXY2DEV/markview.nvim",
+            {
+                "https://github.com/OXY2DEV/markview.nvim",
+                lazy = false,
+                ft = {
+                    "markdown",
+                    "norg",
+                    "rmd",
+                    "org",
+                    "vimwiki",
+                    "Avante",
+                    "telekasten",
+                },
+            },
         },
     },
     { "https://github.com/nvim-treesitter/playground", event = "VeryLazy" },
@@ -119,7 +131,6 @@ require("lazy").setup({
     -- },
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/onsails/lspkind-nvim",
-    "https://github.com/folke/lsp-trouble.nvim",
     "https://github.com/folke/lsp-colors.nvim",
     -- "https://github.com/jose-elias-alvarez/null-ls.nvim",
     "https://github.com/nvimtools/none-ls.nvim",

@@ -4,6 +4,7 @@
 --  Explanation from TJ: https://youtu.be/m8C0Cq9Uv9o?t=1275
 --
 -- This can vary by config, but in general for nvim-lspconfig:
+
 local vim = vim
 local options = { noremap = true, silent = true, buffer = 0 }
 
@@ -19,11 +20,11 @@ require("mason").setup()
 --     }
 -- })
 
-require("trouble").setup({
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-})
+-- require("trouble").setup({
+--     -- your configuration comes here
+--     -- or leave it empty to use the default settings
+--     -- refer to the configuration section below
+-- })
 
 vim.diagnostic.config({
     underline = false,
@@ -240,6 +241,7 @@ return {
                                     reportOptionalMemberAccess =false,
                                     reportPrivateImportUsage =false,
                                     reportOptionalSubscript = "none",
+                                    reportIndexIssue = "information",
                                 },
                                 -- stubPath = "/home/arjen/.config/nvim/stubs",
                                 -- extraPaths = {
