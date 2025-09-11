@@ -58,16 +58,19 @@ require("lazy").setup({
             -- vim.cmd([[colorscheme kanagawa]])
         end
     },
-    "https://github.com/savq/melange-nvim",
     -- { 'https://github.com/folke/which-key.nvim', opts = {} },
 
 
-    { "https://github.com/kyazdani42/nvim-web-devicons", lazy = true },
+    {
+        "https://github.com/kyazdani42/nvim-web-devicons",
+        -- lazy = true,
+    },
 
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        lazy = false,
         dependencies = {
             {
                 "https://github.com/OXY2DEV/markview.nvim",
@@ -130,8 +133,8 @@ require("lazy").setup({
     --     end,
     -- },
     "https://github.com/neovim/nvim-lspconfig",
-    "https://github.com/onsails/lspkind-nvim",
-    "https://github.com/folke/lsp-colors.nvim",
+    -- "https://github.com/onsails/lspkind-nvim",
+    -- "https://github.com/folke/lsp-colors.nvim",
     -- "https://github.com/jose-elias-alvarez/null-ls.nvim",
     "https://github.com/nvimtools/none-ls.nvim",
     -- "https://github.com/nvimdev/lspsaga.nvim",
@@ -141,13 +144,13 @@ require("lazy").setup({
     --         require("lsp-lens").setup()
     --     end
     -- },
-    {
-      "https://github.com/zeioth/garbage-day.nvim",
-      event = "VeryLazy",
-      opts = {
-        -- your options here
-      }
-    },
+    -- {
+    --   "https://github.com/zeioth/garbage-day.nvim",
+    --   event = "VeryLazy",
+    --   opts = {
+    --     -- your options here
+    --   }
+    -- },
     {
         'https://github.com/onsails/diaglist.nvim',
         config = function()
