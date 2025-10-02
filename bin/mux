@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+alacritty --title tmux --command pgrep -vx tmux && tmux new -d -s delete-me && tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux kill-session -t delete-me && tmux attach || tmux attach

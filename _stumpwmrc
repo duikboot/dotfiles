@@ -665,9 +665,15 @@
   ;; frame raise lock (lock AND raise == jumpto)
   (0 nil   t :title "Firefox"))
 
+(define-frame-preference "code"
+  ;; frame raise lock (lock AND raise == jumpto)
+  (0 nil   t :title "tmux"))
+
+
 (define-frame-preference "documentation"
   ;; frame raise lock (lock AND raise == jumpto)
-  (0 nil   t :title "calibre"))
+  (0 nil   t :title "calibre")
+  (0 nil   t :title "1password"))
 
 (define-frame-preference "media"
   ;; frame raise lock (lock AND raise == jumpto)
@@ -779,7 +785,10 @@ will scroll through windows in the current group."
     (create-background-battery-thread)
     (notify:notify-server-on)
     (run-shell-command "firefox")
-    (run-shell-command "slack")))
+    (run-shell-command "slack")
+    (run-shell-command "1password")
+    ; (run-shell-command "alacritty --title tmux --command mux")
+    (run-shell-command "alacritty --title tmux --command mux")))
 
 ;; (ql:quickload '(clim slim))
 ;; (load-module "clim-mode-line")
