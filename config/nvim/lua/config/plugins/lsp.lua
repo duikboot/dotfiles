@@ -260,17 +260,16 @@ return {
                 -- passing config.capabilities to blink.cmp merges with the capabilities in your
                 -- `opts[server].capabilities, if you've defined it
                 -- config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+-- =======
+--             -- local lspconfig = require('lspconfig')
+--             for server, config in pairs(ls_servers.servers) do
+--                 -- passing config.capabilities to blink.cmp merges with the capabilities in your
+--                 -- `opts[server].capabilities, if you've defined it
+--                 config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+-- >>>>>>> Stashed changes
                 -- lspconfig[server].setup(config)
                 vim.lsp.enable(server)
             end
         end
-
-        -- example calling setup directly for each LSP
-        -- config = function()
-        --     local capabilities = require('blink.cmp').get_lsp_capabilities()
-        --     local lspconfig = require('lspconfig')
-        --
-        --     lspconfig['lua_ls'].setup({ capabilities = capabilities })
-        -- end
     }
 }
