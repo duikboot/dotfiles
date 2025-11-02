@@ -1,5 +1,5 @@
 return {
-    "retran/meow.yarn.nvim",
+    "https://github.com/retran/meow.yarn.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
     enabled = true,
     config = function()
