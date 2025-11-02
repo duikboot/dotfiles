@@ -2,6 +2,15 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python Debugger: tests",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "unittest",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true,
+            "console": "integratedTerminal"
+        },
+        {
             "name": "Python Debugger: Django",
             "type": "debugpy",
             "request": "launch",
