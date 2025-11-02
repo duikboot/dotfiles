@@ -3,13 +3,13 @@ return {
     config = function()
         require('oil').setup(
             {
-        columns = { "icon" },
-        keymaps = {
-          ["<C-h>"] = false,
-          ["<C-l>"] = false,
-          ["<C-k>"] = false,
-          ["<C-j>"] = false,
-        },
+                columns = { "icon" },
+                keymaps = {
+                    ["<C-h>"] = false,
+                    ["<C-l>"] = false,
+                    ["<C-k>"] = false,
+                    ["<C-j>"] = false,
+                },
             }
         )
     end,
