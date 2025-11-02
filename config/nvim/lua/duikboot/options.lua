@@ -86,3 +86,21 @@ augroup END]]
 -- autocmd BufNewFile,BufRead *.js set nosmarttab  " If  don't use smarttab"
 
 vim.opt.path:append('**')
+
+arrows = {
+    right = '',
+    left = '',
+    up = '',
+    down = '',
+}
+--
+-- vim.o.foldcolumn = '1'
+-- vim.o.foldlevelstart = 99
+-- vim.wo.foldtext = ''
+vim.opt.fillchars = {
+--     fold = ' ',
+    foldclose = arrows.right,
+    foldopen = arrows.down,
+--     foldsep = ' ',
+    foldinner = ' '
+}

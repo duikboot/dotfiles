@@ -47,72 +47,46 @@ require("nvim-web-devicons").setup()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- vim.lsp.set_log_level("INFO")
 
-local on_attach_vim_plus_keymaps = function(client, bufnr)
-    vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, options)
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, options)
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, options)
-    vim.keymap.set("n", "<leader>td", vim.lsp.buf.type_definition, options)
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, options)
-    vim.keymap.set("v", "<leader>ca", vim.lsp.buf.code_action, options)
+vim.api.nvim_create_autocmd("LspAttach", {
+    desc = "LSP actions",
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        local bufnr = args.buf
+        -- on_attach_vim_plus_keymaps(client, bufnr)
+        vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, options)
+        vim.keymap.set("n", "]d", vim.diagnostic.goto_next, options)
+        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, options)
+        vim.keymap.set("n", "<leader>td", vim.lsp.buf.type_definition, options)
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, options)
+        vim.keymap.set("v", "<leader>ca", vim.lsp.buf.code_action, options)
 
-    -- TODO: implement incoming and outgoing calls.
-    vim.keymap.set("n", "<leader>oc", vim.lsp.buf.outgoing_calls, options)
-    vim.keymap.set("n", "<leader>ic", vim.lsp.buf.incoming_calls, options)
+        -- TODO: implement incoming and outgoing calls.
+        vim.keymap.set("n", "<leader>oc", vim.lsp.buf.outgoing_calls, options)
+        vim.keymap.set("n", "<leader>ic", vim.lsp.buf.incoming_calls, options)
 
-    vim.keymap.set("n", "<c-K>", vim.lsp.buf.signature_help, options)
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, options)
-    vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, options)
-    vim.keymap.set("n", "g0", vim.lsp.buf.document_symbol, options)
-    vim.keymap.set("n", "gD", vim.lsp.buf.implementation, options)
-    vim.keymap.set("n", "gW", vim.lsp.buf.workspace_symbol, options)
-    vim.keymap.set("n", "<leader>gd", vim.lsp.buf.declaration, options)
-    vim.keymap.set("n", "<c-]>", vim.lsp.buf.definition, options)
-    vim.keymap.set("n", '<leader>th',
-        function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
-        end, { desc = "Toggle inlay hints" })
-    -- vim.lsp.inline_completion.enable(true)
-    --
-    -- vim.keymap.set("i", "<C-CR>", function()
-    --     if not vim.lsp.inline_completion.get() then
-    --         return "<C-CR>"
-    --     end
-    -- end, {
-    --         expr = true,
-    --         replace_keycodes = true,
-    --         desc = "Get the current inline completion",
-    --     })
+        vim.keymap.set("n", "<c-K>", vim.lsp.buf.signature_help, options)
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, options)
+        vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, options)
+        vim.keymap.set("n", "g0", vim.lsp.buf.document_symbol, options)
+        vim.keymap.set("n", "gD", vim.lsp.buf.implementation, options)
+        vim.keymap.set("n", "gW", vim.lsp.buf.workspace_symbol, options)
+        vim.keymap.set("n", "<leader>gd", vim.lsp.buf.declaration, options)
+        vim.keymap.set("n", "<c-]>", vim.lsp.buf.definition, options)
+        vim.keymap.set("n", '<leader>th',
+            function()
+                vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
+            end, { desc = "Toggle inlay hints" })
+        client.server_capabilities.document_formatting = false
+        client.server_capabilities.document_range_formatting = false
 
+        if client.name == "pylsp" or client.name == "ruff" then
+            client.server_capabilities.renameProvider = false
+            client.server_capabilities.referencesProvider = false
+            client.server_capabilities.definitionProvider = false
+        end
+    end,
+})
 
-    -- if client:supports_method("textDocument/formatting") then
-    --     vim.keymap.set("n", "<Localleader>r", function()
-    --         vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
-    --         print("Formatted file...")
-    --     end, { buffer = bufnr, desc = "[lsp] format" })
-    -- end
-    --
-    -- if client:supports_method("textDocument/rangeFormatting") then
-    --     vim.keymap.set("x", "<Localleader>r", function()
-    --         vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
-    --         print("Formatted range...")
-    --     end, { buffer = bufnr, desc = "[lsp] format" })
-end
-
-
-local function attach(client, bufnr)
-    on_attach_vim_plus_keymaps(client, bufnr)
-    -- if client.server_capabilities.inlayHintProvider then
-    --     vim.lsp.inlay_hint.enable(true)
-    -- end
-    client.server_capabilities.document_formatting = false
-    client.server_capabilities.document_range_formatting = false
-    if client.name == "pylsp" or client.name == "ruff" then
-        client.server_capabilities.renameProvider = false
-        client.server_capabilities.referencesProvider = false
-        client.server_capabilities.definitionProvider = false
-    end
-    -- navbuddy.attach(client, bufnr)
-end
 
 return {
     {
@@ -143,7 +117,6 @@ return {
         opts = {
             servers = {
                 lua_ls = {
-                    on_attach = attach,
                     capabilities = capabilities,
                     settings = {
                         Lua = {
@@ -159,20 +132,16 @@ return {
                 },
                 vimls = {
                     -- on_init=on_init,
-                    on_attach = attach,
                     capabilities = capabilities,
                     -- capabilities=lsp_status.capabilities
                 },
                 docker_compose_language_service = {
-                    on_attach = attach,
                     capabilities = capabilities,
                 },
                 bashls = {
-                    on_attach = attach,
                     capabilities = capabilities,
                 },
                 rust_analyzer = {
-                    on_attach = attach,
                     capabilities = capabilities,
                     settings = {
                         check = {
@@ -188,7 +157,6 @@ return {
                 --     capabilities = capabilities,
                 -- },
                 pylsp = {
-                    on_attach = attach,
                     -- capabilities=lsp_status.capabilities
                     capabilities = capabilities,
                     settings = {
@@ -211,7 +179,7 @@ return {
                 },
                 basedpyright = {
                     -- on_init=on_init,
-                    on_attach = attach,
+                    -- on_attach = attach,
                     capabilities = capabilities,
                     settings = {
                         basedpyright = {

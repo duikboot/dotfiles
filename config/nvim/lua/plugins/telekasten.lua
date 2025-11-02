@@ -1,3 +1,5 @@
+local vim = vim
+
 local home = vim.fn.expand("~/zettelkasten")
 require('telekasten').setup({
     home         = home,
