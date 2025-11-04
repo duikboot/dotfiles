@@ -150,7 +150,8 @@ vim.keymap.set('t', '<C-j>', '<C-\\><C-n><C-w>j')
 vim.keymap.set('t', '<C-k>', '<C-\\><C-n><C-w>k')
 vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w>l')
 
-vim.api.nvim_create_user_command('G', ':vertical Git', {})
+-- vim.api.nvim_create_user_command('G', ':vertical G', {})
+vim.keymap.set('n', '<leader>G', ':vertical Git<cr>')
 
 vim.keymap.set("n", "<leader>dw",
                function() require('diaglist').open_all_diagnostics() end,
