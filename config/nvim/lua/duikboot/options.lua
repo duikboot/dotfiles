@@ -1,3 +1,4 @@
+local vim = vim
 local option = vim.opt
 local g = vim.g
 local home = vim.fn.expand("~/")
@@ -77,12 +78,7 @@ option.linebreak = true
 g.dbs = {
      mob2_dev = "postgres://django:django@localhost:5432/django",
 }
-vim.cmd(
-[[augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=300}
-augroup END]]
-)
+
 -- autocmd BufNewFile,BufRead *.js set nosmarttab  " If  don't use smarttab"
 
 vim.opt.path:append('**')

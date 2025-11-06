@@ -69,6 +69,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 })
 
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
+
 -- local FormatLsp = vim.api.nvim_create_augroup("FormatLsp", { clear = true })
 --
 -- vim.api.create_autocmd({ "LspAttach" }, {
