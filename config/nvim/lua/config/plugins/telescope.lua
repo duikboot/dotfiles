@@ -57,9 +57,9 @@ return {
                             prompt_position = "top",
                         },
                     },
-                    -- find_files = {
-                    --     theme = "ivy"
-                    -- },
+                    find_files = {
+                        hidden = true,
+                    },
                     grep_string = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
                 },
                 extensions = {

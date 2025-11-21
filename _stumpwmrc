@@ -511,7 +511,7 @@
 (make-program-binding "chromium" "chromium")
 (make-program-binding "rambox" "Rambox" :key-binding "c")
 (make-program-binding "slack" "Slack")
-(make-program-binding "telegram-desktop" "Telegram")
+(make-program-binding "Telegram" "telegram-desktop")
 (make-program-binding "spotify" "Spotify" :key-binding "m")
 (make-program-binding "calibre" "calibre" :key-binding "C")
 (make-program-binding "keepassxc" "keepassxc")

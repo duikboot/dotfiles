@@ -5,7 +5,7 @@ return {
     -- (if you are using lazy you can use gb for rebuilding a plugin if needed)
     require("fff.download").download_or_build_binary()
   end,
-  enabled = true,
+  enabled = false,
   -- if you are using nixos
   -- build = "nix run .#release",
   opts = { -- (optional)

@@ -32,33 +32,37 @@ require("lazy").setup({
     change_detection = { enabled = false },
     spec = {
         {"https://github.com/folke/tokyonight.nvim",
-        lazy = false,        -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000,     -- make sure to load this before all the other start plugins
-        -- transparent = true,
-        config = function()
-        --     -- load the colorscheme here
-            vim.cmd([[set background=light]])
-            vim.cmd([[colorscheme tokyonight]])
-        end
-    },
-    -- {
-    --     "yorik1984/newpaper.nvim",
-    --     priority = 1000,
-    --     config = true},
-    -- -- {'https://github.com/xiyaowong/transparent.nvim',
-    -- --     lazy = false,
-    -- -- },
-    {
-        "https://github.com/rebelot/kanagawa.nvim",
-        config = function()
-            -- Set opacity in alacritty.toml
-            -- Run picom
-            -- load the colorscheme here
-            -- vim.o.background = ""
-            -- vim.cmd([[colorscheme kanagawa]])
-        end
-    },
-    -- { 'https://github.com/folke/which-key.nvim', opts = {} },
+            lazy = false,        -- make sure we load this during startup if it is your main colorscheme
+            priority = 1000,     -- make sure to load this before all the other start plugins
+            -- transparent = true,
+            config = function()
+                --     -- load the colorscheme here
+                vim.cmd([[set background=light]])
+                vim.cmd([[colorscheme tokyonight]])
+            end
+        },
+        {
+            'adibhanna/yukinord.nvim',
+            priority = 1000,
+        },
+        -- {
+        --     "yorik1984/newpaper.nvim",
+        --     priority = 1000,
+        --     config = true},
+        -- -- {'https://github.com/xiyaowong/transparent.nvim',
+        -- --     lazy = false,
+        -- -- },
+        {
+            "https://github.com/rebelot/kanagawa.nvim",
+            config = function()
+                -- Set opacity in alacritty.toml
+                -- Run picom
+                -- load the colorscheme here
+                -- vim.o.background = ""
+                -- vim.cmd([[colorscheme kanagawa]])
+            end
+        },
+        -- { 'https://github.com/folke/which-key.nvim', opts = {} },
 
 
     {
