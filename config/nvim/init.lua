@@ -43,7 +43,13 @@ require("lazy").setup({
         },
         {
             'adibhanna/yukinord.nvim',
+            lazy = false,
             priority = 1000,
+            -- config = function()
+            --     --     -- load the colorscheme here
+            --     vim.cmd([[set background=dark]])
+            --     vim.cmd([[colorscheme yukinord]])
+            -- end
         },
         -- {
         --     "yorik1984/newpaper.nvim",

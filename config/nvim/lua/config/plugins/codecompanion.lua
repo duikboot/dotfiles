@@ -1,6 +1,6 @@
 return {
     "https://github.com/olimorris/codecompanion.nvim",
-    enable = false,
+    enabled = false,
     opts = {},
     dependencies = {
         "nvim-lua/plenary.nvim",
