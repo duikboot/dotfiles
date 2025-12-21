@@ -1,7 +1,7 @@
 return {
     {
         "https://github.com/Ramilito/kubectl.nvim",
-        enabled = true,
+        enabled = false,
         dependencies = "saghen/blink.download",
         build = 'cargo build --release',
         version = '2.*',

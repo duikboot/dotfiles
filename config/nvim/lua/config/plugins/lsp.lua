@@ -5,26 +5,9 @@
 --
 -- This can vary by config, but in general for nvim-lspconfig:
 
-local vim = vim
 local options = { noremap = true, silent = true, buffer = 0 }
 
 require("mason").setup()
--- require("mason-lspconfig").setup({
---     ensure_installed = {
---         "pylsp",
---         "lua_ls",
---         "vimls",
---         -- "mypy"
---         -- "gopls",
---         -- "erlangls",
---     }
--- })
-
--- require("trouble").setup({
---     -- your configuration comes here
---     -- or leave it empty to use the default settings
---     -- refer to the configuration section below
--- })
 
 vim.diagnostic.config({
     underline = false,
@@ -45,7 +28,6 @@ vim.diagnostic.config({
 
 require("nvim-web-devicons").setup()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
--- vim.lsp.set_log_level("INFO")
 
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "LSP actions",
@@ -114,14 +96,7 @@ return {
         dependencies = { 'saghen/blink.cmp' },
 
         vim.lsp.config('basedpyright', {
-            -- on_attach = function (client, _)
-            --     client.server_capabilities.completionProvider        = false -- use pyrefly for fast response
-            --     client.server_capabilities.definitionProvider        = false -- use pyrefly for fast response
-            --     client.server_capabilities.documentHighlightProvider = false -- use pyrefly for fast response
-            --     client.server_capabilities.renameProvider            = false -- use pyrefly as I think it is stable
-            --     client.server_capabilities.semanticTokensProvider    = false -- use pyrefly it is more rich
-            -- end,
-            settings = { -- see https://docs.basedpyright.com/latest/configuration/language-server-settings/
+            settings = {                           -- see https://docs.basedpyright.com/latest/configuration/language-server-settings/
                 basedpyright = {
                     disableOrganizeImports = true, -- use ruff instead of it
                     analysis = {
@@ -148,27 +123,46 @@ return {
             },
         }),
 
-        -- example using `opts` for defining servers
+        vim.lsp.config('pylsp', {
+            settings = {
+                pylsp = {
+                    plugins = {
+                        jedi_completion = { include_params = true },
+                        flake8 = {
+                            enabled = true,
+                            maxLineLength = 90
+                        },
+                        mccabe = {
+                            enabled = true,
+                            threshold = 10,
+                        },
+                        pycodestyle = { enabled = false },
+                    },
+                },
+            },
+        }),
+
+        vim.lsp.config('lua_ls', {
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { "vim" },
+                    },
+                    hint = { enable = true },
+                    workspace = {
+                        checkThirdParty = false
+                    },
+                },
+            },
+        }),
+
         opts = {
             servers = {
                 lua_ls = {
                     capabilities = capabilities,
-                    settings = {
-                        Lua = {
-                            diagnostics = {
-                                globals = { "vim" },
-                            },
-                            hint = { enable = true },
-                            workspace = {
-                                checkThirdParty = false
-                            },
-                        },
-                    },
                 },
                 vimls = {
-                    -- on_init=on_init,
                     capabilities = capabilities,
-                    -- capabilities=lsp_status.capabilities
                 },
                 docker_compose_language_service = {
                     capabilities = capabilities,
@@ -187,118 +181,18 @@ return {
                         }
                     },
                 },
-                -- pyrefly = {
-                --     on_attach = attach,
-                --     capabilities = capabilities,
-                -- },
                 pylsp = {
-                    -- capabilities=lsp_status.capabilities
                     capabilities = capabilities,
-                    settings = {
-                        pylsp = {
-                            plugins = {
-                                jedi_completion = { include_params = true },
-                                -- pylsp_mypy = { enabled = true },
-                                flake8 = {
-                                    enabled = true,
-                                    maxLineLength = 90
-                                },
-                                mccabe = {
-                                    enabled = true,
-                                    threshold = 10,
-                                },
-                                pycodestyle = { enabled = false },
-                            },
-                        },
-                    },
                 },
                 basedpyright = {
-                    -- on_init=on_init,
-                    -- on_attach = attach,
                     capabilities = capabilities,
-                    settings = {
-                        basedpyright = {
-                            analysis = {
-                                autoSearchPaths = true,
-                                useLibraryCodeForTypes = true,
-                                inlayHints = {
-                                    typeHints = true,
-                                    parameterHints = true,
-                                    chainedCalls = true,
-                                    variableType = true,
-                                    propertyAccess = true,
-                                },
-                                -- typeCheckingMode = "strict",
-                                -- diagnosticSeverityOverrides = {
-                                --     reportUnusedImport = "information",
-                                --     reportUnusedFunction = "information",
-                                --     reportUnusedVariable = "information",
-                                --     reportGeneralTypeIssues = "none",
-                                --     reportOptionalMemberAccess = "none",
-                                --     reportOptionalSubscript = "none",
-                                --     reportPrivateImportUsage = "none",
-                                --     reportMissingTypeStubs = "none",
-                                --     reportMissingParameterType = "information",
-                                --     reportUnknownParameterType = "information",
-                                -- },
-                                typeCheckingMode = "strict",
-                                diagnosticSeverityOvides = {
-                                    reportAttributeAccessIssue = "warning",
-                                    reportUnusedImport = "error",
-                                    reportUnusedFunction = "error",
-                                    reportUnusedVariable = "information",
-                                    reportGeneralTypeIssues = "none",
-                                    reportOptionalMemberAccess = false,
-                                    reportPrivateImportUsage = false,
-                                    reportOptionalSubscript = "none",
-                                    reportIndexIssue = "information",
-                                    reportAny = false,
-                                },
-                                -- stubPath = "/home/arjen/.config/nvim/stubs",
-                                -- extraPaths = {
-                                --     "/home/arjen/.config/nvim/stubs",
-                                -- },
-                            },
-                        },
-                    },
-                    -- capabilities=lsp_status.capabilities
                 }
             }
         },
-        -- config = function(_, ls_servers)
-        --     -- local lspconfig = vim.lsp.config('lspconfig')
-        --     for server, config in pairs(ls_servers.servers) do
-        --         -- passing config.capabilities to blink.cmp merges with the capabilities in your
-        --         -- `opts[server].capabilities, if you've defined it
-        --         -- config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-        --         -- =======
-        --         --             -- local lspconfig = require('lspconfig')
-        --         --             for server, config in pairs(ls_servers.servers) do
-        --         --                 -- passing config.capabilities to blink.cmp merges with the capabilities in your
-        --         --                 -- `opts[server].capabilities, if you've defined it
-        --         --                 config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-        --         -- >>>>>>> Stashed changes
-        --         -- lspconfig[server].setup(config)
-        --         vim.lsp.enable(server)
-        --     end
-        -- end
         config = function(_, ls_servers)
-            -- local lspconfig = vim.lsp.config('lspconfig')
             for server, config in pairs(ls_servers.servers) do
-                -- passing config.capabilities to blink.cmp merges with the capabilities in your
-                -- `opts[server].capabilities, if you've defined it
-                -- config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-                -- =======
-                --             -- local lspconfig = require('lspconfig')
-                --             for server, config in pairs(ls_servers.servers) do
-                --                 -- passing config.capabilities to blink.cmp merges with the capabilities in your
-                --                 -- `opts[server].capabilities, if you've defined it
-                --                 config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-                -- >>>>>>> Stashed changes
-                -- lspconfig[server].setup(config)
                 vim.lsp.enable(server)
             end
         end
     }
 }
-
