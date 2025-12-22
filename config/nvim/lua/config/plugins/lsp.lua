@@ -96,7 +96,8 @@ return {
         dependencies = { 'saghen/blink.cmp' },
 
         vim.lsp.config('basedpyright', {
-            settings = {                           -- see https://docs.basedpyright.com/latest/configuration/language-server-settings/
+            -- see https://docs.basedpyright.com/latest/configuration/language-server-settings/
+            settings = {
                 basedpyright = {
                     disableOrganizeImports = true, -- use ruff instead of it
                     analysis = {
@@ -148,7 +149,10 @@ return {
                     diagnostics = {
                         globals = { "vim" },
                     },
-                    hint = { enable = true },
+                    hint = {
+                        enable = true,
+                        -- arrayIndex = 'Disable',
+                    },
                     workspace = {
                         checkThirdParty = false
                     },
