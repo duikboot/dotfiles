@@ -22,7 +22,7 @@ return {
         "https://github.com/fang2hou/blink-copilot",
     },
     {
-        'Kaiser-Yang/blink-cmp-avante',
+        'https://github.com/Kaiser-Yang/blink-cmp-avante',
         -- ... Other dependencies
     },
     {
@@ -70,7 +70,7 @@ return {
                     "buffer",
                     "ripgrep",
                     "cody",
-                    -- "cmdline",
+                    "cmdline",
                 },
                 per_filetype = {
                     codecompanion = { "codecompanion" },
@@ -139,21 +139,24 @@ return {
                         async = true,
                     },
                 },
-                -- cmdline = {},
-            },
-            cmdline = {
-                sources = {},
-                -- keymap = {
-                --     preset = 'default',
-                -- }
-            },
-            term = {
-                sources = {},
-                -- keymap = {
-                --     preset = 'default',
-                -- }
             },
 
+            cmdline = {
+                keymap = {
+                    ['<Tab>'] = { 'accept' },
+                    ['<CR>'] = { 'accept_and_enter', 'fallback' },
+                },
+                completion = {
+                    menu = {
+                        auto_show = true,
+                    },
+                    list = {
+                        selection = {
+                            preselect = false,
+                        },
+                    },
+                },
+            },
             completion = {
                 menu = {
                     draw = {
@@ -169,9 +172,9 @@ return {
                 },
             },
 
-            signature = {
-                enabled = true,
-            },
+            -- signature = {
+            --     enabled = true,
+            -- },
         },
         opts_extend = { "sources.default" },
     },

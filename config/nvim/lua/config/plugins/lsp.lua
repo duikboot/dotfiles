@@ -94,6 +94,7 @@ return {
     {
         'https://github.com/neovim/nvim-lspconfig',
         dependencies = { 'saghen/blink.cmp' },
+        enabled = true,
 
         vim.lsp.config('basedpyright', {
             -- see https://docs.basedpyright.com/latest/configuration/language-server-settings/
@@ -185,12 +186,12 @@ return {
                         }
                     },
                 },
-                pylsp = {
-                    capabilities = capabilities,
-                },
-                basedpyright = {
-                    capabilities = capabilities,
-                }
+                -- pylsp = {
+                --     capabilities = capabilities,
+                -- },
+                -- basedpyright = {
+                --     capabilities = capabilities,
+                -- }
             }
         },
         config = function(_, ls_servers)
