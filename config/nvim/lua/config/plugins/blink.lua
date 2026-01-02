@@ -61,11 +61,11 @@ return {
             sources = {
                 default = {
                     -- "supermaven",
+                    "path",
                     "avante",
                     "copilot",
                     "vlime",
                     "lsp",
-                    "path",
                     "snippets",
                     "buffer",
                     "ripgrep",

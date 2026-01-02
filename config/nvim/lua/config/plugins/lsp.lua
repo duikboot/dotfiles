@@ -186,12 +186,12 @@ return {
                         }
                     },
                 },
-                -- pylsp = {
-                --     capabilities = capabilities,
-                -- },
-                -- basedpyright = {
-                --     capabilities = capabilities,
-                -- }
+                pylsp = {
+                    capabilities = capabilities,
+                },
+                basedpyright = {
+                    capabilities = capabilities,
+                }
             }
         },
         config = function(_, ls_servers)

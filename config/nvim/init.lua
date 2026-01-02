@@ -77,32 +77,11 @@ require("lazy").setup({
     },
 
     -- Treesitter
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        lazy = false,
-        dependencies = {
-            {
-                "https://github.com/OXY2DEV/markview.nvim",
-                lazy = false,
-                ft = {
-                    "markdown",
-                    "norg",
-                    "rmd",
-                    "org",
-                    "vimwiki",
-                    "Avante",
-                    "telekasten",
-                },
-            },
-        },
-    },
-    { "https://github.com/nvim-treesitter/playground", event = "VeryLazy" },
-    "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
-    "https://github.com/nvim-treesitter/nvim-treesitter-context",
-    -- "https://github.com/theHamsta/nvim-treesitter-commonlisp",
-    "https://github.com/nvim-treesitter/nvim-treesitter-refactor",
-    "https://github.com/andymass/vim-matchup",
+    -- "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+    -- "https://github.com/nvim-treesitter/nvim-treesitter-context",
+    -- -- "https://github.com/theHamsta/nvim-treesitter-commonlisp",
+    -- "https://github.com/nvim-treesitter/nvim-treesitter-refactor",
+    -- "https://github.com/andymass/vim-matchup",
 
     --  -- CMP
     -- -- "https://github.com/hrsh7th/nvim-cmp",
