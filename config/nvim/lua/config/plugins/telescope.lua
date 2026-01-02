@@ -1,4 +1,4 @@
-local load_extensions = require('telescope').load_extension
+-- local load_extensions = require('telescope').load_extension
 
 local grep_prompt = function()
     require('telescope.builtin').grep_string {
@@ -22,6 +22,7 @@ return {
         "https://github.com/nvim-telescope/telescope.nvim",
         dependencies = {
             "https://github.com/nvim-lua/plenary.nvim",
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 
         },
         config = function()
@@ -145,12 +146,12 @@ return {
     {
         "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
-        config = function() load_extensions('fzf') end
+        config = function() require('telescope').load_extension('fzf') end
     },
 
     {
         "https://github.com/camgraff/telescope-tmux.nvim",
-        config = function() load_extensions('tmux') end,
+        config = function() require('telescope').load_extension('tmux') end,
         keys = {
             { "<leader>ts", ":Telescope tmux sessions<cr>",      { noremap = true } },
             { "<leader>tw", ":Telescope tmux windows<cr>",       { noremap = true } },
@@ -160,7 +161,7 @@ return {
 
     {
         "https://github.com/JoseConseco/telescope_sessions_picker.nvim",
-        config = function() load_extensions('sessions_picker') end
+        config = function() require('telescope').load_extension('sessions_picker') end
     },
 
     {
@@ -169,7 +170,7 @@ return {
 
     {
         "https://github.com/nvim-telescope/telescope-file-browser.nvim",
-        config = function() load_extensions('file_browser') end,
+        config = function() require('telescope').load_extension('file_browser') end,
         keys = {
             {
                 '<Leader>fb',
@@ -181,7 +182,7 @@ return {
 
     {
         "https://github.com/debugloop/telescope-undo.nvim",
-        config = function() load_extensions('undo') end,
+        config = function() require('telescope').load_extension('undo') end,
         keys = {
             {
                 "<localleader>u",
@@ -199,7 +200,7 @@ return {
 
     "https://github.com/nvim-telescope/telescope-dap.nvim",
         config = function()
-            load_extensions('dap')
+            require('telescope').load_extension('dap')
             require('telescope').load_extension('git_worktree')
         end,
     }
