@@ -93,7 +93,7 @@ return {
             -- end
             vim.defer_fn(function()
                 require('nvim-treesitter').install(parsers)
-          end, 1000)
+            end, 1000)
 
             vim.api.nvim_create_autocmd("FileType", {
                 callback = function()
@@ -157,7 +157,7 @@ return {
                     -- mapping query_strings to modes.
                     selection_modes = {
                         ['@parameter.outer'] = 'v', -- charwise
-                        ['@function.outer'] = 'V', -- linewise
+                        ['@function.outer'] = 'V',  -- linewise
                         -- ['@class.outer'] = '<c-v>', -- blockwise
                     },
                     -- If you set this to `true` (default is `false`) then any textobject is
