@@ -169,6 +169,9 @@ return {
                 vimls = {
                     capabilities = capabilities,
                 },
+                texlab = {
+                    capabilities = capabilities,
+                },
                 docker_compose_language_service = {
                     capabilities = capabilities,
                 },

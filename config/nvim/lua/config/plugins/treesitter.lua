@@ -88,9 +88,12 @@ return {
                 "python",
             }
 
-            for _, parser in ipairs(parsers) do
-                pcall(ts.install, parser)
-            end
+            -- for _, parser in ipairs(parsers) do
+            --     pcall(ts.install, parser)
+            -- end
+            vim.defer_fn(function()
+                require('nvim-treesitter').install(parsers)
+          end, 1000)
 
             vim.api.nvim_create_autocmd("FileType", {
                 callback = function()
