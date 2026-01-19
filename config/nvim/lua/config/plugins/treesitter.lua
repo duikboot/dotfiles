@@ -191,6 +191,8 @@ return {
             vim.keymap.set({ "x", "o" }, "as", function()
                 require "nvim-treesitter-textobjects.select".select_textobject("@local.scope", "locals")
             end)
+
+            -- Movement
             vim.keymap.set({ "n", "x", "o" }, "]m", function()
                 require("nvim-treesitter-textobjects.move").goto_next_start("@function.outer", "textobjects")
             end)
