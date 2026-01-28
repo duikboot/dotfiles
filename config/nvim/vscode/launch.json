@@ -46,12 +46,24 @@
             "cwd": "${workspaceFolder}"
         },
         {
-            "name": "Django manage command",
+            "name": "Django migrate legacy to new",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/manage.py",
             "args": [
                 "migrate_legacy_to_new"
+            ],
+            "justMyCode": true,
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Django sync puur",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "args": [
+                "sync_patients_with_puur"
             ],
             "justMyCode": true,
             "console": "integratedTerminal",
