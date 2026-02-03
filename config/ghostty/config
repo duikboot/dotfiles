@@ -1,3 +1,17 @@
 title=ghostty
 gtk-tabs-location = hidden
 window-decoration = false
+
+# Font configuration:
+font-family = "Hasklug Nerd Font Mono Med"
+font-family-italic = "Cartograph CF Italic"
+font-family-bold-italic = "Cartograph CF Italic"
+adjust-cell-width = -5%
+adjust-cell-height = 20%
+adjust-underline-position = 6
+adjust-underline-thickness = 40%
+adjust-cursor-thickness = 150%
+
+# Color theme:
+theme = Dracula
+background = 0E1419

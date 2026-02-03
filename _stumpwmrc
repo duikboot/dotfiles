@@ -274,6 +274,8 @@
           "shell-command-history"
           "clipboard-history"))
 
+; (load-module "strump-nm")
+
 ; (load-module "notify")
 ; (notify:notify-server-toggle)
 (setf notify:*notify-server-title-color* "^7")
