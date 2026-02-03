@@ -21,3 +21,7 @@ export EDITOR="nvim"
 # export VISUAL="nvim"
 
 PATH=${HOME}/bin:${HOME}/.local/bin:$PATH; export PATH;
+export PATH="/home/arjen/.pyenv/bin:$PATH"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"

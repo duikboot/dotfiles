@@ -194,6 +194,10 @@ return {
                 },
                 basedpyright = {
                     capabilities = capabilities,
+                },
+
+                ruff = {
+                    capabilities = capabilities,
                 }
             }
         },

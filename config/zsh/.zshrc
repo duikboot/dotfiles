@@ -62,6 +62,7 @@ complete -o nospace -C /var/lib/snapd/snap/terraform/711/terraform terraform
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/arjen/.lmstudio/bin"
+# export PATH="$PATH:/home/arjen/.cargo/bin"
 export PATH="$PATH:/opt/megit"
-eval 
+eval
 TWILIO_AC_ZSH_SETUP_PATH=/home/arjen/.twilio-cli/autocomplete/zsh_setup && test -f $TWILIO_AC_ZSH_SETUP_PATH && source $TWILIO_AC_ZSH_SETUP_PATH; # twilio autocomplete setup

@@ -32,7 +32,7 @@ null_ls.setup({
         -- diagnostics.pylint,
         -- diagnostics.mypy,
         diagnostics.codespell,
-        diagnostics.gitlint,
+        -- diagnostics.gitlint,
         diagnostics.hadolint,
         diagnostics.trail_space,
         -- diagnostics.luacheck,

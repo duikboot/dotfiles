@@ -54,5 +54,3 @@ vim.keymap.set("n", "<F8>", ":lua require'dap'.step_into()<CR>")
 vim.keymap.set("n", "<F9>", ":lua require'dap'.step_out()<CR>")
 vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
 -- vim.keymap.set("n", "<leader>dt", ":lua require'dap-go'.debug_test()<CR>")
-
-
