@@ -5,7 +5,7 @@ local modules = {
     "plugins.gitsigns",
     "plugins.vlime",
     "plugins.neoterm",
-    "plugins.trouble",
+    -- "plugins.trouble",
     "plugins.hlslens",
     "plugins.telekasten",
 
