@@ -1,5 +1,6 @@
 return {
     "https://github.com/ptdewey/yankbank-nvim",
+    enabled = false,
     dependencies = "kkharji/sqlite.lua",
     config = function()
         require('yankbank').setup({

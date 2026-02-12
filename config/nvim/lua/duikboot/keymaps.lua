@@ -42,7 +42,7 @@ vim.keymap.set('i', '<C-u>', "<esc>mzgUiw`za", {desc = "Uppercase previous word"
 vim.keymap.set('n', "<C-u>", "mzgUiw`za", {desc = "Uppercase word"})
 
 -- Rebuild Ctags (mnemonic RC -> CR -> <cr>)
-vim.keymap.set('n', '<leader><cr>',
+vim.keymap.set('n', '<localleader><cr>',
                ':silent !ctags -R --links=no --exclude=.buildozer --languages=-javascript --languages=-css >/dev/null 2>&1 &<cr>:redraw!<cr>')
 
 -- open tag on the top of the screen

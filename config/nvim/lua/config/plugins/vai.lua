@@ -1,10 +1,10 @@
 -- lazy.nvim
 return {
-  'johnpmitsch/vai.nvim',
-  config = function()
+  'https://github.com/johnpmitsch/vai.nvim',
+    config = function()
     require('vai').setup(
             {
-            trigger='<cr>'
+            trigger='<leader><cr>'
 }
     )
   end,
