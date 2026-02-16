@@ -60,7 +60,6 @@ return {
 
             sources = {
                 default = {
-                    -- "supermaven",
                     "path",
                     "avante",
                     "copilot",

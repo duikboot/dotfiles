@@ -9,19 +9,6 @@ return {
             end,
         },
         {
-            "https://github.com/sourcegraph/sg.nvim",
-            enabled = false,
-            event = "InsertEnter",
-            dependencies = { 'https://github.com/nvim-lua/plenary.nvim' },
-            config = function()
-                require("sg").setup({
-                    -- your configuration comes here
-                    -- or leave it empty to use the default settings
-                    -- refer to the configuration section below
-                })
-            end,
-        },
-        {
             "https://github.com/zbirenbaum/copilot.lua",
             enabled = true,
             cmd = "Copilot",
